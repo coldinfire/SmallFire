@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2019/Python1/" />
+  <link rel="next" href="https://coldinfire.github.io/2019/PythonResource/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2019/Linux/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+            Python基础  | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content=" Python基础  | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=" Python基础 "/>
+<meta name="twitter:description" content="基本命令 man [command]:查看命令使用文档 1. 文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： [d]:目录 [-]:文件 [l]:链接文档 [b"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": " Python基础 ",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/coldinfire.github.io\/2019\/Linux\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/coldinfire.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "linux",
+  "wordcount":  1820 ,
+  "url": "https:\/\/coldinfire.github.io\/2019\/Linux\/",
+  "datePublished": "2019-01-16T17:20:58\x2b08:00",
+  "dateModified": "2019-01-16T17:20:58\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fastbyte01",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/coldinfire.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title"> Python基础 </h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2019-01-16 >16 January 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/Linux/"> Linux </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                4 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="基本命令">基本命令</h1>
+
+<pre><code>man [command]:查看命令使用文档
+1. 文件
+  ex: -rw--w-r-- 1 user group day month time text.xx
+  第一个文件代表意义(0)：
+    [d]:目录
+    [-]:文件
+    [l]:链接文档
+    [b]:可随机存储装置
+    [c]:串行端口设备
+  后续文字意义：
+    &lt;1&gt;.三个为一组均为[rwx]组合(r:read w:write x:execute)
+    u=第一组(123)：文件拥有者权限   g=第二组(456)：所属组权限   o=第三组(789)：其他用户权限
+    &lt;2&gt;.文件硬链接个数
+    &lt;3&gt;.文件拥有者
+    &lt;4&gt;.同属者
+    &lt;5&gt;.大小
+    &lt;6&gt;.修改时间
+  修改权限：
+    chmod [xx] file:修改文件的权限 
+                    [u=rwx,g=rwx,o=rwx]/[u+r,w,x...] :修改各自对应的权限 [a=rwx]:修改所有的权限
+                    [777]:对应的权限值和，可修改权限
+    chown user file:修改文件所有者
+    chgrp group file:修改文件所属组
+2. 处理文件常用命令：
+    ls/ll -al ~:显示所有文件(~显示隐藏)
+    cd:切换目录
+    touch file.xxx:创建文件
+    touch {1,2,3,..}.xxx :创建多个文件
+    vi/vim file.xxx:创建并编辑文件
+    pwd [-p]:显示当前所在目录 [p]:真是路径而非link路径
+    mkdir [-mp]:创建新目录 [p]:递归创建 [m]:修改文件权限 777
+    rmdir [-p]:删除空目录 [p]:删除上层空目录
+    cp [-pdri]:复制  [p]:连同文件属性复制  [r]递归持续复制  [d]复制链接文档而非文件本身  [i]目标文档已存在，提示是否覆盖
+    rm [-fir]:移除文件或目录 [f]忽略不存在文件 [i]互动模式 [r]递归删除
+    创建回收站：myrm(){ D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D; mv &quot;$@&quot; $D &amp;&amp; echo &quot;moved to $D ok&quot;; }
+            alias rm= 'myrm'
+            rm [1,2,3].xxx
+    mv [-fiu]:移动文件或目录，修改名称 [f]强制 [i]互动模式 [u]source较新,update
+3. 文件内容查看
+    grep []:查找文件内出现
+    find []:查找文件
+    cat:从第一行显示 [n]:行号 [v]:列出特殊字符
+    tac:从最后一行显示 
+    nl:显示行号
+    more:页显示
+    less:页显示可以往前翻页
+    head:头几行  [-n number]:显示几行
+    tail:尾巴几行  [-n number]:显示几行
+4. 链接创建
+    ln f1 f2:创建f1的一个硬连接文件f2
+    ln -s f1 f2:创建f1的一个符号连接文件f2
+5. 压缩解压
+    file.tar.gz   file.tar.bz2
+    tar -cvf [tar_file.tar] [1,2,3,4]:打包
+    tar -xvf [tar_file.tar]:解包
+    tar -zcvf [tar_file.tar.gz] [1,2,3,4]:压缩打包
+    tar -zxvf [tar_file.tar.gz]:当前目录解压包
+    tar -zxvf [tar_file.tar.gz] -C [指定目录]：解压到指定目录
+    tar -jcvf [tar_file.tar.bz2] [1,2,3,4]:压缩打包
+    tar -jxvf [tar_file.tar.bz2]:解压
+    zip [-r] 目标文件 源文件
+    unzip [-d] 解压后目录文件 压缩文件
+6. 管道
+    cat /etc/group | grep 'sudo' :将'|'前内容放到管道里，后面对管道进行操作
+</code></pre>
+
+<h1 id="系统工具">系统工具</h1>
+
+<hr />
+
+<pre><code>1. 磁盘分析
+    df [-ah]:系统磁盘使用信息
+    du [-ah]:当前文件的使用
+    fdisk [-l] [name]:磁盘分区表操作工具
+    mkfs [-t 文件格式] 装置文件名:磁盘格式化 
+    mkfs [tab][tab]:查看mkfs支持文件格式
+    fsck :磁盘检验
+    mount 装置文件名 挂载点：磁盘挂载
+    umount [-fn]:卸载 [-f]:强制卸除 [-n]:不升级/etc/mtab下卸除
+2. 网络性能  
+    ifconfig [card] [x]:网络状态 [-a]:显示全部接口信息 [up/down]:开启关闭网卡 
+                                etho:第一块网卡   lo:回环地址
+    ps [-aux]  进程
+    top        动态进程
+    kill [-9] pid:杀死进程 [-9]:强制杀死
+</code></pre>
+
+<ol>
+<li>远程 rcp: 远程拷贝文件 scp [] 原路径 目标路径：远程拷贝文件，secure copy wget [参数] URL 地址：下载</li>
+</ol>
+
+<h1 id="用户权限">用户权限</h1>
+
+<hr />
+
+<pre><code>1. user:cat /home/...
+    who     :查看用户
+    whoami  :查看当前用户
+    ssh username@ip：远程登录电脑
+    useradd name [-mg] :添加用户并自动添加home目录 [-g]:用户组 [-m]:主目录
+    passwd name  :修改密码
+    su - user   :切换到指定用户(muiot)
+    su  user    :to the user
+    sudo -s     :切换到root
+    su          :to root
+    userdel     :del user [-r]:删除用户主目录
+    usermod [-aG] group user :change user info  [-a]:添加组 [-g]:group修改默认组 [-aG]:添加其它组
+2. user group:cat /etc/group
+    查看组:cat /etc/group   groupmod [tab][tab]
+    groupmod tabtabtab :check group
+    groupadd g_name :add group
+    groupdel g_name :del group
+    groups username :user in which group
+    newgrp root:用户在用户组之间进行切换
+3. 重要文件
+    /etc/passwd:用户管理涉及到的最重要的一个文件(用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell)
+    /etc/group:用户组所有信息(组名:口令:组标识号:组内用户列表)
+</code></pre>
+
+<h1 id="vim">vim</h1>
+
+<hr />
+
+<pre><code>1.使用
+    vim/vi filename =====&gt;命令模式=====&gt;i,a,o=====&gt;输入模式======&gt;ESC=====&gt;命令模式
+    命令模式=====&gt;:=====&gt;底线命令模式=====&gt;:wq!(退出)
+    :set nu (显示行号)     :set nonu (取消行号)
+</code></pre>
+
+<h1 id="下载-yum">下载 yum</h1>
+
+<hr />
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>1820</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2fcoldinfire.github.io%2f2019%2fLinux%2f&amp;text=%20Python%e5%9f%ba%e7%a1%80%20&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcoldinfire.github.io%2f2019%2fLinux%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fcoldinfire.github.io%2f2019%2fLinux%2f&amp;title=%20Python%e5%9f%ba%e7%a1%80%20" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/linux/">
+                    #linux</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2019/Python1/" class="prev" rel="prev" title=" Python基础 "><i class="iconfont icon-dajiantou"></i>&nbsp; Python基础 </a>
+         
+        
+        <a href="https://coldinfire.github.io/2019/PythonResource/" class="next" rel="next" title=" Python学习资源"> Python学习资源&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2019-01-16 17:20:58 \x2b0800 CST',
+        title: ' Python基础 ',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

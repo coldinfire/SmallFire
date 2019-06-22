@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on Small Fire`s Blog</title>
+    <link>https://coldinfire.github.io/tags/CSS/</link>
+    <description>Recent content in CSS on Small Fire`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 26 Jun 2018 17:20:58 +0800</lastBuildDate>
+    
+	<atom:link href="https://coldinfire.github.io/tags/CSS/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSS格式与标准总结</title>
+      <link>https://coldinfire.github.io/2018/CSS/</link>
+      <pubDate>Tue, 26 Jun 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/CSS/</guid>
+      <description>CSS语法 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器单独一行； 一条声明的开大括号前留一</description>
+    </item>
+    
+  </channel>
+</rss>

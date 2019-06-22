@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP3/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/CSS/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP4/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           ABAP 语法详解(四) | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content="ABAP 语法详解(四) | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ABAP 语法详解(四)"/>
+<meta name="twitter:description" content="MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;’定义多个占位符。 MESSAGE E001(ZMSG). E:消息显示类型 (E[Error],"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ABAP 语法详解(四)",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/coldinfire.github.io\/2018\/ABAP4\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/coldinfire.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "abap",
+  "wordcount":  1504 ,
+  "url": "https:\/\/coldinfire.github.io\/2018\/ABAP4\/",
+  "datePublished": "2018-06-15T17:20:58\x2b08:00",
+  "dateModified": "2018-06-15T17:20:58\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fastbyte01",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/coldinfire.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">ABAP 语法详解(四)</h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-06-15 >15 June 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                4 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="messages">MESSAGES</h2>
+
+<p>SE91定义:</p>
+
+<p>设置消息类，保存该Function的多条消息定义，通过‘&amp;’定义多个占位符。</p>
+
+<pre><code class="language-JS">MESSAGE E001(ZMSG).
+   E:消息显示类型 (E[Error],W[Warning],I[Info],A[异常终止],S[Success])
+   001:自定义的消息字段
+   ZMSG:自定义的消息类
+</code></pre>
+
+<p>MESSAGE显示:</p>
+
+<ol>
+<li><p>ID : &ldquo;00&rdquo;消息ID中的001消息本身未设置任何消息串，这条消息可以传递8个参数。</p></li>
+
+<li><p>消息常量 : MESSAGE &lsquo;xxxxxxxxxxxxxxx&rsquo; TYPE &rsquo;S&rsquo; [DISPLAY LIKE &lsquo;E&rsquo;].</p></li>
+</ol>
+
+<h2 id="数据格式化-转换">数据格式化、转换</h2>
+
+<ul>
+<li><p>输入输出转换</p>
+
+<p>如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。</p>
+
+<p>通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).</p></li>
+</ul>
+
+<pre><code class="language-JS">  ** 添加前导零 **
+  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+      EXPORTING
+        input  = p_in     //传入变量
+      IMPORTING
+        output = p_out.   //添加前导零后数据
+        
+  ** 去除前导零 ** 
+  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+      EXPORTING
+        input  = p_in     //传入变量
+      IMPORTING
+        output = p_out.   //去除前导零后数据
+</code></pre>
+
+<ul>
+<li><p>显示内容</p>
+
+<p>基本数据类型是QUAN,其小数位由字段关联的度量衡单位决定。</p>
+
+<pre><code>ALV显示时，如果是金额或数量时，需通过Fieldcat设置Cfieldname、ctabname等才会正确显示。
+</code></pre></li>
+
+<li><p>单位换算</p>
+
+<p>UNIT_CONVERSION_SIMPLE</p></li>
+
+<li><p>货币转换因子</p></li>
+</ul>
+
+<pre><code class="language-JS">CURRENCY_CONVERTING_FACTOR:输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取出时应做转换
+BAPI_CURRENCY_CONV_TO_INTERNAL:转换为数据库中内部存储金额
+BAPI_CURRENCY_CONV_TO_EXTERNAL:转换成外部的实际金额
+CONVERT_TO_LOCAL_CURRENCY:自动将最近时间多的汇率作为转换的汇率
+OB07、OB08:维护各币种之间的汇率
+CONVERT_TO_FOREIGN_CURRENCY是将外币转换为本位币
+CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
+</code></pre>
+
+<h2 id="open-sql">Open SQL</h2>
+
+<ul>
+<li><p>ABAP可以通过两种方式与数据库交互</p>
+
+<p>Native SQL:数据库自身的SQL，可以直接访问数据库，不够安全。</p>
+
+<pre><code>Open SQL:集成到ABAP中的标准SQL子集，通过SAP数据库接口识别不同的数据库，然后将语句进行转换成底层数据库对应的语言。
+</code></pre></li>
+
+<li><p>基本语法：与其他SQL语句类似，主要包括增删改查：Select、Update、Insert、Delete、Modify</p></li>
+</ul>
+
+<p>​ <1> SELECT 语法</p>
+
+<pre><code class="language-JS">  SELECT [SINGLE] &lt;result&gt; FROM &lt;dbtab&gt; ：SINGLE表示查询单行数据
+         INTO &lt;target&gt;                ：内表或则结构
+         [INTO &lt;f1&gt;...&lt;fn&gt;]           :将查询结果赋值到具体字段
+         [INTO CORRESPONDING FILES OF &lt;itab&gt;]
+                                       : 将查询结果按字段匹配赋值给具体的表或者结构体。
+         WHERE &lt;condition&gt;            ：查询条件
+         Group BY &lt;fields&gt;            ：分组查询条件
+         ORDER BY &lt;fields&gt;.           ：排序条件 
+</code></pre>
+
+<p>表连接：</p>
+
+<pre><code class="language-JS">  1）INNER JOIN：查询结果包含两个连接表中彼此相对应的数据记录。
+  2）LEFT OUTER JOIN：查询结果集中包含左表中的所有数据记录，右表中仅查询出包含相匹配的数据。
+  3）FULL OUTER JOIN：包含左右表所有的记录。
+</code></pre>
+
+<p>以内表为查询条件：</p>
+
+<p>​         SELECT <f1...fn> FROM <dbtab> FOR ALL ENTRIED IN <itab> WHERE <cond>.</p>
+
+<p>​         使用 FOR ALL ENTRIED IN itab 前，一定要检查itab表是否为空，否则会造成SQL的执行效率极低。</p>
+
+<p>​       获取限制读取数据的条数：前n条</p>
+
+<p>​         SELECT * FROM <dbtab> INTO <itab> UP TO <n> ROWS.</p>
+
+<p>标准函数：</p>
+
+<pre><code class="language-JS">  COUNT()：统计查询总数。
+  SUM()：统计表中某个数值字段的总和。
+  AVG()：统计表中某个数值字段的平均值。
+  MAX()：统计表中某个字段的最大值。
+  MIN() ：统计表中某个字段的最小值。
+</code></pre>
+
+<p>​     <2> UPDATE（修改更新操作）</p>
+
+<pre><code class="language-JS">  UPDATE &lt;dbtab&gt; SET: f1...fn (WHERE &lt;condition&gt;).    
+  UPDATE &lt;dbtab&gt; FROM TABLE &lt;itab&gt; (WHERE &lt;condition&gt;).
+</code></pre>
+
+<p>​     <3> INSERT(插入数据)</p>
+
+<pre><code class="language-JS">  INSERT INTO &lt;dbtab&gt; VALUES &lt;conditin&gt;.
+  INSERT &lt;dbtab&gt; FROM TABLE &lt;itab&gt;.
+</code></pre>
+
+<p>​     <4> DELETE(删除操作)</p>
+
+<pre><code class="language-JS">  DELETE FROM &lt;dbtab&gt; WHERE &lt;condition&gt;.
+  DELETE &lt;dbtab&gt; FROM TABLE &lt;itab&gt;.
+</code></pre>
+
+<p>​     <5> MODIFY(修改操作，相当于Update &amp; Insert)</p>
+
+<pre><code class="language-JS">  MODIFY &lt;dbtab&gt; FROM TABLE &lt;itab&gt;.
+</code></pre>
+
+<p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2019/ABAP5" rel="nofollow noreferrer" target="_blank">ABAP语法详解(五)</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>1504</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAP4%2f&amp;text=ABAP%20%e8%af%ad%e6%b3%95%e8%af%a6%e8%a7%a3%28%e5%9b%9b%29&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAP4%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAP4%2f&amp;title=ABAP%20%e8%af%ad%e6%b3%95%e8%af%a6%e8%a7%a3%28%e5%9b%9b%29" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/abap/">
+                    #abap</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/ABAP3/" class="prev" rel="prev" title="ABAP 语法详解(三)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(三)</a>
+         
+        
+        <a href="https://coldinfire.github.io/2018/CSS/" class="next" rel="next" title="CSS格式与标准总结">CSS格式与标准总结&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2018-06-15 17:20:58 \x2b0800 CST',
+        title: 'ABAP 语法详解(四)',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

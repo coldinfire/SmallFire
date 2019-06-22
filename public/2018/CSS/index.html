@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP4/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAP5/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/CSS/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           CSS格式与标准总结 | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content="CSS格式与标准总结 | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CSS格式与标准总结"/>
+<meta name="twitter:description" content="CSS语法 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器单独一行； 一条声明的开大括号前留一"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CSS格式与标准总结",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/coldinfire.github.io\/2018\/CSS\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/coldinfire.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "CSS",
+  "wordcount":  932 ,
+  "url": "https:\/\/coldinfire.github.io\/2018\/CSS\/",
+  "datePublished": "2018-06-26T17:20:58\x2b08:00",
+  "dateModified": "2018-06-26T17:20:58\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fastbyte01",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/coldinfire.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">CSS格式与标准总结</h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-06-26 >26 June 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/"> 前端 </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                2 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="css语法">CSS语法</h2>
+
+<ul>
+<li>使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致；</li>
+<li>当成组使用选择器时，每个选择器单独一行；</li>
+<li>一条声明的开大括号前留一空格；</li>
+<li>声明的关闭右括号请新起一行；</li>
+<li>每条引用声明冒号后留一个空格；</li>
+<li>每条声明有单独的一行，以便错误报告更精确；</li>
+<li>每条声明以分号结尾，最后一个可以没有，但这样容易出错；</li>
+<li>以逗号分隔属性值之间，要在逗号后面保留一个空格（例如： <code>box-shadow</code>）；</li>
+<li>在<code>rgb()</code>、<code>rgba()</code>、<code>hsl()</code>、<code>hsla()</code>以及<code>rect()</code>属性值*中*逗号后不要加空格，这样能把多色彩值（逗号无空格）与多属性值的情况区分开来（逗号带空格）；</li>
+<li>省略掉属性值以及颜色参数的首位0（例如：用 <code>.5</code> 代替 <code>0.5</code> ，用 <code>-.5px</code> 取代 <code>-0.5px</code>）；</li>
+<li>十六进制值要用小写，像 <code>#fff</code>这样，当一个文档中有很多的字母时，小写字母更容易分辨；</li>
+<li>如果可以的话，简化十六进制值的写法，如用 <code>#fff</code> 代替 <code>#ffffff</code> ；</li>
+<li>在选择器中引用属性值，例如：<code>input[type=&quot;text&quot;]</code>，<a href="http://mathiasbynens.be/notes/unquoted-attribute-values#css" rel="nofollow noreferrer" target="_blank">在某些情况下可选是否使用</a>，这样做也能更好地统一代码；</li>
+<li>零值不需要添加单位，例如：用 <code>margin: 0;</code> 代替 <code>margin: 0px;</code>；</li>
+</ul>
+
+<h3 id="声明顺序">声明顺序</h3>
+
+<p>有关联的属性声明之间应该按照以下顺序组在一起：</p>
+
+<ol>
+<li><p>定位</p></li>
+
+<li><p>盒模型</p></li>
+
+<li><p>排字</p></li>
+
+<li><p>视觉设计</p></li>
+
+<li><p>其他杂项</p></li>
+</ol>
+
+<p>定位摆在第一位，因为它能把元素从文档正常流中脱离出来，覆盖盒模型样式。而盒模型表示着组件的度量尺寸和摆放位置，因此排第二。排版和视觉都是属于元素内部的属性，不会影响到前两项，所以排为3、4。</p>
+
+<h3 id="选择器">选择器</h3>
+
+<ul>
+<li>为了更好的显示性能，请使用类名而非一般的元素标签；</li>
+<li>对于经常使用的组件，不要使用多个属性选择器，这样调用对浏览器性能有不小影响；</li>
+<li>尽可能保持简短，如果可以请限制在3个元素以内；</li>
+<li><strong>只有</strong>在不得已的情况下再回溯最近的父级元素（例如：类名无前缀时）；</li>
+</ul>
+
+<h2 id="标签">标签</h2>
+
+<h2 id="引用css和javascript文件">引用CSS和JavaScript文件</h2>
+
+<p>​   按照HTML5规范，一般来说，当CSS和JS文件被引用时，都会默认以 <code>text/css</code>和 <code>text/javascript</code> 的方式，没必要特意为其指定 <code>type</code> 类型。</p>
+
+<pre><code class="language-CSS">&lt;!-- 外部 CSS --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;code-guide.css&quot;&gt;
+
+&lt;!-- 文档内CSS --&gt;
+&lt;style&gt;
+/* ... */
+&lt;/style&gt;
+
+&lt;!-- JavaScript --&gt;
+&lt;script src=&quot;code-guide.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h2 id="属性顺序">属性顺序</h2>
+
+<p>HTML属性应按照特定的顺序排列，以方便代码查阅。</p>
+
+<ul>
+<li><p><code>class</code></p></li>
+
+<li><p><code>id</code>, <code>name</code></p></li>
+
+<li><p><code>data-*</code></p></li>
+
+<li><p><code>src</code>, <code>for</code>, <code>type</code>, <code>href</code>, <code>value</code></p></li>
+
+<li><p><code>title</code>, <code>alt</code></p></li>
+
+<li><p><code>role</code>, <code>aria-*</code></p></li>
+</ul>
+
+<p>Class能让我们更好地重用组件，所以它打头阵；id则更加特定和专属，应尽量控制其使用（例如：内页书签）。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>932</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fCSS%2f&amp;text=CSS%e6%a0%bc%e5%bc%8f%e4%b8%8e%e6%a0%87%e5%87%86%e6%80%bb%e7%bb%93&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcoldinfire.github.io%2f2018%2fCSS%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fCSS%2f&amp;title=CSS%e6%a0%bc%e5%bc%8f%e4%b8%8e%e6%a0%87%e5%87%86%e6%80%bb%e7%bb%93" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/CSS/">
+                    #CSS</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/ABAP4/" class="prev" rel="prev" title="ABAP 语法详解(四)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(四)</a>
+         
+        
+        <a href="https://coldinfire.github.io/2018/ABAP5/" class="next" rel="next" title="ABAP 语法详解(五)">ABAP 语法详解(五)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2018-06-26 17:20:58 \x2b0800 CST',
+        title: 'CSS格式与标准总结',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

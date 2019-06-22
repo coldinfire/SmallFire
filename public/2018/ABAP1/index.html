@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2018/git/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAP2/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP1/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           ABAP 语法详解(一) | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content="ABAP 语法详解(一) | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ABAP 语法详解(一)"/>
+<meta name="twitter:description" content="ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ABAP 语法详解(一)",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/coldinfire.github.io\/2018\/ABAP1\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/coldinfire.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "abap",
+  "wordcount":  527 ,
+  "url": "https:\/\/coldinfire.github.io\/2018\/ABAP1\/",
+  "datePublished": "2018-05-12T17:20:58\x2b08:00",
+  "dateModified": "2018-05-12T17:20:58\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fastbyte01",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/coldinfire.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">ABAP 语法详解(一)</h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-05-12 >12 May 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                2 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="abap基本数据类型">ABAP基本数据类型</h2>
+
+<p>基本数据类型</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">C : Character text</th>
+<th align="left">D : Date(YYYYMMDD)</th>
+<th align="left">P : Packed(包类型:1-16)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><strong>N : Numeric text(不能进行计算)</strong></td>
+<td align="left"><strong>T : Time(HHMMSS)</strong></td>
+<td align="left"><strong>X : 十六进制</strong></td>
+</tr>
+
+<tr>
+<td align="left"><strong>I : Interger</strong></td>
+<td align="left"><strong>F : Floating point</strong></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<p>常用系统变量：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">sy-uname:用户登录名</th>
+<th align="left">sy-datum:日期</th>
+<th align="left">sy-uzeit:时间</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><strong>sy-subrc:</strong>报表返回值</td>
+<td align="left"><strong>sy-index:循环编号</strong></td>
+<td align="left"><strong>sy-tabix:循环编号</strong></td>
+</tr>
+
+<tr>
+<td align="left"><strong>sy-dynnr:屏幕的编号</strong></td>
+<td align="left"><strong>sy-dbcnt:DB操作处理过的表行号</strong></td>
+<td align="left"><strong>sy-host:服务器名称</strong></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="变量的声明">变量的声明</h2>
+
+<ul>
+<li><p>透明表，数据字典，结构：既是类型又是对象，可用type和like。</p></li>
+
+<li><p>只能使用LIKE引用另一定义变量的类型，type不可以</p></li>
+</ul>
+
+<pre><code class="language-JS">&lt;1&gt; DATA &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt; . &lt;自定义变量类型&gt;
+&lt;2&gt; DATA &lt;var1&gt; like  &lt;var2&gt; . &lt;参考定义变量&gt;
+       DATA &lt;var1&gt; type &lt;var2&gt;. 
+</code></pre>
+
+<ul>
+<li>继承结构</li>
+</ul>
+
+<pre><code class="language-JS">DATA:BEGIN OF STAFFINFO. &lt;此处是.操作符&gt;
+    INCLUDE STRUCTURE USER_INFO.
+ DATA:BIRTHDAY TYPE D,
+    ADDRESS(50) TYPE C,
+ END OF STAFFINFO.
+</code></pre>
+
+<h2 id="定义常量-宏">定义常量、宏</h2>
+
+<pre><code class="language-JS">常量定义
+  CONSTANTS &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt;.
+  CONSTANTS &lt;var&gt;(len) LIKE &lt;var2&gt; VALUE &lt;value&gt;.
+宏定义 
+  1. 定义：
+    DEFINE operation.
+      result = &amp;1 &amp;2 &amp;3.
+      output   &amp;1 &amp;2 &amp;3 result.
+    END-OF-DEFINITION.
+
+    DEFINE output.
+      write: / 'The result of &amp;1 &amp;2 &amp;3 is', &amp;4.
+    END-OF-DEFINITION.
+  2. 使用：
+    operation 4+3.
+</code></pre>
+
+<h2 id="describe使用">DESCRIBE使用</h2>
+
+<pre><code class="language-JS">DESCRIBE TABLE lt_mat LINES lv_cont.
+  这行的意思是 计算内表 lt_mat 的行数 ，将行数放到变量 lv_cont 里。
+Field Properties:describe field &lt;field&gt; [mes var]...
+                                (一个data的类型、长度、小数点、输出长度等信息)
+Internal Table:describe table itab [kind knd] [LINES lin] [COCCURS n].
+Distance two fields:describe distance ...
+</code></pre>
+
+<p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2019/ABAP2" rel="nofollow noreferrer" target="_blank">ABAP语法详解(二)</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>527</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAP1%2f&amp;text=ABAP%20%e8%af%ad%e6%b3%95%e8%af%a6%e8%a7%a3%28%e4%b8%80%29&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAP1%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAP1%2f&amp;title=ABAP%20%e8%af%ad%e6%b3%95%e8%af%a6%e8%a7%a3%28%e4%b8%80%29" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/abap/">
+                    #abap</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/git/" class="prev" rel="prev" title="Git学习与总结"><i class="iconfont icon-dajiantou"></i>&nbsp;Git学习与总结</a>
+         
+        
+        <a href="https://coldinfire.github.io/2018/ABAP2/" class="next" rel="next" title="ABAP 语法详解(二)">ABAP 语法详解(二)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2018-05-12 17:20:58 \x2b0800 CST',
+        title: 'ABAP 语法详解(一)',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

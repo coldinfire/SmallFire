@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Small Fire`s Blog</title>
+    <link>https://coldinfire.github.io/tags/</link>
+    <description>Recent content in Tags on Small Fire`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 Jun 2019 17:20:58 +0800</lastBuildDate>
+    
+	<atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>sapui5</title>
+      <link>https://coldinfire.github.io/tags/sapui5/</link>
+      <pubDate>Sun, 16 Jun 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/sapui5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://coldinfire.github.io/tags/python/</link>
+      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WebDynpro</title>
+      <link>https://coldinfire.github.io/tags/WebDynpro/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/WebDynpro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://coldinfire.github.io/tags/linux/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>报表开发</title>
+      <link>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Wed, 19 Sep 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS</title>
+      <link>https://coldinfire.github.io/tags/CSS/</link>
+      <pubDate>Tue, 26 Jun 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/CSS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>abap</title>
+      <link>https://coldinfire.github.io/tags/abap/</link>
+      <pubDate>Tue, 26 Jun 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/abap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://coldinfire.github.io/tags/Git/</link>
+      <pubDate>Sun, 11 Mar 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/Git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JS</title>
+      <link>https://coldinfire.github.io/tags/JS/</link>
+      <pubDate>Sun, 11 Feb 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/JS/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

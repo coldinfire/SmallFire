@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP5/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAPTable2/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPTable1/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           报表开发(一) | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content="报表开发(一) | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="报表开发(一)"/>
+<meta name="twitter:description" content="执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "报表开发(一)",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/coldinfire.github.io\/2018\/ABAPTable1\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/coldinfire.github.io\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "posts",
+  "keywords": "报表开发",
+  "wordcount":  1517 ,
+  "url": "https:\/\/coldinfire.github.io\/2018\/ABAPTable1\/",
+  "datePublished": "2018-08-26T17:20:58\x2b08:00",
+  "dateModified": "2018-08-26T17:20:58\x2b08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fastbyte01",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/coldinfire.github.io\/logo.png",
+      "width":  127 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">报表开发(一)</h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-08-26 >26 August 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                4 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="执行程序的使用范围-报表事件">执行程序的使用范围，报表事件</h2>
+
+<pre><code class="language-JS">LOAD-OF-PROGRAM.
+INITIALIZATION.          （Before display the selection screen）
+  AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
+  AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
+AT SELECTION-SCREEN. //After enter the option data check
+   PERFORM check_input.
+START-OF-SELECTION.//Begin the main programer
+  xxxx
+END-OF-SELECTION.
+Interactive Eventrs. (User for interactive reporting)
+</code></pre>
+
+<h2 id="报表程序大体逻辑结构">报表程序大体逻辑结构</h2>
+
+<p>​   <strong>抬  头:</strong> 报表的主要信息(抬头信息)</p>
+
+<p>​   <strong>行项目:</strong> 查询出的每行记录信息</p>
+
+<p>​   <strong>明  细:</strong> 每个行项目出关键字外其他明细内容</p>
+
+<h2 id="字段符号">字段符号</h2>
+
+<p><strong>定义：</strong> FIELD-SYMBOLS <FS> LIKE structure.</p>
+
+<p>​    <1> FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。</p>
+
+<p>​   <2> <code>ASSIGN structure TO &lt;fs&gt;</code>:将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
+  <code>ASSIGN &lt;Val&gt; TO &lt;fs&gt;</code>: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。</p>
+
+<p>UNASSIGN: 该语句是初始化<code>&lt;FS&gt;</code>字段符号，执行后字段符号将不再引用内存区域，<code>&lt;fs&gt; is assigned</code>返回假。</p>
+
+<p>CLEAR: 与UNASSIGN不同的是，只有一个作用就是初始化它所指向的内存区域，而不是解除分配。</p>
+
+<p><strong>循环：</strong>LOOP内表INTO Structure和 LOOP内表ASSIGNING Structure的比较</p>
+
+<p>​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
+  MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会
+  影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程
+  修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。</p>
+
+<p><strong>读表：</strong>READ TABLE内表</p>
+
+<p>ASSIGN隐式强转</p>
+
+<pre><code class="language-JS">TYPES: BEGIN OF t_date,
+​    year(4) TYPE  n,
+​        month(2) TYPE n,
+​    day(2) TYPE n,
+  END OF t_date.
+FIELD-SYMBOLS &lt;fs&gt; TYPE t_date.&quot;将&lt;fs&gt;定义成了具体限定类型
+ASSIGN sy-datum TO &lt;fs&gt; CASTING. &quot;后面没有指定具体类型，所以使用定义时的类型进行隐式转换
+</code></pre>
+
+<p>ASSIGN显示强转</p>
+
+<pre><code class="language-JS">  DATA txt(8) TYPE c VALUE '19980606'.
+  FIELD-SYMBOLS &lt;fs&gt;.
+  ASSIGN txt TO &lt;fs&gt; CASTING TYPE d.&quot;由于定义时未指定具体的类型，所以这里需要显示强转
+</code></pre>
+
+<p><strong>动态引用：</strong>通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。</p>
+
+<pre><code class="language-JS">  field-symbols:&lt;l_shortageqty&gt; type mng01.
+  loop at &lt;dyn_table&gt; assigning &lt;dyn_wa&gt;.
+​    assign component 'SHORTAGEQTY' of structure &lt;dyn_wa&gt; to &lt;l_shortageqty&gt;.
+​    &lt;l_shortageqty&gt; = &lt;l_shortageqty&gt; - &lt;l_fvalue&gt;.
+</code></pre>
+
+<h2 id="message-se91">MESSAGE ：SE91</h2>
+
+<p><1> 消息类的操作</p>
+
+<p>​   使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&amp;，如&rdquo;1&amp;2&amp;3&amp;&ldquo;表示有三个输入参数。</p>
+
+<p>​   Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功。</p>
+
+<p>​   引用语法为：Message W000(00)，表示调用&rsquo;00&rsquo;类的&rsquo;000&rsquo; Message类型为警告。</p>
+
+<pre><code class="language-JS">EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
+    1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
+    2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
+    3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
+       EXIT.                                   //Screen 界面查询数据无，则返回原界面
+</code></pre>
+
+<h2 id="search-help-的创建">search help 的创建</h2>
+
+<pre><code class="language-JS">PARAMETERS p_cur TYPE XXX VALUE CHECK .
+PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
+在屏幕的 ON VALUE-REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
+  F4IF_ FIELD _VALUE_REQUEST ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定 
+     Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
+  F4IF_ INT_TABLE _VALUE_REQUEST : 在程序运行时， 将某个内表动态的用作 Search help 的
+     数据来源,即使用该函数可以将某个内表转换为 Search help ，可实现联动效果
+  TR_F4_HELP ： 简单实现 Search Help ，数据来源于内表。
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>1517</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAPTable1%2f&amp;text=%e6%8a%a5%e8%a1%a8%e5%bc%80%e5%8f%91%28%e4%b8%80%29&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAPTable1%2f" target="_blank" title="Share on Facebook">
+          <i class="iconfont icon-facebook"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAPTable1%2f&amp;title=%e6%8a%a5%e8%a1%a8%e5%bc%80%e5%8f%91%28%e4%b8%80%29" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        
+      
+
+          
+
+          
+
+          
+
+          
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/">
+                    #报表开发</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/ABAP5/" class="prev" rel="prev" title="ABAP 语法详解(五)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(五)</a>
+         
+        
+        <a href="https://coldinfire.github.io/2018/ABAPTable2/" class="next" rel="next" title="报表开发(二)">报表开发(二)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2018-08-26 17:20:58 \x2b0800 CST',
+        title: '报表开发(一)',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>
