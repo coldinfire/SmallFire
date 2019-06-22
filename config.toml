@@ -13,7 +13,7 @@ theme = "KeepIt"
 ## 是否禁止URL Path转小写
 disablePathToLower = true
 # 每页的文章数
-paginate = 12
+paginate = 14
 # 支持 Emoji
 enableEmoji = true 
 # 支持 robots.txt
@@ -35,7 +35,6 @@ googleAnalytics = ""
 
 [Permalinks]
   posts = "/:year/:filename/"
-
 
 [menu]
   [[menu.main]]
@@ -64,8 +63,8 @@ googleAnalytics = ""
   author = "Small Fire"
   subtitle = "If you're not doing what you love,you're wasting your time"
   avatar = "/images/me/avatar.jpg" 
-  cdn_url = "coldinfire"           # Base CDN URL
-  home_mode = "posts" # post or other
+  # cdn_url = "coldinfire"           # Base CDN URL
+  home_mode = "post" # post or other
 
   google_verification = ""
   bing_verification = ""
@@ -77,18 +76,18 @@ googleAnalytics = ""
   description = "" # site description
   keywords = "" # site keywords
   
-  license= 'Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+  # license= 'Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
 [params.gravatar]
   #email = "example@gmail.com"   #uncomment and insert your email address to use gravatar
 
 [params.social]
-  GitHub = "xxxx"
-  Linkedin = "xxxx"
-  Twitter = "xxxx"
+  GitHub = "coldinfire"
+  #Linkedin = "xxxx"
+  #Twitter = "xxxx"
   #Instagram = "xxxx"
-  #Email   = "xxxx"
-  Facebook = "xxxx"
+  Email   = "it.qixiaoluo@aliyun.com"
+  #Facebook = "xxxx"
   #Telegram = "xxxx"
   #Medium = "xxxx"
   #Gitlab = "xxxx"
@@ -99,7 +98,7 @@ googleAnalytics = ""
   #Quora = "xxxx"
   #Keybase = "xxxx"
   #Pinterest = "xxxx"
-  #Reddit = "xxxx"
+  Reddit = "xxxx"
   #Codepen = "xxxx"
   #Bitbucket = "xxxx"
   #Stackoverflow = "xxxxx"
