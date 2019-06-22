@@ -8,7 +8,7 @@ defaultContentLanguage = "en"
 # 开启可以让「字数统计」统计汉字
 hasCJKLanguage = true 
 # 主题     
-theme = "LeaveIt" 
+theme = "KeepIt" 
 
 ## 是否禁止URL Path转小写
 disablePathToLower = true
