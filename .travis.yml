@@ -7,7 +7,7 @@ install: go get -v github.com/gohugoio/hugo
 
 script:
     #运行HUGO命令
-  - hugo
+  - hugo -D
 
 after_script:
   # 部署
