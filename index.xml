@@ -5,8 +5,93 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Jun 2019 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2019 15:15:42 +0800</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Books</title>
+      <link>https://coldinfire.github.io/books/</link>
+      <pubDate>Thu, 15 Jun 2017 23:39:47 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/books/</guid>
+      <description>
+
+&lt;h3 id=&#34;开卷有益&#34;&gt;开卷有益&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Number&lt;/th&gt;
+&lt;th&gt;Title&lt;/th&gt;
+&lt;th&gt;State&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img width=200/&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img width=500/&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img width=500/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/30370277/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;越简单，越美好&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/27053004/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;以幽默的方式过一生&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/27018748/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;大学&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26801663/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;我，一个人生活&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26650965/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;生命清单&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;🕐&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject_search?search_text=%E8%BF%99%E4%B9%88%E6%85%A2%EF%BC%8C%E9%82%A3%E4%B9%88%E7%BE%8E&amp;amp;cat=1001&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;这么慢，那么美&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;🕐&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://coldinfire.github.io/about/</link>
+      <pubDate>Thu, 15 Jun 2017 23:39:47 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/about/</guid>
+      <description>&lt;p&gt;这个人很懒，什么都没留下&amp;hellip;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://coldinfire.github.io/2019/my-first-post/</link>
+      <pubDate>Sat, 22 Jun 2019 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/my-first-post/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title> SAPUI5 </title>
@@ -3082,218 +3167,2236 @@ Decimal Floating Point Ath:(精准计算)
     </item>
     
     <item>
-      <title></title>
-      <link>https://coldinfire.github.io/1/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>报表开发(四)</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable4/</link>
+      <pubDate>Wed, 19 Sep 2018 17:20:58 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/1/test/</guid>
-      <description>&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;language:go&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
+      <guid>https://coldinfire.github.io/2018/ABAPTable4/</guid>
+      <description>
 
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;执行程序的使用范围-报表事件&#34;&gt;执行程序的使用范围，报表事件&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;go:&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;LOAD-OF-PROGRAM.
+INITIALIZATION.          （Before display the selection screen）
+  AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
+  AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
+AT SELECTION-SCREEN. //After enter the option data check
+   PERFORM check_input.
+START-OF-SELECTION.//Begin the main programer
+  xxxx
+END-OF-SELECTION.
+Interactive Eventrs. (User for interactive reporting)
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- &amp;ldquo;1.8&amp;rdquo;  # 指定 Golang 1.8&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;报表程序大体逻辑结构&#34;&gt;报表程序大体逻辑结构&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;​   &lt;strong&gt;抬  头:&lt;/strong&gt; 报表的主要信息(抬头信息)&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;install:&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;​   &lt;strong&gt;行项目:&lt;/strong&gt; 查询出的每行记录信息&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;# 安装最新的 hugo&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;​   &lt;strong&gt;明  细:&lt;/strong&gt; 每个行项目出关键字外其他明细内容&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- wget &lt;a href=&#34;https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;字段符号&#34;&gt;字段符号&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- sudo dpkg -i hugo*.deb&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt; FIELD-SYMBOLS &lt;FS&gt; LIKE structure.&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;# 安装主题&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;​    &lt;1&gt; FS必须和某个变量，结构或者内表绑定后才能使用，这点和C语言里的指针
+​     （在ABAP里最接近指针的是TYPE REF TO）不同，在使用FS前必须分配给某个变量，不然会发生
+​      FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，
+​      FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。
+​    &lt;2&gt; ASSIGN structure TO &lt;fs&gt;:将某个内存区域分配给字段符号，这样字段符号就代表了该内存
+​      区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
+  ASSIGN &lt;Val&gt; TO &lt;fs&gt;: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。
+  UNASSIGN: 该语句是初始化&lt;FS&gt;字段符号，执行后字段符号将不再引用内存区域，
+​            &lt;fs&gt; is assigned返回假。
+  CLEAR: 与UNASSIGN不同的是，只有一个作用就是初始化它所指向的内存区域，而不是解除分配。
+3.2 LOOP内表INTO结构（工作区）和LOOP内表ASSIGNING&amp;lt;结构&amp;gt;的比较
+​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
+  MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会
+  影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程
+  修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。
+3.3 READ TABLE内表
+3.4 ASSIGN隐式强转
+TYPES: BEGIN OF t_date,
+​    year(4) TYPE  n,
+​        month(2) TYPE n,
+​    day(2) TYPE n,
+  END OF t_date.
+FIELD-SYMBOLS &lt;fs&gt; TYPE t_date.&amp;ldquo;将&lt;fs&gt;定义成了具体限定类型
+ASSIGN sy-datum TO &lt;fs&gt; CASTING. &amp;ldquo;后面没有指定具体类型，所以使用定义时的类型进行隐式转换
+3.5 ASSIGN显示强转
+  DATA txt(8) TYPE c VALUE &amp;lsquo;19980606&amp;rsquo;.
+  FIELD-SYMBOLS &lt;fs&gt;.
+  ASSIGN txt TO &lt;fs&gt; CASTING TYPE d.&amp;ldquo;由于定义时未指定具体的类型，所以这里需要显示强转
+3.6 动态引用，通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。
+  field-symbols:&lt;l_shortageqty&gt; type mng01.
+  loop at &lt;dyn_table&gt; assigning &lt;dyn_wa&gt;.
+​    assign component &amp;lsquo;SHORTAGEQTY&amp;rsquo; of structure &lt;dyn_wa&gt; to &lt;l_shortageqty&gt;.
+​    &lt;l_shortageqty&gt; = &lt;l_shortageqty&gt; - &lt;l_fvalue&gt;.&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- git clone &lt;a href=&#34;https://github.com/liuzc/LeaveIt.git&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://github.com/liuzc/LeaveIt.git&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;选择屏幕&#34;&gt;选择屏幕&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;script:&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/foxting/archive/2012/07/01/2572243.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;引用链接&lt;/a&gt;&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;# 运行 hugo 命令&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;1&amp;gt;SELECT-SCREEN 框架结构
+  SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。
+  定义屏幕对象：
+    SELECTION-SCREEN BEGIN OF SCREEN src.
+      .......
+    SELECTION-SCREEN END OF SCREEN src.
+    该语法用于定义一个INCLUDE SUREEN，可通过CALL方法在Report程序中引用。
+   CALL SCREEN &amp;lt;num&amp;gt; STARTING AT [1 2] ENDING AT [1 2].
+   参数可以将所定义屏幕窗体作为一个新的对话框窗体来引用，并指定期创建的具体大小及位置。
+  注意：当从一个主屏幕中来调用其程序中的另一窗体时，必须使用CALL SELECTION-SCREEN方法.
+  定义屏幕块：
+    SELECTION-SCREEN BEGIN OF BLOCK block.
+      ......
+    SELECTION-SCREEN END OF BLOCK.
+    该语法在屏幕中定义一个BLOCK，其扩展语法包括：
+      ...WITH FRAME：创建一个框架
+      ...TITLE title：创建一个带标题的框架。
+      ...NO INTERVALS：所创建的框架中限制SELECT只有一个输入项。 
+ 其他元素：
+  SELECTION-SCREEN INCLUDE BLOCKS &amp;lt;block1&amp;gt;.  调用已存在屏幕元素
+  SELECTION-SCREEN ULINE.  划出横线，必须用在BLOCK中才能生效。
+  SELECTION-SCREEN SKIP &amp;lt;n&amp;gt;.  在BLOCK中产生换行&amp;lt;n&amp;gt;。
+  SELECTION-SCREEN POSITION &amp;lt;pos&amp;gt;. 在BLOCK中产生空格。
+  SELECTION-SCREEN BEGIN OF LINE.
+    ......
+  SELECTION-SCREEN END OF LINE. 将所生成的屏幕元素控制在一行.
+&amp;lt;2&amp;gt;PARAMETERS 单值输入
+  PARAMETERS 参照数据字典具体字段或者自定义数据类型创建单值文本输入域以及单选/复选框等：
+  PARAMETERS: &amp;lt;P_1&amp;gt; LIKE &amp;lt;field&amp;gt;    &amp;quot;文本域
+            TYPE AS CHECKBOX.       &amp;quot;复选框
+            RADIOBUTTON GROUP GRP1, &amp;quot;单选域 
+            P2 RADIOBUTTON GROUP GRP1 DEFAULT &#39;X&#39;,  &amp;quot;默认选中 ”X“
+            P3 RADIOBUTTON GROUP GRP1. &amp;quot;GRP1单选组
+  默认值：
+    ...DEFAULT f:定义默认值。
+    ...TYPE type:参照某一类型对象定义PARAMETERS。
+    ...DECIMALS dec：定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)。 
+    ...LIKE g：參照某一字典对象定义PARAMETERS。
+    ...MEMORY ID pi：将PARAMETERS存储在SAP内存，参数名长度不能超过三位。
+    ...NO-DISPLAY：将PARAMETERS设置为隐藏，不会的屏幕上输出。
+    ...LOWER CASE：输入值中不允许输入小写字符，否则会自动转换为大写。
+    ...OBLIGATORY：限制该PARAMETERS为必填，否则会提示输入。
+    ...AS CHECKBOX：创建CHECKBOX对象。
+    ...RADIO BUTTON GROUP radi：创建（RADIO）单选框。
+    ...VISIBLE LENGTH vlen：定义显示长度。
+    ...USER-COMMAND ucom：为创建对象分配对象名，该值保存在内表中可供其它对象操作。
+    ...AS LISTBOX VISIBLE LENGTH vlen：创建一个下拉框，并指定长度。
+ 下拉框实现：
+  *定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标
+    PARAMETERS:P_LANG(20) AS LISTBOX VISIBLE LENGTH 22.
+  *该变量用于记录下拉列表数值是否初始化，否则每次屏幕初始化都会重新加载重复数据
+    DATA:INIT.
+    AT SELECTION-SCREEN OUTPUT.
+    PERFORM SETLIST.
+  *子程序用于加载下拉框的数据
+    FORM SETLIST.
+      TYPE-POOLS VRM. 
+      DATA MYVALUE TYPE VRM_VALUES WITH HEADER LINE.
+    *对内表加载值
+      MYVALUE-KEY = &#39;CHINESE&#39;. MYVALUE-TEXT = &#39;中国&#39;.    
+      APPEND MYVALUE.
+      MYVALUE-KEY = &#39;AMERICAN&#39;. MYVALUE-TEXT = &#39;美国&#39;.         
+      APPEND MYVALUE.
+      MYVALUE-KEY = &#39;ENGLISH&#39;. MYVALUE-TEXT = &#39;英国&#39;. 
+      APPEND MYVALUE.
+      MYVALUE-KEY = &#39;FRENCH&#39;. MYVALUE-TEXT = &#39;法国&#39;.   
+      APPEND MYVALUE.
+    IF INIT IS INITIAL.
+        CALL FUNCTION &#39;VRM_SET_VALUES&#39; &amp;quot;调用函数对下拉框对象传递数据
+          EXPORTING
+            ID = &#39;P_LANG&#39; &amp;quot;下拉框对象名
+            VALUES = MYVALUE[]  &amp;quot;下拉框中加载的数据
+         EXCEPTIONS
+           ID_ILLEGAL_NAME = 1
+           OTHERS = 2.
+    ENDIF.
+    INIT = &#39;X&#39;. &amp;quot;记录初始化状态
+  ENDFORM.
+&amp;lt;3&amp;gt; SELECT-OPTIONS 输入域
+  SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过8位，最大输入长度为18位：
+  SELECT-OPTIONS： &amp;lt;S_1&amp;gt; FOR &amp;lt;dbtab-ele&amp;gt;.... .
+  内表结构：
+    SIGN：I , E
+    OPTION: EQ,NE,CP（模糊查询）,NP,GE,LT,LE,GT
+    LOW : 范围较小值
+    HIGH: 范围较大值
+  默认值设定：
+    ...DEFAULT g:定义单一默认值。
+    ...DEFAULT g...OPTION  xxx ... SIGN s:定义含判断条件的单一默认值。
+    ...DEFAULT g TO h:定义默认值的取值范围。
+    ...DEFAULT g TO h ... OPTION op ... SIGN s:设置默认值的聚会范围及判断条件。
+    ...MEMORY ID pid:将SELECT-OPTIONS分配参数名并存储在SAP内存，参数名长度不能超过三位。
+    ...NO-DISPLAY:将SELECT-OPTIONS设置为隐藏，不会在屏幕上输出。
+    ...LOWER CASE:输入值中不允许输入小写字符，否则会自动转换为大写。
+    ...OBLIGATORY:限制该SELECT-OPTIONS为必须输入的项目，执行中系统会提示。
+    ...NO-EXTENSION:限制该SELECT-OPTIONS只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏。
+    ...VISIBLE LENGTH vlen:定义所显示数据的长度。
+ &amp;lt;4&amp;gt; GOTO--&amp;gt;Text Elements   (TCode:SE32)
+    前台界面显示的为PARAMETERS和SELECTION-OPTION定义的字段，不便于理解需。
+    提供某一字段的完整名称以方便用户理解。
+    GOTO --&amp;gt;Translation：可进行多语言显示的维护
+  包含字段：
+    Selection Texts：定义已存在并且激活的屏幕元素的名称。
+    Text Symbols：实现自定义文本及符号,该文本使用对象为SELECTION-SCREEN，以三位字符表示(TEXT-001)。
+         图标符号:可以在Text Symbols通过@符号来进行引用，如&amp;quot;@01@&amp;quot;,可通过程序RSTXICON查看所有的图标
+ &amp;lt;5&amp;gt; 屏幕事件处理
+   INITIALIZATION. &amp;quot;程序初始化事件，該事件在程序屏幕未顯示之前執行。對程序設置值及屏幕元素進行初始化設置.
+   START-OF-SELECTION事件：该事件在单击按钮后触发。
+   END-OF-SELECTION事件：该事件应用于所有数据处理完成，即START-OF-SELECTION相关执行事件执行完成。
+    但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
+   AT SELECTION-SCREEN：选择屏幕显示之后，用来响应回车，F8，F1，F4等事件。
+    ...ON &amp;lt;field&amp;gt;：检查具体输入字段(SELECTION-OPTIONS或PARAMETERS)是否完整或正确。
+    ...ON VALUE-REQUEST FOR &amp;lt;field low/high&amp;gt;：SELECT-OPTIONS按选择帮助&amp;lt;F4&amp;gt;键时触发该事件。
+    ...ON HELP-REQUEST FOR &amp;lt;field low/high&amp;gt;：SELECTION-OPTIONS按选择帮助&amp;lt;F1&amp;gt;键时键发该事件。
+    ...ON RADIOBUTTON GROUP &amp;lt;radio&amp;gt;：单选按钮事件，必须进行整体输入检查。
+    ...ON BLOCK &amp;lt;block&amp;gt;：框架的触发事件（控制框架中的屏幕元素值的输入）。
+    ...OUTPUT：用于屏幕输出时的各屏幕元素值的管控（PBO处理，在选择屏幕显示之前就被调用；响应屏幕上的事件，用户回车或F8后也被调用；通过modify screen可以修改选择屏幕字段）。
+    ...ON EXIT-COMMAND：用于&amp;quot;BACK&amp;quot;,&amp;quot;CANCEL&amp;quot;,&amp;quot;EXIT&amp;quot;等事件。
+ &amp;lt;6&amp;gt;屏幕内创建按钮
+  SELECTION-SCREEN PUSHBUTTON [/n] &amp;lt;pos(len)&amp;gt; &amp;lt;name&amp;gt; USER-COMMAND &amp;lt;ucom&amp;gt; [MODIF ID &amp;lt;key&amp;gt;].
+    [/n] :按钮初始时距离屏幕左边的位置
+    &amp;lt;pos(len)&amp;gt;：PUSHBUTTON按钮在屏幕生成的位置与长度。
+    &amp;lt;name&amp;gt;：PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。
+    &amp;lt;ucom&amp;gt;：必须指定的字符代码，当用户在选择屏幕上触发按钮时，&amp;lt;ucom&amp;gt;被输入到词典对象字段：
+            SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。
+  实例：  
+   TABLES SSCRFIELDS.&amp;quot;引用词典对象
+   INCLUDE:&amp;lt;icon&amp;gt;.  &amp;quot;按钮中加入图标必须调用该类型库,图标请参考T-CODE：ICON
+   SELECTION-SCREEN PUSHBUTTON /1(20) PUBU1 USER-COMMAND ABCD.
+   SELECTION-SCREEN SKIP.&amp;quot;换行
+   SELECTION-SCREEN PUSHBUTTON /10(25) PUBU2 USER-COMMAND ABCE. &amp;quot;位置从10开始
+   AT SELECTION-SCREEN OUTPUT.
+     MOVE &#39;CALL NEXT SCREEN&#39; TO PUBU1. &amp;quot;给PUBU1按钮赋值描述
+     WRITE ICON_OKAY AS ICON TO PUBU2. &amp;quot;给PUBU2按钮添加图标，并且在给按钮赋值之前，否则将会把文字替换。
+     CONCATENATE PUBU2 &#39;My Second Button&#39; INTO PUBU2 SEPARATED BY SPACE. &amp;quot;给第二个按钮添加赋值描述
+   AT SELECTION-SCREEN.
+    IF SSCRFIELDS-UCOMM = &#39;ABCD&#39;.
+        PERFORM xxxx.  &amp;quot;调用子程序
+    ENDIF.
+ &amp;lt;7&amp;gt; 在工具栏上新增一个功能按钮
+    SELECTION-SCREEN FUNCTION KEY n.
+      该按钮的定义保存在系统结构体SSCRFIELDS中，n为一个整数序数最大至5。
+    当n等于1时，其按钮描述保存在字段SSCRFIELDS-FUNCTXT_01中，其按钮对象命名为
+    &amp;quot;FC01&amp;quot;,保存在字段SSCRFIELDS-UCOMM中。
+  实例：
+     TYPE-POOLS ICON. &amp;quot;Program Icon Library
+     TABLES SSCRFIELDS.
+     DATA functxt TYPE SMP_DYNTXT. &amp;quot;SMP_DYNTXT(菜单制作器:动态文本的程序接口)
+     PARAMETERS: p_carrid TYPE s_carr_id,
+                 p_cityfr TYPE s_from_cit.
+     SELECTION-SCREEN: FUNCTION KEY 1,
+                       FUNCTION KEY 2.
+     INITIALIZATION. &amp;quot;屏幕初始化
+       functxt-icon_id   = icon_ws_plane.  &amp;quot;文本字段中的图标（替换显示，别名） 
+       functxt-quickinfo = &#39;Preselected Carrier&#39;.  &amp;quot;菜单制作器：信息文本 (4.0)，滑鼠移去过去显示的信息TIP
+       functxt-icon_text = &#39;LH&#39;.  &amp;quot;菜单制作器：图标文本 (4.0)，菜单名称
+       sscrfields-functxt_01 = functxt.
+       functxt-icon_text = &#39;UA&#39;.
+       sscrfields-functxt_02 = functxt.
+     AT SELECTION-SCREEN.
+       CASE SSCRFIELDS-UCOMM.
+          WHEN &#39;FC01&#39;.
+            p_carrid = &#39;LH&#39;.
+            p_cityfr = &#39;Frankfurt&#39;.
+          WHEN &#39;FC02&#39;.
+            p_carrid = &#39;UA&#39;.
+            p_cityfr = &#39;Chicago&#39;.
+       ENDCASE.
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- hugo&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;字段符号-filed-symbols&#34;&gt;字段符号：filed-symbols&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;after_script:&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;内表操作&#34;&gt;内表操作&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;# 部署&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;【增删改】
+  &amp;lt;1&amp;gt; Loop AT循环(sy-tabix:索引号)
+     LOOP AT itab {INTO wa}|{ASSIGNING &amp;lt;fs&amp;gt; [CASTING]} | {TRANSPORTING NO FILDS} 
+        [[USING KEY key_name] [FROM idx1] [TO idx2] [WHERE log_exp|(cond_syntax)]].
+     ENDLOOP.
+  &amp;lt;2&amp;gt; INSERT &amp;lt;wa&amp;gt; INTO TABLE &amp;lt;itab&amp;gt;.[单条]
+      INSERT &amp;lt;wa&amp;gt; INTO &amp;lt;itab&amp;gt; INDEX &amp;lt;idx&amp;gt;.[索引]
+      INSERT LINES OF &amp;lt;itab&amp;gt; [FROM &amp;lt;n1&amp;gt;] [TO &amp;lt;n2&amp;gt;] INTO TABLE &amp;lt;itab&amp;gt;.[批量插入]
+      APPEND &amp;lt;wa&amp;gt; TO &amp;lt;itab&amp;gt;.
+      APPEND LINES OF &amp;lt;itab1&amp;gt; [FROM&amp;lt;n1&amp;gt;] [TO&amp;lt;n2&amp;gt;] TO &amp;lt;itab2&amp;gt;.
+  &amp;lt;3&amp;gt; READ TABLE &amp;lt;itab&amp;gt; WITH KEY {&amp;lt;k1&amp;gt;=&amp;lt;f1&amp;gt;...[BINARY SEARCH]} INTO &amp;lt;wa&amp;gt;}
+      [COMPARING &amp;lt;f1&amp;gt;&amp;lt;f2&amp;gt;...|ALL FIELDS]  [TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt; ...|ALL FIELDS
+                                          |NO FIELDS] | ASSIGNING &amp;lt;fs&amp;gt;.
+   COMPARING:根据关键字读取指定的单行与工作区&amp;lt;wa&amp;gt;中的相应组件进行比较。内容相同SY-SUBRC=0
+  &amp;lt;4&amp;gt; MODIFY itab1.
+      MODIFY itab INDEX idx FROM &amp;lt;wa&amp;gt; [TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt; ...].
+      MODIFY TABLE &amp;lt;itab&amp;gt; FROM &amp;lt;wa&amp;gt; [TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt;...].[修改单条]
+      MODIFY &amp;lt;itab&amp;gt; FROM &amp;lt;wa&amp;gt; TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt; ... WHERE &amp;lt;cond&amp;gt;.[修改多条]
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- cd ./public&lt;/td&gt;
-&lt;/tr&gt;
+      UPDATE dbtab SET f1=g1 ... fi=gi WHERE &amp;lt;con&amp;gt;.
+  &amp;lt;5&amp;gt; DELETE TABLE &amp;lt;itab&amp;gt; FROM &amp;lt;wa&amp;gt; [USING KEY key_name].[删除单条]
+      DELETE TABLE &amp;lt;itab&amp;gt; WITH TABLE KEY &amp;lt;k1&amp;gt;=&amp;lt;f1&amp;gt;.. .
+      DELETE &amp;lt;itab&amp;gt; WHERE &amp;lt;cond&amp;gt;.[删除多行]
+      DELETE &amp;lt;itab&amp;gt; [INDEX &amp;lt;idx&amp;gt;].
+      删除重复
+  (1)SORT record_tab. //首先进行排序处理
+      (2)DELETE ADJACENT DUPLICATES ENTRIES FROM itab [USING KEY key_name] 
+                                         [COMPARING K1 K2...] [ALL FIELDS].//删除
+  &amp;lt;6&amp;gt; COLLECT &amp;lt;wa&amp;gt; INTO &amp;lt;itab&amp;gt;.
+  &amp;lt;7&amp;gt; 第二索引
+     UNIQUE KEY.唯一升序第二索引
+     NON-UNIQUE KEY.非唯一升序第二索引
+     通过第二索引在无法使用主键时，可以加快大量处理数据的速度。
+【查】
+  SELECT SINGLE ... INTO [CORRESPONDING FIELDS OF] &amp;lt;wa&amp;gt; WHERE ...
+  SELECT ... INTO|APPENDING CORRESPONDING FIELDS OF TABLE &amp;lt;itab&amp;gt;...
+  RANG条件内.表：
+    RANGES sel FOR obj [OCCURS n].
+    SELECT-OPTIONS selcrit FOR {dobj|(name)}.
+  FOR ALLENTRIES:
+    1:会自动删除重复行   2:WHERE后还有其他条件，会忽略后续条件
+  表连接：
+    INNER JOIN、LEFT OUTER JOIN.
+【SAP锁】
+  通用数据库表锁函数：ENQUEUE_E_TABLE、DEQUEUE_E_TABLE、DEQUEUE_ALL
+  特定数据库表函数：ENQUEUE_&amp;lt;LOCK OBJ&amp;gt;、DEQUEUE_&amp;lt;LOCK OBJ&amp;gt;
+  自定义锁对象：EZ_/EY_命名
+  S:共享锁     E:可重入的排他锁     X:排他锁
+  1、在SE11里创建锁对象，自定义的锁对象都必须以EZ或者EY开头来命名。一个锁对象里只包含一个
+     PRIMARY TABLE，可以包含若干个SECONDARY TABLE，锁的模式有三种：E，S，X。
+   模式E：当更改数据的时候设置为此模式。   (Shared lock, read lock) 【一般使用E】
+   模式S：本身不需更改数据，但是希望显示的数据不被别人更改 (Exclusive lock, write lock)
+   模式X：和E类似，但是不允许累加，完全独占。 
+          (Exclusive lock, extended write lock, cannot be cumulated)
+  2、上锁的一般步骤
+      先上锁，上锁成功之后，从数据库取数据，然后更改数据，接着更新到数据库，最后解锁。
+   按照这个步骤，才能保证更改完全运行在锁的保护机制下。
+  3、上锁与解锁
+   ENQUEUE_&amp;lt;lock object的名字&amp;gt; 对象 EZZSOPR0032 要求的锁定
+   DEQUEUE_&amp;lt;lock object的名字&amp;gt; 释放对象 EZZSOPR0032 的锁定
+     有些情况下，程序中设置成功的逻辑锁会隐式的自己解锁。比如说程序结束发生的时候
+  （MESSAGE TYPE为A或者X的时候），使用语句LEAVE PROGRAM，LEAVE TO TRANSACTION，或者在
+   命令行输入/n回车以后。使用DEQUEUE FUNCTION MODULE来解锁的时候，不会产生EXCEPTION。
+   要解开你在程序中创建的所有的逻辑锁，可以用FM：DEQUEUE_ALL.
+【事务处理】
+  COMMIT WORK.         异步更新。
+  COMMIT WORK AND WAIT.同步跟新，执行结果可通过sy-subrc判断是否提交成功。
+  ROLLBACK WORK.
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- git init&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;message-se91&#34;&gt;MESSAGE ：SE91&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- git config user.name &amp;ldquo;coldinfire&amp;rdquo;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;1&amp;gt; 消息类的操作
+  使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。
+  Message Short Text字段为类描述，可以定义输入参数&amp;amp;，如&amp;quot;1&amp;amp;2&amp;amp;3&amp;amp;&amp;quot;表示有三个输入参数。
+  Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功。
+  引用语法为: Message W000(00)，表示调用&#39;00&#39;类的&#39;000&#39; Message类型为警告。
+    EX: Message W001(ZTEST) WITH &#39;P1&#39; &#39;P2&#39; &#39;P3&#39;.
+1. 消息ID MESSAGE e001(00) WITH &#39;12345678&#39;. //利用定义的参数
+2. MESSAGE &#39;XXXXXXXXXX&#39; TYPE &#39;X&#39;.          //直接附加消息
+3. MESSAGE s001(00) WITH &#39;No data&#39; DISPLAY LIKE &#39;E&#39;.
+   EXIT.                                   //Screen 界面查询数据无，则返回原界面
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- git config user.email &amp;ldquo;coldinfire@163.com&amp;rdquo;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;alv常使用的bapi&#34;&gt;ALV常使用的BAPI&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- git add .&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;在ALV开发中有两个重要的对象：LAYOUT和FIELDCAT,它们同属于类型池SLIS。
+   LAYOUT主要用于设置ALV的输出格式，如输出字段的颜色、表格中的线条等；
+   FIELDCAT主要用于ALV结构定义，包括具体字段的名称、类型、格式等属性.
+常使用的开发类:
+   &amp;lt;1&amp;gt; REUSE_ALV_FIENDCATALOG_MERGE：根据内表结构返回FIELDCAT字段结构信息.
+   &amp;lt;2&amp;gt; REUSE_ALV_GRID_DISPLAY/REUSE_ALV_LIST_DISPLAY：输出ALV报表，定义其为GRID模式还是LIST模式。参数结构一样。
+   &amp;lt;3&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- git commit -m &amp;ldquo;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&amp;rdquo;&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;alv-报表的表头字段显示设置&#34;&gt;ALV 报表的表头字段显示设置&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;# Github Pages&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;call function &#39;LVC_FIELDCATALOG_MERGE&#39;
+exporting
+  I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE
+  I_structure_name       = &#39;ZALV_FEED&#39; &amp;quot;ALV需要显示的字段结构
+  I_CLIENT_NEVER_DISPLAY = &#39;X&#39;
+  I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER
+  I_INTERNAL_TABNAME     = I_INTERNAL_TABNAME
+    changing
+      ct_fieldcat         = lt_fieldcat  &amp;quot;对应ALV显示的字段结构
+exceptions
+  inconsistent_interface = 1
+  program_error          = 2.
+ 可以通过loop对相应的ALV字段描述进行自定义设置
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- git push &amp;ndash;force &amp;ndash;quiet &amp;ldquo;https://$GITHUB_TOKEN@${GH_REF}&amp;rdquo; master:master&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;layout-字段&#34;&gt;Layout 字段&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;# Github Pages&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;DATA wa_alv_field TYPE SLIS_LAYOUT_ALV.
+LAYOUT主要用于设置ALV的输出格式，如输出字段的颜色、表格中的线条等；
+  0.COLTAB_fieldname type slis_fieldname: 设置单元格颜色
+  1.EDIT：设置ALV是否为可编辑模式。
+  2.COLWIDTH_OPTIMIZE：将ALV字段宽度设置为最优化，按实际输出内容宽度自动匹配。
+  3.NO_VLINE：输出ALV表格不显示垂直格式。
+  4.NO_ULINE_HS：输出ALV表格不显示水平格线。
+  5.INFO_FIELDNAME：设置颜色属性。
+  6.KEY_HOTSPOT：设置关键字段热点。
+  7.NO_COLNAME：是否显示字段名。
+  8.ZEBRA：使ALV表格按斑马线间隔条纹方式显示，以便显示效果更有美观。
+  9.BOX_FIELDNAME：设置ALV表格是否显示选择按钮字段。
+  10.f2code  like   sy-ucomn. gs_layout-f2code=&#39;&amp;amp;ETA&#39;[双击时触发的funcode]
+  11.INFO_FIELDNAME：用于设置ALV输出报表每一行的颜色，其参数为输出内表的字段名称，
+    要注意的是使用该属性需要同时在内表中定义一个与该参数所定义字段名相同的字段，例如：
+  LAYOUT-INFO_FIELDNAME = &#39;COLOR&#39;.倘若其数据输出内表名为LT_OUT,则需要在该内表增加一字段
+  “COLOR”，并为其内表每行复制，颜色参数范围C000~C999，例如：LT_OUT-COLOR = &#39;C012&#39;.
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- git push &amp;ndash;quiet &amp;ldquo;https://$GITHUB_TOKEN@${GH_REF}&amp;rdquo; master:master &amp;ndash;tags&lt;/td&gt;
-&lt;/tr&gt;
+【颜色】
+  行颜色:gs_layout-&amp;lt;info_fieldname&amp;gt; = &#39;COLOR&#39;
+  列颜色:gt_fieldcat-emphasize = &#39;C510&#39;.[1：C固定，2：颜色值0~7,3：高亮0、1(X)，
+                                         4：颜色反转，0、1]
+  单元格颜色:gs_layout-&amp;lt;coltab_fieldname&amp;gt;=&#39;COLORTABLE&#39;.
+【可编辑】
+  整体可编辑：gs_layout-edit = &#39;X&#39; 
+  某列可编辑：gt_fieldcat-edit = &#39;X&#39;
+  单元格可编辑：
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;env:&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;9-fieldcatalog-字段&#34;&gt;9.Fieldcatalog 字段&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;global:&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;FIELDCAT主要用于ALV结构定义，包括具体字段的名称、类型、格式等属性.
+  DATA lt_alv_fieldcat TYPE SLIS_T_FIELDCAT_ALV WITH HEADER LINE.
+　　1.KEY：将定义字段设置为KEY值。
+    2.ICON：将定义字段以ICON的形式显示。
+    3.CHECKBOX：将定义字段以CHECKBOX的形式显示。
+    4.JUST：定义字段对齐方式(R)RIGHT、(L)LEFT、(C)CENTER。
+    5.IZERO：将定义字段以前导&amp;quot;0&amp;quot;的形式显示。
+    6.NO_SIGN：将定义字段符号设置为不显示。
+    7.NO_ZERO：定义字段是否显示。
+    8.EMPHASIZE：设置字段的颜色。
+    9.DO_SUM：对字段进行汇总。
+    10.SELTEXT_L/M/S：设置字段名称描述长/中/短。
+    11.DDICTXT：设置字段显示字符串。
+    12.HOTSPOT：设置字段是否有热点(热点字段显示有下划线)。
+    13.NO_OUT: 隐藏不需要的字段(NO_OUT = &#39;X&#39;)。
+    14.EDIT(1) type c: 是否可编辑
+    15:COL_POS like sy-cucol: 列输出位置
+    16:FIX_COLUMN(1) type c: 列固定不滚动，颜色不会发生变化
+    17:convexit : 设置转换规则，对应于Domain中的转换规则    
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;# Github Pages&lt;/td&gt;
-&lt;/tr&gt;
+fieldname  type slis_fieldname    (列显示的设置)
+cfieldname type slis_fieldname  (金额字段所参照的货币单位字段名)
+ctabname   type slis_tabname      (金额字段所参照的货币单位表名)
+qfieldname type slis_fieldname  (数量字段所参照的货币单位字段名)
+qtabname   type slis_tabname      (数量字段所参照的货币单位表名)
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;- GH_REF: &lt;a href=&#34;https://github.com/coldinfire/coldinfire.github.io.git&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://github.com/coldinfire/coldinfire.github.io.git&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
+自定义FIELDCAT字段结构：
+  &amp;quot;定义宏来设置FIELDAT属性 &amp;amp;1 &amp;amp;2 &amp;amp;3分别为参数
+    DEFINE fieldcatset.
+      lt_alv_fieldcat-REF_TABNAME =&#39;LSPFLI&#39;.
+      lt_alv_fieldcat-FIELDNAME = &amp;amp;1.
+      lt_alv_fieldcat-SELTEXT_L = &amp;amp;2.
+      lt_alv_fieldcat-COL_POS = &amp;amp;3.
+      APPEND lt_alv_fieldcat.
+    END-OF-DEFINITION.
+    fieldcatset &#39;CARRID&#39; &#39;航线承运人&#39; SY-TABIX.
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;deploy:&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;10-单元格中的数据被修改后-将alv单元格中的数据立即刷新到abap对应的内表中&#34;&gt;10.单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;provider: pages # 重要，指定这是一份 github pages 的部署配置&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;方法一：通过对REUSE_ALV_GRID_DISPLAY函数参数i_grid_settings-edt_cll_cb进行设置：
+i_grid_settings-edt_cll_cb  = &#39;X&#39; .
+CALL FUNCTION &#39;REUSE_ALV_GRID_DISPLAY&#39;
+EXPORTING i_grid_settings = i_grid_settings
+方法二：通过函数参数I_CALLBACK_USER_COMMAND指定的回调Form的参数slis_selfield进行设置：
+FORM user_command USING ucomm LIKE sy-ucommselfield selfield TYPE slis_selfield.
+    selfield-refresh = &#39;X&#39;.
+  CASE ucomm.
+    WHEN &#39;UPDATE&#39;.
+    PERFORM frm_update.
+  ENDCASE.
+ENDFORM. 
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;skip-cleanup: true # 重要，不能省略&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;11-自定义按钮使用后刷新alv&#34;&gt;11 自定义按钮使用后刷新ALV&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;local-dir: public # 静态站点文件所在目录&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt; form frm_user_command using r_ucomm     like sy-ucomm
+                        rs_selfield type slis_selfield.
+  case r_ucomm.
+   when &#39;PROFIT&#39;.
+      perform frm_cycle_count_profit.
+   when others.
+  endcase.
+     rs_selfield-refresh = &#39;X&#39;.
+ endform.                    &amp;quot;frm_user_command
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;# target-branch: master # 要将静态站点文件发布到哪个分支&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;12-设置工具导航栏-gui-status&#34;&gt;12 设置工具导航栏 GUI Status&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;github-token: $GITHUB_TOKEN # 重要，$GITHUB_TOKEN 是变量，需要在 GitHub 上申请、再到配置到 Travis&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;GUI Status参数设置共包括3个部分：
+  1.菜单栏(Menu Bar)：用于设置主菜单选项。
+  2.应用工具条(Application ToolBar)：用于设置应用工具栏按钮，包括按钮名称、按钮描述、及按钮所对的ICON图标。
+  3.功能键(Function Key)：为按钮分配功能键代码，包括系统标题按钮(如返回、退出、关闭等)及通过Application ToolBar所定义的客制化按钮。
+  4. 对于定义的按钮，我们可以通过系统变量SY-UCOMM来获取它的功能代码。
+    AT USER-COMMAND.   &amp;quot;当单击某个按钮时，触发该事件
+      CASE sy-ucomm.  &amp;quot;获取所操作按钮的功能代码(FUNCTION Code)
+  5.调用显示，应用于START-OF-SELECTION事件
+     SET PF-STATUS &amp;lt;STATUS_NAME&amp;gt;.
+     不显示某些按钮：SET PF-STATUS &amp;lt;STATUS_NAME&amp;gt; EXCLUDING &amp;lt;extab&amp;gt;.
+ 6.在ALV函数中使用
+  call function &#39;REUSE_ALV_GRID_DISPLAY_LVC&#39;
+    exporting
+      i_callback_program       = sy-repid 
+      i_callback_pf_status_set = &#39;FRM_SET_STATUS&#39;
+      i_callback_user_command  = &#39;FRM_USER_COMMAND&#39;
+      is_layout_lvc            = lw_layout
+      it_fieldcat_lvc          = gt_fieldcat
+      i_default                = &#39;X&#39;
+      i_save                   = &#39;X&#39;
+   tables
+      t_outtab                 = gt_alv_pi_diffs
+   exceptions
+      program_error            = 1.
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;# fqdn:  # 如果是自定义域名，此处要填&lt;/td&gt;
-&lt;/tr&gt;
+  form frm_set_status using extab type slis_t_extab.
+     data: ls_slis_extab type slis_extab.
+      SET PF-STATUS &amp;lt;STATUS_NAME&amp;gt;.
+  endform.                    &amp;quot;frm_set_status
+GUI TITLE设置：
+    GUI TITLE 用于定义Report标题栏内容.
+  定义：
+    Create--&amp;gt;GUI Titles：可以输入&amp;amp;符号作为Title,当程序运行时对其填充动态文本。
+  在程序中调用：
+    SET TITLEBAR &#39;TITLE_BAR&#39; WITH SY-DATUM &#39;IFENER&#39; &#39;BAR TEST&#39;.&amp;quot;设置TITLEBAR，并赋参数列表
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;keep-history: true # 是否保持 target-branch 分支的提交记录&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h2 id=&#34;13-oo-alv&#34;&gt;13. OO ALV&lt;/h2&gt;
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;on:&lt;/td&gt;
-&lt;/tr&gt;
+&lt;pre&gt;&lt;code&gt;相关类：
+  CL_GUI_CUSTOM_CONTAINER   ：用户自己定义控件区域
+  CL_GUI_DOCKING_CONTAINER  : 动态创建容器，不需要在创建时绑定到预先绘制好的自定义控件中
+  CL_GUI_SPLITTER_CONTAINER ：可在同一屏幕创建多个ALV显示
+  CL_GUI_ALV_GRID           ：ALV控制类
 
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;branch: master # 博客源码的分支&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+  DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, &amp;quot;控制容器类
+         obj_wcl_alv TYPE REF TO cl_gui_alv_grid . &amp;quot;ALV控制类
+  DATA GS_LAYOUT1 TYPE LVC_S_LAYO. &amp;quot;布局结构
+  DATA GT_FIELDCAT TYPE LVC_T_FCAT. &amp;quot;存放字段目录的内表
+  DATA GS_FIELDCAT TYPE LVC_S_FCAT.
+  DATA lt_exclude TYPE ui_functions. &amp;quot;alv不需要的图标按钮
+1、控制区域、容器、Grid关系
+   先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER
+ 容器实例,最后以此容器实例来创建 CL_GUI_ALV_GRID实例。
+    DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, &amp;quot;控制容器类
+           obj_wcl_alv TYPE REF TO cl_gui_alv_grid . &amp;quot;ALV控制类
+    IF obj_wcl_alv IS INITIAL.
+       CREATE OBJECT obj_wcl_container
+          EXPORTING
+             container_name  =  &#39;OBJ_WCL_CONTAINER&#39;.
+       CREATE OBJECT obj_wcl_alv
+          EXPORTING
+             i_parent  = obj_wcl_container.
+2、给ALV对象注册事件
+  (1) HANDLE_TOOLBAR:这个事件用于给ALV加自定义工具条按钮。
+  (2) HANDLE_CLICK:用于给ALV点击其中一行后处理代码段。
+  (3) HANDLE_COMMAND:事件用于接收用户按了自定义按钮后，触发的代码段。
+  (4) HANDLE_DOUBLE_CLICK：双击事件
+  (5) 
+  事件的使用：
+    &amp;lt;1&amp;gt; 定义事件方法
+    &amp;lt;2&amp;gt; 指定事件的执行方法代码
+    &amp;lt;3&amp;gt; 事件变量实例化
+    &amp;lt;4&amp;gt; 把事件指定到ALV控制中(注册事件)
 
-&lt;p&gt;ec717d8b4e26a5f62556d3f50984d63b6e2061a0&lt;/p&gt;
+    CREATE OBJECT event_receiver.
+    SET HANDLER event_receiver -&amp;gt; handle_double_click FOR obj_wcl_alv.
+3、CL_GUI_ALV_GRID重要方法
+  *-----显示ALV 
+     CALL METHOD obj_wcl_alv-&amp;gt;set_table_for_first_display 
+        EXPORTING 
+           is_variant                    = ls_variant   :指定布局变式
+           is_layout                     = ls_layout 
+           i_save                        = &#39;A&#39;          :保存表格布局
+           it_toolbar_excluding          = lt_exclude 
+        CHANGING 
+           it_outtab                     = gt_list[]    :需要显示的内表数据
+           it_fieldcatalog               = lt_fieldcat  :结构字段
+        EXCEPTIONS 
+           invalid_parameter_combination = 1 
+           program_error                 = 2 
+           too_many_lines                = 3 
+           OTHERS                        = 4.
+
+   ENDFORM.                    &amp;quot; FRM_ALV_DISPLAY
+
+  XXX -&amp;gt; REFRESH_TABLE_DISPLAY.
+    IS_STABLE : 刷新的稳定性，就是滚动条保持不动
+    I_SOFT_REFRESH:  软刷新，临时给ALV创建的合计，排序，等保持不变
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;14-前导零问题&#34;&gt;14.前导零问题&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;加上p_in的前导零
+  FORM add_zero  CHANGING p_in.
+CALL FUNCTION &#39;CONVERSION_EXIT_ALPHA_INPUT&#39;
+  EXPORTING
+    input  = p_in
+    IMPORTING
+      output = p_in.
+ ENDFORM.
+去除p_out的前导零
+  FORM del_zero CHANGING p_out.
+    CALL FUNCTION &#39;CONVERSION_EXIT_ALPHA_OUTPUT&#39;
+    EXPORTING
+      input  = p_out
+    IMPORTING
+     output = p_out.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;15-hash-table-sort-table-standy-table&#34;&gt;15.Hash table, sort table, standy table&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;   对于排序内表，不要使用append，append lines附加数据，使用insert、insert lines向
+排序内表中插入数据
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;16-search-help-的创建&#34;&gt;16.search help 的创建&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;PARAMETERS p_cur TYPE XXX VALUE CHECK .
+PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
+在屏幕的 ON VALUE-REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
+  F4IF_ FIELD _VALUE_REQUEST ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定 
+     Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
+  F4IF_ INT_TABLE _VALUE_REQUEST : 在程序运行时， 将某个内表动态的用作 Search help 的
+     数据来源,即使用该函数可以将某个内表转换为 Search help ，可实现联动效果
+  TR_F4_HELP ： 简单实现 Search Help ，数据来源于内表。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;17-sql-语句的执行顺序&#34;&gt;17. SQL 语句的执行顺序&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;书写顺序：SELECT[DISTINCT]--&amp;gt;FROM--&amp;gt;WHERE--&amp;gt;GROUP BY--&amp;gt;HAVING--&amp;gt;UNION--&amp;gt;ORDER BY
+其执行顺序为：FROM--&amp;gt;WHERE--&amp;gt;GROUP BY--&amp;gt;HAVING--&amp;gt;SELECT--&amp;gt;DISTINCT--&amp;gt;UNION-&amp;gt;ORDER BY
+1、FROM 才是 SQL 语句执行的第一步，并非 SELECT 
+2、SELECT 是在大部分语句执行了之后才执行的，严格的说是在 FROM 和 GROUP BY 之后执行的。
+3、无论在语法上还是在执行顺序上， UNION 总是排在在 ORDER BY 之前。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;open-sql&#34;&gt;Open SQL&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;focus&#34;&gt;Focus&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;1. 多表的结合的查询，首先进行各自的关键字查询，然后进行表与表转换可以提升效率
+2. 表相应字段非关键字时，寻找有该关键字的相对应的关联表进行查询并合并表数据
+3. binary search 和 sort 进行使用时注意sort的关键字与binary search 保持统一
+4. MODIFY itab1 INDEX sy-tabix.进行修改时最好定义变量记录sy-tabix.
+5. inner join 和 left outer join 的连接条件最好都是关键字.
+6. 双层loop循环时，第二个内部表定义为SORTED TABLE会大大的提高处理速度
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>报表开发(三)</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable3/</link>
+      <pubDate>Wed, 12 Sep 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable3/</guid>
+      <description>
+
+&lt;h2 id=&#34;执行程序的使用范围-报表事件&#34;&gt;执行程序的使用范围，报表事件&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;LOAD-OF-PROGRAM.
+INITIALIZATION.          （Before display the selection screen）
+  AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
+  AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
+AT SELECTION-SCREEN. //After enter the option data check
+   PERFORM check_input.
+START-OF-SELECTION.//Begin the main programer
+  xxxx
+END-OF-SELECTION.
+Interactive Eventrs. (User for interactive reporting)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;报表程序大体逻辑结构&#34;&gt;报表程序大体逻辑结构&lt;/h2&gt;
+
+&lt;p&gt;​   &lt;strong&gt;抬  头:&lt;/strong&gt; 报表的主要信息(抬头信息)&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;行项目:&lt;/strong&gt; 查询出的每行记录信息&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;明  细:&lt;/strong&gt; 每个行项目出关键字外其他明细内容&lt;/p&gt;
+
+&lt;h2 id=&#34;字段符号&#34;&gt;字段符号&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt; FIELD-SYMBOLS &lt;FS&gt; LIKE structure.&lt;/p&gt;
+
+&lt;p&gt;​    &lt;1&gt; FS必须和某个变量，结构或者内表绑定后才能使用，这点和C语言里的指针
+​     （在ABAP里最接近指针的是TYPE REF TO）不同，在使用FS前必须分配给某个变量，不然会发生
+​      FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，
+​      FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。
+​    &lt;2&gt; ASSIGN structure TO &lt;fs&gt;:将某个内存区域分配给字段符号，这样字段符号就代表了该内存
+​      区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
+  ASSIGN &lt;Val&gt; TO &lt;fs&gt;: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。
+  UNASSIGN: 该语句是初始化&lt;FS&gt;字段符号，执行后字段符号将不再引用内存区域，
+​            &lt;fs&gt; is assigned返回假。
+  CLEAR: 与UNASSIGN不同的是，只有一个作用就是初始化它所指向的内存区域，而不是解除分配。
+3.2 LOOP内表INTO结构（工作区）和LOOP内表ASSIGNING&amp;lt;结构&amp;gt;的比较
+​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
+  MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会
+  影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程
+  修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。
+3.3 READ TABLE内表
+3.4 ASSIGN隐式强转
+TYPES: BEGIN OF t_date,
+​    year(4) TYPE  n,
+​        month(2) TYPE n,
+​    day(2) TYPE n,
+  END OF t_date.
+FIELD-SYMBOLS &lt;fs&gt; TYPE t_date.&amp;ldquo;将&lt;fs&gt;定义成了具体限定类型
+ASSIGN sy-datum TO &lt;fs&gt; CASTING. &amp;ldquo;后面没有指定具体类型，所以使用定义时的类型进行隐式转换
+3.5 ASSIGN显示强转
+  DATA txt(8) TYPE c VALUE &amp;lsquo;19980606&amp;rsquo;.
+  FIELD-SYMBOLS &lt;fs&gt;.
+  ASSIGN txt TO &lt;fs&gt; CASTING TYPE d.&amp;ldquo;由于定义时未指定具体的类型，所以这里需要显示强转
+3.6 动态引用，通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。
+  field-symbols:&lt;l_shortageqty&gt; type mng01.
+  loop at &lt;dyn_table&gt; assigning &lt;dyn_wa&gt;.
+​    assign component &amp;lsquo;SHORTAGEQTY&amp;rsquo; of structure &lt;dyn_wa&gt; to &lt;l_shortageqty&gt;.
+​    &lt;l_shortageqty&gt; = &lt;l_shortageqty&gt; - &lt;l_fvalue&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;选择屏幕&#34;&gt;选择屏幕&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/foxting/archive/2012/07/01/2572243.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;引用链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;1&amp;gt;SELECT-SCREEN 框架结构
+  SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。
+  定义屏幕对象：
+    SELECTION-SCREEN BEGIN OF SCREEN src.
+      .......
+    SELECTION-SCREEN END OF SCREEN src.
+    该语法用于定义一个INCLUDE SUREEN，可通过CALL方法在Report程序中引用。
+   CALL SCREEN &amp;lt;num&amp;gt; STARTING AT [1 2] ENDING AT [1 2].
+   参数可以将所定义屏幕窗体作为一个新的对话框窗体来引用，并指定期创建的具体大小及位置。
+  注意：当从一个主屏幕中来调用其程序中的另一窗体时，必须使用CALL SELECTION-SCREEN方法.
+  定义屏幕块：
+    SELECTION-SCREEN BEGIN OF BLOCK block.
+      ......
+    SELECTION-SCREEN END OF BLOCK.
+    该语法在屏幕中定义一个BLOCK，其扩展语法包括：
+      ...WITH FRAME：创建一个框架
+      ...TITLE title：创建一个带标题的框架。
+      ...NO INTERVALS：所创建的框架中限制SELECT只有一个输入项。 
+ 其他元素：
+  SELECTION-SCREEN INCLUDE BLOCKS &amp;lt;block1&amp;gt;.  调用已存在屏幕元素
+  SELECTION-SCREEN ULINE.  划出横线，必须用在BLOCK中才能生效。
+  SELECTION-SCREEN SKIP &amp;lt;n&amp;gt;.  在BLOCK中产生换行&amp;lt;n&amp;gt;。
+  SELECTION-SCREEN POSITION &amp;lt;pos&amp;gt;. 在BLOCK中产生空格。
+  SELECTION-SCREEN BEGIN OF LINE.
+    ......
+  SELECTION-SCREEN END OF LINE. 将所生成的屏幕元素控制在一行.
+&amp;lt;2&amp;gt;PARAMETERS 单值输入
+  PARAMETERS 参照数据字典具体字段或者自定义数据类型创建单值文本输入域以及单选/复选框等：
+  PARAMETERS: &amp;lt;P_1&amp;gt; LIKE &amp;lt;field&amp;gt;    &amp;quot;文本域
+            TYPE AS CHECKBOX.       &amp;quot;复选框
+            RADIOBUTTON GROUP GRP1, &amp;quot;单选域 
+            P2 RADIOBUTTON GROUP GRP1 DEFAULT &#39;X&#39;,  &amp;quot;默认选中 ”X“
+            P3 RADIOBUTTON GROUP GRP1. &amp;quot;GRP1单选组
+  默认值：
+    ...DEFAULT f:定义默认值。
+    ...TYPE type:参照某一类型对象定义PARAMETERS。
+    ...DECIMALS dec：定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)。 
+    ...LIKE g：參照某一字典对象定义PARAMETERS。
+    ...MEMORY ID pi：将PARAMETERS存储在SAP内存，参数名长度不能超过三位。
+    ...NO-DISPLAY：将PARAMETERS设置为隐藏，不会的屏幕上输出。
+    ...LOWER CASE：输入值中不允许输入小写字符，否则会自动转换为大写。
+    ...OBLIGATORY：限制该PARAMETERS为必填，否则会提示输入。
+    ...AS CHECKBOX：创建CHECKBOX对象。
+    ...RADIO BUTTON GROUP radi：创建（RADIO）单选框。
+    ...VISIBLE LENGTH vlen：定义显示长度。
+    ...USER-COMMAND ucom：为创建对象分配对象名，该值保存在内表中可供其它对象操作。
+    ...AS LISTBOX VISIBLE LENGTH vlen：创建一个下拉框，并指定长度。
+ 下拉框实现：
+  *定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标
+    PARAMETERS:P_LANG(20) AS LISTBOX VISIBLE LENGTH 22.
+  *该变量用于记录下拉列表数值是否初始化，否则每次屏幕初始化都会重新加载重复数据
+    DATA:INIT.
+    AT SELECTION-SCREEN OUTPUT.
+    PERFORM SETLIST.
+  *子程序用于加载下拉框的数据
+    FORM SETLIST.
+      TYPE-POOLS VRM. 
+      DATA MYVALUE TYPE VRM_VALUES WITH HEADER LINE.
+    *对内表加载值
+      MYVALUE-KEY = &#39;CHINESE&#39;. MYVALUE-TEXT = &#39;中国&#39;.    
+      APPEND MYVALUE.
+      MYVALUE-KEY = &#39;AMERICAN&#39;. MYVALUE-TEXT = &#39;美国&#39;.         
+      APPEND MYVALUE.
+      MYVALUE-KEY = &#39;ENGLISH&#39;. MYVALUE-TEXT = &#39;英国&#39;. 
+      APPEND MYVALUE.
+      MYVALUE-KEY = &#39;FRENCH&#39;. MYVALUE-TEXT = &#39;法国&#39;.   
+      APPEND MYVALUE.
+    IF INIT IS INITIAL.
+        CALL FUNCTION &#39;VRM_SET_VALUES&#39; &amp;quot;调用函数对下拉框对象传递数据
+          EXPORTING
+            ID = &#39;P_LANG&#39; &amp;quot;下拉框对象名
+            VALUES = MYVALUE[]  &amp;quot;下拉框中加载的数据
+         EXCEPTIONS
+           ID_ILLEGAL_NAME = 1
+           OTHERS = 2.
+    ENDIF.
+    INIT = &#39;X&#39;. &amp;quot;记录初始化状态
+  ENDFORM.
+&amp;lt;3&amp;gt; SELECT-OPTIONS 输入域
+  SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过8位，最大输入长度为18位：
+  SELECT-OPTIONS： &amp;lt;S_1&amp;gt; FOR &amp;lt;dbtab-ele&amp;gt;.... .
+  内表结构：
+    SIGN：I , E
+    OPTION: EQ,NE,CP（模糊查询）,NP,GE,LT,LE,GT
+    LOW : 范围较小值
+    HIGH: 范围较大值
+  默认值设定：
+    ...DEFAULT g:定义单一默认值。
+    ...DEFAULT g...OPTION  xxx ... SIGN s:定义含判断条件的单一默认值。
+    ...DEFAULT g TO h:定义默认值的取值范围。
+    ...DEFAULT g TO h ... OPTION op ... SIGN s:设置默认值的聚会范围及判断条件。
+    ...MEMORY ID pid:将SELECT-OPTIONS分配参数名并存储在SAP内存，参数名长度不能超过三位。
+    ...NO-DISPLAY:将SELECT-OPTIONS设置为隐藏，不会在屏幕上输出。
+    ...LOWER CASE:输入值中不允许输入小写字符，否则会自动转换为大写。
+    ...OBLIGATORY:限制该SELECT-OPTIONS为必须输入的项目，执行中系统会提示。
+    ...NO-EXTENSION:限制该SELECT-OPTIONS只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏。
+    ...VISIBLE LENGTH vlen:定义所显示数据的长度。
+ &amp;lt;4&amp;gt; GOTO--&amp;gt;Text Elements   (TCode:SE32)
+    前台界面显示的为PARAMETERS和SELECTION-OPTION定义的字段，不便于理解需。
+    提供某一字段的完整名称以方便用户理解。
+    GOTO --&amp;gt;Translation：可进行多语言显示的维护
+  包含字段：
+    Selection Texts：定义已存在并且激活的屏幕元素的名称。
+    Text Symbols：实现自定义文本及符号,该文本使用对象为SELECTION-SCREEN，以三位字符表示(TEXT-001)。
+         图标符号:可以在Text Symbols通过@符号来进行引用，如&amp;quot;@01@&amp;quot;,可通过程序RSTXICON查看所有的图标
+ &amp;lt;5&amp;gt; 屏幕事件处理
+   INITIALIZATION. &amp;quot;程序初始化事件，該事件在程序屏幕未顯示之前執行。對程序設置值及屏幕元素進行初始化設置.
+   START-OF-SELECTION事件：该事件在单击按钮后触发。
+   END-OF-SELECTION事件：该事件应用于所有数据处理完成，即START-OF-SELECTION相关执行事件执行完成。
+    但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
+   AT SELECTION-SCREEN：选择屏幕显示之后，用来响应回车，F8，F1，F4等事件。
+    ...ON &amp;lt;field&amp;gt;：检查具体输入字段(SELECTION-OPTIONS或PARAMETERS)是否完整或正确。
+    ...ON VALUE-REQUEST FOR &amp;lt;field low/high&amp;gt;：SELECT-OPTIONS按选择帮助&amp;lt;F4&amp;gt;键时触发该事件。
+    ...ON HELP-REQUEST FOR &amp;lt;field low/high&amp;gt;：SELECTION-OPTIONS按选择帮助&amp;lt;F1&amp;gt;键时键发该事件。
+    ...ON RADIOBUTTON GROUP &amp;lt;radio&amp;gt;：单选按钮事件，必须进行整体输入检查。
+    ...ON BLOCK &amp;lt;block&amp;gt;：框架的触发事件（控制框架中的屏幕元素值的输入）。
+    ...OUTPUT：用于屏幕输出时的各屏幕元素值的管控（PBO处理，在选择屏幕显示之前就被调用；响应屏幕上的事件，用户回车或F8后也被调用；通过modify screen可以修改选择屏幕字段）。
+    ...ON EXIT-COMMAND：用于&amp;quot;BACK&amp;quot;,&amp;quot;CANCEL&amp;quot;,&amp;quot;EXIT&amp;quot;等事件。
+ &amp;lt;6&amp;gt;屏幕内创建按钮
+  SELECTION-SCREEN PUSHBUTTON [/n] &amp;lt;pos(len)&amp;gt; &amp;lt;name&amp;gt; USER-COMMAND &amp;lt;ucom&amp;gt; [MODIF ID &amp;lt;key&amp;gt;].
+    [/n] :按钮初始时距离屏幕左边的位置
+    &amp;lt;pos(len)&amp;gt;：PUSHBUTTON按钮在屏幕生成的位置与长度。
+    &amp;lt;name&amp;gt;：PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。
+    &amp;lt;ucom&amp;gt;：必须指定的字符代码，当用户在选择屏幕上触发按钮时，&amp;lt;ucom&amp;gt;被输入到词典对象字段：
+            SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。
+  实例：  
+   TABLES SSCRFIELDS.&amp;quot;引用词典对象
+   INCLUDE:&amp;lt;icon&amp;gt;.  &amp;quot;按钮中加入图标必须调用该类型库,图标请参考T-CODE：ICON
+   SELECTION-SCREEN PUSHBUTTON /1(20) PUBU1 USER-COMMAND ABCD.
+   SELECTION-SCREEN SKIP.&amp;quot;换行
+   SELECTION-SCREEN PUSHBUTTON /10(25) PUBU2 USER-COMMAND ABCE. &amp;quot;位置从10开始
+   AT SELECTION-SCREEN OUTPUT.
+     MOVE &#39;CALL NEXT SCREEN&#39; TO PUBU1. &amp;quot;给PUBU1按钮赋值描述
+     WRITE ICON_OKAY AS ICON TO PUBU2. &amp;quot;给PUBU2按钮添加图标，并且在给按钮赋值之前，否则将会把文字替换。
+     CONCATENATE PUBU2 &#39;My Second Button&#39; INTO PUBU2 SEPARATED BY SPACE. &amp;quot;给第二个按钮添加赋值描述
+   AT SELECTION-SCREEN.
+    IF SSCRFIELDS-UCOMM = &#39;ABCD&#39;.
+        PERFORM xxxx.  &amp;quot;调用子程序
+    ENDIF.
+ &amp;lt;7&amp;gt; 在工具栏上新增一个功能按钮
+    SELECTION-SCREEN FUNCTION KEY n.
+      该按钮的定义保存在系统结构体SSCRFIELDS中，n为一个整数序数最大至5。
+    当n等于1时，其按钮描述保存在字段SSCRFIELDS-FUNCTXT_01中，其按钮对象命名为
+    &amp;quot;FC01&amp;quot;,保存在字段SSCRFIELDS-UCOMM中。
+  实例：
+     TYPE-POOLS ICON. &amp;quot;Program Icon Library
+     TABLES SSCRFIELDS.
+     DATA functxt TYPE SMP_DYNTXT. &amp;quot;SMP_DYNTXT(菜单制作器:动态文本的程序接口)
+     PARAMETERS: p_carrid TYPE s_carr_id,
+                 p_cityfr TYPE s_from_cit.
+     SELECTION-SCREEN: FUNCTION KEY 1,
+                       FUNCTION KEY 2.
+     INITIALIZATION. &amp;quot;屏幕初始化
+       functxt-icon_id   = icon_ws_plane.  &amp;quot;文本字段中的图标（替换显示，别名） 
+       functxt-quickinfo = &#39;Preselected Carrier&#39;.  &amp;quot;菜单制作器：信息文本 (4.0)，滑鼠移去过去显示的信息TIP
+       functxt-icon_text = &#39;LH&#39;.  &amp;quot;菜单制作器：图标文本 (4.0)，菜单名称
+       sscrfields-functxt_01 = functxt.
+       functxt-icon_text = &#39;UA&#39;.
+       sscrfields-functxt_02 = functxt.
+     AT SELECTION-SCREEN.
+       CASE SSCRFIELDS-UCOMM.
+          WHEN &#39;FC01&#39;.
+            p_carrid = &#39;LH&#39;.
+            p_cityfr = &#39;Frankfurt&#39;.
+          WHEN &#39;FC02&#39;.
+            p_carrid = &#39;UA&#39;.
+            p_cityfr = &#39;Chicago&#39;.
+       ENDCASE.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;字段符号-filed-symbols&#34;&gt;字段符号：filed-symbols&lt;/h2&gt;
+
+&lt;h2 id=&#34;内表操作&#34;&gt;内表操作&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;【增删改】
+  &amp;lt;1&amp;gt; Loop AT循环(sy-tabix:索引号)
+     LOOP AT itab {INTO wa}|{ASSIGNING &amp;lt;fs&amp;gt; [CASTING]} | {TRANSPORTING NO FILDS} 
+        [[USING KEY key_name] [FROM idx1] [TO idx2] [WHERE log_exp|(cond_syntax)]].
+     ENDLOOP.
+  &amp;lt;2&amp;gt; INSERT &amp;lt;wa&amp;gt; INTO TABLE &amp;lt;itab&amp;gt;.[单条]
+      INSERT &amp;lt;wa&amp;gt; INTO &amp;lt;itab&amp;gt; INDEX &amp;lt;idx&amp;gt;.[索引]
+      INSERT LINES OF &amp;lt;itab&amp;gt; [FROM &amp;lt;n1&amp;gt;] [TO &amp;lt;n2&amp;gt;] INTO TABLE &amp;lt;itab&amp;gt;.[批量插入]
+      APPEND &amp;lt;wa&amp;gt; TO &amp;lt;itab&amp;gt;.
+      APPEND LINES OF &amp;lt;itab1&amp;gt; [FROM&amp;lt;n1&amp;gt;] [TO&amp;lt;n2&amp;gt;] TO &amp;lt;itab2&amp;gt;.
+  &amp;lt;3&amp;gt; READ TABLE &amp;lt;itab&amp;gt; WITH KEY {&amp;lt;k1&amp;gt;=&amp;lt;f1&amp;gt;...[BINARY SEARCH]} INTO &amp;lt;wa&amp;gt;}
+      [COMPARING &amp;lt;f1&amp;gt;&amp;lt;f2&amp;gt;...|ALL FIELDS]  [TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt; ...|ALL FIELDS
+                                          |NO FIELDS] | ASSIGNING &amp;lt;fs&amp;gt;.
+   COMPARING:根据关键字读取指定的单行与工作区&amp;lt;wa&amp;gt;中的相应组件进行比较。内容相同SY-SUBRC=0
+  &amp;lt;4&amp;gt; MODIFY itab1.
+      MODIFY itab INDEX idx FROM &amp;lt;wa&amp;gt; [TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt; ...].
+      MODIFY TABLE &amp;lt;itab&amp;gt; FROM &amp;lt;wa&amp;gt; [TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt;...].[修改单条]
+      MODIFY &amp;lt;itab&amp;gt; FROM &amp;lt;wa&amp;gt; TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt; ... WHERE &amp;lt;cond&amp;gt;.[修改多条]
+
+      UPDATE dbtab SET f1=g1 ... fi=gi WHERE &amp;lt;con&amp;gt;.
+  &amp;lt;5&amp;gt; DELETE TABLE &amp;lt;itab&amp;gt; FROM &amp;lt;wa&amp;gt; [USING KEY key_name].[删除单条]
+      DELETE TABLE &amp;lt;itab&amp;gt; WITH TABLE KEY &amp;lt;k1&amp;gt;=&amp;lt;f1&amp;gt;.. .
+      DELETE &amp;lt;itab&amp;gt; WHERE &amp;lt;cond&amp;gt;.[删除多行]
+      DELETE &amp;lt;itab&amp;gt; [INDEX &amp;lt;idx&amp;gt;].
+      删除重复
+  (1)SORT record_tab. //首先进行排序处理
+      (2)DELETE ADJACENT DUPLICATES ENTRIES FROM itab [USING KEY key_name] 
+                                         [COMPARING K1 K2...] [ALL FIELDS].//删除
+  &amp;lt;6&amp;gt; COLLECT &amp;lt;wa&amp;gt; INTO &amp;lt;itab&amp;gt;.
+  &amp;lt;7&amp;gt; 第二索引
+     UNIQUE KEY.唯一升序第二索引
+     NON-UNIQUE KEY.非唯一升序第二索引
+     通过第二索引在无法使用主键时，可以加快大量处理数据的速度。
+【查】
+  SELECT SINGLE ... INTO [CORRESPONDING FIELDS OF] &amp;lt;wa&amp;gt; WHERE ...
+  SELECT ... INTO|APPENDING CORRESPONDING FIELDS OF TABLE &amp;lt;itab&amp;gt;...
+  RANG条件内.表：
+    RANGES sel FOR obj [OCCURS n].
+    SELECT-OPTIONS selcrit FOR {dobj|(name)}.
+  FOR ALLENTRIES:
+    1:会自动删除重复行   2:WHERE后还有其他条件，会忽略后续条件
+  表连接：
+    INNER JOIN、LEFT OUTER JOIN.
+【SAP锁】
+  通用数据库表锁函数：ENQUEUE_E_TABLE、DEQUEUE_E_TABLE、DEQUEUE_ALL
+  特定数据库表函数：ENQUEUE_&amp;lt;LOCK OBJ&amp;gt;、DEQUEUE_&amp;lt;LOCK OBJ&amp;gt;
+  自定义锁对象：EZ_/EY_命名
+  S:共享锁     E:可重入的排他锁     X:排他锁
+  1、在SE11里创建锁对象，自定义的锁对象都必须以EZ或者EY开头来命名。一个锁对象里只包含一个
+     PRIMARY TABLE，可以包含若干个SECONDARY TABLE，锁的模式有三种：E，S，X。
+   模式E：当更改数据的时候设置为此模式。   (Shared lock, read lock) 【一般使用E】
+   模式S：本身不需更改数据，但是希望显示的数据不被别人更改 (Exclusive lock, write lock)
+   模式X：和E类似，但是不允许累加，完全独占。 
+          (Exclusive lock, extended write lock, cannot be cumulated)
+  2、上锁的一般步骤
+      先上锁，上锁成功之后，从数据库取数据，然后更改数据，接着更新到数据库，最后解锁。
+   按照这个步骤，才能保证更改完全运行在锁的保护机制下。
+  3、上锁与解锁
+   ENQUEUE_&amp;lt;lock object的名字&amp;gt; 对象 EZZSOPR0032 要求的锁定
+   DEQUEUE_&amp;lt;lock object的名字&amp;gt; 释放对象 EZZSOPR0032 的锁定
+     有些情况下，程序中设置成功的逻辑锁会隐式的自己解锁。比如说程序结束发生的时候
+  （MESSAGE TYPE为A或者X的时候），使用语句LEAVE PROGRAM，LEAVE TO TRANSACTION，或者在
+   命令行输入/n回车以后。使用DEQUEUE FUNCTION MODULE来解锁的时候，不会产生EXCEPTION。
+   要解开你在程序中创建的所有的逻辑锁，可以用FM：DEQUEUE_ALL.
+【事务处理】
+  COMMIT WORK.         异步更新。
+  COMMIT WORK AND WAIT.同步跟新，执行结果可通过sy-subrc判断是否提交成功。
+  ROLLBACK WORK.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;message-se91&#34;&gt;MESSAGE ：SE91&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;1&amp;gt; 消息类的操作
+  使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。
+  Message Short Text字段为类描述，可以定义输入参数&amp;amp;，如&amp;quot;1&amp;amp;2&amp;amp;3&amp;amp;&amp;quot;表示有三个输入参数。
+  Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功。
+  引用语法为: Message W000(00)，表示调用&#39;00&#39;类的&#39;000&#39; Message类型为警告。
+    EX: Message W001(ZTEST) WITH &#39;P1&#39; &#39;P2&#39; &#39;P3&#39;.
+1. 消息ID MESSAGE e001(00) WITH &#39;12345678&#39;. //利用定义的参数
+2. MESSAGE &#39;XXXXXXXXXX&#39; TYPE &#39;X&#39;.          //直接附加消息
+3. MESSAGE s001(00) WITH &#39;No data&#39; DISPLAY LIKE &#39;E&#39;.
+   EXIT.                                   //Screen 界面查询数据无，则返回原界面
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;alv常使用的bapi&#34;&gt;ALV常使用的BAPI&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;在ALV开发中有两个重要的对象：LAYOUT和FIELDCAT,它们同属于类型池SLIS。
+   LAYOUT主要用于设置ALV的输出格式，如输出字段的颜色、表格中的线条等；
+   FIELDCAT主要用于ALV结构定义，包括具体字段的名称、类型、格式等属性.
+常使用的开发类:
+   &amp;lt;1&amp;gt; REUSE_ALV_FIENDCATALOG_MERGE：根据内表结构返回FIELDCAT字段结构信息.
+   &amp;lt;2&amp;gt; REUSE_ALV_GRID_DISPLAY/REUSE_ALV_LIST_DISPLAY：输出ALV报表，定义其为GRID模式还是LIST模式。参数结构一样。
+   &amp;lt;3&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;alv-报表的表头字段显示设置&#34;&gt;ALV 报表的表头字段显示设置&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;call function &#39;LVC_FIELDCATALOG_MERGE&#39;
+exporting
+  I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE
+  I_structure_name       = &#39;ZALV_FEED&#39; &amp;quot;ALV需要显示的字段结构
+  I_CLIENT_NEVER_DISPLAY = &#39;X&#39;
+  I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER
+  I_INTERNAL_TABNAME     = I_INTERNAL_TABNAME
+    changing
+      ct_fieldcat         = lt_fieldcat  &amp;quot;对应ALV显示的字段结构
+exceptions
+  inconsistent_interface = 1
+  program_error          = 2.
+ 可以通过loop对相应的ALV字段描述进行自定义设置
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;layout-字段&#34;&gt;Layout 字段&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;DATA wa_alv_field TYPE SLIS_LAYOUT_ALV.
+LAYOUT主要用于设置ALV的输出格式，如输出字段的颜色、表格中的线条等；
+  0.COLTAB_fieldname type slis_fieldname: 设置单元格颜色
+  1.EDIT：设置ALV是否为可编辑模式。
+  2.COLWIDTH_OPTIMIZE：将ALV字段宽度设置为最优化，按实际输出内容宽度自动匹配。
+  3.NO_VLINE：输出ALV表格不显示垂直格式。
+  4.NO_ULINE_HS：输出ALV表格不显示水平格线。
+  5.INFO_FIELDNAME：设置颜色属性。
+  6.KEY_HOTSPOT：设置关键字段热点。
+  7.NO_COLNAME：是否显示字段名。
+  8.ZEBRA：使ALV表格按斑马线间隔条纹方式显示，以便显示效果更有美观。
+  9.BOX_FIELDNAME：设置ALV表格是否显示选择按钮字段。
+  10.f2code  like   sy-ucomn. gs_layout-f2code=&#39;&amp;amp;ETA&#39;[双击时触发的funcode]
+  11.INFO_FIELDNAME：用于设置ALV输出报表每一行的颜色，其参数为输出内表的字段名称，
+    要注意的是使用该属性需要同时在内表中定义一个与该参数所定义字段名相同的字段，例如：
+  LAYOUT-INFO_FIELDNAME = &#39;COLOR&#39;.倘若其数据输出内表名为LT_OUT,则需要在该内表增加一字段
+  “COLOR”，并为其内表每行复制，颜色参数范围C000~C999，例如：LT_OUT-COLOR = &#39;C012&#39;.
+
+【颜色】
+  行颜色:gs_layout-&amp;lt;info_fieldname&amp;gt; = &#39;COLOR&#39;
+  列颜色:gt_fieldcat-emphasize = &#39;C510&#39;.[1：C固定，2：颜色值0~7,3：高亮0、1(X)，
+                                         4：颜色反转，0、1]
+  单元格颜色:gs_layout-&amp;lt;coltab_fieldname&amp;gt;=&#39;COLORTABLE&#39;.
+【可编辑】
+  整体可编辑：gs_layout-edit = &#39;X&#39; 
+  某列可编辑：gt_fieldcat-edit = &#39;X&#39;
+  单元格可编辑：
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;9-fieldcatalog-字段&#34;&gt;9.Fieldcatalog 字段&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;FIELDCAT主要用于ALV结构定义，包括具体字段的名称、类型、格式等属性.
+  DATA lt_alv_fieldcat TYPE SLIS_T_FIELDCAT_ALV WITH HEADER LINE.
+　　1.KEY：将定义字段设置为KEY值。
+    2.ICON：将定义字段以ICON的形式显示。
+    3.CHECKBOX：将定义字段以CHECKBOX的形式显示。
+    4.JUST：定义字段对齐方式(R)RIGHT、(L)LEFT、(C)CENTER。
+    5.IZERO：将定义字段以前导&amp;quot;0&amp;quot;的形式显示。
+    6.NO_SIGN：将定义字段符号设置为不显示。
+    7.NO_ZERO：定义字段是否显示。
+    8.EMPHASIZE：设置字段的颜色。
+    9.DO_SUM：对字段进行汇总。
+    10.SELTEXT_L/M/S：设置字段名称描述长/中/短。
+    11.DDICTXT：设置字段显示字符串。
+    12.HOTSPOT：设置字段是否有热点(热点字段显示有下划线)。
+    13.NO_OUT: 隐藏不需要的字段(NO_OUT = &#39;X&#39;)。
+    14.EDIT(1) type c: 是否可编辑
+    15:COL_POS like sy-cucol: 列输出位置
+    16:FIX_COLUMN(1) type c: 列固定不滚动，颜色不会发生变化
+    17:convexit : 设置转换规则，对应于Domain中的转换规则    
+
+fieldname  type slis_fieldname    (列显示的设置)
+cfieldname type slis_fieldname  (金额字段所参照的货币单位字段名)
+ctabname   type slis_tabname      (金额字段所参照的货币单位表名)
+qfieldname type slis_fieldname  (数量字段所参照的货币单位字段名)
+qtabname   type slis_tabname      (数量字段所参照的货币单位表名)
+
+自定义FIELDCAT字段结构：
+  &amp;quot;定义宏来设置FIELDAT属性 &amp;amp;1 &amp;amp;2 &amp;amp;3分别为参数
+    DEFINE fieldcatset.
+      lt_alv_fieldcat-REF_TABNAME =&#39;LSPFLI&#39;.
+      lt_alv_fieldcat-FIELDNAME = &amp;amp;1.
+      lt_alv_fieldcat-SELTEXT_L = &amp;amp;2.
+      lt_alv_fieldcat-COL_POS = &amp;amp;3.
+      APPEND lt_alv_fieldcat.
+    END-OF-DEFINITION.
+    fieldcatset &#39;CARRID&#39; &#39;航线承运人&#39; SY-TABIX.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;10-单元格中的数据被修改后-将alv单元格中的数据立即刷新到abap对应的内表中&#34;&gt;10.单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;方法一：通过对REUSE_ALV_GRID_DISPLAY函数参数i_grid_settings-edt_cll_cb进行设置：
+i_grid_settings-edt_cll_cb  = &#39;X&#39; .
+CALL FUNCTION &#39;REUSE_ALV_GRID_DISPLAY&#39;
+EXPORTING i_grid_settings = i_grid_settings
+方法二：通过函数参数I_CALLBACK_USER_COMMAND指定的回调Form的参数slis_selfield进行设置：
+FORM user_command USING ucomm LIKE sy-ucommselfield selfield TYPE slis_selfield.
+    selfield-refresh = &#39;X&#39;.
+  CASE ucomm.
+    WHEN &#39;UPDATE&#39;.
+    PERFORM frm_update.
+  ENDCASE.
+ENDFORM. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;11-自定义按钮使用后刷新alv&#34;&gt;11 自定义按钮使用后刷新ALV&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt; form frm_user_command using r_ucomm     like sy-ucomm
+                        rs_selfield type slis_selfield.
+  case r_ucomm.
+   when &#39;PROFIT&#39;.
+      perform frm_cycle_count_profit.
+   when others.
+  endcase.
+     rs_selfield-refresh = &#39;X&#39;.
+ endform.                    &amp;quot;frm_user_command
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;12-设置工具导航栏-gui-status&#34;&gt;12 设置工具导航栏 GUI Status&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;GUI Status参数设置共包括3个部分：
+  1.菜单栏(Menu Bar)：用于设置主菜单选项。
+  2.应用工具条(Application ToolBar)：用于设置应用工具栏按钮，包括按钮名称、按钮描述、及按钮所对的ICON图标。
+  3.功能键(Function Key)：为按钮分配功能键代码，包括系统标题按钮(如返回、退出、关闭等)及通过Application ToolBar所定义的客制化按钮。
+  4. 对于定义的按钮，我们可以通过系统变量SY-UCOMM来获取它的功能代码。
+    AT USER-COMMAND.   &amp;quot;当单击某个按钮时，触发该事件
+      CASE sy-ucomm.  &amp;quot;获取所操作按钮的功能代码(FUNCTION Code)
+  5.调用显示，应用于START-OF-SELECTION事件
+     SET PF-STATUS &amp;lt;STATUS_NAME&amp;gt;.
+     不显示某些按钮：SET PF-STATUS &amp;lt;STATUS_NAME&amp;gt; EXCLUDING &amp;lt;extab&amp;gt;.
+ 6.在ALV函数中使用
+  call function &#39;REUSE_ALV_GRID_DISPLAY_LVC&#39;
+    exporting
+      i_callback_program       = sy-repid 
+      i_callback_pf_status_set = &#39;FRM_SET_STATUS&#39;
+      i_callback_user_command  = &#39;FRM_USER_COMMAND&#39;
+      is_layout_lvc            = lw_layout
+      it_fieldcat_lvc          = gt_fieldcat
+      i_default                = &#39;X&#39;
+      i_save                   = &#39;X&#39;
+   tables
+      t_outtab                 = gt_alv_pi_diffs
+   exceptions
+      program_error            = 1.
+
+  form frm_set_status using extab type slis_t_extab.
+     data: ls_slis_extab type slis_extab.
+      SET PF-STATUS &amp;lt;STATUS_NAME&amp;gt;.
+  endform.                    &amp;quot;frm_set_status
+GUI TITLE设置：
+    GUI TITLE 用于定义Report标题栏内容.
+  定义：
+    Create--&amp;gt;GUI Titles：可以输入&amp;amp;符号作为Title,当程序运行时对其填充动态文本。
+  在程序中调用：
+    SET TITLEBAR &#39;TITLE_BAR&#39; WITH SY-DATUM &#39;IFENER&#39; &#39;BAR TEST&#39;.&amp;quot;设置TITLEBAR，并赋参数列表
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;13-oo-alv&#34;&gt;13. OO ALV&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;相关类：
+  CL_GUI_CUSTOM_CONTAINER   ：用户自己定义控件区域
+  CL_GUI_DOCKING_CONTAINER  : 动态创建容器，不需要在创建时绑定到预先绘制好的自定义控件中
+  CL_GUI_SPLITTER_CONTAINER ：可在同一屏幕创建多个ALV显示
+  CL_GUI_ALV_GRID           ：ALV控制类
+
+  DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, &amp;quot;控制容器类
+         obj_wcl_alv TYPE REF TO cl_gui_alv_grid . &amp;quot;ALV控制类
+  DATA GS_LAYOUT1 TYPE LVC_S_LAYO. &amp;quot;布局结构
+  DATA GT_FIELDCAT TYPE LVC_T_FCAT. &amp;quot;存放字段目录的内表
+  DATA GS_FIELDCAT TYPE LVC_S_FCAT.
+  DATA lt_exclude TYPE ui_functions. &amp;quot;alv不需要的图标按钮
+1、控制区域、容器、Grid关系
+   先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER
+ 容器实例,最后以此容器实例来创建 CL_GUI_ALV_GRID实例。
+    DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, &amp;quot;控制容器类
+           obj_wcl_alv TYPE REF TO cl_gui_alv_grid . &amp;quot;ALV控制类
+    IF obj_wcl_alv IS INITIAL.
+       CREATE OBJECT obj_wcl_container
+          EXPORTING
+             container_name  =  &#39;OBJ_WCL_CONTAINER&#39;.
+       CREATE OBJECT obj_wcl_alv
+          EXPORTING
+             i_parent  = obj_wcl_container.
+2、给ALV对象注册事件
+  (1) HANDLE_TOOLBAR:这个事件用于给ALV加自定义工具条按钮。
+  (2) HANDLE_CLICK:用于给ALV点击其中一行后处理代码段。
+  (3) HANDLE_COMMAND:事件用于接收用户按了自定义按钮后，触发的代码段。
+  (4) HANDLE_DOUBLE_CLICK：双击事件
+  (5) 
+  事件的使用：
+    &amp;lt;1&amp;gt; 定义事件方法
+    &amp;lt;2&amp;gt; 指定事件的执行方法代码
+    &amp;lt;3&amp;gt; 事件变量实例化
+    &amp;lt;4&amp;gt; 把事件指定到ALV控制中(注册事件)
+
+    CREATE OBJECT event_receiver.
+    SET HANDLER event_receiver -&amp;gt; handle_double_click FOR obj_wcl_alv.
+3、CL_GUI_ALV_GRID重要方法
+  *-----显示ALV 
+     CALL METHOD obj_wcl_alv-&amp;gt;set_table_for_first_display 
+        EXPORTING 
+           is_variant                    = ls_variant   :指定布局变式
+           is_layout                     = ls_layout 
+           i_save                        = &#39;A&#39;          :保存表格布局
+           it_toolbar_excluding          = lt_exclude 
+        CHANGING 
+           it_outtab                     = gt_list[]    :需要显示的内表数据
+           it_fieldcatalog               = lt_fieldcat  :结构字段
+        EXCEPTIONS 
+           invalid_parameter_combination = 1 
+           program_error                 = 2 
+           too_many_lines                = 3 
+           OTHERS                        = 4.
+
+   ENDFORM.                    &amp;quot; FRM_ALV_DISPLAY
+
+  XXX -&amp;gt; REFRESH_TABLE_DISPLAY.
+    IS_STABLE : 刷新的稳定性，就是滚动条保持不动
+    I_SOFT_REFRESH:  软刷新，临时给ALV创建的合计，排序，等保持不变
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;14-前导零问题&#34;&gt;14.前导零问题&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;加上p_in的前导零
+  FORM add_zero  CHANGING p_in.
+CALL FUNCTION &#39;CONVERSION_EXIT_ALPHA_INPUT&#39;
+  EXPORTING
+    input  = p_in
+    IMPORTING
+      output = p_in.
+ ENDFORM.
+去除p_out的前导零
+  FORM del_zero CHANGING p_out.
+    CALL FUNCTION &#39;CONVERSION_EXIT_ALPHA_OUTPUT&#39;
+    EXPORTING
+      input  = p_out
+    IMPORTING
+     output = p_out.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;15-hash-table-sort-table-standy-table&#34;&gt;15.Hash table, sort table, standy table&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;   对于排序内表，不要使用append，append lines附加数据，使用insert、insert lines向
+排序内表中插入数据
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;16-search-help-的创建&#34;&gt;16.search help 的创建&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;PARAMETERS p_cur TYPE XXX VALUE CHECK .
+PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
+在屏幕的 ON VALUE-REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
+  F4IF_ FIELD _VALUE_REQUEST ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定 
+     Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
+  F4IF_ INT_TABLE _VALUE_REQUEST : 在程序运行时， 将某个内表动态的用作 Search help 的
+     数据来源,即使用该函数可以将某个内表转换为 Search help ，可实现联动效果
+  TR_F4_HELP ： 简单实现 Search Help ，数据来源于内表。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;17-sql-语句的执行顺序&#34;&gt;17. SQL 语句的执行顺序&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;书写顺序：SELECT[DISTINCT]--&amp;gt;FROM--&amp;gt;WHERE--&amp;gt;GROUP BY--&amp;gt;HAVING--&amp;gt;UNION--&amp;gt;ORDER BY
+其执行顺序为：FROM--&amp;gt;WHERE--&amp;gt;GROUP BY--&amp;gt;HAVING--&amp;gt;SELECT--&amp;gt;DISTINCT--&amp;gt;UNION-&amp;gt;ORDER BY
+1、FROM 才是 SQL 语句执行的第一步，并非 SELECT 
+2、SELECT 是在大部分语句执行了之后才执行的，严格的说是在 FROM 和 GROUP BY 之后执行的。
+3、无论在语法上还是在执行顺序上， UNION 总是排在在 ORDER BY 之前。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;open-sql&#34;&gt;Open SQL&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;focus&#34;&gt;Focus&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;1. 多表的结合的查询，首先进行各自的关键字查询，然后进行表与表转换可以提升效率
+2. 表相应字段非关键字时，寻找有该关键字的相对应的关联表进行查询并合并表数据
+3. binary search 和 sort 进行使用时注意sort的关键字与binary search 保持统一
+4. MODIFY itab1 INDEX sy-tabix.进行修改时最好定义变量记录sy-tabix.
+5. inner join 和 left outer join 的连接条件最好都是关键字.
+6. 双层loop循环时，第二个内部表定义为SORTED TABLE会大大的提高处理速度
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>报表开发(二)</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable2/</link>
+      <pubDate>Mon, 03 Sep 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable2/</guid>
+      <description>
+
+&lt;h2 id=&#34;执行程序的使用范围-报表事件&#34;&gt;执行程序的使用范围，报表事件&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;LOAD-OF-PROGRAM.
+INITIALIZATION.          （Before display the selection screen）
+  AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
+  AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
+AT SELECTION-SCREEN. //After enter the option data check
+   PERFORM check_input.
+START-OF-SELECTION.//Begin the main programer
+  xxxx
+END-OF-SELECTION.
+Interactive Eventrs. (User for interactive reporting)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;报表程序大体逻辑结构&#34;&gt;报表程序大体逻辑结构&lt;/h2&gt;
+
+&lt;p&gt;​   &lt;strong&gt;抬  头:&lt;/strong&gt; 报表的主要信息(抬头信息)&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;行项目:&lt;/strong&gt; 查询出的每行记录信息&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;明  细:&lt;/strong&gt; 每个行项目出关键字外其他明细内容&lt;/p&gt;
+
+&lt;h2 id=&#34;字段符号&#34;&gt;字段符号&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt; FIELD-SYMBOLS &lt;FS&gt; LIKE structure.&lt;/p&gt;
+
+&lt;p&gt;​    &lt;1&gt; FS必须和某个变量，结构或者内表绑定后才能使用，这点和C语言里的指针
+​     （在ABAP里最接近指针的是TYPE REF TO）不同，在使用FS前必须分配给某个变量，不然会发生
+​      FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，
+​      FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。
+​    &lt;2&gt; ASSIGN structure TO &lt;fs&gt;:将某个内存区域分配给字段符号，这样字段符号就代表了该内存
+​      区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
+  ASSIGN &lt;Val&gt; TO &lt;fs&gt;: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。
+  UNASSIGN: 该语句是初始化&lt;FS&gt;字段符号，执行后字段符号将不再引用内存区域，
+​            &lt;fs&gt; is assigned返回假。
+  CLEAR: 与UNASSIGN不同的是，只有一个作用就是初始化它所指向的内存区域，而不是解除分配。
+3.2 LOOP内表INTO结构（工作区）和LOOP内表ASSIGNING&amp;lt;结构&amp;gt;的比较
+​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
+  MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会
+  影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程
+  修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。
+3.3 READ TABLE内表
+3.4 ASSIGN隐式强转
+TYPES: BEGIN OF t_date,
+​    year(4) TYPE  n,
+​        month(2) TYPE n,
+​    day(2) TYPE n,
+  END OF t_date.
+FIELD-SYMBOLS &lt;fs&gt; TYPE t_date.&amp;ldquo;将&lt;fs&gt;定义成了具体限定类型
+ASSIGN sy-datum TO &lt;fs&gt; CASTING. &amp;ldquo;后面没有指定具体类型，所以使用定义时的类型进行隐式转换
+3.5 ASSIGN显示强转
+  DATA txt(8) TYPE c VALUE &amp;lsquo;19980606&amp;rsquo;.
+  FIELD-SYMBOLS &lt;fs&gt;.
+  ASSIGN txt TO &lt;fs&gt; CASTING TYPE d.&amp;ldquo;由于定义时未指定具体的类型，所以这里需要显示强转
+3.6 动态引用，通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。
+  field-symbols:&lt;l_shortageqty&gt; type mng01.
+  loop at &lt;dyn_table&gt; assigning &lt;dyn_wa&gt;.
+​    assign component &amp;lsquo;SHORTAGEQTY&amp;rsquo; of structure &lt;dyn_wa&gt; to &lt;l_shortageqty&gt;.
+​    &lt;l_shortageqty&gt; = &lt;l_shortageqty&gt; - &lt;l_fvalue&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;选择屏幕&#34;&gt;选择屏幕&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/foxting/archive/2012/07/01/2572243.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;引用链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;1&amp;gt;SELECT-SCREEN 框架结构
+  SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。
+  定义屏幕对象：
+    SELECTION-SCREEN BEGIN OF SCREEN src.
+      .......
+    SELECTION-SCREEN END OF SCREEN src.
+    该语法用于定义一个INCLUDE SUREEN，可通过CALL方法在Report程序中引用。
+   CALL SCREEN &amp;lt;num&amp;gt; STARTING AT [1 2] ENDING AT [1 2].
+   参数可以将所定义屏幕窗体作为一个新的对话框窗体来引用，并指定期创建的具体大小及位置。
+  注意：当从一个主屏幕中来调用其程序中的另一窗体时，必须使用CALL SELECTION-SCREEN方法.
+  定义屏幕块：
+    SELECTION-SCREEN BEGIN OF BLOCK block.
+      ......
+    SELECTION-SCREEN END OF BLOCK.
+    该语法在屏幕中定义一个BLOCK，其扩展语法包括：
+      ...WITH FRAME：创建一个框架
+      ...TITLE title：创建一个带标题的框架。
+      ...NO INTERVALS：所创建的框架中限制SELECT只有一个输入项。 
+ 其他元素：
+  SELECTION-SCREEN INCLUDE BLOCKS &amp;lt;block1&amp;gt;.  调用已存在屏幕元素
+  SELECTION-SCREEN ULINE.  划出横线，必须用在BLOCK中才能生效。
+  SELECTION-SCREEN SKIP &amp;lt;n&amp;gt;.  在BLOCK中产生换行&amp;lt;n&amp;gt;。
+  SELECTION-SCREEN POSITION &amp;lt;pos&amp;gt;. 在BLOCK中产生空格。
+  SELECTION-SCREEN BEGIN OF LINE.
+    ......
+  SELECTION-SCREEN END OF LINE. 将所生成的屏幕元素控制在一行.
+&amp;lt;2&amp;gt;PARAMETERS 单值输入
+  PARAMETERS 参照数据字典具体字段或者自定义数据类型创建单值文本输入域以及单选/复选框等：
+  PARAMETERS: &amp;lt;P_1&amp;gt; LIKE &amp;lt;field&amp;gt;    &amp;quot;文本域
+            TYPE AS CHECKBOX.       &amp;quot;复选框
+            RADIOBUTTON GROUP GRP1, &amp;quot;单选域 
+            P2 RADIOBUTTON GROUP GRP1 DEFAULT &#39;X&#39;,  &amp;quot;默认选中 ”X“
+            P3 RADIOBUTTON GROUP GRP1. &amp;quot;GRP1单选组
+  默认值：
+    ...DEFAULT f:定义默认值。
+    ...TYPE type:参照某一类型对象定义PARAMETERS。
+    ...DECIMALS dec：定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)。 
+    ...LIKE g：參照某一字典对象定义PARAMETERS。
+    ...MEMORY ID pi：将PARAMETERS存储在SAP内存，参数名长度不能超过三位。
+    ...NO-DISPLAY：将PARAMETERS设置为隐藏，不会的屏幕上输出。
+    ...LOWER CASE：输入值中不允许输入小写字符，否则会自动转换为大写。
+    ...OBLIGATORY：限制该PARAMETERS为必填，否则会提示输入。
+    ...AS CHECKBOX：创建CHECKBOX对象。
+    ...RADIO BUTTON GROUP radi：创建（RADIO）单选框。
+    ...VISIBLE LENGTH vlen：定义显示长度。
+    ...USER-COMMAND ucom：为创建对象分配对象名，该值保存在内表中可供其它对象操作。
+    ...AS LISTBOX VISIBLE LENGTH vlen：创建一个下拉框，并指定长度。
+ 下拉框实现：
+  *定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标
+    PARAMETERS:P_LANG(20) AS LISTBOX VISIBLE LENGTH 22.
+  *该变量用于记录下拉列表数值是否初始化，否则每次屏幕初始化都会重新加载重复数据
+    DATA:INIT.
+    AT SELECTION-SCREEN OUTPUT.
+    PERFORM SETLIST.
+  *子程序用于加载下拉框的数据
+    FORM SETLIST.
+      TYPE-POOLS VRM. 
+      DATA MYVALUE TYPE VRM_VALUES WITH HEADER LINE.
+    *对内表加载值
+      MYVALUE-KEY = &#39;CHINESE&#39;. MYVALUE-TEXT = &#39;中国&#39;.    
+      APPEND MYVALUE.
+      MYVALUE-KEY = &#39;AMERICAN&#39;. MYVALUE-TEXT = &#39;美国&#39;.         
+      APPEND MYVALUE.
+      MYVALUE-KEY = &#39;ENGLISH&#39;. MYVALUE-TEXT = &#39;英国&#39;. 
+      APPEND MYVALUE.
+      MYVALUE-KEY = &#39;FRENCH&#39;. MYVALUE-TEXT = &#39;法国&#39;.   
+      APPEND MYVALUE.
+    IF INIT IS INITIAL.
+        CALL FUNCTION &#39;VRM_SET_VALUES&#39; &amp;quot;调用函数对下拉框对象传递数据
+          EXPORTING
+            ID = &#39;P_LANG&#39; &amp;quot;下拉框对象名
+            VALUES = MYVALUE[]  &amp;quot;下拉框中加载的数据
+         EXCEPTIONS
+           ID_ILLEGAL_NAME = 1
+           OTHERS = 2.
+    ENDIF.
+    INIT = &#39;X&#39;. &amp;quot;记录初始化状态
+  ENDFORM.
+&amp;lt;3&amp;gt; SELECT-OPTIONS 输入域
+  SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过8位，最大输入长度为18位：
+  SELECT-OPTIONS： &amp;lt;S_1&amp;gt; FOR &amp;lt;dbtab-ele&amp;gt;.... .
+  内表结构：
+    SIGN：I , E
+    OPTION: EQ,NE,CP（模糊查询）,NP,GE,LT,LE,GT
+    LOW : 范围较小值
+    HIGH: 范围较大值
+  默认值设定：
+    ...DEFAULT g:定义单一默认值。
+    ...DEFAULT g...OPTION  xxx ... SIGN s:定义含判断条件的单一默认值。
+    ...DEFAULT g TO h:定义默认值的取值范围。
+    ...DEFAULT g TO h ... OPTION op ... SIGN s:设置默认值的聚会范围及判断条件。
+    ...MEMORY ID pid:将SELECT-OPTIONS分配参数名并存储在SAP内存，参数名长度不能超过三位。
+    ...NO-DISPLAY:将SELECT-OPTIONS设置为隐藏，不会在屏幕上输出。
+    ...LOWER CASE:输入值中不允许输入小写字符，否则会自动转换为大写。
+    ...OBLIGATORY:限制该SELECT-OPTIONS为必须输入的项目，执行中系统会提示。
+    ...NO-EXTENSION:限制该SELECT-OPTIONS只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏。
+    ...VISIBLE LENGTH vlen:定义所显示数据的长度。
+ &amp;lt;4&amp;gt; GOTO--&amp;gt;Text Elements   (TCode:SE32)
+    前台界面显示的为PARAMETERS和SELECTION-OPTION定义的字段，不便于理解需。
+    提供某一字段的完整名称以方便用户理解。
+    GOTO --&amp;gt;Translation：可进行多语言显示的维护
+  包含字段：
+    Selection Texts：定义已存在并且激活的屏幕元素的名称。
+    Text Symbols：实现自定义文本及符号,该文本使用对象为SELECTION-SCREEN，以三位字符表示(TEXT-001)。
+         图标符号:可以在Text Symbols通过@符号来进行引用，如&amp;quot;@01@&amp;quot;,可通过程序RSTXICON查看所有的图标
+ &amp;lt;5&amp;gt; 屏幕事件处理
+   INITIALIZATION. &amp;quot;程序初始化事件，該事件在程序屏幕未顯示之前執行。對程序設置值及屏幕元素進行初始化設置.
+   START-OF-SELECTION事件：该事件在单击按钮后触发。
+   END-OF-SELECTION事件：该事件应用于所有数据处理完成，即START-OF-SELECTION相关执行事件执行完成。
+    但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
+   AT SELECTION-SCREEN：选择屏幕显示之后，用来响应回车，F8，F1，F4等事件。
+    ...ON &amp;lt;field&amp;gt;：检查具体输入字段(SELECTION-OPTIONS或PARAMETERS)是否完整或正确。
+    ...ON VALUE-REQUEST FOR &amp;lt;field low/high&amp;gt;：SELECT-OPTIONS按选择帮助&amp;lt;F4&amp;gt;键时触发该事件。
+    ...ON HELP-REQUEST FOR &amp;lt;field low/high&amp;gt;：SELECTION-OPTIONS按选择帮助&amp;lt;F1&amp;gt;键时键发该事件。
+    ...ON RADIOBUTTON GROUP &amp;lt;radio&amp;gt;：单选按钮事件，必须进行整体输入检查。
+    ...ON BLOCK &amp;lt;block&amp;gt;：框架的触发事件（控制框架中的屏幕元素值的输入）。
+    ...OUTPUT：用于屏幕输出时的各屏幕元素值的管控（PBO处理，在选择屏幕显示之前就被调用；响应屏幕上的事件，用户回车或F8后也被调用；通过modify screen可以修改选择屏幕字段）。
+    ...ON EXIT-COMMAND：用于&amp;quot;BACK&amp;quot;,&amp;quot;CANCEL&amp;quot;,&amp;quot;EXIT&amp;quot;等事件。
+ &amp;lt;6&amp;gt;屏幕内创建按钮
+  SELECTION-SCREEN PUSHBUTTON [/n] &amp;lt;pos(len)&amp;gt; &amp;lt;name&amp;gt; USER-COMMAND &amp;lt;ucom&amp;gt; [MODIF ID &amp;lt;key&amp;gt;].
+    [/n] :按钮初始时距离屏幕左边的位置
+    &amp;lt;pos(len)&amp;gt;：PUSHBUTTON按钮在屏幕生成的位置与长度。
+    &amp;lt;name&amp;gt;：PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。
+    &amp;lt;ucom&amp;gt;：必须指定的字符代码，当用户在选择屏幕上触发按钮时，&amp;lt;ucom&amp;gt;被输入到词典对象字段：
+            SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。
+  实例：  
+   TABLES SSCRFIELDS.&amp;quot;引用词典对象
+   INCLUDE:&amp;lt;icon&amp;gt;.  &amp;quot;按钮中加入图标必须调用该类型库,图标请参考T-CODE：ICON
+   SELECTION-SCREEN PUSHBUTTON /1(20) PUBU1 USER-COMMAND ABCD.
+   SELECTION-SCREEN SKIP.&amp;quot;换行
+   SELECTION-SCREEN PUSHBUTTON /10(25) PUBU2 USER-COMMAND ABCE. &amp;quot;位置从10开始
+   AT SELECTION-SCREEN OUTPUT.
+     MOVE &#39;CALL NEXT SCREEN&#39; TO PUBU1. &amp;quot;给PUBU1按钮赋值描述
+     WRITE ICON_OKAY AS ICON TO PUBU2. &amp;quot;给PUBU2按钮添加图标，并且在给按钮赋值之前，否则将会把文字替换。
+     CONCATENATE PUBU2 &#39;My Second Button&#39; INTO PUBU2 SEPARATED BY SPACE. &amp;quot;给第二个按钮添加赋值描述
+   AT SELECTION-SCREEN.
+    IF SSCRFIELDS-UCOMM = &#39;ABCD&#39;.
+        PERFORM xxxx.  &amp;quot;调用子程序
+    ENDIF.
+ &amp;lt;7&amp;gt; 在工具栏上新增一个功能按钮
+    SELECTION-SCREEN FUNCTION KEY n.
+      该按钮的定义保存在系统结构体SSCRFIELDS中，n为一个整数序数最大至5。
+    当n等于1时，其按钮描述保存在字段SSCRFIELDS-FUNCTXT_01中，其按钮对象命名为
+    &amp;quot;FC01&amp;quot;,保存在字段SSCRFIELDS-UCOMM中。
+  实例：
+     TYPE-POOLS ICON. &amp;quot;Program Icon Library
+     TABLES SSCRFIELDS.
+     DATA functxt TYPE SMP_DYNTXT. &amp;quot;SMP_DYNTXT(菜单制作器:动态文本的程序接口)
+     PARAMETERS: p_carrid TYPE s_carr_id,
+                 p_cityfr TYPE s_from_cit.
+     SELECTION-SCREEN: FUNCTION KEY 1,
+                       FUNCTION KEY 2.
+     INITIALIZATION. &amp;quot;屏幕初始化
+       functxt-icon_id   = icon_ws_plane.  &amp;quot;文本字段中的图标（替换显示，别名） 
+       functxt-quickinfo = &#39;Preselected Carrier&#39;.  &amp;quot;菜单制作器：信息文本 (4.0)，滑鼠移去过去显示的信息TIP
+       functxt-icon_text = &#39;LH&#39;.  &amp;quot;菜单制作器：图标文本 (4.0)，菜单名称
+       sscrfields-functxt_01 = functxt.
+       functxt-icon_text = &#39;UA&#39;.
+       sscrfields-functxt_02 = functxt.
+     AT SELECTION-SCREEN.
+       CASE SSCRFIELDS-UCOMM.
+          WHEN &#39;FC01&#39;.
+            p_carrid = &#39;LH&#39;.
+            p_cityfr = &#39;Frankfurt&#39;.
+          WHEN &#39;FC02&#39;.
+            p_carrid = &#39;UA&#39;.
+            p_cityfr = &#39;Chicago&#39;.
+       ENDCASE.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;字段符号-filed-symbols&#34;&gt;字段符号：filed-symbols&lt;/h2&gt;
+
+&lt;h2 id=&#34;内表操作&#34;&gt;内表操作&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;【增删改】
+  &amp;lt;1&amp;gt; Loop AT循环(sy-tabix:索引号)
+     LOOP AT itab {INTO wa}|{ASSIGNING &amp;lt;fs&amp;gt; [CASTING]} | {TRANSPORTING NO FILDS} 
+        [[USING KEY key_name] [FROM idx1] [TO idx2] [WHERE log_exp|(cond_syntax)]].
+     ENDLOOP.
+  &amp;lt;2&amp;gt; INSERT &amp;lt;wa&amp;gt; INTO TABLE &amp;lt;itab&amp;gt;.[单条]
+      INSERT &amp;lt;wa&amp;gt; INTO &amp;lt;itab&amp;gt; INDEX &amp;lt;idx&amp;gt;.[索引]
+      INSERT LINES OF &amp;lt;itab&amp;gt; [FROM &amp;lt;n1&amp;gt;] [TO &amp;lt;n2&amp;gt;] INTO TABLE &amp;lt;itab&amp;gt;.[批量插入]
+      APPEND &amp;lt;wa&amp;gt; TO &amp;lt;itab&amp;gt;.
+      APPEND LINES OF &amp;lt;itab1&amp;gt; [FROM&amp;lt;n1&amp;gt;] [TO&amp;lt;n2&amp;gt;] TO &amp;lt;itab2&amp;gt;.
+  &amp;lt;3&amp;gt; READ TABLE &amp;lt;itab&amp;gt; WITH KEY {&amp;lt;k1&amp;gt;=&amp;lt;f1&amp;gt;...[BINARY SEARCH]} INTO &amp;lt;wa&amp;gt;}
+      [COMPARING &amp;lt;f1&amp;gt;&amp;lt;f2&amp;gt;...|ALL FIELDS]  [TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt; ...|ALL FIELDS
+                                          |NO FIELDS] | ASSIGNING &amp;lt;fs&amp;gt;.
+   COMPARING:根据关键字读取指定的单行与工作区&amp;lt;wa&amp;gt;中的相应组件进行比较。内容相同SY-SUBRC=0
+  &amp;lt;4&amp;gt; MODIFY itab1.
+      MODIFY itab INDEX idx FROM &amp;lt;wa&amp;gt; [TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt; ...].
+      MODIFY TABLE &amp;lt;itab&amp;gt; FROM &amp;lt;wa&amp;gt; [TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt;...].[修改单条]
+      MODIFY &amp;lt;itab&amp;gt; FROM &amp;lt;wa&amp;gt; TRANSPORTING &amp;lt;f1&amp;gt; &amp;lt;f2&amp;gt; ... WHERE &amp;lt;cond&amp;gt;.[修改多条]
+
+      UPDATE dbtab SET f1=g1 ... fi=gi WHERE &amp;lt;con&amp;gt;.
+  &amp;lt;5&amp;gt; DELETE TABLE &amp;lt;itab&amp;gt; FROM &amp;lt;wa&amp;gt; [USING KEY key_name].[删除单条]
+      DELETE TABLE &amp;lt;itab&amp;gt; WITH TABLE KEY &amp;lt;k1&amp;gt;=&amp;lt;f1&amp;gt;.. .
+      DELETE &amp;lt;itab&amp;gt; WHERE &amp;lt;cond&amp;gt;.[删除多行]
+      DELETE &amp;lt;itab&amp;gt; [INDEX &amp;lt;idx&amp;gt;].
+      删除重复
+  (1)SORT record_tab. //首先进行排序处理
+      (2)DELETE ADJACENT DUPLICATES ENTRIES FROM itab [USING KEY key_name] 
+                                         [COMPARING K1 K2...] [ALL FIELDS].//删除
+  &amp;lt;6&amp;gt; COLLECT &amp;lt;wa&amp;gt; INTO &amp;lt;itab&amp;gt;.
+  &amp;lt;7&amp;gt; 第二索引
+     UNIQUE KEY.唯一升序第二索引
+     NON-UNIQUE KEY.非唯一升序第二索引
+     通过第二索引在无法使用主键时，可以加快大量处理数据的速度。
+【查】
+  SELECT SINGLE ... INTO [CORRESPONDING FIELDS OF] &amp;lt;wa&amp;gt; WHERE ...
+  SELECT ... INTO|APPENDING CORRESPONDING FIELDS OF TABLE &amp;lt;itab&amp;gt;...
+  RANG条件内.表：
+    RANGES sel FOR obj [OCCURS n].
+    SELECT-OPTIONS selcrit FOR {dobj|(name)}.
+  FOR ALLENTRIES:
+    1:会自动删除重复行   2:WHERE后还有其他条件，会忽略后续条件
+  表连接：
+    INNER JOIN、LEFT OUTER JOIN.
+【SAP锁】
+  通用数据库表锁函数：ENQUEUE_E_TABLE、DEQUEUE_E_TABLE、DEQUEUE_ALL
+  特定数据库表函数：ENQUEUE_&amp;lt;LOCK OBJ&amp;gt;、DEQUEUE_&amp;lt;LOCK OBJ&amp;gt;
+  自定义锁对象：EZ_/EY_命名
+  S:共享锁     E:可重入的排他锁     X:排他锁
+  1、在SE11里创建锁对象，自定义的锁对象都必须以EZ或者EY开头来命名。一个锁对象里只包含一个
+     PRIMARY TABLE，可以包含若干个SECONDARY TABLE，锁的模式有三种：E，S，X。
+   模式E：当更改数据的时候设置为此模式。   (Shared lock, read lock) 【一般使用E】
+   模式S：本身不需更改数据，但是希望显示的数据不被别人更改 (Exclusive lock, write lock)
+   模式X：和E类似，但是不允许累加，完全独占。 
+          (Exclusive lock, extended write lock, cannot be cumulated)
+  2、上锁的一般步骤
+      先上锁，上锁成功之后，从数据库取数据，然后更改数据，接着更新到数据库，最后解锁。
+   按照这个步骤，才能保证更改完全运行在锁的保护机制下。
+  3、上锁与解锁
+   ENQUEUE_&amp;lt;lock object的名字&amp;gt; 对象 EZZSOPR0032 要求的锁定
+   DEQUEUE_&amp;lt;lock object的名字&amp;gt; 释放对象 EZZSOPR0032 的锁定
+     有些情况下，程序中设置成功的逻辑锁会隐式的自己解锁。比如说程序结束发生的时候
+  （MESSAGE TYPE为A或者X的时候），使用语句LEAVE PROGRAM，LEAVE TO TRANSACTION，或者在
+   命令行输入/n回车以后。使用DEQUEUE FUNCTION MODULE来解锁的时候，不会产生EXCEPTION。
+   要解开你在程序中创建的所有的逻辑锁，可以用FM：DEQUEUE_ALL.
+【事务处理】
+  COMMIT WORK.         异步更新。
+  COMMIT WORK AND WAIT.同步跟新，执行结果可通过sy-subrc判断是否提交成功。
+  ROLLBACK WORK.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;message-se91&#34;&gt;MESSAGE ：SE91&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;1&amp;gt; 消息类的操作
+  使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。
+  Message Short Text字段为类描述，可以定义输入参数&amp;amp;，如&amp;quot;1&amp;amp;2&amp;amp;3&amp;amp;&amp;quot;表示有三个输入参数。
+  Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功。
+  引用语法为: Message W000(00)，表示调用&#39;00&#39;类的&#39;000&#39; Message类型为警告。
+    EX: Message W001(ZTEST) WITH &#39;P1&#39; &#39;P2&#39; &#39;P3&#39;.
+1. 消息ID MESSAGE e001(00) WITH &#39;12345678&#39;. //利用定义的参数
+2. MESSAGE &#39;XXXXXXXXXX&#39; TYPE &#39;X&#39;.          //直接附加消息
+3. MESSAGE s001(00) WITH &#39;No data&#39; DISPLAY LIKE &#39;E&#39;.
+   EXIT.                                   //Screen 界面查询数据无，则返回原界面
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;alv常使用的bapi&#34;&gt;ALV常使用的BAPI&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;在ALV开发中有两个重要的对象：LAYOUT和FIELDCAT,它们同属于类型池SLIS。
+   LAYOUT主要用于设置ALV的输出格式，如输出字段的颜色、表格中的线条等；
+   FIELDCAT主要用于ALV结构定义，包括具体字段的名称、类型、格式等属性.
+常使用的开发类:
+   &amp;lt;1&amp;gt; REUSE_ALV_FIENDCATALOG_MERGE：根据内表结构返回FIELDCAT字段结构信息.
+   &amp;lt;2&amp;gt; REUSE_ALV_GRID_DISPLAY/REUSE_ALV_LIST_DISPLAY：输出ALV报表，定义其为GRID模式还是LIST模式。参数结构一样。
+   &amp;lt;3&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;alv-报表的表头字段显示设置&#34;&gt;ALV 报表的表头字段显示设置&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;call function &#39;LVC_FIELDCATALOG_MERGE&#39;
+exporting
+  I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE
+  I_structure_name       = &#39;ZALV_FEED&#39; &amp;quot;ALV需要显示的字段结构
+  I_CLIENT_NEVER_DISPLAY = &#39;X&#39;
+  I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER
+  I_INTERNAL_TABNAME     = I_INTERNAL_TABNAME
+    changing
+      ct_fieldcat         = lt_fieldcat  &amp;quot;对应ALV显示的字段结构
+exceptions
+  inconsistent_interface = 1
+  program_error          = 2.
+ 可以通过loop对相应的ALV字段描述进行自定义设置
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;layout-字段&#34;&gt;Layout 字段&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;DATA wa_alv_field TYPE SLIS_LAYOUT_ALV.
+LAYOUT主要用于设置ALV的输出格式，如输出字段的颜色、表格中的线条等；
+  0.COLTAB_fieldname type slis_fieldname: 设置单元格颜色
+  1.EDIT：设置ALV是否为可编辑模式。
+  2.COLWIDTH_OPTIMIZE：将ALV字段宽度设置为最优化，按实际输出内容宽度自动匹配。
+  3.NO_VLINE：输出ALV表格不显示垂直格式。
+  4.NO_ULINE_HS：输出ALV表格不显示水平格线。
+  5.INFO_FIELDNAME：设置颜色属性。
+  6.KEY_HOTSPOT：设置关键字段热点。
+  7.NO_COLNAME：是否显示字段名。
+  8.ZEBRA：使ALV表格按斑马线间隔条纹方式显示，以便显示效果更有美观。
+  9.BOX_FIELDNAME：设置ALV表格是否显示选择按钮字段。
+  10.f2code  like   sy-ucomn. gs_layout-f2code=&#39;&amp;amp;ETA&#39;[双击时触发的funcode]
+  11.INFO_FIELDNAME：用于设置ALV输出报表每一行的颜色，其参数为输出内表的字段名称，
+    要注意的是使用该属性需要同时在内表中定义一个与该参数所定义字段名相同的字段，例如：
+  LAYOUT-INFO_FIELDNAME = &#39;COLOR&#39;.倘若其数据输出内表名为LT_OUT,则需要在该内表增加一字段
+  “COLOR”，并为其内表每行复制，颜色参数范围C000~C999，例如：LT_OUT-COLOR = &#39;C012&#39;.
+
+【颜色】
+  行颜色:gs_layout-&amp;lt;info_fieldname&amp;gt; = &#39;COLOR&#39;
+  列颜色:gt_fieldcat-emphasize = &#39;C510&#39;.[1：C固定，2：颜色值0~7,3：高亮0、1(X)，
+                                         4：颜色反转，0、1]
+  单元格颜色:gs_layout-&amp;lt;coltab_fieldname&amp;gt;=&#39;COLORTABLE&#39;.
+【可编辑】
+  整体可编辑：gs_layout-edit = &#39;X&#39; 
+  某列可编辑：gt_fieldcat-edit = &#39;X&#39;
+  单元格可编辑：
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;9-fieldcatalog-字段&#34;&gt;9.Fieldcatalog 字段&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;FIELDCAT主要用于ALV结构定义，包括具体字段的名称、类型、格式等属性.
+  DATA lt_alv_fieldcat TYPE SLIS_T_FIELDCAT_ALV WITH HEADER LINE.
+　　1.KEY：将定义字段设置为KEY值。
+    2.ICON：将定义字段以ICON的形式显示。
+    3.CHECKBOX：将定义字段以CHECKBOX的形式显示。
+    4.JUST：定义字段对齐方式(R)RIGHT、(L)LEFT、(C)CENTER。
+    5.IZERO：将定义字段以前导&amp;quot;0&amp;quot;的形式显示。
+    6.NO_SIGN：将定义字段符号设置为不显示。
+    7.NO_ZERO：定义字段是否显示。
+    8.EMPHASIZE：设置字段的颜色。
+    9.DO_SUM：对字段进行汇总。
+    10.SELTEXT_L/M/S：设置字段名称描述长/中/短。
+    11.DDICTXT：设置字段显示字符串。
+    12.HOTSPOT：设置字段是否有热点(热点字段显示有下划线)。
+    13.NO_OUT: 隐藏不需要的字段(NO_OUT = &#39;X&#39;)。
+    14.EDIT(1) type c: 是否可编辑
+    15:COL_POS like sy-cucol: 列输出位置
+    16:FIX_COLUMN(1) type c: 列固定不滚动，颜色不会发生变化
+    17:convexit : 设置转换规则，对应于Domain中的转换规则    
+
+fieldname  type slis_fieldname    (列显示的设置)
+cfieldname type slis_fieldname  (金额字段所参照的货币单位字段名)
+ctabname   type slis_tabname      (金额字段所参照的货币单位表名)
+qfieldname type slis_fieldname  (数量字段所参照的货币单位字段名)
+qtabname   type slis_tabname      (数量字段所参照的货币单位表名)
+
+自定义FIELDCAT字段结构：
+  &amp;quot;定义宏来设置FIELDAT属性 &amp;amp;1 &amp;amp;2 &amp;amp;3分别为参数
+    DEFINE fieldcatset.
+      lt_alv_fieldcat-REF_TABNAME =&#39;LSPFLI&#39;.
+      lt_alv_fieldcat-FIELDNAME = &amp;amp;1.
+      lt_alv_fieldcat-SELTEXT_L = &amp;amp;2.
+      lt_alv_fieldcat-COL_POS = &amp;amp;3.
+      APPEND lt_alv_fieldcat.
+    END-OF-DEFINITION.
+    fieldcatset &#39;CARRID&#39; &#39;航线承运人&#39; SY-TABIX.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;10-单元格中的数据被修改后-将alv单元格中的数据立即刷新到abap对应的内表中&#34;&gt;10.单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;方法一：通过对REUSE_ALV_GRID_DISPLAY函数参数i_grid_settings-edt_cll_cb进行设置：
+i_grid_settings-edt_cll_cb  = &#39;X&#39; .
+CALL FUNCTION &#39;REUSE_ALV_GRID_DISPLAY&#39;
+EXPORTING i_grid_settings = i_grid_settings
+方法二：通过函数参数I_CALLBACK_USER_COMMAND指定的回调Form的参数slis_selfield进行设置：
+FORM user_command USING ucomm LIKE sy-ucommselfield selfield TYPE slis_selfield.
+    selfield-refresh = &#39;X&#39;.
+  CASE ucomm.
+    WHEN &#39;UPDATE&#39;.
+    PERFORM frm_update.
+  ENDCASE.
+ENDFORM. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;11-自定义按钮使用后刷新alv&#34;&gt;11 自定义按钮使用后刷新ALV&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt; form frm_user_command using r_ucomm     like sy-ucomm
+                        rs_selfield type slis_selfield.
+  case r_ucomm.
+   when &#39;PROFIT&#39;.
+      perform frm_cycle_count_profit.
+   when others.
+  endcase.
+     rs_selfield-refresh = &#39;X&#39;.
+ endform.                    &amp;quot;frm_user_command
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;12-设置工具导航栏-gui-status&#34;&gt;12 设置工具导航栏 GUI Status&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;GUI Status参数设置共包括3个部分：
+  1.菜单栏(Menu Bar)：用于设置主菜单选项。
+  2.应用工具条(Application ToolBar)：用于设置应用工具栏按钮，包括按钮名称、按钮描述、及按钮所对的ICON图标。
+  3.功能键(Function Key)：为按钮分配功能键代码，包括系统标题按钮(如返回、退出、关闭等)及通过Application ToolBar所定义的客制化按钮。
+  4. 对于定义的按钮，我们可以通过系统变量SY-UCOMM来获取它的功能代码。
+    AT USER-COMMAND.   &amp;quot;当单击某个按钮时，触发该事件
+      CASE sy-ucomm.  &amp;quot;获取所操作按钮的功能代码(FUNCTION Code)
+  5.调用显示，应用于START-OF-SELECTION事件
+     SET PF-STATUS &amp;lt;STATUS_NAME&amp;gt;.
+     不显示某些按钮：SET PF-STATUS &amp;lt;STATUS_NAME&amp;gt; EXCLUDING &amp;lt;extab&amp;gt;.
+ 6.在ALV函数中使用
+  call function &#39;REUSE_ALV_GRID_DISPLAY_LVC&#39;
+    exporting
+      i_callback_program       = sy-repid 
+      i_callback_pf_status_set = &#39;FRM_SET_STATUS&#39;
+      i_callback_user_command  = &#39;FRM_USER_COMMAND&#39;
+      is_layout_lvc            = lw_layout
+      it_fieldcat_lvc          = gt_fieldcat
+      i_default                = &#39;X&#39;
+      i_save                   = &#39;X&#39;
+   tables
+      t_outtab                 = gt_alv_pi_diffs
+   exceptions
+      program_error            = 1.
+
+  form frm_set_status using extab type slis_t_extab.
+     data: ls_slis_extab type slis_extab.
+      SET PF-STATUS &amp;lt;STATUS_NAME&amp;gt;.
+  endform.                    &amp;quot;frm_set_status
+GUI TITLE设置：
+    GUI TITLE 用于定义Report标题栏内容.
+  定义：
+    Create--&amp;gt;GUI Titles：可以输入&amp;amp;符号作为Title,当程序运行时对其填充动态文本。
+  在程序中调用：
+    SET TITLEBAR &#39;TITLE_BAR&#39; WITH SY-DATUM &#39;IFENER&#39; &#39;BAR TEST&#39;.&amp;quot;设置TITLEBAR，并赋参数列表
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;13-oo-alv&#34;&gt;13. OO ALV&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;相关类：
+  CL_GUI_CUSTOM_CONTAINER   ：用户自己定义控件区域
+  CL_GUI_DOCKING_CONTAINER  : 动态创建容器，不需要在创建时绑定到预先绘制好的自定义控件中
+  CL_GUI_SPLITTER_CONTAINER ：可在同一屏幕创建多个ALV显示
+  CL_GUI_ALV_GRID           ：ALV控制类
+
+  DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, &amp;quot;控制容器类
+         obj_wcl_alv TYPE REF TO cl_gui_alv_grid . &amp;quot;ALV控制类
+  DATA GS_LAYOUT1 TYPE LVC_S_LAYO. &amp;quot;布局结构
+  DATA GT_FIELDCAT TYPE LVC_T_FCAT. &amp;quot;存放字段目录的内表
+  DATA GS_FIELDCAT TYPE LVC_S_FCAT.
+  DATA lt_exclude TYPE ui_functions. &amp;quot;alv不需要的图标按钮
+1、控制区域、容器、Grid关系
+   先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER
+ 容器实例,最后以此容器实例来创建 CL_GUI_ALV_GRID实例。
+    DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, &amp;quot;控制容器类
+           obj_wcl_alv TYPE REF TO cl_gui_alv_grid . &amp;quot;ALV控制类
+    IF obj_wcl_alv IS INITIAL.
+       CREATE OBJECT obj_wcl_container
+          EXPORTING
+             container_name  =  &#39;OBJ_WCL_CONTAINER&#39;.
+       CREATE OBJECT obj_wcl_alv
+          EXPORTING
+             i_parent  = obj_wcl_container.
+2、给ALV对象注册事件
+  (1) HANDLE_TOOLBAR:这个事件用于给ALV加自定义工具条按钮。
+  (2) HANDLE_CLICK:用于给ALV点击其中一行后处理代码段。
+  (3) HANDLE_COMMAND:事件用于接收用户按了自定义按钮后，触发的代码段。
+  (4) HANDLE_DOUBLE_CLICK：双击事件
+  (5) 
+  事件的使用：
+    &amp;lt;1&amp;gt; 定义事件方法
+    &amp;lt;2&amp;gt; 指定事件的执行方法代码
+    &amp;lt;3&amp;gt; 事件变量实例化
+    &amp;lt;4&amp;gt; 把事件指定到ALV控制中(注册事件)
+
+    CREATE OBJECT event_receiver.
+    SET HANDLER event_receiver -&amp;gt; handle_double_click FOR obj_wcl_alv.
+3、CL_GUI_ALV_GRID重要方法
+  *-----显示ALV 
+     CALL METHOD obj_wcl_alv-&amp;gt;set_table_for_first_display 
+        EXPORTING 
+           is_variant                    = ls_variant   :指定布局变式
+           is_layout                     = ls_layout 
+           i_save                        = &#39;A&#39;          :保存表格布局
+           it_toolbar_excluding          = lt_exclude 
+        CHANGING 
+           it_outtab                     = gt_list[]    :需要显示的内表数据
+           it_fieldcatalog               = lt_fieldcat  :结构字段
+        EXCEPTIONS 
+           invalid_parameter_combination = 1 
+           program_error                 = 2 
+           too_many_lines                = 3 
+           OTHERS                        = 4.
+
+   ENDFORM.                    &amp;quot; FRM_ALV_DISPLAY
+
+  XXX -&amp;gt; REFRESH_TABLE_DISPLAY.
+    IS_STABLE : 刷新的稳定性，就是滚动条保持不动
+    I_SOFT_REFRESH:  软刷新，临时给ALV创建的合计，排序，等保持不变
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;14-前导零问题&#34;&gt;14.前导零问题&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;加上p_in的前导零
+  FORM add_zero  CHANGING p_in.
+CALL FUNCTION &#39;CONVERSION_EXIT_ALPHA_INPUT&#39;
+  EXPORTING
+    input  = p_in
+    IMPORTING
+      output = p_in.
+ ENDFORM.
+去除p_out的前导零
+  FORM del_zero CHANGING p_out.
+    CALL FUNCTION &#39;CONVERSION_EXIT_ALPHA_OUTPUT&#39;
+    EXPORTING
+      input  = p_out
+    IMPORTING
+     output = p_out.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;15-hash-table-sort-table-standy-table&#34;&gt;15.Hash table, sort table, standy table&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;   对于排序内表，不要使用append，append lines附加数据，使用insert、insert lines向
+排序内表中插入数据
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;16-search-help-的创建&#34;&gt;16.search help 的创建&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;PARAMETERS p_cur TYPE XXX VALUE CHECK .
+PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
+在屏幕的 ON VALUE-REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
+  F4IF_ FIELD _VALUE_REQUEST ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定 
+     Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
+  F4IF_ INT_TABLE _VALUE_REQUEST : 在程序运行时， 将某个内表动态的用作 Search help 的
+     数据来源,即使用该函数可以将某个内表转换为 Search help ，可实现联动效果
+  TR_F4_HELP ： 简单实现 Search Help ，数据来源于内表。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;17-sql-语句的执行顺序&#34;&gt;17. SQL 语句的执行顺序&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;书写顺序：SELECT[DISTINCT]--&amp;gt;FROM--&amp;gt;WHERE--&amp;gt;GROUP BY--&amp;gt;HAVING--&amp;gt;UNION--&amp;gt;ORDER BY
+其执行顺序为：FROM--&amp;gt;WHERE--&amp;gt;GROUP BY--&amp;gt;HAVING--&amp;gt;SELECT--&amp;gt;DISTINCT--&amp;gt;UNION-&amp;gt;ORDER BY
+1、FROM 才是 SQL 语句执行的第一步，并非 SELECT 
+2、SELECT 是在大部分语句执行了之后才执行的，严格的说是在 FROM 和 GROUP BY 之后执行的。
+3、无论在语法上还是在执行顺序上， UNION 总是排在在 ORDER BY 之前。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;open-sql&#34;&gt;Open SQL&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;focus&#34;&gt;Focus&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;1. 多表的结合的查询，首先进行各自的关键字查询，然后进行表与表转换可以提升效率
+2. 表相应字段非关键字时，寻找有该关键字的相对应的关联表进行查询并合并表数据
+3. binary search 和 sort 进行使用时注意sort的关键字与binary search 保持统一
+4. MODIFY itab1 INDEX sy-tabix.进行修改时最好定义变量记录sy-tabix.
+5. inner join 和 left outer join 的连接条件最好都是关键字.
+6. 双层loop循环时，第二个内部表定义为SORTED TABLE会大大的提高处理速度
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>报表开发(一)</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable1/</link>
+      <pubDate>Sun, 26 Aug 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable1/</guid>
+      <description>
+
+&lt;h2 id=&#34;执行程序的使用范围-报表事件&#34;&gt;执行程序的使用范围，报表事件&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;LOAD-OF-PROGRAM.
+INITIALIZATION.          （Before display the selection screen）
+  AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
+  AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
+AT SELECTION-SCREEN. //After enter the option data check
+   PERFORM check_input.
+START-OF-SELECTION.//Begin the main programer
+  xxxx
+END-OF-SELECTION.
+Interactive Eventrs. (User for interactive reporting)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;报表程序大体逻辑结构&#34;&gt;报表程序大体逻辑结构&lt;/h2&gt;
+
+&lt;p&gt;​   &lt;strong&gt;抬  头:&lt;/strong&gt; 报表的主要信息(抬头信息)&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;行项目:&lt;/strong&gt; 查询出的每行记录信息&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;明  细:&lt;/strong&gt; 每个行项目出关键字外其他明细内容&lt;/p&gt;
+
+&lt;h2 id=&#34;字段符号&#34;&gt;字段符号&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt; FIELD-SYMBOLS &lt;FS&gt; LIKE structure.&lt;/p&gt;
+
+&lt;p&gt;​    &lt;1&gt; FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;2&gt; &lt;code&gt;ASSIGN structure TO &amp;lt;fs&amp;gt;&lt;/code&gt;:将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
+  &lt;code&gt;ASSIGN &amp;lt;Val&amp;gt; TO &amp;lt;fs&amp;gt;&lt;/code&gt;: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。&lt;/p&gt;
+
+&lt;p&gt;UNASSIGN: 该语句是初始化&lt;code&gt;&amp;lt;FS&amp;gt;&lt;/code&gt;字段符号，执行后字段符号将不再引用内存区域，&lt;code&gt;&amp;lt;fs&amp;gt; is assigned&lt;/code&gt;返回假。&lt;/p&gt;
+
+&lt;p&gt;CLEAR: 与UNASSIGN不同的是，只有一个作用就是初始化它所指向的内存区域，而不是解除分配。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;循环：&lt;/strong&gt;LOOP内表INTO Structure和 LOOP内表ASSIGNING Structure的比较&lt;/p&gt;
+
+&lt;p&gt;​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
+  MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会
+  影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程
+  修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;读表：&lt;/strong&gt;READ TABLE内表&lt;/p&gt;
+
+&lt;p&gt;ASSIGN隐式强转&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;TYPES: BEGIN OF t_date,
+​    year(4) TYPE  n,
+​        month(2) TYPE n,
+​    day(2) TYPE n,
+  END OF t_date.
+FIELD-SYMBOLS &amp;lt;fs&amp;gt; TYPE t_date.&amp;quot;将&amp;lt;fs&amp;gt;定义成了具体限定类型
+ASSIGN sy-datum TO &amp;lt;fs&amp;gt; CASTING. &amp;quot;后面没有指定具体类型，所以使用定义时的类型进行隐式转换
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ASSIGN显示强转&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  DATA txt(8) TYPE c VALUE &#39;19980606&#39;.
+  FIELD-SYMBOLS &amp;lt;fs&amp;gt;.
+  ASSIGN txt TO &amp;lt;fs&amp;gt; CASTING TYPE d.&amp;quot;由于定义时未指定具体的类型，所以这里需要显示强转
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;动态引用：&lt;/strong&gt;通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  field-symbols:&amp;lt;l_shortageqty&amp;gt; type mng01.
+  loop at &amp;lt;dyn_table&amp;gt; assigning &amp;lt;dyn_wa&amp;gt;.
+​    assign component &#39;SHORTAGEQTY&#39; of structure &amp;lt;dyn_wa&amp;gt; to &amp;lt;l_shortageqty&amp;gt;.
+​    &amp;lt;l_shortageqty&amp;gt; = &amp;lt;l_shortageqty&amp;gt; - &amp;lt;l_fvalue&amp;gt;.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;message-se91&#34;&gt;MESSAGE ：SE91&lt;/h2&gt;
+
+&lt;p&gt;&lt;1&gt; 消息类的操作&lt;/p&gt;
+
+&lt;p&gt;​   使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&amp;amp;，如&amp;rdquo;1&amp;amp;2&amp;amp;3&amp;amp;&amp;ldquo;表示有三个输入参数。&lt;/p&gt;
+
+&lt;p&gt;​   Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功。&lt;/p&gt;
+
+&lt;p&gt;​   引用语法为：Message W000(00)，表示调用&amp;rsquo;00&amp;rsquo;类的&amp;rsquo;000&amp;rsquo; Message类型为警告。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;EX: Message W001(ZTEST) WITH &#39;P1&#39; &#39;P2&#39; &#39;P3&#39;.
+	1. 消息ID MESSAGE e001(00) WITH &#39;12345678&#39;. //利用定义的参数
+	2. MESSAGE &#39;XXXXXXXXXX&#39; TYPE &#39;X&#39;.          //直接附加消息
+	3. MESSAGE s001(00) WITH &#39;No data&#39; DISPLAY LIKE &#39;E&#39;.
+   	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;search-help-的创建&#34;&gt;search help 的创建&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;PARAMETERS p_cur TYPE XXX VALUE CHECK .
+PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
+在屏幕的 ON VALUE-REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
+  F4IF_ FIELD _VALUE_REQUEST ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定 
+     Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
+  F4IF_ INT_TABLE _VALUE_REQUEST : 在程序运行时， 将某个内表动态的用作 Search help 的
+     数据来源,即使用该函数可以将某个内表转换为 Search help ，可实现联动效果
+  TR_F4_HELP ： 简单实现 Search Help ，数据来源于内表。
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ABAP 语法详解(五)</title>
+      <link>https://coldinfire.github.io/2018/ABAP5/</link>
+      <pubDate>Tue, 26 Jun 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP5/</guid>
+      <description>
+
+&lt;h2 id=&#34;效率优化&#34;&gt;效率优化&lt;/h2&gt;
+
+&lt;h3 id=&#34;数据库&#34;&gt;数据库&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;不要使用 SELECT * &amp;hellip;，选择需要的字段, SELECT * 既浪费CPU，还需占用大量的ABAP内存&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;不要使用SELECT DISTINCT .，会绕过缓存，可使用 SORT BY + DELETE ADJACENT DUPLICATES&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;少用相关子查询，因为子查询对外层查询结果集中的每条记录都会执行一次&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;少用嵌套SELECT … ENDSELECT，可以使用联合查询或FOR ALL ENTRIES来替换,减少循环次数&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;如果确定只查一条数据时，使用 SELECT SINGLE&amp;hellip; 或者是 SELECT &amp;hellip;UP TO 1 ROWS &amp;hellip;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;统计时，直接使用SQL聚合函数，而不是将数据读取出来后在程序里再进行统计&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用游标读取数据，这样省掉了将从数据库中的取记录放入内表的INTO语句这一过程开销&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;多使用inner join，必要时才使用left join&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;inner join获取数据时，尽量不要用太多的表关联，特别是大表关联，关联顺序为：小表-大表&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;where 条件里面多用索引、主键，顺序也要遵循小表-大表&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;inner join条件放置的位置应该按照 On、Where、Having的顺序放，因为SQL条件的的执行一般
+是按这个顺序来执行的，将条件放在最开始执行，则可过滤掉大部数据；但要注意Left Outer
+Join，是否可以将ON中的条件移动到Where从句则要考虑（如果真能放在Where从句中，则应该用
+Inner Join，而非Left Outer Join，因为Where条件会过滤掉那些包括在右表中不存在的左表数据），因为此时条件放在
+On后面与放在Where语句后面结果是不一样的（因为不管on中的条件是否为真，左表中在右边表不存在的数据也会被返回，
+但如放在where条件中，则会对On产生的数据再次过滤的条件，会滤掉不满足条件的记录，包括左表在右表中找不到的记录，
+这时已经没有left join的含义）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;要根据主键或索引字段查找数据，且WHERE从句中的条件字段需按INDEX字段顺序书写，且将索引字段条件靠前（左边），
+检查条件组合字段是否是主键，或者是上在上面创建了索引，避免条件组合字段即不是主键又没有索引。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;SELECT语句WHERE条件，应该先将主键相关条件放在前面 然后按照比较符 = 、&amp;lt; 、&amp;gt;、 &amp;lt;&amp;gt; 、LIKE IN 的顺序排列&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用部分索引字段问题：如果一个索引是由多个字段组成的，只使用一部分关键字段来进行查询时，也是可以使用到索引，
+ 但使用时要注意要按照索引定义的顺序且取其前面部分。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;请根据索引字段进行ORDER BY，否则通过程序进行SORT BY。与其在数据库在通过非索引字段进行排序，不如在程序中用
+ SORT BY语句进行排序，因为此情况下应用服务器上的执行速度要比数据库服务器快(应用服务器上采用的是内存排序)。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;避免在索引字段上使用：not、&amp;lt;&amp;gt;、!=、IS NULL、IS NOT NULL,可以用&amp;gt; 与 &amp;lt; 来替代避免使用 LIKE，但LIKE
+ &amp;lsquo;销售组1000&amp;rsquo;和LIKE &amp;lsquo;销售组1000%&amp;lsquo;可以用到，而LIKE &amp;lsquo;%销售组1000&amp;rsquo;（百分号前置）则用不到索引不要使用OR来连接
+ 多个索引字段(但同一字段多个值之间可以使用OR)；对于同一索引字段，可以使用IN来替代OR：带有BETWEEN 的WHERE
+ 条件不能通过索引来搜索？也可使用IN代替。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;在下面情况下使用FOR ALL ENTRIES IN:
+在循环内表时Loop&amp;hellip;at itab时
+join超过三个表会出现性能问题，当使用JOIN连接超过3个表时
+表数据非常大时，使用JOIN会很慢，此时改用FOR ALL ENTRIES IN&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;避免使用以下语句，因为使用这些语句时，不能使用 Table Buffer：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;Aggregate expressions
+Select distinct
+Select … for update
+Order by、group by、having从句
+Joins，使用JOIN时，会绕过SAP缓存，可以使用FOR ALL ENTRIES来代替
+WHERE从句中使用Sub queries（子查询）
+WHERE从句中使用IS NULL条件
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用内表批量操作数据库，而不要使用工作区一条条操作,如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;SELECT ... INTO TABLE itab
+INSERT dbtab FROM TABLE itab
+DELETE dbtab FROM TABLE itab
+UPDATE/MODIFY dbtab FROM TABLE itab
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;​&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;程序&#34;&gt;程序&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查找&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;在循环（LOOP AT &amp;hellip;WHERE..）或查询（READ TABLE &amp;hellip;）某内表时，如果未使用索引（排序表、哈希表）或二分查找，
+则在查询组合字段创建第二索引，查询时通过USE KEY或WITH [TABLE] KEY选项使用第二索引，这样在查询时会自动进行二分
+查找或哈希找查在没有用二分查找的情况下，可在查询组合字段上创建第二索引（哈希或排序索引），则在读取或循环内表时会
+自动使用二分查找或哈希查找算法&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;查找时，优先考虑使用哈希表进行查找，再考虑使用排序表进行二分查找，因为哈希查找的时间复杂度为(O (1))，不会因
+数据的增加而受到影响;而二分查找虽然比顺序搜索快很多，但随着数据的增加会慢下来，其时间复杂度为(O (log2n))；标准
+内表的时间复杂度为O(n)。
+注：如果只使用到部分关键字为搜索条件，哈希表则会全表扫描，此时应该使用二分找查&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;FOR ALL ENTRIES：需要判断内表是否为空，否则会查询出所有数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;LOOP AT itab&amp;hellip; ASSIGNING &amp;hellip;、READTABLE &amp;hellip;ASSIGNING &amp;hellip; 在循环或读取内表 时，使用字段符号来替换表工作
+区，将数据分配给字段符号Field Symbols，减少数据来回传递&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;尽量避免嵌套循环，如必须时，将循环次数少的放在外层，次数多的放在内层，这样可以减少在不同循环层之间的频繁地
+切换及内部循环次数&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;条件语句中多使用短路与或，“与”连接时将为假的机率大的条件放在前面，“或”连接时将为真的机率大的条件放在前面&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;少使用递归算法，递归时会增加调用栈层次，降低了性能，可使用队列或栈来避免递归&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;尽量不要使用通用类型（如FIELD-SYMBOLS、及形式参数），使用具体限定类型；比较时尽量使用同一数据类型：
+IF c = c.比IF i = c.快，原因是未发生类型转换&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;不要使用混合类型进行计算与比较，除非有必须&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;尽量使用静态语句，少用动态编程，动态编辑虽然灵活，但性能有所下降&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;在对字符进行操作进，尽量使用String代替C固定长度类型，如：concatenate[kənˈkatɪneɪt]语句对固定长度的C连接时
+ 会去扫描那些非空字符出来再进行连接，速度没有String快&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;READ/MODIFY TABLE时使用TRANSPORTING只读取或修改必要的字段&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;尽量避免使用MOVE-CORRESPONDING和 SELECT&amp;hellip;INTO CORRESPONDING FIELDS OF &lt;a href=&#34;SELECT时，查询几个字
+ 段就定义具有这几个字段的内表，而不是直接使用基于数据库表类型创建的内表，否则如果直接使用INTO TABLE语法检查
+ 时会警告，但结果是没有问题的&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;TABLE&lt;/a&gt;。
+ CORRESPONDING语句在系统内部存在隐式操作: 逐个字段的检查元素名称匹配; 检查元素类型匹配;元素类型转换；&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;最好不要向排序内表中插入（INSERT &amp;hellip; INTO TABLE &amp;hellip;）数据，因为在插入时会进行排序，速度会随着数据量的增加
+ 而慢下来，所以最好只向标准内表或哈希表中插入数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;将某个内表中的全部记录或部分记录追加到另一内表时，使用INSERT/APPEND LINES OF … 代替循环逐条追加；
+ 如果是全新赋值，直接对内表使用“=”进行赋值操作即可&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;调用类方法要快于Function：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Calling Methods of global Classes：&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;call method CL_PERFORMANCE_TEST=&amp;gt;M1.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Calling Function Modules：&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;call function &#39;FUNCTION1&#39;.&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;通过运行事务代码SLIN(或者直接通过SE38的菜单)，进行代码静态检查，根据SAP提供的反馈信息，优化代码&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;通过老式方式定义内表时，使用&lt;code&gt;OCCURS 0&lt;/code&gt;而非&lt;code&gt;OCCURS n&lt;/code&gt; ：重现
+    lOCCURS n 代表初始化内表的空间大小为n（空间固定），当内表存储记录条数超出n时，系统将依靠页面文件存放
+              超出部分的数据。 当系统内存资源十分紧缺的时候，我们可以使用OCCURS n的初始化方法，
+               但是这样的效率稍微慢
+    lOCCURS 0 代表初始化内表的空间大小为无限，当内表存储记录条数不断增加时， 内表所使用的内存空间不断扩大，
+              直到系统无法分配为止。使用内存比使用页面交换更快一些， 但是要考虑系统的资源状态&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用完成后及时清空释放内表所占用的空间：FREE &lt;itab&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用CASE…WHEN语句代替 IF…ELSEIF…；使用WHILE…ENDWHILE 代替 DO…ENDDO&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;LOOP循环内表时加上Where条件减少CPU负荷，而不是在循环里通过IF语句来过滤数据&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CSS格式与标准总结</title>
+      <link>https://coldinfire.github.io/2018/CSS/</link>
+      <pubDate>Tue, 26 Jun 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/CSS/</guid>
+      <description>
+
+&lt;h2 id=&#34;css语法&#34;&gt;CSS语法&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致；&lt;/li&gt;
+&lt;li&gt;当成组使用选择器时，每个选择器单独一行；&lt;/li&gt;
+&lt;li&gt;一条声明的开大括号前留一空格；&lt;/li&gt;
+&lt;li&gt;声明的关闭右括号请新起一行；&lt;/li&gt;
+&lt;li&gt;每条引用声明冒号后留一个空格；&lt;/li&gt;
+&lt;li&gt;每条声明有单独的一行，以便错误报告更精确；&lt;/li&gt;
+&lt;li&gt;每条声明以分号结尾，最后一个可以没有，但这样容易出错；&lt;/li&gt;
+&lt;li&gt;以逗号分隔属性值之间，要在逗号后面保留一个空格（例如： &lt;code&gt;box-shadow&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;rgb()&lt;/code&gt;、&lt;code&gt;rgba()&lt;/code&gt;、&lt;code&gt;hsl()&lt;/code&gt;、&lt;code&gt;hsla()&lt;/code&gt;以及&lt;code&gt;rect()&lt;/code&gt;属性值*中*逗号后不要加空格，这样能把多色彩值（逗号无空格）与多属性值的情况区分开来（逗号带空格）；&lt;/li&gt;
+&lt;li&gt;省略掉属性值以及颜色参数的首位0（例如：用 &lt;code&gt;.5&lt;/code&gt; 代替 &lt;code&gt;0.5&lt;/code&gt; ，用 &lt;code&gt;-.5px&lt;/code&gt; 取代 &lt;code&gt;-0.5px&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;十六进制值要用小写，像 &lt;code&gt;#fff&lt;/code&gt;这样，当一个文档中有很多的字母时，小写字母更容易分辨；&lt;/li&gt;
+&lt;li&gt;如果可以的话，简化十六进制值的写法，如用 &lt;code&gt;#fff&lt;/code&gt; 代替 &lt;code&gt;#ffffff&lt;/code&gt; ；&lt;/li&gt;
+&lt;li&gt;在选择器中引用属性值，例如：&lt;code&gt;input[type=&amp;quot;text&amp;quot;]&lt;/code&gt;，&lt;a href=&#34;http://mathiasbynens.be/notes/unquoted-attribute-values#css&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;在某些情况下可选是否使用&lt;/a&gt;，这样做也能更好地统一代码；&lt;/li&gt;
+&lt;li&gt;零值不需要添加单位，例如：用 &lt;code&gt;margin: 0;&lt;/code&gt; 代替 &lt;code&gt;margin: 0px;&lt;/code&gt;；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;声明顺序&#34;&gt;声明顺序&lt;/h3&gt;
+
+&lt;p&gt;有关联的属性声明之间应该按照以下顺序组在一起：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;定位&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;盒模型&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;排字&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;视觉设计&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;其他杂项&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;定位摆在第一位，因为它能把元素从文档正常流中脱离出来，覆盖盒模型样式。而盒模型表示着组件的度量尺寸和摆放位置，因此排第二。排版和视觉都是属于元素内部的属性，不会影响到前两项，所以排为3、4。&lt;/p&gt;
+
+&lt;h3 id=&#34;选择器&#34;&gt;选择器&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;为了更好的显示性能，请使用类名而非一般的元素标签；&lt;/li&gt;
+&lt;li&gt;对于经常使用的组件，不要使用多个属性选择器，这样调用对浏览器性能有不小影响；&lt;/li&gt;
+&lt;li&gt;尽可能保持简短，如果可以请限制在3个元素以内；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;只有&lt;/strong&gt;在不得已的情况下再回溯最近的父级元素（例如：类名无前缀时）；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;标签&#34;&gt;标签&lt;/h2&gt;
+
+&lt;h2 id=&#34;引用css和javascript文件&#34;&gt;引用CSS和JavaScript文件&lt;/h2&gt;
+
+&lt;p&gt;​   按照HTML5规范，一般来说，当CSS和JS文件被引用时，都会默认以 &lt;code&gt;text/css&lt;/code&gt;和 &lt;code&gt;text/javascript&lt;/code&gt; 的方式，没必要特意为其指定 &lt;code&gt;type&lt;/code&gt; 类型。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-CSS&#34;&gt;&amp;lt;!-- 外部 CSS --&amp;gt;
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;code-guide.css&amp;quot;&amp;gt;
+
+&amp;lt;!-- 文档内CSS --&amp;gt;
+&amp;lt;style&amp;gt;
+/* ... */
+&amp;lt;/style&amp;gt;
+
+&amp;lt;!-- JavaScript --&amp;gt;
+&amp;lt;script src=&amp;quot;code-guide.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;属性顺序&#34;&gt;属性顺序&lt;/h2&gt;
+
+&lt;p&gt;HTML属性应按照特定的顺序排列，以方便代码查阅。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;class&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;id&lt;/code&gt;, &lt;code&gt;name&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;data-*&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;src&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;type&lt;/code&gt;, &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;title&lt;/code&gt;, &lt;code&gt;alt&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;role&lt;/code&gt;, &lt;code&gt;aria-*&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Class能让我们更好地重用组件，所以它打头阵；id则更加特定和专属，应尽量控制其使用（例如：内页书签）。&lt;/p&gt;
 </description>
     </item>
     

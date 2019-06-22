@@ -2,6 +2,72 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://coldinfire.github.io/books/</loc>
+      
+      <lastmod>2017-06-15T23:39:47+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/about/</loc>
+      
+      <lastmod>2017-06-15T23:39:47+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/my-first-post/</loc>
+      
+      <lastmod>2019-06-22T15:15:42+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2019-06-22T15:15:42+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2019-06-22T15:15:42+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/SAPUI5/</loc>
       
       <lastmod>2019-06-16T17:20:58+08:00</lastmod>
@@ -28,31 +94,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2019-06-16T17:20:58+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/categories/Sap-Fiori/</loc>
-      
-      <lastmod>2019-06-16T17:20:58+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
       
       <lastmod>2019-06-16T17:20:58+08:00</lastmod>
       
@@ -219,6 +261,258 @@
       <loc>https://coldinfire.github.io/2019/Pycharm/</loc>
       
       <lastmod>2019-01-03T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</loc>
+      
+      <lastmod>2018-09-19T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAPTable4/</loc>
+      
+      <lastmod>2018-09-19T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAPTable3/</loc>
+      
+      <lastmod>2018-09-12T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAPTable2/</loc>
+      
+      <lastmod>2018-09-03T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAPTable1/</loc>
+      
+      <lastmod>2018-08-26T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP5/</loc>
+      
+      <lastmod>2018-06-26T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/CSS/</loc>
+      
+      <lastmod>2018-06-26T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/CSS/</loc>
+      
+      <lastmod>2018-06-26T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/abap/</loc>
+      
+      <lastmod>2018-06-26T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+      
+      <lastmod>2018-06-26T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP4/</loc>
+      
+      <lastmod>2018-06-15T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP3/</loc>
+      
+      <lastmod>2018-06-04T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP2/</loc>
+      
+      <lastmod>2018-05-23T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP1/</loc>
+      
+      <lastmod>2018-05-12T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/Git/</loc>
+      
+      <lastmod>2018-03-11T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/git/</loc>
+      
+      <lastmod>2018-03-11T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+      
+      <lastmod>2018-03-11T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/JS/</loc>
+      
+      <lastmod>2018-02-11T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/JS/</loc>
+      
+      <lastmod>2018-02-11T17:20:58+08:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

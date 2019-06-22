@@ -10,9 +10,9 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPTable4/" />
-  <link rel="next" href="https://coldinfire.github.io/2019/WebDynpro/" />
-  <link rel="canonical" href="https://coldinfire.github.io/2019/Pycharm/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/git/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAP2/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP1/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
   <title>
        
        
-            Pycharm  | Small Fire`s Blog
+           ABAP 语法详解(一) | Small Fire`s Blog
        
   </title>
-  <meta name="title" content=" Pycharm  | Small Fire`s Blog">
+  <meta name="title" content="ABAP 语法详解(一) | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,17 +35,17 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=" Pycharm "/>
-<meta name="twitter:description" content="Paycharm 常用快捷键 1、Ctrl &#43; Enter：在下方新建行但不移动光标 2、Shift &#43; Enter：在下方新建行并移到新行行首 3、Ctrl &#43; /：注释("/>
+<meta name="twitter:title" content="ABAP 语法详解(一)"/>
+<meta name="twitter:description" content="ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": " Pycharm ",
+  "headline": "ABAP 语法详解(一)",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://coldinfire.github.io/2019/Pycharm/"
+    "@id": "https://coldinfire.github.io/2018/ABAP1/"
   },
   "image": {
     "@type": "ImageObject",
@@ -54,11 +54,11 @@
     "height": 600
   },
   "genre": "posts",
-  "keywords": "python",
-  "wordcount": 242,
-  "url": "https://coldinfire.github.io/2019/Pycharm/",
-  "datePublished": "2019-01-03T17:20:58+08:00",
-  "dateModified": "2019-01-03T17:20:58+08:00",
+  "keywords": "abap",
+  "wordcount": 527,
+  "url": "https://coldinfire.github.io/2018/ABAP1/",
+  "datePublished": "2018-05-12T17:20:58+08:00",
+  "dateModified": "2018-05-12T17:20:58+08:00",
   
   "publisher": {
     "@type": "Organization",
@@ -138,20 +138,20 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title"> Pycharm </h1>
+        <h1 class="post-title">ABAP 语法详解(一)</h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
-                    on <time datetime=2019-01-03 >3 January 2019</time>
+                    on <time datetime=2018-05-12 >12 May 2018</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://coldinfire.github.io/categories/Python/"> Python </a>
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                1 min
+                2 min
         </div>
     </header>
     <div class="post-content">
@@ -172,33 +172,112 @@
 
           
 
-<h1 id="paycharm">Paycharm</h1>
+<h2 id="abap基本数据类型">ABAP基本数据类型</h2>
 
-<hr />
+<p>基本数据类型</p>
 
-<h2 id="常用快捷键">常用快捷键</h2>
+<table>
+<thead>
+<tr>
+<th align="left">C : Character text</th>
+<th align="left">D : Date(YYYYMMDD)</th>
+<th align="left">P : Packed(包类型:1-16)</th>
+</tr>
+</thead>
 
-<p>1、Ctrl + Enter：在下方新建行但不移动光标</p>
+<tbody>
+<tr>
+<td align="left"><strong>N : Numeric text(不能进行计算)</strong></td>
+<td align="left"><strong>T : Time(HHMMSS)</strong></td>
+<td align="left"><strong>X : 十六进制</strong></td>
+</tr>
 
-<p>2、Shift + Enter：在下方新建行并移到新行行首</p>
+<tr>
+<td align="left"><strong>I : Interger</strong></td>
+<td align="left"><strong>F : Floating point</strong></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
 
-<p>3、Ctrl + /：注释(取消注释)选择的行</p>
+<p>常用系统变量：</p>
 
-<p>4、Ctrl + Alt + L：格式化代码(与QQ锁定热键冲突，关闭QQ的热键)</p>
+<table>
+<thead>
+<tr>
+<th align="left">sy-uname:用户登录名</th>
+<th align="left">sy-datum:日期</th>
+<th align="left">sy-uzeit:时间</th>
+</tr>
+</thead>
 
-<p>5、Ctrl + Shift + +：展开所有的代码块</p>
+<tbody>
+<tr>
+<td align="left"><strong>sy-subrc:</strong>报表返回值</td>
+<td align="left"><strong>sy-index:循环编号</strong></td>
+<td align="left"><strong>sy-tabix:循环编号</strong></td>
+</tr>
 
-<p>6、Ctrl + Shift + -：收缩所有的代码块</p>
+<tr>
+<td align="left"><strong>sy-dynnr:屏幕的编号</strong></td>
+<td align="left"><strong>sy-dbcnt:DB操作处理过的表行号</strong></td>
+<td align="left"><strong>sy-host:服务器名称</strong></td>
+</tr>
+</tbody>
+</table>
 
-<p>7、Ctrl + Alt + I：自动缩进行</p>
+<h2 id="变量的声明">变量的声明</h2>
 
-<p>8、Alt + Enter：优化代码，添加包</p>
+<ul>
+<li><p>透明表，数据字典，结构：既是类型又是对象，可用type和like。</p></li>
 
-<p>9、Ctrl + Shift + F：高级查找</p>
+<li><p>只能使用LIKE引用另一定义变量的类型，type不可以</p>
 
-<p>10、Alt + Shift + Q：更新代码到远程服务器</p>
+<pre><code class="language-JS">&lt;1&gt; DATA &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt; . &lt;自定义变量类型&gt;
+&lt;2&gt; DATA &lt;var1&gt; like  &lt;var2&gt; . &lt;参考定义变量&gt;
+	   DATA &lt;var1&gt; type &lt;var2&gt;. 
+</code></pre></li>
 
-<p>11、Alt + Insert：创建万物</p>
+<li><p>继承结构</p>
+
+<pre><code class="language-JS">DATA:BEGIN OF STAFFINFO. &lt;此处是.操作符&gt;
+INCLUDE STRUCTURE USER_INFO.
+DATA:BIRTHDAY TYPE D,
+ADDRESS(50) TYPE C,
+END OF STAFFINFO.
+</code></pre></li>
+</ul>
+
+<h2 id="定义常量-宏">定义常量、宏</h2>
+
+<pre><code class="language-JS">常量定义
+  CONSTANTS &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt;.
+  CONSTANTS &lt;var&gt;(len) LIKE &lt;var2&gt; VALUE &lt;value&gt;.
+宏定义 
+  1. 定义：
+    DEFINE operation.
+      result = &amp;1 &amp;2 &amp;3.
+      output   &amp;1 &amp;2 &amp;3 result.
+    END-OF-DEFINITION.
+
+    DEFINE output.
+      write: / 'The result of &amp;1 &amp;2 &amp;3 is', &amp;4.
+    END-OF-DEFINITION.
+  2. 使用：
+    operation 4+3.
+</code></pre>
+
+<h2 id="describe使用">DESCRIBE使用</h2>
+
+<pre><code class="language-JS">DESCRIBE TABLE lt_mat LINES lv_cont.
+  这行的意思是 计算内表 lt_mat 的行数 ，将行数放到变量 lv_cont 里。
+Field Properties:describe field &lt;field&gt; [mes var]...
+                                (一个data的类型、长度、小数点、输出长度等信息)
+Internal Table:describe table itab [kind knd] [LINES lin] [COCCURS n].
+Distance two fields:describe distance ...
+</code></pre>
+
+<p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2019/ABAP2" rel="nofollow noreferrer" target="_blank">ABAP语法详解(二)</a></p>
 
     </div>
 
@@ -212,7 +291,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>242</span>
+                   <span>527</span>
             </p>
             
             <p class="copyright-item">
@@ -221,13 +300,13 @@
                 <span>
 
       
-        <a href="//twitter.com/share?url=https%3a%2f%2fcoldinfire.github.io%2f2019%2fPycharm%2f&amp;text=%20Pycharm%20&amp;via=xxxx" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAP1%2f&amp;text=ABAP%20%e8%af%ad%e6%b3%95%e8%af%a6%e8%a7%a3%28%e4%b8%80%29&amp;via=xxxx" target="_blank" title="Share on Twitter">
           <i class="iconfont icon-twitter"></i>
         </a>
         
       
       
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcoldinfire.github.io%2f2019%2fPycharm%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAP1%2f" target="_blank" title="Share on Facebook">
           <i class="iconfont icon-facebook"></i>
         </a>
         
@@ -235,7 +314,7 @@
       
       
       
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fcoldinfire.github.io%2f2019%2fPycharm%2f&amp;title=%20Pycharm%20" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fcoldinfire.github.io%2f2018%2fABAP1%2f&amp;title=ABAP%20%e8%af%ad%e6%b3%95%e8%af%a6%e8%a7%a3%28%e4%b8%80%29" target="_blank" title="Share on LinkedIn">
           <i class="iconfont icon-linkedin"></i>
         </a>
         
@@ -270,8 +349,8 @@
             <section>
             <i class="iconfont icon-icon-tag"></i>Tag: 
             
-            <span class="tag"><a href="https://coldinfire.github.io/tags/python/">
-                    #python</a></span>
+            <span class="tag"><a href="https://coldinfire.github.io/tags/abap/">
+                    #abap</a></span>
             
             </section>
         
@@ -283,10 +362,10 @@
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/ABAPTable4/" class="prev" rel="prev" title="报表开发(四)"><i class="iconfont icon-dajiantou"></i>&nbsp;报表开发(四)</a>
+        <a href="https://coldinfire.github.io/2018/git/" class="prev" rel="prev" title="Git学习与总结"><i class="iconfont icon-dajiantou"></i>&nbsp;Git学习与总结</a>
          
         
-        <a href="https://coldinfire.github.io/2019/WebDynpro/" class="next" rel="next" title=" WebDynpro "> WebDynpro &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/ABAP2/" class="next" rel="next" title="ABAP 语法详解(二)">ABAP 语法详解(二)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -297,8 +376,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-01-03 17:20:58 \x2b0800 \x2b0800',
-        title: ' Pycharm ',
+        id: '2018-05-12 17:20:58 \x2b0800 \x2b0800',
+        title: 'ABAP 语法详解(一)',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',
