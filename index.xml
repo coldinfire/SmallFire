@@ -1,0 +1,88 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Small Fire`s Blog on Small Fire`s Blog</title>
+    <link>https://coldinfire.github.io/</link>
+    <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 Jun 2017 23:39:47 +0800</lastBuildDate>
+    <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Books</title>
+      <link>https://coldinfire.github.io/books/</link>
+      <pubDate>Thu, 15 Jun 2017 23:39:47 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/books/</guid>
+      <description>
+
+&lt;h3 id=&#34;开卷有益&#34;&gt;开卷有益&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Number&lt;/th&gt;
+&lt;th&gt;Title&lt;/th&gt;
+&lt;th&gt;State&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img width=200/&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img width=500/&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img width=500/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/30370277/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;越简单，越美好&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/27053004/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;以幽默的方式过一生&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/27018748/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;大学&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26801663/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;我，一个人生活&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26650965/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;生命清单&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;🕐&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject_search?search_text=%E8%BF%99%E4%B9%88%E6%85%A2%EF%BC%8C%E9%82%A3%E4%B9%88%E7%BE%8E&amp;amp;cat=1001&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;这么慢，那么美&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;🕐&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://coldinfire.github.io/about/</link>
+      <pubDate>Thu, 15 Jun 2017 23:39:47 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/about/</guid>
+      <description>&lt;p&gt;这个人很懒，什么都没留下&amp;hellip;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
