@@ -5,82 +5,3295 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Jun 2017 23:39:47 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2019 17:20:58 +0800</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Books</title>
-      <link>https://coldinfire.github.io/books/</link>
-      <pubDate>Thu, 15 Jun 2017 23:39:47 +0800</pubDate>
+      <title> SAPUI5 </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5/</link>
+      <pubDate>Sun, 16 Jun 2019 17:20:58 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/books/</guid>
+      <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
       <description>
 
-&lt;h3 id=&#34;开卷有益&#34;&gt;开卷有益&lt;/h3&gt;
+&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
+
+&lt;h3 id=&#34;mvc模式&#34;&gt;MVC模式&lt;/h3&gt;
+
+&lt;p&gt;​     MVC是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。&lt;/p&gt;
+
+&lt;p&gt;​    M : Model 代表应用程序的数据&lt;/p&gt;
+
+&lt;p&gt;​    V : View 通过界面展示应用程序的数据和其它界面元素&lt;/p&gt;
+
+&lt;p&gt;​    C : Controller 处理应用程序的数据，以及处理用户的交互&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/SAPUI5/MVC.png&#34; alt=&#34;MVC&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;● Model &amp;amp; View : SAPUI5 有单向绑定和双向绑定两种。通过绑定，当 model 变更时，UI 自动更新。&lt;/p&gt;
+
+&lt;p&gt;● Controlle &amp;amp;View : View 通知 Controller，或者 Controller使用API来修改 View。&lt;/p&gt;
+
+&lt;p&gt;● Controller &amp;amp; Model : Model 通知 Controller或者 Controller 修改 Model。&lt;/p&gt;
+
+&lt;p&gt;SAPUI5提供了JSView、XMLView、JSONView和HTMLView。主要使用XMLView 和 JSView。&lt;/p&gt;
+
+&lt;h3 id=&#34;核心类库&#34;&gt;核心类库&lt;/h3&gt;
+
+&lt;p&gt;​   查看&lt;code&gt;Resource&lt;/code&gt;版本：Cttl+Shift+Alt+P在对应的App界面或则LunchPad.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m:&lt;/code&gt;主要用于移动设备的响应式组件，并支持很多移动设备特性检测，比如检测touch等，此库下面List, Table等组件使用比较广泛，而且包含了下拉刷新的功能，非常完善，并自动适应不同尺寸平台&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui:&lt;/code&gt; UI库包含的组件是最为丰富的，主要用于适应桌面平台，同样可以支持响应式的设计，比如sap.ui.table等组件&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.core:&lt;/code&gt;核心功能：加载和管理所有的附加资源，并包含模型和渲染管理器，一个负责处理渲染视图和控制的单例，写入DOM&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.layout:&lt;/code&gt; 构建视图中元素的特殊控件&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.vk:&lt;/code&gt; 包含3D模型的功能和控件&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.unified:&lt;/code&gt; 包含用于移动和桌面应用程序的附加控件&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.table:&lt;/code&gt; 不适用于手机屏幕，处理大量数据应用而构建的&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.comp:&lt;/code&gt; 包含SmartField,SmartFilterBar,SmartTable,ValueHelpDialog等智能控件&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.uxap:&lt;/code&gt; 包含更多控件，包括页面标题&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ushell:&lt;/code&gt; 包含几个库包，含有所有统一的与shell服务相关的功能&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ca:&lt;/code&gt; 是官方标准app的常用类库，如果在实际开发过程当中想要拓展标准应用，必须要了解此类库的一些特性，否则拓展起来会有很大问题。&lt;/p&gt;
+
+&lt;h3 id=&#34;核心函数&#34;&gt;核心函数&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.getCore()&lt;/code&gt; : 获取核心的实例&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.getCore().byId(id)&lt;/code&gt; : 根据组件id获取其控制；可用于获取已经删除的组件&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.getCore().applyChanges()&lt;/code&gt; : 在系统运行前修改UI5组件属性&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;jQuery.sap.domById(id)&lt;/code&gt; : 根据ID获取HTML元素;如果UI5也存在该ID返回HTML最顶层的元素;和 document.getElementById 类似&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;jQuery.sap.byId(id)&lt;/code&gt; : 根据ID获取JQuery对象的DOM元素; $(,,#myId)&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.MessageBox&lt;/code&gt; : SAPUI5风格对话框显示&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.URLHelper.redirect(&amp;quot;http://www.jd.com&amp;quot;, true);&lt;/code&gt;重定向&lt;/p&gt;
+
+&lt;h3 id=&#34;常用组件&#34;&gt;常用组件&lt;/h3&gt;
+
+&lt;h4 id=&#34;splitapp&#34;&gt;SplitApp&lt;/h4&gt;
+
+&lt;p&gt;​    SplitApp : 这是一个Master Detail形式的结构，可以在移动，桌面不同尺寸的设备上自适应，也是大部分app需要采用的一种架构形式。&lt;/p&gt;
+
+&lt;h4 id=&#34;list&#34;&gt;List&lt;/h4&gt;
+
+&lt;p&gt;List : 列表在任何应用中是比较常见的，List在SAPUI5定义功能比较完善，支持分批加载数据，提高运行效率，支持下拉等功能，并提供给我们丰富的标准Item, 可以简单配置使用，更可以根据自身需求定义item。&lt;/p&gt;
+
+&lt;p&gt;​   对于移动设备来说，出于性能考虑，不要超过100行。使用&lt;strong&gt;growing&lt;/strong&gt;特性可以加速内部的渲染。&lt;/p&gt;
+
+&lt;p&gt;​   List控件继承自&lt;code&gt;sap.m.ListBase&lt;/code&gt;，ListBase的items聚合属性(类型：&lt;code&gt;sap.m.ListeItemBase[]&lt;/code&gt;) 设置行项目的模板。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sap.m.List&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;new sap.m.List({items:{path:&amp;ldquo;/path&amp;rdquo;,template:oTemplate}});&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;new sap.m.List().bindItems({path:&amp;ldquo;/path&amp;rdquo;,template:oTemplate});&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sap.m.ObjectListItem&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ObjectListItem适用于显示行项目的信息，主要使用title属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。继承自sap.m.ObjectListItem，可定义press事件对用户的点击做出回应。&lt;/p&gt;
+
+&lt;h4 id=&#34;table&#34;&gt;Table&lt;/h4&gt;
+
+&lt;p&gt;​    Table : 这是一个表单性质的的组件，支持响应式，很多是够我们做一个表单展示需要此控件的支持。自身也携带了丰富的property供我们选择。&lt;/p&gt;
+
+&lt;h5 id=&#34;sap-ui-table-table&#34;&gt;sap.ui.table.Table&lt;/h5&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;sap.ui.table.Table&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;oTable.setModel(oModel);&lt;/code&gt;实现Table与JSONModel的绑定，也就是View和Model的绑定。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;oTable.bindRows(&amp;quot;/Suppliers&amp;quot;);&lt;/code&gt;语句实现Table与JSON数据的绑定。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;width : sap.ui.core.CSSSize (default: auto)。表格的宽度可以是百分百，或者基于像素px。&lt;/p&gt;
+
+&lt;p&gt;titel : 设置Table的标题 。&lt;/p&gt;
+
+&lt;p&gt;visibleRowCount : int (default: 10)。默认显示10行，可以自定义显示的行数。&lt;/p&gt;
+
+&lt;p&gt;firstVisibleRow : int (default: 0) 。默认为0，从第一行开始展示数据。&lt;/p&gt;
+
+&lt;p&gt;selectionMode : sap.ui.table.SelectionMode (default: MultiToggle)。包括单行(sap.ui.table.SelectionMode.Single)、多行                                           (sap.ui.table.SelectionMode.MultiToggle)和不能选择行(sap.ui.table.SelectionMode.None)。&lt;/p&gt;
+
+&lt;p&gt;editable : boolean (default: true)。默认可以编辑，如果只是显示，将此属性设置为false。&lt;/p&gt;
+
+&lt;p&gt;columns : [ind1,ind2] 里面填充Table的列元素。&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sap.ui.table.Column&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;width : 宽度(100px)。&lt;/p&gt;
+
+&lt;p&gt;label : 设置标题栏。&lt;/p&gt;
+
+&lt;p&gt;template : 设置单元格的显示模板。&lt;/p&gt;
+
+&lt;p&gt;sortProperty : 设置排序针对的字段。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&#34;sap-m-table&#34;&gt;sap.m.Table&lt;/h5&gt;
+
+&lt;ol&gt;
+&lt;li&gt;sap.m.Table&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;继承自sap.m.ListBase，用于显示包含行和列的表格式数据。表格的列可以通过&lt;code&gt;columns&lt;/code&gt;聚合属性来设置，也可以使用&lt;code&gt;addColumn()&lt;/code&gt;方法来添加。每一列都是&lt;code&gt;sap.m.Column&lt;/code&gt;对象。&lt;/p&gt;
+
+&lt;p&gt;使用&lt;code&gt;columns&lt;/code&gt;聚合属性和&lt;code&gt;items&lt;/code&gt;聚合属性，items属性实现的就是聚合绑定.。&lt;/p&gt;
+
+&lt;p&gt;sap.m.Table的重要属性：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;columns:&lt;/code&gt;定义Table包含哪些列，类型是sap.m.Column数组。另外，sap.m.Table从sap.m.ListBase继承，所以可以直接使用sap.m.ListBase的属性。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;growing:&lt;/code&gt;设置Table显示的数据可以依据向model的请求增加行noDataText: 当Table没有数据的时候显示的文本，类型是string。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;items:&lt;/code&gt;sap.m.ListItemBase数组，sap.m.ListItemBase类定义了列表项(list item)的基本特征。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;sap.m.ColumnListItem:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.ColumnListItem&lt;/code&gt;用于创建&lt;code&gt;sap.m.Table&lt;/code&gt;的行，行中包含的&lt;code&gt;cells&lt;/code&gt;需要与&lt;code&gt;sap.m.Table&lt;/code&gt;的Columns匹配，顺序一致。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.Table().bindItems(&amp;quot;/modelData&amp;quot;,oCllumnListItem);&lt;/code&gt;绑定行&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.Table().bindAggregation(&amp;quot;items&amp;quot;,&amp;quot;/modelData&amp;quot;,oCollumnListItem);&lt;/code&gt;:聚合绑定。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;oColumnListItem.addCell();&lt;/code&gt;为Items添加元素。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.ColumnListItem&lt;/code&gt;的press属性设置为一个数组，这种方法能够保证在Controller中，this表示Controller本身，而不是某个控件。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;vAlign:&lt;/code&gt;行的垂直对齐：&lt;/p&gt;
+
+&lt;p&gt;​  &lt;code&gt;sap.ui.core.VerticalAlign.Bottom:&lt;/code&gt;底部对齐&lt;/p&gt;
+
+&lt;p&gt;​  &lt;code&gt;sap.ui.core.VerticalAlign.Inherit:&lt;/code&gt;从父控件继承&lt;/p&gt;
+
+&lt;p&gt;​  &lt;code&gt;sap.ui.core.VerticalAlign.Middle:&lt;/code&gt;居中对齐&lt;/p&gt;
+
+&lt;p&gt;​ &lt;code&gt;sap.ui.core.VerticalAlign.Top:&lt;/code&gt;顶部对齐&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;cells:&lt;/code&gt;行包含的cells，每一个cell都是&lt;code&gt;sap.ui.core.Control&lt;/code&gt;对象，从而开发人员可以根据需要选择合适的控件，灵活度很高。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt; &amp;lt;ObjectIdentifier text=&amp;quot;{ID}&amp;quot;&amp;gt;&amp;lt;/ObjectIdentifier&amp;gt; : cell元素。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;主题设置&#34;&gt;主题设置&lt;/h3&gt;
+
+&lt;p&gt;​    SAPUI5 默认提供了一些主题，并在组件添加新的主题。&lt;/p&gt;
+
+&lt;p&gt;​        - Blue crystal (常用)&lt;/p&gt;
+
+&lt;p&gt;​        - Platium&lt;/p&gt;
+
+&lt;p&gt;​        - Gold Reflection (常用)&lt;/p&gt;
+
+&lt;p&gt;​        - High Contast Black&lt;/p&gt;
+
+&lt;p&gt;​        - Belize (常用)    - …&lt;/p&gt;
+
+&lt;p&gt;​    设置主题：&lt;/p&gt;
+
+&lt;p&gt;​        1.在Header中设置 : &lt;code&gt;data-sap-ui-theme=&amp;quot;sap_bluecrystal&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​        2.在程序中设定样式 :&lt;code&gt;sap.ui.getCore().applyTheme(sThemeName, sThemeBaseUrl?)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;文件模块介绍&#34;&gt;文件模块介绍&lt;/h3&gt;
+
+&lt;h4 id=&#34;index&#34;&gt;Index&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;&amp;lt;script id=&amp;quot;sap-ui-bootstrap&amp;quot;
+		src=&amp;quot;https://openui5.hana.ondemand.com/resources/sap-ui-core.js&amp;quot;
+		data-sap-ui-theme=&amp;quot;sap_belize&amp;quot;
+		data-sap-ui-libs=&amp;quot;sap.m&amp;quot;
+		data-sap-ui-compatVersion=&amp;quot;edge&amp;quot;
+		data-sap-ui-preload=&amp;quot;async&amp;quot;
+		data-sap-ui-bindingSyntax = &amp;quot;complex&amp;quot;
+		data-sap-ui-resourceroots = &#39;{&amp;quot;sFileSourceName&amp;quot;:&amp;quot;oURL&amp;quot;}&#39;&amp;gt;
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;​   src : 核心资源的加载路径。&lt;/p&gt;
+
+&lt;p&gt;​   data-sap-ui-theme : 设置主题&lt;/p&gt;
+
+&lt;p&gt;​   data-sap-ui-libs : 选择文件默认加载的库文件&lt;/p&gt;
+
+&lt;p&gt;​   data-sap-ui-compatVersion : edge兼容模式，为了方便使用新功能&lt;/p&gt;
+
+&lt;p&gt;​   data-sap-ui-preload : async 设置文件加载形式为异步加载&lt;/p&gt;
+
+&lt;p&gt;​   data-sap-ui-bindingSyntax : 数据绑定的设置 complex复杂绑定，对绑定数据进行计算。&lt;/p&gt;
+
+&lt;p&gt;​   data-sap-ui-resourceroots : 命名文件的根目录，声明资源文件位置&lt;/p&gt;
+
+&lt;p&gt;​   data-sap-ui-onInit=&amp;ldquo;module:sNameSpace/index&amp;rdquo; : 定义初始化时加载的初始页面文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JSP&#34;&gt;&amp;lt;script&amp;gt;
+    sap.ui.localResources(&amp;quot;ui5mvc&amp;quot;);
+    var app = new sap.m.App({initialPage:&amp;quot;idmain1&amp;quot;});
+    var view = sap.ui.view({
+        id:&amp;quot;idmain1&amp;quot;, 
+        viewName:&amp;quot;ui5mvc.main&amp;quot;, 
+        type:sap.ui.core.mvc.ViewType.JS});
+    app.addPage(view);
+    app.placeAt(&amp;quot;content&amp;quot;);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sap.ui.localResources(&amp;quot;filename&amp;quot;)&lt;/code&gt; : 将当前目录下的FILE文件夹注册为当前文件夹，程序会在该文件夹下查找&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;View和Controller代码。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;sap.m.App&lt;/code&gt; : 是SAP移动APP的root element,提供导航功能，并将一些header标签加到HTML页。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;sap.ui.view&lt;/code&gt; : 定义一个view,ID,name,type来指定显示的View。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​                                  &lt;code&gt;sap.ui.xmlview&lt;/code&gt;可直接定义xml类型View。View type:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sap.ui.core.mvc.ViewType.JS       &amp;ldquo;JS&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;sap.ui.core.mvc.ViewType.XML    &amp;ldquo;XML&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;sap.ui.core.mvc.ViewType.JSON    &amp;ldquo;JSON&amp;rdquo;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sap.ui.core.mvc.ViewType.HTML   &amp;ldquo;HTML&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;app.placeAt()&lt;/code&gt; : 该方法将控件放到指定的div中。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;view&#34;&gt;View&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;view.js&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;sap.ui.jsview(&amp;quot;ui5mvc.main&amp;quot;, {
+	getControllerName : function() {
+		return &amp;quot;ui5mvc.main&amp;quot;;
+	},
+	createContent : function(oController) {
+		var oShell = new sap.ui.ux3.Shell();// Create Shell
+
+		oShell.addWorksetItem(new sap.ui.ux3.NavigationItem({
+			key : &amp;quot;btn&amp;quot;,
+			text : &amp;quot;Button&amp;quot;
+		}));// Add Navigation item
+
+		oShell.addWorksetItem(new sap.ui.ux3.NavigationItem({
+			key : &amp;quot;tf&amp;quot;,
+			text : &amp;quot;Textfield&amp;quot;
+		}));
+
+		oShell.addWorksetItem(new sap.ui.ux3.NavigationItem({
+			key : &amp;quot;xml&amp;quot;,
+			text : &amp;quot;XMLView&amp;quot;
+		}));
+
+		var mContent = {}; // map holding shell content
+		mContent.btn = new sap.ui.commons.Button({
+			text : &amp;quot;Hello World&amp;quot;
+		});
+
+		mContent.tf = new sap.ui.commons.TextField();
+		oShell.attachWorksetItemSelected(function(evt) {
+			var key = evt.getParameter(&amp;quot;key&amp;quot;);
+			oShell.setContent(mContent[key]);
+		});// Add WorksetItem Selected event
+
+		mContent.xml = sap.ui.view({
+			viewName : &amp;quot;ui5mvc.XML&amp;quot;,
+			type : sap.ui.core.mvc.ViewType.XML
+		});
+	
+		oShell.setContent(mContent.btn);//initial content
+		return oShell;
+	}
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;getControllerName&lt;/code&gt;: 函数用于返回 controller name&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;createContent&lt;/code&gt;: 函数用于返回页面上要显示的元素&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;view.xml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-XML&#34;&gt;&amp;lt;core:View xmlns:core=&amp;quot;sap.ui.core&amp;quot;
+	xmlns:mvc=&amp;quot;sap.ui.core.mvc&amp;quot; xmlns=&amp;quot;sap.m&amp;quot; controllerName=&amp;quot;ui5mvc.XML&amp;quot;
+	mlns:html=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot;&amp;gt;
+	&amp;lt;html:h1&amp;gt;My first XML-Header&amp;lt;/html:h1&amp;gt;
+	&amp;lt;Panel&amp;gt;
+		&amp;lt;Button press=&amp;quot;.sayHello&amp;quot; text=&amp;quot;Say Hello&amp;quot;&amp;gt;&amp;lt;/Button&amp;gt;
+	&amp;lt;/Panel&amp;gt;
+&amp;lt;/core:View&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;​       空的的namespace设定 : xmlns = &amp;ldquo;sap.m&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;​       命名的namespace设定 : xmlns:mvc = &amp;ldquo;sap.ui.core.mvc&amp;rdquo;. mvc标签指代&lt;code&gt;sap.ui.core.mvc&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;申明namespace: &lt;code&gt;xmlns:t=&amp;quot;sap.ui.table&amp;quot;&lt;/code&gt;。xml中就可以表示为&lt;code&gt;&amp;lt;t:Table&amp;gt; ... &amp;lt;/t:Table&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果属性是简单类型，可以直接作为atrribute的方式来申明，如Table的width属性、title属性&lt;/li&gt;
+&lt;li&gt;如果属性是Aggregation和Association，则使用子标签，如Column的Label，是&lt;code&gt;sap.m.Label&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;绑定的语法稍有差异。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;视图模型可以包含分配给控件的任何配置选项，以绑定属性。&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;一个 ” . ”在格式化程序名称前面表示在当前视图的控制器中查找该函数&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;xmlView 聚合绑定&lt;/p&gt;
+
+&lt;p&gt;​   1）xmlview中对需要动态显示的部分不作声明&lt;/p&gt;
+
+&lt;p&gt;​   2）在controller中定义factory function，实现控件的绑定和动态加载。&lt;/p&gt;
+
+&lt;h4 id=&#34;controller&#34;&gt;Controller&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;系统生成的文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;sap.ui.controller(&amp;quot;ui5mvc.XML&amp;quot;, {
+// onInit: function() {
+//		
+// },
+
+// onBeforeRendering: function() {
+//
+// },
+
+// onAfterRendering: function() {
+//
+// },
+
+// onExit: function() {
+//
+// }
+
+sayHello : function() {
+	sap.ui.commons.MessageBox.show(&amp;quot;Hello World&amp;quot;);
+}
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;通过模块定义&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;sap.ui.define(
+	[&amp;quot;Dependencies1&amp;quot;,&amp;quot;Dependencies2&amp;quot;,&amp;quot;formatter&amp;quot;],
+	function(Controller,formatter){
+	&amp;quot;use strict&amp;quot;;
+		return Controller.extend(&amp;quot;ControllerName&amp;quot;,{
+        formatter:formatter,
+            
+			onInit:function(){},
+           onBeforeRendering:function(){},
+           onAfterRendering:function(){},
+           onExit:function(){}
+		});
+	}
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;生命周期：&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;​           Start  &amp;ndash;&amp;gt;  视图和控制器被实例化  &amp;ndash;&amp;gt;  控制器被加载(存在控制器) &amp;ndash;&amp;gt;  onInit  &amp;ndash;&amp;gt;  onBeforeRendering  &amp;ndash;&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;​       视图被渲染  &amp;ndash;&amp;gt;  onAfterRendering  &amp;ndash;&amp;gt;  onExit  &amp;ndash;&amp;gt;  END(视图和控制器被销毁)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;onInit : 当视图被实例化并且其控件已经创建时调用。用于在显示前修改视图，绑定事件处理程序并执行其他一次性初始化任务。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;onExit : 视图退出时调用。用于释放资源并完成任务。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;onAfterRendering : 当视图被渲染时调用;是HTML的一部分。用于执行HTML的后续操作，SAPUI5控制在渲染后访问此钩子。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;onBeforeRendering : 在控制器视图重新呈现之前调用，不在第一次呈现之前调用。用于在其中调用第一个渲染前的钩子。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;控制器只是将加载的格式化程序函数存储在本地属性格式化程序中，以便能够在视图中访问它们。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&#34;model&#34;&gt;Model&lt;/h4&gt;
+
+&lt;p&gt;应用程序数据&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;客户端 JSON model、XML model、Resource model&lt;/li&gt;
+&lt;li&gt;服务端 oData model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;resource&#34;&gt;Resource&lt;/h4&gt;
+
+&lt;p&gt;三种方法声明文件位置：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sap.ui.localResources()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​ sap.ui.localResources(&amp;ldquo;foldle.foldle&amp;rdquo;);&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;jQuery.sap.registerModulePath()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​ jQuery.sap.registerModulePath(sModuleNamePrefix, sURL);&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;bootstrap声明 : &lt;code&gt;data-sap-ui-resourceroots = &#39;{&amp;quot;sName&amp;quot;:&amp;quot;oURL&amp;quot;}&#39;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;变更位置后需要修改系统自动生成的文件名称。&lt;/p&gt;
+
+&lt;p&gt;Component&lt;/p&gt;
+
+&lt;p&gt;Component.js通过调用manifest.json的配置信息，完成初始化调用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;sap.ui.define([
+        &amp;quot;sap/ui/core/UIComponent&amp;quot;,
+        &amp;quot;sap/ui/model/resource/ResourceModel&amp;quot;,
+        &amp;quot;sap/ui/model/json/JSONModel&amp;quot;
+        
+    ], function (UIComponent, ResourceModel, JSONModel) {
+    &amp;quot;use strict&amp;quot;;
+
+    return UIComponent.extend(&amp;quot;webapp.Component&amp;quot;, {
+		//metadata
+        metadata: {
+            manifest: &amp;quot;json&amp;quot;
+         },
+
+        init : function () {
+            // call the base component&#39;s init function
+            UIComponent.prototype.init.apply(this, arguments);
+
+            // create the views based on the url/hash
+            this.getRouter().initialize();
+        }
+    });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;application-descriptor&#34;&gt;Application Descriptor&lt;/h4&gt;
+
+&lt;p&gt;​   manifest.json配置应用程序的相关信息。被称为Application Descriptor。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;sap.app&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;包含特定于应用程序的属性&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ID(强制)：应用程序组件的命名空间，唯一的，必须与组件的空间名称对应&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;type：定义我们想要配置的内容，例如：应用程序&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;i18n：定义资源包文件的路径&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;title：应用程序资源包中引用的句柄语法中的应用程序标题&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;description：简短说明文本应用程序在应用程序资源包中引用的句柄语法中的作用&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;applicationVersion：应用程序的版本，以便以后可以轻松更新应用程序&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;sap.ui&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;提供以下UI属性&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;technology：此值指定UI技术; 在我们的例子中，我们使用SAPUI5&lt;/li&gt;
+&lt;li&gt;deviceTypes：告诉应用程序支持哪些设备：台式机，平板电脑，手机（默认情况下均为true）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;sap.ui5&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;该 sap.ui5 namespace添加SAPUI5自动处理的SAPUI5特定配置参数。最重要的参数是：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rootView：如果指定此参数，组件将自动实例化视图并将其用作此组件的根&lt;/li&gt;
+&lt;li&gt;dependencies：这里我们声明应用程序中使用的UI库&lt;/li&gt;
+&lt;li&gt;models：在描述符的这一部分中，我们可以定义在应用程序启动时由SAPUI5自动实例化的模型。在这里，我们现在可以定义本地资源包。我们将模型“i18n”的名称定义为键，并按名称空间指定包文件。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;资源包文件&#34;&gt;资源包文件&lt;/h5&gt;
+
+&lt;ol&gt;
+&lt;li&gt;sap.app设置资源包文件的路径和文件名。使用的相对于 &lt;code&gt;manifest.json&lt;/code&gt; 文件的相对路径。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;sap.app&amp;rdquo;: {
+    &amp;ldquo;_version&amp;rdquo;: &amp;ldquo;1.1.0&amp;rdquo;,
+    &amp;ldquo;id&amp;rdquo;: &amp;ldquo;resource&amp;rdquo;,
+    &amp;ldquo;type&amp;rdquo;: &amp;ldquo;application&amp;rdquo;,
+    &amp;ldquo;i18n&amp;rdquo;: &amp;ldquo;i18n/i18n.properties&amp;rdquo;,
+    &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;},&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;sap.ui5中models设置名称为 i18n 的 &lt;strong&gt;resource model&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;sap.ui5&amp;rdquo;: {&lt;br /&gt;
+   &amp;hellip;
+   &amp;ldquo;models&amp;rdquo;: {
+       &amp;hellip;
+       &amp;ldquo;i18n&amp;rdquo;: {
+           &amp;ldquo;type&amp;rdquo;: &amp;ldquo;sap.ui.model.resource.ResourceModel&amp;rdquo;,
+           &amp;ldquo;settings&amp;rdquo;: {
+               &amp;ldquo;bundleName&amp;rdquo;: &amp;ldquo;webapp.i18n.i18n&amp;rdquo;
+               }
+     }&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;bundleName&lt;/code&gt; 后面是根据 index.html文件的 &lt;strong&gt;resource roots&lt;/strong&gt; 设置的相对路径。然后在代码中添加对 ResourceBundle 的依赖后，通过 &lt;code&gt;{i18n&amp;gt;xxx}&lt;/code&gt; 实现绑定。&lt;/p&gt;
+
+&lt;h5 id=&#34;models&#34;&gt;Models&lt;/h5&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;sap.app设置资源包文件的路径和文件名。使用的相对于 &lt;code&gt;manifest.json&lt;/code&gt; 文件的相对路径。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;&amp;quot;sap.app&amp;quot;: {
+   ...
+   &amp;quot;dataSources&amp;quot;: {
+       &amp;quot;mainService&amp;quot;: {
+           &amp;quot;uri&amp;quot;: &amp;quot;./service/data.json&amp;quot;,
+           &amp;quot;type&amp;quot;: &amp;quot;JSON&amp;quot;
+       }
+   }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sap.ui5的&lt;code&gt;models&lt;/code&gt;没有指定名称的 model，当 view 中数据绑定时，没有给出前缀的时候，就参照到这个 model。使用sap.app中设置的dataSource.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;&amp;quot;sap.ui5&amp;quot;: {
+       ...
+       &amp;quot;models&amp;quot;: {
+           &amp;quot;&amp;quot;: {
+               &amp;quot;dataSource&amp;quot;: &amp;quot;mainService&amp;quot;
+            },
+       ...
+       }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&#34;root-view&#34;&gt;Root View&lt;/h5&gt;
+
+&lt;p&gt;​   Root view (启动即显示的 view)：类型为 xml，名称为 App。OpenUI5 在相应文件夹下面查找名为 &lt;code&gt;App.view.xml&lt;/code&gt; 文件并加载。通过这种方式，实现了 root view 的配置化.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;sap.ui5&amp;rdquo;: {
+      &amp;ldquo;_version&amp;rdquo;: &amp;ldquo;1.1.0&amp;rdquo;,
+      &amp;ldquo;rootView&amp;rdquo;: {
+          &amp;ldquo;viewName&amp;rdquo;: &amp;ldquo;webapp.view.App&amp;rdquo;,
+          &amp;ldquo;type&amp;rdquo;: &amp;ldquo;XML&amp;rdquo;
+      }&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​   启动流程 :&lt;/p&gt;
+
+&lt;p&gt;​   1) &lt;code&gt;index.html&lt;/code&gt; 的 &lt;code&gt;ComponentContainer&lt;/code&gt; 根据 &lt;code&gt;name&lt;/code&gt; 或 &lt;code&gt;component&lt;/code&gt; 属性实例化 Component。&lt;/p&gt;
+
+&lt;p&gt;​   2) Component 的 &lt;code&gt;metadata&lt;/code&gt; 指向设定的 &lt;code&gt;manifest.json&lt;/code&gt; 文件。&lt;/p&gt;
+
+&lt;p&gt;​   3) &lt;code&gt;manifest.json&lt;/code&gt; 文件的 &lt;code&gt;sap.ui5&amp;gt;rootView&lt;/code&gt; 设定了启动时候加载并显示的 root view 为 &lt;code&gt;App.view.xml&lt;/code&gt; 。&lt;/p&gt;
+
+&lt;p&gt;​   4) App view 并不需要像之前文章介绍的内嵌 master view 和 detail view，而是由路由器根据路径在 pattern 中找匹配的模式，在 target 中找对应的 view 加载。&lt;/p&gt;
+
+&lt;h5 id=&#34;routing设置&#34;&gt;Routing设置&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;&amp;quot;sap.ui5&amp;quot;: {
+        ...
+        &amp;quot;routing&amp;quot;: {
+            &amp;quot;config&amp;quot;: {
+                &amp;quot;routerClass&amp;quot;: &amp;quot;sap.m.routing.Router&amp;quot;,
+                &amp;quot;viewType&amp;quot;: &amp;quot;XML&amp;quot;,
+                &amp;quot;viewPath&amp;quot;: &amp;quot;webapp.view&amp;quot;,
+                &amp;quot;controlId&amp;quot;: &amp;quot;app&amp;quot;,
+                &amp;quot;controlAggregation&amp;quot;: &amp;quot;pages&amp;quot;,
+                &amp;quot;bypassed&amp;quot;: {
+                    &amp;quot;target&amp;quot;: &amp;quot;notFound&amp;quot;
+                }
+            },
+            &amp;quot;routes&amp;quot;: [{
+                &amp;quot;pattern&amp;quot;: &amp;quot;&amp;quot;,
+                &amp;quot;name&amp;quot;: &amp;quot;master&amp;quot;,
+                &amp;quot;target&amp;quot;: &amp;quot;master&amp;quot;
+            },
+            {
+                &amp;quot;pattern&amp;quot;: &amp;quot;detail/{supplierPath}&amp;quot;,
+                &amp;quot;name&amp;quot;: &amp;quot;detail&amp;quot;,
+                &amp;quot;target&amp;quot;: &amp;quot;detail&amp;quot;
+            }],
+            &amp;quot;targets&amp;quot;: {
+                &amp;quot;master&amp;quot;: {
+                    &amp;quot;viewName&amp;quot;: &amp;quot;Master&amp;quot;,
+                    &amp;quot;viewLevel&amp;quot;: 1
+                },
+                &amp;quot;detail&amp;quot;: {
+                    &amp;quot;viewName&amp;quot;: &amp;quot;Detail&amp;quot;,
+                    &amp;quot;viewLevel&amp;quot;: 2
+                },
+                &amp;quot;notFound&amp;quot;: {
+                    &amp;quot;viewName&amp;quot;: &amp;quot;NotFound&amp;quot;,
+                    &amp;quot;viewId&amp;quot;: &amp;quot;notFound&amp;quot;
+                }
+            }
+        }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;多语言&#34;&gt;多语言&lt;/h4&gt;
+
+&lt;p&gt;在 SAPUI5 中，通过两种方法来实现多语言.&lt;/p&gt;
+
+&lt;p&gt;​   (1) SAPUI5 提供 Resource Model，Resource Model 读取资源包 (Resource Bundle) 并与 View 中的控件绑定。&lt;/p&gt;
+
+&lt;p&gt;​   (2) 使用 jQuery.sap.resources 相关的 API 读取资源包。两种方法都需要资源包文件并且在配置中设置。&lt;/p&gt;
+
+&lt;h5 id=&#34;语言代码&#34;&gt;语言代码&lt;/h5&gt;
+
+&lt;p&gt;​   OpenUI5 对页面的显示，有一个 &lt;strong&gt;当前语言( Current Language )&lt;/strong&gt; 的概念，按照当前语言，读取相应的资源包文件，按当前语言显示。OpenUI5 按照如下顺序顺序(从高到低)，如果都没有找到，最后读取通用设置（比如 i18n.properties)。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;code&gt;sap.ui.getCore().getConfiguration().getLanguage()&lt;/code&gt; 获得当前语言。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;1) URL中的 locale 参数（即在 url 后面加上 &lt;code&gt;?sap-ui-language=en&lt;/code&gt; )&lt;/p&gt;
+
+&lt;p&gt;2) 应用程序代码的 locale 设置，sap.ui.getCore().getConfiguration().applySettings({ language: &amp;lsquo;de&amp;rsquo;});&lt;/p&gt;
+
+&lt;p&gt;3) Android 平台的用户代理字符串设置&lt;/p&gt;
+
+&lt;p&gt;4) 浏览器的一般语言设置，可以用 window.navigator.language 查看&lt;/p&gt;
+
+&lt;p&gt;5) 浏览器中用户语言配置。这个与浏览器相关，比如 IE 通过 window.navigator.userLanguage 查看。&lt;/p&gt;
+
+&lt;p&gt;6) 浏览器语言配置。这个业余浏览器相关，比如 IE 通过 window.navigator.browserLanguage 查看&lt;/p&gt;
+
+&lt;p&gt;7) OpenUI5中硬编码，默认为 en&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&#34;资源包文件-1&#34;&gt;资源包文件&lt;/h5&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Java的属性文件，文件的扩展名总是.properties。文件中包含于语言相关的文本。&lt;/li&gt;
+&lt;li&gt;文件名包括固定部分和语言相关部分。那么 i18n.properties 是默认的文件，i18n_zh_CN.properties 是中文简体的资源文件。&lt;/li&gt;
+&lt;li&gt;资源包文件为扁平结构，不能嵌套。每一行要么是 key-value键值对 ，要么是 # 开头的注释。也可以可以空行。&lt;/li&gt;
+&lt;li&gt;如果 Properties 文件的文本为 Unicode 字符，文件使用16进制的编码来存储，而不是明文。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&#34;resource-model&#34;&gt;Resource Model&lt;/h5&gt;
+
+&lt;p&gt;​   使用 Resource Model 绑定数据需要三步：&lt;/p&gt;
+
+&lt;p&gt;​   1) 添加资源包文件，将不同的语言放在不同的资源包文件中。&lt;code&gt;i18n.properties,i18n_zh_CN.properties&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​   2) 在 Component.js 文件中，创建 Resource model 的实例 。&lt;/p&gt;
+
+&lt;p&gt;​   3) 在 View 中参照 Resource Model 中定义的 key。 &lt;code&gt;title=&amp;quot;{i18n&amp;gt;masterTitle}&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​    url 后面添加&lt;code&gt;?sap-ui-language=XXX&lt;/code&gt;，实现语言的切换。&lt;/p&gt;
+
+&lt;h5 id=&#34;jquery-sap-resources&#34;&gt;jQuery.sap.resources&lt;/h5&gt;
+
+&lt;p&gt;​   在代码中直接使用资源包的文本。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;var sLocale = sap.ui.getCore().getConfiguration().getLanguage();//获取当前语言
+var oBd = jQuery.sap.resources({
+	url: &amp;quot;i18n/i18n.properties&amp;quot;,
+	locale: sLocale
+})               						 //根据指定的 URL 和 Locale，创建一个新的资源包实例
+var sMeg = oBd.getText(&amp;quot;key&amp;quot;,[sLocale]); //根据资源包文件的 key，获取与语言相关的 value。
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;layout设置&#34;&gt;Layout设置&lt;/h2&gt;
+
+&lt;h3 id=&#34;多页面显示和跳转&#34;&gt;多页面显示和跳转&lt;/h3&gt;
+
+&lt;p&gt;​   sap.m.App : 是一个全局对象，可以通过 app.to(sPageId) 跳转到另一个页面。&lt;/p&gt;
+
+&lt;p&gt;​       to(sPageId, sTransitionName&lt;em&gt;?&lt;/em&gt;, oData&lt;em&gt;?&lt;/em&gt;, oTransitionParameters&lt;em&gt;?&lt;/em&gt;): [sap.m.NavContainer]&lt;/p&gt;
+
+&lt;p&gt;​   app.back()则跳回到刚才的page：&lt;/p&gt;
+
+&lt;p&gt;​       back(oBackData&lt;em&gt;?&lt;/em&gt;, oTransitionParameters&lt;em&gt;?&lt;/em&gt;): [sap.m.NavContainer]&lt;/p&gt;
+
+&lt;p&gt;​   &lt;code&gt;sap.m.Page&lt;/code&gt;中，&lt;code&gt;showNavButton&lt;/code&gt;设置为&lt;code&gt;true&lt;/code&gt;，就会出现Navigation按钮，点击按钮的event hander通过Controller中&lt;code&gt;onNavPress&lt;/code&gt;函数来实现。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;	var oDetailPage = new sap.m.Page({
+        showNavButton: true,
+        navButtonPress: [oController.onNavPress, oController],
+        title: &amp;quot;供应商明细&amp;quot;,
+        content: [oObjectHeader]
+    });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;​   &lt;code&gt;sap.m.ColumnListItem&lt;/code&gt;的type必须为Navigation，否则不能实现跳转。&lt;code&gt;sap.m.ColumnListItem&lt;/code&gt;的press属性设置为一个数组，这种方法能够保证在Controller中，this表示Controller本身，而不是某个控件。&lt;/p&gt;
+
+&lt;h3 id=&#34;布局类型&#34;&gt;布局类型&lt;/h3&gt;
+
+&lt;p&gt;​   sap.ui.layout.HorizontalLayout() : 水平布局&lt;/p&gt;
+
+&lt;p&gt;​   sap.ui.layout.VerticalLayout() : 垂直布局&lt;/p&gt;
+
+&lt;p&gt;​   sap.ui.layout.Grid() : 表格式布局&lt;/p&gt;
+
+&lt;h4 id=&#34;grid-layout&#34;&gt;Grid Layout&lt;/h4&gt;
+
+&lt;p&gt;​   Grid Layout 控件负责将页面进行表格式布局，将页面分为 12 列，子控件从左至右排列。每个控件并不是占一列，OpenUI5 根据屏幕的大小，将屏幕分为 4 种，分别是&lt;code&gt;XL: extra large 、 L: large、M: medium、S: small&lt;/code&gt;。XL的如 PC 机的大桌面，L的如 PC 的桌面，M的比如平板，S的比如手机。默认情况下，每个控件在 XL 桌面上占 3 列，在 L 桌面上占 3 列，在 M 桌面上占 6 列，在 S 桌面上占 12 列。OpenUI5 用一个字符串表示为&lt;code&gt;XL3 L3 M6 S12&lt;/code&gt;，通过 default Span 属性来设置。&lt;/p&gt;
+
+&lt;p&gt;​    当屏幕的尺寸变更的时候，OpenUI5 检测到尺寸的变化，根据上面的 4 个分类对控件的位置进行调整，从而实现所谓的自适应。&lt;/p&gt;
+
+&lt;p&gt;​    Grid layout 控件宽度 (Width)，可以基于像素，或者基于页面宽度的相对比例。控件之间的间距可以通过 vSpacing 和 hSpacing 属性进行设置。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.layout&lt;/code&gt; : 该function可以对Layout页面布局进行设置。&lt;/p&gt;
+
+&lt;p&gt;​       &lt;code&gt;new sap.ui.layout.Grid({ content: [ a1,b1,c1,d1] }).placeAt(&amp;quot;content&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​    将各个空间放到Layout.Grid中，然后将该Grid放到页面指定位置上。&lt;/p&gt;
+
+&lt;h3 id=&#34;layoutdata-属性&#34;&gt;LayoutData 属性&lt;/h3&gt;
+
+&lt;p&gt;​      &lt;code&gt;sap.ui.core.Element&lt;/code&gt; 类定义了&lt;code&gt;layoutData&lt;/code&gt; 属性、&lt;code&gt;getLayoutData()&lt;/code&gt; 方法和&lt;code&gt;setLayoutData()&lt;/code&gt; 方法。控件都是 &lt;code&gt;sap.ui.core.Element&lt;/code&gt; 类的间接子类，从而控件都可以利用这些属性和方法设定这个控件在页面中如何定位。&lt;code&gt;setLayoutData()&lt;/code&gt; 方法的参数是&lt;code&gt;sap.ui.core.LayoutData&lt;/code&gt; 对象。 Grid 布局时&lt;code&gt;layoutData&lt;/code&gt; 我们可以用&lt;code&gt;sap.ui.core.LayoutData&lt;/code&gt; 类的子类 &lt;code&gt;sap.ui.layout.GridData&lt;/code&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JSP&#34;&gt;var oLabel2 = new sap.m.Label({
+   text : &amp;quot;XXXXXXXXXXXXXXXXXXX&amp;quot;,
+   layoutData : new sap.ui.layout.GridData({
+     span : &amp;quot;XL12 L12 M12 S12&amp;quot;       //通过该设置让该元素独占屏幕元素的一整行
+   })
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;margin-classes&#34;&gt;Margin Classes&lt;/h4&gt;
+
+&lt;p&gt;​   在class属性中设置了四种标准的大小: tiny-8px、small-16px、medium-32px、large-48px， Begin is left and End is right。&lt;/p&gt;
+
+&lt;p&gt;在 div 的 class 属性中添加对应的属性值来解决边距问题。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Full Margins : all around control&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sapUiTinyMargin&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sapUiSmallMargin&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sapUiMediumMargin&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sapUiLargeMargin&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Single-sided margins : class中只能设定一个边框距离&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sapUixxxxMarginTop&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sapUixxxxMarginBottom&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sapUixxxxMarginBegin&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sapUixxxxMarginEnd&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Two-Sided Margins : 两个方向&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sapUiTinyMarginBeginEnd&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sapUiTinyMarginTopBottom&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Responsive Margins : margins depending on the screen width&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sapUiResponsiveMargin&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;Panel headerText=&#34;{i18n&gt;helloPanelTitle}&amp;rdquo;
+      class=&amp;ldquo;sapUiResponsiveMargin&amp;rdquo;
+      width=&amp;ldquo;auto&amp;rdquo;&amp;gt;
+&lt;/Panel&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;body class=&#34;sapUiBody sapUiResponsiveMargin&#34; role=&#34;application&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;​      &lt;div id=&#34;content&#34;&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/body&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;100%宽度控制&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;如果控件包含有&lt;code&gt;width&lt;/code&gt;属性，设置该属性为&lt;code&gt;width=auto&lt;/code&gt;.如果没有该属性，可以添加 sapUiForceWidthAuto属性到控件的class.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;移除Margins&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sapUiNoMarginTop&lt;/li&gt;
+&lt;li&gt;sapUiNoMarginBottom&lt;/li&gt;
+&lt;li&gt;sapUiNoMarginBegin&lt;/li&gt;
+&lt;li&gt;sapUiNoMarginEnd
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&#34;自定义css和主题颜色&#34;&gt;自定义CSS和主题颜色&lt;/h4&gt;
+
+&lt;p&gt;​   不要在自定义CSS中指定颜色，而是使用标准的主题依赖类。&lt;/p&gt;
+
+&lt;h3 id=&#34;对象组件显示&#34;&gt;对象组件显示&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;组件&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;sap.m.ObjectIdentifier:&lt;/code&gt; 用于需要对操作对象进行明确区分的时候，使用这个组件进行显示。强调的是标识。                title属性是主要标识，text属性是补充，如果titleActive为true，则标题用颜色标识.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.ObjectNumber:&lt;/code&gt; 显示数字,能根据不同的状态提供颜色区分。有四种state: Warning, Error, Success,Default.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.ObjectMarker:&lt;/code&gt; 以图标的方式显示预定义的几种类型，可以绑定press事件。包括 [Flagged、Favorite、Draft&lt;/p&gt;
+
+&lt;p&gt;、Locked、LockedBy、Unsaved、UnsavedBy].&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.ObjectAttribute:&lt;/code&gt; 显示对象，并提供普通和active两种状态，active状态可与事件绑定。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.ObjectStatus:&lt;/code&gt; 显示对象的文本，并且根据状态不同，文本以不同的颜色区分。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.ObjectHeader:&lt;/code&gt; 显示对象，包括标识和附加的信息，图标等。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;dialogs-and-fragments&#34;&gt;Dialogs and Fragments&lt;/h2&gt;
+
+&lt;h3 id=&#34;fragments&#34;&gt;Fragments&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;片段是一个轻量级的Ui部分，它只是一组重用控件的容器。包含一到多个控件，不需要控制器。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;定义并调用已存在的 Fragments : &amp;ldquo;sap/ui/core/Fragment&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1) 定义xxx.fragment.xml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;   &amp;lt;core:FragmentDefinition xmlns=&amp;quot;sap.m&amp;quot; xmlns:core=&amp;quot;sap.ui.core&amp;quot;&amp;gt;
+   	&amp;lt;Dialog id=&amp;quot;helloDialog&amp;quot; title=&amp;quot;Hello {/recipient/name}&amp;quot;&amp;gt;
+   		&amp;lt;content&amp;gt;
+   			&amp;lt;core:Icon src=&amp;quot;sap-icon://hello-world&amp;quot; size=&amp;quot;80px&amp;quot; class=&amp;quot;sapUiMediumMargin&amp;quot;&amp;gt;					 &amp;lt;/core:Icon&amp;gt;
+   		&amp;lt;/content&amp;gt;
+   		&amp;lt;beginButton&amp;gt;
+   			&amp;lt;Button text=&amp;quot;{i18n&amp;gt;dialogCloseButtonText}&amp;quot; press=&amp;quot;.onCloseDialog&amp;quot;&amp;gt;&amp;lt;/Button&amp;gt;
+   		&amp;lt;/beginButton&amp;gt;
+   	&amp;lt;/Dialog&amp;gt;
+   &amp;lt;/core:FragmentDefinition&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;   // create dialog lazily
+   if (!this.byId(&amp;quot;helloDialog&amp;quot;)) {  //如果id为helloDialog的Dialog不存在
+   	// load asynchronous XML fragment
+   	Fragment.load({
+   		id: oView.getId(),
+   		name: &amp;quot;sap.ui.demo.walkthrough.view.HelloDialog&amp;quot;,
+             controller:this    //函数的回调
+   	}).then(function (oDialog) {
+   		// connect dialog to the root view of this component (models, lifecycle)
+   		oView.addDependent(oDialog);
+   		oDialog.open();
+   	});
+   } else {
+   	this.byId(&amp;quot;helloDialog&amp;quot;).open();
+   },
+      
+   onCloseDialog:function(){
+       this.byId(&amp;quot;helloDialog&amp;quot;).close();
+   }
+   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;始终使用addDependent方法将对话框连接到视图的生命周期管理和数据绑定，即使它未添加到其UI树中。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;如果片段中的对话框尚不存在，则通过使用以下方法调用sap.ui.xmlfragment方法来实例化片段&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;回调open方法&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;dialog&#34;&gt;Dialog&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;不属于特定视图，不能将其定义为视图，这意味着必须在控制器代码中的某处实例化对话框。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;重用&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1) 定义单独的控制来实现Dialog的创建 HelloDialog.js&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;   sap.ui.define([
+   		&amp;quot;sap/ui/base/ManagedObject&amp;quot;, //实现该类
+   		&amp;quot;sap/ui/core/Fragment&amp;quot;
+   	],
+   	function (ManagedObject, Fragment) {
+   		&amp;quot;use strict&amp;quot;;
+   
+   	return ManagedObject.extend(&amp;quot;SAPUI5.Walkthrough.controller.HelloDialog&amp;quot;, {
+   		constructor: function (oView) { //oView参数用于关联当前视图到对话框.
+   			this._oView = oView;
+   		},
+   
+   		exit: function () {
+   			delete this._oView();
+   		},
+   
+   		open: function () {
+   			var oView = this._oView;
+   
+   			//create dialog lazily
+   			if (!oView.byId(&amp;quot;helloDialog&amp;quot;)) {
+   				var oFragmentController = {
+   					onCloseDialog: function () {
+   						oView.byId(&amp;quot;helloDialog&amp;quot;).close();
+   					}
+   				};
+   				//load asynchronous XML fragment
+   				Fragment.load({
+   					id: oView.getId(),
+   					name: &amp;quot;SAPUI5.Walkthrough.view.HelloDialog&amp;quot;,
+   					controller: oFragmentController
+   				}).then(function (oDialog) {
+   					//connect dialog to the root view of this component (models,lifecycle)
+   					oView.addDependent(oDialog);
+   					oDialog.open();
+   				});
+   			} else {
+   				oView.byId(&amp;quot;helloDialog&amp;quot;).open();
+   			}
+   		}
+   	});
+   });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2) 在Component.js文件中声明该控件为私有属性,并封装其方法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;   sap.ui.define([
+   	&amp;quot;sap/ui/core/UIComponent&amp;quot;,
+   	&amp;quot;sap/ui/Device&amp;quot;,
+   	&amp;quot;SAPUI5/Walkthrough/model/models&amp;quot;,
+   	&amp;quot;sap/ui/model/json/JSONModel&amp;quot;,
+   	&amp;quot;./controller/HelloDialog&amp;quot;
+   ], function (UIComponent, Device, models,JSONModel,HelloDialog) {
+   	&amp;quot;use strict&amp;quot;;
+   
+   	return UIComponent.extend(&amp;quot;SAPUI5.Walkthrough.Component&amp;quot;, {
+   
+   		metadata: {
+   			manifest: &amp;quot;json&amp;quot;
+   		},
+   
+   		/**
+   		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
+   		 * @public
+   		 * @override
+   		 */
+   		init: function () {
+   			// call the base component&#39;s init function
+   			UIComponent.prototype.init.apply(this, arguments);
+   
+   			// enable routing
+   			this.getRouter().initialize();
+   
+   			// set the device model
+   			this.setModel(models.createDeviceModel(), &amp;quot;device&amp;quot;);
+   
+   			//set dialog
+   			this._helloDialog = new HelloDialog(this.getRootControl());
+   		},
+   		
+   		exit:function(){
+   			this._helloDialog.destory();
+   			delete this._helloDialog;
+   		},
+   		
+   		openHelloDialog:function(){
+   			this._helloDialog.open();
+   		}
+   	});
+   });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在按钮事件中通过&lt;code&gt;this.getOwnerComponent().openHelloDialog()&lt;/code&gt;调用&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;onOpenDialog方法现在通过调用辅助方法getOwnerComponent来访问其组件。当调用重用对象的open方法时，我们传入当前视图以将其连接到对话框。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Attention&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;将跨多个控制器使用的所有资产放在单独的模块中&lt;/p&gt;
+
+&lt;h2 id=&#34;icons&#34;&gt;Icons&lt;/h2&gt;
+
+&lt;p&gt;sap.ui.core.Icon&lt;/p&gt;
+
+&lt;h2 id=&#34;数据类型和操作&#34;&gt;数据类型和操作&lt;/h2&gt;
+
+&lt;h3 id=&#34;基本数据类型&#34;&gt;基本数据类型&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;​ sap.ui.model.type.Integer(oFormatOptions?, oConstraints?):支持minimum,maximum&lt;/p&gt;
+
+&lt;p&gt;​ sap.ui.model.type.Float(oFormatOptions?, oConstraints?):&lt;code&gt;decimalSeparator&lt;/code&gt;定义小数位的分隔符&lt;/p&gt;
+
+&lt;p&gt;​ sap.ui.model.type.String(&amp;hellip;&amp;hellip;&amp;hellip;)&lt;/p&gt;
+
+&lt;p&gt;​ sap.ui.model.type.Boolean&lt;/p&gt;
+
+&lt;p&gt;​ sap.ui.model.type.Date : ui5支持原数据为JavaScript和原数据为String的日期数据进行格式输出&lt;/p&gt;
+
+&lt;p&gt;​ sap.ui.model.type.Time : Time也支持原数据为Time类型或者字符串类型&lt;/p&gt;
+
+&lt;p&gt;​ sap.ui.model.type.DateTime&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;属性设置&#34;&gt;属性设置&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;尽可能使用数据类型而不是自定义格式化程序。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;number=&amp;quot;{
+	parts: [{path: &#39;invoice&amp;gt;ExtendedPrice&#39;}, {path: &#39;view&amp;gt;/currency&#39;}],
+	type: &#39;sap.ui.model.type.Currency&#39;,
+	formatOptions: {
+		showMeasure: false
+	}
+}&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;计算字段绑定(parts)：它允许将来自不同模型的多个属性绑定到控件的单个属性。&lt;/li&gt;
+&lt;li&gt;控件的属性是数字，从两个不同模型检索的绑定属性（“部件”）invoice&amp;gt; ExtendedPrice和view&amp;gt; / currency。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Expression Binding 仅使用表达式绑定进行简单的计算。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;numberState=&amp;quot;{= ${invoice&amp;gt;ExtendedPrice} &amp;gt; 50 ? &#39;Error&#39; : &#39;Success&#39; }&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;数据校验&#34;&gt;数据校验&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;基本使用&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;​    sap.ui.core.message.MessageManager();&lt;/p&gt;
+
+&lt;p&gt;​    registerObject(oObject,bHandelValidation) : 第一个参数是ManagedObject对象的实例，第二个参数是boolean类型变量，为true时执行数据校验。&lt;/p&gt;
+
+&lt;p&gt;​    attachValidationError(this,function(){}) : 控件都有该方法，用于校验失败时的处理。&lt;/p&gt;
+
+&lt;p&gt;​    attachValidationSuccess(this,function(){}) : 用于校验成功时的处理。&lt;/p&gt;
+
+&lt;p&gt;ValueState 种类:setValueState()&lt;/p&gt;
+
+&lt;p&gt;​    sap.ui.core.ValueState.Error&lt;/p&gt;
+
+&lt;p&gt;​    sap.ui.core.ValueState.None&lt;/p&gt;
+
+&lt;p&gt;​    sap.ui.core.ValueState.Success&lt;/p&gt;
+
+&lt;p&gt;​    sap.ui.core.ValueState.Warning&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;集中处理数据校验:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sap.ui.core.Core也可添加attachValidationError().&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;自定义数据类型校验:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;sap.ui.model.SimpleType.extend()自定义数据类型，可以使用formatValue(),parseValue(),validateValue()实现自定义的校验规则和提示消息。&lt;/p&gt;
+
+&lt;p&gt;抛出异常信息：throw new sap.ui.model.ValidationException(&amp;ldquo;Message&amp;rdquo;);&lt;/p&gt;
+
+&lt;p&gt;截取异常消息，使用该类型的控件通过&lt;code&gt;oEvent.getParameter(&amp;quot;message&amp;quot;)&lt;/code&gt;获取该错误消息。&lt;/p&gt;
+
+&lt;h3 id=&#34;formart设置&#34;&gt;Formart设置&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在Constructor或绑定方法中定义formatter (绑定单个控件)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;var oText = new sap.m.Text({
+        text:{ formatter:function(sValue){
+                        return sValue &amp;amp;&amp;amp; sValue.toUpperCase();
+                }
+        }
+     });&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在Controller中定义formatter (更灵活，可重复调用)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;Text text=&#34;{path: &#39;/productname&#39;, formatter: &#39;.toUpper&#39;}&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;其中&lt;code&gt;.toUpper&lt;/code&gt; 前面的&lt;code&gt;.&lt;/code&gt;表示当前Controller方法。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在专门模块中定义formatter&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;单独定义formatter在Controller中引入该文件。并在view中调用。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;自定义数据类型中设置formatter&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;搜索与过滤&#34;&gt;搜索与过滤&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;添加搜索框并绑定事件 &lt;code&gt;sap.m.SearchField&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;List id=&amp;quot;invoiceList&amp;quot; items=&amp;quot;{invoice&amp;gt;/Invoices}&amp;quot;&amp;gt;
+&amp;lt;headerToolbar&amp;gt;
+  &amp;lt;Toolbar&amp;gt;
+     &amp;lt;Title text=&amp;quot;{i18n&amp;gt;invoiceListTitle}&amp;quot;/&amp;gt;
+     &amp;lt;ToolbarSpacer/&amp;gt;
+     &amp;lt;SearchField width=&amp;quot;50%&amp;quot; search=&amp;quot;.onFilterInvoices&amp;quot;/&amp;gt;
+  &amp;lt;/Toolbar&amp;gt;
+&amp;lt;/headerToolbar&amp;gt;
+  &amp;lt;items&amp;gt;
+  	&amp;lt;ObjectListItem&amp;gt;
+    	,,,,,,
+    &amp;lt;/ObjectListItem&amp;gt; 
+  &amp;lt;/items&amp;gt;
+&amp;lt;/List&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;事件定义并实现过滤&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;filter对象将保留我们对filter操作的配置。&lt;strong&gt;new sap.ui.model.Filter(vFilterInfo, vOperator?, vValue1?, vValue2?)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;FilterOperator是我们需要的帮助器类型，以指定过滤器，范围。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;   new Filter({
+         path: &amp;quot;Price&amp;quot;,
+         operator: FilterOperator.BT,
+         value1: 11.0,
+         value2: 23.0
+       });
+       
+   new Filter({
+       filters: [
+         ...
+         new Filter({
+           path: &#39;Quantity&#39;,
+           operator: FilterOperator.LT,
+           value1: 20
+         }),
+         new Filter({
+           path: &#39;Price&#39;,
+           operator: FilterOperator.GT,
+           value1: 14.0
+         })
+         ...
+       ],
+       and: true|false
+     })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;   onFilterInvoices : function (oEvent) {
+   	// build filter array
+   	var aFilter = [];
+   	var sQuery = oEvent.getParameter(&amp;quot;query&amp;quot;); //&amp;quot;query&amp;quot; 获取搜索字段
+   	if (sQuery) {
+   		aFilter.push(new Filter(&amp;quot;ProductName&amp;quot;, FilterOperator.Contains, sQuery)); //添加过滤条件
+   	}
+   
+   	// filter binding
+   	var oList = this.byId(&amp;quot;invoiceList&amp;quot;);     //获取List对象
+   	var oBinding = oList.getBinding(&amp;quot;items&amp;quot;); //获取绑定的items
+   	oBinding.filter(aFilter);			   //根据过滤条件过滤items数据
+   }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;排序与分组&#34;&gt;排序与分组&lt;/h3&gt;
+
+&lt;p&gt;​       &lt;code&gt;new sap.ui.model.Sorter(sPath, bDescending?, vGroup?, fnComparator?)&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;items=&amp;ldquo;{path:&amp;lsquo;invoice&amp;gt;/Invoices&amp;rsquo; sorter:{path:&amp;lsquo;ProductName&amp;rsquo;}}&amp;rdquo;  //默认是升序ascending,可以添加属性descending : true.&lt;/li&gt;
+&lt;li&gt;items=&amp;ldquo;{path:&amp;lsquo;invoice&amp;gt;/Invoices&amp;rsquo; sorter:{path:&amp;lsquo;ProductName&amp;rsquo;,group:true}}&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;私有函数和变量&#34;&gt;私有函数和变量&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;私有函数和变量应始终以下划线开头。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;消息设置&#34;&gt;消息设置&lt;/h2&gt;
+
+&lt;h3 id=&#34;sap-m-messagebox&#34;&gt;sap.m.MessageBox&lt;/h3&gt;
+
+&lt;p&gt;​    SAPUI5 提供的对话框，可以显示信息、警告、错误等等。MessageBox 类是静态类，在使用之前必须执行 &lt;code&gt;jQuery.sap.require(&amp;quot;sap.m.MessageBox&amp;quot;)&lt;/code&gt; 语句 SAPUI5 包含 jQuery 包，&lt;code&gt;jQuery.sap.require(vModuleName)&lt;/code&gt; 方法的作用是加载指定的模块并且执行，这样 MessageBox 的 show() 方法才能运行。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;sap.m.MessageBox.alert(vMessage, mOptions*?*)&lt;/code&gt;对话框显示消息，有一个OK按钮（“确定”），没有图标&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.MessageBox.confirm(vMessage, mOptions*?*)&lt;/code&gt; 确认对话框，询问是否确定，有一个OK按钮和Cancel按钮，一个问号的图标。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.MessageBox.error(vMessage, mOptions*?*)&lt;/code&gt; 显示错误对话框，带有错误图标和关闭按钮Displays an error dialog with the given message, an ERROR icon, a CLOSE button。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.MessageBox.information(vMessage, mOptions*?*)&lt;/code&gt; 消息对话框，带有INFO图标和OK按钮。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.MessageBox.show(vMessage, mOptions*?*)&lt;/code&gt; 显示对话框，类型为sap.m.DialogType.Message，图标和按钮由开发人员自行定义，相对灵活一些。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.MessageBox.success(vMessage, mOptions*?*)&lt;/code&gt; 显示成功对话框，带有SUCCESS图标和OK按钮。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.MessageBox.warning(vMessage, mOptions*?*)&lt;/code&gt; 显示警告消息，带有WARNING图标和OK按钮。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.m.MessageToast.show()&lt;/code&gt;对用户操作提供一种简单的反馈，并且经过一段时间后自动消失，除非用户将鼠标放在消息上面。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;模块化&#34;&gt;模块化&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;如何加载模块&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;jQuery.sap.declare(sModuleName,bCreateNamespace)&lt;/code&gt;申明一个模块，以确保模块存在。这个语句必须出现在 模块代码（也就是代码文件)的第一句。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;jQuery.sap.require(vModuleName)&lt;/code&gt;确保当前代码继续之前，所指定的模块被加载和执行。如果所需要的模块没有被加载，将会被同步加载和执行，如果已经加载，就忽略。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.define(sModuleName,aDependencies,vFactory,bExport)&lt;/code&gt;定义module，异步加载依赖模块,sap.ui.define()定义的模块具有全局命名空间。2:定义依赖 3:继承工厂函数。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sap.ui.require()&lt;/code&gt;异步加载依赖的模块，不具有全局命名空间。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用模块方法实现Controller&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;sap.ui.define(
+	[&amp;quot;Dependencies1&amp;quot;,&amp;quot;Dependencies2&amp;quot;],
+	function(Controller){
+	&amp;quot;use strict&amp;quot;;
+		return Controller.extend(&amp;quot;ControllerName&amp;quot;,{
+			onInit:function(){},
+              onBeforeRendering:function(){},
+              onAfterRendering:function(){},
+              onExit:function(){}
+		});
+	}
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参数1 : 不定义，便于对模块进行访问&lt;/li&gt;
+&lt;li&gt;参数2 : 指定依赖的模块，可指定多个&lt;/li&gt;
+&lt;li&gt;参数3 : 定义工厂函数，实现Controller功能&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;model-binding&#34;&gt;Model Binding&lt;/h2&gt;
+
+&lt;h3 id=&#34;单数据绑定&#34;&gt;单数据绑定&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;使用数据绑定前，需要先实例化Model.构造函数获取实例的URL或则数据本身作为第一个参数。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;​    JSON-Model:&lt;/p&gt;
+
+&lt;p&gt;​        &lt;code&gt;var oModel = new sap.ui.model.json.JSONModel(dataUrlOrData);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​    XML-Model:&lt;/p&gt;
+
+&lt;p&gt;​        &lt;code&gt;var oModel = new sap.ui.model.xml.XMLModel(dataUrlOrData);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​    OData-Model:&lt;/p&gt;
+
+&lt;p&gt;​        &lt;code&gt;var oModel = new sap.ui.model.odata.ODataModel(dataUrl[,userJSON,user,pass]);&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;给Model设置值&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;oModel.setData(data);  绑定定义的数据&lt;/p&gt;
+
+&lt;p&gt;oModel.loadData(&amp;ldquo;models/suppliers.json&amp;rdquo;); 从文件中读取数据绑定&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;将Model分配给Core或则其他的控制器（setModel）方法。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Global model:&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;​        &lt;code&gt;sap.ui.getCore().setModel(oModel)&lt;/code&gt; : 这样oModel对整个应用程序可见&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Bind a model to a view&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​       &lt;code&gt;var oView = sap.ui.view({type:sap.ui.core.mvc.ViewType.JS,viewName:&amp;quot;text.view&amp;quot;})&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​     &lt;code&gt;oView.setModel(oModel);&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Bind a model to a specific control&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​        &lt;code&gt;var oTable = sap.ui.getCore().byId(&amp;quot;table&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​        &lt;code&gt;oTable.setModel(oModel);&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Model属性绑定方法（{ } curly braces，bindProperty()）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;​    控件的大多数属性都可以绑定到模型属性。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;bindProperty  method: [extend : sap.ui.base.ManagedObject]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​        &lt;code&gt;oControl.bindProperty(&amp;quot;sName&amp;quot;,&amp;quot;oBindingInfo&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​            oBindingInfo attributes : path、model、formatter等&lt;/p&gt;
+
+&lt;p&gt;​                path : 指定绑定的数据路径&lt;/p&gt;
+
+&lt;p&gt;​                model : sap.ui.model.BindingMode.OneWay、sap.ui.model.BindingMode.TwoWay&lt;/p&gt;
+
+&lt;p&gt;​                formatter :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;花括号:{ }
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​        &lt;code&gt;var oControl = new sap.ui.commons.TextView({controlProperty:&amp;quot;{/modelProperty}&amp;quot;});&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;alternatively：
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​        &lt;code&gt;var oControl = new sap.ui.commons.TextView({controlProperty:{path:&amp;quot;/modelProperty&amp;quot;}});&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Model属性的获取。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;oModel.getProperty(&amp;ldquo;/sName&amp;rdquo;);    根据JSON数据属性名获取对应的值&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;多数据绑定&#34;&gt;多数据绑定&lt;/h3&gt;
+
+&lt;p&gt;​    用于绑定集合数据，如绑定多行数据到一个表格中。使用模板:所有行都用同样的方法显示数据。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;使用模板:所有行都用同样的方法显示数据&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;var oItemTemplate = new sap.ui.core.ListItem({text:&amp;quot;{aggrProperty}&amp;quot;});
+var oComboBox = new sap.ui.commons.ComboBox({
+items:{path:&amp;quot;/modelAggregation&amp;quot;, template: oItemTemplate}
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;bindAggregation():&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​        &lt;code&gt;oComboBox.bindAggregation(&amp;quot;items&amp;quot;,&amp;quot;/modelAggregation&amp;quot;,oItemTemplate);&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;工厂函数实现聚合绑定&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;oTable.bindAggregation(&amp;ldquo;items&amp;rdquo;,&amp;ldquo;/modelData&amp;rdquo;,function(sId,oContext){&lt;/p&gt;
+
+&lt;p&gt;​ return oColumnListItem; //通过工厂函数，定义数据并返回&lt;/p&gt;
+
+&lt;p&gt;});&lt;/p&gt;
+
+&lt;h3 id=&#34;元素绑定&#34;&gt;元素绑定&lt;/h3&gt;
+
+&lt;p&gt;​   元素绑定指根据上下文(binding context)使用相对绑定的方式绑定到model数据的某一具体对象。尤其适用于&lt;strong&gt;主从数据显示(master-detail data)&lt;/strong&gt;的情况。&lt;/p&gt;
+
+&lt;p&gt;​   sap.m.List(sId?, mSettings?) : List控件适用于显示行项目，所有类型都可以。&lt;/p&gt;
+
+&lt;p&gt;​   sap.m.ObjectListItem(sId?, mSettings?) : 适用于显示行项目的信息，主要使用&lt;strong&gt;title&lt;/strong&gt;属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。&lt;/p&gt;
+
+&lt;p&gt;​   sap.m.Panel().bindElement({path:sPath}) : 将显示的明细与Model绑定。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;左边是一个List控件，右边在Panel中放置几个控件组合。当选择左边某个产品的时候，右边相应显示该产品的信息。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;oEvent.getSource().getBindingContext()&lt;/code&gt;获取绑定的项，再使用&lt;code&gt;getPath()&lt;/code&gt;方法得到path路径，然后设置右边的detailPanel与这个路径绑定。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Model 中detail包含多条数据的情况，点击 一个header,显示多个行项目，可以通过&lt;code&gt;sap.ui.model.Filter()&lt;/code&gt;的方法实现。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;绑定点击事件,&lt;code&gt;oSupTable.attachRowSelectionChange(fuction(oEvent()))&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;通过&lt;code&gt;var oRowContext = oEvent.getParameter(&amp;quot;rowContext&amp;quot;)&lt;/code&gt;获取行的上下文。如果选中第一行，rowContext就是constructor {oModel: 指定Model, sPath: &amp;ldquo;数据第一行地址&amp;rdquo;}。&lt;/p&gt;
+
+&lt;p&gt;然后通过&lt;code&gt;var sSelectedId = oModel.getProperty(&amp;quot;id&amp;quot;, oRowContext)&lt;/code&gt;;就能获取到所选择行的id数据。&lt;/p&gt;
+
+&lt;p&gt;通过 &lt;code&gt;var oBinding = oPrdTable.getBinding()&lt;/code&gt;;获取对应详细数据的绑定。&lt;/p&gt;
+
+&lt;p&gt;定义过滤规则，var oF = new sap.ui.model.Filter({path:&amp;ldquo;key index&amp;rdquo;,oprator: new sap.ui.model.FilterOperator.BT,value1:value&amp;hellip;})。&lt;/p&gt;
+
+&lt;p&gt;使用过滤规则，oBinding.filter(oF);&lt;/p&gt;
+
+&lt;h3 id=&#34;绝对绑定和相对绑定&#34;&gt;绝对绑定和相对绑定&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;绝对绑定&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;将value属性绑定到json model根目录下对应的字段title/attr。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;相对绑定&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;相对绑定尤其适用于布局(layout)控件或者容器控件&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当父控件的绑定路径设置后，子控件可以基于这个路径使用相对路径。&lt;/p&gt;
+
+&lt;h2 id=&#34;routing导航&#34;&gt;Routing导航&lt;/h2&gt;
+
+&lt;p&gt;​   Openui5 的 routing 基于模式 ( pattern )，使用 &lt;code&gt;#&lt;/code&gt; 符号表示不同的路径 ( route )，导航通过路径的改变来实现。&lt;/p&gt;
+
+&lt;h3 id=&#34;pattern-表达式&#34;&gt;Pattern 表达式&lt;/h3&gt;
+
+&lt;p&gt;Openui5 一共有 5 种 pattern表达式:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;硬编码模式&lt;/strong&gt; : 页面之间根据模式导航，没有参数传递，比如 product/settings 表示导航到产品配置。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;路径含有必输参数模式&lt;/strong&gt; : 模式中 大括号({}) 包含的部分表示参数必须输入。比如 product/{id} 表示导航到产品某一 id，比如 product/5 表示 id 为 5 的产品，id 为必输。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;路径含有可选参数模式&lt;/strong&gt; : 模式中 冒号 包含的部分为必输参数。比如 product/{id}/detail/:detailId:，detailId 为可选参数。product/5/detail 以及 product/3/detail/2 都能与此模式匹配。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;路径含有查询参数模式&lt;/strong&gt; : 查询参数 ( query parameter ) 在问号之后。比如 product{?query}，query 这个参数为必输项。product:?query: 中的 query 这个参数为可选参数。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;**通配参数模式 **: 以星号结尾的参数是通配参数，通配参数将根据模式尽可能匹配。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;导航调用&#34;&gt;导航调用&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;父导航&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1) 跳转到Detail view子导航&lt;/p&gt;
+
+&lt;p&gt;2) 向Detail view传递一个参数，参数为当前点击的路径，Detail获取该路径完成数据绑定&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;var oRouter = UIComponent.getRouterFor(this);获取当前的router&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;var oItem = oEvent.getSource();获取点击所在的行&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;oItem.getBindingContext().getPath();获取点击的路径，String类型（/Sup/0）路径传到Detail&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;oRouter.navTo(&amp;ldquo;detail&amp;rdquo;,{supplierPath:encodeURIComponent(sPath)});方法不能包含&lt;code&gt;/&lt;/code&gt;所以使用 &lt;code&gt;encodeURIComponent()&lt;/code&gt; 函数编码，在Detail controller 中用&lt;code&gt;decodeURIComponent()&lt;/code&gt;函数解码。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;子导航&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1) 获取 Master view 传递的路径，根据此路径完成 element binding。比如当 Master view 传过来 &lt;code&gt;/Suppliers/0&lt;/code&gt;，则与第一条数据绑定;&lt;/p&gt;
+
+&lt;p&gt;2) 根据页面之间的关系，当点击 &lt;strong&gt;返回&lt;/strong&gt; 按钮时，返回到上一个页面。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;var oRouter = UIComponent.getRouterFor(this);&lt;/code&gt;获取当前Router&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;oRouter.getRoute(&amp;quot;detail&amp;quot;).attachPatternMatched(this._onObjectMatched, this);&lt;/code&gt;，当模式匹配时，附加事件处理器为 &lt;code&gt;_onObjectMatched&lt;/code&gt;。然后在 &lt;code&gt;_onObjectMatched&lt;/code&gt; 中获取 Master view 传递的路径并绑定数据。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt; _onObjectMatched: function (oEvent) {           
+     var sPath = decodeURIComponent(
+             oEvent.getParameter(&amp;quot;arguments&amp;quot;).supplierPath);
+     this.getView().bindElement({path: sPath});
+ }   
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;当用户点击导航按钮，判断是否有上一个路径 ( previous hash )，如果有就返回上一个路径，否则跳转到 Master view:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt; onNavPress: function() {
+     var oHistory = History.getInstance();
+     var sPreviousHash = oHistory.getPreviousHash();
+         
+     if (sPreviousHash != undefined){
+         window.history.go(-1);
+     }else{
+         var oRouter = UIComponent.getRouterFor(this);
+         oRouter.navTo(&amp;quot;master&amp;quot;,{}, true);
+     }
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;mock-server&#34;&gt;mock server&lt;/h2&gt;
+
+&lt;p&gt;​   在开发过程中，通过使用模拟服务器的方法方便测试，SAPUI5将模拟服务器称为mock server.mock server的基本功能是模拟oData数据的提供者，截获应用程序对服务器端的http或https请求，并传回模拟请求的回应，可以降低与真实后端的耦合。&lt;/p&gt;
+
+&lt;h1 id=&#34;系统配置和功能块&#34;&gt;系统配置和功能块&lt;/h1&gt;
+
+&lt;h2 id=&#34;sap-netweaver-gateway&#34;&gt;SAP NetWeaver Gateway&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;任何SAP业务套件都是无中断的&lt;/p&gt;
+
+&lt;p&gt;易于开发简单的API,不需要任何工具知识&lt;/p&gt;
+
+&lt;p&gt;基于REST,oData。允许使用功能任何编程语言或模型连接到SAP应用程序&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;将SAP NetWeaver Gateway 连接到 SAP Business Suite&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1) 将后端服务器配置为信任系统 : SM59&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/SAPUI5/1559703243928.png&#34; alt=&#34;1559703243928&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​                &lt;img src=&#34;https://coldinfire.github.io/images/SAPUI5/1559712968906.png&#34; alt=&#34;1559712968906&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2) SMT1&lt;/p&gt;
+
+&lt;p&gt;​                &lt;img src=&#34;https://coldinfire.github.io/images/SAPUI5/1559713194355.png&#34; alt=&#34;1559713194355&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;SAP NetWeaver Gateway部署选项&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1) 中央枢纽部署 : 后端系统的开发&lt;/p&gt;
+
+&lt;p&gt;​    在此类部署选项中，中央 UI 附加组件，特定于产品的 UI 附加组件和 SAP NetWeaver 网关包含在 ABAP 前端服务器中。后端服务器包含业务逻辑和后端数据。开发在 ABAP 后端系统中进行。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;它需要单独的 SAP NetWeaver Gateway 系统&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;它允许在没有后端开发授权的情况下更改 UI。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;它为所有 UI 问题提供单点维护。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;它为 Fiori Apps 的主题和品牌提供了中心位置。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;它提供对后端系统的单点访问。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;由于无法直接访问后端系统，因此增强了安全性。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;直接本地访问元数据（DDIC）和业务数据以及轻松重用数据。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2) 中央集线器的部署&lt;/p&gt;
+
+&lt;p&gt;​    如果必须在后端系统上执行开发，或者在 7.40 之前的版本中执行开发，则使用此选项。如果不允许在&lt;strong&gt;后端&lt;/strong&gt;部署 Add-On &lt;strong&gt;IW_BEP&lt;/strong&gt;。在这种情况下，开发人员仅限于可通过后端 RFC 访问的接口。&lt;/p&gt;
+
+&lt;p&gt;​    开发在 Gateway 集线器系统中进行，并且不触及 Business Suite 后端系统。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;无法直接访问&lt;strong&gt;元数据（DDIC）&lt;/strong&gt;和业务数据。因此，数据的重用是有限的。&lt;/li&gt;
+&lt;li&gt;无法远程使用 GENIL 对象。&lt;/li&gt;
+&lt;li&gt;在此配置中，访问仅限于远程启用的接口，如 RFC 模块，BAPI 等。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;odata-开放数据协议&#34;&gt;oData(开放数据协议)&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;概述: OData 用于定义构建和使用 RESTful API 所需的最佳实践&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;OData 提供扩展功能，以满足 RESTful API 的任何自定义需求。&lt;/li&gt;
+&lt;li&gt;REST 代表 Representational State Transfer。&lt;/li&gt;
+&lt;li&gt;它依赖于无状态，客户端 - 服务器，可缓存的通信协议。几乎在所有情况下，都使用 HTTP 协议。&lt;/li&gt;
+&lt;li&gt;REST 被定义为用于设计网络应用程序的体系结构样式。&lt;/li&gt;
+&lt;li&gt;OData 可帮助您在构建 RESTful API 时专注于业务逻辑，而无需担心定义请求和响应头，状态代码，HTTP 方法，URL 约定，媒体类型，有效负载格式和查询选项等的方法。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;oData服务生命周期&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;OData 服务生命周期包括 OData 服务的范围。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;激活 OData 服务。&lt;/li&gt;
+&lt;li&gt;维护 OData 服务。&lt;/li&gt;
+&lt;li&gt;维护模型和服务，直至清理元数据缓存。&lt;/li&gt;
+&lt;li&gt;RESTful 应用程序使用 HTTP 请求发布数据以创建或更新，读取数据和删除数据。REST 对所有四个 CRUD（创建 / 读取 / 更新 / 删除）操作使用 HTTP。&lt;/li&gt;
+&lt;li&gt;REST 是 RPC（远程过程调用）和 Web 服务等机制的轻量级替代方法。
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;oData设置&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在manifest.json中配置服务器：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;   &amp;quot;sap.app&amp;quot;: {
+   	...
+   	&amp;quot;ach&amp;quot;: &amp;quot;CA-UI5-DOC&amp;quot;,
+   	&amp;quot;dataSources&amp;quot;: {
+   	  &amp;quot;invoiceRemote&amp;quot;: {
+   		&amp;quot;uri&amp;quot;: &amp;quot;https://services.odata.org/V2/Northwind/Northwind.svc/&amp;quot;,
+   		&amp;quot;type&amp;quot;: &amp;quot;OData&amp;quot;,
+   		&amp;quot;settings&amp;quot;: {
+   		  &amp;quot;odataVersion&amp;quot;: &amp;quot;2.0&amp;quot;
+   		}
+   	  }
+   	}
+    &amp;quot;sap.ui5&amp;quot;: {
+   	...
+   	&amp;quot;models&amp;quot;: {
+   	  ...
+   	  &amp;quot;invoice&amp;quot;: {
+   		&amp;quot;dataSource&amp;quot;: &amp;quot;invoiceRemote&amp;quot;
+   	  }
+   	}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;sap-fiori-launchpad&#34;&gt;SAP Fiori Launchpad&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;关于 SAP Fiori Launchpad 的要点如下。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;基于 Web 的入口点，可跨平台和设备使用 SAP Business 应用程序。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;作为 I HTML 客户端的开箱即用思想提供。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用主题，搜索集成，自定义等功能为最终用户提供高生产率。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;为使用多种设备类型的最终用户提供单一入口点。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title> Python学习资源</title>
+      <link>https://coldinfire.github.io/2019/PythonResource/</link>
+      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/PythonResource/</guid>
+      <description>
+
+&lt;h1 id=&#34;资源&#34;&gt;资源&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/classes.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Python 官网&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/vinta/awesome-python&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;包含了 Python 框架、Python 库和软件的 awesome 列表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aosabook/500lines&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Python 神书，里面有若干个项目，每个项目都是由业内大神所写，每个项目代码在 500 行左右&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pymotw.com/3/#python-3-module-of-the-week&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;介绍 Python3 中的标准库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jackfrued/Python-100-Days&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;一百天学Python,github开源&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JeffPaine/beautiful_idiomatic_python&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;写出简洁的、优雅的 Python 代码&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://jobbole.github.io/awesome-python-cn/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Python 资源大全，包含：Web 框架、网络爬虫、模板引擎和数据库等，由伯乐在线更新&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pycoders.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;优秀的免费邮件 Python 新闻周刊&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://python.jobbole.com/82399/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;伯乐在线翻译的 Python 学习资源&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.fullstackpython.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Python 资源汇总，从基础入门到各种 Web 开发框架，再到高级的 ORM，Docker 等等&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python-guide.org/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;kennethreitz介绍 Python 的最佳实践&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pymbook.readthedocs.io/en/latest/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;介绍 Python 的基本语法，特点等&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://districtdatalabs.silvrback.com/how-to-develop-quality-python-code&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;开发高质量的 Python 代码&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/sloria/7001839&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Python 最佳实践&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://python3-cookbook.readthedocs.io/zh_CN/latest/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Cook Book&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Yixiaohan/codeparkshare&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;推荐内容&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pypi.org/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://pypi.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pyvideo.org/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Python Video&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title> Python基础 </title>
+      <link>https://coldinfire.github.io/2019/Linux/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Linux/</guid>
+      <description>
+
+&lt;h1 id=&#34;基本命令&#34;&gt;基本命令&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;man [command]:查看命令使用文档
+1. 文件
+  ex: -rw--w-r-- 1 user group day month time text.xx
+  第一个文件代表意义(0)：
+    [d]:目录
+    [-]:文件
+    [l]:链接文档
+    [b]:可随机存储装置
+    [c]:串行端口设备
+  后续文字意义：
+    &amp;lt;1&amp;gt;.三个为一组均为[rwx]组合(r:read w:write x:execute)
+    u=第一组(123)：文件拥有者权限   g=第二组(456)：所属组权限   o=第三组(789)：其他用户权限
+    &amp;lt;2&amp;gt;.文件硬链接个数
+    &amp;lt;3&amp;gt;.文件拥有者
+    &amp;lt;4&amp;gt;.同属者
+    &amp;lt;5&amp;gt;.大小
+    &amp;lt;6&amp;gt;.修改时间
+  修改权限：
+    chmod [xx] file:修改文件的权限 
+                    [u=rwx,g=rwx,o=rwx]/[u+r,w,x...] :修改各自对应的权限 [a=rwx]:修改所有的权限
+                    [777]:对应的权限值和，可修改权限
+    chown user file:修改文件所有者
+    chgrp group file:修改文件所属组
+2. 处理文件常用命令：
+    ls/ll -al ~:显示所有文件(~显示隐藏)
+    cd:切换目录
+    touch file.xxx:创建文件
+    touch {1,2,3,..}.xxx :创建多个文件
+    vi/vim file.xxx:创建并编辑文件
+    pwd [-p]:显示当前所在目录 [p]:真是路径而非link路径
+    mkdir [-mp]:创建新目录 [p]:递归创建 [m]:修改文件权限 777
+    rmdir [-p]:删除空目录 [p]:删除上层空目录
+    cp [-pdri]:复制  [p]:连同文件属性复制  [r]递归持续复制  [d]复制链接文档而非文件本身  [i]目标文档已存在，提示是否覆盖
+    rm [-fir]:移除文件或目录 [f]忽略不存在文件 [i]互动模式 [r]递归删除
+    创建回收站：myrm(){ D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D; mv &amp;quot;$@&amp;quot; $D &amp;amp;&amp;amp; echo &amp;quot;moved to $D ok&amp;quot;; }
+            alias rm= &#39;myrm&#39;
+            rm [1,2,3].xxx
+    mv [-fiu]:移动文件或目录，修改名称 [f]强制 [i]互动模式 [u]source较新,update
+3. 文件内容查看
+    grep []:查找文件内出现
+    find []:查找文件
+    cat:从第一行显示 [n]:行号 [v]:列出特殊字符
+    tac:从最后一行显示 
+    nl:显示行号
+    more:页显示
+    less:页显示可以往前翻页
+    head:头几行  [-n number]:显示几行
+    tail:尾巴几行  [-n number]:显示几行
+4. 链接创建
+    ln f1 f2:创建f1的一个硬连接文件f2
+    ln -s f1 f2:创建f1的一个符号连接文件f2
+5. 压缩解压
+    file.tar.gz   file.tar.bz2
+    tar -cvf [tar_file.tar] [1,2,3,4]:打包
+    tar -xvf [tar_file.tar]:解包
+    tar -zcvf [tar_file.tar.gz] [1,2,3,4]:压缩打包
+    tar -zxvf [tar_file.tar.gz]:当前目录解压包
+    tar -zxvf [tar_file.tar.gz] -C [指定目录]：解压到指定目录
+    tar -jcvf [tar_file.tar.bz2] [1,2,3,4]:压缩打包
+    tar -jxvf [tar_file.tar.bz2]:解压
+    zip [-r] 目标文件 源文件
+    unzip [-d] 解压后目录文件 压缩文件
+6. 管道
+    cat /etc/group | grep &#39;sudo&#39; :将&#39;|&#39;前内容放到管道里，后面对管道进行操作
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;系统工具&#34;&gt;系统工具&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;1. 磁盘分析
+    df [-ah]:系统磁盘使用信息
+    du [-ah]:当前文件的使用
+    fdisk [-l] [name]:磁盘分区表操作工具
+    mkfs [-t 文件格式] 装置文件名:磁盘格式化 
+    mkfs [tab][tab]:查看mkfs支持文件格式
+    fsck :磁盘检验
+    mount 装置文件名 挂载点：磁盘挂载
+    umount [-fn]:卸载 [-f]:强制卸除 [-n]:不升级/etc/mtab下卸除
+2. 网络性能  
+    ifconfig [card] [x]:网络状态 [-a]:显示全部接口信息 [up/down]:开启关闭网卡 
+                                etho:第一块网卡   lo:回环地址
+    ps [-aux]  进程
+    top        动态进程
+    kill [-9] pid:杀死进程 [-9]:强制杀死
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;远程 rcp: 远程拷贝文件 scp [] 原路径 目标路径：远程拷贝文件，secure copy wget [参数] URL 地址：下载&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;用户权限&#34;&gt;用户权限&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;1. user:cat /home/...
+    who     :查看用户
+    whoami  :查看当前用户
+    ssh username@ip：远程登录电脑
+    useradd name [-mg] :添加用户并自动添加home目录 [-g]:用户组 [-m]:主目录
+    passwd name  :修改密码
+    su - user   :切换到指定用户(muiot)
+    su  user    :to the user
+    sudo -s     :切换到root
+    su          :to root
+    userdel     :del user [-r]:删除用户主目录
+    usermod [-aG] group user :change user info  [-a]:添加组 [-g]:group修改默认组 [-aG]:添加其它组
+2. user group:cat /etc/group
+    查看组:cat /etc/group   groupmod [tab][tab]
+    groupmod tabtabtab :check group
+    groupadd g_name :add group
+    groupdel g_name :del group
+    groups username :user in which group
+    newgrp root:用户在用户组之间进行切换
+3. 重要文件
+    /etc/passwd:用户管理涉及到的最重要的一个文件(用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell)
+    /etc/group:用户组所有信息(组名:口令:组标识号:组内用户列表)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;vim&#34;&gt;vim&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;1.使用
+    vim/vi filename =====&amp;gt;命令模式=====&amp;gt;i,a,o=====&amp;gt;输入模式======&amp;gt;ESC=====&amp;gt;命令模式
+    命令模式=====&amp;gt;:=====&amp;gt;底线命令模式=====&amp;gt;:wq!(退出)
+    :set nu (显示行号)     :set nonu (取消行号)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;下载-yum&#34;&gt;下载 yum&lt;/h1&gt;
+
+&lt;hr /&gt;
+</description>
+    </item>
+    
+    <item>
+      <title> Python基础 </title>
+      <link>https://coldinfire.github.io/2019/Python1/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Python1/</guid>
+      <description>
+
+&lt;h1 id=&#34;变量定义和数据类型&#34;&gt;变量定义和数据类型&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;变量定义&#34;&gt;变量定义&lt;/h2&gt;
+
+&lt;p&gt;Python的变量命名规则：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;硬性规则：
+
+&lt;ul&gt;
+&lt;li&gt;变量由字母、数字和下划线构成，不能以数字开头&lt;/li&gt;
+&lt;li&gt;大小写敏感&lt;/li&gt;
+&lt;li&gt;不能跟python的关键字和系统保留字冲突&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;PEP8要求：
+
+&lt;ul&gt;
+&lt;li&gt;用小写字母拼写，多个单词用下划线连接&lt;/li&gt;
+&lt;li&gt;受保护的实例属性用单个下划线开头&lt;/li&gt;
+&lt;li&gt;私有实例属性用两个下划线开头&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Python关键字列表：&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;Number&lt;/th&gt;
-&lt;th&gt;Title&lt;/th&gt;
-&lt;th&gt;State&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;False&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;class&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;finally&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;is&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;return&lt;/strong&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;img width=200/&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img width=500/&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img width=500/&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;None&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;continue&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;for&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;lambda&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;try&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/30370277/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;越简单，越美好&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;✅&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;True&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;def&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;from&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;nonlocal&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;while&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/27053004/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;以幽默的方式过一生&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;✅&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;and&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;del&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;global&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;not&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;with&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/27018748/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;大学&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;✅&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;as&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;if/else/elif&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;or&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;yield&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;assert&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26801663/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;我，一个人生活&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;✅&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;import&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;break&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;pass&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;except&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;raise&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26650965/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;生命清单&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;🕐&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject_search?search_text=%E8%BF%99%E4%B9%88%E6%85%A2%EF%BC%8C%E9%82%A3%E4%B9%88%E7%BE%8E&amp;amp;cat=1001&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;这么慢，那么美&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;🕐&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;in&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;_*  __&lt;/strong&gt;*&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;*****&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h2 id=&#34;数据类型&#34;&gt;数据类型&lt;/h2&gt;
+
+&lt;p&gt;基本数据类型：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;整型：对整数的处理&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;浮点型：对小数的处理&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;字符串型：单引号和双引号引起来的任意文本&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;布尔型：True和False两种值，也可通过计算得出&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;复数型：数学表示法&lt;code&gt;7i+8j&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;int()&lt;/code&gt;：将一个数值或字符串转换成整数，可以指定进制。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;float()&lt;/code&gt;：将一个字符串转换成浮点数。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;str()&lt;/code&gt;：将指定的对象转换成字符串形式，可以指定编码。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;chr()&lt;/code&gt;：将整数转换成该编码对应的字符串（一个字符）。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;ord()&lt;/code&gt;：将字符串（一个字符）转换成对应的编码（整数）。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;复杂数据类型：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;列表：[ ]，可以存储任意类型，任意数量的变量&lt;/li&gt;
+&lt;li&gt;集合：{ }，可以存储任意类型变量，定以后不能更改其元素&lt;/li&gt;
+&lt;li&gt;字典：{}，以键值对形式存储数据元素&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;运算操作符&#34;&gt;运算操作符&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;+&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;和&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;/&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;除&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;&amp;lt;&amp;lt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;左移&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;&amp;amp;&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;按位与&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;&amp;lt;=&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;&amp;hellip;&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;is/is not&lt;/th&gt;
+&lt;th&gt;身份运算符&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;-&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;差&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;//&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;模&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;右移&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;|&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;按位或&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;&amp;gt;=&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;&amp;hellip;&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;in/not in&lt;/td&gt;
+&lt;td&gt;成员运算符&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;*****&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;积&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;%&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;整除&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;&amp;lt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;小于&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;按位异或&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;==&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;&amp;hellip;&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;not/and/or&lt;/td&gt;
+&lt;td&gt;逻辑运算符&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;******&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;幂运算&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;@&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;&amp;gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;大于&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;~&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;按位取反&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;!=&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;&amp;hellip;&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;在实际开发中，运算会有不同的优先级，可以用括号保证运算的执行顺序。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;delimiters&#34;&gt;Delimiters&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;(  )&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;,&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;:&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;- &amp;gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;*=&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;%=&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;|=&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&amp;lt;&amp;lt;=&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;[  ]&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;.&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;+=&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;/=&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;@=&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;^=&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;**=&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;{   }&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;@&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;=&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;-=&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;//=&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&amp;amp;=&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&amp;gt;&amp;gt;=&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;分支结构&#34;&gt;分支结构&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   在Python中，构造分支结构使用if、else和elif关键字。与其他语言不同Python没有使用花括号构建代码块，而是使用其独特的缩进方式来设置代码的层次结构。连续的代码保持相同的缩进那么就属于同一个代码块。&lt;/p&gt;
+
+&lt;p&gt;​   分支结构是可以嵌套使用的。&lt;/p&gt;
+
+&lt;h1 id=&#34;list&#34;&gt;List&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;list.append(x)
+list.extend(iterable)
+list.insert(i,x)
+list.remove(x)
+list.pop([i])
+from collections import deque  :  deque([])   deque.popleft()
+list.clear()   =  del list
+list.index(x[,start[,end]])
+list.count(x)
+list.sort(key = None,reverse=False)
+list.reverse()
+list.copy() = a[:]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;tuples-sequences&#34;&gt;Tuples &amp;amp; Sequences&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. enumerate(): 
+   for i, v in enumerate([&#39;tic&#39;, &#39;tac&#39;, &#39;toe&#39;]):
+	...     print(i, v)
+	...
+	0 tic
+	1 tac
+	2 toe
+2. zip()  reversed()  sorted()
+3. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;json&#34;&gt;JSON&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;python 与 JSON对照：
+dict              {}
+list              []
+str               &#39;string&#39;
+int/float         1234.56
+True/False        true/false
+None              null
+&amp;gt;import json
+&amp;gt;json.dumps([1, &#39;simple&#39;, &#39;list&#39;])
+&amp;gt;&#39;[1, &amp;quot;simple&amp;quot;, &amp;quot;list&amp;quot;]&#39;
+
+pickle : Pickle Module
+	    pickle.dump().
+	    pickle.load()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;函数-fun&#34;&gt;函数(FUN)&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/python/pythonFun.png&#34; alt=&#34;Python内置函数&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;位置参数：
+		 根据参数位置匹配
+默认参数：def fun(arg1,arg2,arg = &#39;xxx&#39;)
+		 1.定义默认参数时，，默认参数必须指向不变对象
+		 2.当函数有多个参数时，将变化大的参数放前面，变化小的放后面。变化小的可以作为默认参数。
+	     3. 默认按参数位置匹配，可以通过名字进行相应的默认字段赋值
+可变参数：def  fun（arg1,arg2,*numbers）
+		 允许传入多个参数，在函数调用时自动组装成一个tuple
+		 当参数为list或则tuple时，可以使用*list,*tuple
+关键字参数：def fun(arg1,arg2,**kw)
+		 允许传入多个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。
+		 传入dict时，只是将所有的参数传入函数，对参数的改变不会影响到函数外的dict
+命名关键字参数：def fun (arg1,arg2,*,arg3,arg4)
+		 对于关键字参数，需要在函数内部进行检查,使用命名关键字必须传入参数名
+参数组合：
+		参数定义的顺序（必选参数，默认参数，可变参数，命名关键字，关键字参数）
+对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;递归函数&#34;&gt;递归函数&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;注意栈溢出问题&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   解决递归调用栈溢出的方法是通过尾递归优化，事实上尾递归和循环的效果是一样的，所以，把循环看成是一种特殊的尾递归函数也是可以的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;尾递归是指&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。&lt;/p&gt;
+
+&lt;h1 id=&#34;迭代器-iterable&#34;&gt;迭代器（Iterable）&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. 原理：
+	For调用了var = iter(str)，next(var),当next()没有元素时，raise a StopIteration
+2. 集合数据类型：list、tuple、dict、set、str等
+generator:sum(i*i for i in range(10))
+包括生成器和带yield的generator function
+		def reverse(data):
+		    for index in range(len(data)-1, -1, -1):
+		        yield data[index]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;模块-mod&#34;&gt;模块(Mod)&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;导入整个模块：import modname.   from modname import *.
+导入模块部分：from modname import name1[, name2[, ... nameN]].
+OS Interface:
+	os:getcwd()  chdir()  system() open()
+	shutil:copyfile(&#39;source&#39;,&#39;aim&#39;)     move(&#39;source&#39;,&#39;aim&#39;)
+File Wildcards: 
+	glob:glob.glog(&#39;*.py&#39;)
+Output Formatting:
+	reprlib: reprlib.repr(set(&#39;adfasfsadfsfsfsfs&#39;))
+	pprint: pprint.pprint((source,width = vaule))
+	textwrap:格式化输出段落适应屏幕宽度  textwrap.fill(source,width=value)
+	locale:culture specific data formats	
+			x = 1234567.8
+			locale.format_string(&amp;quot;%s%.*f&amp;quot;, (conv[&#39;currency_symbol&#39;],conv[&#39;frac_digits&#39;], x), grouping=True)
+			&#39;$1,234,567.80&#39;
+Command Line Arg:	
+	sys: sys. args  sys.stdin sys.stdout, sys.stderr.write(&#39;Error msg&#39;) , sys.exit()
+	getopt:
+	argparse:
+String Pattern Matching:
+	re:re.fundall(), re.sub  etc.
+Templating:
+	string(Template):t = Template(&#39;${village}folk send $$10 to $cause.&#39;)
+						 t.substitute(village=&#39;Nottingham&#39;, cause=&#39;the ditch fund&#39;)
+						&amp;gt;&amp;gt;&amp;gt;&#39;Nottinghamfolk send $10 to the ditch fund.&#39;
+Mathematics:
+	math:math.cos(),math.log() etc.
+	random:random.choice([]),random.sample(range(100),10) etc,
+	statistics:(mean,median,variance)etc.
+Internet Access:
+	urllim.request(retrieving data from URLs):
+	smtplib(sending mail): server = smtplib.SMTP(&#39;xxx&#39;)   server.sendmail(&#39;from_email&#39;,&#39;to_email&#39;)  server.quit()
+Dates and Times:
+	datetime(date) :  date.today()  
+Data Compression: (zlib,gzip,bz2,lzma,zipfile,tarfile)
+	zlib:zlib.compress(&#39;source&#39;)   zlib.decompress(&#39;zlib_source&#39;)
+Quality Control:
+	doctest: doctest.testmod()
+	unittest: unittest.TestCase   assertRaises():   unittest.amin()
+Multi-threading:;
+	threading: threading.Thread
+Logging: 
+	logging: sys.stderr(file)   logging.debug()  logging.info()  logging.warning()  logging.error() logging.critical()
+Weak References:
+	wearkref: 
+Tools For Lists:
+	array: a = array(&#39;H&#39;,[1213,1414,4124])   sum(a)-只计算list中的内容，对a的操作只对list有效
+	collections(deque):
+	bisect:manipulation sorder lists  bisect.insort(aim,source)
+	heapq:use for repeatedly access the smallest element do not run a full list sort(堆排序)
+			heapify(list)   heappush(list,value)   [headppop(list) for i in range(x)]   
+Decimal Floating Point Ath:(精准计算)
+	decimal:  
+		help for(1)	financial applications and other uses which require exact decimal representation,
+				(2)	control over precision,
+				(3)	control over rounding to meet legal or regulatory requirements,
+				(4)	tracking of significant decimal places, or
+				(5)	applications where the user expects the results to match calculations done by hand
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;包管理-pip&#34;&gt;包管理(pip)&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;Virtual environments:
+1. Create
+	On Windows, invoke the venv command as follows:
+		python -m venv c:\path\to\myenv
+		venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]
+      			  [--upgrade] [--without-pip]
+       			  ENV_DIR [ENV_DIR ...]
+2. Activate
+	安装名\Scripts\activate.bat
+3. Managing Packages  pip(On Virtual)
+	https://pypi.org/
+	pip search xxxx.(查找)
+	pip install xxxx.(安装)
+	pip install xxxx=version.(安装指定版本)
+	pip install --upgrade xxxx.(更新到最新版本)
+	pip show xxxxx.(显示包有关信息)
+	pip list:(将显示虚拟环境中安装的所有软件包)
+	pip uninstall xxx,xxxx,xxxx.(卸载)
+	pip freeze &amp;gt; requirements.txt.(以指定文件格式显示已安装软件包)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;异常-error&#34;&gt;异常(Error)&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/fIWzpEQ.png&#34; alt=&#34;异常1&#34; /&gt;
+&lt;img src=&#34;https://i.imgur.com/4B9otUe.png&#34; alt=&#34;异常2&#34; /&gt;
+&lt;img src=&#34;https://i.imgur.com/xCmfhsi.png&#34; alt=&#34;异常3&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. 捕捉异常：
+	try:
+	&amp;lt;语句&amp;gt;        #运行别的代码
+	except &amp;lt;名字&amp;gt;：
+	&amp;lt;语句&amp;gt;        #如果在try部份引发了&#39;name&#39;异常
+	except &amp;lt;name1,name2&amp;gt;，&amp;lt;数据&amp;gt;:
+	&amp;lt;语句&amp;gt;        #如果引发了&#39;name&#39;异常，获得附加的数据
+	else:
+	&amp;lt;语句&amp;gt;        #如果没有异常发生
+2. 最终处理
+	try:
+	
+	finaly:
+
+	raise:
+3. 自定义异常
+	class Error(Exception):
+	    &amp;quot;&amp;quot;&amp;quot;Base class for exceptions in this module.&amp;quot;&amp;quot;&amp;quot;
+	    pass
+	
+	class InputError(Error):
+	    &amp;quot;&amp;quot;&amp;quot;Exception raised for errors in the input.
+	
+	    Attributes:
+	        expression -- input expression in which the error occurred
+	        message -- explanation of the error
+	    &amp;quot;&amp;quot;&amp;quot;
+	
+	    def __init__(self, expression, message):
+	        self.expression = expression
+	        self.message = message
+	
+	class TransitionError(Error):
+	    &amp;quot;&amp;quot;&amp;quot;Raised when an operation attempts a state transition that&#39;s not
+	    allowed.
+	
+	    Attributes:
+	        previous -- state at beginning of transition
+	        next -- attempted new state
+	        message -- explanation of why the specific transition is not allowed
+	    &amp;quot;&amp;quot;&amp;quot;
+	
+	    def __init__(self, previous, next, message):
+	        self.previous = previous
+	        self.next = next
+	        self.message = message
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;面向对象-oo&#34;&gt;面向对象(OO)&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. 定义
+	类帮助信息：ClassName._doc_查看
+	class_suite：有数据属性，类成员，方法组成
+	self：代表类的实例，当前对象的地址，而非类，self.class则指向类
+
+	class ClassName:
+	   &amp;quot;&amp;quot;&amp;quot;所有员工的基类&amp;quot;&amp;quot;&amp;quot;  #类文档字符串
+	   empCount = 0    #数据属性
+	   def __init__(self, name, salary):   #该方法接收参数
+	      self.name = name
+	      self.salary = salary
+	      Employee.empCount += 1
+	   
+	   def displayCount(self):
+	     print &amp;quot;Total Employee %d&amp;quot; % Employee.empCount
+	 
+	   def displayEmployee(self):
+	      print &amp;quot;Name : &amp;quot;, self.name,  &amp;quot;, Salary: &amp;quot;, self.salary
+
+2. 添加，删除，修改，访问类的属性
+	demo.attr = value1：添加属性
+	demo.attr = value2：修改属性
+	del demo.attr：删除属性
+	getattr(obj,name[,default])：访问对象的属性
+	hasattr(obj,name[,default])：检查是否存在一个属性
+	setattr(obj,name[,default])：设置一个属性。如果不存在，会创建一个新属性
+	delattr(obj,name)：删除属性
+3. 内置属性类
+	__dict__：类的属性（包含一个字典，由类的数据属性组成）
+	__doc__：类的文档字符串
+	__name__：类名
+	_module_：类定义所在的模块
+	_bases_：类的所有父类构成元素
+	__del__：析构函数，在队象销毁时被调用
+	__class__:是实例的类
+4. 对象销毁（垃圾回收）
+	采用引用计数来跟踪和回收垃圾
+5. 封装
+	如果类具有__setattr__()或 __delattr__()方法，则调用此方法而不是直接更新实例字典。
+	__getattr__(self,attr1,attr2):
+		setattr(self,attr1,attr2)   
+	object.__getattriabute__()
+	get(self,实例,所有者)    set()  delete()  set_name()
+	
+	slots():为此变量分配字符串，可迭代，阻止每个实例自动创建__dict__和__weakref__
+	
+6. 类的继承
+	(1) 语法：class 派生类名(basic1,basic2)：...
+	      调用：__init_subclass__
+	(2)Python内置的@property装饰器就是负责把一个方法变成属性调用
+	(3)mixln:主线都是单一继承下来的，例如，Ostrich继承自Bird。但是，如果需要“混入”额外的功能，通过多重继承就可以实现，比如，让Ostrich除了继承自Bird外，再同时继承Runnable
+7. 元类
+	class OrderedClass(type):
+	
+	    @classmethod
+	    def __prepare__(metacls, name, bases, **kwds):
+	        return collections.OrderedDict()
+	
+	    def __new__(cls, name, bases, namespace, **kwds):
+	        result = type.__new__(cls, name, bases, dict(namespace))
+	        result.members = tuple(namespace)
+	        return result
+	
+	class A(metaclass=OrderedClass):
+	    def one(self): pass
+	    def two(self): pass
+	    def three(self): pass
+	    def four(self): pass
+	
+	&amp;gt;&amp;gt;&amp;gt; A.members
+	(&#39;__module__&#39;, &#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;正则表达式&#34;&gt;正则表达式&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. 匹配
+	 \d:匹配一个数字
+	 \w:匹配一个字母或数字
+	 \s:匹配一个空格（TAB）
+	 .:可以匹配任何字符
+	 *:表示任意个字符（包括0个）
+	 +:表示至少一个字符
+	 ?:表示0个或1个字符
+	 {n}:表示n个字符
+	 {n,m}:表示n-m个字符
+	 A|B：可以匹配A或B
+	 ^:表示行的开头，^\d表示必须以数字开头。
+	 $表示行的结束，\d$表示必须以数字结束。
+	 [0-9a-zA-Z\_]：可以匹配一个数字、字母或者下划线；
+	 [0-9a-zA-Z\_]+：可以匹配至少由一个数字、字母或者下划线组成的字符串，比如&#39;a100&#39;，&#39;0_Z&#39;，&#39;Py3000&#39;等等；
+	 [a-zA-Z\_][0-9a-zA-Z\_]*：可以匹配由字母或下划线开头，后接任意个由一个数字、字母或者下划线组成的字符串，也就是Python合法的变量；
+	 [a-zA-Z\_][0-9a-zA-Z\_]{0, 19}：更精确地限制了变量的长度是1-20个字符（前面1个字符+后面最多19个字符）
+2. match()方法判断是否匹配，如果匹配成功，返回一个Match对象，否则返回None
+	print(re.match(r&#39;^\d{3}\-\d{3,8}$&#39;, &#39;010-12345&#39;))
+	re.match(r&#39;^\d{3}\-\d{3,8}$&#39;,&#39;010 12345&#39;)
+3. 切割 re.split()
+	st = re.split(r&#39;[\s\,\;]+&#39;, &#39;a,;;b, c  d&#39;)
+	print(st)
+4. 分组 如果正则表达式中定义了组，就可以在Match对象上用group()方法提取出子串来 0:原始，1:第几个字串
+	m = re.match(r&#39;^(\d{3})-(\d{3,8})$&#39;,&#39;010-12314&#39;)
+	print(m)
+	print(m.group(0))
+	print(m.group(1))
+	print(m.group(2))
+5. 贪婪匹配:正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符.
+	print(re.match(r&#39;^(\d+)(0*)$&#39;, &#39;102300&#39;).groups())
+ 	加个?就可以让\d+采用非贪婪匹配
+	print(re.match(r&#39;^(\d+?)(0*)$&#39;, &#39;102300&#39;).groups())
+ 6. 编译：
+ 	编译正则表达式，如果正则表达式的字符串本身不合法，会报错；
+ 	用编译后的正则表达式去匹配字符串。
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://coldinfire.github.io/about/</link>
-      <pubDate>Thu, 15 Jun 2017 23:39:47 +0800</pubDate>
+      <title> WebDynpro </title>
+      <link>https://coldinfire.github.io/2019/WebDynpro/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/about/</guid>
-      <description>&lt;p&gt;这个人很懒，什么都没留下&amp;hellip;&amp;hellip;&lt;/p&gt;
+      <guid>https://coldinfire.github.io/2019/WebDynpro/</guid>
+      <description>
+
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;code&gt;Web Dynpro&lt;/code&gt; 在业务应用程序的主要结构和视觉设计部分的方式，在很大程度上是独立于实现语言.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;一个Web Dynpro 组件不是一个JAVA类，而是一系列类集合所有功能一起作为一个单元。每个控制器是一个独立的JAVA类，相互之间是独立的。不可以重用一个组件中的单个控制器，可以选择一组件为单位使用，也可以选择不使用。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据结构用于保存在运行时的业务数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;UI元素的定义和属性&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;UI元素的聚集成的观点&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;意见聚集到视图集和窗口&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;在响应用户操作执行商业任务活动&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;视图窗口之间的导航链接&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;功能可重用单元称为组件&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;通过Web服务，企业级Java Bean使用持久后端数据和功能或ABAP远程函数调用。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;strong&gt;数据绑定&lt;/strong&gt;（Data Binding）：自动将数据从Controller的上下文传递到另一个Controller上下文。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;映射&lt;/strong&gt;可以分为内部映射（同一组件内不同控制器间的映射）和外部映射（不同组件之间的控制器间的映射）；上下文节点为数据源时称为映射源节点，其他的成为映射节点。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;数据绑定&lt;/strong&gt;（Data Binding）：自动将数据从View Controller的上下文传递到其布局的元素。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn1.png&#34; alt=&#34;图1：Web Dynpro Explorer1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn2.png&#34; alt=&#34;图2：Web Dynpro Explorer2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn3.png&#34; alt=&#34;图3：Web Dynpro 组件架构&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn4.png&#34; alt=&#34;图4：Web Dynpro 元素绑定&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Web Dynpro Component：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在Web Dynpro组件的代码在业务流程级别的可重复使用单元，而不是技术编码的水平&lt;/li&gt;
+&lt;li&gt;在代码重用的性质所产生的变化产生的编码过程中的注意开发商的重心转移。它们不再是担心这么多的技术编码单元的重用; 相反，一个Web Dynpro组件的设计侧重于业务处理的原子单位的重用。&lt;/li&gt;
+&lt;li&gt;一个组件是WebDynpro的可执行编码时所需要的最小单位 。&lt;/li&gt;
+&lt;li&gt;Web Dynpro Component的controller分为四类：
+
+&lt;ul&gt;
+&lt;li&gt;Component controller:这种类型的controller在一个Web Dynpro component中只有一个，并且没有visual interface&lt;/li&gt;
+&lt;li&gt;Custom controller:方便了代码的整合优化，并且其生命周期可以修改，而在Component中不能修改,封装sub-function&lt;/li&gt;
+&lt;li&gt;View controller:每个View有且只有一个controller和context，负责与视图有关的逻辑，如检查用户输入和处理user action&lt;/li&gt;
+&lt;li&gt;Windows controller:有且只有一个，用于通过inbound plugs 传输数据&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;图像化开发工具，允许定义以下内容：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前端和后端之间的数据流&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;用户界面的布局&lt;/li&gt;
+&lt;li&gt;用户界面元素的属性&lt;/li&gt;
+&lt;li&gt;从一个视图到另一个导航&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;mvc&#34;&gt;MVC&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Model：模型对象封装的界面一些后端系统。它的目的是充当分离从数据和功能在远程系统中找到的网页Dynpro应用程序的代理。封装访问业务数据和功能，驻留在远程后端系统。换句话说，在Web Dynpro应用程序不必与后端系统交互所需的特定通信技术。模型将接口封装到位于后端系统中的业务流程的某个步骤。这可以是BAPI调用，也可以是Web服务调用或Enterprise Java Bean。模型始终被视为数据生成器。接收一些数据也是为了完成业务流程的下一步。model会返回一些指示成功或失败的数据。&lt;/li&gt;
+&lt;li&gt;View：视图用于定义业务数据的客户机中性可视化。&lt;/li&gt;
+&lt;li&gt;Controller：在原来的MVC范例，控制器负责管理的视图（一个或多个）和模型（一个或多个）的相互作用，格式化将被显示在视图中的模型数据，并计算该视图（or views）中接下来的显示。所有的View中的Controller可以和Component Controller进行数据映射，从而达到View之间共享传递数据的功能。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn5.png&#34; alt=&#34;图5：MVC&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;无视图的-web-dynpro&#34;&gt;无视图的 Web Dynpro&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Controllers having no visual interface：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn6.png&#34; alt=&#34;图6：Web Dynpro no visual interface&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn7.png&#34; alt=&#34;图7：Dynpro no visual interface&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;有视图的-web-dynpro&#34;&gt;有视图的 Web Dynpro&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;视图控制器&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;视图控制器是不负责业务数据的产生，视图控制器一直被认为是数据的消费者。&lt;/li&gt;
+&lt;li&gt;视图控制器从model获得数据，通过加工后将数据放置到上下文，视图可以通过上下文获取信息。&lt;/li&gt;
+&lt;li&gt;视图控制器可以访问由一个称为“上下文映射”技术来在组件控制器的上下文中保存的信息。&lt;/li&gt;
+&lt;li&gt;视图控制器可以被认为是UI元素的集合，并且与那些UI元素相关联是执行各种数据呈现任务所必需的编码。&lt;/li&gt;
+&lt;li&gt;数据绑定将视图控制器中的编码与实际UI元素对象分离。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;窗口控制器&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;​   与视图控制器处理UI元素聚合的处理的方式相同，因此窗口控制器处理视图聚合的处理。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;接口控制器&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;接口控制器是定义组件的编程接口的地方。 就像常规Java接口一样，您可以在接口控制器中定义方法，然后由组件控制器实现。&lt;/li&gt;
+&lt;li&gt;除了能够在接口控制器中定义方法之外，您还可以定义事件和数据结构（这些数据结构的正确Web Dynpro术语是上下文节点）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;组件控制器&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;组件控制器总是充当组件内的视图控制器数据（或数据生成器）的供应商; 因此，我们知道，组件控制器是存储这些信息的正确位置。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​    除了能够在 Interface Controller 中定义方法之外，还可以定义事件和数据结构（这些数据结构的正确 Web Dynpro 术语是上下文节点）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn8.png&#34; alt=&#34;图8：Web Dynpro having visual interface&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn9.png&#34; alt=&#34;图9：Web Dynpro having visual interface&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;context&#34;&gt;Context&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   (1)上下文中保存的数据仅存在于控制器的生命周期中。 控制器实例终止后，其上下文中保存的所有数据都将丢失。&lt;/p&gt;
+
+&lt;p&gt;​   (2) 控制器通常不能够访问彼此的数据或功能。&lt;/p&gt;
+
+&lt;p&gt;​   (3) 通过称为上下文映射的技术，可以使另一个控制器（视图或自定义）的上下文可以访问在自定义控制器的上下文中保存的信息。
+使用此技术，两个或多个控制器可以访问相同的运行时数据。&lt;/p&gt;
+
+&lt;p&gt;​   (4) 上下文映射是在单个组件内的控制器之间共享数据的主要机制。&lt;/p&gt;
+
+&lt;p&gt;​   (5) 视图控制器不允许共享其上下文数据。不负责生成显示的数据，不应该在上下文映射关系中充当数据源。&lt;/p&gt;
+
+&lt;p&gt;​   (6) 参数：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;映射：通过引用不同控制器中的相应节点来获取节点的结构。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;模型绑定：节点的结构将从先前创建的模型对象中获取&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;结构绑定：节点的结构将从Java Dictionary中先前创建的结构中获得&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;手动：节点的结构将通过手动定义创建&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   (7)创建VIEW的CONTEXT，CONTEXT须和VIEWS上的某些控件的特定属性绑定，这样当我们改变了CONTEXT的某个节点的数据，那么相应控件的值也会跟着改变。
+​   建立CONPONENT CONTROLLER中的CONTEXT节点并且和VIEW CONTEXT相应节点映射，这样就相当于把全局变量和局部变量相关联。&lt;/p&gt;
+
+&lt;p&gt;​   (8) context是一个包含node和attribute的结构。每一个context都有一个默认的root node，一个node连同其子元素被合称为一个element。&lt;/p&gt;
+
+&lt;h2 id=&#34;构建上下文&#34;&gt;构建上下文&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   (1) 节点基数&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;0&amp;hellip;&amp;hellip;1：零个或一个元件允许&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;0&amp;hellip;&amp;hellip;N：零个或更多个元件允许&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1&amp;hellip;&amp;hellip;1：一个且只允许一个元件允许&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1&amp;hellip;&amp;hellip;N：一个或多个元件允许&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &amp;lt; 对于那些它们的基数最低设置为1的节点，那么节点集合将被实例化，使得它已经包含了一个单一的空元素。这个元素被称为默认元素。&lt;/p&gt;
+
+&lt;p&gt;​   &amp;lt; 具有其基数的最低设置为0，则该节点将一个空的集合实例化。Web Dynpro开发人员必须先编写代码来创建，然后插入第一个元素到集合。&lt;/p&gt;
+
+&lt;p&gt;​   &amp;lt; 现在将Collection Cardinality值从默认的0..n更改为1..1。 这告诉Web Dynpro Framework在运行时，此上下文节点将包含一个且仅包含一个元素。 这就像说数据库表只能包含一行。&lt;/p&gt;
+
+&lt;p&gt;​   &amp;lt; 编辑器窗口左侧的“创建数据链接”工具，然后将一行从FirstView拖到组件控制器。此操作的目的是声明视图控制器将从组件控制器充当数据使用者。&lt;/p&gt;
+
+&lt;p&gt;​   &amp;lt; 从视图控制器指向组件控制器 - 从不相反。 这表示视图控制器充当数据消费者，组件控制器充当数据生成器.&lt;/p&gt;
+
+&lt;p&gt;(2) singleton 属性&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;true|false：默认为true，不管有多少个元素存在于节点的父集合中; 只会永远是子节点LineItem的一个实例。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(3) 上下文映射机制&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;建立映射关系，以下两个条件必须满足：
+
+&lt;ul&gt;
+&lt;li&gt;必须有可以充当映射原点合适的节点&lt;/li&gt;
+&lt;li&gt;上下文节点必须存在于使用控制器&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &amp;lt; 所有的上下文节点是包含，除其他事项外，收集运行时对象。当的映射关系被声明，映射的节点的节点集合由在映射起源节点的参考节点集合代替。以这种方式，上下文映射永远不会导致数据被复制。只有一个数据副本，它的生命属于映射源节点的收藏&lt;/p&gt;
+
+&lt;h2 id=&#34;ui-element&#34;&gt;UI Element&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   (1) 所有的UI元素有一个属性集，其中有许多可以接受硬编码值。然而，当在屏幕上要显示的数据在视图控制器的上下文中被保持，&lt;/p&gt;
+
+&lt;p&gt;​   (2) 简单的声明性关系可以适当UI元素属性和保持所需要的数据视图控制器的上下文中的属性之间进行。&lt;/p&gt;
+
+&lt;p&gt;​   (3) 这是被称为数据绑定关系，并且是用于呈现数据给用户的标准机制。&lt;/p&gt;
+
+&lt;p&gt;​   (4) 在Web Dynpro开发人员只需要编写代码用于填充上下文属性。一旦数据是存在于该上下文中，Web Dynpro框架确保UI元素&lt;/p&gt;
+
+&lt;p&gt;​   (5) 属性的值是从相关联的上下文属性获得。因此，一个Web Dynpro程序通常可以写一个不包含涉及渲染UI的任何代码！&lt;/p&gt;
+
+&lt;p&gt;​   (6) UI元素对象仅仅是用于呈现在上下文中找到的数据的工具&lt;/p&gt;
+
+&lt;p&gt;​   (7) UI元素是否运行在Web Dynpro框架，实际上具体决定需要编码来呈现在屏幕上。&lt;/p&gt;
+
+&lt;p&gt;​   (8) 每个视图控制器中创建UI元素时，这些UI元素只能从视图控制器的上下文中获取它们的信息。&lt;/p&gt;
+
+&lt;p&gt;​   (9) 使用模板向导使用上下文中找到属性添加表单。选择上下文属性后，不要在模板向导中单击“完成”，而是单击“下一步”，然后将用于显示数据的UI元素类型从InputField更改为TextView。现在，屏幕上的字段将是只读的。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;创建一个Action对象，并为其指定文本值“Back”。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建Button UI元素，通过更改layoutData将其放置在新行的开头。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   (10) 按钮的功能回应&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn12.png&#34; alt=&#34;图10：事件绑定和响应&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;windows&#34;&gt;Windows&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   (1) 窗口定义了两件事：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;可以为组件的一个特定可视界面显示的所有可能视图的超集&lt;/li&gt;
+&lt;li&gt;这些视图之间存在的导航路径&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   (2) 视图一旦被创建，直到它第一次被嵌入到一个窗口它不会是前端装置上可见的。一旦一个视图被声明为任何特定的窗口中的一员，它可以在前端客户端设备上是否可见。&lt;/p&gt;
+
+&lt;p&gt;​   (3) &lt;strong&gt;UI元素ViewContainer：&lt;/strong&gt;此UI元素，当添加到视图的布局，作为用于任何其它视图的容器。ViewContainers可以实现在屏幕上所需的布局被布置在大量的各种方式。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;可嵌入到一个ViewContainer UI元素的条件:
+
+&lt;ul&gt;
+&lt;li&gt;当前组件的任何视图&lt;/li&gt;
+&lt;li&gt;子Web Dynpro组件的任何可视化界面&lt;/li&gt;
+&lt;li&gt;空视图（由Web Dynpro运行时自动地供给）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   (4) 持久数据应该总是被存储在组件控制器，或者是定制控制器，因为这种控制器持续整个组件的寿命。视图控制器的数据在器不是当前视图组件的一部分就会将其数据丢弃掉。&lt;/p&gt;
+
+&lt;p&gt;​   (5) 简单窗口中，任何时候都只能看到其中一个视图。&lt;/p&gt;
+
+&lt;h2 id=&#34;插件和导航链接&#34;&gt;插件和导航链接&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   &lt;strong&gt;在每个视图中定义导航插头，并将它们与一个导航链路链接在一起。导航插头有两种：入站和出站&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(1) 出站：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   触发出站插件时，会向Web Dynpro框架发送“导航请求”消息。
+​   Web Dynpro框架接受此请求并将其放在堆栈中，该堆栈仅在当前视图程序集中的所有视图都响应用户事件后才会被处理&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(2) 入站：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   入站插件是目标视图中的一种方法，它能够响应出站插件的“导航请求”。 一旦当前视图程序集中的所有视图都完成了处理，Web Dynpro Framework就会将注意力转移到导航堆栈上的请求。为了成功处理每个“导航请求”，必须已经在出站插件和入站插件之间声明了关联。 此关联称为导航链接。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(3) 导航链接：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   是一个视图向另一个，每个出站插头都必须在目标目标视图的入站插头相关联。这种关联是已知的，并且能够仅在设计时定义。通过声明导航链接，您可以在窗口中的两个视图之间创建固定关联。 一旦您触发出站插件，“导航请求”将无条件地放置在导航堆栈上。在这个时间点之后，关于导航处理的唯一选项是：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;处理导航堆栈中的所有请求&lt;/li&gt;
+&lt;li&gt;中止整个导航堆栈的处理&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   一旦将导航请求添加到导航堆栈，就不可能有选择地处理导航请求。 您要么处理整个堆栈，要么完全中止导航处理。因此，在编写导航编码时，在决定触发出站插件之前应该小心。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(4) 创建&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   “创建链接”工具。单击此工具，然后首先从FirstView拖动一行到SecondView。这将为您创造三件事：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;FirstView中的出站导航插件&lt;/li&gt;
+&lt;li&gt;SecondView中的入站导航插件&lt;/li&gt;
+&lt;li&gt;从FirstView的出站插件开始并在SecondView的入站插件处完成的导航链接&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(5) 按Ctrl-Shift-S保存所有更改&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(6) 编码&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;​ 告诉Web Dynpro，当在FirstView中调用动作处理程序方法以响应客户端中的按钮时， 我们需要触发出站导航插头。这是我们需要在FirstView的动作处理程序方法中编写单行代码的地方。&lt;/li&gt;
+&lt;li&gt;两个特殊注释标记：// @@ begin和// @@ end。 您只能在这些注释标记之间放置编码。&lt;/li&gt;
+&lt;li&gt;(wdThis.wd&amp;hellip;)Ctrl-Space，代码完成弹出窗口&lt;/li&gt;
+&lt;li&gt;当我们创建导航链接时，“创建导航链接”工具会自动为我们创建出站和入站插件。默认情况下，这些插件将被称为“Out”和“In”。通常，只要创建了任何出站插件，NWDS就会自动为您生成一个名为wdFirePlug $ {pout}（）的方法，其中$ {pout}是出站插件的名称。
+要使导航发生所需要做的就是调用此方法，Web Dynpro Framework将为您处理剩下的工作。在这里，我们需要编写将调用出站导航插件的代码行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(7) 交互&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;用户单击按钮UI元素&lt;/li&gt;
+&lt;li&gt;按钮UI元素引发一个名为onAction的客户端事件&lt;/li&gt;
+&lt;li&gt;客户端事件导致往返服务器&lt;/li&gt;
+&lt;li&gt;onAction事件已与名为DataEntered的运行时操作相关联，这又导致视图控制器中的onActionDataEntered（）方法被调用&lt;/li&gt;
+&lt;li&gt;onActionDataEntered（）方法包含一行代码，用于触发出站导航插件&lt;/li&gt;
+&lt;li&gt;Web Dynpro Framework然后处理删除FirstView所需的所有处理从屏幕上用SecondView替换它。**&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;用户访问&#34;&gt;用户访问&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;lt; 我们需要一些允许用户访问此组件功能的方法。&lt;/p&gt;
+
+&lt;p&gt;&amp;lt; 这是通过创建一个名为Application的东西来实现的。&lt;/p&gt;
+
+&lt;p&gt;&amp;lt; 应用程序只是URL与Web Dynpro组件的可视界面的关联。&lt;/p&gt;
+
+&lt;p&gt;&amp;lt; 一旦创建了应用程序，您就已经创建了一种方法，来自客户端设备（例如浏览器）的用户可以通过该方式调用某些Web Dynpro功能。&lt;/p&gt;
+
+&lt;p&gt;&amp;lt; 右键单击刚刚创建的应用程序的名称，然后从菜单中选择“Deploy new Archive and Run”。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;显示数据&#34;&gt;显示数据&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   (1) 表格显示的数据是从已知的作为上下文视图控制器的数据存储区域获得的。视图控制器反过来，从组件控制器的上下文获取数据。&lt;/p&gt;
+
+&lt;p&gt;​   (2) 填充组件控制器需要写入代码控制（Context mapping relationship&amp;lt;上下文映射关系&amp;gt;, Data Binding relationship&amp;lt;视图控制器与显示界面进行绑定&amp;gt;）&lt;/p&gt;
+
+&lt;p&gt;​   (3) 数据提供给UI元素：web Dynpro有用于控制UI元素的弯管和行为的一个更简单，更优雅的机制=》UI元件结合。&lt;/p&gt;
+
+&lt;p&gt;​   (4) UI元素绑定：几乎所有UI元素属性可以是“绑定”到在视图控制器的上下文适当的属性。&lt;/p&gt;
+
+&lt;p&gt;​   (5) 用户界面的行为可以控制如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在设计时，创建适当的数据类型的上下文属性持有UI元素的属性值。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;声明在视图布局UI元素和结合要控制到上下文属性在步骤1中声明的属性。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;现在，在视图控制器的编码不需要精确关心正在使用的用户界面元素。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;所有这是需要关注的，设置适当的值到右键属性，UI元素属性将自动接收值。&lt;/p&gt;
+
+&lt;p&gt;​   (6)设计优势：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通常，需要以控制它们的外观和/或行为的UI元素对象没有直接访问。&lt;/li&gt;
+&lt;li&gt;在Web Dynpro开发人员需要以控制用户界面的行为写显著更少的代码。&lt;/li&gt;
+&lt;li&gt;编码仍然不可知的客户端。无需更改应用程序代码，以考虑不同客户端设备中的技术差异。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/webdynpro/webDyn11.png&#34; alt=&#34;图11：UI元素&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;others&#34;&gt;Others&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;​   (1)可以使用提供的工具生成大部分Web Dynpro应用程序，而无需创建自己的源代码。这适用于本申请的以下部分：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;前端和后端之间的数据流&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用户界面的布局&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用户界面元素的属性&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Web Dynpro工具使您可以在生成的源文本中手动创建源文本区域。如果重新生成源代码，则不会更改这些区域。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(2)业务分离与应用逻辑:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   使用Web Dynpro可以清晰地分离业务逻辑和显示逻辑。 Web Dynpro应用程序在前端运行，并通过服务对后端系统进行本地或远程访问。这意味着显示逻辑包含在Web Dynpro应用程序中，而业务逻辑和业务对象的持久性在后端系统中运行。以下选项目前可用于连接Web Dynpro应用程序和后端系统：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;使用自适应RFC生成的接口，用于调用SAP系统的BAPI&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;调用企业服务模式&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;调用使用SOAP协议的Web服务&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;一个调用的Enterprise Java Bean  通过远程方法调用（RMI）协议&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;一个自生成的界面&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;连接Web Dynpro应用程序所需的源代码可以从Web Dynpro接口的UML定义生成。可以将UML定义作为XML文件导入Web Dynpro工具。&lt;/p&gt;
+
+&lt;p&gt;​   (3)&lt;strong&gt;模型 - 视图 - 控制器编程模型的转换：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​       每个Web Dynpro应用程序都是根据Model View Controller编程模型构建的：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;该模型构成了后端系统的接口，从而使Web Dynpro应用程序能够访问数据。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;该视图负责在浏览器中表示数据。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;控制器位于视图和模型之间。控制器格式化要在视图中显示的模型数据，处理用户创建的用户条目，并将它们返回到模型。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   所有四种Web Dynpro控制器类型（组件，自定义，窗口和视图控制器）的类和接口参考基于以下结构：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;所有控制器类或控制器接口通用的所有冗余部件都记录在两个单独的部分中。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;公共控制器参考的控制器特定添加内容记录在附加部分中。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;控制器类和控制器接口分开描述。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   Common Controller Class Reference包含所有Web Dynpro控制器类共有的部分。&lt;/p&gt;
+
+&lt;p&gt;​   附加部件（取决于特定的控制器类型）记录在四个Web Dynpro控制器类型组件，自定义，窗口和视图控制器的单独部分中。&lt;/p&gt;
+
+&lt;p&gt;​   (4)&lt;strong&gt;预定义的钩子方法：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;public void wdDoExit（）在销毁控制器实例以进行清理之前，由Web Dynpro Runtime调用。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;public void wdDoInit（）由Web Dynpro Runtime调用以初始化控制器实例&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​   &amp;lt; 基于声明的其他公共方法:&lt;/p&gt;
+
+&lt;p&gt;​       &lt;code&gt;public &amp;lt;type&amp;gt; &amp;lt;method name&amp;gt;（[parameter {“，”parameter}]）[throws {checked exception class type}]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​   具有任意签名的控制器方法（参数和返回类型）。可以为应用程序开发人员声明的所有控制器方法定义已检查或编译器强制执行的异常。在Web Dynpro Tools中，已检查的异常被添加到方法定义中，类似于添加方法参数。调用公共控制器方法必须通过在自己的方法定义中捕获或添加它们来处理这些异常（在其throws子句中声明它们）在View Controllers中，基于声明的其他方法的类型为public。然而，它们无法从其他控制器调用，因为视图控制器不公开IPublic -API。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;public void &amp;lt;事件处理程序名称&amp;gt;（IWDCustomEvent wdEvent，[“，”parameter {“，”parameter}]）&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​   事件处理程序方法。参数必须与所描述事件的参数兼容。事件处理程序的名称应以前缀on开头。&lt;/p&gt;
+
+&lt;p&gt;​   &amp;lt; 其他私人方法:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;private &amp;lt;type&amp;gt; &amp;lt;method name&amp;gt;([parameter {“，”parameter}])&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​   可以在最终用户编码区域中添加其他私有方法：// @@ begin others - // @@ end code。这些方法不会添加到控制器的IPublic -API中，因此即使使用公共可见性语句指定它们，它们也不会向其他控制器公开。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(5) 成员变量&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;预定义的快捷方式变量，&lt;/p&gt;
+
+&lt;p&gt;​       &lt;code&gt;private final IPrivate &amp;lt;controller nam&amp;gt; wdThis&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​       &lt;code&gt;private final IPrivate &amp;lt;controller name&amp;gt; .IContextNode wdContext&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​   引用控制器上下文中的根节点。不仅提供对根节点元素的类型访问，还提供对上下文中所有节点（&lt;code&gt;method note&amp;lt;node name&amp;gt;（）&lt;/code&gt;）及其当前所选元素（&lt;code&gt;method current &amp;lt;node name&amp;gt; Element（）&lt;/code&gt;）的类型访问。它还有助于为所有节点创建新元素（&lt;code&gt;method create &amp;lt;node name&amp;gt; Element（）&lt;/code&gt;）。&lt;/p&gt;
+
+&lt;p&gt;​   引用内部控制器类生成的IPrivate接口&lt;/p&gt;
+
+&lt;p&gt;​   &lt;code&gt;private final com.sap.tc.webdynpro.progmodel.api.IWDComponent wdComponentAPI wdThis.wdGetAPI（）&lt;/code&gt;getComponent（）的快捷方式。&lt;/p&gt;
+
+&lt;p&gt;​   表示此控制器所属的Web Dynpro组件的通用API。可用于访问与IWDComponent -API关联的其他Web Dynpro Runtime API，如消息管理器，窗口管理器或动态添加/删除事件处理程序。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;code&gt;private final &amp;lt;generic controller API&amp;gt; wdControllerAPI&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​   wdThis.wdGetAPI（）的快捷方式。表示此控制器的通用Web Dynpro对应的通用控制器API（IWDController，IWDComponent，IWDViewController和IWDWindowController）。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;strong&gt;(6)预定义变量:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;记录器记录位置&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;serialVersionUID此变量与应用程序代码开发无关。 SAP NetWeaver序列化框架需要检查序列化对象的二进制兼容性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;私人会员变量&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;private &lt;type&gt; &lt;variable name&gt;可以在最终用户编码区域中添加任意数量的私有成员变量：// @@ begin others - // @@ end code&lt;/li&gt;
+&lt;li&gt;对于此上下文节点，生成两个接口IContextNode和IContextElement，以允许在应用程序代码中进行上下文编程和动态上下文修改（添加属性或内部节点）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title> Pycharm </title>
+      <link>https://coldinfire.github.io/2019/Pycharm/</link>
+      <pubDate>Thu, 03 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Pycharm/</guid>
+      <description>
+
+&lt;h1 id=&#34;paycharm&#34;&gt;Paycharm&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;常用快捷键&#34;&gt;常用快捷键&lt;/h2&gt;
+
+&lt;p&gt;1、Ctrl + Enter：在下方新建行但不移动光标&lt;/p&gt;
+
+&lt;p&gt;2、Shift + Enter：在下方新建行并移到新行行首&lt;/p&gt;
+
+&lt;p&gt;3、Ctrl + /：注释(取消注释)选择的行&lt;/p&gt;
+
+&lt;p&gt;4、Ctrl + Alt + L：格式化代码(与QQ锁定热键冲突，关闭QQ的热键)&lt;/p&gt;
+
+&lt;p&gt;5、Ctrl + Shift + +：展开所有的代码块&lt;/p&gt;
+
+&lt;p&gt;6、Ctrl + Shift + -：收缩所有的代码块&lt;/p&gt;
+
+&lt;p&gt;7、Ctrl + Alt + I：自动缩进行&lt;/p&gt;
+
+&lt;p&gt;8、Alt + Enter：优化代码，添加包&lt;/p&gt;
+
+&lt;p&gt;9、Ctrl + Shift + F：高级查找&lt;/p&gt;
+
+&lt;p&gt;10、Alt + Shift + Q：更新代码到远程服务器&lt;/p&gt;
+
+&lt;p&gt;11、Alt + Insert：创建万物&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://coldinfire.github.io/1/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/1/test/</guid>
+      <description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;language:go&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;go:&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- &amp;ldquo;1.8&amp;rdquo;  # 指定 Golang 1.8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;install:&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;# 安装最新的 hugo&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- wget &lt;a href=&#34;https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- sudo dpkg -i hugo*.deb&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;# 安装主题&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- git clone &lt;a href=&#34;https://github.com/liuzc/LeaveIt.git&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://github.com/liuzc/LeaveIt.git&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;script:&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;# 运行 hugo 命令&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- hugo&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;after_script:&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;# 部署&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- cd ./public&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- git init&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- git config user.name &amp;ldquo;coldinfire&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- git config user.email &amp;ldquo;coldinfire@163.com&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- git add .&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- git commit -m &amp;ldquo;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;# Github Pages&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- git push &amp;ndash;force &amp;ndash;quiet &amp;ldquo;https://$GITHUB_TOKEN@${GH_REF}&amp;rdquo; master:master&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;# Github Pages&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- git push &amp;ndash;quiet &amp;ldquo;https://$GITHUB_TOKEN@${GH_REF}&amp;rdquo; master:master &amp;ndash;tags&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;env:&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;global:&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;# Github Pages&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;- GH_REF: &lt;a href=&#34;https://github.com/coldinfire/coldinfire.github.io.git&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://github.com/coldinfire/coldinfire.github.io.git&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;deploy:&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;provider: pages # 重要，指定这是一份 github pages 的部署配置&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;skip-cleanup: true # 重要，不能省略&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;local-dir: public # 静态站点文件所在目录&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;# target-branch: master # 要将静态站点文件发布到哪个分支&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;github-token: $GITHUB_TOKEN # 重要，$GITHUB_TOKEN 是变量，需要在 GitHub 上申请、再到配置到 Travis&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;# fqdn:  # 如果是自定义域名，此处要填&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;keep-history: true # 是否保持 target-branch 分支的提交记录&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;on:&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;branch: master # 博客源码的分支&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;ec717d8b4e26a5f62556d3f50984d63b6e2061a0&lt;/p&gt;
 </description>
     </item>
     

@@ -6,9 +6,46 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Sun, 16 Jun 2019 17:20:58 +0800</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>sapui5</title>
+      <link>https://coldinfire.github.io/tags/sapui5/</link>
+      <pubDate>Sun, 16 Jun 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/sapui5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://coldinfire.github.io/tags/python/</link>
+      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WebDynpro</title>
+      <link>https://coldinfire.github.io/tags/WebDynpro/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/WebDynpro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://coldinfire.github.io/tags/linux/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

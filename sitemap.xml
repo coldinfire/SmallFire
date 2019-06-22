@@ -2,23 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://coldinfire.github.io/books/</loc>
+      <loc>https://coldinfire.github.io/2019/SAPUI5/</loc>
       
-      <lastmod>2017-06-15T23:39:47+08:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/about/</loc>
-      
-      <lastmod>2017-06-15T23:39:47+08:00</lastmod>
+      <lastmod>2019-06-16T17:20:58+08:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -30,9 +16,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/</loc>
+      <loc>https://coldinfire.github.io/categories/</loc>
       
-      <lastmod>2017-06-15T23:39:47+08:00</lastmod>
+      <lastmod>2019-06-16T17:20:58+08:00</lastmod>
       
       
       
@@ -42,7 +28,33 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/</loc>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2019-06-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/Sap-Fiori/</loc>
+      
+      <lastmod>2019-06-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2019-06-16T17:20:58+08:00</lastmod>
       
       
       
@@ -53,6 +65,172 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2019-06-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/sapui5/</loc>
+      
+      <lastmod>2019-06-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/PythonResource/</loc>
+      
+      <lastmod>2019-04-16T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/Python/</loc>
+      
+      <lastmod>2019-04-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/python/</loc>
+      
+      <lastmod>2019-04-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/Linux/</loc>
+      
+      <lastmod>2019-01-16T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/Python1/</loc>
+      
+      <lastmod>2019-01-16T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/WebDynpro/</loc>
+      
+      <lastmod>2019-01-16T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
+      
+      <lastmod>2019-01-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/Linux/</loc>
+      
+      <lastmod>2019-01-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/WebDynpro/</loc>
+      
+      <lastmod>2019-01-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/linux/</loc>
+      
+      <lastmod>2019-01-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/Pycharm/</loc>
+      
+      <lastmod>2019-01-03T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/1/test/</loc>
       
       
       

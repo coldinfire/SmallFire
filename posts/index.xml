@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Small Fire`s Blog</title>
+    <link>https://coldinfire.github.io/posts/</link>
+    <description>Recent content in Posts on Small Fire`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 Jun 2019 17:20:58 +0800</lastBuildDate>
+    
+	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title> SAPUI5 </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5/</link>
+      <pubDate>Sun, 16 Jun 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
+      <description>概述 MVC模式 ​ MVC是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。 ​ M : Model</description>
+    </item>
+    
+    <item>
+      <title> Python学习资源</title>
+      <link>https://coldinfire.github.io/2019/PythonResource/</link>
+      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/PythonResource/</guid>
+      <description>资源 Python 官网 包含了 Python 框架、Python 库和软件的 awesome 列表 Python 神书，里面有若干个项目，每个项目都是由业内大神所写，每个项目代码在 500 行左右 介绍 Python3 中的标</description>
+    </item>
+    
+    <item>
+      <title> Python基础 </title>
+      <link>https://coldinfire.github.io/2019/Linux/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Linux/</guid>
+      <description>基本命令 man [command]:查看命令使用文档 1. 文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： [d]:目录 [-]:文件 [l]:链接文档 [b</description>
+    </item>
+    
+    <item>
+      <title> Python基础 </title>
+      <link>https://coldinfire.github.io/2019/Python1/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Python1/</guid>
+      <description>变量定义和数据类型 变量定义 Python的变量命名规则： 硬性规则： 变量由字母、数字和下划线构成，不能以数字开头 大小写敏感 不能跟python的关</description>
+    </item>
+    
+    <item>
+      <title> WebDynpro </title>
+      <link>https://coldinfire.github.io/2019/WebDynpro/</link>
+      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/WebDynpro/</guid>
+      <description>简介 Web Dynpro 在业务应用程序的主要结构和视觉设计部分的方式，在很大程度上是独立于实现语言. 一个Web Dynpro 组件不是一个JAVA类，而是一系列类集合所有</description>
+    </item>
+    
+    <item>
+      <title> Pycharm </title>
+      <link>https://coldinfire.github.io/2019/Pycharm/</link>
+      <pubDate>Thu, 03 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Pycharm/</guid>
+      <description>Paycharm 常用快捷键 1、Ctrl + Enter：在下方新建行但不移动光标 2、Shift + Enter：在下方新建行并移到新行行首 3、Ctrl + /：注释(</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://coldinfire.github.io/1/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/1/test/</guid>
+      <description>language:go           go:    - &amp;ldquo;1.8&amp;rdquo; # 指定 Golang 1.8        install:    # 安装最新的 hugo    - wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb    - sudo dpkg -i hugo*.deb    # 安装主题    - git clone https://github.com/liuzc/LeaveIt.git    script:    # 运行 hugo 命令    - hugo    after_script:    # 部署    - cd .</description>
+    </item>
+    
+  </channel>
+</rss>
