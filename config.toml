@@ -1,0 +1,202 @@
+# <head> 里面的 baseurl 信息，填你的博客地址
+baseURL = "https://coldinfire.github.io" 
+# 浏览器的标题
+title = "Small Fire`s Blog" 
+# 语言
+languageCode = "en" 
+defaultContentLanguage = "en"
+# 开启可以让「字数统计」统计汉字
+hasCJKLanguage = true 
+# 主题     
+theme = "LeaveIt" 
+
+## 是否禁止URL Path转小写
+disablePathToLower = true
+# 每页的文章数
+paginate = 12
+# 支持 Emoji
+enableEmoji = true 
+# 支持 robots.txt
+enableRobotsTXT = true 
+# Google 统计 id
+googleAnalytics = "" 
+# 
+# disqusShortname = "yourdiscussshortname"
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[blackfriday]
+  hrefTargetBlank = true
+  nofollowLinks = true
+  noreferrerLinks = true
+
+[Permalinks]
+  posts = "/:year/:filename/"
+
+
+[menu]
+  [[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 2
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+  [[menu.main]]
+    name = "Books"
+    url = "/books/"
+    weight = 4
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 5
+
+[params]
+  since = 2017
+  author = "Small Fire"
+  subtitle = "If you're not doing what you love,you're wasting your time"
+  avatar = "/images/me/avatar.jpg" 
+  cdn_url = "coldinfire"           # Base CDN URL
+  home_mode = "posts" # post or other
+
+  google_verification = ""
+  bing_verification = ""
+  yandex_verification = ""
+  pinterest_verification = ""
+  baidu_verification = ""
+  socialShare = true
+
+  description = "" # site description
+  keywords = "" # site keywords
+  
+  license= 'Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
+[params.gravatar]
+  #email = "example@gmail.com"   #uncomment and insert your email address to use gravatar
+
+[params.social]
+  GitHub = "xxxx"
+  Linkedin = "xxxx"
+  Twitter = "xxxx"
+  #Instagram = "xxxx"
+  #Email   = "xxxx"
+  Facebook = "xxxx"
+  #Telegram = "xxxx"
+  #Medium = "xxxx"
+  #Gitlab = "xxxx"
+  #Youtubelegacy = "xxxx"
+  #Youtubecustom = "xxxx"
+  #Youtubechannel = "xxxx"
+  #Tumblr ="xxxx"
+  #Quora = "xxxx"
+  #Keybase = "xxxx"
+  #Pinterest = "xxxx"
+  #Reddit = "xxxx"
+  #Codepen = "xxxx"
+  #Bitbucket = "xxxx"
+  #Stackoverflow = "xxxxx"
+  #Weibo = "xxxx"
+  #Odnoklassniki = "xxxx"
+  #VKontakte = "xxxx"
+  #Flickr = "xxxx"
+  #Xing = "xxxx"
+  #Snapchat = "xxxx"
+  #Soundcloud = "xxxx"
+  #Spotify = "xxxx"
+  #Bandcamp = "xxxx"
+  #Paypal = "xxxx"
+  #Fivehundredpx = "xxxx"
+  #Mix = "xxxx"
+  #Goodreads = "xxxx"
+  #Lastfm = "xxxx"
+  #Foursquare = "xxxx"
+  #Hackernews = "xxxx"
+  #Kickstarter = "xxxx"
+  #Patreon = "xxxx"
+  #Steam = "xxxx"
+  #Twitch = "xxxx"
+  #Strava = "xxxx"
+  #Skype = "xxxx"
+  #Whatsapp = "xxxx"
+  #Zhihu = "xxxx"
+  #Douban = "xxxx"
+  #Angellist = "xxxx"
+  #Slidershare = "xxxx"
+  #Jsfiddle = "xxxx"
+  #Deviantart = "xxxx"
+  #Behance = "xxxx"
+  #Dribble = "xxxx"
+  #Wordpress = "xxxx"
+  #Vine = "xxxx"
+  #Googlescholar = "xxxx"
+  #Researchgate = "xxxx"
+  #Mastodon = "xxxx"
+  #Thingiverse = "xxxx"
+
+[params.share]
+Twitter = true
+Facebook = true
+#Reddit = true
+Linkedin = true
+#Pinterest = true
+#HackerNews = true
+#Mix = true
+#Tumblr = true
+#VKontakte = true
+#Douban = true
+#Weibo = true
+
+# Used only for Seo schema 
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+
+[author]
+  name = "Fastbyte01"
+
+  [params.publisher]
+    name = "Fastbyte01"
+
+    [params.publisher.logo]
+      url = "logo.png"
+      width = 127
+      height = 40
+
+  [params.logo]
+    url = "logo.png"
+    width = 127
+    height = 40
+
+  [params.image]
+    url = "cover.png"
+    width = 800
+    height = 600
+
+[params.gitalk]           
+  clientID = "d2cccd8844ae11b05792" # Your client ID
+  clientSecret = "cea63bc294ee16cb47a3344b693c350da1bb0753" # Your client secret
+  repo = "coldinfire.github.io" # The repo to store comments
+  owner = "coldinfire" # Your GitHub ID
+  admin= "coldinfre" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
+  id= "location.pathname" # The unique id of the page.
+  labels= "gitalk" # Github issue labels. If you used to use Gitment, you can change it
+  perPage= 15 # Pagination size, with maximum 100.
+  pagerDirection= "last" # Comment sorting direction, available values are 'last' and 'first'.
+  createIssueManually= false # If it is 'false', it is auto to make a Github issue when the administrators login.
+  distractionFreeMode= false # Enable hot key (cmd|ctrl + enter) submit comment.
+  
+[params.valine]
+  enable = false
+  appId = 'your appId'
+  appKey = 'your appKey'
+  notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
+  verify = false # Verification code
+  avatar = 'mm'
+  placeholder = 'your comments ...'
+  visitor = true
