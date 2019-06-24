@@ -64,7 +64,7 @@ googleAnalytics = ""
   subtitle = "If you're not doing what you love,you're wasting your time"
   avatar = "/images/me/avatar.jpg" 
   # cdn_url = "coldinfire"           # Base CDN URL
-  home_mode = "post" # post or other
+  home_mode = "posts" # post or other
 
   google_verification = ""
   bing_verification = ""
@@ -182,13 +182,13 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   clientSecret = "cea63bc294ee16cb47a3344b693c350da1bb0753" # Your client secret
   repo = "coldinfire.github.io" # The repo to store comments
   owner = "coldinfire" # Your GitHub ID
-  admin= "coldinfre" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
-  id= "location.pathname" # The unique id of the page.
-  labels= "gitalk" # Github issue labels. If you used to use Gitment, you can change it
-  perPage= 15 # Pagination size, with maximum 100.
-  pagerDirection= "last" # Comment sorting direction, available values are 'last' and 'first'.
-  createIssueManually= false # If it is 'false', it is auto to make a Github issue when the administrators login.
-  distractionFreeMode= false # Enable hot key (cmd|ctrl + enter) submit comment.
+  # admin= "coldinfre" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
+  # id= "location.pathname" # The unique id of the page.
+  # labels= "gitalk" # Github issue labels. If you used to use Gitment, you can change it
+  # perPage= 15 # Pagination size, with maximum 100.
+  # pagerDirection= "last" # Comment sorting direction, available values are 'last' and 'first'.
+  # createIssueManually= false # If it is 'false', it is auto to make a Github issue when the administrators login.
+  # distractionFreeMode= false # Enable hot key (cmd|ctrl + enter) submit comment.
   
 [params.valine]
   enable = false
