@@ -64,7 +64,7 @@ googleAnalytics = ""
   subtitle = "If you're not doing what you love,you're wasting your time"
   avatar = "/images/me/avatar.jpg" 
   # cdn_url = "coldinfire"           # Base CDN URL
-  home_mode = "post" # post or other
+  home_mode = "" # post or other
 
   google_verification = ""
   bing_verification = ""
