@@ -404,6 +404,44 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/hugo1/</loc>
+      
+      <lastmod>2018-06-16T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/hugo/</loc>
+      
+      <lastmod>2018-06-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+      
+      <lastmod>2018-06-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAP4/</loc>
       
       <lastmod>2018-06-15T17:20:58+08:00</lastmod>
@@ -486,18 +524,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
-      
-      <lastmod>2018-03-11T17:20:58+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/tags/JS/</loc>
       
       <lastmod>2018-02-11T17:20:58+08:00</lastmod>
@@ -519,16 +545,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/1/test/</loc>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
