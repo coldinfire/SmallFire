@@ -13,7 +13,7 @@ theme = "KeepIt"
 ## 是否禁止URL Path转小写
 disablePathToLower = true
 # 每页的文章数
-paginate = 12
+paginate = 14
 # 支持 Emoji
 enableEmoji = true 
 # 支持 robots.txt
@@ -71,7 +71,7 @@ googleAnalytics = ""
   yandex_verification = ""
   pinterest_verification = ""
   baidu_verification = ""
-  socialShare = true
+  socialShare = false
 
   description = "" # site description
   keywords = "" # site keywords
@@ -126,7 +126,7 @@ googleAnalytics = ""
   #Skype = "xxxx"
   #Whatsapp = "xxxx"
   Zhihu = " "
-  Douban = "SmallFire"
+  Douban = "198492233"
   #Angellist = "xxxx"
   #Slidershare = "xxxx"
   #Jsfiddle = "xxxx"
@@ -144,13 +144,13 @@ googleAnalytics = ""
 #Twitter = true
 #Facebook = true
 #Reddit = true
-#Linkedin = true
+Linkedin = true
 #Pinterest = true
 #HackerNews = true
 #Mix = true
 #Tumblr = true
 #VKontakte = true
-#Douban = true
+Douban = true
 #Weibo = true
 
 # Used only for Seo schema 

@@ -1,6 +1,6 @@
 ---
 
-title: " Python基础 "
+title: " Linux基础 "
 date: 2019-01-16T17:20:58+08:00
 draft: false
 author: Small Fire
@@ -115,8 +115,6 @@ man [command]:查看命令使用文档
 # 用户权限
 
 ------
-
-
 
 ```
 1. user:cat /home/...

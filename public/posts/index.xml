@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>My First Post</title>
+      <title>No Title</title>
       <link>https://coldinfire.github.io/2019/my-first-post/</link>
       <pubDate>Sat, 22 Jun 2019 15:15:42 +0800</pubDate>
       
@@ -129,6 +129,15 @@
     </item>
     
     <item>
+      <title> Hugo搭建博客(一) </title>
+      <link>https://coldinfire.github.io/2018/hugo1/</link>
+      <pubDate>Sat, 16 Jun 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/hugo1/</guid>
+      <description>工具准备 hugo node.js git github 操作步骤</description>
+    </item>
+    
+    <item>
       <title>ABAP 语法详解(四)</title>
       <link>https://coldinfire.github.io/2018/ABAP4/</link>
       <pubDate>Fri, 15 Jun 2018 17:20:58 +0800</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>https://coldinfire.github.io/2018/JS/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://coldinfire.github.io/1/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/1/test/</guid>
-      <description>language:go           go:    - &amp;ldquo;1.8&amp;rdquo; # 指定 Golang 1.8        install:    # 安装最新的 hugo    - wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb    - sudo dpkg -i hugo*.deb    # 安装主题    - git clone https://github.com/liuzc/LeaveIt.git    script:    # 运行 hugo 命令    - hugo    after_script:    # 部署    - cd .</description>
     </item>
     
   </channel>

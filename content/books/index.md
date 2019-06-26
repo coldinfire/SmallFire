@@ -10,9 +10,10 @@ weight: 4
 | Number | Title| State|
 | ------ | ------------------------------------------------------------ | ------------------ |
 | <img width=200/> | <img width=500/> |<img width=500/> |
-| 1      | [越简单，越美好](<https://book.douban.com/subject/30370277/>) | ✅ |
-| 2      | [以幽默的方式过一生](<https://book.douban.com/subject/27053004/>) | ✅ |
-| 3      | [大学](<https://book.douban.com/subject/27018748/>)          | ✅ |
-| 4      | [我，一个人生活](<https://book.douban.com/subject/26801663/>) | ✅ |
-| 5      | [生命清单](<https://book.douban.com/subject/26650965/>)      | 🕐           |
-| 6      | [这么慢，那么美](<https://book.douban.com/subject_search?search_text=%E8%BF%99%E4%B9%88%E6%85%A2%EF%BC%8C%E9%82%A3%E4%B9%88%E7%BE%8E&cat=1001>) | 🕐           |
+| 0 | [小王子](<https://book.douban.com/subject/1084336/>) |✅ |
+| 1      | [好好学习](<https://book.douban.com/subject/26952718/>) | 🕐 |
+| 2      | [好好说话](<https://book.douban.com/subject/26948148/>) | 🕐 |
+| 3      | [围城](<https://book.douban.com/subject/1008145/>) | 🕐 |
+| 4      | [穷查理宝典](<https://book.douban.com/subject/5346110/>) | 🕐 |
+| 5      | [非暴力沟通](<https://book.douban.com/subject/3533221/>) | 🕐           |
+| 6      | [人性的弱点](<https://book.douban.com/subject/1056295/>) | 🕐           |
