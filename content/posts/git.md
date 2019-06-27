@@ -352,7 +352,7 @@ Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来�
   
   - (2) 先clone父项目，再初始化Submodule： git clone [项目git地址] 》 cd [submodule_目录] 》 git submodule init > git submodule update
     
-    
+  
 - 删除submodule
   
   -  git rm [submodule name]
