@@ -19,12 +19,15 @@ SE91定义:
 
   设置消息类，保存该Function的多条消息定义，通过‘&’定义多个占位符。
 
-```JS
-MESSAGE E001(ZMSG).
-   E:消息显示类型 (E[Error],W[Warning],I[Info],A[异常终止],S[Success])
-   001:自定义的消息字段
-   ZMSG:自定义的消息类
-```
+![定义消息类](/images/ABAP/SE91.jpg)
+
+MESSAGE E001(ZTEST).
+
+​	E:消息显示类型 (E[Error],W[Warning],I[Info],A[异常终止],S[Success])
+
+​	001:自定义的消息字段
+
+​	ZTEST:自定义的消息类
 
 MESSAGE显示:
 
@@ -60,7 +63,7 @@ MESSAGE显示:
 
    	基本数据类型是QUAN,其小数位由字段关联的度量衡单位决定。
 
-      	ALV显示时，如果是金额或数量时，需通过Fieldcat设置Cfieldname、ctabname等才会正确显示。
+      ALV显示时，如果是金额或数量时，需通过Fieldcat设置cfieldname、ctabname等才会正确显示。
 
 - 单位换算
 
@@ -69,24 +72,23 @@ MESSAGE显示:
 - 货币转换因子
 
 ```JS
-CURRENCY_CONVERTING_FACTOR:输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取出时应做转换
-BAPI_CURRENCY_CONV_TO_INTERNAL:转换为数据库中内部存储金额
-BAPI_CURRENCY_CONV_TO_EXTERNAL:转换成外部的实际金额
-CONVERT_TO_LOCAL_CURRENCY:自动将最近时间多的汇率作为转换的汇率
-OB07、OB08:维护各币种之间的汇率
-CONVERT_TO_FOREIGN_CURRENCY是将外币转换为本位币
-CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
+CURRENCY_CONVERTING_FACTOR：输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取出时应做转换
+BAPI_CURRENCY_CONV_TO_INTERNAL：转换为数据库中内部存储金额
+BAPI_CURRENCY_CONV_TO_EXTERNAL：转换成外部的实际金额
+CONVERT_TO_LOCAL_CURRENCY：自动将最近时间多的汇率作为转换的汇率
+OB07、OB08：维护各币种之间的汇率
+CONVERT_TO_FOREIGN_CURRENCY：将外币转换为本位币
+CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
 ```
-
-
 
 ## Open SQL
 
 - ABAP可以通过两种方式与数据库交互
 
-   	Native SQL:数据库自身的SQL，可以直接访问数据库，不够安全。
+    - Native SQL:数据库自身的SQL，可以直接访问数据库，不够安全。
 
-      	Open SQL:集成到ABAP中的标准SQL子集，通过SAP数据库接口识别不同的数据库，然后将语句进行转换成底层数据库对应的语言。
+
+    - Open SQL:集成到ABAP中的标准SQL子集，通过SAP数据库接口识别不同的数据库，然后将语句进行转换成底层数据库对应的语言。
 
 - 基本语法：与其他SQL语句类似，主要包括增删改查：Select、Update、Insert、Delete、Modify
 
@@ -103,24 +105,24 @@ CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
          ORDER BY <fields>.           ：排序条件 
   ```
 
-  表连接：
+  **表连接：**
 
   ```JS
-  1）INNER JOIN：查询结果包含两个连接表中彼此相对应的数据记录。
-  2）LEFT OUTER JOIN：查询结果集中包含左表中的所有数据记录，右表中仅查询出包含相匹配的数据。
-  3）FULL OUTER JOIN：包含左右表所有的记录。
+  INNER JOIN：查询结果包含两个连接表中彼此相对应的数据记录。
+  LEFT OUTER JOIN：查询结果集中包含左表中的所有数据记录，右表中仅查询出包含相匹配的数据。
+  FULL OUTER JOIN：包含左右表所有的记录。
   ```
 
 
   以内表为查询条件：
 
-  ​         SELECT <f1...fn> FROM <dbtab> FOR ALL ENTRIED IN <itab> WHERE <cond>.
+  ​         `SELECT <f1...fn> FROM <dbtab> FOR ALL ENTRIED IN <itab> WHERE <cond>.`
 
-  ​         使用 FOR ALL ENTRIED IN itab 前，一定要检查itab表是否为空，否则会造成SQL的执行效率极低。
+  ​         使用 `FOR ALL ENTRIED IN itab` 前，一定要检查itab表是否为空，否则会造成SQL的执行效率极低。
 
   ​       获取限制读取数据的条数：前n条
 
-  ​         SELECT * FROM <dbtab> INTO <itab> UP TO <n> ROWS. 
+​          	 `SELECT * FROM <dbtab> INTO <itab> UP TO <n> ROWS. `
 
   标准函数：
 
@@ -160,5 +162,7 @@ CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
   ```
 
   
+
+------
 
 未完待续......[ABAP语法详解(五)](https://coldinfire.github.io/2019/ABAP5)

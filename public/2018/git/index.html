@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "Git",
-  "wordcount":  4953 ,
+  "wordcount":  5505 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/git\/",
   "datePublished": "2018-03-11T17:20:58\x2b08:00",
   "dateModified": "2018-03-11T17:20:58\x2b08:00",
@@ -151,7 +151,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                10 min
+                11 min
         </div>
     </header>
     <div class="post-content">
@@ -174,9 +174,7 @@
 
           
 
-<h1 id="git本地结构">Git本地结构</h1>
-
-<hr />
+<h2 id="git本地结构">Git本地结构</h2>
 
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/git/git.jpg" alt="git" class="lazyload"><figcaption class="image-caption">git</figcaption></figure></p>
 
@@ -188,7 +186,7 @@
 
 <p>​   <strong>Remote：</strong>远程仓库，github上的仓库或其他服务上的仓库。</p>
 
-<h1 id="git远程代码库">Git远程代码库</h1>
+<h2 id="git远程代码库">Git远程代码库</h2>
 
 <hr />
 
@@ -202,7 +200,7 @@
 
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/git/github2.png" alt="git-github" class="lazyload"><figcaption class="image-caption">git-github</figcaption></figure></p>
 
-<h1 id="git设置签名">Git设置签名</h1>
+<h2 id="git设置签名">Git设置签名</h2>
 
 <hr />
 
@@ -227,11 +225,11 @@
 <li><p>git config -e [- -global]：编辑Git配置文件</p></li>
 </ul>
 
-<h1 id="git命令">Git命令</h1>
+<h2 id="git命令">Git命令</h2>
 
 <hr />
 
-<h2 id="常用的git命令">常用的Git命令</h2>
+<h3 id="常用的git命令">常用的Git命令</h3>
 
 <pre><code class="language-JS">add        添加文件内容至索引
 bisect     通过二分查找定位引入 bug 的变更
@@ -256,7 +254,7 @@ status     显示工作区状态
 tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 </code></pre>
 
-<h2 id="命令解析">命令解析</h2>
+<h3 id="命令解析">命令解析</h3>
 
 <ul>
 <li><p>初始化：</p>
@@ -308,7 +306,7 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/git/gitlog.jpg" alt="git_log" class="lazyload"><figcaption class="image-caption">git_log</figcaption></figure></p>
 
-<h1 id="head">Head</h1>
+<h2 id="head">Head</h2>
 
 <hr />
 
@@ -332,7 +330,7 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 <li>CHERRY_PICK_HEAD : 记录在运行git cherry-pick时要合并的提交</li>
 </ul>
 
-<h1 id="cherry-pick">Cherry-pick</h1>
+<h2 id="cherry-pick">Cherry-pick</h2>
 
 <hr />
 
@@ -344,7 +342,7 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 <li><p>git cherry-pick : 将提交对应的内容合并,操作对象是commi、commit代表的是修改</p></li>
 </ul>
 
-<h1 id="版本回退">版本回退</h1>
+<h2 id="版本回退">版本回退</h2>
 
 <hr />
 
@@ -378,7 +376,7 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 
 <p>永久删除文件找回：可使用版本回退方式找回文件。删除前，文件存在时的状态已经提交到本地库。</p>
 
-<h1 id="分支">分支</h1>
+<h2 id="分支">分支</h2>
 
 <hr />
 
@@ -409,7 +407,7 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 </ul></li>
 </ul>
 
-<h1 id="冲突解决">冲突解决</h1>
+<p>冲突解决</p>
 
 <hr />
 
@@ -431,7 +429,7 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 
 <p>​   2. 另一种方式是使用git stash pop,恢复的同时把stash内容也删除了。</p>
 
-<h1 id="标签">标签</h1>
+<h2 id="标签">标签</h2>
 
 <hr />
 
@@ -455,7 +453,7 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 <li><p>git checkout -b [branch] [tag]：新建一个分支，指向某个tag</p></li>
 </ul>
 
-<h1 id="远程同步">远程同步</h1>
+<h2 id="远程同步">远程同步</h2>
 
 <hr />
 
@@ -489,13 +487,13 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 <li><p>将公钥添加到Github的<code>SSH keys</code></p></li>
 </ul>
 
-<h1 id="gitflow">GitFlow</h1>
+<h2 id="gitflow">GitFlow</h2>
 
 <hr />
 
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/git/branch.jpg" alt="Git工作流" class="lazyload"><figcaption class="image-caption">Git工作流</figcaption></figure></p>
 
-<h1 id="多人协作工作模式">多人协作工作模式</h1>
+<h2 id="多人协作工作模式">多人协作工作模式</h2>
 
 <hr />
 
@@ -533,7 +531,57 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 <li>本地团队可将远程仓库代码拉取到本地进行操作</li>
 </ul>
 
-<h1 id="不同开发平台管理">不同开发平台管理</h1>
+<h2 id="git-submodule">Git Submodule</h2>
+
+<hr />
+
+<h3 id="submodule">Submodule</h3>
+
+<p><code>git Submodule</code> 是一个很好的多项目使用共同类库的工具，他允许类库项目做为 <code>repository</code>, 子项目做为一个单独的 <code>git项目</code>存在父项目中，子项目可以有自己的独立的 <code>commit</code>，<code>push</code>，<code>pull</code>。而父项目以 <code>Submodule</code> 的形式包含子项目，父项目可以指定子项目 <code>header</code>，父项目中会的提交信息包含 <code>Submodule</code> 的信息，在 <code>clone父项目</code>的时候可以把 <code>Submodule</code> 初始化。</p>
+
+<ul>
+<li>在当前文件夹添加Submodule
+
+<ul>
+<li>git submodule add [子项目git地址]</li>
+<li>会在文件夹下生成 .gitmodules文件，包含Submodule主要消息，指定repository</li>
+</ul></li>
+<li>修改Submodule,需要有Commit权限
+
+<ul>
+<li>打开需要操作的文件夹，git status查看状态</li>
+<li>git commit -a -m &lsquo;modify submodule&rsquo;：提交更改的内容</li>
+<li>git push：push到子项目远程服务器</li>
+</ul></li>
+<li>在父目录中查看状态会带有(new commits)标识,将变动信息同步到父项目的远程服务器
+
+<ul>
+<li>git commit -m &lsquo;modify submodule&rsquo;</li>
+<li>git push：push到父项目远程服务器</li>
+</ul></li>
+<li>更新submodule
+
+<ul>
+<li>(1) 打开相应的submodule目录：git pull</li>
+<li>(2) 在父目录下直接运行：git submodule foreach git pull</li>
+</ul></li>
+
+<li><p>clone submodule</p>
+
+<ul>
+<li><p>(1) 递归clone整个项目：git clone [项目git地址] &ndash;recursive</p></li>
+
+<li><p>(2) 先clone父项目，再初始化Submodule： git clone [项目git地址] 》 cd [submodule_目录] 》 git submodule init &gt; git submodule update</p></li>
+</ul></li>
+
+<li><p>删除submodule</p>
+
+<ul>
+<li>git rm [submodule name]</li>
+</ul></li>
+</ul>
+
+<h2 id="不同开发平台管理">不同开发平台管理</h2>
 
 <hr />
 
@@ -559,36 +607,10 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>4953</span>
+                   <span>5505</span>
             </p>
             
             <p class="copyright-item">
-                
-                <span>Share:</span>
-                <span>
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        
-      
-        
-      
-
-          
-
-          
-
-          
-
-          
-</span>
                 
             </p>
 

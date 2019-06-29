@@ -35,38 +35,44 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/30370277/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;越简单，越美好&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/1084336/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;小王子&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26952718/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;好好学习&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;🕐&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/27053004/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;以幽默的方式过一生&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26948148/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;好好说话&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;🕐&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/27018748/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;大学&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/1008145/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;围城&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;🕐&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26801663/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;我，一个人生活&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/5346110/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;穷查理宝典&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;🕐&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/26650965/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;生命清单&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/3533221/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;非暴力沟通&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;🕐&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject_search?search_text=%E8%BF%99%E4%B9%88%E6%85%A2%EF%BC%8C%E9%82%A3%E4%B9%88%E7%BE%8E&amp;amp;cat=1001&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;这么慢，那么美&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/1056295/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;人性的弱点&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;🕐&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -1870,7 +1876,7 @@ var oComboBox = new sap.ui.commons.ComboBox({
     </item>
     
     <item>
-      <title> Python基础 </title>
+      <title> Linux基础 </title>
       <link>https://coldinfire.github.io/2019/Linux/</link>
       <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
       
