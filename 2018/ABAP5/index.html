@@ -10,8 +10,8 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/CSS/" />
-  <link rel="next" href="https://coldinfire.github.io/2018/ABAPTable1/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP4/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/hugo1/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP5/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -55,10 +55,10 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount": 3196,
+  "wordcount": 3207,
   "url": "https://coldinfire.github.io/2018/ABAP5/",
-  "datePublished": "2018-06-26T17:20:58+08:00",
-  "dateModified": "2018-06-26T17:20:58+08:00",
+  "datePublished": "2018-06-16T17:20:58+08:00",
+  "dateModified": "2018-06-16T17:20:58+08:00",
   
   "publisher": {
     "@type": "Organization",
@@ -142,7 +142,7 @@
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
-                    on <time datetime=2018-06-26 >26 June 2018</time>
+                    on <time datetime=2018-06-16 >16 June 2018</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -235,15 +235,17 @@ Order by、group by、having从句
 Joins，使用JOIN时，会绕过SAP缓存，可以使用FOR ALL ENTRIES来代替
 WHERE从句中使用Sub queries（子查询）
 WHERE从句中使用IS NULL条件
-</code></pre></li>
+</code></pre>
 
+<ul>
 <li><p>使用内表批量操作数据库，而不要使用工作区一条条操作,如：</p>
 
 <pre><code class="language-JS">SELECT ... INTO TABLE itab
 INSERT dbtab FROM TABLE itab
 DELETE dbtab FROM TABLE itab
 UPDATE/MODIFY dbtab FROM TABLE itab
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>​</p></li>
 </ol>
@@ -310,14 +312,9 @@ IF c = c.比IF i = c.快，原因是未发生类型转换</p></li>
 
 <li><p>通过运行事务代码SLIN(或者直接通过SE38的菜单)，进行代码静态检查，根据SAP提供的反馈信息，优化代码</p></li>
 
-<li><p>通过老式方式定义内表时，使用<code>OCCURS 0</code>而非<code>OCCURS n</code> ：重现
-    lOCCURS n 代表初始化内表的空间大小为n（空间固定），当内表存储记录条数超出n时，系统将依靠页面文件存放
-              超出部分的数据。 当系统内存资源十分紧缺的时候，我们可以使用OCCURS n的初始化方法，
-               但是这样的效率稍微慢
-    lOCCURS 0 代表初始化内表的空间大小为无限，当内表存储记录条数不断增加时， 内表所使用的内存空间不断扩大，
-              直到系统无法分配为止。使用内存比使用页面交换更快一些， 但是要考虑系统的资源状态</p></li>
+<li><p>通过老式方式定义内表时，使用<code>OCCURS 0</code>而非<code>OCCURS n</code> ：重现lOCCURS n 代表初始化内表的空间大小为n（空间固定），当内表存储记录条数超出n时，系统将依靠页面文件存放超出部分的数据。 当系统内存资源十分紧缺的时候，我们可以使用OCCURS n的初始化方法，但是这样的效率稍微慢OCCURS 0 代表初始化内表的空间大小为无限，当内表存储记录条数不断增加时， 内表所使用的内存空间不断扩大，直到系统无法分配为止。使用内存比使用页面交换更快一些， 但是要考虑系统的资源状态</p></li>
 
-<li><p>使用完成后及时清空释放内表所占用的空间：FREE <itab>.</p></li>
+<li><p>使用完成后及时清空释放内表所占用的空间：<code>FREE &lt;itab&gt;.</code></p></li>
 
 <li><p>使用CASE…WHEN语句代替 IF…ELSEIF…；使用WHILE…ENDWHILE 代替 DO…ENDDO</p></li>
 
@@ -336,7 +333,7 @@ IF c = c.比IF i = c.快，原因是未发生类型转换</p></li>
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>3196</span>
+                   <span>3207</span>
             </p>
             
             <p class="copyright-item">
@@ -365,10 +362,10 @@ IF c = c.比IF i = c.快，原因是未发生类型转换</p></li>
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/CSS/" class="prev" rel="prev" title="CSS格式与标准总结"><i class="iconfont icon-dajiantou"></i>&nbsp;CSS格式与标准总结</a>
+        <a href="https://coldinfire.github.io/2018/ABAP4/" class="prev" rel="prev" title="ABAP 语法详解(四)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(四)</a>
          
         
-        <a href="https://coldinfire.github.io/2018/ABAPTable1/" class="next" rel="next" title="报表开发(一)">报表开发(一)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/hugo1/" class="next" rel="next" title=" Hugo搭建博客(一) "> Hugo搭建博客(一) &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -379,7 +376,7 @@ IF c = c.比IF i = c.快，原因是未发生类型转换</p></li>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-06-26 17:20:58 \x2b0800 \x2b0800',
+        id: '2018-06-16 17:20:58 \x2b0800 \x2b0800',
         title: 'ABAP 语法详解(五)',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',

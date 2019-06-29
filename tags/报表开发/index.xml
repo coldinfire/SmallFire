@@ -6,10 +6,28 @@
     <description>Recent content in 报表开发 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Sep 2018 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Sep 2018 17:20:58 +0800</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>报表开发(六) OO ALV</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable6/</link>
+      <pubDate>Tue, 25 Sep 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable6/</guid>
+      <description>OO ALV 相关类： CL_GUI_CUSTOM_CONTAINER ：用户自己定义控件区域 CL_GUI_DOCKING_CONTAINER : 动态创建容器，不需要在创建时绑定到预先绘制好的自定义控件中 CL_GUI_SPLITTER_CONTAINER ：可在同一屏幕创建多个ALV显示 CL_GUI_ALV_GRID ：AL</description>
+    </item>
+    
+    <item>
+      <title>报表开发(五)</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable5/</link>
+      <pubDate>Fri, 21 Sep 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable5/</guid>
+      <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对REUSE_ALV_GRID_DISPLAY函数参</description>
+    </item>
     
     <item>
       <title>报表开发(四)</title>
@@ -17,7 +35,7 @@
       <pubDate>Wed, 19 Sep 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable4/</guid>
-      <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>
+      <description>ALV常使用的BAPI 在ALV开发中有两个重要的对象：LAYOUT和FIELDCAT,它们同属于类型池SLIS。 LAYOUT主要用于设置AL</description>
     </item>
     
     <item>
@@ -26,7 +44,7 @@
       <pubDate>Wed, 12 Sep 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable3/</guid>
-      <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>
+      <description>内表操作 SQL 语句的执行顺序 书写顺序：SELECT[DISTINCT]--&amp;gt;FROM--&amp;gt;WHERE--&amp;gt;GROUP BY--&amp;gt;HAVING--&amp;gt;UNION--&amp;gt;ORDER BY 其执行</description>
     </item>
     
     <item>
@@ -35,7 +53,7 @@
       <pubDate>Mon, 03 Sep 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable2/</guid>
-      <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>
+      <description>选择屏幕 引用链接 &amp;lt;1&amp;gt;SELECT-SCREEN 框架结构 SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。 定义屏幕对象： SELECTION-SCREEN BEGIN OF</description>
     </item>
     
     <item>

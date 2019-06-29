@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="报表开发(二)"/>
-<meta name="twitter:description" content="执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST"/>
+<meta name="twitter:description" content="选择屏幕 引用链接 &lt;1&gt;SELECT-SCREEN 框架结构 SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。 定义屏幕对象： SELECTION-SCREEN BEGIN OF"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "报表开发",
-  "wordcount": 9760,
+  "wordcount": 3343,
   "url": "https://coldinfire.github.io/2018/ABAPTable2/",
   "datePublished": "2018-09-03T17:20:58+08:00",
   "dateModified": "2018-09-03T17:20:58+08:00",
@@ -151,7 +151,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                20 min
+                7 min
         </div>
     </header>
     <div class="post-content">
@@ -172,71 +172,11 @@
 
           
 
-<h2 id="执行程序的使用范围-报表事件">执行程序的使用范围，报表事件</h2>
-
-<pre><code class="language-JS">LOAD-OF-PROGRAM.
-INITIALIZATION.          （Before display the selection screen）
-  AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
-  AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
-AT SELECTION-SCREEN. //After enter the option data check
-   PERFORM check_input.
-START-OF-SELECTION.//Begin the main programer
-  xxxx
-END-OF-SELECTION.
-Interactive Eventrs. (User for interactive reporting)
-</code></pre>
-
-<h2 id="报表程序大体逻辑结构">报表程序大体逻辑结构</h2>
-
-<p>​   <strong>抬  头:</strong> 报表的主要信息(抬头信息)</p>
-
-<p>​   <strong>行项目:</strong> 查询出的每行记录信息</p>
-
-<p>​   <strong>明  细:</strong> 每个行项目出关键字外其他明细内容</p>
-
-<h2 id="字段符号">字段符号</h2>
-
-<p><strong>定义：</strong> FIELD-SYMBOLS <FS> LIKE structure.</p>
-
-<p>​    <1> FS必须和某个变量，结构或者内表绑定后才能使用，这点和C语言里的指针
-​     （在ABAP里最接近指针的是TYPE REF TO）不同，在使用FS前必须分配给某个变量，不然会发生
-​      FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，
-​      FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。
-​    <2> ASSIGN structure TO <fs>:将某个内存区域分配给字段符号，这样字段符号就代表了该内存
-​      区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
-  ASSIGN <Val> TO <fs>: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。
-  UNASSIGN: 该语句是初始化<FS>字段符号，执行后字段符号将不再引用内存区域，
-​            <fs> is assigned返回假。
-  CLEAR: 与UNASSIGN不同的是，只有一个作用就是初始化它所指向的内存区域，而不是解除分配。
-3.2 LOOP内表INTO结构（工作区）和LOOP内表ASSIGNING&lt;结构&gt;的比较
-​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
-  MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会
-  影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程
-  修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。
-3.3 READ TABLE内表
-3.4 ASSIGN隐式强转
-TYPES: BEGIN OF t_date,
-​    year(4) TYPE  n,
-​        month(2) TYPE n,
-​    day(2) TYPE n,
-  END OF t_date.
-FIELD-SYMBOLS <fs> TYPE t_date.&ldquo;将<fs>定义成了具体限定类型
-ASSIGN sy-datum TO <fs> CASTING. &ldquo;后面没有指定具体类型，所以使用定义时的类型进行隐式转换
-3.5 ASSIGN显示强转
-  DATA txt(8) TYPE c VALUE &lsquo;19980606&rsquo;.
-  FIELD-SYMBOLS <fs>.
-  ASSIGN txt TO <fs> CASTING TYPE d.&ldquo;由于定义时未指定具体的类型，所以这里需要显示强转
-3.6 动态引用，通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。
-  field-symbols:<l_shortageqty> type mng01.
-  loop at <dyn_table> assigning <dyn_wa>.
-​    assign component &lsquo;SHORTAGEQTY&rsquo; of structure <dyn_wa> to <l_shortageqty>.
-​    <l_shortageqty> = <l_shortageqty> - <l_fvalue>.</p>
-
 <h2 id="选择屏幕">选择屏幕</h2>
 
 <p><a href="https://www.cnblogs.com/foxting/archive/2012/07/01/2572243.html" rel="nofollow noreferrer" target="_blank">引用链接</a></p>
 
-<pre><code>&lt;1&gt;SELECT-SCREEN 框架结构
+<pre><code class="language-JS">&lt;1&gt;SELECT-SCREEN 框架结构
   SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。
   定义屏幕对象：
     SELECTION-SCREEN BEGIN OF SCREEN src.
@@ -406,385 +346,6 @@ ASSIGN sy-datum TO <fs> CASTING. &ldquo;后面没有指定具体类型，所以�
        ENDCASE.
 </code></pre>
 
-<h2 id="字段符号-filed-symbols">字段符号：filed-symbols</h2>
-
-<h2 id="内表操作">内表操作</h2>
-
-<pre><code>【增删改】
-  &lt;1&gt; Loop AT循环(sy-tabix:索引号)
-     LOOP AT itab {INTO wa}|{ASSIGNING &lt;fs&gt; [CASTING]} | {TRANSPORTING NO FILDS} 
-        [[USING KEY key_name] [FROM idx1] [TO idx2] [WHERE log_exp|(cond_syntax)]].
-     ENDLOOP.
-  &lt;2&gt; INSERT &lt;wa&gt; INTO TABLE &lt;itab&gt;.[单条]
-      INSERT &lt;wa&gt; INTO &lt;itab&gt; INDEX &lt;idx&gt;.[索引]
-      INSERT LINES OF &lt;itab&gt; [FROM &lt;n1&gt;] [TO &lt;n2&gt;] INTO TABLE &lt;itab&gt;.[批量插入]
-      APPEND &lt;wa&gt; TO &lt;itab&gt;.
-      APPEND LINES OF &lt;itab1&gt; [FROM&lt;n1&gt;] [TO&lt;n2&gt;] TO &lt;itab2&gt;.
-  &lt;3&gt; READ TABLE &lt;itab&gt; WITH KEY {&lt;k1&gt;=&lt;f1&gt;...[BINARY SEARCH]} INTO &lt;wa&gt;}
-      [COMPARING &lt;f1&gt;&lt;f2&gt;...|ALL FIELDS]  [TRANSPORTING &lt;f1&gt; &lt;f2&gt; ...|ALL FIELDS
-                                          |NO FIELDS] | ASSIGNING &lt;fs&gt;.
-   COMPARING:根据关键字读取指定的单行与工作区&lt;wa&gt;中的相应组件进行比较。内容相同SY-SUBRC=0
-  &lt;4&gt; MODIFY itab1.
-      MODIFY itab INDEX idx FROM &lt;wa&gt; [TRANSPORTING &lt;f1&gt; &lt;f2&gt; ...].
-      MODIFY TABLE &lt;itab&gt; FROM &lt;wa&gt; [TRANSPORTING &lt;f1&gt; &lt;f2&gt;...].[修改单条]
-      MODIFY &lt;itab&gt; FROM &lt;wa&gt; TRANSPORTING &lt;f1&gt; &lt;f2&gt; ... WHERE &lt;cond&gt;.[修改多条]
-
-      UPDATE dbtab SET f1=g1 ... fi=gi WHERE &lt;con&gt;.
-  &lt;5&gt; DELETE TABLE &lt;itab&gt; FROM &lt;wa&gt; [USING KEY key_name].[删除单条]
-      DELETE TABLE &lt;itab&gt; WITH TABLE KEY &lt;k1&gt;=&lt;f1&gt;.. .
-      DELETE &lt;itab&gt; WHERE &lt;cond&gt;.[删除多行]
-      DELETE &lt;itab&gt; [INDEX &lt;idx&gt;].
-      删除重复
-  (1)SORT record_tab. //首先进行排序处理
-      (2)DELETE ADJACENT DUPLICATES ENTRIES FROM itab [USING KEY key_name] 
-                                         [COMPARING K1 K2...] [ALL FIELDS].//删除
-  &lt;6&gt; COLLECT &lt;wa&gt; INTO &lt;itab&gt;.
-  &lt;7&gt; 第二索引
-     UNIQUE KEY.唯一升序第二索引
-     NON-UNIQUE KEY.非唯一升序第二索引
-     通过第二索引在无法使用主键时，可以加快大量处理数据的速度。
-【查】
-  SELECT SINGLE ... INTO [CORRESPONDING FIELDS OF] &lt;wa&gt; WHERE ...
-  SELECT ... INTO|APPENDING CORRESPONDING FIELDS OF TABLE &lt;itab&gt;...
-  RANG条件内.表：
-    RANGES sel FOR obj [OCCURS n].
-    SELECT-OPTIONS selcrit FOR {dobj|(name)}.
-  FOR ALLENTRIES:
-    1:会自动删除重复行   2:WHERE后还有其他条件，会忽略后续条件
-  表连接：
-    INNER JOIN、LEFT OUTER JOIN.
-【SAP锁】
-  通用数据库表锁函数：ENQUEUE_E_TABLE、DEQUEUE_E_TABLE、DEQUEUE_ALL
-  特定数据库表函数：ENQUEUE_&lt;LOCK OBJ&gt;、DEQUEUE_&lt;LOCK OBJ&gt;
-  自定义锁对象：EZ_/EY_命名
-  S:共享锁     E:可重入的排他锁     X:排他锁
-  1、在SE11里创建锁对象，自定义的锁对象都必须以EZ或者EY开头来命名。一个锁对象里只包含一个
-     PRIMARY TABLE，可以包含若干个SECONDARY TABLE，锁的模式有三种：E，S，X。
-   模式E：当更改数据的时候设置为此模式。   (Shared lock, read lock) 【一般使用E】
-   模式S：本身不需更改数据，但是希望显示的数据不被别人更改 (Exclusive lock, write lock)
-   模式X：和E类似，但是不允许累加，完全独占。 
-          (Exclusive lock, extended write lock, cannot be cumulated)
-  2、上锁的一般步骤
-      先上锁，上锁成功之后，从数据库取数据，然后更改数据，接着更新到数据库，最后解锁。
-   按照这个步骤，才能保证更改完全运行在锁的保护机制下。
-  3、上锁与解锁
-   ENQUEUE_&lt;lock object的名字&gt; 对象 EZZSOPR0032 要求的锁定
-   DEQUEUE_&lt;lock object的名字&gt; 释放对象 EZZSOPR0032 的锁定
-     有些情况下，程序中设置成功的逻辑锁会隐式的自己解锁。比如说程序结束发生的时候
-  （MESSAGE TYPE为A或者X的时候），使用语句LEAVE PROGRAM，LEAVE TO TRANSACTION，或者在
-   命令行输入/n回车以后。使用DEQUEUE FUNCTION MODULE来解锁的时候，不会产生EXCEPTION。
-   要解开你在程序中创建的所有的逻辑锁，可以用FM：DEQUEUE_ALL.
-【事务处理】
-  COMMIT WORK.         异步更新。
-  COMMIT WORK AND WAIT.同步跟新，执行结果可通过sy-subrc判断是否提交成功。
-  ROLLBACK WORK.
-</code></pre>
-
-<h2 id="message-se91">MESSAGE ：SE91</h2>
-
-<pre><code>&lt;1&gt; 消息类的操作
-  使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。
-  Message Short Text字段为类描述，可以定义输入参数&amp;，如&quot;1&amp;2&amp;3&amp;&quot;表示有三个输入参数。
-  Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功。
-  引用语法为: Message W000(00)，表示调用'00'类的'000' Message类型为警告。
-    EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
-1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
-2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
-3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
-   EXIT.                                   //Screen 界面查询数据无，则返回原界面
-</code></pre>
-
-<h2 id="alv常使用的bapi">ALV常使用的BAPI</h2>
-
-<pre><code>在ALV开发中有两个重要的对象：LAYOUT和FIELDCAT,它们同属于类型池SLIS。
-   LAYOUT主要用于设置ALV的输出格式，如输出字段的颜色、表格中的线条等；
-   FIELDCAT主要用于ALV结构定义，包括具体字段的名称、类型、格式等属性.
-常使用的开发类:
-   &lt;1&gt; REUSE_ALV_FIENDCATALOG_MERGE：根据内表结构返回FIELDCAT字段结构信息.
-   &lt;2&gt; REUSE_ALV_GRID_DISPLAY/REUSE_ALV_LIST_DISPLAY：输出ALV报表，定义其为GRID模式还是LIST模式。参数结构一样。
-   &lt;3&gt;
-</code></pre>
-
-<h2 id="alv-报表的表头字段显示设置">ALV 报表的表头字段显示设置</h2>
-
-<pre><code>call function 'LVC_FIELDCATALOG_MERGE'
-exporting
-  I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE
-  I_structure_name       = 'ZALV_FEED' &quot;ALV需要显示的字段结构
-  I_CLIENT_NEVER_DISPLAY = 'X'
-  I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER
-  I_INTERNAL_TABNAME     = I_INTERNAL_TABNAME
-    changing
-      ct_fieldcat         = lt_fieldcat  &quot;对应ALV显示的字段结构
-exceptions
-  inconsistent_interface = 1
-  program_error          = 2.
- 可以通过loop对相应的ALV字段描述进行自定义设置
-</code></pre>
-
-<h2 id="layout-字段">Layout 字段</h2>
-
-<pre><code>DATA wa_alv_field TYPE SLIS_LAYOUT_ALV.
-LAYOUT主要用于设置ALV的输出格式，如输出字段的颜色、表格中的线条等；
-  0.COLTAB_fieldname type slis_fieldname: 设置单元格颜色
-  1.EDIT：设置ALV是否为可编辑模式。
-  2.COLWIDTH_OPTIMIZE：将ALV字段宽度设置为最优化，按实际输出内容宽度自动匹配。
-  3.NO_VLINE：输出ALV表格不显示垂直格式。
-  4.NO_ULINE_HS：输出ALV表格不显示水平格线。
-  5.INFO_FIELDNAME：设置颜色属性。
-  6.KEY_HOTSPOT：设置关键字段热点。
-  7.NO_COLNAME：是否显示字段名。
-  8.ZEBRA：使ALV表格按斑马线间隔条纹方式显示，以便显示效果更有美观。
-  9.BOX_FIELDNAME：设置ALV表格是否显示选择按钮字段。
-  10.f2code  like   sy-ucomn. gs_layout-f2code='&amp;ETA'[双击时触发的funcode]
-  11.INFO_FIELDNAME：用于设置ALV输出报表每一行的颜色，其参数为输出内表的字段名称，
-    要注意的是使用该属性需要同时在内表中定义一个与该参数所定义字段名相同的字段，例如：
-  LAYOUT-INFO_FIELDNAME = 'COLOR'.倘若其数据输出内表名为LT_OUT,则需要在该内表增加一字段
-  “COLOR”，并为其内表每行复制，颜色参数范围C000~C999，例如：LT_OUT-COLOR = 'C012'.
-
-【颜色】
-  行颜色:gs_layout-&lt;info_fieldname&gt; = 'COLOR'
-  列颜色:gt_fieldcat-emphasize = 'C510'.[1：C固定，2：颜色值0~7,3：高亮0、1(X)，
-                                         4：颜色反转，0、1]
-  单元格颜色:gs_layout-&lt;coltab_fieldname&gt;='COLORTABLE'.
-【可编辑】
-  整体可编辑：gs_layout-edit = 'X' 
-  某列可编辑：gt_fieldcat-edit = 'X'
-  单元格可编辑：
-</code></pre>
-
-<h2 id="9-fieldcatalog-字段">9.Fieldcatalog 字段</h2>
-
-<pre><code>FIELDCAT主要用于ALV结构定义，包括具体字段的名称、类型、格式等属性.
-  DATA lt_alv_fieldcat TYPE SLIS_T_FIELDCAT_ALV WITH HEADER LINE.
-　　1.KEY：将定义字段设置为KEY值。
-    2.ICON：将定义字段以ICON的形式显示。
-    3.CHECKBOX：将定义字段以CHECKBOX的形式显示。
-    4.JUST：定义字段对齐方式(R)RIGHT、(L)LEFT、(C)CENTER。
-    5.IZERO：将定义字段以前导&quot;0&quot;的形式显示。
-    6.NO_SIGN：将定义字段符号设置为不显示。
-    7.NO_ZERO：定义字段是否显示。
-    8.EMPHASIZE：设置字段的颜色。
-    9.DO_SUM：对字段进行汇总。
-    10.SELTEXT_L/M/S：设置字段名称描述长/中/短。
-    11.DDICTXT：设置字段显示字符串。
-    12.HOTSPOT：设置字段是否有热点(热点字段显示有下划线)。
-    13.NO_OUT: 隐藏不需要的字段(NO_OUT = 'X')。
-    14.EDIT(1) type c: 是否可编辑
-    15:COL_POS like sy-cucol: 列输出位置
-    16:FIX_COLUMN(1) type c: 列固定不滚动，颜色不会发生变化
-    17:convexit : 设置转换规则，对应于Domain中的转换规则    
-
-fieldname  type slis_fieldname    (列显示的设置)
-cfieldname type slis_fieldname  (金额字段所参照的货币单位字段名)
-ctabname   type slis_tabname      (金额字段所参照的货币单位表名)
-qfieldname type slis_fieldname  (数量字段所参照的货币单位字段名)
-qtabname   type slis_tabname      (数量字段所参照的货币单位表名)
-
-自定义FIELDCAT字段结构：
-  &quot;定义宏来设置FIELDAT属性 &amp;1 &amp;2 &amp;3分别为参数
-    DEFINE fieldcatset.
-      lt_alv_fieldcat-REF_TABNAME ='LSPFLI'.
-      lt_alv_fieldcat-FIELDNAME = &amp;1.
-      lt_alv_fieldcat-SELTEXT_L = &amp;2.
-      lt_alv_fieldcat-COL_POS = &amp;3.
-      APPEND lt_alv_fieldcat.
-    END-OF-DEFINITION.
-    fieldcatset 'CARRID' '航线承运人' SY-TABIX.
-</code></pre>
-
-<h2 id="10-单元格中的数据被修改后-将alv单元格中的数据立即刷新到abap对应的内表中">10.单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中</h2>
-
-<pre><code>方法一：通过对REUSE_ALV_GRID_DISPLAY函数参数i_grid_settings-edt_cll_cb进行设置：
-i_grid_settings-edt_cll_cb  = 'X' .
-CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'
-EXPORTING i_grid_settings = i_grid_settings
-方法二：通过函数参数I_CALLBACK_USER_COMMAND指定的回调Form的参数slis_selfield进行设置：
-FORM user_command USING ucomm LIKE sy-ucommselfield selfield TYPE slis_selfield.
-    selfield-refresh = 'X'.
-  CASE ucomm.
-    WHEN 'UPDATE'.
-    PERFORM frm_update.
-  ENDCASE.
-ENDFORM. 
-</code></pre>
-
-<h2 id="11-自定义按钮使用后刷新alv">11 自定义按钮使用后刷新ALV</h2>
-
-<pre><code> form frm_user_command using r_ucomm     like sy-ucomm
-                        rs_selfield type slis_selfield.
-  case r_ucomm.
-   when 'PROFIT'.
-      perform frm_cycle_count_profit.
-   when others.
-  endcase.
-     rs_selfield-refresh = 'X'.
- endform.                    &quot;frm_user_command
-</code></pre>
-
-<h2 id="12-设置工具导航栏-gui-status">12 设置工具导航栏 GUI Status</h2>
-
-<pre><code>GUI Status参数设置共包括3个部分：
-  1.菜单栏(Menu Bar)：用于设置主菜单选项。
-  2.应用工具条(Application ToolBar)：用于设置应用工具栏按钮，包括按钮名称、按钮描述、及按钮所对的ICON图标。
-  3.功能键(Function Key)：为按钮分配功能键代码，包括系统标题按钮(如返回、退出、关闭等)及通过Application ToolBar所定义的客制化按钮。
-  4. 对于定义的按钮，我们可以通过系统变量SY-UCOMM来获取它的功能代码。
-    AT USER-COMMAND.   &quot;当单击某个按钮时，触发该事件
-      CASE sy-ucomm.  &quot;获取所操作按钮的功能代码(FUNCTION Code)
-  5.调用显示，应用于START-OF-SELECTION事件
-     SET PF-STATUS &lt;STATUS_NAME&gt;.
-     不显示某些按钮：SET PF-STATUS &lt;STATUS_NAME&gt; EXCLUDING &lt;extab&gt;.
- 6.在ALV函数中使用
-  call function 'REUSE_ALV_GRID_DISPLAY_LVC'
-    exporting
-      i_callback_program       = sy-repid 
-      i_callback_pf_status_set = 'FRM_SET_STATUS'
-      i_callback_user_command  = 'FRM_USER_COMMAND'
-      is_layout_lvc            = lw_layout
-      it_fieldcat_lvc          = gt_fieldcat
-      i_default                = 'X'
-      i_save                   = 'X'
-   tables
-      t_outtab                 = gt_alv_pi_diffs
-   exceptions
-      program_error            = 1.
-
-  form frm_set_status using extab type slis_t_extab.
-     data: ls_slis_extab type slis_extab.
-      SET PF-STATUS &lt;STATUS_NAME&gt;.
-  endform.                    &quot;frm_set_status
-GUI TITLE设置：
-    GUI TITLE 用于定义Report标题栏内容.
-  定义：
-    Create--&gt;GUI Titles：可以输入&amp;符号作为Title,当程序运行时对其填充动态文本。
-  在程序中调用：
-    SET TITLEBAR 'TITLE_BAR' WITH SY-DATUM 'IFENER' 'BAR TEST'.&quot;设置TITLEBAR，并赋参数列表
-</code></pre>
-
-<h2 id="13-oo-alv">13. OO ALV</h2>
-
-<pre><code>相关类：
-  CL_GUI_CUSTOM_CONTAINER   ：用户自己定义控件区域
-  CL_GUI_DOCKING_CONTAINER  : 动态创建容器，不需要在创建时绑定到预先绘制好的自定义控件中
-  CL_GUI_SPLITTER_CONTAINER ：可在同一屏幕创建多个ALV显示
-  CL_GUI_ALV_GRID           ：ALV控制类
-
-  DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, &quot;控制容器类
-         obj_wcl_alv TYPE REF TO cl_gui_alv_grid . &quot;ALV控制类
-  DATA GS_LAYOUT1 TYPE LVC_S_LAYO. &quot;布局结构
-  DATA GT_FIELDCAT TYPE LVC_T_FCAT. &quot;存放字段目录的内表
-  DATA GS_FIELDCAT TYPE LVC_S_FCAT.
-  DATA lt_exclude TYPE ui_functions. &quot;alv不需要的图标按钮
-1、控制区域、容器、Grid关系
-   先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER
- 容器实例,最后以此容器实例来创建 CL_GUI_ALV_GRID实例。
-    DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, &quot;控制容器类
-           obj_wcl_alv TYPE REF TO cl_gui_alv_grid . &quot;ALV控制类
-    IF obj_wcl_alv IS INITIAL.
-       CREATE OBJECT obj_wcl_container
-          EXPORTING
-             container_name  =  'OBJ_WCL_CONTAINER'.
-       CREATE OBJECT obj_wcl_alv
-          EXPORTING
-             i_parent  = obj_wcl_container.
-2、给ALV对象注册事件
-  (1) HANDLE_TOOLBAR:这个事件用于给ALV加自定义工具条按钮。
-  (2) HANDLE_CLICK:用于给ALV点击其中一行后处理代码段。
-  (3) HANDLE_COMMAND:事件用于接收用户按了自定义按钮后，触发的代码段。
-  (4) HANDLE_DOUBLE_CLICK：双击事件
-  (5) 
-  事件的使用：
-    &lt;1&gt; 定义事件方法
-    &lt;2&gt; 指定事件的执行方法代码
-    &lt;3&gt; 事件变量实例化
-    &lt;4&gt; 把事件指定到ALV控制中(注册事件)
-
-    CREATE OBJECT event_receiver.
-    SET HANDLER event_receiver -&gt; handle_double_click FOR obj_wcl_alv.
-3、CL_GUI_ALV_GRID重要方法
-  *-----显示ALV 
-     CALL METHOD obj_wcl_alv-&gt;set_table_for_first_display 
-        EXPORTING 
-           is_variant                    = ls_variant   :指定布局变式
-           is_layout                     = ls_layout 
-           i_save                        = 'A'          :保存表格布局
-           it_toolbar_excluding          = lt_exclude 
-        CHANGING 
-           it_outtab                     = gt_list[]    :需要显示的内表数据
-           it_fieldcatalog               = lt_fieldcat  :结构字段
-        EXCEPTIONS 
-           invalid_parameter_combination = 1 
-           program_error                 = 2 
-           too_many_lines                = 3 
-           OTHERS                        = 4.
-
-   ENDFORM.                    &quot; FRM_ALV_DISPLAY
-
-  XXX -&gt; REFRESH_TABLE_DISPLAY.
-    IS_STABLE : 刷新的稳定性，就是滚动条保持不动
-    I_SOFT_REFRESH:  软刷新，临时给ALV创建的合计，排序，等保持不变
-</code></pre>
-
-<h2 id="14-前导零问题">14.前导零问题</h2>
-
-<pre><code>加上p_in的前导零
-  FORM add_zero  CHANGING p_in.
-CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
-  EXPORTING
-    input  = p_in
-    IMPORTING
-      output = p_in.
- ENDFORM.
-去除p_out的前导零
-  FORM del_zero CHANGING p_out.
-    CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-    EXPORTING
-      input  = p_out
-    IMPORTING
-     output = p_out.
-</code></pre>
-
-<h2 id="15-hash-table-sort-table-standy-table">15.Hash table, sort table, standy table</h2>
-
-<pre><code>   对于排序内表，不要使用append，append lines附加数据，使用insert、insert lines向
-排序内表中插入数据
-</code></pre>
-
-<h2 id="16-search-help-的创建">16.search help 的创建</h2>
-
-<pre><code>PARAMETERS p_cur TYPE XXX VALUE CHECK .
-PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
-在屏幕的 ON VALUE-REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
-  F4IF_ FIELD _VALUE_REQUEST ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定 
-     Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
-  F4IF_ INT_TABLE _VALUE_REQUEST : 在程序运行时， 将某个内表动态的用作 Search help 的
-     数据来源,即使用该函数可以将某个内表转换为 Search help ，可实现联动效果
-  TR_F4_HELP ： 简单实现 Search Help ，数据来源于内表。
-</code></pre>
-
-<h2 id="17-sql-语句的执行顺序">17. SQL 语句的执行顺序</h2>
-
-<pre><code>书写顺序：SELECT[DISTINCT]--&gt;FROM--&gt;WHERE--&gt;GROUP BY--&gt;HAVING--&gt;UNION--&gt;ORDER BY
-其执行顺序为：FROM--&gt;WHERE--&gt;GROUP BY--&gt;HAVING--&gt;SELECT--&gt;DISTINCT--&gt;UNION-&gt;ORDER BY
-1、FROM 才是 SQL 语句执行的第一步，并非 SELECT 
-2、SELECT 是在大部分语句执行了之后才执行的，严格的说是在 FROM 和 GROUP BY 之后执行的。
-3、无论在语法上还是在执行顺序上， UNION 总是排在在 ORDER BY 之前。
-</code></pre>
-
-<h1 id="open-sql">Open SQL</h1>
-
-<hr />
-
-<h2 id="focus">Focus</h2>
-
-<pre><code>1. 多表的结合的查询，首先进行各自的关键字查询，然后进行表与表转换可以提升效率
-2. 表相应字段非关键字时，寻找有该关键字的相对应的关联表进行查询并合并表数据
-3. binary search 和 sort 进行使用时注意sort的关键字与binary search 保持统一
-4. MODIFY itab1 INDEX sy-tabix.进行修改时最好定义变量记录sy-tabix.
-5. inner join 和 left outer join 的连接条件最好都是关键字.
-6. 双层loop循环时，第二个内部表定义为SORTED TABLE会大大的提高处理速度
-</code></pre>
-
     </div>
 
     <div class="post-copyright">
@@ -797,7 +358,7 @@ PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>9760</span>
+                   <span>3343</span>
             </p>
             
             <p class="copyright-item">

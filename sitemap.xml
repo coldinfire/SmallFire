@@ -274,11 +274,39 @@
     <url>
       <loc>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</loc>
       
-      <lastmod>2018-09-19T17:20:58+08:00</lastmod>
+      <lastmod>2018-09-25T17:20:58+08:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAPTable6/</loc>
+      
+      <lastmod>2018-09-25T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAPTable5/</loc>
+      
+      <lastmod>2018-09-21T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>
@@ -340,7 +368,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP5/</loc>
+      <loc>https://coldinfire.github.io/2018/test/</loc>
       
       <lastmod>2018-06-26T17:20:58+08:00</lastmod>
       
@@ -380,7 +408,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/abap/</loc>
+      <loc>https://coldinfire.github.io/tags/hugo/</loc>
       
       <lastmod>2018-06-26T17:20:58+08:00</lastmod>
       
@@ -404,37 +432,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/hugo1/</loc>
+      <loc>https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
       
-      <lastmod>2018-06-16T17:20:58+08:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/test/</loc>
-      
-      <lastmod>2018-06-16T17:20:58+08:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/hugo/</loc>
-      
-      <lastmod>2018-06-16T17:20:58+08:00</lastmod>
+      <lastmod>2018-06-26T17:20:58+08:00</lastmod>
       
       
       
@@ -444,7 +444,35 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+      <loc>https://coldinfire.github.io/2018/hugo1/</loc>
+      
+      <lastmod>2018-06-23T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP5/</loc>
+      
+      <lastmod>2018-06-16T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/abap/</loc>
       
       <lastmod>2018-06-16T17:20:58+08:00</lastmod>
       

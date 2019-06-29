@@ -10,9 +10,9 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/CSS/" />
-  <link rel="next" href="https://coldinfire.github.io/2018/ABAPTable1/" />
-  <link rel="canonical" href="https://coldinfire.github.io/2018/test/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPTable4/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAPTable6/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPTable5/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
   <title>
        
        
-            Hugo搭建博客(一)  | Small Fire`s Blog
+           报表开发(五) | Small Fire`s Blog
        
   </title>
-  <meta name="title" content=" Hugo搭建博客(一)  | Small Fire`s Blog">
+  <meta name="title" content="报表开发(五) | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,17 +35,17 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=" Hugo搭建博客(一) "/>
-<meta name="twitter:description" content="工具准备 hugo node.js git github 操作步骤"/>
+<meta name="twitter:title" content="报表开发(五)"/>
+<meta name="twitter:description" content="单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对REUSE_ALV_GRID_DISPLAY函数参"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": " Hugo搭建博客(一) ",
+  "headline": "报表开发(五)",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://coldinfire.github.io/2018/test/"
+    "@id": "https://coldinfire.github.io/2018/ABAPTable5/"
   },
   "image": {
     "@type": "ImageObject",
@@ -54,11 +54,11 @@
     "height": 600
   },
   "genre": "posts",
-  "keywords": "hugo",
-  "wordcount": 12,
-  "url": "https://coldinfire.github.io/2018/test/",
-  "datePublished": "2018-06-26T17:20:58+08:00",
-  "dateModified": "2018-06-26T17:20:58+08:00",
+  "keywords": "报表开发",
+  "wordcount": 420,
+  "url": "https://coldinfire.github.io/2018/ABAPTable5/",
+  "datePublished": "2018-09-21T17:20:58+08:00",
+  "dateModified": "2018-09-21T17:20:58+08:00",
   
   "publisher": {
     "@type": "Organization",
@@ -138,16 +138,16 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title"> Hugo搭建博客(一) </h1>
+        <h1 class="post-title">报表开发(五)</h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
-                    on <time datetime=2018-06-26 >26 June 2018</time>
+                    on <time datetime=2018-09-21 >21 September 2018</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
@@ -172,20 +172,46 @@
 
           
 
-<h2 id="工具准备">工具准备</h2>
+<h2 id="单元格中的数据被修改后-将alv单元格中的数据立即刷新到abap对应的内表中">单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中</h2>
 
-<ol>
-<li>hugo</li>
-<li>node.js</li>
-<li>git</li>
-<li>github</li>
-</ol>
+<pre><code>方法一：通过对REUSE_ALV_GRID_DISPLAY函数参数i_grid_settings-edt_cll_cb进行设置：
+i_grid_settings-edt_cll_cb  = 'X' .
+CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'
+EXPORTING i_grid_settings = i_grid_settings
+方法二：通过函数参数I_CALLBACK_USER_COMMAND指定的回调Form的参数slis_selfield进行设置：
+FORM user_command USING ucomm LIKE sy-ucommselfield selfield TYPE slis_selfield.
+    selfield-refresh = 'X'.
+  CASE ucomm.
+    WHEN 'UPDATE'.
+    PERFORM frm_update.
+  ENDCASE.
+ENDFORM. 
+</code></pre>
 
-<h2 id="操作步骤">操作步骤</h2>
+<h2 id="自定义按钮使用后刷新alv">自定义按钮使用后刷新ALV</h2>
 
-<ol>
-<li></li>
-</ol>
+<pre><code> form frm_user_command using r_ucomm     like sy-ucomm
+                        rs_selfield type slis_selfield.
+  case r_ucomm.
+   when 'PROFIT'.
+      perform frm_cycle_count_profit.
+   when others.
+  endcase.
+     rs_selfield-refresh = 'X'.
+ endform.                    &quot;frm_user_command
+</code></pre>
+
+<h2 id="search-help-的创建">Search help 的创建</h2>
+
+<pre><code>PARAMETERS p_cur TYPE XXX VALUE CHECK .
+PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
+在屏幕的 ON VALUE-REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
+  F4IF_ FIELD _VALUE_REQUEST ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定 
+     Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
+  F4IF_ INT_TABLE _VALUE_REQUEST : 在程序运行时， 将某个内表动态的用作 Search help 的
+     数据来源,即使用该函数可以将某个内表转换为 Search help ，可实现联动效果
+  TR_F4_HELP ： 简单实现 Search Help ，数据来源于内表。
+</code></pre>
 
     </div>
 
@@ -199,7 +225,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>12</span>
+                   <span>420</span>
             </p>
             
             <p class="copyright-item">
@@ -215,8 +241,8 @@
             <section>
             <i class="iconfont icon-icon-tag"></i>Tag: 
             
-            <span class="tag"><a href="https://coldinfire.github.io/tags/hugo/">
-                    #hugo</a></span>
+            <span class="tag"><a href="https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/">
+                    #报表开发</a></span>
             
             </section>
         
@@ -228,10 +254,10 @@
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/CSS/" class="prev" rel="prev" title="CSS格式与标准总结"><i class="iconfont icon-dajiantou"></i>&nbsp;CSS格式与标准总结</a>
+        <a href="https://coldinfire.github.io/2018/ABAPTable4/" class="prev" rel="prev" title="报表开发(四)"><i class="iconfont icon-dajiantou"></i>&nbsp;报表开发(四)</a>
          
         
-        <a href="https://coldinfire.github.io/2018/ABAPTable1/" class="next" rel="next" title="报表开发(一)">报表开发(一)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/ABAPTable6/" class="next" rel="next" title="报表开发(六) OO ALV">报表开发(六) OO ALV&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -242,8 +268,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-06-26 17:20:58 \x2b0800 \x2b0800',
-        title: ' Hugo搭建博客(一) ',
+        id: '2018-09-21 17:20:58 \x2b0800 \x2b0800',
+        title: '报表开发(五)',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',
