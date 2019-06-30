@@ -12,16 +12,16 @@
     
     
     <item>
-      <title>报表开发(六) OO ALV</title>
+      <title>报表开发&lt;OO ALV&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable6/</link>
       <pubDate>Tue, 25 Sep 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable6/</guid>
-      <description>OO ALV 相关类： CL_GUI_CUSTOM_CONTAINER ：用户自己定义控件区域 CL_GUI_DOCKING_CONTAINER : 动态创建容器，不需要在创建时绑定到预先绘制好的自定义控件中 CL_GUI_SPLITTER_CONTAINER ：可在同一屏幕创建多个ALV显示 CL_GUI_ALV_GRID ：AL</description>
+      <description>OO ALV ​ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作. ​ 使用了 ABAP 的对</description>
     </item>
     
     <item>
-      <title>报表开发(五)</title>
+      <title>报表开发&lt;常用工具&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable5/</link>
       <pubDate>Fri, 21 Sep 2018 17:20:58 +0800</pubDate>
       
@@ -30,7 +30,7 @@
     </item>
     
     <item>
-      <title>报表开发(四)</title>
+      <title>报表开发&lt;ALV显示设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable4/</link>
       <pubDate>Wed, 19 Sep 2018 17:20:58 +0800</pubDate>
       
@@ -39,25 +39,25 @@
     </item>
     
     <item>
-      <title>报表开发(三)</title>
+      <title>报表开发&lt;内表操作&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable3/</link>
       <pubDate>Wed, 12 Sep 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable3/</guid>
-      <description>内表操作 SQL 语句的执行顺序 书写顺序：SELECT[DISTINCT]--&amp;gt;FROM--&amp;gt;WHERE--&amp;gt;GROUP BY--&amp;gt;HAVING--&amp;gt;UNION--&amp;gt;ORDER BY 其执行</description>
+      <description>内表操作 SQL 语句的执行顺序 书写顺序：SELECT [DISTINCT]&amp;ndash;&amp;gt;FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;UNION&amp;ndash;&amp;gt;ORDER BY 其执行顺序为：FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;SELECT&amp;ndash;&amp;gt;DISTINCT&amp;ndash;&amp;gt;UNION-&amp;gt;ORDER</description>
     </item>
     
     <item>
-      <title>报表开发(二)</title>
+      <title>报表开发&lt;屏幕设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable2/</link>
       <pubDate>Mon, 03 Sep 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable2/</guid>
-      <description>选择屏幕 引用链接 &amp;lt;1&amp;gt;SELECT-SCREEN 框架结构 SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。 定义屏幕对象： SELECTION-SCREEN BEGIN OF</description>
+      <description>选择屏幕 引用链接 SELECT-SCREEN SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。 定义屏幕对象： SELECTION-SCREEN BEGIN OF SCREEN src. ....... SELECTION-SCREEN</description>
     </item>
     
     <item>
-      <title>报表开发(一)</title>
+      <title>报表开发&lt;概述&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable1/</link>
       <pubDate>Sun, 26 Aug 2018 17:20:58 +0800</pubDate>
       
