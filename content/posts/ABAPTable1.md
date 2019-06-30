@@ -1,5 +1,5 @@
 ---
-title: "报表开发(一)"
+title: "报表开发<概述>"
 date: 2018-08-26T17:20:58+08:00
 draft: true
 author: Small Fire
@@ -13,18 +13,27 @@ tags:
 ---
 
 ## 执行程序的使用范围，报表事件
-```JS
-LOAD-OF-PROGRAM.
-INITIALIZATION.          （Before display the selection screen）
-  AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
-  AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
-AT SELECTION-SCREEN. //After enter the option data check
-   PERFORM check_input.
-START-OF-SELECTION.//Begin the main programer
-  xxxx
-END-OF-SELECTION.
-Interactive Eventrs. (User for interactive reporting)
-```
+
+- LOAD-OF-PROGRAM.
+
+- INITIALIZATION.          （Before display the selection screen）
+
+  - AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
+
+  - AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
+
+- AT SELECTION-SCREEN. //After enter the option data check
+
+  - ​	PERFORM check_input.
+
+- START-OF-SELECTION.//Begin the main programer
+
+  - xxxx
+
+- END-OF-SELECTION.
+
+- Interactive Eventrs. (User for interactive reporting)
+
 ## 报表程序大体逻辑结构
 ​	**抬  头:** 报表的主要信息(抬头信息)
 
@@ -100,17 +109,7 @@ EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
    	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
 ```
 
-## search help 的创建
-```JS
-PARAMETERS p_cur TYPE XXX VALUE CHECK .
-PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
-在屏幕的 ON VALUE-REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
-  F4IF_ FIELD _VALUE_REQUEST ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定 
-     Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
-  F4IF_ INT_TABLE _VALUE_REQUEST : 在程序运行时， 将某个内表动态的用作 Search help 的
-     数据来源,即使用该函数可以将某个内表转换为 Search help ，可实现联动效果
-  TR_F4_HELP ： 简单实现 Search Help ，数据来源于内表。
-```
+
 
 
 
