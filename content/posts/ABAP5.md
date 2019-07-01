@@ -1,14 +1,13 @@
 ---
 title: "ABAP 语法详解(五)"
 date: 2018-06-16T17:20:58+08:00
-draft: true
+draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
   - ABAP
 
 tags: 
-
   - abap
 
 

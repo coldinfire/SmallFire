@@ -1,7 +1,7 @@
 ---
 title: "ABAP 语法详解(二)"
 date: 2018-05-23T17:20:58+08:00
-draft: true
+draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
@@ -186,9 +186,9 @@ END OF <str>.
 ​       
 
 - Format、Output Charact、
-         
+  
 - Converse Routine(转换规则)：注意前导0的补充问题，将该字段设置为ALPHA。
-         
+  
 - Lower Case：不勾选，默认会全部转换为大写字母。
 
 -  value range：设置该Domain的固定取值列表和其含义。

@@ -10,7 +10,7 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP5/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/test/" />
   <link rel="next" href="https://coldinfire.github.io/2018/ABAPTable2/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPTable1/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
@@ -24,10 +24,10 @@
   <title>
        
        
-           报表开发(一) | Small Fire`s Blog
+           报表开发&lt;概述&gt; | Small Fire`s Blog
        
   </title>
-  <meta name="title" content="报表开发(一) | Small Fire`s Blog">
+  <meta name="title" content="报表开发&lt;概述&gt; | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,14 +35,14 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="报表开发(一)"/>
+<meta name="twitter:title" content="报表开发&lt;概述&gt;"/>
 <meta name="twitter:description" content="执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "报表开发(一)",
+  "headline": "报表开发\x3c概述\x3e",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https:\/\/coldinfire.github.io\/2018\/ABAPTable1\/"
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "报表开发",
-  "wordcount":  1517 ,
+  "wordcount":  1330 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAPTable1\/",
   "datePublished": "2018-08-26T17:20:58\x2b08:00",
   "dateModified": "2018-08-26T17:20:58\x2b08:00",
@@ -138,7 +138,7 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title">报表开发(一)</h1>
+        <h1 class="post-title">报表开发&lt;概述&gt;</h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
@@ -151,7 +151,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                4 min
+                3 min
         </div>
     </header>
     <div class="post-content">
@@ -174,17 +174,33 @@
 
 <h2 id="执行程序的使用范围-报表事件">执行程序的使用范围，报表事件</h2>
 
-<pre><code class="language-JS">LOAD-OF-PROGRAM.
-INITIALIZATION.          （Before display the selection screen）
-  AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
-  AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
-AT SELECTION-SCREEN. //After enter the option data check
-   PERFORM check_input.
-START-OF-SELECTION.//Begin the main programer
-  xxxx
-END-OF-SELECTION.
-Interactive Eventrs. (User for interactive reporting)
-</code></pre>
+<ul>
+<li><p>LOAD-OF-PROGRAM.</p></li>
+
+<li><p>INITIALIZATION.          （Before display the selection screen）</p>
+
+<ul>
+<li><p>AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）</p></li>
+
+<li><p>AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.</p></li>
+</ul></li>
+
+<li><p>AT SELECTION-SCREEN. //After enter the option data check</p>
+
+<ul>
+<li>​   PERFORM check_input.</li>
+</ul></li>
+
+<li><p>START-OF-SELECTION.//Begin the main programer</p>
+
+<ul>
+<li>xxxx</li>
+</ul></li>
+
+<li><p>END-OF-SELECTION.</p></li>
+
+<li><p>Interactive Eventrs. (User for interactive reporting)</p></li>
+</ul>
 
 <h2 id="报表程序大体逻辑结构">报表程序大体逻辑结构</h2>
 
@@ -259,18 +275,6 @@ ASSIGN sy-datum TO &lt;fs&gt; CASTING. &quot;后面没有指定具体类型，�
        EXIT.                                   //Screen 界面查询数据无，则返回原界面
 </code></pre>
 
-<h2 id="search-help-的创建">search help 的创建</h2>
-
-<pre><code class="language-JS">PARAMETERS p_cur TYPE XXX VALUE CHECK .
-PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
-在屏幕的 ON VALUE-REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
-  F4IF_ FIELD _VALUE_REQUEST ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定 
-     Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
-  F4IF_ INT_TABLE _VALUE_REQUEST : 在程序运行时， 将某个内表动态的用作 Search help 的
-     数据来源,即使用该函数可以将某个内表转换为 Search help ，可实现联动效果
-  TR_F4_HELP ： 简单实现 Search Help ，数据来源于内表。
-</code></pre>
-
     </div>
 
     <div class="post-copyright">
@@ -283,7 +287,7 @@ PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1517</span>
+                   <span>1330</span>
             </p>
             
             <p class="copyright-item">
@@ -312,10 +316,10 @@ PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/ABAP5/" class="prev" rel="prev" title="ABAP 语法详解(五)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(五)</a>
+        <a href="https://coldinfire.github.io/2018/test/" class="prev" rel="prev" title=" Hugo搭建博客(一) "><i class="iconfont icon-dajiantou"></i>&nbsp; Hugo搭建博客(一) </a>
          
         
-        <a href="https://coldinfire.github.io/2018/ABAPTable2/" class="next" rel="next" title="报表开发(二)">报表开发(二)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/ABAPTable2/" class="next" rel="next" title="报表开发&lt;屏幕设置&gt;">报表开发&lt;屏幕设置&gt;&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -327,7 +331,7 @@ PROCESS ON VALUE-REQUEST ， AT SELECTION-SCREEN ON VALUE-REQUEST。
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '2018-08-26 17:20:58 \x2b0800 CST',
-        title: '报表开发(一)',
+        title: '报表开发\x3c概述\x3e',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',

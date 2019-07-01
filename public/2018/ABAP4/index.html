@@ -11,7 +11,7 @@
   
   
   <link rel="prev" href="https://coldinfire.github.io/2018/ABAP3/" />
-  <link rel="next" href="https://coldinfire.github.io/2018/test/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAP5/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP4/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ABAP 语法详解(四)"/>
-<meta name="twitter:description" content="MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;’定义多个占位符。 MESSAGE E001(ZMSG). E:消息显示类型 (E[Error],"/>
+<meta name="twitter:description" content="MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;’定义多个占位符。 MESSAGE E001(ZTEST). ​ E:消息显示类型 (E[Error]"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  1504 ,
+  "wordcount":  1498 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP4\/",
   "datePublished": "2018-06-15T17:20:58\x2b08:00",
   "dateModified": "2018-06-15T17:20:58\x2b08:00",
@@ -151,12 +151,14 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                4 min
+                3 min
         </div>
     </header>
     <div class="post-content">
         
 
+        
+            
         
 
         
@@ -178,11 +180,15 @@
 
 <p>设置消息类，保存该Function的多条消息定义，通过‘&amp;’定义多个占位符。</p>
 
-<pre><code class="language-JS">MESSAGE E001(ZMSG).
-   E:消息显示类型 (E[Error],W[Warning],I[Info],A[异常终止],S[Success])
-   001:自定义的消息字段
-   ZMSG:自定义的消息类
-</code></pre>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/ABAP/SE91.jpg" alt="定义消息类" class="lazyload"><figcaption class="image-caption">定义消息类</figcaption></figure></p>
+
+<p>MESSAGE E001(ZTEST).</p>
+
+<p>​   E:消息显示类型 (E[Error],W[Warning],I[Info],A[异常终止],S[Success])</p>
+
+<p>​   001:自定义的消息字段</p>
+
+<p>​   ZTEST:自定义的消息类</p>
 
 <p>MESSAGE显示:</p>
 
@@ -222,8 +228,7 @@
 
 <p>基本数据类型是QUAN,其小数位由字段关联的度量衡单位决定。</p>
 
-<pre><code>ALV显示时，如果是金额或数量时，需通过Fieldcat设置Cfieldname、ctabname等才会正确显示。
-</code></pre></li>
+<p>ALV显示时，如果是金额或数量时，需通过Fieldcat设置cfieldname、ctabname等才会正确显示。</p></li>
 
 <li><p>单位换算</p>
 
@@ -232,13 +237,13 @@
 <li><p>货币转换因子</p></li>
 </ul>
 
-<pre><code class="language-JS">CURRENCY_CONVERTING_FACTOR:输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取出时应做转换
-BAPI_CURRENCY_CONV_TO_INTERNAL:转换为数据库中内部存储金额
-BAPI_CURRENCY_CONV_TO_EXTERNAL:转换成外部的实际金额
-CONVERT_TO_LOCAL_CURRENCY:自动将最近时间多的汇率作为转换的汇率
-OB07、OB08:维护各币种之间的汇率
-CONVERT_TO_FOREIGN_CURRENCY是将外币转换为本位币
-CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
+<pre><code class="language-JS">CURRENCY_CONVERTING_FACTOR：输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取出时应做转换
+BAPI_CURRENCY_CONV_TO_INTERNAL：转换为数据库中内部存储金额
+BAPI_CURRENCY_CONV_TO_EXTERNAL：转换成外部的实际金额
+CONVERT_TO_LOCAL_CURRENCY：自动将最近时间多的汇率作为转换的汇率
+OB07、OB08：维护各币种之间的汇率
+CONVERT_TO_FOREIGN_CURRENCY：将外币转换为本位币
+CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
 </code></pre>
 
 <h2 id="open-sql">Open SQL</h2>
@@ -246,10 +251,11 @@ CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
 <ul>
 <li><p>ABAP可以通过两种方式与数据库交互</p>
 
-<p>Native SQL:数据库自身的SQL，可以直接访问数据库，不够安全。</p>
+<ul>
+<li><p>Native SQL:数据库自身的SQL，可以直接访问数据库，不够安全。</p></li>
 
-<pre><code>Open SQL:集成到ABAP中的标准SQL子集，通过SAP数据库接口识别不同的数据库，然后将语句进行转换成底层数据库对应的语言。
-</code></pre></li>
+<li><p>Open SQL:集成到ABAP中的标准SQL子集，通过SAP数据库接口识别不同的数据库，然后将语句进行转换成底层数据库对应的语言。</p></li>
+</ul></li>
 
 <li><p>基本语法：与其他SQL语句类似，主要包括增删改查：Select、Update、Insert、Delete、Modify</p></li>
 </ul>
@@ -266,22 +272,22 @@ CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
          ORDER BY &lt;fields&gt;.           ：排序条件 
 </code></pre>
 
-<p>表连接：</p>
+<p><strong>表连接：</strong></p>
 
-<pre><code class="language-JS">  1）INNER JOIN：查询结果包含两个连接表中彼此相对应的数据记录。
-  2）LEFT OUTER JOIN：查询结果集中包含左表中的所有数据记录，右表中仅查询出包含相匹配的数据。
-  3）FULL OUTER JOIN：包含左右表所有的记录。
+<pre><code class="language-JS">  INNER JOIN：查询结果包含两个连接表中彼此相对应的数据记录。
+  LEFT OUTER JOIN：查询结果集中包含左表中的所有数据记录，右表中仅查询出包含相匹配的数据。
+  FULL OUTER JOIN：包含左右表所有的记录。
 </code></pre>
 
 <p>以内表为查询条件：</p>
 
-<p>​         SELECT <f1...fn> FROM <dbtab> FOR ALL ENTRIED IN <itab> WHERE <cond>.</p>
+<p>​         <code>SELECT &lt;f1...fn&gt; FROM &lt;dbtab&gt; FOR ALL ENTRIED IN &lt;itab&gt; WHERE &lt;cond&gt;.</code></p>
 
-<p>​         使用 FOR ALL ENTRIED IN itab 前，一定要检查itab表是否为空，否则会造成SQL的执行效率极低。</p>
+<p>​         使用 <code>FOR ALL ENTRIED IN itab</code> 前，一定要检查itab表是否为空，否则会造成SQL的执行效率极低。</p>
 
 <p>​       获取限制读取数据的条数：前n条</p>
 
-<p>​         SELECT * FROM <dbtab> INTO <itab> UP TO <n> ROWS.</p>
+<p>​            <code>SELECT * FROM &lt;dbtab&gt; INTO &lt;itab&gt; UP TO &lt;n&gt; ROWS.</code></p>
 
 <p>标准函数：</p>
 
@@ -315,6 +321,8 @@ CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
 <pre><code class="language-JS">  MODIFY &lt;dbtab&gt; FROM TABLE &lt;itab&gt;.
 </code></pre>
 
+<hr />
+
 <p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2019/ABAP5" rel="nofollow noreferrer" target="_blank">ABAP语法详解(五)</a></p>
 
     </div>
@@ -329,7 +337,7 @@ CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1504</span>
+                   <span>1498</span>
             </p>
             
             <p class="copyright-item">
@@ -361,7 +369,7 @@ CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
         <a href="https://coldinfire.github.io/2018/ABAP3/" class="prev" rel="prev" title="ABAP 语法详解(三)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(三)</a>
          
         
-        <a href="https://coldinfire.github.io/2018/test/" class="next" rel="next" title=" Hugo搭建博客(一) "> Hugo搭建博客(一) &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/ABAP5/" class="next" rel="next" title="ABAP 语法详解(五)">ABAP 语法详解(五)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -418,8 +426,9 @@ CONVERT_TO_LOCAL_CURRENCY是将本位币转换为其他外币
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 

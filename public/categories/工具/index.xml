@@ -6,26 +6,26 @@
     <description>Recent content in 工具 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Jun 2018 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Jun 2018 17:20:58 +0800</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title> Hugo搭建博客(一) </title>
-      <link>https://coldinfire.github.io/2018/hugo1/</link>
-      <pubDate>Sat, 16 Jun 2018 17:20:58 +0800</pubDate>
+      <link>https://coldinfire.github.io/2018/test/</link>
+      <pubDate>Tue, 26 Jun 2018 17:20:58 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/hugo1/</guid>
+      <guid>https://coldinfire.github.io/2018/test/</guid>
       <description>工具准备 hugo node.js git github 操作步骤</description>
     </item>
     
     <item>
       <title> Hugo搭建博客(一) </title>
-      <link>https://coldinfire.github.io/2018/test/</link>
-      <pubDate>Sat, 16 Jun 2018 17:20:58 +0800</pubDate>
+      <link>https://coldinfire.github.io/2018/hugo1/</link>
+      <pubDate>Sat, 23 Jun 2018 17:20:58 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/test/</guid>
+      <guid>https://coldinfire.github.io/2018/hugo1/</guid>
       <description>工具准备 hugo node.js git github 操作步骤</description>
     </item>
     

@@ -21,34 +21,52 @@
     </item>
     
     <item>
-      <title>报表开发(四)</title>
+      <title>报表开发&lt;OO ALV&gt;</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable6/</link>
+      <pubDate>Tue, 25 Sep 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable6/</guid>
+      <description>OO ALV ​ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作. ​ 使用了 ABAP 的对</description>
+    </item>
+    
+    <item>
+      <title>报表开发&lt;常用工具&gt;</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable5/</link>
+      <pubDate>Fri, 21 Sep 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable5/</guid>
+      <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对REUSE_ALV_GRID_DISPLAY函数参</description>
+    </item>
+    
+    <item>
+      <title>报表开发&lt;ALV显示设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable4/</link>
       <pubDate>Wed, 19 Sep 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable4/</guid>
-      <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>
+      <description>ALV常使用的BAPI 在ALV开发中有两个重要的对象：LAYOUT和FIELDCAT,它们同属于类型池SLIS。 LAYOUT主要用于设置AL</description>
     </item>
     
     <item>
-      <title>报表开发(三)</title>
+      <title>报表开发&lt;内表操作&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable3/</link>
       <pubDate>Wed, 12 Sep 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable3/</guid>
-      <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>
+      <description>内表操作 SQL 语句的执行顺序 书写顺序：SELECT [DISTINCT]&amp;ndash;&amp;gt;FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;UNION&amp;ndash;&amp;gt;ORDER BY 其执行顺序为：FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;SELECT&amp;ndash;&amp;gt;DISTINCT&amp;ndash;&amp;gt;UNION-&amp;gt;ORDER</description>
     </item>
     
     <item>
-      <title>报表开发(二)</title>
+      <title>报表开发&lt;屏幕设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable2/</link>
       <pubDate>Mon, 03 Sep 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable2/</guid>
-      <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>
+      <description>选择屏幕 引用链接 SELECT-SCREEN SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。 定义屏幕对象： SELECTION-SCREEN BEGIN OF SCREEN src. ....... SELECTION-SCREEN</description>
     </item>
     
     <item>
-      <title>报表开发(一)</title>
+      <title>报表开发&lt;概述&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable1/</link>
       <pubDate>Sun, 26 Aug 2018 17:20:58 +0800</pubDate>
       
@@ -59,7 +77,7 @@
     <item>
       <title>ABAP 语法详解(五)</title>
       <link>https://coldinfire.github.io/2018/ABAP5/</link>
-      <pubDate>Tue, 26 Jun 2018 17:20:58 +0800</pubDate>
+      <pubDate>Sat, 16 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP5/</guid>
       <description>效率优化 数据库 不要使用 SELECT * &amp;hellip;，选择需要的字段, SELECT * 既浪费CPU，还需占用大量的ABAP内存 不要使用SELECT DISTINCT .，会绕过缓存</description>
@@ -71,7 +89,7 @@
       <pubDate>Fri, 15 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP4/</guid>
-      <description>MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;amp;’定义多个占位符。 MESSAGE E001(ZMSG). E:消息显示类型 (E[Error],</description>
+      <description>MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;amp;’定义多个占位符。 MESSAGE E001(ZTEST). ​ E:消息显示类型 (E[Error]</description>
     </item>
     
     <item>
@@ -80,7 +98,7 @@
       <pubDate>Mon, 04 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP3/</guid>
-      <description>字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY &#39;XX&#39;] [RESPECTING BLANKS]. separated:根据该间隔符号进行拼接 respecting: 去空格: CONDENSE &amp;lt;c&amp;gt; [NO-GAPS] :重新整合分配字符串，去除空格 拆分字符串</description>
+      <description>字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY &amp;lsquo;XX&amp;rsquo;] [RESPECTING BLANKS]. ​ separated：根据该间隔符号进行拼接 ​ respecting： 去空格：CONDENSE [NO-GAPS] :重</description>
     </item>
     
     <item>
@@ -89,7 +107,7 @@
       <pubDate>Wed, 23 May 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP2/</guid>
-      <description>内表定义和使用 工作区域：工作区域可以存放多个变量数据。 直接定义: DATA: BEGIN OF &amp;lt;str&amp;gt; END OF &amp;lt;str&amp;gt;. 参照DB或则结构：DATA &amp;lt;wa&amp;gt; TYPE &amp;lt;dbtab&amp;gt;|&amp;lt;str&amp;gt;. 继承结构： DATA: BEGIN OF &amp;lt;str&amp;gt;. INCLUDE STRUCTURE &amp;lt;Str_Other&amp;gt;. DATA: &amp;lt;ele&amp;gt; TYPE</description>
+      <description>内表定义和使用 内表定义 工作区域：工作区域可以存放多个变量数据。 ​ 直接定义：DATA: BEGIN OF &amp;lt;str&amp;gt; END OF &amp;lt;str&amp;gt;. ​ 参照DB或则结构：DATA &amp;lt;wa&amp;gt; TYPE &amp;lt;dbtab&amp;gt;|&amp;lt;str&amp;gt;. ​ 参照内表</description>
     </item>
     
     <item>

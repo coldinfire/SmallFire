@@ -1,24 +1,15 @@
 ---
 title: "报表开发<OO ALV>"
-
 date: 2018-09-25T17:20:58+08:00
-
 draft: false
-
 author: Small Fire
-
 isCJKLanguage: true
-
 categories: 
-
   - ABAP
 
 tags: 
-
   - 报表开发
 ---
-
-
 
 ## OO ALV
 
@@ -368,28 +359,27 @@ ENDFORM. " prepare_layout
   SET TITLEBAR 'TITLE'.
   ```
 
+- 系统标准按钮
+
+  ```JS
+  FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
+    DATA ls_exclude TYPE ui_func.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_maximum .      
+      APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_minimum .    
+      APPEND ls_exclude TO pt_exclude.     
+    ls_exclude = cl_gui_alv_grid=>mc_fc_subtot .    
+      APPEND ls_exclude TO pt_exclude.     
+    ls_exclude = cl_gui_alv_grid=>mc_fc_sum .      
+      APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_average .     
+   	APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_mb_sum .     
+   	APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_mb_subtot .
+    	APPEND ls_exclude TO pt_exclude.
+  ENDFORM .
+  ```
+
   
 
-
-
-
-
-```
-FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
-  DATA ls_exclude TYPE ui_func.      
-  ls_exclude = cl_gui_alv_grid=>mc_fc_maximum .      
-    APPEND ls_exclude TO pt_exclude.      
-  ls_exclude = cl_gui_alv_grid=>mc_fc_minimum .    
-    APPEND ls_exclude TO pt_exclude.     
-  ls_exclude = cl_gui_alv_grid=>mc_fc_subtot .    
-    APPEND ls_exclude TO pt_exclude.     
-  ls_exclude = cl_gui_alv_grid=>mc_fc_sum .      
-    APPEND ls_exclude TO pt_exclude.      
-  ls_exclude = cl_gui_alv_grid=>mc_fc_average .     
- 	APPEND ls_exclude TO pt_exclude.      
-  ls_exclude = cl_gui_alv_grid=>mc_mb_sum .     
- 	APPEND ls_exclude TO pt_exclude.      
-  ls_exclude = cl_gui_alv_grid=>mc_mb_subtot .
-  	APPEND ls_exclude TO pt_exclude.
-ENDFORM .
-```

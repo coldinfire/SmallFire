@@ -1,26 +1,15 @@
 ---
-
 title: "报表开发<常用工具>"
-
 date: 2018-09-21T17:20:58+08:00
-
 draft: false
-
 author: Small Fire
-
 isCJKLanguage: true
-
 categories: 
-
   - ABAP
 
 tags: 
-
   - 报表开发
-
 ---
-
-
 
 ## 单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中
 

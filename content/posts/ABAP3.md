@@ -1,7 +1,7 @@
 ---
 title: "ABAP 语法详解(三)"
 date: 2018-06-04T17:20:58+08:00
-draft: true
+draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
@@ -73,12 +73,12 @@ tags:
 6. 使用SUBMIT调用另一个程序：
 
     SUBMIT <程序名>.
-       
+    
 
    -  ...USING SELECTION-SCREEN <SCR>. "调用子屏幕
-          
+      
    - ...IVA  SELECTION-SCREEN.        "显示所调用程序的初始屏幕
-         
+     
    -  ...AND RETURN.    "调用指定程序执行后可返回上一屏幕
 
 ### Function Group （SE37）

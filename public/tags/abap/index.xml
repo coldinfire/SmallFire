@@ -6,7 +6,7 @@
     <description>Recent content in abap on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Jun 2018 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Jun 2018 17:20:58 +0800</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/abap/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>ABAP 语法详解(五)</title>
       <link>https://coldinfire.github.io/2018/ABAP5/</link>
-      <pubDate>Tue, 26 Jun 2018 17:20:58 +0800</pubDate>
+      <pubDate>Sat, 16 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP5/</guid>
       <description>效率优化 数据库 不要使用 SELECT * &amp;hellip;，选择需要的字段, SELECT * 既浪费CPU，还需占用大量的ABAP内存 不要使用SELECT DISTINCT .，会绕过缓存</description>
@@ -26,7 +26,7 @@
       <pubDate>Fri, 15 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP4/</guid>
-      <description>MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;amp;’定义多个占位符。 MESSAGE E001(ZMSG). E:消息显示类型 (E[Error],</description>
+      <description>MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;amp;’定义多个占位符。 MESSAGE E001(ZTEST). ​ E:消息显示类型 (E[Error]</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Mon, 04 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP3/</guid>
-      <description>字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY &#39;XX&#39;] [RESPECTING BLANKS]. separated:根据该间隔符号进行拼接 respecting: 去空格: CONDENSE &amp;lt;c&amp;gt; [NO-GAPS] :重新整合分配字符串，去除空格 拆分字符串</description>
+      <description>字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY &amp;lsquo;XX&amp;rsquo;] [RESPECTING BLANKS]. ​ separated：根据该间隔符号进行拼接 ​ respecting： 去空格：CONDENSE [NO-GAPS] :重</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@
       <pubDate>Wed, 23 May 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP2/</guid>
-      <description>内表定义和使用 工作区域：工作区域可以存放多个变量数据。 直接定义: DATA: BEGIN OF &amp;lt;str&amp;gt; END OF &amp;lt;str&amp;gt;. 参照DB或则结构：DATA &amp;lt;wa&amp;gt; TYPE &amp;lt;dbtab&amp;gt;|&amp;lt;str&amp;gt;. 继承结构： DATA: BEGIN OF &amp;lt;str&amp;gt;. INCLUDE STRUCTURE &amp;lt;Str_Other&amp;gt;. DATA: &amp;lt;ele&amp;gt; TYPE</description>
+      <description>内表定义和使用 内表定义 工作区域：工作区域可以存放多个变量数据。 ​ 直接定义：DATA: BEGIN OF &amp;lt;str&amp;gt; END OF &amp;lt;str&amp;gt;. ​ 参照DB或则结构：DATA &amp;lt;wa&amp;gt; TYPE &amp;lt;dbtab&amp;gt;|&amp;lt;str&amp;gt;. ​ 参照内表</description>
     </item>
     
     <item>

@@ -6,11 +6,9 @@ draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-
   -  Linux
 
 tags: 
-
   - linux
 
 ---
