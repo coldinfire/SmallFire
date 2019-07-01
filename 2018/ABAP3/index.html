@@ -24,10 +24,10 @@
   <title>
        
        
-           ABAP 语法详解(三) | Small Fire`s Blog
+           ABAP 语法详解(Field&amp;Form) | Small Fire`s Blog
        
   </title>
-  <meta name="title" content="ABAP 语法详解(三) | Small Fire`s Blog">
+  <meta name="title" content="ABAP 语法详解(Field&amp;Form) | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,14 +35,14 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ABAP 语法详解(三)"/>
-<meta name="twitter:description" content="字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY &lsquo;XX&rsquo;] [RESPECTING BLANKS]. ​ separated：根据该间隔符号进行拼接 ​ respecting： 去空格：CONDENSE [NO-GAPS] :重"/>
+<meta name="twitter:title" content="ABAP 语法详解(Field&amp;Form)"/>
+<meta name="twitter:description" content="字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY sep] [RESPECTING BLANKS]. ​ C,D,N,T类型的前导空格会保留，尾部空格会去掉，对String类型的所有空格都会保留； ​ se"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "ABAP 语法详解(三)",
+  "headline": "ABAP 语法详解(Field&amp;Form)",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://coldinfire.github.io/2018/ABAP3/"
@@ -55,10 +55,10 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount": 1738,
+  "wordcount": 1935,
   "url": "https://coldinfire.github.io/2018/ABAP3/",
-  "datePublished": "2018-06-04T17:20:58+08:00",
-  "dateModified": "2018-06-04T17:20:58+08:00",
+  "datePublished": "2018-05-20T17:20:58+08:00",
+  "dateModified": "2018-05-20T17:20:58+08:00",
   
   "publisher": {
     "@type": "Organization",
@@ -138,11 +138,11 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title">ABAP 语法详解(三)</h1>
+        <h1 class="post-title">ABAP 语法详解(Field&amp;Form)</h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
-                    on <time datetime=2018-06-04 >4 June 2018</time>
+                    on <time datetime=2018-05-20 >20 May 2018</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -176,29 +176,31 @@
 
 <p><strong>合并字符串</strong>：</p>
 
-<p>CONCATENATE var1 var2 INTO result [SEPARATED BY &lsquo;XX&rsquo;] [RESPECTING BLANKS].</p>
+<p>CONCATENATE var1 var2 INTO result [SEPARATED BY sep] [RESPECTING BLANKS].</p>
 
-<p>​     separated：根据该间隔符号进行拼接</p>
+<p>​   C,D,N,T类型的前导空格会保留，尾部空格会去掉，对String类型的所有空格都会保留；</p>
 
-<p>​     respecting：</p>
+<p>​     separated：根据该间隔符号进行拼接(SPACE)</p>
 
-<p><strong>去空格</strong>：CONDENSE <c> [NO-GAPS]  :重新整合分配字符串，去除空格</p>
+<p>​     respecting：针对C,D,N,T数据，表示尾部空格会保留</p>
+
+<p><strong>去空格</strong>：<code>CONDENSE &lt;c&gt; [NO-GAPS]</code>  :重新整合分配字符串，去除空格;指定no-gaps去除所有空格</p>
 
 <p><strong>拆分字符串</strong>：</p>
 
-<p>​   SPLIT dobj AT sep INTO {res1 res2}. ：将字符串的值分配给具体变量</p>
+<p>​   SPLIT dobj AT sep INTO {res1 res2&hellip;&hellip;resn}. ：将字符串的值分配给具体变量</p>
 
-<p>​   SPLIT f AT g INTO TABLE itab：将字符串的值分配给一内表。</p>
+<p>​   SPLIT s_source AT sep INTO TABLE itab：将字符串的值分配给一内表。</p>
 
-<p>移动字符：SHIFT dobj [LEFT|RIGHT] BY num PLACES. ：指定移动字符位数</p>
+<p><strong>移动字符：</strong>SHIFT dobj [LEFT|RIGHT] BY num PLACES. ：指定移动字符位数</p>
 
-<p>判断包含字符：contains (val=TEXT)</p>
+<p><strong>判断包含字符：</strong>contains (val=TEXT)</p>
 
-<p>根据正则替换：REPLACE ALL OCCURRENCES OF REGEX regex IN  dobj WITH new</p>
+<p><strong>根据正则替换：</strong>REPLACE ALL OCCURRENCES OF REGEX regex IN  dobj WITH new</p>
 
-<p>取出指定字串：<code>Var1 = &lt;field&gt;+4(6) :</code> 从指点字段的第4位开始往后取出长度为6的内容</p>
+<p><strong>取出指定字串：</strong><code>Var1 = &lt;field&gt;+4(6) :</code> 从指点字段的第4位开始往后取出长度为6的内容</p>
 
-<p>大小写转换：TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写</p>
+<p><strong>大小写转换：</strong>TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写</p>
 
 <h2 id="全局变量-局部变量">全局变量，局部变量</h2>
 
@@ -246,11 +248,11 @@
 <p>SUBMIT &lt;程序名&gt;.</p>
 
 <ul>
-<li><p>&hellip;USING SELECTION-SCREEN <SCR>. &ldquo;调用子屏幕</p></li>
+<li><p>&hellip;<code>USING SELECTION-SCREEN &lt;SCR&gt;</code>. &ldquo;调用子屏幕</p></li>
 
-<li><p>&hellip;IVA  SELECTION-SCREEN.        &ldquo;显示所调用程序的初始屏幕</p></li>
+<li><p>&hellip;<code>IVA  SELECTION-SCREEN.</code>        &ldquo;显示所调用程序的初始屏幕</p></li>
 
-<li><p>&hellip;AND RETURN.    &ldquo;调用指定程序执行后可返回上一屏幕</p></li>
+<li><p>&hellip;<code>AND RETURN.</code>    &ldquo;调用指定程序执行后可返回上一屏幕</p></li>
 </ul></li>
 </ol>
 
@@ -258,17 +260,17 @@
 
 <p>系统会自动创建Main program与相应的include程序。</p>
 
-<p>​    SAPL<fgrp>：主程序名，将Function Group里的所有的Include文件包括进来，只有Include语句</p>
+<p>​    <code>SAPL&lt;fgrp&gt;：</code>主程序名，将Function Group里的所有的Include文件包括进来，只有Include语句</p>
 
-<p>​   L<fgrp>TOP：有FUNCTION-POOL语句，以及所有Function model都可以使用的全局数据定义</p>
+<p>​   <code>L&lt;fgrp&gt;TOP：</code>有FUNCTION-POOL语句，以及所有Function model都可以使用的全局数据定义</p>
 
-<p>​   L<fgrp>UXX：只有include语句，为相应具体Function Model所对应的Include文件名：L<fgrp>U01&hellip;包含了对应的FM代码。</p>
+<p>​   <code>L&lt;fgrp&gt;UXX：</code>只有include语句，为相应具体Function Model所对应的Include文件名：<code>L&lt;fgrp&gt;U01...</code>包含了对应的FM代码。</p>
 
-<p>​   L<fgrp>U01：01,02编号对应UXX，代表其创建先后的序号。</p>
+<p>​   <code>L&lt;fgrp&gt;U01：</code>01,02编号对应UXX，代表其创建先后的序号。</p>
 
-<p>​   L<fgrp>FXX：用来存放一些Form子程序，可以被所有Function Modules所使用。</p>
+<p>​   <code>L&lt;fgrp&gt;FXX：</code>用来存放一些Form子程序，可以被所有Function Modules所使用。</p>
 
-<p>​   L<fgrp>PAI，L<fgrp>PBO：PAI,PBO事件。</p>
+<p>​   <code>L&lt;fgrp&gt;PAI，L&lt;fgrp&gt;PBO：</code>PAI,PBO事件。</p>
 
 <h2 id="at-end-sum">AT&hellip;END (SUM)</h2>
 
@@ -317,7 +319,7 @@
 <ul>
 <li><p>LEAVE PROGRAM.退出整个程序</p></li>
 
-<li><p>LEAVE TO TRANSACTION <ta>.跳转到另外的TCode</p></li>
+<li><p><code>LEAVE TO TRANSACTION &lt;tcode&gt;</code>.跳转到另外的TCode</p></li>
 
 <li><p>LEAVE LIST-PROCESSING.从List processor回到Dialog processor</p></li>
 
@@ -329,7 +331,7 @@
 <li><p>REJECT : 用在逻辑数据库GET event blocks中，可以从循环或则一个FORM中直接跳出所在的GET事件块</p></li>
 </ul>
 
-<p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2019/ABAP4" rel="nofollow noreferrer" target="_blank">ABAP语法详解(四)</a></p>
+<p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2018/ABAP4" rel="nofollow noreferrer" target="_blank">ABAP 语法详解(SQL)</a></p>
 
     </div>
 
@@ -343,7 +345,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1738</span>
+                   <span>1935</span>
             </p>
             
             <p class="copyright-item">
@@ -372,10 +374,10 @@
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/ABAP2/" class="prev" rel="prev" title="ABAP 语法详解(二)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(二)</a>
+        <a href="https://coldinfire.github.io/2018/ABAP2/" class="prev" rel="prev" title="ABAP 语法详解(内表)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(内表)</a>
          
         
-        <a href="https://coldinfire.github.io/2018/ABAP4/" class="next" rel="next" title="ABAP 语法详解(四)">ABAP 语法详解(四)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/ABAP4/" class="next" rel="next" title="ABAP 语法详解(SQL)">ABAP 语法详解(SQL)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -386,8 +388,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-06-04 17:20:58 \x2b0800 \x2b0800',
-        title: 'ABAP 语法详解(三)',
+        id: '2018-05-20 17:20:58 \x2b0800 \x2b0800',
+        title: 'ABAP 语法详解(Field\x26Form)',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',

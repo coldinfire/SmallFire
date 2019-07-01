@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPEnhance3/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAPEnhance1/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPEnhance2/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           查找增强程序2 | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content="查找增强程序2 | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="查找增强程序2"/>
+<meta name="twitter:description" content="查找增强出口和BADI *&amp;---------------------------------------------------------------------* *&amp; Report Z_FIND_EXIT_AND_BADI *&amp; *&amp;---------------------------------------------------------------------* *&amp; *&amp; *&amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;---------------------------------------------------------------------* *&amp; Enter the transaction code that you want to search through in order *&amp; to find which Standard SAP User Exits and BADIs *&amp; *&amp;---------------------------------------------------------------------* *&amp; For field &#39;SUBC&#39; of table &#39;TRDIR&#39;: *&amp; M Module Pool *&amp; F Function group *&amp; S Subroutine"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "查找增强程序2",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://coldinfire.github.io/2018/ABAPEnhance2/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://coldinfire.github.io/cover.png",
+    "width": 800,
+    "height": 600
+  },
+  "genre": "posts",
+  "keywords": "Enhance",
+  "wordcount": 728,
+  "url": "https://coldinfire.github.io/2018/ABAPEnhance2/",
+  "datePublished": "2018-09-14T17:23:58+08:00",
+  "dateModified": "2018-09-14T17:23:58+08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "SmallFire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://coldinfire.github.io/logo.png",
+      "width": 127,
+      "height": 40
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">查找增强程序2</h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-09-14 >14 September 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                2 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="查找增强出口和badi">查找增强出口和BADI</h3>
+
+<pre><code class="language-js">*&amp;---------------------------------------------------------------------*
+*&amp; Report  Z_FIND_EXIT_AND_BADI
+*&amp;
+*&amp;---------------------------------------------------------------------*
+*&amp;
+*&amp;
+*&amp;---------------------------------------------------------------------*
+report z_find_exit_and_badi no standard page heading.
+*&amp;---------------------------------------------------------------------*
+*&amp;  Enter the transaction code that you want to search through in order
+*&amp;  to find which Standard SAP User Exits and BADIs
+*&amp;
+*&amp;---------------------------------------------------------------------*
+*&amp; For field 'SUBC' of table 'TRDIR':
+*&amp;   M  Module Pool
+*&amp;   F  Function group
+*&amp;   S  Subroutine Pool
+*&amp;   J  Interface pool
+*&amp;   K  Class pool
+*&amp;   T  Type Pool
+*&amp;   X  XSLT Program
+*&amp;---------------------------------------------------------------------*
+*&amp; Tables
+*&amp;---------------------------------------------------------------------*
+tables: tstc     , &quot; SAP Transaction Codes
+  tadir    , &quot; Directory of Repository Objects
+  modsapt  , &quot; SAP Enhancements - Short Texts
+  sxs_attrt, &quot; SAP BADI - short text
+  modact   , &quot; Modifications
+  trdir    , &quot; System table TRDIR
+  tfdir    , &quot; Function Module
+  enlfdir  , &quot; Additional Attributes for Function Modules
+  tstct    . &quot; Transaction Code Texts
+
+*&amp;---------------------------------------------------------------------*
+*&amp; Variables
+*&amp;---------------------------------------------------------------------*
+data: jtab        like tadir occurs 0 with header line.
+data: field1(30).
+data: v_devclass  like tadir-devclass.
+data: object      like tadir-object.
+data: bdcdata_wa  type bdcdata,
+      bdcdata_tab type table of bdcdata.
+data: opt         type ctu_params.
+
+*&amp;---------------------------------------------------------------------*
+*&amp; Selection Screen Parameters
+*&amp;---------------------------------------------------------------------*
+selection-screen begin of block a01 with frame title text-001.
+  selection-screen skip.
+  parameters: p_tcode like tstc-tcode obligatory.
+  selection-screen skip.
+  parameters: exit radiobutton group 1 default 'X',
+  badi radiobutton group 1.
+selection-screen end of block a01.
+
+define bdc_program.
+  clear bdcdata_wa.
+  bdcdata_wa-program  = &amp;1.
+  bdcdata_wa-dynpro   = &amp;2.
+  bdcdata_wa-dynbegin = &amp;3.
+  append bdcdata_wa to bdcdata_tab.
+end-of-definition.
+define bdc_detail.
+  clear bdcdata_wa.
+  bdcdata_wa-fnam = &amp;1.
+  bdcdata_wa-fval = &amp;2.
+  append bdcdata_wa to bdcdata_tab.
+end-of-definition.
+
+*&amp;---------------------------------------------------------------------*
+*&amp; Start of main program
+*&amp;---------------------------------------------------------------------*
+start-of-selection.
+if exit = 'X'.
+  object = 'SMOD'.  &quot; User-exit!
+else.
+  object = 'SXSD'.  &quot; BADI!
+endif.
+
+* Validate Transaction Code:
+select single * from tstc where tcode eq p_tcode.
+* Find Repository Objects for transaction code:
+if sy-subrc eq 0.                                         &quot; IF 1
+  select single * from tadir where pgmid    = 'R3TR'
+  and object   = 'PROG'
+  and obj_name = tstc-pgmna.&quot;Program
+*    name!
+  move: tadir-devclass to v_devclass. &quot; Package
+  if sy-subrc ne 0.
+    select single * from trdir where name = tstc-pgmna.
+    if trdir-subc eq 'F'.  &quot; Function Group
+      select single * from tfdir   where pname    = tstc-pgmna.
+      select single * from enlfdir where funcname = tfdir-funcname.
+      select single * from tadir   where pgmid    = 'R3TR'
+      and object   = 'FUGR'
+      and obj_name = enlfdir-area.
+      move: tadir-devclass to v_devclass.
+    endif.
+  endif.
+
+*   Find SAP Modifactions:
+  select * from tadir into table jtab where pgmid    = 'R3TR'
+*                                          AND object   = 'SMOD'
+  and object   = object
+  and devclass = v_devclass.
+  select single * from tstct where sprsl eq sy-langu
+  and tcode eq p_tcode.
+
+  format color col_positive intensified off.
+  write: /(19)  'Transaction Code - ',
+  20(20) p_tcode,
+  45(50) tstct-ttext.
+  skip.
+  if not jtab[] is initial.                               &quot; IF 2
+    write: /(95) sy-uline.
+    format color col_heading intensified on.
+*     Exit:
+    if exit = 'X'.
+      write: /1  sy-vline,
+ 'Exit Name',
+sy-vline ,
+'Description',
+sy-vline.
+*     BADI:
+    else.
+      write: /1  sy-vline,
+ 'BADI Name',
+sy-vline ,
+'Description',
+sy-vline.
+    endif.
+    write:/(95) sy-uline.
+    loop at jtab.
+*       EXIT:
+      if exit = 'X'.
+        select single * from modsapt where sprsl = sy-langu
+        and name  = jtab-obj_name.
+        format color col_normal intensified off.
+        write: /1  sy-vline,
+ jtab-obj_name hotspot on,
+sy-vline ,
+modsapt-modtext,
+sy-vline.
+*       BADI:
+      else.
+        select single * from sxs_attrt where sprsl     = sy-langu
+        and exit_name =
+        jtab-obj_name.
+        format color col_normal intensified off.
+        write: /1  sy-vline,
+ jtab-obj_name hotspot on,
+sy-vline ,
+sxs_attrt-text,
+sy-vline.
+      endif.
+    endloop.
+    write: /(95) sy-uline.
+    describe table jtab.
+    skip.
+    format color col_total intensified on.
+    if exit = 'X'.
+      write: / 'No of Exits:', sy-tfill.
+    else.
+      write: / 'No of BADIs:', sy-tfill.
+    endif.
+  else.                                                   &quot; IF 2
+    format color col_negative intensified on.
+    write: /(95) 'No User Exit exists'.
+  endif.                                                  &quot; IF 2
+else.                                                     &quot; IF 1
+  format color col_negative intensified on.
+  write: /(95) 'Transaction Code Does Not Exist'.
+endif.                                                    &quot; IF 1
+* Take the user to SMOD for the Exit that was selected:
+    at line-selection.
+    get cursor field field1.
+    check field1(4) eq 'JTAB'.
+* For exit:
+    if exit = 'X'.
+      set parameter id 'MON' field sy-lisel+1(10).
+      call transaction 'SMOD' and skip first screen.
+* For BADI:
+    else.
+      clear: bdcdata_wa, bdcdata_tab[].
+      bdc_program 'SAPLSEXO' '0100' 'X'.
+      bdc_detail 'BDC_CURSOR' 'G_IS_BADI'.
+      bdc_detail 'BDC_OKCODE' '=ISSPOT'.
+      bdc_detail 'G_IS_BADI' 'X'.
+      bdc_program 'SAPLSEXO' '0100' 'X'.
+      bdc_detail 'BDC_CURSOR' 'G_BADINAME'.
+      bdc_detail 'BDC_OKCODE' '=SHOW'.
+      bdc_detail 'G_BADINAME' sy-lisel+1(20).
+      opt-dismode = 'E'.
+      opt-defsize = 'X'.
+      call transaction 'SE18' using bdcdata_tab options from opt.
+    endif.
+</code></pre>
+
+<p>​</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>728</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/Enhance/">
+                    #Enhance</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/ABAPEnhance3/" class="prev" rel="prev" title="查找增强程序3"><i class="iconfont icon-dajiantou"></i>&nbsp;查找增强程序3</a>
+         
+        
+        <a href="https://coldinfire.github.io/2018/ABAPEnhance1/" class="next" rel="next" title="查找增强程序1">查找增强程序1&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2018-09-14 17:23:58 \x2b0800 \x2b0800',
+        title: '查找增强程序2',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

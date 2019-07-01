@@ -6,15 +6,24 @@
     <description>Recent content in 报表开发 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Sep 2018 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jul 2018 17:20:58 +0800</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>报表开发&lt;OO ALV工具&gt;</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable7/</link>
+      <pubDate>Sat, 28 Jul 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable7/</guid>
+      <description>显示后，修改字段目录和布局 ​ 通过方法在第一次显示之后，设置一个新的布局或则字段目录。 方法 字段目录：GET_FRONTEND_FIELDCAT</description>
+    </item>
+    
+    <item>
       <title>报表开发&lt;OO ALV&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable6/</link>
-      <pubDate>Tue, 25 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Wed, 25 Jul 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable6/</guid>
       <description>OO ALV ​ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作. ​ 使用了 ABAP 的对</description>
@@ -23,7 +32,7 @@
     <item>
       <title>报表开发&lt;常用工具&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable5/</link>
-      <pubDate>Fri, 21 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 03 Jul 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable5/</guid>
       <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对REUSE_ALV_GRID_DISPLAY函数参</description>
@@ -32,7 +41,7 @@
     <item>
       <title>报表开发&lt;ALV显示设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable4/</link>
-      <pubDate>Wed, 19 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Thu, 28 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable4/</guid>
       <description>ALV常使用的BAPI 在ALV开发中有两个重要的对象：LAYOUT和FIELDCAT,它们同属于类型池SLIS。 LAYOUT主要用于设置AL</description>
@@ -41,7 +50,7 @@
     <item>
       <title>报表开发&lt;内表操作&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable3/</link>
-      <pubDate>Wed, 12 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Sat, 23 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable3/</guid>
       <description>内表操作 SQL 语句的执行顺序 书写顺序：SELECT [DISTINCT]&amp;ndash;&amp;gt;FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;UNION&amp;ndash;&amp;gt;ORDER BY 其执行顺序为：FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;SELECT&amp;ndash;&amp;gt;DISTINCT&amp;ndash;&amp;gt;UNION-&amp;gt;ORDER</description>
@@ -50,16 +59,16 @@
     <item>
       <title>报表开发&lt;屏幕设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable2/</link>
-      <pubDate>Mon, 03 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 19 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable2/</guid>
-      <description>选择屏幕 引用链接 SELECT-SCREEN SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。 定义屏幕对象： SELECTION-SCREEN BEGIN OF SCREEN src. ....... SELECTION-SCREEN</description>
+      <description>选择屏幕 引用链接 触发 ​ 选择屏幕触发的是：AT SELECTION-SCREEN ​ 对话屏幕触发的是：PAI ​ 列表屏幕触发的是：AT USER-COMMAND SELECT-SCREEN SELECT-SCREEN语句用于创建屏</description>
     </item>
     
     <item>
       <title>报表开发&lt;概述&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable1/</link>
-      <pubDate>Sun, 26 Aug 2018 17:20:58 +0800</pubDate>
+      <pubDate>Fri, 15 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable1/</guid>
       <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>

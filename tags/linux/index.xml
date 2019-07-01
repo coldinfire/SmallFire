@@ -6,17 +6,17 @@
     <description>Recent content in linux on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Jan 2019 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Oct 2017 17:20:58 +0800</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title> Linux基础 </title>
-      <link>https://coldinfire.github.io/2019/Linux/</link>
-      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      <link>https://coldinfire.github.io/2017/Linux/</link>
+      <pubDate>Mon, 16 Oct 2017 17:20:58 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/Linux/</guid>
+      <guid>https://coldinfire.github.io/2017/Linux/</guid>
       <description>基本命令 man [command]:查看命令使用文档 1. 文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： [d]:目录 [-]:文件 [l]:链接文档 [b</description>
     </item>
     

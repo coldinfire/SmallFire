@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPDialog/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAPEnhance3/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPEnhance/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           增强 | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content="增强 | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="增强"/>
+<meta name="twitter:description" content="基本概念 User Exits：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。 用户出口"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "增强",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://coldinfire.github.io/2018/ABAPEnhance/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://coldinfire.github.io/cover.png",
+    "width": 800,
+    "height": 600
+  },
+  "genre": "posts",
+  "keywords": "Enhance",
+  "wordcount": 1565,
+  "url": "https://coldinfire.github.io/2018/ABAPEnhance/",
+  "datePublished": "2018-09-13T17:23:58+08:00",
+  "dateModified": "2018-09-13T17:23:58+08:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "SmallFire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://coldinfire.github.io/logo.png",
+      "width": 127,
+      "height": 40
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">增强</h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-09-13 >13 September 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                4 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="基本概念">基本概念</h2>
+
+<ul>
+<li><p>User Exits：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。
+用户出口通常用于SD模块，SAP在销售，运输，计费领域提供许多退出。</p>
+
+<ul>
+<li>SD出口文档：IMG-&gt;Sales and Distribution -&gt; System Modifications -&gt; User Exitrs.</li>
+</ul></li>
+
+<li><p>Customer Exits：使用:SE38找到程序所属的包，使用SMOD导航到Utilities-&gt;Find，输入包名，然后执行即可</p>
+
+<ul>
+<li>FM Exits：在FM中include 保留的 Z 程序来提供功能扩展点</li>
+<li>Menu Exits：在GUI status中预留+Fcode menu item, 在程序中预留对应的Handling FM Exits</li>
+<li>Screen Exits：在Screen 中预留 Subscreen, 在程序中预留transport data to subscreen &amp; return/retrieve data from subscreen的 FM Exits</li>
+</ul></li>
+
+<li><p>Enhancement &amp; Enhancement Project：</p>
+
+<ul>
+<li>Enhancement：把系统程序中的相关Customer Exits收集起来成为一个Enhancement，一般情况是按功能和类型来收集的,
+比方说几个相关的FM eixts组成一个enhancemnet，或就一个 screen 或 menu exits 形成一个enhancement。</li>
+<li>查看/修改 Enhancement的t-code为：SMOD</li>
+<li>Enhancement Project：在使用Enhacement时，要先建立一个Enhancement Project，可以将多个Enhancement assign给一个enhancement project去管理，对应t-code：CMOD。</li>
+</ul></li>
+
+<li><p>BADI (Business Add-in)，通过面向对象的方式来提供扩展点，它支持Customer Exits所有的enhancement 类型，
+因目前Class中不能包含subscreen所以在用BADI enhance screen时比用Customer Exits要复杂些。
+非Multiple Case的BADI同时只能有一个Active Implementation，即要Active新生成的需先inactive旧的。
+若是Multiple Case的BADI则可同时有多个Active Implementation，且所有的Implementation在没有Filter的情况下
+都会被遍历执行。</p></li>
+
+<li><p>Other</p>
+
+<ul>
+<li>User Exits与Customer Exits的区别在于User Exits的使用需要Access Key但Customer Exits不要。</li>
+<li>FM exits在关联的Function Group中的命名规则为：EXIT_program name_nnn</li>
+<li>Customer exits的调用方式为：</li>
+<li>FM Exits: CALL CUSTOMER-FUNCTION &lsquo;xxx&rsquo; EXPORTING &hellip; IMPORTING &hellip;</li>
+<li>Subscreen: Call CUSTOMER-SUBSCREEN INCLUDING</li>
+</ul></li>
+
+<li><p>VOFM
+Display:Requirements &amp; Formulas =&gt; Formulas =&gt; Condition value 可定义增强公式</p></li>
+</ul>
+
+<h2 id="how-to-find-user-exits">How to find user exits?</h2>
+
+<ol>
+<li><p>Using t-code: <code>SE93</code> and specify the transaction code.
+  From here go to the main program and click on the <code>FIND</code>button
+<code>Specify USEREXIT</code> and select <code>find in main program</code> radio button and click search&hellip;
+  if any user exit is used, it will list all the places as in SAP if any user exit is used,
+a comment is been written above the user exit.</p></li>
+
+<li><p>How to find customer exits?</p>
+
+<ul>
+<li><p><1>通过一些专门的程序，如:<a href="https://www.591sap.com/thread-87-1-1.html" rel="nofollow noreferrer" target="_blank">利用t-code查找增强出口的程序工具</a></p></li>
+
+<li><p><2>Search string “call customer” in the main program source code;</p></li>
+
+<li><p><3>SE80 -&gt; Repository Infomation System -&gt; Enhancements -&gt; Customer Exits -&gt; Input search condition -&gt; Execute</p></li>
+
+<li><p><4>SE11 -&gt; Database table: MODSAPVIEW -&gt; Display Contents -&gt; Input &ldquo;<em>program name</em>&rdquo; into Enhancement field -&gt;
+Execute -&gt; 得到的SAP extension name 即为 Customer Exits Enhancement Name.</p></li>
+</ul></li>
+
+<li><p>How to find BADIs?</p>
+
+<ul>
+<li><p><1> 通过一些专门的程序，如:<a href="https://www.591sap.com/thread-86-1-1.html" rel="nofollow noreferrer" target="_blank">一个功能非常全面的增强出口查找工具</a></p></li>
+
+<li><p><2> SE38 -&gt; 事物代码对应得程序名 -&gt; 在程序内搜索 CL_EXITHANDLER</p></li>
+
+<li><p><3> SE24 -&gt; CL_EXITHANDLER -&gt; 在GET_INSTANCE中打断点，然后运行相应的事务码找到对应的BADI</p></li>
+
+<li><p><4> SE80 -&gt; Repository Infomation System -&gt; Enhancements -&gt; Business Add-ins</p></li>
+
+<li><p><5> Search string “type ref to” in the main program source code, then check if there is BAdI used in the program</p></li>
+
+<li><p><6> 它的调用方式是call method(instance),可以通过exit_handler关键词来查找</p></li>
+
+<li><p><7> ST05选择&rdquo;table buffer trace&rdquo;而不是常用的&rdquo;SQL trace&rdquo;,然后查找 (SXS_INTER,SXC_EXIT,SXC_CLASS,SXC_ATTR)找到BADI</p></li>
+</ul></li>
+
+<li><p>Customer Exits and BADI implementation.</p>
+
+<ul>
+<li><p><1> Customer Exits: SMOD, CMOD</p></li>
+
+<li><p><2> BADI: SE18, SE19.</p></li>
+</ul></li>
+
+<li><p>Find a BADI in one minute</p>
+
+<ul>
+<li><p><1>Go to TCode SE24 and enterG CL_EXITHANDLER as object type.</p></li>
+
+<li><p><2>In &lsquo;Display&rsquo; mode, go to &lsquo;Methods&rsquo; tab.</p></li>
+
+<li><p><3>Double click the method &lsquo;Get Instance&rsquo; to display it source code.</p></li>
+
+<li><p><4>Set a breakpoint on &lsquo;CALL METHOD cl_exithandler=&gt;get_class_name_by_interface&rsquo;.</p></li>
+
+<li><p><5>Then run your transaction.</p></li>
+
+<li><p><6>The screen will stop at this method.</p></li>
+
+<li><p><7>Check the value of parameter &lsquo;EXIT_NAME&rsquo;. It will show you the BADI for that transaction.</p></li>
+</ul></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>1565</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/Enhance/">
+                    #Enhance</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/ABAPDialog/" class="prev" rel="prev" title="Dialog设计"><i class="iconfont icon-dajiantou"></i>&nbsp;Dialog设计</a>
+         
+        
+        <a href="https://coldinfire.github.io/2018/ABAPEnhance3/" class="next" rel="next" title="查找增强程序3">查找增强程序3&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2018-09-13 17:23:58 \x2b0800 \x2b0800',
+        title: '增强',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

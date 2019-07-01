@@ -6,19 +6,10 @@
     <description>Recent content in Python on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Apr 2019 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Jan 2019 17:20:58 +0800</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/Python/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title> Python学习资源</title>
-      <link>https://coldinfire.github.io/2019/PythonResource/</link>
-      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/PythonResource/</guid>
-      <description>资源 Python 官网 包含了 Python 框架、Python 库和软件的 awesome 列表 Python 神书，里面有若干个项目，每个项目都是由业内大神所写，每个项目代码在 500 行左右 介绍 Python3 中的标</description>
-    </item>
     
     <item>
       <title> Python基础 </title>
@@ -27,6 +18,15 @@
       
       <guid>https://coldinfire.github.io/2019/Python1/</guid>
       <description>变量定义和数据类型 变量定义 Python的变量命名规则： 硬性规则： 变量由字母、数字和下划线构成，不能以数字开头 大小写敏感 不能跟python的关</description>
+    </item>
+    
+    <item>
+      <title> Python学习资源</title>
+      <link>https://coldinfire.github.io/2019/PythonResource/</link>
+      <pubDate>Mon, 14 Jan 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/PythonResource/</guid>
+      <description>资源 Python 官网 包含了 Python 框架、Python 库和软件的 awesome 列表 Python 神书，里面有若干个项目，每个项目都是由业内大神所写，每个项目代码在 500 行左右 介绍 Python3 中的标</description>
     </item>
     
     <item>

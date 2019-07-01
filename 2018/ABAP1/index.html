@@ -10,7 +10,7 @@
   
   
   
-  
+  <link rel="prev" href="https://coldinfire.github.io/2018/test/" />
   <link rel="next" href="https://coldinfire.github.io/2018/ABAP2/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP1/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
@@ -24,10 +24,10 @@
   <title>
        
        
-           ABAP 语法详解(一) | Small Fire`s Blog
+           ABAP 语法详解(数据类型) | Small Fire`s Blog
        
   </title>
-  <meta name="title" content="ABAP 语法详解(一) | Small Fire`s Blog">
+  <meta name="title" content="ABAP 语法详解(数据类型) | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,14 +35,14 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ABAP 语法详解(一)"/>
+<meta name="twitter:title" content="ABAP 语法详解(数据类型)"/>
 <meta name="twitter:description" content="ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "ABAP 语法详解(一)",
+  "headline": "ABAP 语法详解(数据类型)",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://coldinfire.github.io/2018/ABAP1/"
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount": 527,
+  "wordcount": 590,
   "url": "https://coldinfire.github.io/2018/ABAP1/",
   "datePublished": "2018-05-12T17:20:58+08:00",
   "dateModified": "2018-05-12T17:20:58+08:00",
@@ -138,7 +138,7 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title">ABAP 语法详解(一)</h1>
+        <h1 class="post-title">ABAP 语法详解(数据类型)</h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
@@ -213,7 +213,7 @@
 
 <tbody>
 <tr>
-<td align="left"><strong>sy-subrc:</strong>报表返回值</td>
+<td align="left"><strong>sy-subrc:报表返回值</strong></td>
 <td align="left"><strong>sy-index:循环编号</strong></td>
 <td align="left"><strong>sy-tabix:循环编号</strong></td>
 </tr>
@@ -222,6 +222,12 @@
 <td align="left"><strong>sy-dynnr:屏幕的编号</strong></td>
 <td align="left"><strong>sy-dbcnt:DB操作处理过的表行号</strong></td>
 <td align="left"><strong>sy-host:服务器名称</strong></td>
+</tr>
+
+<tr>
+<td align="left"><strong>sy-cprog:当前程序名</strong></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -250,34 +256,40 @@ END OF STAFFINFO.
 
 <h2 id="定义常量-宏">定义常量、宏</h2>
 
-<pre><code class="language-JS">常量定义
-  CONSTANTS &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt;.
-  CONSTANTS &lt;var&gt;(len) LIKE &lt;var2&gt; VALUE &lt;value&gt;.
-宏定义 
-  1. 定义：
-    DEFINE operation.
-      result = &amp;1 &amp;2 &amp;3.
-      output   &amp;1 &amp;2 &amp;3 result.
-    END-OF-DEFINITION.
+<p><strong>常量定义</strong></p>
 
-    DEFINE output.
-      write: / 'The result of &amp;1 &amp;2 &amp;3 is', &amp;4.
-    END-OF-DEFINITION.
-  2. 使用：
-    operation 4+3.
+<p>​     <code>CONSTANTS &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt;.</code></p>
+
+<p>​     <code>CONSTANTS &lt;var&gt;(len) LIKE &lt;var2&gt; VALUE &lt;value&gt;.
+</code></p>
+
+<p><strong>宏定义</strong></p>
+
+<p>定义：</p>
+
+<pre><code class="language-ABAP">DEFINE operation.
+  result = &amp;1 &amp;2 &amp;3.
+  output   &amp;1 &amp;2 &amp;3 result.
+END-OF-DEFINITION.
+DEFINE output.
+  write: / 'The result of &amp;1 &amp;2 &amp;3 is', &amp;4.
+END-OF-DEFINITION.
 </code></pre>
+
+<p>使用：operation 4+3.</p>
 
 <h2 id="describe使用">DESCRIBE使用</h2>
 
-<pre><code class="language-JS">DESCRIBE TABLE lt_mat LINES lv_cont.
-  这行的意思是 计算内表 lt_mat 的行数 ，将行数放到变量 lv_cont 里。
-Field Properties:describe field &lt;field&gt; [mes var]...
-                                (一个data的类型、长度、小数点、输出长度等信息)
-Internal Table:describe table itab [kind knd] [LINES lin] [COCCURS n].
-Distance two fields:describe distance ...
-</code></pre>
+<p><code>DESCRIBE TABLE lt_mat LINES lv_cont.</code>：这行的意思是 计算内表 lt_mat 的行数 ，将行数放到变量 lv_cont 里。</p>
 
-<p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2019/ABAP2" rel="nofollow noreferrer" target="_blank">ABAP语法详解(二)</a></p>
+<p>字段属性：<code>DESCRIBE FIELD &lt;field&gt; [mes var]...
+</code>     (一个data的类型、长度、小数点、输出长度等信息)</p>
+
+<p>内表：<code>DESCRIBE TABLE itab [kind knd] [LINES lin] [COCCURS n].</code></p>
+
+<p>两个字段不同：<code>DESCRIBE distance ...</code></p>
+
+<p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2018/ABAP2/" rel="nofollow noreferrer" target="_blank">ABAP 语法详解(内表)</a></p>
 
     </div>
 
@@ -291,7 +303,7 @@ Distance two fields:describe distance ...
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>527</span>
+                   <span>590</span>
             </p>
             
             <p class="copyright-item">
@@ -319,9 +331,11 @@ Distance two fields:describe distance ...
     </div>
 
     <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/test/" class="prev" rel="prev" title=" Hugo搭建博客(自动化部署)"><i class="iconfont icon-dajiantou"></i>&nbsp; Hugo搭建博客(自动化部署)</a>
          
         
-        <a href="https://coldinfire.github.io/2018/ABAP2/" class="next" rel="next" title="ABAP 语法详解(二)">ABAP 语法详解(二)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/ABAP2/" class="next" rel="next" title="ABAP 语法详解(内表)">ABAP 语法详解(内表)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -333,7 +347,7 @@ Distance two fields:describe distance ...
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '2018-05-12 17:20:58 \x2b0800 \x2b0800',
-        title: 'ABAP 语法详解(一)',
+        title: 'ABAP 语法详解(数据类型)',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',

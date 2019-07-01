@@ -23,28 +23,10 @@
     <item>
       <title> SAPUI5 </title>
       <link>https://coldinfire.github.io/2019/SAPUI5/</link>
-      <pubDate>Sun, 16 Jun 2019 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
       <description>概述 MVC模式 ​ MVC是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。 ​ M : Model</description>
-    </item>
-    
-    <item>
-      <title> Python学习资源</title>
-      <link>https://coldinfire.github.io/2019/PythonResource/</link>
-      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/PythonResource/</guid>
-      <description>资源 Python 官网 包含了 Python 框架、Python 库和软件的 awesome 列表 Python 神书，里面有若干个项目，每个项目都是由业内大神所写，每个项目代码在 500 行左右 介绍 Python3 中的标</description>
-    </item>
-    
-    <item>
-      <title> Linux基础 </title>
-      <link>https://coldinfire.github.io/2019/Linux/</link>
-      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/Linux/</guid>
-      <description>基本命令 man [command]:查看命令使用文档 1. 文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： [d]:目录 [-]:文件 [l]:链接文档 [b</description>
     </item>
     
     <item>
@@ -57,12 +39,12 @@
     </item>
     
     <item>
-      <title> WebDynpro </title>
-      <link>https://coldinfire.github.io/2019/WebDynpro/</link>
-      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      <title> Python学习资源</title>
+      <link>https://coldinfire.github.io/2019/PythonResource/</link>
+      <pubDate>Mon, 14 Jan 2019 17:20:58 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/WebDynpro/</guid>
-      <description>简介 Web Dynpro 在业务应用程序的主要结构和视觉设计部分的方式，在很大程度上是独立于实现语言. 一个Web Dynpro 组件不是一个JAVA类，而是一系列类集合所有</description>
+      <guid>https://coldinfire.github.io/2019/PythonResource/</guid>
+      <description>资源 Python 官网 包含了 Python 框架、Python 库和软件的 awesome 列表 Python 神书，里面有若干个项目，每个项目都是由业内大神所写，每个项目代码在 500 行左右 介绍 Python3 中的标</description>
     </item>
     
     <item>
@@ -75,9 +57,72 @@
     </item>
     
     <item>
+      <title> WebDynpro </title>
+      <link>https://coldinfire.github.io/2018/WebDynpro/</link>
+      <pubDate>Tue, 16 Oct 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/WebDynpro/</guid>
+      <description>简介 Web Dynpro 在业务应用程序的主要结构和视觉设计部分的方式，在很大程度上是独立于实现语言. 一个Web Dynpro 组件不是一个JAVA类，而是一系列类集合所有</description>
+    </item>
+    
+    <item>
+      <title>查找增强程序1</title>
+      <link>https://coldinfire.github.io/2018/ABAPEnhance1/</link>
+      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPEnhance1/</guid>
+      <description>利用t-code查找增强出口的程序工具 REPORT zdamon_005 NO STANDARD PAGE HEADING. TABLES : tstc, tadir, modsapt, modact, trdir, tfdir, enlfdir. TABLES : tstct. DATA : jtab LIKE tadir OCCURS 0 WITH HEADER LINE. DATA : field1(30). DATA : v_devclass LIKE tadir-devclass. PARAMETERS : p_tcode LIKE tstc-tcode OBLIGATORY. SELECT SINGLE * FROM tstc WHERE tcode EQ p_tcode.</description>
+    </item>
+    
+    <item>
+      <title>查找增强程序2</title>
+      <link>https://coldinfire.github.io/2018/ABAPEnhance2/</link>
+      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPEnhance2/</guid>
+      <description>查找增强出口和BADI *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z_FIND_EXIT_AND_BADI *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Enter the transaction code that you want to search through in order *&amp;amp; to find which Standard SAP User Exits and BADIs *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; For field &#39;SUBC&#39; of table &#39;TRDIR&#39;: *&amp;amp; M Module Pool *&amp;amp; F Function group *&amp;amp; S Subroutine</description>
+    </item>
+    
+    <item>
+      <title>查找增强程序3</title>
+      <link>https://coldinfire.github.io/2018/ABAPEnhance3/</link>
+      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPEnhance3/</guid>
+      <description>一个功能非常全面的增强出口查找工具 *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Report: zdamon_004 (V9) &amp;amp;* *&amp;amp; PJA Consultancy Services (www.pjas.com) &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; This report attmpts to find Enhancements, Program-Exits, BADIs &amp;amp;* *&amp;amp; and Business Transaction Events in a particular program/tcode. &amp;amp;* *&amp;amp; Last updated: 09 May 2007 &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Selection Texts: *&amp;amp; P_ALV ALV format *&amp;amp; P_AUTH Include authority-check search</description>
+    </item>
+    
+    <item>
+      <title>增强</title>
+      <link>https://coldinfire.github.io/2018/ABAPEnhance/</link>
+      <pubDate>Thu, 13 Sep 2018 17:23:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPEnhance/</guid>
+      <description>基本概念 User Exits：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。 用户出口</description>
+    </item>
+    
+    <item>
+      <title>Dialog设计</title>
+      <link>https://coldinfire.github.io/2018/ABAPDialog/</link>
+      <pubDate>Tue, 28 Aug 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPDialog/</guid>
+      <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>
+    </item>
+    
+    <item>
+      <title>报表开发&lt;OO ALV工具&gt;</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable7/</link>
+      <pubDate>Sat, 28 Jul 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable7/</guid>
+      <description>显示后，修改字段目录和布局 ​ 通过方法在第一次显示之后，设置一个新的布局或则字段目录。 方法 字段目录：GET_FRONTEND_FIELDCAT</description>
+    </item>
+    
+    <item>
       <title>报表开发&lt;OO ALV&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable6/</link>
-      <pubDate>Tue, 25 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Wed, 25 Jul 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable6/</guid>
       <description>OO ALV ​ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作. ​ 使用了 ABAP 的对</description>
@@ -86,7 +131,7 @@
     <item>
       <title>报表开发&lt;常用工具&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable5/</link>
-      <pubDate>Fri, 21 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 03 Jul 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable5/</guid>
       <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对REUSE_ALV_GRID_DISPLAY函数参</description>
@@ -95,7 +140,7 @@
     <item>
       <title>报表开发&lt;ALV显示设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable4/</link>
-      <pubDate>Wed, 19 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Thu, 28 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable4/</guid>
       <description>ALV常使用的BAPI 在ALV开发中有两个重要的对象：LAYOUT和FIELDCAT,它们同属于类型池SLIS。 LAYOUT主要用于设置AL</description>
@@ -104,7 +149,7 @@
     <item>
       <title>报表开发&lt;内表操作&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable3/</link>
-      <pubDate>Wed, 12 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Sat, 23 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable3/</guid>
       <description>内表操作 SQL 语句的执行顺序 书写顺序：SELECT [DISTINCT]&amp;ndash;&amp;gt;FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;UNION&amp;ndash;&amp;gt;ORDER BY 其执行顺序为：FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;SELECT&amp;ndash;&amp;gt;DISTINCT&amp;ndash;&amp;gt;UNION-&amp;gt;ORDER</description>
@@ -113,82 +158,91 @@
     <item>
       <title>报表开发&lt;屏幕设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable2/</link>
-      <pubDate>Mon, 03 Sep 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 19 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable2/</guid>
-      <description>选择屏幕 引用链接 SELECT-SCREEN SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。 定义屏幕对象： SELECTION-SCREEN BEGIN OF SCREEN src. ....... SELECTION-SCREEN</description>
+      <description>选择屏幕 引用链接 触发 ​ 选择屏幕触发的是：AT SELECTION-SCREEN ​ 对话屏幕触发的是：PAI ​ 列表屏幕触发的是：AT USER-COMMAND SELECT-SCREEN SELECT-SCREEN语句用于创建屏</description>
     </item>
     
     <item>
       <title>报表开发&lt;概述&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable1/</link>
-      <pubDate>Sun, 26 Aug 2018 17:20:58 +0800</pubDate>
+      <pubDate>Fri, 15 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable1/</guid>
       <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>
     </item>
     
     <item>
-      <title> Hugo搭建博客(一) </title>
-      <link>https://coldinfire.github.io/2018/test/</link>
-      <pubDate>Tue, 26 Jun 2018 17:20:58 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/test/</guid>
-      <description>工具准备 hugo node.js git github 操作步骤</description>
-    </item>
-    
-    <item>
-      <title> Hugo搭建博客(一) </title>
-      <link>https://coldinfire.github.io/2018/hugo1/</link>
-      <pubDate>Sat, 23 Jun 2018 17:20:58 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/hugo1/</guid>
-      <description>工具准备 hugo node.js git github 操作步骤</description>
-    </item>
-    
-    <item>
-      <title>ABAP 语法详解(五)</title>
+      <title>ABAP 语法详解(优化)</title>
       <link>https://coldinfire.github.io/2018/ABAP5/</link>
-      <pubDate>Sat, 16 Jun 2018 17:20:58 +0800</pubDate>
+      <pubDate>Fri, 01 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP5/</guid>
       <description>效率优化 数据库 不要使用 SELECT * &amp;hellip;，选择需要的字段, SELECT * 既浪费CPU，还需占用大量的ABAP内存 不要使用SELECT DISTINCT .，会绕过缓存</description>
     </item>
     
     <item>
-      <title>ABAP 语法详解(四)</title>
+      <title>ABAP 语法详解(SQL)</title>
       <link>https://coldinfire.github.io/2018/ABAP4/</link>
-      <pubDate>Fri, 15 Jun 2018 17:20:58 +0800</pubDate>
+      <pubDate>Thu, 24 May 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP4/</guid>
       <description>MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;amp;’定义多个占位符。 MESSAGE E001(ZTEST). ​ E:消息显示类型 (E[Error]</description>
     </item>
     
     <item>
-      <title>ABAP 语法详解(三)</title>
+      <title>ABAP 语法详解(Field&amp;Form)</title>
       <link>https://coldinfire.github.io/2018/ABAP3/</link>
-      <pubDate>Mon, 04 Jun 2018 17:20:58 +0800</pubDate>
+      <pubDate>Sun, 20 May 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP3/</guid>
-      <description>字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY &amp;lsquo;XX&amp;rsquo;] [RESPECTING BLANKS]. ​ separated：根据该间隔符号进行拼接 ​ respecting： 去空格：CONDENSE [NO-GAPS] :重</description>
+      <description>字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY sep] [RESPECTING BLANKS]. ​ C,D,N,T类型的前导空格会保留，尾部空格会去掉，对String类型的所有空格都会保留； ​ se</description>
     </item>
     
     <item>
-      <title>ABAP 语法详解(二)</title>
+      <title>ABAP 语法详解(内表)</title>
       <link>https://coldinfire.github.io/2018/ABAP2/</link>
-      <pubDate>Wed, 23 May 2018 17:20:58 +0800</pubDate>
+      <pubDate>Wed, 16 May 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP2/</guid>
       <description>内表定义和使用 内表定义 工作区域：工作区域可以存放多个变量数据。 ​ 直接定义：DATA: BEGIN OF &amp;lt;str&amp;gt; END OF &amp;lt;str&amp;gt;. ​ 参照DB或则结构：DATA &amp;lt;wa&amp;gt; TYPE &amp;lt;dbtab&amp;gt;|&amp;lt;str&amp;gt;. ​ 参照内表</description>
     </item>
     
     <item>
-      <title>ABAP 语法详解(一)</title>
+      <title>ABAP 语法详解(数据类型)</title>
       <link>https://coldinfire.github.io/2018/ABAP1/</link>
       <pubDate>Sat, 12 May 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP1/</guid>
       <description>ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :</description>
+    </item>
+    
+    <item>
+      <title> Hugo搭建博客(自动化部署)</title>
+      <link>https://coldinfire.github.io/2018/test/</link>
+      <pubDate>Wed, 14 Mar 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/test/</guid>
+      <description>工具准备 hugo node.js git github 操作步骤</description>
+    </item>
+    
+    <item>
+      <title> Hugo快速搭建博客  </title>
+      <link>https://coldinfire.github.io/2018/hugo1/</link>
+      <pubDate>Mon, 12 Mar 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/hugo1/</guid>
+      <description>工具准备 hugo node.js git github 操作步骤</description>
+    </item>
+    
+    <item>
+      <title> Linux基础 </title>
+      <link>https://coldinfire.github.io/2017/Linux/</link>
+      <pubDate>Mon, 16 Oct 2017 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/Linux/</guid>
+      <description>基本命令 man [command]:查看命令使用文档 1. 文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： [d]:目录 [-]:文件 [l]:链接文档 [b</description>
     </item>
     
   </channel>
