@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "报表开发",
-  "wordcount": 2146,
+  "wordcount": 2152,
   "url": "https://coldinfire.github.io/2018/ABAPTable6/",
   "datePublished": "2018-09-25T17:20:58+08:00",
   "dateModified": "2018-09-25T17:20:58+08:00",
@@ -511,18 +511,20 @@ APPEND 'SALL.PUL' TO lt_excl.
 APPEND 'UALL.PUL' TO lt_excl.
 SET PF-STATUS 'STATUS' EXCLUDING  lt_excl .
 SET TITLEBAR 'TITLE'.
-</code></pre>
+</code></pre></li>
 
-<pre><code>FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
+<li><p>系统标准按钮</p>
+
+<pre><code class="language-JS">FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
 DATA ls_exclude TYPE ui_func.      
 ls_exclude = cl_gui_alv_grid=&gt;mc_fc_maximum .      
-APPEND ls_exclude TO pt_exclude.      
+  APPEND ls_exclude TO pt_exclude.      
 ls_exclude = cl_gui_alv_grid=&gt;mc_fc_minimum .    
-APPEND ls_exclude TO pt_exclude.     
+  APPEND ls_exclude TO pt_exclude.     
 ls_exclude = cl_gui_alv_grid=&gt;mc_fc_subtot .    
-APPEND ls_exclude TO pt_exclude.     
+  APPEND ls_exclude TO pt_exclude.     
 ls_exclude = cl_gui_alv_grid=&gt;mc_fc_sum .      
-APPEND ls_exclude TO pt_exclude.      
+  APPEND ls_exclude TO pt_exclude.      
 ls_exclude = cl_gui_alv_grid=&gt;mc_fc_average .     
 	APPEND ls_exclude TO pt_exclude.      
 ls_exclude = cl_gui_alv_grid=&gt;mc_mb_sum .     
@@ -545,7 +547,7 @@ ENDFORM .
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2146</span>
+                   <span>2152</span>
             </p>
             
             <p class="copyright-item">

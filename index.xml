@@ -3517,18 +3517,20 @@ APPEND &#39;SALL.PUL&#39; TO lt_excl.
 APPEND &#39;UALL.PUL&#39; TO lt_excl.
 SET PF-STATUS &#39;STATUS&#39; EXCLUDING  lt_excl .
 SET TITLEBAR &#39;TITLE&#39;.
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;pre&gt;&lt;code&gt;FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
+&lt;li&gt;&lt;p&gt;系统标准按钮&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
 DATA ls_exclude TYPE ui_func.      
 ls_exclude = cl_gui_alv_grid=&amp;gt;mc_fc_maximum .      
-APPEND ls_exclude TO pt_exclude.      
+  APPEND ls_exclude TO pt_exclude.      
 ls_exclude = cl_gui_alv_grid=&amp;gt;mc_fc_minimum .    
-APPEND ls_exclude TO pt_exclude.     
+  APPEND ls_exclude TO pt_exclude.     
 ls_exclude = cl_gui_alv_grid=&amp;gt;mc_fc_subtot .    
-APPEND ls_exclude TO pt_exclude.     
+  APPEND ls_exclude TO pt_exclude.     
 ls_exclude = cl_gui_alv_grid=&amp;gt;mc_fc_sum .      
-APPEND ls_exclude TO pt_exclude.      
+  APPEND ls_exclude TO pt_exclude.      
 ls_exclude = cl_gui_alv_grid=&amp;gt;mc_fc_average .     
 	APPEND ls_exclude TO pt_exclude.      
 ls_exclude = cl_gui_alv_grid=&amp;gt;mc_mb_sum .     
