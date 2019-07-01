@@ -1,6 +1,6 @@
 ---
-title: "ABAP 语法详解(四)"
-date: 2018-06-15T17:20:58+08:00
+title: "ABAP 语法详解(SQL)"
+date: 2018-05-24T17:20:58+08:00
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -164,4 +164,5 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
 
 ------
 
-未完待续......[ABAP语法详解(五)](https://coldinfire.github.io/2019/ABAP5)
+未完待续......[ABAP 语法详解(优化)](https://coldinfire.github.io/2018/ABAP5/)
+

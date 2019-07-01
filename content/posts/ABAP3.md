@@ -1,6 +1,6 @@
 ---
-title: "ABAP 语法详解(三)"
-date: 2018-06-04T17:20:58+08:00
+title: "ABAP 语法详解(Field&Form)"
+date: 2018-05-20T17:20:58+08:00
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -15,30 +15,32 @@ tags:
 ## 字符串处理
 **合并字符串**：
 
-   CONCATENATE var1 var2 INTO result [SEPARATED BY 'XX'] [RESPECTING BLANKS]. 
+   CONCATENATE var1 var2 INTO result [SEPARATED BY sep] [RESPECTING BLANKS]. 
 
-​     separated：根据该间隔符号进行拼接
+​	C,D,N,T类型的前导空格会保留，尾部空格会去掉，对String类型的所有空格都会保留；
 
-​     respecting：
+​     separated：根据该间隔符号进行拼接(SPACE)
 
-**去空格**：CONDENSE <c> [NO-GAPS]  :重新整合分配字符串，去除空格
+​     respecting：针对C,D,N,T数据，表示尾部空格会保留
+
+**去空格**：`CONDENSE <c> [NO-GAPS]`  :重新整合分配字符串，去除空格;指定no-gaps去除所有空格
 
 **拆分字符串**：
 
-​	SPLIT dobj AT sep INTO {res1 res2}. ：将字符串的值分配给具体变量
+​	SPLIT dobj AT sep INTO {res1 res2......resn}. ：将字符串的值分配给具体变量
 
 
-​	SPLIT f AT g INTO TABLE itab：将字符串的值分配给一内表。
+​	SPLIT s_source AT sep INTO TABLE itab：将字符串的值分配给一内表。
 
-移动字符：SHIFT dobj [LEFT|RIGHT] BY num PLACES. ：指定移动字符位数
+**移动字符：**SHIFT dobj [LEFT|RIGHT] BY num PLACES. ：指定移动字符位数
 
-判断包含字符：contains (val=TEXT)
+**判断包含字符：**contains (val=TEXT)
 
-根据正则替换：REPLACE ALL OCCURRENCES OF REGEX regex IN  dobj WITH new
+**根据正则替换：**REPLACE ALL OCCURRENCES OF REGEX regex IN  dobj WITH new
 
-取出指定字串：`Var1 = <field>+4(6) :` 从指点字段的第4位开始往后取出长度为6的内容
+**取出指定字串：**`Var1 = <field>+4(6) :` 从指点字段的第4位开始往后取出长度为6的内容
 
-大小写转换：TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写
+**大小写转换：**TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写
 
 ## 全局变量，局部变量
 ​	报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subroutines (FORM子过程)、Function Modules中声明的变量为局部的。
@@ -75,27 +77,27 @@ tags:
     SUBMIT <程序名>.
     
 
-   -  ...USING SELECTION-SCREEN <SCR>. "调用子屏幕
+   -  ...`USING SELECTION-SCREEN <SCR>`. "调用子屏幕
       
-   - ...IVA  SELECTION-SCREEN.        "显示所调用程序的初始屏幕
+   - ...`IVA  SELECTION-SCREEN.`        "显示所调用程序的初始屏幕
      
-   -  ...AND RETURN.    "调用指定程序执行后可返回上一屏幕
+   -  ...`AND RETURN.`    "调用指定程序执行后可返回上一屏幕
 
 ### Function Group （SE37）
 
   系统会自动创建Main program与相应的include程序。
 
-​    SAPL<fgrp>：主程序名，将Function Group里的所有的Include文件包括进来，只有Include语句
+​    `SAPL<fgrp>：`主程序名，将Function Group里的所有的Include文件包括进来，只有Include语句
 
-​	L<fgrp>TOP：有FUNCTION-POOL语句，以及所有Function model都可以使用的全局数据定义
+​	`L<fgrp>TOP：`有FUNCTION-POOL语句，以及所有Function model都可以使用的全局数据定义
 
-​	L<fgrp>UXX：只有include语句，为相应具体Function Model所对应的Include文件名：L<fgrp>U01...包含了对应的FM代码。
+​	`L<fgrp>UXX：`只有include语句，为相应具体Function Model所对应的Include文件名：`L<fgrp>U01...`包含了对应的FM代码。
 
-​	L<fgrp>U01：01,02编号对应UXX，代表其创建先后的序号。
+​	`L<fgrp>U01：`01,02编号对应UXX，代表其创建先后的序号。
 
-​	L<fgrp>FXX：用来存放一些Form子程序，可以被所有Function Modules所使用。
+​	`L<fgrp>FXX：`用来存放一些Form子程序，可以被所有Function Modules所使用。
 
-​	L<fgrp>PAI，L<fgrp>PBO：PAI,PBO事件。
+​	`L<fgrp>PAI，L<fgrp>PBO：`PAI,PBO事件。
 
 ## AT...END (SUM)
 
@@ -131,7 +133,7 @@ tags:
 
   - LEAVE PROGRAM.退出整个程序
 
-  - LEAVE TO TRANSACTION <ta>.跳转到另外的TCode
+  - `LEAVE TO TRANSACTION <tcode>`.跳转到另外的TCode
 
   - LEAVE LIST-PROCESSING.从List processor回到Dialog processor
 
@@ -143,7 +145,7 @@ tags:
 
 
 
-未完待续......[ABAP语法详解(四)](https://coldinfire.github.io/2019/ABAP4)
+未完待续......[ABAP 语法详解(SQL)](https://coldinfire.github.io/2018/ABAP4)
 
 
 

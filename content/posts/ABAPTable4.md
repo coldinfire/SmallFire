@@ -1,6 +1,6 @@
 ---
 title: "报表开发<ALV显示设置>"
-date: 2018-09-19T17:20:58+08:00
+date: 2018-06-28T17:20:58+08:00
 draft: false
 author: Small Fire
 isCJKLanguage: true

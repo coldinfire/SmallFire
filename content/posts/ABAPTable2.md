@@ -1,6 +1,6 @@
 ---
 title: "报表开发<屏幕设置>"
-date: 2018-09-03T17:20:58+08:00
+date: 2018-06-19T17:20:58+08:00
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -15,6 +15,14 @@ tags:
 
 
 ## 选择屏幕 [引用链接](https://www.cnblogs.com/foxting/archive/2012/07/01/2572243.html)
+
+### 触发
+
+​	选择屏幕触发的是：AT SELECTION-SCREEN
+
+​	对话屏幕触发的是：PAI
+
+​	列表屏幕触发的是：AT USER-COMMAND
 
 ### SELECT-SCREEN 
 
@@ -59,6 +67,19 @@ SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN END OF LINE. 将所生成的屏幕元素控制在一行.
 ```
 
+**单行添加：**
+
+```JS
+SELECTION-SCREEN BEGIN OF LINE.
+  SELECTION-SCREEN COMMENT n(m) TEXT-001 FOR FIELD S_name."文档信息
+  SELECTION-OPTION: S_name FOR itab-field.     "设定类型
+  SELECTION-OPTION <seltab> FOR <f> 
+    NO INTERVALS : 删除HIGH值
+	NO-EXTENSION : 限制选择为单行，不会出现多条按钮
+	OBLIGATORY   : 只有前面一个框中出现勾勾，只针对LOW字段有效
+SELECTION-SCREEN END OF LINE.
+```
+
 
 
 ### PARAMETERS 单值输入
@@ -76,11 +97,11 @@ PARAMETERS: <P_1> LIKE <field>    "文本域
   默认值：
     
 
-​	  ...`DEFAULT f：`定义默认值。
+​    ...`DEFAULT f：`定义默认值。
 
-​	 ...`TYPE type：`参照某一类型对象定义PARAMETERS。
+​    ...`TYPE type：`参照某一类型对象定义PARAMETERS。
 
-​      ...`DECIMALS dec：`定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)。
+​    ...`DECIMALS dec：`定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)。
 
 
 ​    ...`LIKE g：`參照某一字典对象定义PARAMETERS。
@@ -105,14 +126,23 @@ PARAMETERS: <P_1> LIKE <field>    "文本域
 
 **下拉框实现：**
 
-```JS
-定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标
-  PARAMETERS:P_LANG(20) AS LISTBOX VISIBLE LENGTH 22.
+定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标.
+
+​	PARAMETERS: P_LANG LIKE itab-field AS LISTBOX VISIBLE LENGTH 22 USER-COMMAND onli DEFAULT 'LH'.
+
+通过函数：VRM_SET_VALUES为下拉框初始化列表项
+
 该变量用于记录下拉列表数值是否初始化，否则每次屏幕初始化都会重新加载重复数据
-  DATA:INIT.
-  AT SELECTION-SCREEN OUTPUT.
-  PERFORM SETLIST.
-子程序用于加载下拉框的数据
+
+```JS
+ DATA:INIT.
+ AT SELECTION-SCREEN OUTPUT.
+ PERFORM SETLIST.
+```
+
+子程序用于加载下拉框的数据：
+
+```JS
 FORM SETLIST.
   TYPE-POOLS VRM. 
   DATA MYVALUE TYPE VRM_VALUES WITH HEADER LINE.
@@ -215,9 +245,27 @@ HIGH: 范围较大值
 ...ON EXIT-COMMAND：用于"BACK","CANCEL","EXIT"等事件。
 ```
 
+**设置屏幕选择框不可输入**
+
+```JS
+AT SELECTION-SCREEN OUTPUT.
+  LOOP AT SCREEN.
+	IF screen-name = 'X_NORM' OR screen-name = 'X_PARK'.
+	  screen-input = 0.
+	  MODIFY SCREEN.
+	ENDIF.
+  ENDLOOP.
+      
+REQUIRED：控制比属性，使用后会忽略OBLIGATORY.0:不必输 1:必输，系统自动校验 2:不必输，但是会提示必输标志
+INPUT：控制屏幕元素的可输入性
+ACTIVE：控制屏幕的可见性 1:可见  2:不可见
+```
+
+
+
 ###  屏幕内创建按钮
 
-`  SELECTION-SCREEN PUSHBUTTON [/n] <pos(len)> <name> USER-COMMAND <ucom> [MODIF ID <key>].
+`  SELECTION-SCREEN: PUSHBUTTON [/n] <pos(len)> <name> USER-COMMAND <ucom> [MODIF ID <key>].
 `   
 
 ​	 [/n] :按钮初始时距离屏幕左边的位置
@@ -228,8 +276,9 @@ HIGH: 范围较大值
 ​	`<name>：`PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。
 ​    
 
-​    `<ucom>：`必须指定的字符代码，当用户在选择屏幕上触发按钮时，<ucom>被输入到词典对象字段：
-​            SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。
+​    `<ucom>：`必须指定的字符代码，当用户在选择屏幕上触发按钮时，`<ucom>`被输入到词典对象字段：SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。
+
+
 
 ​	**实例：**  
 

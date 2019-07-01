@@ -1,6 +1,6 @@
 ---
 title: "报表开发<内表操作>"
-date: 2018-09-12T17:20:58+08:00
+date: 2018-06-23T17:20:58+08:00
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -30,7 +30,9 @@ tags:
 
 3、无论在语法上还是在执行顺序上， UNION 总是排在在 ORDER BY 之前。
 
+### 【清空字段，内表，结构】
 
+​	使用字段，内表，结构前需要清空其内容，以避免在程序内使用时产生数据的混乱。循环结束后，循环开始前需要根据程序需求选择是否需要清空内表内容，对于带有Headline 的内表要注意。
 
 ### 【增删改】
 
@@ -116,8 +118,6 @@ COMMIT WORK.         异步更新。
 COMMIT WORK AND WAIT.同步跟新，执行结果可通过sy-subrc判断是否提交成功。
 ROLLBACK WORK.
 ```
-
-
 
 ## Focus
 

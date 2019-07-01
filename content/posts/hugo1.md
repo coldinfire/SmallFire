@@ -1,6 +1,6 @@
 ---
-title: " Hugo搭建博客(一) "
-date: 2018-06-23T17:20:58+08:00
+title: " Hugo快速搭建博客  "
+date: 2018-03-12T17:20:58+08:00
 draft: false
 author: Small Fire
 isCJKLanguage: true

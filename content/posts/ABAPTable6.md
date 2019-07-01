@@ -1,6 +1,6 @@
 ---
 title: "报表开发<OO ALV>"
-date: 2018-09-25T17:20:58+08:00
+date: 2018-07-25T17:20:58+08:00
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -92,7 +92,7 @@ IF obj_wcl_alv IS INITIAL.
 
 **创建多个ALV：**
 
-```
+```JS
 DATA:G_SPLITTER TYPE REF TO CL_GUI_SPLITTER_CONTAINER,
      G_CONTAINER_2000L TYPE REF TO CL_GUI_CONTAINER,
      G_CONTAINER_2000R TYPE REF TO CL_GUI_CONTAINER.
@@ -383,4 +383,3 @@ ENDFORM. " prepare_layout
   ```
 
   
-

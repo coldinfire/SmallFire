@@ -1,6 +1,6 @@
 ---
-title: "ABAP 语法详解(五)"
-date: 2018-06-16T17:20:58+08:00
+title: "ABAP 语法详解(优化)"
+date: 2018-06-01T17:20:58+08:00
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -158,3 +158,4 @@ tags:
  21. 使用CASE…WHEN语句代替 IF…ELSEIF…；使用WHILE…ENDWHILE 代替 DO…ENDDO
 
  22. LOOP循环内表时加上Where条件减少CPU负荷，而不是在循环里通过IF语句来过滤数据
+
