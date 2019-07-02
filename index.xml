@@ -3028,7 +3028,7 @@ Decimal Floating Point Ath:(精准计算)
     </item>
     
     <item>
-      <title>查找增强程序1</title>
+      <title> 查找增强程序1 </title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance1/</link>
       <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
       
@@ -3104,7 +3104,7 @@ AT LINE-SELECTION.
     </item>
     
     <item>
-      <title>查找增强程序2</title>
+      <title> 查找增强程序2 </title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance2/</link>
       <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
       
@@ -3317,7 +3317,7 @@ endif.                                                    &amp;quot; IF 1
     </item>
     
     <item>
-      <title>查找增强程序3</title>
+      <title> 查找增强程序3 </title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance3/</link>
       <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
       
@@ -4551,7 +4551,7 @@ endloop.
     </item>
     
     <item>
-      <title>增强</title>
+      <title> 增强 </title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance/</link>
       <pubDate>Thu, 13 Sep 2018 17:23:58 +0800</pubDate>
       
@@ -4671,11 +4671,21 @@ Execute -&amp;gt; 得到的SAP extension name 即为 Customer Exits Enhancement 
 &lt;li&gt;&lt;p&gt;&lt;7&gt;Check the value of parameter &amp;lsquo;EXIT_NAME&amp;rsquo;. It will show you the BADI for that transaction.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;查找的功能程序：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://coldinfire.github.io/2018/ABAPEnhance1/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;利用 t-code 查找增强出口的程序工具&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://coldinfire.github.io/2018/ABAPEnhance2/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;查找增强出口和 BADI&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://coldinfire.github.io/2018/ABAPEnhance1/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;利用 t-code 查找增强出口的程序工具&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
     <item>
-      <title>Dialog程序</title>
+      <title> Dialog程序 </title>
       <link>https://coldinfire.github.io/2018/ABAPDialog/</link>
       <pubDate>Tue, 28 Aug 2018 17:20:58 +0800</pubDate>
       

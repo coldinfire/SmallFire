@@ -234,18 +234,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/Enhance/</loc>
-      
-      <lastmod>2018-09-14T17:23:58+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2018/ABAPEnhance1/</loc>
       
       <lastmod>2018-09-14T17:23:58+08:00</lastmod>
@@ -288,9 +276,35 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/Enhance/</loc>
+      
+      <lastmod>2018-09-14T17:23:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAPEnhance/</loc>
       
       <lastmod>2018-09-13T17:23:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAPDialog/</loc>
+      
+      <lastmod>2018-08-28T17:20:58+08:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -309,20 +323,6 @@
       
       
       <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAPDialog/</loc>
-      
-      <lastmod>2018-08-28T17:20:58+08:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
       
       
     </url>
