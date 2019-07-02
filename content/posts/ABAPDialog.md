@@ -1,5 +1,5 @@
 ---
-title: "Dialog程序"
+title: " Dialog程序 "
 date: 2018-08-28T17:20:58+08:00
 draft: false
 author: Small Fire
@@ -11,8 +11,6 @@ tags:
   - Dialog
  
 ---
-
-
 
 ### TCode
 

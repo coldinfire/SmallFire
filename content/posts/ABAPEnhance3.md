@@ -1,5 +1,5 @@
 ---
-title: "查找增强程序3"
+title: " 查找增强程序3 "
 date: 2018-09-14T17:23:58+08:00
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "增强"
+title: " 增强 "
 date: 2018-09-13T17:23:58+08:00
 draft: false
 author: Small Fire
@@ -74,13 +74,13 @@ tags:
 
 
     - <3> SE24 -> CL_EXITHANDLER -> 在GET_INSTANCE中打断点，然后运行相应的事务码找到对应的BADI
-
+    
     - <4> SE80 -> Repository Infomation System -> Enhancements -> Business Add-ins
-
+    
     - <5> Search string “type ref to” in the main program source code, then check if there is BAdI used in the program
-
+    
     - <6> 它的调用方式是call method(instance),可以通过exit_handler关键词来查找
-
+    
     - <7> ST05选择"table buffer trace"而不是常用的"SQL trace",然后查找 (SXS_INTER,SXC_EXIT,SXC_CLASS,SXC_ATTR)找到BADI
 
 4. Customer Exits and BADI implementation.
@@ -104,3 +104,16 @@ tags:
      - <6>The screen will stop at this method.
 
      - <7>Check the value of parameter 'EXIT_NAME'. It will show you the BADI for that transaction.
+
+查找的功能程序：
+
+- [利用 t-code 查找增强出口的程序工具](https://coldinfire.github.io/2018/ABAPEnhance1/)
+
+- [查找增强出口和 BADI](https://coldinfire.github.io/2018/ABAPEnhance2/)
+
+- [利用 t-code 查找增强出口的程序工具](https://coldinfire.github.io/2018/ABAPEnhance1/)
+
+
+
+
+
