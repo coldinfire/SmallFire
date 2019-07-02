@@ -21,6 +21,42 @@
     </item>
     
     <item>
+      <title>BAPI使用</title>
+      <link>https://coldinfire.github.io/2018/BAPI/</link>
+      <pubDate>Tue, 16 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/BAPI/</guid>
+      <description>BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的RFC函数。 BAPI函数及函数参数参考的结构类型</description>
+    </item>
+    
+    <item>
+      <title>RFC外部调用</title>
+      <link>https://coldinfire.github.io/2018/RFC/</link>
+      <pubDate>Fri, 12 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/RFC/</guid>
+      <description>通过TCode:,进入RFC开发初始界面 创建RFC与Report不同的是，RFC程序需要先定义一个FunctionGroup，一个Group</description>
+    </item>
+    
+    <item>
+      <title>BDC屏幕录制</title>
+      <link>https://coldinfire.github.io/2018/BDC/</link>
+      <pubDate>Wed, 26 Sep 2018 19:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/BDC/</guid>
+      <description>定义 Batch data communication BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输. 两种通用写法： Call Transaction:直接调</description>
+    </item>
+    
+    <item>
+      <title>Authorization</title>
+      <link>https://coldinfire.github.io/2018/Authorization/</link>
+      <pubDate>Sat, 22 Sep 2018 13:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/Authorization/</guid>
+      <description>简介 TCode ​ SU01：查看和编辑Role ​ SU10：实现对用户组的批量维护 ​ SU20：权限字段清单，可以增、删、改权限字段，可以浏览字段具体被哪</description>
+    </item>
+    
+    <item>
       <title>查找增强程序1</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance1/</link>
       <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>

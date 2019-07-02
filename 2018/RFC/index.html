@@ -10,9 +10,9 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPEnhance2/" />
-  <link rel="next" href="https://coldinfire.github.io/2018/Authorization/" />
-  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPEnhance1/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/BDC/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/BAPI/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/RFC/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
   <title>
        
        
-           查找增强程序1 | Small Fire`s Blog
+           RFC外部调用 | Small Fire`s Blog
        
   </title>
-  <meta name="title" content="查找增强程序1 | Small Fire`s Blog">
+  <meta name="title" content="RFC外部调用 | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,17 +35,17 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="查找增强程序1"/>
-<meta name="twitter:description" content="利用t-code查找增强出口的程序工具 REPORT zdamon_005 NO STANDARD PAGE HEADING. TABLES : tstc, tadir, modsapt, modact, trdir, tfdir, enlfdir. TABLES : tstct. DATA : jtab LIKE tadir OCCURS 0 WITH HEADER LINE. DATA : field1(30). DATA : v_devclass LIKE tadir-devclass. PARAMETERS : p_tcode LIKE tstc-tcode OBLIGATORY. SELECT SINGLE * FROM tstc WHERE tcode EQ p_tcode."/>
+<meta name="twitter:title" content="RFC外部调用"/>
+<meta name="twitter:description" content="通过TCode:,进入RFC开发初始界面 创建RFC与Report不同的是，RFC程序需要先定义一个FunctionGroup，一个Group"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "查找增强程序1",
+  "headline": "RFC外部调用",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://coldinfire.github.io/2018/ABAPEnhance1/"
+    "@id": "https://coldinfire.github.io/2018/RFC/"
   },
   "image": {
     "@type": "ImageObject",
@@ -54,11 +54,11 @@
     "height": 600
   },
   "genre": "posts",
-  "keywords": "Enhance",
-  "wordcount": 318,
-  "url": "https://coldinfire.github.io/2018/ABAPEnhance1/",
-  "datePublished": "2018-09-14T17:23:58+08:00",
-  "dateModified": "2018-09-14T17:23:58+08:00",
+  "keywords": "RFC, abap",
+  "wordcount": 353,
+  "url": "https://coldinfire.github.io/2018/RFC/",
+  "datePublished": "2018-10-12T15:15:42+08:00",
+  "dateModified": "2018-10-12T15:15:42+08:00",
   
   "publisher": {
     "@type": "Organization",
@@ -138,11 +138,11 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title">查找增强程序1</h1>
+        <h1 class="post-title">RFC外部调用</h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
-                    on <time datetime=2018-09-14 >14 September 2018</time>
+                    on <time datetime=2018-10-12 >12 October 2018</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -170,73 +170,27 @@
           
           
 
-          
+          <ol>
+<li><p>通过TCode:<SE37>,进入RFC开发初始界面</p></li>
 
-<h2 id="利用t-code查找增强出口的程序工具">利用t-code查找增强出口的程序工具</h2>
+<li><p>创建RFC与Report不同的是，RFC程序需要先定义一个FunctionGroup，一个Group下可包含多个Function。</p></li>
 
-<pre><code class="language-jsp">REPORT  zdamon_005 NO STANDARD PAGE HEADING.
-TABLES : tstc, tadir, modsapt, modact, trdir, tfdir, enlfdir.
-TABLES : tstct.
-DATA : jtab LIKE tadir OCCURS 0 WITH HEADER LINE.
-DATA : field1(30).
-DATA : v_devclass LIKE tadir-devclass.
-PARAMETERS : p_tcode LIKE tstc-tcode OBLIGATORY.
+<li><p>Goto &gt; Function Groups &gt; Create Group</p></li>
 
-SELECT SINGLE * FROM tstc WHERE tcode EQ p_tcode.
-  IF sy-subrc EQ 0.
-	SELECT SINGLE * FROM tadir WHERE pgmid = 'R3TR'
-		AND object = 'PROG'
-		AND obj_name = tstc-pgmna.
-	MOVE : tadir-devclass TO v_devclass.
-	IF sy-subrc NE 0.
-	  SELECT SINGLE * FROM trdir WHERE name = tstc-pgmna.
-	  IF trdir-subc EQ 'F'.
-		SELECT SINGLE * FROM tfdir WHERE pname = tstc-pgmna.
-		SELECT SINGLE * FROM enlfdir WHERE funcname = tfdir-funcname.
-		SELECT SINGLE * FROM tadir WHERE pgmid = 'R3TR'
-			AND object = 'FUGR'
-			AND obj_name EQ enlfdir-area.
-		MOVE : tadir-devclass TO v_devclass.
-	  ENDIF.
-	ENDIF.
-	SELECT * FROM tadir INTO TABLE jtab WHERE pgmid = 'R3TR'
-		AND object = 'SMOD'
-		AND devclass = v_devclass.
-	SELECT SINGLE * FROM tstct WHERE sprsl EQ sy-langu 
-	AND tcode EQ p_tcode.
-	FORMAT COLOR COL_POSITIVE INTENSIFIED OFF.
-	WRITE:/(19) 'Transaction Code - ',20(20) p_tcode,45(50) tstct-ttext.
-	SKIP.
-	IF NOT jtab[] IS INITIAL.
-	  WRITE:/(95) sy-uline.
-	  FORMAT COLOR COL_HEADING INTENSIFIED ON.	
-	  WRITE:/1 sy-vline,2 'Exit Name',21 sy-vline ,22 'Description',95 sy-vline.
-	  WRITE:/(95) sy-uline.
-	  LOOP AT jtab.
-		SELECT SINGLE * FROM modsapt WHERE sprsl = sy-langu 
-		AND	name = jtab-obj_name.
-		FORMAT COLOR COL_NORMAL INTENSIFIED OFF.
-		WRITE:/1 sy-vline,2 jtab-obj_name HOTSPOT ON,21 sy-vline ,22 modsapt-modtext,95 sy-vline.
-	  ENDLOOP.
-	  WRITE:/(95) sy-uline.
-	  DESCRIBE TABLE jtab.
-	  SKIP.
-	  FORMAT COLOR COL_TOTAL INTENSIFIED ON.
-	  WRITE:/ 'No of Exits:' , sy-tfill.
-	ELSE.
-	  FORMAT COLOR COL_NEGATIVE INTENSIFIED ON.
-	  WRITE:/(95) 'No User Exit exists'.
-  ENDIF.
-ELSE.
-  FORMAT COLOR COL_NEGATIVE INTENSIFIED ON.
-  WRITE:/(95) 'Transaction Code Does Not Exist'.
-ENDIF.
-AT LINE-SELECTION.
-  GET CURSOR FIELD field1.
-  CHECK field1(4) EQ 'JTAB'.
-  SET PARAMETER ID 'MON' FIELD sy-lisel+1(10).
-  CALL TRANSACTION 'SMOD' AND SKIP FIRST SCREEN.
-</code></pre>
+<li><p>对Function进行属性设置</p></li>
+
+<li><p>Functino编辑器分为七个页面：</p>
+
+<ul>
+<li>Attributes：设置Short text和Processing Type,是否允许外部调用。</li>
+<li>Import：数据输入接口，接口参数可以为单个变量或则为一个结构体。</li>
+<li>Export：数据输出接口，接口参数可以为单个变量或一个结构体。</li>
+<li>Changing：将传入的表数据修改后返回</li>
+<li>Tables：可同时作为输入输出接口，参数可谓单个变量或Struct或内表</li>
+<li>Exceptions：异常输入几口，参数可以为单个变量或内表</li>
+<li>Source code：ABAP代码编辑器，定义RFC的具体功能。</li>
+</ul></li>
+</ol>
 
     </div>
 
@@ -250,7 +204,7 @@ AT LINE-SELECTION.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>318</span>
+                   <span>353</span>
             </p>
             
             <p class="copyright-item">
@@ -266,8 +220,11 @@ AT LINE-SELECTION.
             <section>
             <i class="iconfont icon-icon-tag"></i>Tag: 
             
-            <span class="tag"><a href="https://coldinfire.github.io/tags/Enhance/">
-                    #Enhance</a></span>
+            <span class="tag"><a href="https://coldinfire.github.io/tags/RFC/">
+                    #RFC</a></span>
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/abap/">
+                    #abap</a></span>
             
             </section>
         
@@ -279,10 +236,10 @@ AT LINE-SELECTION.
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/ABAPEnhance2/" class="prev" rel="prev" title="查找增强程序2"><i class="iconfont icon-dajiantou"></i>&nbsp;查找增强程序2</a>
+        <a href="https://coldinfire.github.io/2018/BDC/" class="prev" rel="prev" title="BDC屏幕录制"><i class="iconfont icon-dajiantou"></i>&nbsp;BDC屏幕录制</a>
          
         
-        <a href="https://coldinfire.github.io/2018/Authorization/" class="next" rel="next" title="Authorization">Authorization&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/BAPI/" class="next" rel="next" title="BAPI使用">BAPI使用&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -293,8 +250,8 @@ AT LINE-SELECTION.
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-09-14 17:23:58 \x2b0800 \x2b0800',
-        title: '查找增强程序1',
+        id: '2018-10-12 15:15:42 \x2b0800 \x2b0800',
+        title: 'RFC外部调用',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RFC on Small Fire`s Blog</title>
+    <link>https://coldinfire.github.io/tags/RFC/</link>
+    <description>Recent content in RFC on Small Fire`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Oct 2018 15:15:42 +0800</lastBuildDate>
+    
+	<atom:link href="https://coldinfire.github.io/tags/RFC/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RFC外部调用</title>
+      <link>https://coldinfire.github.io/2018/RFC/</link>
+      <pubDate>Fri, 12 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/RFC/</guid>
+      <description>通过TCode:,进入RFC开发初始界面 创建RFC与Report不同的是，RFC程序需要先定义一个FunctionGroup，一个Group</description>
+    </item>
+    
+  </channel>
+</rss>
