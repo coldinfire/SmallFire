@@ -3028,14 +3028,14 @@ Decimal Floating Point Ath:(精准计算)
     </item>
     
     <item>
-      <title> 查找增强程序1 </title>
+      <title>查找增强程序1</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance1/</link>
       <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance1/</guid>
       <description>
 
-&lt;h3 id=&#34;利用t-code查找增强出口的程序工具&#34;&gt;利用t-code查找增强出口的程序工具&lt;/h3&gt;
+&lt;h2 id=&#34;利用t-code查找增强出口的程序工具&#34;&gt;利用t-code查找增强出口的程序工具&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-jsp&#34;&gt;REPORT  zdamon_005 NO STANDARD PAGE HEADING.
 TABLES : tstc, tadir, modsapt, modact, trdir, tfdir, enlfdir.
@@ -3104,14 +3104,14 @@ AT LINE-SELECTION.
     </item>
     
     <item>
-      <title> 查找增强程序2 </title>
+      <title>查找增强程序2</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance2/</link>
       <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance2/</guid>
       <description>
 
-&lt;h3 id=&#34;查找增强出口和badi&#34;&gt;查找增强出口和BADI&lt;/h3&gt;
+&lt;h2 id=&#34;查找增强出口和badi&#34;&gt;查找增强出口和BADI&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
 *&amp;amp; Report  Z_FIND_EXIT_AND_BADI
@@ -3317,14 +3317,14 @@ endif.                                                    &amp;quot; IF 1
     </item>
     
     <item>
-      <title> 查找增强程序3 </title>
+      <title>查找增强程序3</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance3/</link>
       <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance3/</guid>
       <description>
 
-&lt;h3 id=&#34;一个功能非常全面的增强出口查找工具&#34;&gt;一个功能非常全面的增强出口查找工具&lt;/h3&gt;
+&lt;h2 id=&#34;一个功能非常全面的增强出口查找工具&#34;&gt;一个功能非常全面的增强出口查找工具&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;*&amp;amp;--------------------------------------------------------------------&amp;amp;*
 *&amp;amp; Report: zdamon_004 (V9) &amp;amp;*
@@ -4551,7 +4551,7 @@ endloop.
     </item>
     
     <item>
-      <title> 增强 </title>
+      <title>增强</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance/</link>
       <pubDate>Thu, 13 Sep 2018 17:23:58 +0800</pubDate>
       
@@ -4685,14 +4685,14 @@ Execute -&amp;gt; 得到的SAP extension name 即为 Customer Exits Enhancement 
     </item>
     
     <item>
-      <title> Dialog程序 </title>
+      <title>Dialog程序</title>
       <link>https://coldinfire.github.io/2018/ABAPDialog/</link>
       <pubDate>Tue, 28 Aug 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPDialog/</guid>
       <description>
 
-&lt;h3 id=&#34;tcode&#34;&gt;TCode&lt;/h3&gt;
+&lt;h2 id=&#34;tcode&#34;&gt;TCode&lt;/h2&gt;
 
 &lt;p&gt;​   SE51：屏幕操作器&lt;/p&gt;
 
