@@ -5,11 +5,9 @@ draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-
   - ABAP
 
 tags: 
-
   - Enhance
 
 ---
