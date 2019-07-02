@@ -10,9 +10,9 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/git/" />
-  <link rel="next" href="https://coldinfire.github.io/2018/test/" />
-  <link rel="canonical" href="https://coldinfire.github.io/2018/hugo1/" />
+  
+  <link rel="next" href="https://coldinfire.github.io/2017/JS/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2017/CSS/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
   <title>
        
        
-            Hugo快速搭建博客   | Small Fire`s Blog
+           CSS格式与标准总结 | Small Fire`s Blog
        
   </title>
-  <meta name="title" content=" Hugo快速搭建博客   | Small Fire`s Blog">
+  <meta name="title" content="CSS格式与标准总结 | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,17 +35,17 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=" Hugo快速搭建博客  "/>
-<meta name="twitter:description" content="工具准备 hugo node.js git github 操作步骤"/>
+<meta name="twitter:title" content="CSS格式与标准总结"/>
+<meta name="twitter:description" content="CSS语法 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器单独一行； 一条声明的开大括号前留一"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": " Hugo快速搭建博客  ",
+  "headline": "CSS格式与标准总结",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://coldinfire.github.io/2018/hugo1/"
+    "@id": "https://coldinfire.github.io/2017/CSS/"
   },
   "image": {
     "@type": "ImageObject",
@@ -54,11 +54,11 @@
     "height": 600
   },
   "genre": "posts",
-  "keywords": "hugo",
-  "wordcount": 12,
-  "url": "https://coldinfire.github.io/2018/hugo1/",
-  "datePublished": "2018-03-12T17:20:58+08:00",
-  "dateModified": "2018-03-12T17:20:58+08:00",
+  "keywords": "CSS",
+  "wordcount": 933,
+  "url": "https://coldinfire.github.io/2017/CSS/",
+  "datePublished": "2017-09-12T17:20:58+08:00",
+  "dateModified": "2017-09-12T17:20:58+08:00",
   
   "publisher": {
     "@type": "Organization",
@@ -138,20 +138,20 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title"> Hugo快速搭建博客  </h1>
+        <h1 class="post-title">CSS格式与标准总结</h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
-                    on <time datetime=2018-03-12 >12 March 2018</time>
+                    on <time datetime=2017-09-12 >12 September 2017</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+                        <a href="https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/"> 前端 </a>
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                1 min
+                2 min
         </div>
     </header>
     <div class="post-content">
@@ -172,20 +172,89 @@
 
           
 
-<h2 id="工具准备">工具准备</h2>
+<h2 id="css语法">CSS语法</h2>
+
+<ul>
+<li>使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致；</li>
+<li>当成组使用选择器时，每个选择器单独一行；</li>
+<li>一条声明的开大括号前留一空格；</li>
+<li>声明的关闭右括号请新起一行；</li>
+<li>每条引用声明冒号后留一个空格；</li>
+<li>每条声明有单独的一行，以便错误报告更精确；</li>
+<li>每条声明以分号结尾，最后一个可以没有，但这样容易出错；</li>
+<li>以逗号分隔属性值之间，要在逗号后面保留一个空格（例如： <code>box-shadow</code>）；</li>
+<li>在<code>rgb()</code>、<code>rgba()</code>、<code>hsl()</code>、<code>hsla()</code>以及<code>rect()</code>属性值*中*逗号后不要加空格，这样能把多色彩值（逗号无空格）与多属性值的情况区分开来（逗号带空格）；</li>
+<li>省略掉属性值以及颜色参数的首位0（例如：用 <code>.5</code> 代替 <code>0.5</code> ，用 <code>-.5px</code> 取代 <code>-0.5px</code>）；</li>
+<li>十六进制值要用小写，像 <code>#fff</code>这样，当一个文档中有很多的字母时，小写字母更容易分辨；</li>
+<li>如果可以的话，简化十六进制值的写法，如用 <code>#fff</code> 代替 <code>#ffffff</code> ；</li>
+<li>在选择器中引用属性值，例如：<code>input[type=&quot;text&quot;]</code>，在某些情况下可选是否使用，这样做也能更好地统一代码；</li>
+<li>零值不需要添加单位，例如：用 <code>margin: 0;</code> 代替 <code>margin: 0px;</code>；</li>
+</ul>
+
+<h3 id="声明顺序">声明顺序</h3>
+
+<p>有关联的属性声明之间应该按照以下顺序组在一起：</p>
 
 <ol>
-<li>hugo</li>
-<li>node.js</li>
-<li>git</li>
-<li>github</li>
+<li><p>定位</p></li>
+
+<li><p>盒模型</p></li>
+
+<li><p>排字</p></li>
+
+<li><p>视觉设计</p></li>
+
+<li><p>其他杂项</p></li>
 </ol>
 
-<h2 id="操作步骤">操作步骤</h2>
+<p>​    定位摆在第一位，因为它能把元素从文档正常流中脱离出来，覆盖盒模型样式。而盒模型表示着组件的度量尺寸和摆放位置，因此排第二。排版和视觉都是属于元素内部的属性，不会影响到前两项，所以排为3、4。</p>
 
-<ol>
-<li></li>
-</ol>
+<h3 id="选择器">选择器</h3>
+
+<ul>
+<li>为了更好的显示性能，请使用类名而非一般的元素标签；</li>
+<li>对于经常使用的组件，不要使用多个属性选择器，这样调用对浏览器性能有不小影响；</li>
+<li>尽可能保持简短，如果可以请限制在3个元素以内；</li>
+<li><strong>只有</strong>在不得已的情况下再回溯最近的父级元素（例如：类名无前缀时）；</li>
+</ul>
+
+<h2 id="标签">标签</h2>
+
+<h2 id="引用css和javascript文件">引用CSS和JavaScript文件</h2>
+
+<p>​   按照HTML5规范，一般来说，当CSS和JS文件被引用时，都会默认以 <code>text/css</code>和 <code>text/javascript</code> 的方式，没必要特意为其指定 <code>type</code> 类型。</p>
+
+<pre><code class="language-CSS">&lt;!-- 外部 CSS --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;code-guide.css&quot;&gt;
+
+&lt;!-- 文档内CSS --&gt;
+&lt;style&gt;
+/* ... */
+&lt;/style&gt;
+
+&lt;!-- JavaScript --&gt;
+&lt;script src=&quot;code-guide.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h2 id="属性顺序">属性顺序</h2>
+
+<p>HTML属性应按照特定的顺序排列，以方便代码查阅。</p>
+
+<ul>
+<li><p><code>class</code></p></li>
+
+<li><p><code>id</code>, <code>name</code></p></li>
+
+<li><p><code>data-*</code></p></li>
+
+<li><p><code>src</code>, <code>for</code>, <code>type</code>, <code>href</code>, <code>value</code></p></li>
+
+<li><p><code>title</code>, <code>alt</code></p></li>
+
+<li><p><code>role</code>, <code>aria-*</code></p></li>
+</ul>
+
+<p>Class能让我们更好地重用组件，所以它打头阵；id则更加特定和专属，应尽量控制其使用（例如：内页书签）。</p>
 
     </div>
 
@@ -199,7 +268,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>12</span>
+                   <span>933</span>
             </p>
             
             <p class="copyright-item">
@@ -215,8 +284,8 @@
             <section>
             <i class="iconfont icon-icon-tag"></i>Tag: 
             
-            <span class="tag"><a href="https://coldinfire.github.io/tags/hugo/">
-                    #hugo</a></span>
+            <span class="tag"><a href="https://coldinfire.github.io/tags/CSS/">
+                    #CSS</a></span>
             
             </section>
         
@@ -227,11 +296,9 @@
     </div>
 
     <div class="post-nav">
-        
-        <a href="https://coldinfire.github.io/2018/git/" class="prev" rel="prev" title="Git学习与总结"><i class="iconfont icon-dajiantou"></i>&nbsp;Git学习与总结</a>
          
         
-        <a href="https://coldinfire.github.io/2018/test/" class="next" rel="next" title=" Hugo搭建博客(自动化部署)"> Hugo搭建博客(自动化部署)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2017/JS/" class="next" rel="next" title="JavaScript学习与总结">JavaScript学习与总结&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -242,8 +309,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-03-12 17:20:58 \x2b0800 \x2b0800',
-        title: ' Hugo快速搭建博客  ',
+        id: '2017-09-12 17:20:58 \x2b0800 \x2b0800',
+        title: 'CSS格式与标准总结',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',
