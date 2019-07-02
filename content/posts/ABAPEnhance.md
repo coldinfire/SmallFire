@@ -1,5 +1,5 @@
 ---
-title: " 增强 "
+title: "增强"
 date: 2018-09-13T17:23:58+08:00
 draft: false
 author: Small Fire

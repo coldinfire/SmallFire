@@ -1,5 +1,5 @@
 ---
-title: " 查找增强程序1 "
+title: "查找增强程序1"
 date: 2018-09-14T17:23:58+08:00
 draft: false
 author: Small Fire
@@ -11,7 +11,9 @@ tags:
   - Enhance
 
 ---
-### 利用t-code查找增强出口的程序工具
+
+
+## 利用t-code查找增强出口的程序工具
 
 ```jsp
 REPORT  zdamon_005 NO STANDARD PAGE HEADING.
