@@ -3257,8 +3257,9 @@ DATA:GS_CTU_PARAMS TYPE CTU_PARAMS. 调事务代码时带的一些参数，是�
 
 &lt;p&gt;​   SU24：将Authorization Object Assign 到 T-Code 上&lt;/p&gt;
 
-&lt;p&gt;​   SU53：当前用户权限不足问题查看
-SUIM: 用户、角色、权限对象、事务等之间的关系查看&lt;/p&gt;
+&lt;p&gt;​   SU53：当前用户权限不足问题查看&lt;/p&gt;
+
+&lt;p&gt;SUIM：用户、角色、权限对象、事务等之间的关系查看&lt;/p&gt;
 
 &lt;p&gt;​   PFCG：进入权限角色维护界面，创建Role 设置Role的Authorization Object&lt;/p&gt;
 
