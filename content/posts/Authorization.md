@@ -10,9 +10,7 @@ categories:
 tags: 
   - 权限管理
 
-
 ---
-
 
 
 ## 简介
@@ -33,7 +31,8 @@ tags:
 ​	SU24：将Authorization Object Assign 到 T-Code 上
 
 ​	SU53：当前用户权限不足问题查看
-SUIM: 用户、角色、权限对象、事务等之间的关系查看
+
+  SUIM：用户、角色、权限对象、事务等之间的关系查看
 
 ​	PFCG：进入权限角色维护界面，创建Role 设置Role的Authorization Object
 

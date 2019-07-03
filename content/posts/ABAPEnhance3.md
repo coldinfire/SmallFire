@@ -3,7 +3,6 @@ title: "查找增强程序3"
 date: 2018-09-14T17:23:58+08:00
 draft: false
 author: Small Fire
-isCJKLanguage: true
 categories: 
   - ABAP
 
@@ -11,7 +10,6 @@ tags:
   - Enhance
 
 ---
-
 
 
 ## 一个功能非常全面的增强出口查找工具
