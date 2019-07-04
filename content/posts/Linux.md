@@ -120,32 +120,5 @@ man [command]：查看命令使用文档
 
 1. 远程 rcp: 远程拷贝文件 scp [] 原路径 目标路径：远程拷贝文件，secure copy wget [参数] URL 地址：下载
 
-# 用户权限
 
-------
-
-```
-1. user:cat /home/...
-    who     :查看用户
-    whoami  :查看当前用户
-    ssh username@ip：远程登录电脑
-    useradd name [-mg] :添加用户并自动添加home目录 [-g]:用户组 [-m]:主目录
-    passwd name  :修改密码
-    su - user   :切换到指定用户(muiot)
-    su  user    :to the user
-    sudo -s     :切换到root
-    su          :to root
-    userdel     :del user [-r]:删除用户主目录
-    usermod [-aG] group user :change user info  [-a]:添加组 [-g]:group修改默认组 [-aG]:添加其它组
-2. user group:cat /etc/group
-    查看组:cat /etc/group   groupmod [tab][tab]
-    groupmod tabtabtab :check group
-    groupadd g_name :add group
-    groupdel g_name :del group
-    groups username :user in which group
-    newgrp root:用户在用户组之间进行切换
-3. 重要文件
-    /etc/passwd:用户管理涉及到的最重要的一个文件(用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell)
-    /etc/group:用户组所有信息(组名:口令:组标识号:组内用户列表)
-```
 

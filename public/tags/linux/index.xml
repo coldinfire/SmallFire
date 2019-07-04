@@ -6,10 +6,37 @@
     <description>Recent content in linux on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 16 Oct 2017 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> Linux Vim使用 </title>
+      <link>https://coldinfire.github.io/2017/LinuxVim/</link>
+      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/LinuxVim/</guid>
+      <description>文件编辑：Vim 1) 命令行模式command mode） 控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者</description>
+    </item>
+    
+    <item>
+      <title> Linux 权限管理 </title>
+      <link>https://coldinfire.github.io/2017/LinuxAuth/</link>
+      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/LinuxAuth/</guid>
+      <description>用户权限 1.增删改查用户 useradd username:创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：修改用户</description>
+    </item>
+    
+    <item>
+      <title> Linux文件操作 </title>
+      <link>https://coldinfire.github.io/2017/LinuxFile/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/LinuxFile/</guid>
+      <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： [d]:目录 [-]:文件 [l]:链接文档 [b]:可随机存储装置 [c]:串行端口设备 后续文字意</description>
+    </item>
     
     <item>
       <title> Linux基础 </title>
@@ -17,7 +44,7 @@
       <pubDate>Mon, 16 Oct 2017 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2017/Linux/</guid>
-      <description>基本命令 man [command]:查看命令使用文档 1. 文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： [d]:目录 [-]:文件 [l]:链接文档 [b</description>
+      <description>主要内容 Linux 操作系统安装及初始化 Linux目录组成结构及文件的增删改查，用户，权限管理 Linux软件包管理、磁盘管理 Linux网络基础 Linu</description>
     </item>
     
   </channel>

@@ -10,7 +10,7 @@ categories:
 
 tags: 
   - linux
-  - Flie
+  - Vim
 
 ---
 

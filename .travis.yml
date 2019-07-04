@@ -15,7 +15,7 @@ after_script:
   - git init
   - git config user.name "coldinfire"
   - git config user.email "coldinfire@163.com"
-  - git add -A
+  - git add .
   - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
   # Github Pages
   - git push --force --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master
@@ -34,8 +34,8 @@ deploy:
   keep-history: true           # 是否保持target-branch分支的提交记录
   on:
     branch: master           # 博客源码的分支
-# repo: qixiaoluo/qixiaoluo.github.io
+  repo: coldinfire/coldinfire.github.io
 # fqdn:                       # 如果是自定义域名，此处要填
-# target_branch: master         # 要将静态站点文件发布到哪个分支
+  target_branch: master         # 要将静态站点文件发布到哪个分支
   email: coldinfire@163.com
   name: coldinfire

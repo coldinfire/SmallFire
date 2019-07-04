@@ -6,10 +6,64 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Oct 2018 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 04 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SAP memory使用</title>
+      <link>https://coldinfire.github.io/2019/ABAPMemory/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPMemory/</guid>
+      <description>SAP memory和ABAP memory 使用的语句不同 SAP memory使用SET/GET parameters； SPA：SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD p_matnr. GPA：GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD</description>
+    </item>
+    
+    <item>
+      <title>ABAP DOI使用</title>
+      <link>https://coldinfire.github.io/2019/ABAPDOI/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPDOI/</guid>
+      <description>概述 DOI（Desktop office Integration）采用OO的思想实现与Office的结合使用。 可以先上传模板到服务器(OAOR)，然后对模</description>
+    </item>
+    
+    <item>
+      <title>BOM展开</title>
+      <link>https://coldinfire.github.io/2018/BOM/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/BOM/</guid>
+      <description>SAP BOM读取逻辑 相关表 MAST：Material BOM STKO : BOM Header STPO : BOM Positions (detail) MAPL : Assignment fo Task Lists to Materials PLKO : Routing Group Header PLSO : Routing Group Sequence PLPO : Routing Group Operations AFKO : Production Order Header AFPO : Production Order Position (details) 可用</description>
+    </item>
+    
+    <item>
+      <title>ABAP 工作流</title>
+      <link>https://coldinfire.github.io/2018/ABAPWorkFlow/</link>
+      <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPWorkFlow/</guid>
+      <description>SAP工作流介绍 工作流是一个基于某组程序规则所采用的路径。是自动运作的任务的进程中，参与的人、文件、信息或任务，以及各个要素间的传递按照规程</description>
+    </item>
+    
+    <item>
+      <title>Excle操作</title>
+      <link>https://coldinfire.github.io/2018/ABAPExcel/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPExcel/</guid>
+      <description>使用 BAPI 1. 内表数据下载到文件: CALL FUNCTION &#39;DOWNLOAD&#39;：提示保存 CALL FUNCTION &#39;WS_DOWNLOAD&#39;：不提示直接保存 CALL FUNCTION &#39;DOWNLOAD_WEB_</description>
+    </item>
+    
+    <item>
+      <title>IDoc操作</title>
+      <link>https://coldinfire.github.io/2018/IDoc/</link>
+      <pubDate>Mon, 22 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/IDoc/</guid>
+      <description>IDoc IDoc:是基于文档，用作异步传输数据的载体，类似于XML ● IDoc支持异步、同步、可以收集一定数量的包后发送，最重要的是，IDOC有完整</description>
+    </item>
     
     <item>
       <title> WebDynpro </title>
@@ -21,9 +75,54 @@
     </item>
     
     <item>
+      <title>BAPI使用</title>
+      <link>https://coldinfire.github.io/2018/BAPI/</link>
+      <pubDate>Tue, 16 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/BAPI/</guid>
+      <description>BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的RFC函数。 BAPI函数及函数参数参考的结构类型</description>
+    </item>
+    
+    <item>
+      <title>BAPI总结列表</title>
+      <link>https://coldinfire.github.io/2018/ABAPBAPI/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPBAPI/</guid>
+      <description>本文主要记录一些收集来的BAPI,在SE38环境下的程序名输入栏输入&amp;rsquo;DEMO&amp;lsquo;后按F4，你可以查到SAP所有的DE</description>
+    </item>
+    
+    <item>
+      <title>RFC外部调用</title>
+      <link>https://coldinfire.github.io/2018/RFC/</link>
+      <pubDate>Fri, 12 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/RFC/</guid>
+      <description>通过TCode:,进入RFC开发初始界面 创建RFC与Report不同的是，RFC程序需要先定义一个FunctionGroup，一个Group</description>
+    </item>
+    
+    <item>
+      <title>BDC屏幕录制</title>
+      <link>https://coldinfire.github.io/2018/BDC/</link>
+      <pubDate>Wed, 26 Sep 2018 19:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/BDC/</guid>
+      <description>定义 Batch data communication BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输. 两种通用写法： Call Transaction:直接调</description>
+    </item>
+    
+    <item>
+      <title>Authorization</title>
+      <link>https://coldinfire.github.io/2018/Authorization/</link>
+      <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/Authorization/</guid>
+      <description>简介 TCode ​ SU01：查看和编辑Role ​ SU10：实现对用户组的批量维护 ​ SU20：权限字段清单，可以增、删、改权限字段，可以浏览字段具体被哪</description>
+    </item>
+    
+    <item>
       <title>查找增强程序1</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance1/</link>
-      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance1/</guid>
       <description>利用t-code查找增强出口的程序工具 REPORT zdamon_005 NO STANDARD PAGE HEADING. TABLES : tstc, tadir, modsapt, modact, trdir, tfdir, enlfdir. TABLES : tstct. DATA : jtab LIKE tadir OCCURS 0 WITH HEADER LINE. DATA : field1(30). DATA : v_devclass LIKE tadir-devclass. PARAMETERS : p_tcode LIKE tstc-tcode OBLIGATORY. SELECT SINGLE * FROM tstc WHERE tcode EQ p_tcode.</description>
@@ -32,7 +131,7 @@
     <item>
       <title>查找增强程序2</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance2/</link>
-      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance2/</guid>
       <description>查找增强出口和BADI *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z_FIND_EXIT_AND_BADI *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Enter the transaction code that you want to search through in order *&amp;amp; to find which Standard SAP User Exits and BADIs *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; For field &#39;SUBC&#39; of table &#39;TRDIR&#39;: *&amp;amp; M Module Pool *&amp;amp; F Function group *&amp;amp; S Subroutine</description>
@@ -41,7 +140,7 @@
     <item>
       <title>查找增强程序3</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance3/</link>
-      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance3/</guid>
       <description>一个功能非常全面的增强出口查找工具 *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Report: zdamon_004 (V9) &amp;amp;* *&amp;amp; PJA Consultancy Services (www.pjas.com) &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; This report attmpts to find Enhancements, Program-Exits, BADIs &amp;amp;* *&amp;amp; and Business Transaction Events in a particular program/tcode. &amp;amp;* *&amp;amp; Last updated: 09 May 2007 &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Selection Texts: *&amp;amp; P_ALV ALV format *&amp;amp; P_AUTH Include authority-check search</description>
@@ -50,7 +149,7 @@
     <item>
       <title>增强</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance/</link>
-      <pubDate>Thu, 13 Sep 2018 17:23:58 +0800</pubDate>
+      <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance/</guid>
       <description>基本概念 User Exits：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。 用户出口</description>
@@ -59,10 +158,28 @@
     <item>
       <title>Dialog程序</title>
       <link>https://coldinfire.github.io/2018/ABAPDialog/</link>
-      <pubDate>Tue, 28 Aug 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPDialog/</guid>
       <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>
+    </item>
+    
+    <item>
+      <title>可输入弹出框</title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils5/</link>
+      <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils5/</guid>
+      <description>POPUP_GET_VALUES_USER_HELP 输入表格，SVAL相应的字段信息决定显示的效果： tabname = &#39;AFKO&#39;. fieldname = &#39;AUFNR&#39;. fieldtext = &#39;生产订单号&#39;. field_attr = &#39;02&#39;. //是否可输入和显示 value = &#39;val&#39;. CALL FUNCTION &#39;POPUP_GET_VALUES_USER_HELP&#39; EXPORTING * F1_FORMNAME = &#39; &#39; * F1_PROGRAMNAME = &#39;</description>
+    </item>
+    
+    <item>
+      <title>工具合计</title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils1/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils1/</guid>
+      <description>字符串前拼接空格 在Grid ALV上也显示敲到空格： IF &amp;lt;fw_output&amp;gt;-name2+0(1) eq space AND &amp;lt;fw_output&amp;gt;-name2 IS NOT INITIAL. h_white = cl_abap_conv_in_ce=&amp;gt;uccpi( 160 ). REPLACE ALL OCCURRENCES OF REGEX &#39;\s&#39; IN &amp;lt;fw_output&amp;gt;-name2 WITH h_white. ENDIF. Commit 和 Rollback CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39; EXPORTING wait = &#39;X&#39;. IMPORTING return = commback. CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39; IMPORTING return =</description>
     </item>
     
     <item>
@@ -120,12 +237,57 @@
     </item>
     
     <item>
+      <title>业务流程</title>
+      <link>https://coldinfire.github.io/2018/ABAPSumory/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPSumory/</guid>
+      <description>PP流程 MM01(Material)-&amp;gt;CS01(BOM)-&amp;gt;CR01(WORKCENTERY)-&amp;gt;CA01(ROUTING)-&amp;gt;MD11(PLANNED ORDER)-&amp;gt; COO1(PRODUCTION ORDERS)也可通过CO41/CO40转换计划单得来. COMAC:对生产订单进行可用性检查 COHVOMPRINT:打印订单 M</description>
+    </item>
+    
+    <item>
       <title>报表开发&lt;概述&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable1/</link>
       <pubDate>Fri, 15 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable1/</guid>
       <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>
+    </item>
+    
+    <item>
+      <title>红绿灯</title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils4/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils4/</guid>
+      <description>定义 TYPE-POOLS:icon,sym,slis,col. DATA: l_alv_filed TYPE slis_fieldcat_alv, l_alv_filedcat TYPE slis_t_fieldcat_alv. TYPES:BEGIN OF str_alv, id TYPE char25, xxx TYPE xxx, xxx TYPE xxx, xxx TYPE xxx, xxx TYPE string, END OF str_alv. DATA:it_alv TYPE STANDARD TABLE OF str_alv WITH HEADER LINE. CONSTANTS: c_green TYPE icon-id VALUE &#39;@08@&#39;, c_yellow TYPE icon-id VALUE &#39;@09@&#39;, c_red TYPE icon-id VALUE &#39;@0A@&#39;. 赋值 IF it_return-type = &#39;E&#39;. it_alv-id = c_red. CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39;. ELSE. it_alv-id</description>
+    </item>
+    
+    <item>
+      <title>小数后面去除后缀0</title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils2/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils2/</guid>
+      <description>小数后面去除后缀0 form DATA_DELETE_ZERO using p_field z_result. DATA:var1 TYPE p DECIMALS 3, var2 TYPE p DECIMALS 2, var3 TYPE p DECIMALS 1, var4 TYPE i. move p_field to var1. move p_field to var2. move p_field to var3. move p_field to var4. IF var2 = var1. IF var3 = var1. IF var4 = var1. z_result = var4. ELSE. z_result = var3. ENDIF. ELSE. z_result</description>
+    </item>
+    
+    <item>
+      <title>负号前置</title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils3/</link>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils3/</guid>
+      <description>负号前置 定义函数：CONVERSION_EXIT_Z001_OUTPUT. FUNCTION conversion_exit_z001_output. *&amp;quot;---------------------------------------------------------------------- *&amp;quot;*&amp;quot;本地接口： *&amp;quot; IMPORTING *&amp;quot; REFERENCE(INPUT) *&amp;quot; EXPORTING *&amp;quot; REFERENCE(OUTPUT) *&amp;quot;---------------------------------------------------------------------- *作</description>
+    </item>
+    
+    <item>
+      <title>添加修改人信息</title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils/</guid>
+      <description>添加修改人信息 可以根据TCode进行相应的判断： 创建人信息: l_wa_head-ernam = sy-uname. l_wa_head-erdat = sy-datum. l_wa_head-erzet = sy-uzeit. call function &#39;TERMINAL_ID_GET&#39; exporting username = sy-uname importing terminal = l_wa_head-eterminal exceptions multiple_terminal_id = 1 no_terminal_found = 2 others = 3. 修改人信息： l_wa_head-urnam = sy-uname. l_wa_head-urdat</description>
     </item>
     
     <item>
@@ -167,7 +329,7 @@
     <item>
       <title>ABAP 语法详解(数据类型)</title>
       <link>https://coldinfire.github.io/2018/ABAP1/</link>
-      <pubDate>Sat, 12 May 2018 17:20:58 +0800</pubDate>
+      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP1/</guid>
       <description>ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :</description>

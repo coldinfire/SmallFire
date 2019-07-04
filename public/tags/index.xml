@@ -21,11 +21,74 @@
     </item>
     
     <item>
+      <title>abap</title>
+      <link>https://coldinfire.github.io/tags/abap/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/abap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utils</title>
+      <link>https://coldinfire.github.io/tags/utils/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/utils/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DOI</title>
+      <link>https://coldinfire.github.io/tags/DOI/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/DOI/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>python</title>
       <link>https://coldinfire.github.io/tags/python/</link>
       <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BOM</title>
+      <link>https://coldinfire.github.io/tags/BOM/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/BOM/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflow</title>
+      <link>https://coldinfire.github.io/tags/workflow/</link>
+      <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/workflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Excel</title>
+      <link>https://coldinfire.github.io/tags/Excel/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/Excel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IDoc</title>
+      <link>https://coldinfire.github.io/tags/IDoc/</link>
+      <pubDate>Mon, 22 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/IDoc/</guid>
       <description></description>
     </item>
     
@@ -39,9 +102,45 @@
     </item>
     
     <item>
+      <title>BAPI</title>
+      <link>https://coldinfire.github.io/tags/BAPI/</link>
+      <pubDate>Tue, 16 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/BAPI/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RFC</title>
+      <link>https://coldinfire.github.io/tags/RFC/</link>
+      <pubDate>Fri, 12 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/RFC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BDC</title>
+      <link>https://coldinfire.github.io/tags/BDC/</link>
+      <pubDate>Wed, 26 Sep 2018 19:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/BDC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>权限管理</title>
+      <link>https://coldinfire.github.io/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Enhance</title>
       <link>https://coldinfire.github.io/tags/Enhance/</link>
-      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/Enhance/</guid>
       <description></description>
@@ -50,7 +149,7 @@
     <item>
       <title>Dialog</title>
       <link>https://coldinfire.github.io/tags/Dialog/</link>
-      <pubDate>Tue, 28 Aug 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/Dialog/</guid>
       <description></description>
@@ -62,15 +161,6 @@
       <pubDate>Sat, 28 Jul 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>abap</title>
-      <link>https://coldinfire.github.io/tags/abap/</link>
-      <pubDate>Fri, 01 Jun 2018 17:20:58 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/abap/</guid>
       <description></description>
     </item>
     
@@ -93,11 +183,38 @@
     </item>
     
     <item>
+      <title>Vim</title>
+      <link>https://coldinfire.github.io/tags/Vim/</link>
+      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/Vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>authority</title>
+      <link>https://coldinfire.github.io/tags/authority/</link>
+      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/authority/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>linux</title>
       <link>https://coldinfire.github.io/tags/linux/</link>
-      <pubDate>Mon, 16 Oct 2017 17:20:58 +0800</pubDate>
+      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flie</title>
+      <link>https://coldinfire.github.io/tags/Flie/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/Flie/</guid>
       <description></description>
     </item>
     
