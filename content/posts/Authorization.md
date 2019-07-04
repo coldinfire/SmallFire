@@ -1,6 +1,6 @@
 ---
 title: "Authorization"
-date: 2018-09-22T13:15:42+08:00
+date: 2018-09-22
 draft: false
 author: Small Fire
 isCJKLanguage: true

@@ -1,6 +1,6 @@
 ---
 title: "查找增强程序2"
-date: 2018-09-14T17:23:58+08:00
+date: 2018-09-14
 draft: false
 author: Small Fire
 isCJKLanguage: true

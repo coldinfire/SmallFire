@@ -1,6 +1,6 @@
 ---
 title: "ABAP 语法详解(数据类型)"
-date: 2018-05-12T17:20:58+08:00
+date: 2018-05-12
 draft: false
 author: Small Fire
 isCJKLanguage: true
