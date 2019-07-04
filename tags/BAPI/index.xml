@@ -20,5 +20,14 @@
       <description>BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的RFC函数。 BAPI函数及函数参数参考的结构类型</description>
     </item>
     
+    <item>
+      <title>BAPI总结列表</title>
+      <link>https://coldinfire.github.io/2018/ABAPBAPI/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPBAPI/</guid>
+      <description>本文主要记录一些收集来的BAPI,在SE38环境下的程序名输入栏输入&amp;rsquo;DEMO&amp;lsquo;后按F4，你可以查到SAP所有的DE</description>
+    </item>
+    
   </channel>
 </rss>

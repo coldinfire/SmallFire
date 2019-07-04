@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2018/IDoc/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAPWorkFlow/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPExcel/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Excle操作 | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content="Excle操作 | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Excle操作"/>
+<meta name="twitter:description" content="使用 BAPI 1. 内表数据下载到文件: CALL FUNCTION &#39;DOWNLOAD&#39;：提示保存 CALL FUNCTION &#39;WS_DOWNLOAD&#39;：不提示直接保存 CALL FUNCTION &#39;DOWNLOAD_WEB_"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Excle操作",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://coldinfire.github.io/2018/ABAPExcel/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://coldinfire.github.io/cover.png",
+    "width": 800,
+    "height": 600
+  },
+  "genre": "posts",
+  "keywords": "Excel, abap",
+  "wordcount": 1631,
+  "url": "https://coldinfire.github.io/2018/ABAPExcel/",
+  "datePublished": "2018-11-13T00:00:00+00:00",
+  "dateModified": "2018-11-13T00:00:00+00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "SmallFire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://coldinfire.github.io/logo.png",
+      "width": 127,
+      "height": 40
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Excle操作</h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-11-13 >13 November 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                4 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="使用-bapi">使用 BAPI</h2>
+
+<pre><code class="language-JS">1. 内表数据下载到文件:
+  CALL FUNCTION 'DOWNLOAD'：提示保存
+  CALL FUNCTION 'WS_DOWNLOAD'：不提示直接保存
+  CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'：提示保存
+2. 文件数据读取到内表
+  CALL FUNCTION 'UPLOAD'：提示读入内表
+  CALL FUNCTION 'WS_UPLOAD'：不提示直接读入内表
+</code></pre>
+
+<h2 id="上传和下载模板">上传和下载模板</h2>
+
+<p>上传模板：文档是通过SMW0上传的。SMW0:Binary data =&gt; Package =&gt; create object name and description</p>
+
+<p>下载模板：调用METHOD 下载通过SMWO上传的服务器模板文件到本地</p>
+
+<ul>
+<li><p>弹出下载框函数</p>
+
+<pre><code class="language-JS">DATA: lv_filename   TYPE string,
+  lv_path       TYPE string,
+  lv_fullpath   TYPE string,
+
+FORM frm_file_save_dialog  USING    pv_value
+						   CHANGING pv_filename
+									pv_path
+									pv_fullpath.
+CALL METHOD cl_gui_frontend_services=&gt;file_save_dialog
+	EXPORTING
+	 default_file_name= pv_value
+	 default_extension= 'XLSX'
+CHANGING
+	filename = pv_filename
+	path = pv_path
+	fullpath = pv_fullpath
+EXCEPTIONS
+	cntl_error   = 1
+	error_no_gui = 2
+	not_supported_by_gui = 3
+	OTHERS   = 4.
+ENDFORM.&quot; FRM_FILE_SAVE_DIALOG
+</code></pre></li>
+
+<li><p>选择合适的文件夹后保存</p>
+
+<pre><code class="language-JS">FORM frm_download_files  USING pv_fullpath .
+DATA:lw_key TYPE wwwdatatab,
+   lv_rc  TYPE sy-subrc.
+DATA: lv_destination LIKE  rlgrap-filename .
+DATA: lw_application TYPE ole2_object,
+    lw_workbook    TYPE ole2_object,
+    lw_sheet       TYPE ole2_object.
+lv_destination = pv_fullpath .
+
+SELECT SINGLE relid objid INTO CORRESPONDING FIELDS OF lw_key
+     FROM wwwdata
+     WHERE srtf2 EQ 0
+       AND relid EQ 'MI'
+       AND objid EQ 'OBJID' .&quot;SY-CPROG.上传的文件对象名
+IF sy-subrc NE 0.
+MESSAGE text-m03 TYPE 'E'. &quot;Template is not exist
+RETURN.
+ENDIF.
+
+CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'
+EXPORTING
+  key         = lw_key
+  destination = lv_destination
+IMPORTING
+  rc          = lv_rc.
+IF lv_rc &lt;&gt; 0.
+MESSAGE text-m05 TYPE 'E'. &quot;Error occurs when download
+RETURN.
+ENDIF.
+ENDFORM.                    &quot; FRM_DOWNLOAD_FILES
+</code></pre></li>
+</ul>
+
+<h3 id="操作">操作</h3>
+
+<p>CL_GUI_FRONTEND_SERVICES:该类提供了大量对操作系统文件的操作，如拷贝、列出文件名、打开文件等。</p>
+
+<p>打开文件：调用静态方法 FILE_OPEN_DIALOG</p>
+
+<p>将文本文件读取到内表：GUI_UPLOAD</p>
+
+<p>下载：GUI_DOWNLOAD</p>
+
+<ul>
+<li><p>打开选择上传文件对话框</p>
+
+<pre><code class="language-JS">CALL METHOD CL_GUI_FRONTEND_SERVICES=&gt;FILE_OPEN_DIALOG  
+EXPORTING
+WINDOW_TITLE = '选择上传文件'
+FILE_FILTER = 'All Files (*.*)|*.*|NotePad Files(*.txt)|*.txt|Excel Files(*.xls)|*.xls|Word files(*.doc)|*.doc' 
+DEFAULT_EXTENSION = '*.txt'
+DEFAULT_FilENAME = '1.txt'  &quot;默认打开的文件
+&quot;INITIAL_DIRECTORY = 'C:/'  &quot;初始化的目录
+&quot;MULTISELECTION = 'X' &quot;是否可以同时打开多个文件
+CHANGING
+FILE_TABLE = LV_FILETABLE &quot;你打开文件名的列表
+RC = LV_RC . &quot;返回打开文件的数量
+</code></pre></li>
+
+<li><p>调用METHOD 读取文件内容到内表</p>
+
+<pre><code class="language-JS">CALL FUNCTION 'GUI_UPLOAD'
+EXPORTING
+FILENAME                      = LV_FILENAME  &quot;要讀取的文件
+FILETYPE                      = 'ASC'
+HAS_FIELD_SEPARATOR           =  CL_ABAP_CHAR_UTILITIES=&gt;HORIZONTAL_TAB &quot;字段間按TAB鍵分隔開來
+TABLES
+DATA_TAB                      = TXT_READ_DATA  &quot;寫入相應的內表中
+EXCEPTIONS
+FILE_OPEN_ERROR               = 1
+FILE_READ_ERROR               = 2
+</code></pre></li>
+</ul>
+
+<h3 id="获取excel数据">获取Excel数据</h3>
+
+<pre><code class="language-JS">1. 选择屏幕上加个文件路径选择
+	SELECTION-SCREEN:BEGIN OF BLOCK BLK01 WITH FRAME TITLE TEXT-001.
+	PARAMETERS:P_FILE LIKE RLGRAP-FILENAME.
+	SELECTION-SCREEN END OF BLOCK BLK01.
+2. 给文件搜索帮助
+  AT SELECTION-SCREEN ON VALUE-REQUEST FOR P_FILE.
+  PERFORM FRM_GET_FILEPATH.
+	FORM FRM_GET_FILEPATH .
+	  CALL FUNCTION 'WS_FILENAME_GET'
+	    EXPORTING
+	      MASK             = ',Excel(*.xls),*.XLS,*.XLSX,'
+	      TITLE            = '选择文件'(100)
+	    IMPORTING
+	      FILENAME         = P_FILE
+	    EXCEPTIONS
+	      INV_WINSYS       = 1
+	      NO_BATCH         = 2
+	      SELECTION_CANCEL = 3
+	      SELECTION_ERROR  = 4
+	      OTHERS           = 5.
+	  IF SY-SUBRC &lt;&gt; 0.
+	    MESSAGE E100(ZDEV) WITH '选择文件出错！'(007).
+	  ENDIF.
+	ENDFORM.
+3. 获取EXCEL内容
+	CALL FUNCTION 'ALSM_EXCEL_TO_INTERNAL_TABLE'
+      EXPORTING
+        FILENAME    = P_FILE
+        I_BEGIN_COL = '1'
+        I_BEGIN_ROW = '2'
+        I_END_COL   = '300'
+        I_END_ROW   = '50000'
+      TABLES
+        INTERN      = GT_EXCEL_T.
+4. 获取EXCEL行，列，值进行数据处理
+	LOOP AT GT_EXCEL_T INTO GS_EXCEL_T.
+    AT NEW ROW.
+      CLEAR:GW_EXCEL.
+    ENDAT.
+    CASE GS_EXCEL_T-COL.
+      WHEN 1.
+        GW_EXCEL-LIFNR = GS_EXCEL_T-VALUE.
+        CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+          EXPORTING
+            INPUT  = GW_EXCEL-LIFNR
+          IMPORTING
+            OUTPUT = GW_EXCEL-LIFNR.
+      WHEN 2.
+        GW_EXCEL-MATNR = GS_EXCEL_T-VALUE.
+        CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+          EXPORTING
+            INPUT  = GW_EXCEL-MATNR
+          IMPORTING
+            OUTPUT = GW_EXCEL-MATNR.
+      WHEN 3.
+        GW_EXCEL-EKORG = GS_EXCEL_T-VALUE.
+      WHEN 4.
+        GW_EXCEL-WERKS = GS_EXCEL_T-VALUE.
+      WHEN 5.
+        GW_EXCEL-NETPR = GS_EXCEL_T-VALUE.
+      WHEN 6.
+        GW_EXCEL-KPEIN = GS_EXCEL_T-VALUE.
+      WHEN 7.
+        GW_EXCEL-LIFAB = GS_EXCEL_T-VALUE.
+      WHEN 8.
+   *    GW_EXCEL-NORBM = GS_EXCEL_T-VALUE.
+        GW_EXCEL-LIFBI = GS_EXCEL_T-VALUE.
+      WHEN 9.
+        GW_EXCEL-MWSKZ = GS_EXCEL_T-VALUE.
+      WHEN OTHERS.
+    ENDCASE.
+
+    AT END OF ROW.
+      APPEND GW_EXCEL TO GT_EXCEL.
+    ENDAT.
+  ENDLOOP.
+
+</code></pre>
+
+<h3 id="实例-https-github-com-coldinfire-erp-wiki-e6-96-87-e6-a1-a3-e4-b8-8a-e4-bc-a0-e5-92-8c-e4-b8-8b-e8-bd-bd-e4-b8-89-e5-ae-9e-e4-be-8b"><a href="https://github.com/coldinfire/ERP/wiki/%E6%96%87%E6%A1%A3%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD#%E4%B8%89%E5%AE%9E%E4%BE%8B" rel="nofollow noreferrer" target="_blank">实例</a></h3>
+
+<pre><code class="language-JS">SELECTION-SCREEN:
+  PUSHBUTTON /2(30) button1 USER-COMMAND but1.&quot;30是按钮长度
+
+SELECTION-SCREEN BEGIN OF BLOCK blk1 WITH FRAME TITLE text-001.
+SELECTION-SCREEN BEGIN OF LINE.
+PARAMETERS p_file TYPE rlgrap-filename.
+SELECTION-SCREEN POSITION 50.
+SELECTION-SCREEN COMMENT (20) p_comm FOR FIELD p_file.
+SELECTION-SCREEN END OF LINE.
+SELECTION-SCREEN END OF BLOCK blk1.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_file.
+  &quot;发出上传文件时，弹出选择文件框，选择对应的文件
+  PERFORM frm_get_filepath.
+
+AT SELECTION-SCREEN. &quot;检查界面操作并响应
+  IF sscrfields EQ 'BUT1'.&quot;下载按钮时，下载文档模板
+    PERFORM download_file.
+  ENDIF.
+  IF p_file IS NOT INITIAL.
+    PERFORM frm_check_file.&quot;当文档上传框有请求时，检验路径是否存在
+  ENDIF.
+
+INITIALIZATION.
+  p_comm = ''.
+  button1 = 'Download template file'.
+
+START-OF-SELECTION.
+  PERFORM frm_inter_table.
+*  PERFORM frm_check_xzael.
+
+FORM download_file .
+  DATA: lwa_wwwdata_tab LIKE wwwdatatab,
+        l_filename      TYPE rlgrap-filename,
+        mes             TYPE string.
+
+  l_filename = 'C:/temp/BatchInput.xlsx'.
+  SELECT SINGLE *
+    FROM wwwdata
+   INNER JOIN tadir
+      ON wwwdata~objid = tadir~obj_name
+    INTO CORRESPONDING FIELDS OF lwa_wwwdata_tab
+   WHERE wwwdata~srtf2  = 0
+     AND wwwdata~relid  = 'MI'             &quot;标识二进制的对象
+     AND tadir~pgmid    = 'R3TR'
+     AND tadir~object   = 'W3MI'
+     AND tadir~obj_name = 'ZMI05'.         &quot;模板名字
+
+  IF sy-subrc = 0.
+    CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'
+      EXPORTING
+        key         = lwa_wwwdata_tab
+        destination = l_filename.
+    IF sy-subrc = 0.
+      CONCATENATE 'The File Download Directory:' l_filename INTO mes.
+      MESSAGE mes TYPE 'S'.
+    ENDIF.
+  ENDIF.
+ENDFORM.                    &quot; DOWNLOAD_FILE
+
+FORM frm_get_filepath .
+  DATA lv_filepath TYPE ibipparms-path.
+
+  CALL FUNCTION 'WS_FILENAME_GET'
+    EXPORTING
+      mask             = ',EXCEL FILE,*.XLS;*.XLSX;'
+      mode             = 'O' &quot;S为保存，O为打开
+    IMPORTING
+      filename         = p_file
+    EXCEPTIONS
+      inv_winsys       = 1
+      no_batch         = 2
+      selection_cancel = 3
+      selection_error  = 4
+      OTHERS           = 5.
+ENDFORM.                    &quot; FRM_GET_FILEPATH
+
+FORM frm_check_file .
+  DATA:lv_filename TYPE string,
+       lv_result TYPE c.
+  lv_filename = p_file.
+  CALL METHOD cl_gui_frontend_services=&gt;file_exist
+    EXPORTING
+      file                 = lv_filename
+    RECEIVING
+      result               = lv_result
+    EXCEPTIONS
+      cntl_error           = 1
+      error_no_gui         = 2
+      wrong_parameter      = 3
+      not_supported_by_gui = 4
+      OTHERS               = 5.
+  IF sy-subrc NE 0.
+  ENDIF.
+  IF lv_result = ''.
+    MESSAGE 'The File Not Found In The Direct!' TYPE 'E'.
+  ENDIF.
+ENDFORM.                    &quot; FRM_CHECK_FILE
+
+FORM frm_inter_table.
+    CALL FUNCTION 'ALSM_EXCEL_TO_INTERNAL_TABLE'
+    EXPORTING
+      filename                = p_file   &quot;本地文件全路径名
+      i_begin_col             = '1'      &quot;开始列
+      i_begin_row             = '2'      &quot;开始行
+      i_end_col               = '7'      &quot;结束列
+      i_end_row               = '6666'   &quot;结束行
+    TABLES
+      intern                  = it_file   &quot;输出文件内容到it_file
+    EXCEPTIONS
+      inconsistent_parameters = 1
+      upload_ole              = 2
+      OTHERS                  = 3.
+
+  IF it_file[] IS INITIAL.
+    MESSAGE 'There is no data in the excel!' TYPE 'E'.
+  ENDIF.
+  SORT it_file BY row.
+  LOOP AT it_file ASSIGNING &lt;wa_file&gt;.     &quot;将上传文件的内容写到内表中
+    CASE &lt;wa_file&gt;-col.
+      WHEN '0001'.
+        wa_iseg-gjahr  =  &lt;wa_file&gt;-value.
+      WHEN '0002'.
+        wa_iseg-iblnr  =  &lt;wa_file&gt;-value.
+      WHEN '0003'.
+        wa_iseg-zeili  =  &lt;wa_file&gt;-value.
+      WHEN '0004'.
+        wa_iseg-buchm  =  &lt;wa_file&gt;-value.
+      WHEN '0005'.
+        wa_iseg-meins  =  &lt;wa_file&gt;-value.
+      WHEN '0006'.
+        wa_iseg-lgort  =  &lt;wa_file&gt;-value.
+      WHEN '0007'.
+        wa_iseg-usnam  =  &lt;wa_file&gt;-value.
+    ENDCASE.
+    AT END OF row.
+      APPEND wa_iseg TO it_iseg.
+      CLEAR wa_iseg.
+    ENDAT.
+  ENDLOOP.
+ENDFORM.                    &quot; FRM_UPLOAD_FILE
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>1631</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/Excel/">
+                    #Excel</a></span>
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/abap/">
+                    #abap</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/IDoc/" class="prev" rel="prev" title="IDoc操作"><i class="iconfont icon-dajiantou"></i>&nbsp;IDoc操作</a>
+         
+        
+        <a href="https://coldinfire.github.io/2018/ABAPWorkFlow/" class="next" rel="next" title="ABAP 工作流">ABAP 工作流&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2018-11-13 00:00:00 \x2b0000 UTC',
+        title: 'Excle操作',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

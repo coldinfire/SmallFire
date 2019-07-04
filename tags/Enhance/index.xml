@@ -6,7 +6,7 @@
     <description>Recent content in Enhance on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Sep 2018 17:23:58 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 14 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/Enhance/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>查找增强程序1</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance1/</link>
-      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance1/</guid>
       <description>利用t-code查找增强出口的程序工具 REPORT zdamon_005 NO STANDARD PAGE HEADING. TABLES : tstc, tadir, modsapt, modact, trdir, tfdir, enlfdir. TABLES : tstct. DATA : jtab LIKE tadir OCCURS 0 WITH HEADER LINE. DATA : field1(30). DATA : v_devclass LIKE tadir-devclass. PARAMETERS : p_tcode LIKE tstc-tcode OBLIGATORY. SELECT SINGLE * FROM tstc WHERE tcode EQ p_tcode.</description>
@@ -23,7 +23,7 @@
     <item>
       <title>查找增强程序2</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance2/</link>
-      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance2/</guid>
       <description>查找增强出口和BADI *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z_FIND_EXIT_AND_BADI *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Enter the transaction code that you want to search through in order *&amp;amp; to find which Standard SAP User Exits and BADIs *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; For field &#39;SUBC&#39; of table &#39;TRDIR&#39;: *&amp;amp; M Module Pool *&amp;amp; F Function group *&amp;amp; S Subroutine</description>
@@ -32,7 +32,7 @@
     <item>
       <title>查找增强程序3</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance3/</link>
-      <pubDate>Fri, 14 Sep 2018 17:23:58 +0800</pubDate>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance3/</guid>
       <description>一个功能非常全面的增强出口查找工具 *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Report: zdamon_004 (V9) &amp;amp;* *&amp;amp; PJA Consultancy Services (www.pjas.com) &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; This report attmpts to find Enhancements, Program-Exits, BADIs &amp;amp;* *&amp;amp; and Business Transaction Events in a particular program/tcode. &amp;amp;* *&amp;amp; Last updated: 09 May 2007 &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Selection Texts: *&amp;amp; P_ALV ALV format *&amp;amp; P_AUTH Include authority-check search</description>
@@ -41,7 +41,7 @@
     <item>
       <title>增强</title>
       <link>https://coldinfire.github.io/2018/ABAPEnhance/</link>
-      <pubDate>Thu, 13 Sep 2018 17:23:58 +0800</pubDate>
+      <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPEnhance/</guid>
       <description>基本概念 User Exits：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。 用户出口</description>

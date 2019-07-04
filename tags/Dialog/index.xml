@@ -6,7 +6,7 @@
     <description>Recent content in Dialog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Aug 2018 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/Dialog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Dialog程序</title>
       <link>https://coldinfire.github.io/2018/ABAPDialog/</link>
-      <pubDate>Tue, 28 Aug 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPDialog/</guid>
       <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>

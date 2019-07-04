@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BOM on Small Fire`s Blog</title>
+    <link>https://coldinfire.github.io/tags/BOM/</link>
+    <description>Recent content in BOM on Small Fire`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://coldinfire.github.io/tags/BOM/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>BOM展开</title>
+      <link>https://coldinfire.github.io/2018/BOM/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/BOM/</guid>
+      <description>SAP BOM读取逻辑 相关表 MAST：Material BOM STKO : BOM Header STPO : BOM Positions (detail) MAPL : Assignment fo Task Lists to Materials PLKO : Routing Group Header PLSO : Routing Group Sequence PLPO : Routing Group Operations AFKO : Production Order Header AFPO : Production Order Position (details) 可用</description>
+    </item>
+    
+  </channel>
+</rss>

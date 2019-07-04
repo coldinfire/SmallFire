@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPUtils/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAPUtils2/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPUtils3/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           负号前置 | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content="负号前置 | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="负号前置"/>
+<meta name="twitter:description" content="负号前置 定义函数：CONVERSION_EXIT_Z001_OUTPUT. FUNCTION conversion_exit_z001_output. *&quot;---------------------------------------------------------------------- *&quot;*&quot;本地接口： *&quot; IMPORTING *&quot; REFERENCE(INPUT) *&quot; EXPORTING *&quot; REFERENCE(OUTPUT) *&quot;---------------------------------------------------------------------- *作"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "负号前置",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://coldinfire.github.io/2018/ABAPUtils3/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://coldinfire.github.io/cover.png",
+    "width": 800,
+    "height": 600
+  },
+  "genre": "posts",
+  "keywords": "abap, utils",
+  "wordcount": 309,
+  "url": "https://coldinfire.github.io/2018/ABAPUtils3/",
+  "datePublished": "2018-06-13T00:00:00+00:00",
+  "dateModified": "2018-06-13T00:00:00+00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "SmallFire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://coldinfire.github.io/logo.png",
+      "width": 127,
+      "height": 40
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">负号前置</h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-06-13 >13 June 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                1 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="负号前置">负号前置</h2>
+
+<ul>
+<li><p>定义函数：CONVERSION_EXIT_Z001_OUTPUT.</p>
+
+<pre><code class="language-JS">FUNCTION conversion_exit_z001_output.
+*&quot;----------------------------------------------------------------------
+*&quot;*&quot;本地接口：
+*&quot;  IMPORTING
+*&quot;     REFERENCE(INPUT)
+*&quot;  EXPORTING
+*&quot;     REFERENCE(OUTPUT)
+*&quot;----------------------------------------------------------------------
+
+*作用：
+* 1.将金额类型等数字类型，负号实现前置；
+* 2.可以保留千分位;
+* 3.适用于多个这样的字段修改需求;
+
+*调用方式：
+* 在对应的alv设置fieldcat时针对设置金额等数字类型的字段添加代码：固定写成’ZXXX’形式。
+* WE_FIELDCAT-EDIT_MASK = '==Z001'.
+DATA: output1(20),
+  output2(20),
+  outnum(16) TYPE p DECIMALS 3.
+
+IF input IS NOT INITIAL .
+outnum = input.
+IF input &gt; 0.
+ WRITE outnum TO output1.
+ELSE.
+ outnum = outnum * ( -1 ).
+ WRITE outnum TO output1.
+ CONCATENATE '-' output1 INTO output1.
+ENDIF.
+ELSE.
+CLEAR output1.
+ENDIF.
+CONDENSE output1 NO-GAPS.
+WRITE output1 TO output2 RIGHT-JUSTIFIED.
+output = output2.
+CLEAR: output2.
+ENDFUNCTION.
+
+</code></pre></li>
+
+<li><p>ALV的fieldcat中设置EDIT_MASK,当传值&rsquo;==Z001&rsquo;.会自动调用此函数将负号提前
+wa_fieldcat-edit-mask = &lsquo;==Z001&rsquo;</p></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>309</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/abap/">
+                    #abap</a></span>
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/utils/">
+                    #utils</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/ABAPUtils/" class="prev" rel="prev" title="添加修改人信息"><i class="iconfont icon-dajiantou"></i>&nbsp;添加修改人信息</a>
+         
+        
+        <a href="https://coldinfire.github.io/2018/ABAPUtils2/" class="next" rel="next" title="小数后面去除后缀0">小数后面去除后缀0&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2018-06-13 00:00:00 \x2b0000 UTC',
+        title: '负号前置',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

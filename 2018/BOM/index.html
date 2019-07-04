@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPWorkFlow/" />
+  <link rel="next" href="https://coldinfire.github.io/2019/Pycharm/" />
+  <link rel="canonical" href="https://coldinfire.github.io/2018/BOM/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           BOM展开 | Small Fire`s Blog
+       
+  </title>
+  <meta name="title" content="BOM展开 | Small Fire`s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BOM展开"/>
+<meta name="twitter:description" content="SAP BOM读取逻辑 相关表 MAST：Material BOM STKO : BOM Header STPO : BOM Positions (detail) MAPL : Assignment fo Task Lists to Materials PLKO : Routing Group Header PLSO : Routing Group Sequence PLPO : Routing Group Operations AFKO : Production Order Header AFPO : Production Order Position (details) 可用"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "BOM展开",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://coldinfire.github.io/2018/BOM/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://coldinfire.github.io/cover.png",
+    "width": 800,
+    "height": 600
+  },
+  "genre": "posts",
+  "keywords": "BOM",
+  "wordcount": 964,
+  "url": "https://coldinfire.github.io/2018/BOM/",
+  "datePublished": "2018-11-25T00:00:00+00:00",
+  "dateModified": "2018-11-25T00:00:00+00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "SmallFire",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://coldinfire.github.io/logo.png",
+      "width": 127,
+      "height": 40
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Small Fire"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://coldinfire.github.io">Small Fire`s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://coldinfire.github.io">Small Fire`s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/books/" title="">Books</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">BOM展开</h1>
+        <div class="post-meta">
+            Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-11-25 >25 November 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://coldinfire.github.io/categories/ABAP/"> ABAP </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                2 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="sap-bom读取逻辑">SAP BOM读取逻辑</h2>
+
+<h3 id="相关表">相关表</h3>
+
+<p>MAST：Material BOM</p>
+
+<p>STKO : BOM Header</p>
+
+<p>STPO : BOM Positions (detail)</p>
+
+<p>MAPL : Assignment fo Task Lists to Materials</p>
+
+<p>PLKO : Routing Group Header</p>
+
+<p>PLSO : Routing Group Sequence</p>
+
+<p>PLPO : Routing Group Operations</p>
+
+<p>AFKO : Production Order Header</p>
+
+<p>AFPO : Production Order Position (details)</p>
+
+<p>可用函数：CSAP_MAT_BOM_READ</p>
+
+<h3 id="读取逻辑">读取逻辑</h3>
+
+<pre><code class="language-JS">1.查找Material,Plant,Material Desc          Table:MARA,MARC,MAKT
+   MARA-MATNR    
+   MARC-WERKS   
+   MARA-MTART（Material type）
+   Note: Proceeding to Step 2 or 3 or 4 depends on the input radio button for 
+       Production or Engineering or ALL BOM option.
+2. Search for BOM – Engineering.            Table:MAST
+   Material (MAST-MATNR) = Materials selected above and
+   Plant (MAST–WERKS) = As in input and
+   BOM usage (MAST-STLAN) = 2 (Engineering usage).
+  ● Read BOM Header and Item
+      Read BOM Header from table  【STKO】。
+          BOM Number (STKO-STLNR) = BOM number got in previous step and
+          BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
+      Read BOM Item details from  【STOP】.
+          BOM number (STOP-STLNR) = STKO-STNLR.
+      Read BOM text from table  STZU.
+3. Search BOM – Production.      Table:MAST
+    Material (MAST-MATNR) = Materials selected above and
+    Plant (MAST–WERKS) = As in input and
+    BOM usage (MAST-STLAN) = 1 (Production usage).
+  ● Read BOM Header and Item
+      Read BOM Header from table    【STKO】。
+          BOM Number (STKO-STLNR) = BOM number got in previous step and
+          BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
+      Read BOM Item details from    【STOP】.
+          BOM number (STOP-STLNR) = STKO-STNLR.
+      Read BOM text from table STZU.
+  ● Search for Resource / Production Version (Production BOM’s only)    【MKAL】
+       Material number (MKAL–MATNR) = Material number from above selection (MAST) 
+       And Plant (MKAL–WERKS) = Plant from above selection (MAST)
+       And Alternative BOM (MKAL-STLAL) = Alternative BOM from above selection (MAST) 
+       And  BOM Usage (MKAL-STLAN) = 1 (Production BOM).
+Note:
+  1. If no production version exists for any of the BOM’s write such records at the bottom of the
+     report under the heading “No Production Version Exists (Production BOM’s)”.
+  2. Sort the output on Plant, Usage and then on Material.
+  3. If multiple plants then the report will be displayed Plant wise.
+        • Header to be displayed for Production / Engineering BOM option.
+  4. Material BOM Comparison.           【MAST 】
+        Material (MAST-MATNR) = Materials selected above and
+        Plant (MAST–WERKS) = As in input.
+    ● Read BOM Header and Item
+  	Read BOM Header from table 【STKO】。
+    	  BOM Number (STKO-STLNR) = BOM number got in previous step and
+    	  BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
+  	Read BOM Item details from 【STOP】.
+          BOM number (STOP-STLNR) = STKO-STNLR.
+
+</code></pre>
+
+<h2 id="bom逆向和正向查询">BOM逆向和正向查询</h2>
+
+<h3 id="顺查bom-cs12">顺查BOM（CS12）</h3>
+
+<pre><code class="language-JS">CALL FUNCTION 'CS_BOM_EXPL_MAT_V2'
+  EXPORTING
+     capid = pm_capid      “应用程序一般为PP01
+     datuv = pm_datuv     “通常为系统的当前日期
+     mtnrv = pm_mtnrv    “要展开BOM的物料
+     mehrs = 'X'                “ x表示多层展开﹐space表示只展开第一层
+     werks = pm_werks    “通常为1000
+   IMPORTING
+     topmat = selpool
+     dstst = dstst_flg
+    TABLES
+      stb = stb                “展开的BOM存放在该内表
+      matcat = matcat     “下面含有元件的物料存放在该内表
+</code></pre>
+
+<h3 id="逆查bom">逆查BOM</h3>
+
+<pre><code class="language-JS">DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
+  IT_EQUICAT LIKE CSCEQUI OCCURS 0 WITH HEADER LINE,
+  IT_KNDCAT LIKE CSCKND OCCURS 0 WITH HEADER LINE,
+  IT_MATCAT LIKE CSCMAT OCCURS 0 WITH HEADER LINE,
+  IT_STDCAT LIKE CSCSTD OCCURS 0 WITH HEADER LINE,
+  IT_TPLCAT LIKE CSCTPL OCCURS 0 WITH HEADER LINE,
+  IT_PRJCAT LIKE CSCPRJ OCCURS 0 WITH HEADER LINE.
+  CLEAR:IT_WULTB,IT_WULTB[].
+  CALL  FUNCTION  'CS_WHERE_USED_MAT'
+    EXPORTING
+      DATUB              = SY-DATUM
+      DATUV              = SY-DATUM
+      MATNR              = P_C_MATNR
+*     POSTP               = ' '
+*     RETCODE_ONLY        = ' '
+*     STLAN               = ' '
+      MCLMT              = '00000000'
+      WERKS              = S2_WERKS
+*    IMPORTING
+*    TOPMAT              =
+    TABLES
+       WULTB           = IT_WULTB
+       EQUICAT         = IT_EQUICAT
+       KNDCAT          = IT_KNDCAT
+       MATCAT          = IT_MATCAT
+       STDCAT          = IT_STDCAT
+       TPLCAT          = IT_TPLCAT
+    EXCEPTIONS
+       CALL_INVALID        = 1
+       MATERIAL_NOT_FOUND          = 2
+       NO_WHERE_USED_REC_FOUND     = 3
+       NO_WHERE_USED_REC_SELECTED = 4
+       NO_WHERE_USED_REC_VALID     = 5
+       OTHERS              = 6.
+
+</code></pre>
+
+<p>** T-Code：CS02，确保递归BOM的比例在0.95左右。即：产品A，其BOM中的A的消耗量应该小于0.95. **</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Small Fire </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>964</span>
+            </p>
+            
+            <p class="copyright-item">
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/BOM/">
+                    #BOM</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://coldinfire.github.io">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://coldinfire.github.io/2018/ABAPWorkFlow/" class="prev" rel="prev" title="ABAP 工作流"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 工作流</a>
+         
+        
+        <a href="https://coldinfire.github.io/2019/Pycharm/" class="next" rel="next" title=" Pycharm "> Pycharm &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2018-11-25 00:00:00 \x2b0000 UTC',
+        title: 'BOM展开',
+        clientID: 'd2cccd8844ae11b05792',
+        clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
+        repo: 'coldinfire.github.io',
+        owner: 'coldinfire',
+        admin: ['coldinfire'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+  
+
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

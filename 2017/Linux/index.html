@@ -11,7 +11,7 @@
   
   
   <link rel="prev" href="https://coldinfire.github.io/2017/JS/" />
-  <link rel="next" href="https://coldinfire.github.io/2018/git/" />
+  <link rel="next" href="https://coldinfire.github.io/2017/LinuxFile/" />
   <link rel="canonical" href="https://coldinfire.github.io/2017/Linux/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" Linux基础 "/>
-<meta name="twitter:description" content="基本命令 man [command]:查看命令使用文档 1. 文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： [d]:目录 [-]:文件 [l]:链接文档 [b"/>
+<meta name="twitter:description" content="主要内容 Linux 操作系统安装及初始化 Linux目录组成结构及文件的增删改查，用户，权限管理 Linux软件包管理、磁盘管理 Linux网络基础 Linu"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "linux",
-  "wordcount": 1820,
+  "wordcount": 1405,
   "url": "https://coldinfire.github.io/2017/Linux/",
   "datePublished": "2017-10-16T17:20:58+08:00",
   "dateModified": "2017-10-16T17:20:58+08:00",
@@ -151,7 +151,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                4 min
+                3 min
         </div>
     </header>
     <div class="post-content">
@@ -172,79 +172,97 @@
 
           
 
-<h1 id="基本命令">基本命令</h1>
+<h2 id="主要内容">主要内容</h2>
 
-<pre><code>man [command]:查看命令使用文档
-1. 文件
-  ex: -rw--w-r-- 1 user group day month time text.xx
-  第一个文件代表意义(0)：
-    [d]:目录
-    [-]:文件
-    [l]:链接文档
-    [b]:可随机存储装置
-    [c]:串行端口设备
-  后续文字意义：
-    &lt;1&gt;.三个为一组均为[rwx]组合(r:read w:write x:execute)
-    u=第一组(123)：文件拥有者权限   g=第二组(456)：所属组权限   o=第三组(789)：其他用户权限
-    &lt;2&gt;.文件硬链接个数
-    &lt;3&gt;.文件拥有者
-    &lt;4&gt;.同属者
-    &lt;5&gt;.大小
-    &lt;6&gt;.修改时间
-  修改权限：
-    chmod [xx] file:修改文件的权限 
-                    [u=rwx,g=rwx,o=rwx]/[u+r,w,x...] :修改各自对应的权限 [a=rwx]:修改所有的权限
-                    [777]:对应的权限值和，可修改权限
-    chown user file:修改文件所有者
-    chgrp group file:修改文件所属组
-2. 处理文件常用命令：
-    ls/ll -al ~:显示所有文件(~显示隐藏)
-    cd:切换目录
-    touch file.xxx:创建文件
-    touch {1,2,3,..}.xxx :创建多个文件
-    vi/vim file.xxx:创建并编辑文件
-    pwd [-p]:显示当前所在目录 [p]:真是路径而非link路径
-    mkdir [-mp]:创建新目录 [p]:递归创建 [m]:修改文件权限 777
-    rmdir [-p]:删除空目录 [p]:删除上层空目录
-    cp [-pdri]:复制  [p]:连同文件属性复制  [r]递归持续复制  [d]复制链接文档而非文件本身  [i]目标文档已存在，提示是否覆盖
-    rm [-fir]:移除文件或目录 [f]忽略不存在文件 [i]互动模式 [r]递归删除
-    创建回收站：myrm(){ D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D; mv &quot;$@&quot; $D &amp;&amp; echo &quot;moved to $D ok&quot;; }
-            alias rm= 'myrm'
-            rm [1,2,3].xxx
-    mv [-fiu]:移动文件或目录，修改名称 [f]强制 [i]互动模式 [u]source较新,update
-3. 文件内容查看
-    grep []:查找文件内出现
-    find []:查找文件
-    cat:从第一行显示 [n]:行号 [v]:列出特殊字符
-    tac:从最后一行显示 
-    nl:显示行号
-    more:页显示
-    less:页显示可以往前翻页
-    head:头几行  [-n number]:显示几行
-    tail:尾巴几行  [-n number]:显示几行
-4. 链接创建
-    ln f1 f2:创建f1的一个硬连接文件f2
-    ln -s f1 f2:创建f1的一个符号连接文件f2
-5. 压缩解压
-    file.tar.gz   file.tar.bz2
-    tar -cvf [tar_file.tar] [1,2,3,4]:打包
-    tar -xvf [tar_file.tar]:解包
-    tar -zcvf [tar_file.tar.gz] [1,2,3,4]:压缩打包
-    tar -zxvf [tar_file.tar.gz]:当前目录解压包
-    tar -zxvf [tar_file.tar.gz] -C [指定目录]：解压到指定目录
-    tar -jcvf [tar_file.tar.bz2] [1,2,3,4]:压缩打包
-    tar -jxvf [tar_file.tar.bz2]:解压
-    zip [-r] 目标文件 源文件
-    unzip [-d] 解压后目录文件 压缩文件
-6. 管道
-    cat /etc/group | grep 'sudo' :将'|'前内容放到管道里，后面对管道进行操作
-</code></pre>
+<ul>
+<li><p>Linux 操作系统安装及初始化</p></li>
+
+<li><p>Linux目录组成结构及文件的增删改查，用户，权限管理</p></li>
+
+<li><p>Linux软件包管理、磁盘管理</p></li>
+
+<li><p>Linux网络基础</p></li>
+
+<li><p>Linux状态监控命令</p></li>
+
+<li><p>Linux系统进程管理</p></li>
+
+<li><p>网络服务</p></li>
+</ul>
+
+<h2 id="目录结构">目录结构</h2>
+
+<ul>
+<li><p>/：根目录，整个文件系统层次结构的根目录</p></li>
+
+<li><p>/bin：需要在单用户模式可用的必要命令</p></li>
+
+<li><p>/boot：系统引导程序文件</p></li>
+
+<li><p>/dev：必要设备</p></li>
+
+<li><p>/etc：配置文件   /etc/xml:xml配置文件  、/etc/opt:/opt/配置文件</p></li>
+
+<li><p>/home：用户的家目录，包含保存的文件、个人设置等，一般为单独的分区</p></li>
+
+<li><p>/lib：/bin/ and /sbin/中二进制文件必要的库文件</p></li>
+
+<li><p>/opt：可选应用软件包</p></li>
+
+<li><p>/root：超级用户的家目录</p></li>
+
+<li><p>/sbin：必要的系统二进制文件，普通用户执行不了该目录命令</p></li>
+
+<li><p>/srv：站点的具体数据，由系统提供</p></li>
+
+<li><p>/tmp：临时文件，在系统重启时目录中文件不会被保留</p></li>
+
+<li><p>/usr：默认软件都会存于该目录下。用于存储只读用户数据的第二层次；包含绝大多数应用程序</p></li>
+
+<li><p>/var：在正常运行的系统中其内容不断变化的文件</p></li>
+</ul>
+
+<h2 id="命令解析">命令解析</h2>
+
+<p><strong>Linux命令区分大小写</strong></p>
+
+<p>man [command]：查看命令使用文档</p>
+
+<p>命令的语法格式：cmd 【options】【arguments】</p>
+
+<ul>
+<li><p>命令：告诉Linux要做什么</p></li>
+
+<li><p>选项：说明运行方式</p></li>
+
+<li><p>参数：说明影响操作</p></li>
+</ul>
+
+<p>可执行命令分类：</p>
+
+<p>♦ 内置命令：在shell内部系统定义</p>
+
+<p>♦ 外置命令：存放在/bin、/sbin目录下的命令</p>
+
+<p>♦ 实用命令：放在/usr/bin,/usrlocal/bin等目录下的实用程序</p>
+
+<p>♦ 用户程序：用户的程序经过编译生产可执行文件后，可作为Shell执行</p>
+
+<p>♦ Shell脚本：由Shell语言编写的批处理文件，可作为Shell命令运行</p>
+
+<p>通配符：与其他语言表达式类似</p>
+
+<p>♦ *：匹配任何字符和任何数目的字符</p>
+
+<p>♦ ？：匹配单一数目的任何字符</p>
+
+<p>♦ [ ]：匹配[ ]之内的任意一个字符</p>
+
+<p>♦ [! ]：匹配除了[! ]之外的任意一个字符，!表示非的意思</p>
 
 <h1 id="系统工具">系统工具</h1>
 
-<hr />
-
-<pre><code>1. 磁盘分析
+<pre><code class="language-JS">1. 磁盘分析
     df [-ah]:系统磁盘使用信息
     du [-ah]:当前文件的使用
     fdisk [-l] [name]:磁盘分区表操作工具
@@ -293,20 +311,6 @@
     /etc/group:用户组所有信息(组名:口令:组标识号:组内用户列表)
 </code></pre>
 
-<h1 id="vim">vim</h1>
-
-<hr />
-
-<pre><code>1.使用
-    vim/vi filename =====&gt;命令模式=====&gt;i,a,o=====&gt;输入模式======&gt;ESC=====&gt;命令模式
-    命令模式=====&gt;:=====&gt;底线命令模式=====&gt;:wq!(退出)
-    :set nu (显示行号)     :set nonu (取消行号)
-</code></pre>
-
-<h1 id="下载-yum">下载 yum</h1>
-
-<hr />
-
     </div>
 
     <div class="post-copyright">
@@ -319,7 +323,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1820</span>
+                   <span>1405</span>
             </p>
             
             <p class="copyright-item">
@@ -351,7 +355,7 @@
         <a href="https://coldinfire.github.io/2017/JS/" class="prev" rel="prev" title="JavaScript学习与总结"><i class="iconfont icon-dajiantou"></i>&nbsp;JavaScript学习与总结</a>
          
         
-        <a href="https://coldinfire.github.io/2018/git/" class="next" rel="next" title="Git学习与总结">Git学习与总结&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2017/LinuxFile/" class="next" rel="next" title=" Linux文件操作 "> Linux文件操作 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 

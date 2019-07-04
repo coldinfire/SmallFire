@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Excel on Small Fire`s Blog</title>
+    <link>https://coldinfire.github.io/tags/Excel/</link>
+    <description>Recent content in Excel on Small Fire`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 13 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://coldinfire.github.io/tags/Excel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Excle操作</title>
+      <link>https://coldinfire.github.io/2018/ABAPExcel/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPExcel/</guid>
+      <description>使用 BAPI 1. 内表数据下载到文件: CALL FUNCTION &#39;DOWNLOAD&#39;：提示保存 CALL FUNCTION &#39;WS_DOWNLOAD&#39;：不提示直接保存 CALL FUNCTION &#39;DOWNLOAD_WEB_</description>
+    </item>
+    
+  </channel>
+</rss>
