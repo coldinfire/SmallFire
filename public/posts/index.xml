@@ -440,7 +440,7 @@
       <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxAuth/</guid>
-      <description>用户权限 1.增删改查用户 useradd username:创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：修改用户</description>
+      <description>用户权限 增删改查用户 增 ： useradd username：创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：修改用户</description>
     </item>
     
     <item>
@@ -458,7 +458,7 @@
       <pubDate>Mon, 16 Oct 2017 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2017/Linux/</guid>
-      <description>主要内容 Linux 操作系统安装及初始化 Linux目录组成结构及文件的增删改查，用户，权限管理 Linux软件包管理、磁盘管理 Linux网络基础 Linu</description>
+      <description>主要内容 Linux目录组成结构及文件的增删改查，用户，权限管理 Linux软件包管理、磁盘管理 Linux网络基础 Linux状态监控命令 Linu</description>
     </item>
     
     <item>

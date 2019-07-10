@@ -163,3 +163,4 @@ chown user file:修改文件所有者
    - 管道命令 | ：将前面的结果给后面的命令，ex：ls -al | wc，将ls的结果用wc命令来统计字数
 
    - 重定向： > 是覆盖模式，>> 是追加模式， ex：echo "Java3y,zhen de hen xihuan ni" >     qingshu.txt把左边的输出放到右边的文件里去
+   - 远程 rcp: 远程拷贝文件 scp [] 原路径 目标路径：远程拷贝文件，secure copy wget [参数] URL 地址：下载
