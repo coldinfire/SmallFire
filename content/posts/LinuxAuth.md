@@ -78,12 +78,12 @@ tags:
  - 文件名称
 
 #### 修改权限 ####
- - 修改文件权限：chomd    
-	 - chomd u=rws filename
+ - 修改文件权限：chmod    
+	 - chmod u=rws filename
  -  修改所属组：
 	 -  chown  UID.GID  filename       
 	 -   chown UID filename     
-	 -   chowd  .GID  filename
+	 -   chown  .GID  filename
  -  执行文件：./filename      
 	 -  . filename       
 	 -  sh filename   
@@ -103,7 +103,7 @@ tags:
   -  修改所属组：
 	  -  chown  UID.GID  filename   
 	  -  chown UID filename  
-	  -  chowd  .GID  filename
+	  -  chown  .GID  filename
 	  -  chown -R  UID.GID  dir_name：d
 
 

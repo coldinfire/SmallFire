@@ -60,7 +60,15 @@ tags:
 ## 命令解析 ##
 **Linux命令区分大小写**
 
-man [command]：查看命令使用文档
+查找命令：
+
+   ♦ type：显示有关命令类型的信息
+   
+   ♦ which：找到命令在哪个文件下
+
+   ♦ help -m [command]：显示shell内置的参考页面   
+
+   ♦ man [command]：显示在线命令参考
 
 命令的语法格式：cmd 【options】【arguments】
 
@@ -69,6 +77,10 @@ man [command]：查看命令使用文档
   - 选项：说明运行方式
 
   - 参数：说明影响操作
+
+Ctrl + a：跳到输入命令的头部
+
+Ctrl + e：跳到输入命令的尾部
 
 可执行命令分类：
 
@@ -105,11 +117,14 @@ man [command]：查看命令使用文档
   - umount [-fn]:卸载 [-f]:强制卸除 [-n]:不升级/etc/mtab下卸除
 
 ### 网络性能 ###  
-  -  ifconfig [card] [x]:网络状态 [-a]:显示全部接口信息 [up/down]:开启关闭网卡 
+  - ifconfig [card] [x]:网络状态 [-a]:显示全部接口信息 [up/down]:开启关闭网卡 
                                 etho:第一块网卡   lo:回环地址
-  -  ps [-aux]  进程
-  -  top        动态进程
-  - kill [-9] pid:杀死进程 [-9]:强制杀死
+  - ps [-aux]：显示系统所有在运行的进程
+  - top        动态进程
+  - kill [-9] pid：杀死对应的pid进程  [-9]：强制杀死
+  - jobs：列出您自己的流程的另一种方式
+  - bg：后台放置一个进程
+  - fg：在前台放置一个进程
 
 
 

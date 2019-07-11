@@ -426,6 +426,15 @@
     </item>
     
     <item>
+      <title> Shell 脚本</title>
+      <link>https://coldinfire.github.io/2017/LinuxExpansion/</link>
+      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/LinuxExpansion/</guid>
+      <description>什么是Shell脚本 简单来说，shell 脚本是包含一系列命令的文件。shell 读取此文件并执行命令，就像它们已直接在命令行上输入一样。she</description>
+    </item>
+    
+    <item>
       <title> Linux Vim使用 </title>
       <link>https://coldinfire.github.io/2017/LinuxVim/</link>
       <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>

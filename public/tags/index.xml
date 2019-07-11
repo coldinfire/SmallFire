@@ -183,6 +183,24 @@
     </item>
     
     <item>
+      <title>linux</title>
+      <link>https://coldinfire.github.io/tags/linux/</link>
+      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://coldinfire.github.io/tags/shell/</link>
+      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Vim</title>
       <link>https://coldinfire.github.io/tags/Vim/</link>
       <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
@@ -201,20 +219,11 @@
     </item>
     
     <item>
-      <title>linux</title>
-      <link>https://coldinfire.github.io/tags/linux/</link>
-      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Flie</title>
-      <link>https://coldinfire.github.io/tags/Flie/</link>
+      <title>command</title>
+      <link>https://coldinfire.github.io/tags/command/</link>
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/tags/Flie/</guid>
+      <guid>https://coldinfire.github.io/tags/command/</guid>
       <description></description>
     </item>
     
