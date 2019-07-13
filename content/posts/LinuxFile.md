@@ -15,7 +15,7 @@ tags:
 ---
 
 ### 文件 ###
- 
+
   ex: `-rw--w-r-- 1 user group day month time text.xx`
 
   第一个文件代表意义(0)：
@@ -40,13 +40,13 @@ tags:
 
 #### 修改权限： ####
   ` chmod [xx] file`：修改文件的权限 
-   
+
    - [u=rwx,g=rwx,o=rwx]/[u+r,w,x...] ：修改各自对应的权限
    - [a=rwx]：修改所有的权限
    - [777]：对应的权限值和，可修改权限   
 
 chown user file:修改文件所有者
-  
+
  chgrp group file:修改文件所属组
 
 ### 处理文件常用命令 ###
@@ -156,7 +156,7 @@ chown user file:修改文件所有者
  - tar -zxvf [tar_file.tar.gz] -C [指定目录]：解压到指定目录
  - tar -jcvf [tar_file.tar.bz2] [1,2,3,4]:压缩打包
  - tar -jxvf [tar_file.tar.bz2]:解压
- - zip [-r] 目标文件 源文件
+ - zip [-r] aim_file  source_file
  - unzip [-d] 解压后目录文件 压缩文件
 
 ### I/O重定向 ###
@@ -178,7 +178,7 @@ chown user file:修改文件所有者
    - 管道命令 | ：将前面的结果给后面的命令，ex：ls -al | wc，将ls的结果用wc命令来统计字数
    - lpr：接受标准输入并将其发送到打印机
 	 - cat poorly_formatted_report.txt | fmt | pr | lpr 
-    	 
+      
 	- cat unsorted_list_with_dupes.txt | sort | uniq | pr | LPR  
 
 `echo`：把内容重定向到指定的文件中 ，有则打开，无则创建   【日志管理使用】
@@ -198,6 +198,8 @@ chown user file:修改文件所有者
   - sort：对标准输入进行排序，然后在标准输出上输出排序结果。
   - uniq：它会删除重复的数据行。
   - grep：检查从标准输入接收的每一行数据，并输出包含指定模式字符的每一行。
+      - grep 'content' source_rout：筛选出匹配的项
+      - grep -v 'content' source_rout：过滤掉匹配的项
   - fmt：从标准输入读取文本，然后在标准输出上输出格式化文本。
   - pr：从标准输入中获取文本输入，并将数据拆分为具有分页符，页眉和页脚的页面，以便为打印做准备。
   - head：输出其输入的前几行。用于获取文件的标题。

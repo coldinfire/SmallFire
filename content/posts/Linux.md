@@ -35,7 +35,7 @@ tags:
 
  -  /boot：系统引导程序文件
 
- -  /dev：必要设备
+ -  /dev：必要设备,磁盘等必须的硬件设备
 
  -  /etc：配置文件   /etc/xml:xml配置文件  、/etc/opt:/opt/配置文件
 
@@ -63,7 +63,7 @@ tags:
 查找命令：
 
    ♦ type：显示有关命令类型的信息
-   
+
    ♦ which：找到命令在哪个文件下
 
    ♦ help -m [command]：显示shell内置的参考页面   
@@ -107,24 +107,36 @@ Ctrl + e：跳到输入命令的尾部
 ## 系统工具
 
 ### 磁盘分析 ###
-  - df [-ah]:系统磁盘使用信息
-  - du [-ah]:当前文件的使用
-  - fdisk [-l] [name]:磁盘分区表操作工具
-  - mkfs [-t 文件格式] 装置文件名:磁盘格式化 
-  - mkfs [tab][tab]:查看mkfs支持文件格式
+  - df [-ah]：系统磁盘使用信息
+  - du [-ah]：当前文件的使用
+  - fdisk [-l] [/dev/sda]:磁盘分区表操作工具
+  - fdisk  /dev/sda：设置分区
+  - partprobe：更新分区表
+  - mkfs [tab tab]：查看mkfs支持文件格式
+  - mkfs [-t 文件格式] 装置文件名：磁盘格式化 
+        - mkfs.ex4 /dev/sda{1..3}：将该磁盘格式为ex4格式
   - fsck :磁盘检验
-  - mount 装置文件名 挂载点：磁盘挂载
-  - umount [-fn]:卸载 [-f]:强制卸除 [-n]:不升级/etc/mtab下卸除
+  - mount【装置文件名】【挂载点】：磁盘挂载
+        - mount /dev/sdb1  /sdb1/
+  - umount [-ln]：卸载  
+      - [-l]：强制卸除 
+      - [-n]：不升级/etc/mtab下卸除
 
 ### 网络性能 ###  
-  - ifconfig [card] [x]:网络状态 [-a]:显示全部接口信息 [up/down]:开启关闭网卡 
-                                etho:第一块网卡   lo:回环地址
+  - ifconfig [card] [x]：网络状态 
+                                - [-a]：显示全部接口信息 
+                                - [up/down]：开启关闭网卡 
+                                                              etho:第一块网卡   lo:回环地址
   - ps [-aux]：显示系统所有在运行的进程
-  - top        动态进程
+         - 配合 `grep`实现查找特定的进程
+  - pstree：以树形显示进程
+  - top：动态进程
+  - free：查看内存的使用状况 [-h]：以G为单位显示
   - kill [-9] pid：杀死对应的pid进程  [-9]：强制杀死
-  - jobs：列出您自己的流程的另一种方式
-  - bg：后台放置一个进程
-  - fg：在前台放置一个进程
+  - [command] &：后台运行该程序
+  - jobs：列出后台程序的一种方式，显示后台程序的工作号和PID
+  - bg：后台放置一个进程 `bg  %[程序工作号]`
+  - fg：在前台放置一个进程 `fg  %[程序工作号]`
 
 
 
