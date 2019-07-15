@@ -10,7 +10,6 @@ categories:
 
 tags: 
   - linux
-  - command
 
 ---
 
@@ -50,7 +49,7 @@ chown user file:修改文件所有者
  chgrp group file:修改文件所属组
 
 ### 处理文件常用命令 ###
-•`ls/ll -al ~`：显示所有文件(~显示隐藏)
+•`ls/ll -al ~`：显示所有文件(~显示隐藏) `-i`：查看inode number
 
 •`cd .`：表示当前目录       `cd ..`：表示父目录     `  cd -`：切换到上次所在位置     `cd~`：用户家目录  
 

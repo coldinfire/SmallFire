@@ -998,9 +998,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/LinuxExpansion/</loc>
+      <loc>https://coldinfire.github.io/2017/LinuxYum/</loc>
       
-      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-27T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1014,7 +1014,7 @@
     <url>
       <loc>https://coldinfire.github.io/categories/Linux/</loc>
       
-      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-27T00:00:00+00:00</lastmod>
       
       
       
@@ -1026,11 +1026,39 @@
     <url>
       <loc>https://coldinfire.github.io/tags/linux/</loc>
       
-      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-27T00:00:00+00:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/LinuxLn/</loc>
+      
+      <lastmod>2017-10-24T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/LinuxShell/</loc>
+      
+      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>
@@ -1114,18 +1142,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/command/</loc>
-      
-      <lastmod>2017-10-17T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2017/Linux/</loc>
       
       <lastmod>2017-10-16T17:20:58+08:00</lastmod>
@@ -1199,16 +1215,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/1/Untitled/</loc>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>

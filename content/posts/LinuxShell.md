@@ -48,3 +48,25 @@ tags:
 常量：一旦设置就永远不应该改变的值，大写字符
 
 ### Shell函数 ###
+在Shell中定义函数，通过函数将各个功能封装起来，在整个shell脚本可以多处调用。
+
+```JS
+## Constants常量：
+RIGHT_NOW=$(date +"%x %r %Z")
+TIME_STAMP="Updated on $RIGHT_NOW by $USER"
+## Funcitons定义：
+drive_space()
+{
+    echo "<h2>Filesystem space</h2>"
+    echo "<pre>"
+    df
+    echo "</pre>"
+}
+## Main调用：
+<body>
+      <h1>$TITLE</h1>
+      <p>$TIME_STAMP</p>
+      $(drive_space)
+</body>
+
+```

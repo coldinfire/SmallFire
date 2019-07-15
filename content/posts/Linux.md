@@ -108,27 +108,28 @@ Ctrl + e：跳到输入命令的尾部
 
 ### 磁盘分析 ###
   - df [-ah]：系统磁盘使用信息
-  - du [-ah]：当前文件的使用
+  - du [-ah]：显示当前磁盘文件的大小
   - fdisk [-l] [/dev/sda]:磁盘分区表操作工具
   - fdisk  /dev/sda：设置分区
   - partprobe：更新分区表
   - mkfs [tab tab]：查看mkfs支持文件格式
   - mkfs [-t 文件格式] 装置文件名：磁盘格式化 
-        - mkfs.ex4 /dev/sda{1..3}：将该磁盘格式为ex4格式
+      - mkfs.ex4 /dev/sda{1..3}：将该磁盘格式为ex4格式
   - fsck :磁盘检验
   - mount【装置文件名】【挂载点】：磁盘挂载
-        - mount /dev/sdb1  /sdb1/
+      - mount /dev/sdb1  /sdb1/
   - umount [-ln]：卸载  
       - [-l]：强制卸除 
       - [-n]：不升级/etc/mtab下卸除
+- mount -o remount,ro /dev/sdb3：修改权限
 
-### 网络性能 ###  
-  - ifconfig [card] [x]：网络状态 
-                                - [-a]：显示全部接口信息 
-                                - [up/down]：开启关闭网卡 
-                                                              etho:第一块网卡   lo:回环地址
+### 网络性能
+  - ifconfig [card] [x]：网络状态  
+       - [-a]：显示全部接口信息 
+       - [up/down]：开启关闭网卡 
+       - etho:第一块网卡   lo:回环地址
   - ps [-aux]：显示系统所有在运行的进程
-         - 配合 `grep`实现查找特定的进程
+       - 配合 `grep`实现查找特定的进程
   - pstree：以树形显示进程
   - top：动态进程
   - free：查看内存的使用状况 [-h]：以G为单位显示
