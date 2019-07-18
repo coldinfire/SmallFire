@@ -130,6 +130,44 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/MM/</loc>
+      
+      <lastmod>2019-03-07T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/MMSummary/</loc>
+      
+      <lastmod>2019-03-07T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
+      
+      <lastmod>2019-03-07T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
       <lastmod>2019-03-04T00:00:00+00:00</lastmod>
@@ -614,6 +652,32 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/ABAPSmartforms/</loc>
+      
+      <lastmod>2018-08-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/smartforms/</loc>
+      
+      <lastmod>2018-08-14T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAPUtils5/</loc>
       
       <lastmod>2018-08-10T00:00:00+00:00</lastmod>
@@ -1050,9 +1114,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/LinuxShell/</loc>
+      <loc>https://coldinfire.github.io/2017/LinuxShellFlow/</loc>
       
-      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1066,11 +1130,25 @@
     <url>
       <loc>https://coldinfire.github.io/tags/shell/</loc>
       
-      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-23T00:00:00+00:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/LinuxShell/</loc>
+      
+      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>
@@ -1196,11 +1274,25 @@
     <url>
       <loc>https://coldinfire.github.io/tags/CSS/</loc>
       
-      <lastmod>2017-09-12T17:20:58+08:00</lastmod>
+      <lastmod>2017-09-13T17:20:58+08:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/CSSBackgroup/</loc>
+      
+      <lastmod>2017-09-13T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>

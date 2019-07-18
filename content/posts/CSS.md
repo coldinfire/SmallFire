@@ -54,6 +54,13 @@ tags:
 - 尽可能保持简短，如果可以请限制在3个元素以内；
 - **只有**在不得已的情况下再回溯最近的父级元素（例如：类名无前缀时）；
 
+元素选择器：`p{ color: red; }`
+
+id选择器：`#id{ color: red; }`
+
+class选择器：`.center{ color: red; }`
+
+组选择器：`h1,h2,p{ color: red;}`
 ## 标签
 
 ## 引用CSS和JavaScript文件
@@ -62,7 +69,7 @@ tags:
 
 ```CSS
 <!-- 外部 CSS -->
-<link rel="stylesheet" href="code-guide.css">
+<link rel="stylesheet" type="text/css" href="code-guide.css">
 
 <!-- 文档内CSS -->
 <style>
@@ -72,6 +79,11 @@ tags:
 <!-- JavaScript -->
 <script src="code-guide.js"></script>
 ```
+### 调用优先级
+
+ - Inline style (inside an HTML element)
+ - External and internal style sheets (in the head section)
+ - Browser default
 
 ## 属性顺序
 

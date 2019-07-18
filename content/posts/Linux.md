@@ -109,6 +109,7 @@ Ctrl + e：跳到输入命令的尾部
 ### 磁盘分析 ###
   - df [-ah]：系统磁盘使用信息
   - du [-ah]：显示当前磁盘文件的大小
+  - free：显示内存剩余大小
   - fdisk [-l] [/dev/sda]:磁盘分区表操作工具
   - fdisk  /dev/sda：设置分区
   - partprobe：更新分区表

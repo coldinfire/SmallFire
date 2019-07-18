@@ -1910,6 +1910,96 @@ var oComboBox = new sap.ui.commons.ComboBox({
     </item>
     
     <item>
+      <title>MM Summary</title>
+      <link>https://coldinfire.github.io/2019/MMSummary/</link>
+      <pubDate>Thu, 07 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMSummary/</guid>
+      <description>
+
+&lt;h3 id=&#34;mm常用透明表&#34;&gt;MM常用透明表&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Table&lt;/th&gt;
+&lt;th&gt;Desc&lt;/th&gt;
+&lt;th&gt;Table&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Desc&lt;/th&gt;
+&lt;th&gt;Table&lt;/th&gt;
+&lt;th&gt;Desc&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;MARA&lt;/td&gt;
+&lt;td&gt;物料主数据&lt;/td&gt;
+&lt;td&gt;MARC&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;物料工厂(在途库存)&lt;/td&gt;
+&lt;td&gt;MSKA&lt;/td&gt;
+&lt;td&gt;销售订单库存&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;MAKT&lt;/td&gt;
+&lt;td&gt;物料描述&lt;/td&gt;
+&lt;td&gt;MARD&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;物料库存(当前库存)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;工厂库位关系&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;MARM&lt;/td&gt;
+&lt;td&gt;物料的计量单位&lt;/td&gt;
+&lt;td&gt;MARDH&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;历史库存&lt;/td&gt;
+&lt;td&gt;T001W&lt;/td&gt;
+&lt;td&gt;工厂表&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;物料评估/价格&lt;/td&gt;
+&lt;td&gt;MSKU&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;第三方库存表&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
       <title>SAP memory使用</title>
       <link>https://coldinfire.github.io/2019/ABAPMemory/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
@@ -4411,56 +4501,6 @@ WE02:IDOC发送信息检查
 &lt;li&gt;对于此上下文节点，生成两个接口IContextNode和IContextElement，以允许在应用程序代码中进行上下文编程和动态上下文修改（添加属性或内部节点）。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>BAPI使用</title>
-      <link>https://coldinfire.github.io/2018/BAPI/</link>
-      <pubDate>Tue, 16 Oct 2018 15:15:42 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/BAPI/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的RFC函数。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;BAPI函数及函数参数参考的结构类型名，都要以ZBAPI开头；&lt;/li&gt;
-&lt;li&gt;BAPI函数参数只能是传值，不能有Change与Exception参数&lt;/li&gt;
-&lt;li&gt;BAPI函数需要有Return返回参数&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;查找事务码对应的BAPI&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;进入事务码，system status &amp;ndash;&amp;gt; 事务码双击，找到Package VA &amp;ndash;&amp;gt; SE80打开包VA/Display Object List&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;BAPI事务处理&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;同时调用多个BAPI，需要在程序中进行事务控制，决定何时执行数据库提交或回滚；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;BAPI内部不包含COMMIT WORK,ROLLBACK WORK&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;根据BAPI函数的返回数据进行判断：&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt; IF return-type &amp;lt;&amp;gt; &#39;S&#39;.
-   CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39;.
- ELSE.
-   CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39;
- EXPORTING
-   wait = &#39;X&#39;.
- ENDIF.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;4.多个BAPI调用时需要遵守以下原则&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;1&gt;如果有更新操作的BAPI,对实例进行另外的读取操作的BAPI只能访问上一个COMMIT WORK 执行后的最新数据&lt;/li&gt;
-&lt;li&gt;&lt;2&gt;在同一个LUW中，不能对同一个业务对象实例时行超过一次的更新操作。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
 </description>
     </item>
     

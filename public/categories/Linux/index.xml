@@ -17,7 +17,7 @@
       <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxYum/</guid>
-      <description>rpm包：</description>
+      <description>安装包分类 源码包 源码包：即程序软件的源代码（将软件的源码以 tar 打包后再压缩的资源包）。 RPM 最大的特点就是需要安装的软件已经编译过，并已经打包成 RPM</description>
     </item>
     
     <item>
@@ -27,6 +27,15 @@
       
       <guid>https://coldinfire.github.io/2017/LinuxLn/</guid>
       <description>软链接 创建：ln -s 源路径 目标路径 特点：删除链接文件，源文件无影响；删除源文件，链接文件失效；修改其中一个文件，两个内容都改变；可以跨分区 指向</description>
+    </item>
+    
+    <item>
+      <title> Shell 脚本-流程控制</title>
+      <link>https://coldinfire.github.io/2017/LinuxShellFlow/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/LinuxShellFlow/</guid>
+      <description>退出状态 命令（包括我们编写的脚本和 shell 函数）在终止时向系统发出一个值，称为退出状态。该值是 0 到 255 范围内的整数，表示命令执行成功或失败。按照惯例</description>
     </item>
     
     <item>

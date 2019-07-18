@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>MM Summary</title>
+      <link>https://coldinfire.github.io/2019/MMSummary/</link>
+      <pubDate>Thu, 07 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMSummary/</guid>
+      <description>MM常用透明表 Table Desc Table Desc Table Desc MARA 物料主数据 MARC 物料工厂(在途库存) MSKA 销售订单库存 MAKT 物料描述 MARD 物料库存(当前库存) 工厂库位关系 MARM 物料的计量单位 MARDH 历史</description>
+    </item>
+    
+    <item>
       <title>SAP memory使用</title>
       <link>https://coldinfire.github.io/2019/ABAPMemory/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
@@ -207,6 +216,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAPDialog/</guid>
       <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>
+    </item>
+    
+    <item>
+      <title>Smartforms</title>
+      <link>https://coldinfire.github.io/2018/ABAPSmartforms/</link>
+      <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPSmartforms/</guid>
+      <description>Smartforms注意事项 Smartforms Debug</description>
     </item>
     
     <item>
@@ -431,7 +449,7 @@
       <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxYum/</guid>
-      <description>rpm包：</description>
+      <description>安装包分类 源码包 源码包：即程序软件的源代码（将软件的源码以 tar 打包后再压缩的资源包）。 RPM 最大的特点就是需要安装的软件已经编译过，并已经打包成 RPM</description>
     </item>
     
     <item>
@@ -441,6 +459,15 @@
       
       <guid>https://coldinfire.github.io/2017/LinuxLn/</guid>
       <description>软链接 创建：ln -s 源路径 目标路径 特点：删除链接文件，源文件无影响；删除源文件，链接文件失效；修改其中一个文件，两个内容都改变；可以跨分区 指向</description>
+    </item>
+    
+    <item>
+      <title> Shell 脚本-流程控制</title>
+      <link>https://coldinfire.github.io/2017/LinuxShellFlow/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/LinuxShellFlow/</guid>
+      <description>退出状态 命令（包括我们编写的脚本和 shell 函数）在终止时向系统发出一个值，称为退出状态。该值是 0 到 255 范围内的整数，表示命令执行成功或失败。按照惯例</description>
     </item>
     
     <item>
@@ -495,6 +522,15 @@
       
       <guid>https://coldinfire.github.io/2017/JS/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>CSS背景设置</title>
+      <link>https://coldinfire.github.io/2017/CSSBackgroup/</link>
+      <pubDate>Wed, 13 Sep 2017 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/CSSBackgroup/</guid>
+      <description>属性介绍 网页的背景设计： background-color 颜色设置方式 Color name：red，green&amp;hellip; HEX Value：#rrggbb RGB Value：rgb(255</description>
     </item>
     
     <item>
