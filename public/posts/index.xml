@@ -30,12 +30,30 @@
     </item>
     
     <item>
+      <title>MM 主要数据创建</title>
+      <link>https://coldinfire.github.io/2019/MMMasterData/</link>
+      <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMMasterData/</guid>
+      <description>Enterprise Struture 1.Define Company : OX15 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Define Company 1.Enter company 2.Enter company name 3.Update address 4.Enter country code of company 5.Enter language key 6.Enter local currency 2.Define Company Code : OX02 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Edit,Copy,Delete Company Code 3.Assign Company Code to Company : OX16 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition</description>
+    </item>
+    
+    <item>
+      <title>MM 包含流程解析</title>
+      <link>https://coldinfire.github.io/2019/MMDetail1/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMDetail1/</guid>
+      <description>企业组织结构 整体架构 集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。 公司代码：一</description>
+    </item>
+    
+    <item>
       <title>MM Summary</title>
       <link>https://coldinfire.github.io/2019/MMSummary/</link>
       <pubDate>Thu, 07 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MMSummary/</guid>
-      <description>MM常用透明表 Table Desc Table Desc Table Desc MARA 物料主数据 MARC 物料工厂(在途库存) MSKA 销售订单库存 MAKT 物料描述 MARD 物料库存(当前库存) 工厂库位关系 MARM 物料的计量单位 MARDH 历史</description>
+      <description>MM概要 业务 (采购询价 ME41 / 报价 ME47 录入、ME49 报价比较)&amp;mdash;-&amp;gt; 采购申请 (PR)&amp;mdash;-&amp;gt; 采购订单 (PO)&amp;mdash;-&amp;gt; 发送采购单给供应商 &amp;lt; ME9F&amp;gt;&amp;mdash;-&amp;gt; 采购收货 (产生物料</description>
     </item>
     
     <item>
@@ -224,7 +242,7 @@
       <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPSmartforms/</guid>
-      <description>Smartforms注意事项 Smartforms Debug</description>
+      <description>Smartforms组成 Smartforms使用 Smartforms注意事项 Smartforms Debug</description>
     </item>
     
     <item>
