@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  590 ,
+  "wordcount":  643 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP1\/",
   "datePublished": "2018-05-12T00:00:00\x2b00:00",
   "dateModified": "2018-05-12T00:00:00\x2b00:00",
@@ -205,29 +205,29 @@
 <table>
 <thead>
 <tr>
-<th align="left">sy-uname:用户登录名</th>
-<th align="left">sy-datum:日期</th>
-<th align="left">sy-uzeit:时间</th>
+<th align="left">SY-UNAME:用户登录名</th>
+<th align="left">SY-DATUM:当前系统日期</th>
+<th align="left">SY-UZEIT:当前系统时间</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td align="left"><strong>sy-subrc:报表返回值</strong></td>
-<td align="left"><strong>sy-index:循环编号</strong></td>
-<td align="left"><strong>sy-tabix:循环编号</strong></td>
+<td align="left"><strong>SY-SUBRC:表示系统执行成功与否</strong></td>
+<td align="left"><strong>SY-INDEX:LOOP循环次数</strong></td>
+<td align="left"><strong>SY-TABIX:内表循环第几行</strong></td>
 </tr>
 
 <tr>
-<td align="left"><strong>sy-dynnr:屏幕的编号</strong></td>
-<td align="left"><strong>sy-dbcnt:DB操作处理过的表行号</strong></td>
-<td align="left"><strong>sy-host:服务器名称</strong></td>
+<td align="left"><strong>SY-DYNNR:屏幕的编号</strong></td>
+<td align="left"><strong>SY-DBCNT:DB操作处理过的表行号</strong></td>
+<td align="left"><strong>SY-HOST:服务器名称</strong></td>
 </tr>
 
 <tr>
-<td align="left"><strong>sy-cprog:当前程序名</strong></td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left"><strong>SY-CPROG:当前程序名</strong></td>
+<td align="left"><strong>SY-TCODE:当前执行的TCode</strong></td>
+<td align="left"><strong>SY-TMAXL:内表总行数</strong></td>
 </tr>
 </tbody>
 </table>
@@ -240,7 +240,7 @@
 <li><p>只能使用LIKE引用另一定义变量的类型，type不可以</p></li>
 </ul>
 
-<pre><code class="language-JS">&lt;1&gt; DATA &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt; . &lt;自定义变量类型&gt;
+<pre><code class="language-JS">&lt;1&gt; DATA &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt; [&lt;decimals&gt;]. &lt;自定义变量类型&gt;
 &lt;2&gt; DATA &lt;var1&gt; like  &lt;var2&gt; . &lt;参考定义变量&gt;
        DATA &lt;var1&gt; type &lt;var2&gt;. 
 </code></pre>
@@ -305,7 +305,7 @@ END-OF-DEFINITION.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>590</span>
+                   <span>643</span>
             </p>
             
             <p class="copyright-item">

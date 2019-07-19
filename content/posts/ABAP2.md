@@ -185,9 +185,9 @@ END OF <str>.
 ​	 Definition：
 ​       
 
-- Format、Output Charact、
+- Format、Output Charact
   
-- Converse Routine(转换规则)：注意前导0的补充问题，将该字段设置为ALPHA。
+- Converse Routine(转换规则)：注意前导0的补充问题，将该字段设置为`ALPHA`。
   
 - Lower Case：不勾选，默认会全部转换为大写字母。
 

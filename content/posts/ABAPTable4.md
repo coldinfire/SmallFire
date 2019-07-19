@@ -138,6 +138,12 @@ END-OF-DEFINITION.
 
 ## 设置工具导航栏 GUI Status
 
+#### Copy SAP标准GUI Status
+
+- SE80 -> SALV -> STANDARD -> Copy到自定义程序的GUI Status
+
+![GUI](/images/ABAP/CopyGUI.png)
+
 GUI Status参数设置共包括3个部分：
 
 1. 菜单栏(Menu Bar)：用于设置主菜单选项。

@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  1499 ,
+  "wordcount":  1516 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP4\/",
   "datePublished": "2018-05-24T17:20:58\x2b08:00",
   "dateModified": "2018-05-24T17:20:58\x2b08:00",
@@ -151,7 +151,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                3 min
+                4 min
         </div>
     </header>
     <div class="post-content">
@@ -201,12 +201,14 @@
 <h2 id="数据格式化-转换">数据格式化、转换</h2>
 
 <ul>
-<li><p>输入输出转换</p>
+<li>输入输出转换</li>
+</ul>
 
 <p>如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。</p>
 
-<p>通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).</p></li>
-</ul>
+<p>通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).</p>
+
+<p>去除前导0：<code>SHIT ITAB-FIELD LEFT DELETING LEADING ‘0’</code></p>
 
 <pre><code class="language-JS">  ** 添加前导零 **
   CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
@@ -337,7 +339,7 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1499</span>
+                   <span>1516</span>
             </p>
             
             <p class="copyright-item">

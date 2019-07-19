@@ -260,7 +260,7 @@
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPUtils1/</guid>
-      <description>字符串前拼接空格 在Grid ALV上也显示敲到空格： IF &amp;lt;fw_output&amp;gt;-name2+0(1) eq space AND &amp;lt;fw_output&amp;gt;-name2 IS NOT INITIAL. h_white = cl_abap_conv_in_ce=&amp;gt;uccpi( 160 ). REPLACE ALL OCCURRENCES OF REGEX &#39;\s&#39; IN &amp;lt;fw_output&amp;gt;-name2 WITH h_white. ENDIF. Commit 和 Rollback CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39; EXPORTING wait = &#39;X&#39;. IMPORTING return = commback. CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39; IMPORTING return =</description>
+      <description>判断是否包含特定值 IF field CN &amp;lsquo;0123456789&amp;rsquo;. IF field CN &amp;lsquo;ABCDEFG*&amp;rsquo; IF field CN &amp;lsquo;abcdefg*&amp;rsquo; IF field CN &amp;lsquo;/&amp;rsquo; &amp;hellip;.. CN：Contains Not Only (包含，不仅包含) CO：Contains Only（仅包含） CS</description>
     </item>
     
     <item>
@@ -315,6 +315,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAPTable2/</guid>
       <description>选择屏幕 引用链接 触发 ​ 选择屏幕触发的是：AT SELECTION-SCREEN ​ 对话屏幕触发的是：PAI ​ 列表屏幕触发的是：AT USER-COMMAND SELECT-SCREEN SELECT-SCREEN语句用于创建屏</description>
+    </item>
+    
+    <item>
+      <title> SAP流水号 </title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils7/</link>
+      <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils7/</guid>
+      <description>TCode SNRO OYSM 读取函数 NUMBER_GET_NEXT 相关表 NRIV TNRO 函数组 SNR0 Online maint. of number ranges &amp;amp; groups SNR1 Interface for number ranges and groups SNR2 Maintenance of number range objects SNR3 Number range checks, assignment &amp;amp; info SNR4 Number ranges utility 使用 如有跳号现象，可以禁用对象的 Buffer 试试 5NZ</description>
     </item>
     
     <item>

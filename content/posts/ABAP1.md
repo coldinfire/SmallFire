@@ -23,11 +23,11 @@ tags:
 
    常用系统变量：
 
-| sy-uname:用户登录名     | sy-datum:日期                     | sy-uzeit:时间          |
+| SY-UNAME:用户登录名     | SY-DATUM:当前系统日期                 | SY-UZEIT:当前系统时间 |
 | :---------------------- | :-------------------------------- | :--------------------- |
-| **sy-subrc:报表返回值** | **sy-index:循环编号**             | **sy-tabix:循环编号**  |
-| **sy-dynnr:屏幕的编号** | **sy-dbcnt:DB操作处理过的表行号** | **sy-host:服务器名称** |
-| **sy-cprog:当前程序名** |                                   |                        |
+| **SY-SUBRC:表示系统执行成功与否** | **SY-INDEX:LOOP循环次数** | **SY-TABIX:内表循环第几行** |
+| **SY-DYNNR:屏幕的编号** | **SY-DBCNT:DB操作处理过的表行号** | **SY-HOST:服务器名称** |
+| **SY-CPROG:当前程序名** | **SY-TCODE:当前执行的TCode** | **SY-TMAXL:内表总行数** |
 
 ## 变量的声明
 - 透明表，数据字典，结构：既是类型又是对象，可用type和like。
@@ -35,7 +35,7 @@ tags:
 - 只能使用LIKE引用另一定义变量的类型，type不可以
 
 ```JS
-<1> DATA <var>(len) TYPE <type> VALUE <value> . <自定义变量类型>
+<1> DATA <var>(len) TYPE <type> VALUE <value> [<decimals>]. <自定义变量类型>
 <2> DATA <var1> like  <var2> . <参考定义变量>
 	   DATA <var1> type <var2>. 
 ```
@@ -49,8 +49,6 @@ DATA:BEGIN OF STAFFINFO. <此处是.操作符>
     ADDRESS(50) TYPE C,
  END OF STAFFINFO.
 ```
-
-
 
 ## 定义常量、宏
 

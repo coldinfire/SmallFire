@@ -38,9 +38,11 @@ MESSAGE显示:
 
 - 输入输出转换
 
-    如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。
+  如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。
 
-    通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).
+  通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).
+
+  去除前导0：`SHIT ITAB-FIELD LEFT DELETING LEADING ‘0’`
 
   ```JS
   ** 添加前导零 **
