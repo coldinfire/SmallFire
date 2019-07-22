@@ -107,7 +107,7 @@
       <pubDate>Wed, 26 Sep 2018 19:15:42 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/BDC/</guid>
-      <description>定义 Batch data communication BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输. 两种通用写法： Call Transaction:直接调</description>
+      <description>定义 Batch data communication BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输. 使用步骤： 把外部的数据源(Txt,Excel 等</description>
     </item>
     
     <item>
@@ -117,6 +117,15 @@
       
       <guid>https://coldinfire.github.io/2018/Authorization/</guid>
       <description>简介 TCode ​ SU01：查看和编辑Role ​ SU10：实现对用户组的批量维护 ​ SU20：权限字段清单，可以增、删、改权限字段，可以浏览字段具体被哪</description>
+    </item>
+    
+    <item>
+      <title> 财务凭证冲销 </title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils9/</link>
+      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils9/</guid>
+      <description>凭证的更改 1：已经过帐的 TCODE：FB02. ​ 过完帐的允许更改的地方有限，只有凭证抬头文本，参照，分配，文本，原因代码等 2：预制凭证的更改</description>
     </item>
     
     <item>
@@ -165,6 +174,24 @@
     </item>
     
     <item>
+      <title> VOFM使用 </title>
+      <link>https://coldinfire.github.io/2018/SAP_VOFM/</link>
+      <pubDate>Sun, 19 Aug 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAP_VOFM/</guid>
+      <description>SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以通过Bas</description>
+    </item>
+    
+    <item>
+      <title> ABAP定义Range </title>
+      <link>https://coldinfire.github.io/2018/ABAPRange/</link>
+      <pubDate>Tue, 14 Aug 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPRange/</guid>
+      <description>Range使用</description>
+    </item>
+    
+    <item>
       <title>Smartforms</title>
       <link>https://coldinfire.github.io/2018/ABAPSmartforms/</link>
       <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
@@ -193,11 +220,20 @@
     
     <item>
       <title>报表开发&lt;OO ALV工具&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAPTable7/</link>
+      <link>https://coldinfire.github.io/2018/ABAPTable8/</link>
       <pubDate>Sat, 28 Jul 2018 17:20:58 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAPTable7/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAPTable8/</guid>
       <description>显示后，修改字段目录和布局 ​ 通过方法在第一次显示之后，设置一个新的布局或则字段目录。 方法 字段目录：GET_FRONTEND_FIELDCAT</description>
+    </item>
+    
+    <item>
+      <title>OO语法</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable7/</link>
+      <pubDate>Fri, 27 Jul 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable7/</guid>
+      <description>类声明和实现 *Class Declarations CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &#39;This is my first ABAP Object.&#39;. ENDCLASS. *Class Implementation CLASS application IMPLEMENTATION. METHOD show_text. WRITE text. ENDMETHOD. ENDCLASS. PUBLIC SECTION：可被所有对象使用 PROTECTED SECTION：只能被类</description>
     </item>
     
     <item>
@@ -243,6 +279,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAPTable2/</guid>
       <description>选择屏幕 引用链接 触发 ​ 选择屏幕触发的是：AT SELECTION-SCREEN ​ 对话屏幕触发的是：PAI ​ 列表屏幕触发的是：AT USER-COMMAND SELECT-SCREEN SELECT-SCREEN语句用于创建屏</description>
+    </item>
+    
+    <item>
+      <title> SM30表维护 </title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils8/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils8/</guid>
+      <description>表维护创建 创建自定义表 需要设置为 Display/Maintenance Allowed.允许修改，才可以在SM30中进行数据维护。否则会产生以下异常： 创建表维护 权限组：控制访问权</description>
     </item>
     
     <item>
@@ -324,6 +369,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAPUtils/</guid>
       <description>添加修改人信息 可以根据TCode进行相应的判断： 创建人信息: l_wa_head-ernam = sy-uname. l_wa_head-erdat = sy-datum. l_wa_head-erzet = sy-uzeit. call function &#39;TERMINAL_ID_GET&#39; exporting username = sy-uname importing terminal = l_wa_head-eterminal exceptions multiple_terminal_id = 1 no_terminal_found = 2 others = 3. 修改人信息： l_wa_head-urnam = sy-uname. l_wa_head-urdat</description>
+    </item>
+    
+    <item>
+      <title>ABAP程序间调用</title>
+      <link>https://coldinfire.github.io/2018/ABAP6/</link>
+      <pubDate>Tue, 05 Jun 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP6/</guid>
+      <description>同步调用 在一个程序中调用其他ABAP程序。有两种方式 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function] SUBMIT [program] AND RETURN CALL TRANSACTION [TCode]</description>
     </item>
     
     <item>

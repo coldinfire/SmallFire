@@ -4097,10 +4097,10 @@ Note:
         Material (MAST-MATNR) = Materials selected above and
         Plant (MAST–WERKS) = As in input.
     ● Read BOM Header and Item
-  	Read BOM Header from table 【STKO】。
-    	  BOM Number (STKO-STLNR) = BOM number got in previous step and
-    	  BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
-  	Read BOM Item details from 【STOP】.
+    Read BOM Header from table 【STKO】。
+          BOM Number (STKO-STLNR) = BOM number got in previous step and
+          BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
+    Read BOM Item details from 【STOP】.
           BOM number (STOP-STLNR) = STKO-STNLR.
 
 &lt;/code&gt;&lt;/pre&gt;
@@ -4164,6 +4164,32 @@ Note:
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;** T-Code：CS02，确保递归BOM的比例在0.95左右。即：产品A，其BOM中的A的消耗量应该小于0.95. **&lt;/p&gt;
+
+&lt;h3 id=&#34;批量删除bom分配&#34;&gt;批量删除BOM分配&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;CALL FUNCTION &#39;CSAP_MAT_BOM_ALLOC_DELETE&#39;
+  EXPORTING
+    MATERIAL                 = ITAB-MATNR
+    PLANT                    = ITAB-WERKS
+    BOM_USAGE                = &#39;1&#39;
+    ALTERNATIVE              =
+    FL_NO_CHANGE_DOC         = &#39; &#39;
+    FL_COMMIT_AND_WAIT       = &#39; &#39;
+  IMPORTING
+    FL_WARNING               = FLG_WARNING
+    BOM_NO                   = BOM_NO
+  TABLES
+    T_PLANT                  =
+  EXCEPTIONS
+    ERROR                    = 1
+    OTHERS                   = 2
+         .
+IF FLG_WARNING = &#39;X&#39;.
+  WRITE :/ ITAB-WERKS,ITAB-MATNR , &#39;删除成功&#39;.
+ELSE.
+  WRITE :/ ITAB-WERKS,ITAB-MATNR , &#39;删除失败&#39;.
+ENDIF.
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -4513,41 +4539,41 @@ ENDFORM.                    &amp;quot; FRM_DOWNLOAD_FILES
 &lt;h3 id=&#34;获取excel数据&#34;&gt;获取Excel数据&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. 选择屏幕上加个文件路径选择
-	SELECTION-SCREEN:BEGIN OF BLOCK BLK01 WITH FRAME TITLE TEXT-001.
-	PARAMETERS:P_FILE LIKE RLGRAP-FILENAME.
-	SELECTION-SCREEN END OF BLOCK BLK01.
+    SELECTION-SCREEN:BEGIN OF BLOCK BLK01 WITH FRAME TITLE TEXT-001.
+    PARAMETERS:P_FILE LIKE RLGRAP-FILENAME.
+    SELECTION-SCREEN END OF BLOCK BLK01.
 2. 给文件搜索帮助
   AT SELECTION-SCREEN ON VALUE-REQUEST FOR P_FILE.
   PERFORM FRM_GET_FILEPATH.
-	FORM FRM_GET_FILEPATH .
-	  CALL FUNCTION &#39;WS_FILENAME_GET&#39;
-	    EXPORTING
-	      MASK             = &#39;,Excel(*.xls),*.XLS,*.XLSX,&#39;
-	      TITLE            = &#39;选择文件&#39;(100)
-	    IMPORTING
-	      FILENAME         = P_FILE
-	    EXCEPTIONS
-	      INV_WINSYS       = 1
-	      NO_BATCH         = 2
-	      SELECTION_CANCEL = 3
-	      SELECTION_ERROR  = 4
-	      OTHERS           = 5.
-	  IF SY-SUBRC &amp;lt;&amp;gt; 0.
-	    MESSAGE E100(ZDEV) WITH &#39;选择文件出错！&#39;(007).
-	  ENDIF.
-	ENDFORM.
+    FORM FRM_GET_FILEPATH .
+      CALL FUNCTION &#39;WS_FILENAME_GET&#39;
+        EXPORTING
+          MASK             = &#39;,Excel(*.xls),*.XLS,*.XLSX,&#39;
+          TITLE            = &#39;选择文件&#39;(100)
+        IMPORTING
+          FILENAME         = P_FILE
+        EXCEPTIONS
+          INV_WINSYS       = 1
+          NO_BATCH         = 2
+          SELECTION_CANCEL = 3
+          SELECTION_ERROR  = 4
+          OTHERS           = 5.
+      IF SY-SUBRC &amp;lt;&amp;gt; 0.
+        MESSAGE E100(ZDEV) WITH &#39;选择文件出错！&#39;(007).
+      ENDIF.
+    ENDFORM.
 3. 获取EXCEL内容
-	CALL FUNCTION &#39;ALSM_EXCEL_TO_INTERNAL_TABLE&#39;
+    CALL FUNCTION &#39;ALSM_EXCEL_TO_INTERNAL_TABLE&#39;
       EXPORTING
         FILENAME    = P_FILE
         I_BEGIN_COL = &#39;1&#39;
         I_BEGIN_ROW = &#39;2&#39;
         I_END_COL   = &#39;300&#39;
-        I_END_ROW   = &#39;50000&#39;
+        I_END_ROW   = &#39;65535&#39;
       TABLES
         INTERN      = GT_EXCEL_T.
 4. 获取EXCEL行，列，值进行数据处理
-	LOOP AT GT_EXCEL_T INTO GS_EXCEL_T.
+    LOOP AT GT_EXCEL_T INTO GS_EXCEL_T.
     AT NEW ROW.
       CLEAR:GW_EXCEL.
     ENDAT.
@@ -4589,6 +4615,42 @@ ENDFORM.                    &amp;quot; FRM_DOWNLOAD_FILES
     ENDAT.
   ENDLOOP.
 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;获取excel数据函数&#34;&gt;获取Excel数据函数：&lt;/h4&gt;
+
+&lt;p&gt;“TEXT_CONVERT_XLS_TO_SAP”：这个函数直接可以把 execl 的内容原原本本的写入到内表，不用格式转化那么麻烦。如果该内表 ITAB 的数据最后要写入你的自建表里，那么还得迂回一下，因为透明表里有个 MANDT 客户端字段。所以得再建一个内表来迂回。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.EXCEL 中第一行是标题，调用 FM 时，参数 I_LINE_HEADER=’X’&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;读第一条数据时，会把标题放入 “值是空的字段”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 模板中前两行是标题，调用 FM 时，参数 I_LINE_HEADER=”，然后再把前两行数据删除&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;100*N+1 行，有把标题放入 “值是空的字段” 的情况&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;* 定义一个内表来存储数据，内表的列数和要传得数据的列数要相同，其按照列来匹配传值
+DATA: BEGIN OF gt_data OCCURS 0,
+     col1 TYPE char10,
+     col2 TYPE char10,
+      END OF gt_data.
+
+CALL FUNCTION &#39;TEXT_CONVERT_XLS_TO_SAP&#39;  
+  EXPORTING  
+*   I_FIELD_SEPERATOR          =  
+    I_LINE_HEADER               = &#39;X&#39;  
+    i_tab_raw_data             = IT_RAW  
+    i_filename                 = fname1  
+  tables  
+    i_tab_converted_data       = gt_data  
+  EXCEPTIONS  
+    CONVERSION_FAILED          = 1  
+    OTHERS                     = 2  
+          .  
+IF sy-subrc &amp;lt;&amp;gt; 0.  
+  MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO  
+      WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.  
+ENDIF.  
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;实例-https-github-com-coldinfire-erp-wiki-e6-96-87-e6-a1-a3-e4-b8-8a-e4-bc-a0-e5-92-8c-e4-b8-8b-e8-bd-bd-e4-b8-89-e5-ae-9e-e4-be-8b&#34;&gt;&lt;a href=&#34;https://github.com/coldinfire/ERP/wiki/%E6%96%87%E6%A1%A3%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD#%E4%B8%89%E5%AE%9E%E4%BE%8B&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;实例&lt;/a&gt;&lt;/h3&gt;

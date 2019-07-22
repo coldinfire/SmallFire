@@ -66,6 +66,15 @@
     </item>
     
     <item>
+      <title> 财务凭证冲销 </title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils9/</link>
+      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils9/</guid>
+      <description>凭证的更改 1：已经过帐的 TCODE：FB02. ​ 过完帐的允许更改的地方有限，只有凭证抬头文本，参照，分配，文本，原因代码等 2：预制凭证的更改</description>
+    </item>
+    
+    <item>
       <title>可输入弹出框</title>
       <link>https://coldinfire.github.io/2018/ABAPUtils5/</link>
       <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
@@ -81,6 +90,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAPUtils1/</guid>
       <description>判断是否包含特定值 IF field CN &amp;lsquo;0123456789&amp;rsquo;. IF field CN &amp;lsquo;ABCDEFG*&amp;rsquo; IF field CN &amp;lsquo;abcdefg*&amp;rsquo; IF field CN &amp;lsquo;/&amp;rsquo; &amp;hellip;.. CN：Contains Not Only (包含，不仅包含) CO：Contains Only（仅包含） CS</description>
+    </item>
+    
+    <item>
+      <title> SM30表维护 </title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils8/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils8/</guid>
+      <description>表维护创建 创建自定义表 需要设置为 Display/Maintenance Allowed.允许修改，才可以在SM30中进行数据维护。否则会产生以下异常： 创建表维护 权限组：控制访问权</description>
     </item>
     
     <item>
@@ -153,6 +171,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAPUtils/</guid>
       <description>添加修改人信息 可以根据TCode进行相应的判断： 创建人信息: l_wa_head-ernam = sy-uname. l_wa_head-erdat = sy-datum. l_wa_head-erzet = sy-uzeit. call function &#39;TERMINAL_ID_GET&#39; exporting username = sy-uname importing terminal = l_wa_head-eterminal exceptions multiple_terminal_id = 1 no_terminal_found = 2 others = 3. 修改人信息： l_wa_head-urnam = sy-uname. l_wa_head-urdat</description>
+    </item>
+    
+    <item>
+      <title>ABAP程序间调用</title>
+      <link>https://coldinfire.github.io/2018/ABAP6/</link>
+      <pubDate>Tue, 05 Jun 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP6/</guid>
+      <description>同步调用 在一个程序中调用其他ABAP程序。有两种方式 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function] SUBMIT [program] AND RETURN CALL TRANSACTION [TCode]</description>
     </item>
     
     <item>

@@ -13,11 +13,20 @@
     
     <item>
       <title>报表开发&lt;OO ALV工具&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAPTable7/</link>
+      <link>https://coldinfire.github.io/2018/ABAPTable8/</link>
       <pubDate>Sat, 28 Jul 2018 17:20:58 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAPTable7/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAPTable8/</guid>
       <description>显示后，修改字段目录和布局 ​ 通过方法在第一次显示之后，设置一个新的布局或则字段目录。 方法 字段目录：GET_FRONTEND_FIELDCAT</description>
+    </item>
+    
+    <item>
+      <title>OO语法</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable7/</link>
+      <pubDate>Fri, 27 Jul 2018 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable7/</guid>
+      <description>类声明和实现 *Class Declarations CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &#39;This is my first ABAP Object.&#39;. ENDCLASS. *Class Implementation CLASS application IMPLEMENTATION. METHOD show_text. WRITE text. ENDMETHOD. ENDCLASS. PUBLIC SECTION：可被所有对象使用 PROTECTED SECTION：只能被类</description>
     </item>
     
     <item>

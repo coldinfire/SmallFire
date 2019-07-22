@@ -89,11 +89,11 @@ ENDFORM.                    " FRM_DOWNLOAD_FILES
 ```
 ### 操作 ###
   CL_GUI_FRONTEND_SERVICES:该类提供了大量对操作系统文件的操作，如拷贝、列出文件名、打开文件等。
-  
+
   打开文件：调用静态方法 FILE_OPEN_DIALOG
 
    将文本文件读取到内表：GUI_UPLOAD
-  
+
    下载：GUI_DOWNLOAD
 
 - 打开选择上传文件对话框
@@ -160,7 +160,7 @@ CALL FUNCTION 'GUI_UPLOAD'
         I_BEGIN_COL = '1'
         I_BEGIN_ROW = '2'
         I_END_COL   = '300'
-        I_END_ROW   = '50000'
+        I_END_ROW   = '65535'
       TABLES
         INTERN      = GT_EXCEL_T.
 4. 获取EXCEL行，列，值进行数据处理
@@ -207,6 +207,45 @@ CALL FUNCTION 'GUI_UPLOAD'
   ENDLOOP.
 
 ```
+
+#### 获取Excel数据函数：
+
+“TEXT_CONVERT_XLS_TO_SAP”：这个函数直接可以把 execl 的内容原原本本的写入到内表，不用格式转化那么麻烦。如果该内表 ITAB 的数据最后要写入你的自建表里，那么还得迂回一下，因为透明表里有个 MANDT 客户端字段。所以得再建一个内表来迂回。
+
+**1.EXCEL 中第一行是标题，调用 FM 时，参数 I_LINE_HEADER=’X’**
+
+读第一条数据时，会把标题放入 “值是空的字段”
+
+**2. 模板中前两行是标题，调用 FM 时，参数 I_LINE_HEADER=”，然后再把前两行数据删除**
+
+100*N+1 行，有把标题放入 “值是空的字段” 的情况
+
+```JS
+* 定义一个内表来存储数据，内表的列数和要传得数据的列数要相同，其按照列来匹配传值
+DATA: BEGIN OF gt_data OCCURS 0,
+     col1 TYPE char10,
+     col2 TYPE char10,
+      END OF gt_data.
+
+CALL FUNCTION 'TEXT_CONVERT_XLS_TO_SAP'  
+  EXPORTING  
+*   I_FIELD_SEPERATOR          =  
+    I_LINE_HEADER               = 'X'  
+    i_tab_raw_data             = IT_RAW  
+    i_filename                 = fname1  
+  tables  
+    i_tab_converted_data       = gt_data  
+  EXCEPTIONS  
+    CONVERSION_FAILED          = 1  
+    OTHERS                     = 2  
+          .  
+IF sy-subrc <> 0.  
+  MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO  
+      WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.  
+ENDIF.  
+```
+
+
 
 ### [实例](https://github.com/coldinfire/ERP/wiki/%E6%96%87%E6%A1%A3%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD#%E4%B8%89%E5%AE%9E%E4%BE%8B)
 

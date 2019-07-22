@@ -151,5 +151,34 @@ DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
 
 ** T-Code：CS02，确保递归BOM的比例在0.95左右。即：产品A，其BOM中的A的消耗量应该小于0.95. **
 
+### 批量删除BOM分配
+
+```JS
+CALL FUNCTION 'CSAP_MAT_BOM_ALLOC_DELETE'
+  EXPORTING
+    MATERIAL                 = ITAB-MATNR
+    PLANT                    = ITAB-WERKS
+    BOM_USAGE                = '1'
+    ALTERNATIVE              =
+    FL_NO_CHANGE_DOC         = ' '
+    FL_COMMIT_AND_WAIT       = ' '
+  IMPORTING
+    FL_WARNING               = FLG_WARNING
+    BOM_NO                   = BOM_NO
+  TABLES
+    T_PLANT                  =
+  EXCEPTIONS
+    ERROR                    = 1
+    OTHERS                   = 2
+         .
+IF FLG_WARNING = 'X'.
+  WRITE :/ ITAB-WERKS,ITAB-MATNR , '删除成功'.
+ELSE.
+  WRITE :/ ITAB-WERKS,ITAB-MATNR , '删除失败'.
+ENDIF.
+```
+
+
+
 
 
