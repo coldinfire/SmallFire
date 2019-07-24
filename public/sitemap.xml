@@ -30,6 +30,132 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/ABAPUtils10/</loc>
+      
+      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAPUtils11/</loc>
+      
+      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
+      
+      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/abap/</loc>
+      
+      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/utils/</loc>
+      
+      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAPJOB/</loc>
+      
+      <lastmod>2019-03-22T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/FioriOverview/</loc>
       
       <lastmod>2019-03-16T17:20:58+08:00</lastmod>
@@ -58,55 +184,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/</loc>
-      
-      <lastmod>2019-03-16T17:20:58+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2019-03-16T17:20:58+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/categories/Sap-Fiori/</loc>
-      
-      <lastmod>2019-03-16T17:20:58+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2019-03-16T17:20:58+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
       
       <lastmod>2019-03-16T17:20:58+08:00</lastmod>
       
@@ -196,18 +274,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
-      
-      <lastmod>2019-03-04T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2019/ABAPMemory/</loc>
       
       <lastmod>2019-03-04T00:00:00+00:00</lastmod>
@@ -217,30 +283,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/abap/</loc>
-      
-      <lastmod>2019-03-04T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/utils/</loc>
-      
-      <lastmod>2019-03-04T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -327,6 +369,20 @@
       <loc>https://coldinfire.github.io/2019/Pycharm/</loc>
       
       <lastmod>2019-01-03T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/BOMTree/</loc>
+      
+      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -428,7 +484,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/IDoc/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAPIDoc/</loc>
       
       <lastmod>2018-10-22T15:15:42+08:00</lastmod>
       
@@ -520,7 +576,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/RFC/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAPRFC/</loc>
       
       <lastmod>2018-10-12T15:15:42+08:00</lastmod>
       
@@ -710,7 +766,7 @@
     <url>
       <loc>https://coldinfire.github.io/2018/ABAPRange/</loc>
       
-      <lastmod>2018-08-14T17:20:58+08:00</lastmod>
+      <lastmod>2018-08-16T17:20:58+08:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -724,7 +780,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/range/</loc>
       
-      <lastmod>2018-08-14T17:20:58+08:00</lastmod>
+      <lastmod>2018-08-16T17:20:58+08:00</lastmod>
       
       
       
@@ -870,9 +926,37 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/ABAPUtils13/</loc>
+      
+      <lastmod>2018-06-24T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAPTable3/</loc>
       
       <lastmod>2018-06-23T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAPUtils12/</loc>
+      
+      <lastmod>2018-06-20T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1367,6 +1451,32 @@
       
       
       <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/HTTP/</loc>
+      
+      <lastmod>2017-10-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/http/</loc>
+      
+      <lastmod>2017-10-12T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>

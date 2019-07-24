@@ -36,6 +36,7 @@ tags:
    AFPO : Production Order Position (details) 
 
 可用函数：CSAP_MAT_BOM_READ
+
 ### 读取逻辑 ###
 ```JS
 1.查找Material,Plant,Material Desc          Table:MARA,MARC,MAKT

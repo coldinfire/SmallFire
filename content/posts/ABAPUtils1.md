@@ -69,7 +69,24 @@ if sy-subrc <> 0.
      WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
  endif.
 ```
+### 取字段简短描述
+
+```JS
+DATA inttab LIKE STANDARD TABLE OF dfies WITH HEADER LINE.
+CALL FUNCTION 'DDIF_FIELDINFO_GET'
+  EXPORTING
+    tabname        = 'MARA'
+    langu          = sy-langu
+  TABLES
+    dfies_tab      = inttab
+  EXCEPTIONS
+    not_found      = 1
+    internal_error = 2
+    OTHERS         = 3.
+```
+
 ### 文本增强 ###
+
 - T-CODE:CMOD->转到->文本增强->关键字->更改
 
 ### 查找Smartforms ###

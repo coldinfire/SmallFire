@@ -6,10 +6,37 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> SAP下载程序源码工具 </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils10/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils10/</guid>
+      <description>程序：转自 http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html *@---------------------------------------------------------------------* *@ Report ZZXUE01 下载程序代码 *@ T-code *@---------------------------------------------------------------------* *@ Created by Xavery Hsueh on 2011-03-01 *@ Lasted Edited date: *@---------------------------------------------------------------------* REPORT XXX NO STANDARD PAGE HEADING. ***********************************************************************@ ** 声明数据库表 ***********************************************************************@ TABLES:rs38m, trdir. &amp;quot; ***********************************************************************@ ** 内表结构类型的定义 ***********************************************************************@ DATA BEGIN OF dynpfields OCCURS 1. INCLUDE STRUCTURE dynpread.</description>
+    </item>
+    
+    <item>
+      <title> SAP发送邮件 </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils11/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils11/</guid>
+      <description>TRY. &amp;quot; 创建发送请求 l_send_request = cl_bcs=&amp;gt;create_persistent( ). &amp;quot; 设定发送内容 l_document = cl_document_bcs=&amp;gt;create_document( i_type = &#39;RAW&#39; i_text = i_content[] I_IMPORTANCE = &#39;1&#39; i_subject = l_subject ). &amp;quot; 增加发送内容到发送请求 CALL METHOD l_send_request-&amp;gt;set_document( l_document ). &amp;quot; 取得发送者（取得发件人，前提是这个</description>
+    </item>
+    
+    <item>
+      <title>SAP后台JOB</title>
+      <link>https://coldinfire.github.io/2019/ABAPJOB/</link>
+      <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPJOB/</guid>
+      <description>定义后台 job 第一种：SE38执行可执行程序 菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo; 输入输出设备 选择开始时</description>
+    </item>
     
     <item>
       <title>SAP memory使用</title>
@@ -27,6 +54,15 @@
       
       <guid>https://coldinfire.github.io/2019/ABAPDOI/</guid>
       <description>概述 DOI（Desktop office Integration）采用OO的思想实现与Office的结合使用。 可以先上传模板到服务器(OAOR)，然后对模</description>
+    </item>
+    
+    <item>
+      <title> ALV tree显示BOM结构 </title>
+      <link>https://coldinfire.github.io/2018/BOMTree/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/BOMTree/</guid>
+      <description>代码 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo. TABLES: stpox. INCLUDE &amp;lt;icon&amp;gt;. CLASS: cl_gui_column_tree DEFINITION LOAD, cl_gui_cfw DEFINITION LOAD . DATA: tree1 TYPE REF TO cl_gui_alv_tree , mr_toolbar TYPE REF TO cl_gui_toolbar . DATA: gs_stpox TYPE stpox, gt_stpox TYPE stpox OCCURS 0, gt_fieldcatalog TYPE lvc_t_fcat, gt_item_layout TYPE lvc_t_laci, gs_item_layout TYPE lvc_s_laci, okcode LIKE sy-ucomm . TYPES: BEGIN OF gs_f. INCLUDE STRUCTURE stpox. TYPES: node_key TYPE lvc_nkey, END OF gs_f. DATA: gs_xstpox TYPE</description>
     </item>
     
     <item>
@@ -58,10 +94,10 @@
     
     <item>
       <title>IDoc操作</title>
-      <link>https://coldinfire.github.io/2018/IDoc/</link>
+      <link>https://coldinfire.github.io/2018/ABAPIDoc/</link>
       <pubDate>Mon, 22 Oct 2018 15:15:42 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/IDoc/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAPIDoc/</guid>
       <description>IDoc IDoc:是基于文档，用作异步传输数据的载体，类似于XML ● IDoc支持异步、同步、可以收集一定数量的包后发送，最重要的是，IDOC有完整</description>
     </item>
     
@@ -94,11 +130,11 @@
     
     <item>
       <title>RFC外部调用</title>
-      <link>https://coldinfire.github.io/2018/RFC/</link>
+      <link>https://coldinfire.github.io/2018/ABAPRFC/</link>
       <pubDate>Fri, 12 Oct 2018 15:15:42 +0800</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/RFC/</guid>
-      <description>通过TCode:,进入RFC开发初始界面 创建RFC与Report不同的是，RFC程序需要先定义一个FunctionGroup，一个Group</description>
+      <guid>https://coldinfire.github.io/2018/ABAPRFC/</guid>
+      <description>RFC 什么是 RFC ​ RFC 是 SAP 系统和其他（SAP 或非 SAP）系统间的一个重要而常用的双向接口技术，也被视为 SAP 与外部通信的基本协议。简单地说，RFC 过程就</description>
     </item>
     
     <item>
@@ -185,10 +221,10 @@
     <item>
       <title> ABAP定义Range </title>
       <link>https://coldinfire.github.io/2018/ABAPRange/</link>
-      <pubDate>Tue, 14 Aug 2018 17:20:58 +0800</pubDate>
+      <pubDate>Thu, 16 Aug 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPRange/</guid>
-      <description>Range使用</description>
+      <description>Range使用 ​ Range Table为SAP R/3系统标准内表的一种，结构与Selection Table一致，由SIGN,OPTION,LOW,HI</description>
     </item>
     
     <item>
@@ -197,7 +233,7 @@
       <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPSmartforms/</guid>
-      <description>Smartforms组成 Smartforms使用 Smartforms注意事项 Smartforms Debug</description>
+      <description>Smartforms组成 ​ Smartforms 包括页格式 + FORM 内容，一般 form 里包含表头,表身,表尾;可以单页，也可以有多页， 调用方式是通过函数‘XXX_SSF’ 将</description>
     </item>
     
     <item>
@@ -264,12 +300,30 @@
     </item>
     
     <item>
+      <title> ALV Tree标准Demo </title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils13/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils13/</guid>
+      <description>Demo列表 BCALV_TREE_01 ALV 树控制：构建层次树 BCALV_TREE_02 ALV 树控制：事件处理 BCALV_TREE_03 ALV 树控制：使用自己的上下文菜单 BCALV_TREE_04 ALV 树控制：添加按钮到工具栏 BCALV_TREE_05 ALV 树控制：添加菜单到工具</description>
+    </item>
+    
+    <item>
       <title>报表开发&lt;内表操作&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable3/</link>
       <pubDate>Sat, 23 Jun 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable3/</guid>
       <description>内表操作 SQL 语句的执行顺序 书写顺序：SELECT [DISTINCT]&amp;ndash;&amp;gt;FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;UNION&amp;ndash;&amp;gt;ORDER BY 其执行顺序为：FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;SELECT&amp;ndash;&amp;gt;DISTINCT&amp;ndash;&amp;gt;UNION-&amp;gt;ORDER</description>
+    </item>
+    
+    <item>
+      <title> ABAP通过字段找表程序 </title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils12/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils12/</guid>
+      <description>获取数据保存在哪个表 前台对指定栏位 使用 F1 帮助找表 ST05 跟踪业务操作过程，检索需要的数据表.（此方法找表很高效） 对于文本字段找表，可以找到前台维护</description>
     </item>
     
     <item>

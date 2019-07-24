@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  2329 ,
+  "wordcount":  2676 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP2\/",
   "datePublished": "2018-05-16T17:20:58\x2b08:00",
   "dateModified": "2018-05-16T17:20:58\x2b08:00",
@@ -151,7 +151,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                5 min
+                6 min
         </div>
     </header>
     <div class="post-content">
@@ -343,8 +343,7 @@ END OF &lt;str&gt;.
 
 <h3 id="sap数据表的组成元素">SAP数据表的组成元素</h3>
 
-<p><strong>Data element：</strong>构成结构、表的基本组件 search help、parameter ID、标签描述。
-    Goto &gt; Documentation &gt; Change ：修改提示文档信息</p>
+<p><strong>Data element：</strong>构成结构、表的基本组件 search help、parameter ID、标签描述。Goto &gt; Documentation &gt; Change ：修改提示文档信息</p>
 
 <p><strong>Domain：</strong>定义数据元素的技术属性，类型，长度，精度。</p>
 
@@ -358,15 +357,49 @@ END OF &lt;str&gt;.
 
 <li><p>Lower Case：不勾选，默认会全部转换为大写字母。</p></li>
 
-<li><p>value range：设置该Domain的固定取值列表和其含义。</p></li>
+<li><p>value range：设置该Domain的固定取值列表和其含义,C,Y,F类型中的一种。</p></li>
 </ul>
 
-<pre><code class="language-JS">DEC:double    FLTP:Float  INT1:0~255  INT2:-32768~32767     INT4:4字节   
-NUMC:数字字符(1-255)   CHAR:字符(1-255)    STRING
-CURR:货币字段(1-17)    CUKY:货币代码(5)     QUAN:金额(1-17)  UNIT:单位(2-3)   
-DATS:Date(8)          TIMS:Time(6)       CLNT:Client(3)    
-LANG:Language(internal 1,external 2)
+<pre><code class="language-JS">  DEC:double    FLTP:Float  INT1:0~255  INT2:-32768~32767     INT4:4字节   
+  NUMC:数字字符(1-255)   CHAR:字符(1-255)    STRING
+  CURR:货币字段(1-17)    CUKY:货币代码(5)     QUAN:金额(1-17)  UNIT:单位(2-3)   
+  DATS:Date(8)          TIMS:Time(6)       CLNT:Client(3)    
+  LANG:Language(internal 1,external 2)
 </code></pre>
+
+<p><strong>Field:</strong>透明表字段，可以作为透明表的主 / 外键，继承了 Data Element 的所有属性。</p>
+
+<p>​   透明表中的Technical Setting设置Log data changes后可以使用SCU3，STAD查看日志。【非特殊情况不设置，会占用很大的内存】</p>
+
+<h4 id="数据分类">数据分类</h4>
+
+<ul>
+<li><p><strong>Master Data</strong>：业务主数据；即：SAP 各模块中的主数据：总账科目、供应商主数据、物料主数据等；</p></li>
+
+<li><p><strong>Transaction Data</strong>：业务处理数据；在业务处理操作中，生成的凭证号等数据，如：销售订单凭证号、采购订单凭证号、收货凭证号等；</p></li>
+
+<li><p><strong>System Data</strong>：系统数据；包括 ABAP 程序的源码、元数据、文档等数据；</p></li>
+
+<li><p><strong>Configuration Data</strong>：配置数据；存放企业项目实施时，配置的初始化信息，如：货币汇率、订单类型、变式等</p></li>
+</ul>
+
+<h3 id="维护abap数据字典">维护ABAP数据字典</h3>
+
+<ul>
+<li><p><strong>SE80 – Repository Browser</strong></p></li>
+
+<li><p><strong>SE15 – Repository Information System</strong></p></li>
+
+<li><p><strong>SE16 /SE16N – Data Browser</strong></p></li>
+
+<li><p><strong>SE11 – ABAP Dictionary</strong></p></li>
+
+<li><p><strong>SE13 – Dictionary technical settings</strong></p></li>
+
+<li><p><strong>SM30 – Maintain Table Views</strong></p></li>
+
+<li><p><strong>SM31 – Table Maintenance</strong></p></li>
+</ul>
 
 <h3 id="表维护创建">表维护创建</h3>
 
@@ -394,7 +427,7 @@ LANG:Language(internal 1,external 2)
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2329</span>
+                   <span>2676</span>
             </p>
             
             <p class="copyright-item">

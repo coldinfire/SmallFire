@@ -33,7 +33,7 @@ tags:
   控制性信息：MRP类型，价格控制，采购组等
 
 物料主数据：
- 
+
  - General:           Material Number、Description、Base Unit Of Measure、Technical
  - Plan Specific：MRP type、Planned delivery time、Purchasing group、Batch indicator
  - Valuation：     Valuation price、Valuation procedure、Valuated quantity
@@ -102,6 +102,60 @@ MRP：物料需求计划，利用生产日程表（MPS）、零件结构表（BO
 
 ![MRP原理](/images/MM/MRP.png)
 ![MRP](/images/MM/MRP2.png)
+
+**MRP元素缩写**
+
+SimReq：简单需求
+
+AR：相关预订	
+
+BA：采购申请	 
+
+BB：提供物料转包商需求
+
+BE：订单项目计划行
+
+BP：总需求计划 
+
+BR：流程订单
+
+OrdRes：订单需求
+
+PurRqs：采购申请
+
+SubReq：外协请求
+
+PrcOrd：处理订单
+
+OI-SL：采购订单
+
+PrdOrd：生产订单
+
+PMOrdr：PM 订单
+
+FE：生产订单	
+
+IH：维护订单
+
+CH：批库存
+
+KB：单独客户库存	 
+
+BtchSt：批量库存
+
+CStock	客户库存
+
+DD：有效外日期 
+
+E1：分包合同采购
+
+FH：计划时界末 
+
+IW：工厂中（仅和 IS 汽车相关） 
+
+JI：JIT 提取	
+
+JIT：JIT 调用
 
 #### 5.视图选择 ####
 根据选择的部门不同，输入的内容也不同，系统自动识别所属类型.

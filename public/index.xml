@@ -5,7 +5,7 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Mar 2019 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -87,6 +87,524 @@
       
       <guid>https://coldinfire.github.io/about/</guid>
       <description>&lt;p&gt;这个人很懒，什么都没留下&amp;hellip;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title> SAP下载程序源码工具 </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils10/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils10/</guid>
+      <description>&lt;p&gt;程序：转自 &lt;a href=&#34;http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*@---------------------------------------------------------------------*
+*@ Report ZZXUE01 下载程序代码
+*@ T-code
+*@---------------------------------------------------------------------*
+*@ Created by Xavery Hsueh on 2011-03-01
+*@ Lasted Edited date:
+*@---------------------------------------------------------------------*
+REPORT XXX NO STANDARD PAGE HEADING.
+
+***********************************************************************@
+** 声明数据库表
+***********************************************************************@
+TABLES:rs38m,
+trdir. &amp;quot;
+***********************************************************************@
+** 内表结构类型的定义
+***********************************************************************@
+DATA BEGIN OF dynpfields OCCURS 1.
+INCLUDE STRUCTURE dynpread.
+DATA END OF dynpfields.
+
+TYPES:BEGIN OF typ_result,
+box TYPE c,
+tabix TYPE sytabix, &amp;quot;顺序号
+name TYPE char40, &amp;quot;程序名称
+cnam TYPE cnam, &amp;quot;创建人员
+unam TYPE unam, &amp;quot;最后修改人
+code(72) TYPE c, &amp;quot;程序描述
+END OF typ_result.
+***********************************************************************@
+** 变量与内表的定义
+***********************************************************************@
+DATA:gt_report TYPE TABLE OF tdline WITH HEADER LINE.
+DATA:gt_result TYPE TABLE OF typ_result WITH HEADER LINE.
+DATA:gt_trdir TYPE TABLE OF trdir WITH HEADER LINE.
+DATA:gt_btab TYPE TABLE OF textpool WITH HEADER LINE.
+
+DATA:g_filenm TYPE rlgrap-filename. &amp;quot;文件名称
+RANGES r_prog FOR rs38m-programm. &amp;quot;程序名称
+*@------------------ ALV 相关的变量 -----------------------------------*
+TYPE-POOLS:slis.
+DATA: g_repid LIKE sy-repid,
+wa_print TYPE slis_print_alv,
+gt_list_top_of_page TYPE slis_t_listheader,
+gt_events TYPE slis_t_event WITH HEADER LINE,
+gt_sort TYPE slis_t_sortinfo_alv,
+wa_layout TYPE slis_layout_alv,
+gt_fieldcat TYPE slis_t_fieldcat_alv WITH HEADER LINE,
+wa_fieldcat LIKE LINE OF gt_fieldcat,
+g_save TYPE c,
+g_pos TYPE i.
+***********************************************************************@
+** 宏定义
+***********************************************************************@
+DEFINE mcr_field.
+clear wa_fieldcat.
+g_pos = g_pos + 1 .
+wa_fieldcat-col_pos = g_pos.
+wa_fieldcat-fieldname = &amp;amp;1.
+wa_fieldcat-tabname = &#39;I_RESULT&#39;.
+
+&amp;quot; wa_fieldcat-no_out = &#39;X&#39;. &amp;quot;field no display, choose from layout
+  wa_fieldcat-key = &#39; &#39;. &amp;quot;SUBTOTAL KEY
+  wa_fieldcat-seltext_l = &amp;amp;2.
+  wa_fieldcat-outputlen = &amp;amp;3.
+  append wa_fieldcat to gt_fieldcat.
+  END-OF-DEFINITION.
+*@---------------------------------------------------------------------*
+*@ MACRO MCR_RANGE 初始化选择条件
+*@---------------------------------------------------------------------*
+* &amp;amp;1 RANGE 变量
+* &amp;amp;2 操作符
+* &amp;amp;3 LOW
+* &amp;amp;4 HIGH
+*----------------------------------------------------------------------*
+  DEFINE mcr_range.
+  clear &amp;amp;1.
+  &amp;amp;1-sign = &#39;I&#39;.
+  &amp;amp;1-option = &amp;amp;2.
+  &amp;amp;1-low = &amp;amp;3.
+  &amp;amp;1-high = &amp;amp;4.
+  append &amp;amp;1.
+  END-OF-DEFINITION.
+ ***********************************************************************@
+ ** 屏幕定义
+ ***********************************************************************@
+  SELECTION-SCREEN BEGIN OF BLOCK xavery WITH FRAME TITLE text_001.
+  SELECTION-SCREEN BEGIN OF LINE.
+  SELECTION-SCREEN COMMENT 1(15) text_002 FOR FIELD p_prog.
+  PARAMETERS:p_prog TYPE rs38m-programm MEMORY ID rid.
+  SELECTION-SCREEN END OF LINE.
+
+SELECTION-SCREEN BEGIN OF LINE.
+SELECTION-SCREEN COMMENT 1(15) text_003 FOR FIELD p_cnam.
+PARAMETERS:p_cnam TYPE cnam DEFAULT sy-uname.
+SELECTION-SCREEN END OF LINE.
+
+SELECTION-SCREEN BEGIN OF LINE.
+SELECTION-SCREEN COMMENT 1(15) text_004 FOR FIELD p_filenm.
+PARAMETERS:p_filenm TYPE rlgrap-filename.
+SELECTION-SCREEN END OF LINE.
+SELECTION-SCREEN END OF BLOCK xavery.
+***********************************************************************@
+** 执行程序事件
+***********************************************************************@
+INITIALIZATION.
+PERFORM f_init_condition.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_prog.
+PERFORM sub_get_program.
+
+START-OF-SELECTION.
+PERFORM sub_query_report.
+PERFORM sub_process_report.
+
+END-OF-SELECTION.
+PERFORM sub_init_layout.
+PERFORM sub_create_fieldcat.
+PERFORM sub_display_as_alv. &amp;quot;以ALV的方式输出结果表
+*@---------------------------------------------------------------------*
+*@ Form F_INIT_CONDITION
+*@---------------------------------------------------------------------*
+* 初始化选择条件
+*----------------------------------------------------------------------*
+  FORM f_init_condition .
+  text_001 = &#39;查询条件&#39;.
+  text_002 = &#39;程序名称&#39;.
+  text_003 = &#39;程序创建人&#39;.
+  text_004 = &#39;下载文件名称&#39;.
+&amp;quot; 选择屏幕初始值
+  p_prog = &#39;Z*&#39;.
+  p_filenm = &#39;C:\ABAP\&#39;.
+  ENDFORM. &amp;quot; F_INIT_CONDITION
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_GET_PROGRAM
+*&amp;amp;---------------------------------------------------------------------*
+* text
+*----------------------------------------------------------------------*
+  FORM sub_get_program .
+  DATA: repid LIKE sy-repid.
+  dynpfields-fieldname = &#39;P_PROG&#39;.
+  APPEND dynpfields.
+  repid = sy-repid.
+  CALL FUNCTION &#39;DYNP_VALUES_READ&#39;
+  EXPORTING
+  dyname = repid
+  dynumb = sy-dynnr
+  TABLES
+  dynpfields = dynpfields
+  EXCEPTIONS
+  OTHERS.
+  READ TABLE dynpfields INDEX 1.
+  p_prog = dynpfields-fieldvalue.
+  PERFORM program_directory USING p_prog &#39;X&#39;.
+  ENDFORM. &amp;quot; SUB_GET_PROGRAM
+
+*---------------------------------------------------------------------*
+* FORM PROGRAM_DIRECTORY *
+*---------------------------------------------------------------------*
+  FORM program_directory USING programm LIKE rs38m-programm
+  f4_call.
+  DATA: info_object LIKE euobj-id,
+  l_programm LIKE rs38m-programm.
+  IF sy-tcode(4) = &#39;SE38&#39;.
+  info_object = &#39;PROG&#39;.
+  IF f4_call = &#39;X&#39;.
+  CALL FUNCTION &#39;REPOSITORY_INFO_SYSTEM_F4&#39;
+  EXPORTING
+  object_type = info_object
+  object_name = programm
+  suppress_selection = &#39;X&#39;
+  IMPORTING
+  object_name_selected = programm
+  EXCEPTIONS
+  cancel = 01.
+  ELSE.
+  CALL FUNCTION &#39;REPOSITORY_INFO_SYSTEM&#39;
+  EXPORTING
+  object_type = info_object
+  action = &#39;S&#39;
+  object_name = programm
+  IMPORTING
+  object_name_selected = programm
+  EXCEPTIONS
+  cancel = 01
+  wrong_type = 02.
+  ENDIF.
+  ELSE.
+  l_programm = programm.
+  IF l_programm = space.
+  SUBMIT rsabadab AND RETURN VIA SELECTION-SCREEN
+  WITH f4_call = f4_call.
+  ELSE.
+  SUBMIT rsabadab AND RETURN VIA SELECTION-SCREEN
+  WITH repname CP l_programm
+  WITH f4_call = f4_call.
+  ENDIF.
+  GET PARAMETER ID &#39;RID&#39; FIELD p_prog.
+  ENDIF.
+  ENDFORM. &amp;quot;program_directory
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_QUERY_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+* 查询程序代码
+*----------------------------------------------------------------------*
+  FORM sub_query_report .
+  mcr_range r_prog &#39;CP&#39; p_prog &#39;&#39;.
+  SELECT * FROM trdir
+  INTO TABLE gt_trdir
+  WHERE name IN r_prog AND
+  cnam EQ p_cnam AND
+  subc NE &#39;X&#39;.
+  ENDFORM. &amp;quot; SUB_QUERY_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_DOWNLOAD_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+*下载程序代码
+*----------------------------------------------------------------------*
+  FORM sub_download_report USING l_filenm TYPE rlgrap-filename.
+  DATA: binfilesize TYPE i.
+  DATA: l_file TYPE string.
+  DATA: l_message TYPE char100.
+  CONCATENATE &#39;文件已下载到：&#39; p_filenm &#39;文件夹中！&#39;
+  INTO l_message.
+  l_file = l_filenm.
+  CALL FUNCTION &#39;GUI_DOWNLOAD&#39;
+  EXPORTING
+  bin_filesize = binfilesize
+  filename = l_file
+  filetype = &#39;ASC&#39;
+  TABLES
+  data_tab = gt_report[]
+  EXCEPTIONS
+  file_write_error = 1
+  no_batch = 2
+  gui_refuse_filetransfer = 3
+  invalid_type = 4
+  no_authority = 5
+  unknown_error = 6
+  header_not_allowed = 7
+  separator_not_allowed = 8
+  filesize_not_allowed = 9
+  header_too_long = 10
+  dp_error_create = 11
+  dp_error_send = 12
+  dp_error_write = 13
+  unknown_dp_error = 14
+  access_denied = 15
+  dp_out_of_memory = 16
+  disk_full = 17
+  dp_timeout = 18
+  file_not_found = 19
+  dataprovider_exception = 20
+  control_flush_error = 21
+  OTHERS = 22.
+
+IF sy-subrc = 0.
+MESSAGE l_message TYPE &#39;S&#39;.
+ENDIF.
+ENDFORM. &amp;quot; SUB_DOWNLOAD_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_PROCESS_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+* 处理文件名称，并放到内表中
+*----------------------------------------------------------------------*
+  FORM sub_process_report .
+  SORT gt_trdir BY name.
+  LOOP AT gt_trdir.
+  CLEAR gt_result.
+  gt_result-name = gt_trdir-name.
+  gt_result-cnam = gt_trdir-cnam.
+  gt_result-unam = gt_trdir-unam.
+  gt_result-tabix = sy-tabix.
+  REFRESH gt_btab.
+  READ TEXTPOOL gt_trdir-name INTO gt_btab LANGUAGE sy-langu.
+  CLEAR gt_btab.
+  READ TABLE gt_btab WITH KEY &#39;R&#39;.
+  IF sy-subrc = 0.
+  MOVE gt_btab-entry TO gt_result-code.
+  ENDIF.
+  APPEND gt_result.
+  ENDLOOP.
+&amp;quot; 清空内表
+  FREE gt_trdir.
+  ENDFORM. &amp;quot; SUB_PROCESS_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_CREATE_FIELDCAT
+*&amp;amp;---------------------------------------------------------------------*
+* text
+*----------------------------------------------------------------------*
+  FORM sub_create_fieldcat .
+  CLEAR gt_fieldcat[].
+  mcr_field &#39;TABIX&#39; &#39;顺序号&#39; &#39;10&#39;.
+  mcr_field &#39;NAME&#39; &#39;程序名称&#39; &#39;15&#39;.
+  mcr_field &#39;CNAM&#39; &#39;程序创建人&#39; &#39;20&#39;.
+  mcr_field &#39;UNAM&#39; &#39;最后修改人&#39; &#39;20&#39;.
+  mcr_field &#39;CODE&#39; &#39;程序描述&#39; &#39;30&#39;.
+  ENDFORM. &amp;quot; SUB_CREATE_FIELDCAT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_INIT_LAYOUT
+*&amp;amp;---------------------------------------------------------------------*
+* text
+*----------------------------------------------------------------------*
+  FORM sub_init_layout .
+  wa_layout-zebra = &#39;X&#39;.
+  wa_layout-window_titlebar = &#39;开发程序名称清单&#39;.
+  wa_layout-colwidth_optimize = &#39;X&#39;.
+  wa_layout-box_fieldname = &#39;BOX&#39;.
+  ENDFORM. &amp;quot; SUB_INIT_LAYOUT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_DISPLAY_AS_ALV
+*&amp;amp;---------------------------------------------------------------------*
+* text
+*----------------------------------------------------------------------*
+  FORM sub_display_as_alv .
+  g_repid = sy-repid.
+  *ABAP List Viewer
+  CALL FUNCTION &#39;REUSE_ALV_GRID_DISPLAY&#39;
+  EXPORTING
+  i_callback_program = g_repid
+  i_structure_name = &#39;TYP_RESULT&#39;
+  i_callback_user_command = &#39;SUB_USER_COMMAND&#39;
+  i_callback_pf_status_set = &#39;SUB_SET_PF_STATUS&#39;
+  i_save = g_save
+  is_layout = wa_layout
+  it_fieldcat = gt_fieldcat[]
+  TABLES
+  t_outtab = gt_result
+  EXCEPTIONS
+  program_error = 1
+  OTHERS = 2.
+  ENDFORM. &amp;quot; SUB_DISPLAY_AS_ALV
+*@--------------------------------------------------------------------*
+*@ Form sub_user_command
+*@--------------------------------------------------------------------*
+* --&amp;gt;R_UCOMM 事务功能码
+* --&amp;gt;RS_SELFIELD ALV相关的数据
+*---------------------------------------------------------------------*
+  FORM sub_user_command USING r_ucomm LIKE sy-ucomm
+  rs_selfield TYPE slis_selfield.
+
+CASE r_ucomm.
+WHEN &#39;&amp;amp;IC1&#39;. &amp;quot;双击事件的功能码
+WHEN &#39;DOWNLOAD&#39;. &amp;quot;下载代码
+PERFORM sub_ucomm_down.
+ENDCASE.
+
+* 刷新ALV屏幕报表
+  rs_selfield-refresh = &#39;X&#39;.
+  ENDFORM. &amp;quot;sub_user_command
+*@---------------------------------------------------------------------*
+*@ FORM SUB_SET_PF_STATUS *
+*@---------------------------------------------------------------------*
+* 设置ALV菜单
+* 通过SE41，拷贝程序SAPLSLVC_FULLSCREEN的状态STANDARD_FULLSCREEN过来
+*@---------------------------------------------------------------------*
+  FORM sub_set_pf_status USING rt_extab TYPE slis_t_extab.
+  SET PF-STATUS &#39;STANDARD_FULLSCREEN&#39;.
+  ENDFORM. &amp;quot;sub_set_pf_status
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_UCOMM_DOWN
+*&amp;amp;---------------------------------------------------------------------*
+* 下载选中的行的程序代码
+*----------------------------------------------------------------------*
+  FORM sub_ucomm_down .
+  LOOP AT gt_result WHERE box = &#39;X&#39;.
+* 得到文件名称
+  CLEAR g_filenm.
+  CONCATENATE p_filenm gt_result-name &#39;-&#39;
+  gt_result-code &#39;.txt&#39;
+  INTO g_filenm.
+* 得到程序代码
+  CLEAR gt_report[].
+  READ REPORT gt_result-name INTO gt_report.
+* 下载程序
+  PERFORM sub_download_report USING g_filenm.
+  ENDLOOP.
+  ENDFORM. &amp;quot; SUB_UCOMM_DOWN
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title> SAP发送邮件 </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils11/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils11/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;TRY.
+&amp;quot; 创建发送请求
+  l_send_request = cl_bcs=&amp;gt;create_persistent( ).
+&amp;quot; 设定发送内容
+  l_document = cl_document_bcs=&amp;gt;create_document( i_type  = &#39;RAW&#39;
+                                           i_text  = i_content[]
+                                           I_IMPORTANCE = &#39;1&#39;
+                                           i_subject = l_subject ).
+&amp;quot; 增加发送内容到发送请求
+  CALL METHOD l_send_request-&amp;gt;set_document( l_document ).
+&amp;quot; 取得发送者（取得发件人，前提是这个邮箱地址能发邮件，并且不需要密码）
+  l_uname = sy-uname.
+  l_sender = cl_sapuser_bcs=&amp;gt;create( l_uname ).
+  CALL METHOD l_send_request-&amp;gt;set_sender
+    EXPORTING
+      i_sender = l_sender.
+&amp;quot; 设置收件人
+   LOOP AT it_mailaccept.
+     CONCATENATE it_mailaccept-name &#39;@XXXXX.COM&#39; INTO i_email.
+     TRANSLATE i_email TO LOWER CASE.
+     l_recipient = cl_cam_address_bcs=&amp;gt;create_internet_address( i_email ).
+     CALL METHOD l_send_request-&amp;gt;add_recipient
+       EXPORTING
+         i_recipient  = l_recipient
+         i_express    = &#39;X&#39;
+         i_copy       = &#39; &#39;
+         i_blind_copy = &#39; &#39;
+         i_no_forward = &#39; &#39;.
+   ENDLOOP.
+&amp;quot; 设置抄送人
+    LOOP AT it_mailaccept_copy.
+      CONCATENATE it_mailaccept_copy-name &#39;@XXXXX&#39; INTO i_email.
+      TRANSLATE i_email TO LOWER CASE.
+      l_recipient = cl_cam_address_bcs=&amp;gt;create_internet_address( i_email ).
+      CALL METHOD l_send_request-&amp;gt;add_recipient
+        EXPORTING
+          i_recipient  = l_recipient
+          i_express    = &#39;X&#39;
+          i_copy       = &#39;X&#39;
+          i_blind_copy = &#39; &#39;
+          i_no_forward = &#39; &#39;.
+    ENDLOOP.
+*&amp;amp;  立即发送
+  l_send_request-&amp;gt;set_send_immediately( &#39;X&#39; ).
+*&amp;amp;  发送
+  CALL METHOD l_send_request-&amp;gt;send( ).
+    COMMIT WORK.
+  CATCH cx_document_bcs INTO l_bcs_exception.
+  CATCH cx_send_req_bcs INTO l_send_exception.
+  CATCH cx_address_bcs  INTO l_addr_exception.
+ENDTRY.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SAP后台JOB</title>
+      <link>https://coldinfire.github.io/2019/ABAPJOB/</link>
+      <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPJOB/</guid>
+      <description>
+
+&lt;h3 id=&#34;定义后台-job&#34;&gt;定义后台 job&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;第一种：SE38执行可执行程序&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB1.png&#34; alt=&#34;后台JOB&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;输入输出设备&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB3.png&#34; alt=&#34;输出设备&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;选择开始时间（立刻执行，或定义日期时间，也可周期执行）后保存。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB2.png&#34; alt=&#34;时间&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;第二种：SM36定义作业名&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;点击‘Start condition’选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB4.png&#34; alt=&#34;Start Condition&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;再点击‘Step’，填写abap程序‘NAME’和‘Variant’后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB5.png&#34; alt=&#34;Step&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.sina.com.cn/s/blog_76c57b480100rumm.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;如何在 SAP 中定义 Event 类型的后台 Job&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;强制结束后台作业-sap-sm37-sm35-sm50&#34;&gt;强制结束后台作业（SAP SM37 SM35 SM50)&lt;/h4&gt;
+
+&lt;p&gt;解决方法：&lt;/p&gt;
+
+&lt;p&gt;第一步：SM50&lt;/p&gt;
+
+&lt;p&gt;​   找到Ty. 列为 BGD 的(Background)，然后再找到你刚运行的那个后台 Job 的行，选中；然后在菜单点击：Process&amp;mdash;Cancel with core. 即可。&lt;/p&gt;
+
+&lt;p&gt;第二步：SM37 查看 Background Job，应该为 “取消” 状态。&lt;/p&gt;
+
+&lt;p&gt;第三步：SM35，选中 Session Name，点击小绿旗 release 即可。&lt;/p&gt;
+
+&lt;h4 id=&#34;如何查看一个后台job对应哪些程序&#34;&gt;如何查看一个后台job对应哪些程序?&lt;/h4&gt;
+
+&lt;p&gt;​   sm36&amp;ndash;&amp;gt;点击“job selection”&amp;ndash;&amp;gt;运行结果双击选择job&amp;ndash;&amp;gt;回到第一个界面，点击“步骤”按钮，转到步骤清单总览，里面就可以看到程序名称了已取消，完成的job是不能修改的其它状态的都可以改，在sm37里，选择相应的job，菜单里有个更改项
+sm37就是sm36里job selection的链接.&lt;/p&gt;
 </description>
     </item>
     
@@ -2246,6 +2764,60 @@ Acct cat : 账户参考必填字段。选择合适的值）
 &lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MRP.png&#34; alt=&#34;MRP原理&#34; /&gt;
 &lt;img src=&#34;https://coldinfire.github.io/images/MM/MRP2.png&#34; alt=&#34;MRP&#34; /&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;MRP元素缩写&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;SimReq：简单需求&lt;/p&gt;
+
+&lt;p&gt;AR：相关预订&lt;/p&gt;
+
+&lt;p&gt;BA：采购申请  &lt;/p&gt;
+
+&lt;p&gt;BB：提供物料转包商需求&lt;/p&gt;
+
+&lt;p&gt;BE：订单项目计划行&lt;/p&gt;
+
+&lt;p&gt;BP：总需求计划&lt;/p&gt;
+
+&lt;p&gt;BR：流程订单&lt;/p&gt;
+
+&lt;p&gt;OrdRes：订单需求&lt;/p&gt;
+
+&lt;p&gt;PurRqs：采购申请&lt;/p&gt;
+
+&lt;p&gt;SubReq：外协请求&lt;/p&gt;
+
+&lt;p&gt;PrcOrd：处理订单&lt;/p&gt;
+
+&lt;p&gt;OI-SL：采购订单&lt;/p&gt;
+
+&lt;p&gt;PrdOrd：生产订单&lt;/p&gt;
+
+&lt;p&gt;PMOrdr：PM 订单&lt;/p&gt;
+
+&lt;p&gt;FE：生产订单&lt;/p&gt;
+
+&lt;p&gt;IH：维护订单&lt;/p&gt;
+
+&lt;p&gt;CH：批库存&lt;/p&gt;
+
+&lt;p&gt;KB：单独客户库存&lt;/p&gt;
+
+&lt;p&gt;BtchSt：批量库存&lt;/p&gt;
+
+&lt;p&gt;CStock  客户库存&lt;/p&gt;
+
+&lt;p&gt;DD：有效外日期&lt;/p&gt;
+
+&lt;p&gt;E1：分包合同采购&lt;/p&gt;
+
+&lt;p&gt;FH：计划时界末&lt;/p&gt;
+
+&lt;p&gt;IW：工厂中（仅和 IS 汽车相关）&lt;/p&gt;
+
+&lt;p&gt;JI：JIT 提取&lt;/p&gt;
+
+&lt;p&gt;JIT：JIT 调用&lt;/p&gt;
+
 &lt;h4 id=&#34;5-视图选择&#34;&gt;5.视图选择&lt;/h4&gt;
 
 &lt;p&gt;根据选择的部门不同，输入的内容也不同，系统自动识别所属类型.&lt;/p&gt;
@@ -4017,786 +4589,6 @@ Decimal Floating Point Ath:(精准计算)
 &lt;p&gt;10、Alt + Shift + Q：更新代码到远程服务器&lt;/p&gt;
 
 &lt;p&gt;11、Alt + Insert：创建万物&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>BOM展开</title>
-      <link>https://coldinfire.github.io/2018/BOM/</link>
-      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/BOM/</guid>
-      <description>
-
-&lt;h2 id=&#34;sap-bom读取逻辑&#34;&gt;SAP BOM读取逻辑&lt;/h2&gt;
-
-&lt;h3 id=&#34;相关表&#34;&gt;相关表&lt;/h3&gt;
-
-&lt;p&gt;MAST：Material BOM&lt;/p&gt;
-
-&lt;p&gt;STKO : BOM Header&lt;/p&gt;
-
-&lt;p&gt;STPO : BOM Positions (detail)&lt;/p&gt;
-
-&lt;p&gt;MAPL : Assignment fo Task Lists to Materials&lt;/p&gt;
-
-&lt;p&gt;PLKO : Routing Group Header&lt;/p&gt;
-
-&lt;p&gt;PLSO : Routing Group Sequence&lt;/p&gt;
-
-&lt;p&gt;PLPO : Routing Group Operations&lt;/p&gt;
-
-&lt;p&gt;AFKO : Production Order Header&lt;/p&gt;
-
-&lt;p&gt;AFPO : Production Order Position (details)&lt;/p&gt;
-
-&lt;p&gt;可用函数：CSAP_MAT_BOM_READ&lt;/p&gt;
-
-&lt;h3 id=&#34;读取逻辑&#34;&gt;读取逻辑&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1.查找Material,Plant,Material Desc          Table:MARA,MARC,MAKT
-   MARA-MATNR    
-   MARC-WERKS   
-   MARA-MTART（Material type）
-   Note: Proceeding to Step 2 or 3 or 4 depends on the input radio button for 
-       Production or Engineering or ALL BOM option.
-2. Search for BOM – Engineering.            Table:MAST
-   Material (MAST-MATNR) = Materials selected above and
-   Plant (MAST–WERKS) = As in input and
-   BOM usage (MAST-STLAN) = 2 (Engineering usage).
-  ● Read BOM Header and Item
-      Read BOM Header from table  【STKO】。
-          BOM Number (STKO-STLNR) = BOM number got in previous step and
-          BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
-      Read BOM Item details from  【STOP】.
-          BOM number (STOP-STLNR) = STKO-STNLR.
-      Read BOM text from table  STZU.
-3. Search BOM – Production.      Table:MAST
-    Material (MAST-MATNR) = Materials selected above and
-    Plant (MAST–WERKS) = As in input and
-    BOM usage (MAST-STLAN) = 1 (Production usage).
-  ● Read BOM Header and Item
-      Read BOM Header from table    【STKO】。
-          BOM Number (STKO-STLNR) = BOM number got in previous step and
-          BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
-      Read BOM Item details from    【STOP】.
-          BOM number (STOP-STLNR) = STKO-STNLR.
-      Read BOM text from table STZU.
-  ● Search for Resource / Production Version (Production BOM’s only)    【MKAL】
-       Material number (MKAL–MATNR) = Material number from above selection (MAST) 
-       And Plant (MKAL–WERKS) = Plant from above selection (MAST)
-       And Alternative BOM (MKAL-STLAL) = Alternative BOM from above selection (MAST) 
-       And  BOM Usage (MKAL-STLAN) = 1 (Production BOM).
-Note:
-  1. If no production version exists for any of the BOM’s write such records at the bottom of the
-     report under the heading “No Production Version Exists (Production BOM’s)”.
-  2. Sort the output on Plant, Usage and then on Material.
-  3. If multiple plants then the report will be displayed Plant wise.
-        • Header to be displayed for Production / Engineering BOM option.
-  4. Material BOM Comparison.           【MAST 】
-        Material (MAST-MATNR) = Materials selected above and
-        Plant (MAST–WERKS) = As in input.
-    ● Read BOM Header and Item
-    Read BOM Header from table 【STKO】。
-          BOM Number (STKO-STLNR) = BOM number got in previous step and
-          BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
-    Read BOM Item details from 【STOP】.
-          BOM number (STOP-STLNR) = STKO-STNLR.
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;bom逆向和正向查询&#34;&gt;BOM逆向和正向查询&lt;/h2&gt;
-
-&lt;h3 id=&#34;顺查bom-cs12&#34;&gt;顺查BOM（CS12）&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;CALL FUNCTION &#39;CS_BOM_EXPL_MAT_V2&#39;
-  EXPORTING
-     capid = pm_capid      “应用程序一般为PP01
-     datuv = pm_datuv     “通常为系统的当前日期
-     mtnrv = pm_mtnrv    “要展开BOM的物料
-     mehrs = &#39;X&#39;                “ x表示多层展开﹐space表示只展开第一层
-     werks = pm_werks    “通常为1000
-   IMPORTING
-     topmat = selpool
-     dstst = dstst_flg
-    TABLES
-      stb = stb                “展开的BOM存放在该内表
-      matcat = matcat     “下面含有元件的物料存放在该内表
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;逆查bom&#34;&gt;逆查BOM&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
-  IT_EQUICAT LIKE CSCEQUI OCCURS 0 WITH HEADER LINE,
-  IT_KNDCAT LIKE CSCKND OCCURS 0 WITH HEADER LINE,
-  IT_MATCAT LIKE CSCMAT OCCURS 0 WITH HEADER LINE,
-  IT_STDCAT LIKE CSCSTD OCCURS 0 WITH HEADER LINE,
-  IT_TPLCAT LIKE CSCTPL OCCURS 0 WITH HEADER LINE,
-  IT_PRJCAT LIKE CSCPRJ OCCURS 0 WITH HEADER LINE.
-  CLEAR:IT_WULTB,IT_WULTB[].
-  CALL  FUNCTION  &#39;CS_WHERE_USED_MAT&#39;
-    EXPORTING
-      DATUB              = SY-DATUM
-      DATUV              = SY-DATUM
-      MATNR              = P_C_MATNR
-*     POSTP               = &#39; &#39;
-*     RETCODE_ONLY        = &#39; &#39;
-*     STLAN               = &#39; &#39;
-      MCLMT              = &#39;00000000&#39;
-      WERKS              = S2_WERKS
-*    IMPORTING
-*    TOPMAT              =
-    TABLES
-       WULTB           = IT_WULTB
-       EQUICAT         = IT_EQUICAT
-       KNDCAT          = IT_KNDCAT
-       MATCAT          = IT_MATCAT
-       STDCAT          = IT_STDCAT
-       TPLCAT          = IT_TPLCAT
-    EXCEPTIONS
-       CALL_INVALID        = 1
-       MATERIAL_NOT_FOUND          = 2
-       NO_WHERE_USED_REC_FOUND     = 3
-       NO_WHERE_USED_REC_SELECTED = 4
-       NO_WHERE_USED_REC_VALID     = 5
-       OTHERS              = 6.
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;** T-Code：CS02，确保递归BOM的比例在0.95左右。即：产品A，其BOM中的A的消耗量应该小于0.95. **&lt;/p&gt;
-
-&lt;h3 id=&#34;批量删除bom分配&#34;&gt;批量删除BOM分配&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;CALL FUNCTION &#39;CSAP_MAT_BOM_ALLOC_DELETE&#39;
-  EXPORTING
-    MATERIAL                 = ITAB-MATNR
-    PLANT                    = ITAB-WERKS
-    BOM_USAGE                = &#39;1&#39;
-    ALTERNATIVE              =
-    FL_NO_CHANGE_DOC         = &#39; &#39;
-    FL_COMMIT_AND_WAIT       = &#39; &#39;
-  IMPORTING
-    FL_WARNING               = FLG_WARNING
-    BOM_NO                   = BOM_NO
-  TABLES
-    T_PLANT                  =
-  EXCEPTIONS
-    ERROR                    = 1
-    OTHERS                   = 2
-         .
-IF FLG_WARNING = &#39;X&#39;.
-  WRITE :/ ITAB-WERKS,ITAB-MATNR , &#39;删除成功&#39;.
-ELSE.
-  WRITE :/ ITAB-WERKS,ITAB-MATNR , &#39;删除失败&#39;.
-ENDIF.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ABAP 工作流</title>
-      <link>https://coldinfire.github.io/2018/ABAPWorkFlow/</link>
-      <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAPWorkFlow/</guid>
-      <description>
-
-&lt;h3 id=&#34;sap工作流介绍&#34;&gt;SAP工作流介绍&lt;/h3&gt;
-
-&lt;p&gt;工作流是一个基于某组程序规则所采用的路径。是自动运作的任务的进程中，参与的人、文件、信息或任务，以及各个要素间的传递按照规程运转。它们可能非常简单，如批准或拒绝；或则非常复杂，根据许多部门所涉及的采购订单的发布条件获得许多级别的审批。&lt;/p&gt;
-
-&lt;p&gt;工作流特别适合于多次重复执行类型的业务工作流程。还可以用来处理业务流程中出现的错误和例外：预先在工作流中定义例外事件，当系统自动检查发现例外时，就会有触发某种反应或措施，如给相关人员发Mail等。&lt;/p&gt;
-
-&lt;h3 id=&#34;包含组件&#34;&gt;包含组件&lt;/h3&gt;
-
-&lt;p&gt;Organizational Plan：管理报告和消息流的层次结构&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Organizational Unit：企业中的功能单元&lt;/li&gt;
-&lt;li&gt;Position：代表一个Post&lt;/li&gt;
-&lt;li&gt;Job：企业中的功能分类&lt;/li&gt;
-&lt;li&gt;Staff Assignments / Assignment of User-id&amp;rsquo;s&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Workflow Builder(SWDD)：创建，显示和更改工作流。提供一个工作流定义视图。&lt;/p&gt;
-
-&lt;p&gt;Workflow instance：是工作流的单次运行。&lt;/p&gt;
-
-&lt;p&gt;Task：是由软件自动或由人员执行的过程中的步骤，Activity的描述。&lt;/p&gt;
-
-&lt;p&gt;Work Item：是作为单个工作流步骤执行的任务实例。&lt;/p&gt;
-
-&lt;p&gt;Workflow Container：是收集工作流中使用的所有数据的地方。&lt;/p&gt;
-
-&lt;p&gt;Binding：是一组规则，用于定义将哪些数据传递到进程的哪个部分。&lt;/p&gt;
-
-&lt;p&gt;Event：Triggering Events，Terminating Events。&lt;/p&gt;
-
-&lt;p&gt;Agent resolution：流程的节点负责人。&lt;/p&gt;
-
-&lt;h3 id=&#34;定义和创建&#34;&gt;定义和创建&lt;/h3&gt;
-
-&lt;h4 id=&#34;定义&#34;&gt;定义:&lt;/h4&gt;
-
-&lt;p&gt;每个workflow都能在SAP中找到业务流程；由很多步骤组成；可以由事件触发。&lt;/p&gt;
-
-&lt;p&gt;模板：SAP提供了大量的Workflow的模板可供参考，如果不符合具体的业务流程，可以对该模板做增强。不过就像SAP标准程序一样，不能对其进行修改，可以根据需求把这个模板复制出来然后对其修改。&lt;/p&gt;
-
-&lt;p&gt;Workflow助手：Business Workplace(TCode：SBWP)&lt;/p&gt;
-
-&lt;p&gt;当Workflow执行到某一步需要特定的用户确认或者批准的时候，就会发出work item到该用户的workplace，以使该用户做出相应的操作。&lt;/p&gt;
-
-&lt;h4 id=&#34;创建步骤&#34;&gt;创建步骤：&lt;/h4&gt;
-
-&lt;p&gt;&amp;lt;一&amp;gt;创建Workflow模板（TCode：PFTC_INS）,  TCode：SWDD——创建工作流
-&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/SWDD.png&#34; alt=&#34;SWDD&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Information Area:信息是SAP自动生成的&lt;/li&gt;
-&lt;li&gt;Steps:当前Workflow所使用的Steps的列表&lt;/li&gt;
-&lt;li&gt;Step Types：Steps list （可选不同的组件）&lt;/li&gt;
-&lt;li&gt;Graphical Model：进行Workflow的流程定义&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&amp;lt;二&amp;gt;定义Condition和创建业务所需要的Steps
-&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/Container.png&#34; alt=&#34;Container &amp;amp; Steps&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Workflow Container:定义workflow所需要的数据元素；数据元素可定义参考类型，参数设置，初始值。&lt;/li&gt;
-&lt;li&gt;Steps创建：在对应的分支线上根据业务流程创建具体的Step，每个Step都有具体的使用要求。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&amp;lt;三&amp;gt;对Steps进行详细的内容设定（Activity —&amp;gt;Task）
-&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/StepDetail.png&#34; alt=&#34;Steps Details&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Task：定义系统流程执行事件。&lt;/li&gt;
-&lt;li&gt;Binding：将Workflow定义数据与Task使用字段进行绑定&lt;/li&gt;
-&lt;li&gt;Task Tcode : PFTC_INS / _CHG / _DIS / _COP：Create / Change / Display /Copy Tasks&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;agents&#34;&gt;Agents&lt;/h4&gt;
-
-&lt;p&gt;Role:&amp;ldquo;assign agents&amp;rdquo;,通过PFCG进行分配到用户&lt;br /&gt;
-Rule:&amp;ldquo;define agents&amp;rdquo;,通过PFAC进行定义&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;PFAC_INS / _CHG / _DIS/_COP：Create / Change / Display /Copy Rules&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Rule:允许我们定义和实施问题处理流程。允许我们根据定义时定义的模板在运行时指定数据。与电子邮件通知一起，工作流程规则可帮助我们自动跟踪和管理问题。如果在工作流中使用Rule来确定责任代理，则Rule解析的结果会存储在容器元素_RULE_RESULT中，可以通过绑定传输到工作流容器中。&lt;/p&gt;
-
-&lt;p&gt;Scenario:创建一个rule找到任意user/agent的上级。&lt;/p&gt;
-
-&lt;p&gt;Design:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1.创建一张自定义表ZUsers，存放用户和上级的关联，及用户信息，上级信息。
-2.创建一个Function,返回包含user/agent对应的上级的有效信息。ZFIND_SUPERIOR
-   自定义的Function应和SAP标准的Module有相同的表参数：
-     ACTOR_TAB              STRUCTURE       SWHACTOR
-     AC_CONTAINER        STRUCTURE      SWCONT
-     lwa_hoders-otype = &#39;US&#39;.
-     lwa_holders-objid = superior.
-3.创建rule:ZRULE_TEST.
-     Rule Definition：
-        Category:选择Agent Determination:Function to be Executed
-           Function Module : ZFIND_SUPERIOR.（定义的Function module）
-        Container:
-           定义参数，参数在Function module中使用。
-4.Rule Resolution Based on Evaluation Paths
-        维护Evaluation paths: OOAW
-   Rule Definition：
-        Category:中选择Agent Determination:Function to be Executed
-        Function Module:RH_GET_STRUCTURE,激活Evaluation Path
-        Evaluation Path:输入评估路径值
-   注意：基于评估路径的代理确定Rule的Rule container必须仅包含要为其应用评估路径的组织管理对象。
-     在运行时，系统填充使用绑定从工作流或任务容器中规则容器。
-    Container:
-         OType  type  OBJEC-OTYPE : Type of the Org Management Object
-         ObjID  type  OBJEC-REALO : ID of the Org Management Object
-         Org_Agent  type  WFSYST-AGENT : Org Management object
-   注意：Container可以传输组织管理对象的元素。在运行时，必须填充容器元素OType和ObjID或容器元素Org_Agent。
-        如果填充所有容器元素，仅评估在Org_Agent中传输的值。
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/TaskDetails.png&#34; alt=&#34;Task Details&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Object method：定义要调用的Class,Type,Method,并进行字段绑定。&lt;/li&gt;
-&lt;li&gt;Object Type：需要定义Interfaces实现IF_WORKFLOW.&lt;/li&gt;
-&lt;li&gt;Synchronous object method：同步对象的方法。&lt;/li&gt;
-&lt;li&gt;Execution：执行方式的选择&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;激活保存，运行并查看Log
-&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/Execute.png&#34; alt=&#34;执行&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/Log.png&#34; alt=&#34;Log查看&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;可以通过Print Log（Ctrl + P）查看Workflow Classical Technical Log&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/PrintLog.png&#34; alt=&#34;Print Log&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/WorkFlowLog.png&#34; alt=&#34;Workflow Log&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Various Status of Work Item.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/VariousStatus.png&#34; alt=&#34;Various Status&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;四&amp;gt;在程序中调用Workflow
-&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/Function.png&#34; alt=&#34;Function&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;通过Function(SWU_START_WORKFLOW)调用，根据传入的参数和数据调用对应的Workflow。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&amp;lt;五&amp;gt;通过Event触发Workflow
-- SWE2:定义事件&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/SWE2.png&#34; alt=&#34;SWE2&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/WorkFlow/SWDD2.png&#34; alt=&#34;SWDD&#34; /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;CALL FUNCTION &#39;SAP_WAPI_CREATE_EVENT&#39;
-  EXPORTING
-    object_type= &#39;ZMINORDER&#39;
-    object_key= l_obj_key
-    event                   = &#39;APP&#39;
-    *commit_work             = &#39;X&#39;
-    event_language= sy-langu
-    language                = sy-langu
-    user= sy-uname
-  TABLES
-    *INPUT_CONTAINER         =
-    message_lines= l_message_lines
-    *MESSAGE_STRUCT          =  .
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;tcode&#34;&gt;TCode&lt;/h2&gt;
-
-&lt;h3 id=&#34;最常用事务码&#34;&gt;最常用事务码：&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;SWDM：Business Workflow Explorer
-SWDD：Workflow Builder
-SWO1：Business Object Builder
-SWETPYV：Display and maintain event type link age
-SBWP：Business Workplace
-SWI1：Selection report for work items
-SWEL：Display Event Trace
-SWE2：Create Event
-PPOMW：Maintain organizational plan
-PFTC_INS / _CHG / _DIS / _COP：Create / Change / Display /Copy Tasks
-PFAC_INS / _CHG / _DIS/_COP：Create / Change / Display /Copy Rules
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;分析工具事务码：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;SBWP：Business Workplace ( Outbox )
-SWIA：Process Work Item As Administrator
-SWI6：Workflows for Object
-SWI14：Workflows for Object Type
-SWEL Display event trace
-SWI1 Selection report for work items
-SWU7 Consistency check for workflow templates
-SWU9 Display workflow trace
-SWUD Diagnostic tools
-SWU3 Customizing
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Excle操作</title>
-      <link>https://coldinfire.github.io/2018/ABAPExcel/</link>
-      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAPExcel/</guid>
-      <description>
-
-&lt;h2 id=&#34;使用-bapi&#34;&gt;使用 BAPI&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. 内表数据下载到文件:
-  CALL FUNCTION &#39;DOWNLOAD&#39;：提示保存
-  CALL FUNCTION &#39;WS_DOWNLOAD&#39;：不提示直接保存
-  CALL FUNCTION &#39;DOWNLOAD_WEB_OBJECT&#39;：提示保存
-2. 文件数据读取到内表
-  CALL FUNCTION &#39;UPLOAD&#39;：提示读入内表
-  CALL FUNCTION &#39;WS_UPLOAD&#39;：不提示直接读入内表
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;上传和下载模板&#34;&gt;上传和下载模板&lt;/h2&gt;
-
-&lt;p&gt;上传模板：文档是通过SMW0上传的。SMW0:Binary data =&amp;gt; Package =&amp;gt; create object name and description&lt;/p&gt;
-
-&lt;p&gt;下载模板：调用METHOD 下载通过SMWO上传的服务器模板文件到本地&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;弹出下载框函数&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;DATA: lv_filename   TYPE string,
-      lv_path       TYPE string,
-      lv_fullpath   TYPE string,
-
-FORM frm_file_save_dialog  USING    pv_value
-                           CHANGING pv_filename
-                                    pv_path
-                                    pv_fullpath.
-  CALL METHOD cl_gui_frontend_services=&amp;gt;file_save_dialog
-    EXPORTING
-     default_file_name= pv_value
-     default_extension= &#39;XLSX&#39;
-  CHANGING
-    filename = pv_filename
-    path = pv_path
-    fullpath = pv_fullpath
-  EXCEPTIONS
-    cntl_error   = 1
-    error_no_gui = 2
-    not_supported_by_gui = 3
-    OTHERS   = 4.
-ENDFORM.&amp;quot; FRM_FILE_SAVE_DIALOG
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;选择合适的文件夹后保存&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;FORM frm_download_files  USING pv_fullpath .
-  DATA:lw_key TYPE wwwdatatab,
-       lv_rc  TYPE sy-subrc.
-  DATA: lv_destination LIKE  rlgrap-filename .
-  DATA: lw_application TYPE ole2_object,
-        lw_workbook    TYPE ole2_object,
-        lw_sheet       TYPE ole2_object.
-  lv_destination = pv_fullpath .
-
-  SELECT SINGLE relid objid INTO CORRESPONDING FIELDS OF lw_key
-         FROM wwwdata
-         WHERE srtf2 EQ 0
-           AND relid EQ &#39;MI&#39;
-           AND objid EQ &#39;OBJID&#39; .&amp;quot;SY-CPROG.上传的文件对象名
-  IF sy-subrc NE 0.
-    MESSAGE text-m03 TYPE &#39;E&#39;. &amp;quot;Template is not exist
-    RETURN.
-  ENDIF.
-
-  CALL FUNCTION &#39;DOWNLOAD_WEB_OBJECT&#39;
-    EXPORTING
-      key         = lw_key
-      destination = lv_destination
-    IMPORTING
-      rc          = lv_rc.
-  IF lv_rc &amp;lt;&amp;gt; 0.
-    MESSAGE text-m05 TYPE &#39;E&#39;. &amp;quot;Error occurs when download
-    RETURN.
-  ENDIF.
-ENDFORM.                    &amp;quot; FRM_DOWNLOAD_FILES
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;操作&#34;&gt;操作&lt;/h3&gt;
-
-&lt;p&gt;CL_GUI_FRONTEND_SERVICES:该类提供了大量对操作系统文件的操作，如拷贝、列出文件名、打开文件等。&lt;/p&gt;
-
-&lt;p&gt;打开文件：调用静态方法 FILE_OPEN_DIALOG&lt;/p&gt;
-
-&lt;p&gt;将文本文件读取到内表：GUI_UPLOAD&lt;/p&gt;
-
-&lt;p&gt;下载：GUI_DOWNLOAD&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;打开选择上传文件对话框&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;CALL METHOD CL_GUI_FRONTEND_SERVICES=&amp;gt;FILE_OPEN_DIALOG  
-  EXPORTING
-    WINDOW_TITLE = &#39;选择上传文件&#39;
-    FILE_FILTER = &#39;All Files (*.*)|*.*|NotePad Files(*.txt)|*.txt|Excel Files(*.xls)|*.xls|Word files(*.doc)|*.doc&#39; 
-    DEFAULT_EXTENSION = &#39;*.txt&#39;
-    DEFAULT_FilENAME = &#39;1.txt&#39;  &amp;quot;默认打开的文件
-    &amp;quot;INITIAL_DIRECTORY = &#39;C:/&#39;  &amp;quot;初始化的目录
-    &amp;quot;MULTISELECTION = &#39;X&#39; &amp;quot;是否可以同时打开多个文件
-    CHANGING
-    FILE_TABLE = LV_FILETABLE &amp;quot;你打开文件名的列表
-    RC = LV_RC . &amp;quot;返回打开文件的数量
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;调用METHOD 读取文件内容到内表&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;CALL FUNCTION &#39;GUI_UPLOAD&#39;
-   EXPORTING
-    FILENAME                      = LV_FILENAME  &amp;quot;要讀取的文件
-    FILETYPE                      = &#39;ASC&#39;
-    HAS_FIELD_SEPARATOR           =  CL_ABAP_CHAR_UTILITIES=&amp;gt;HORIZONTAL_TAB &amp;quot;字段間按TAB鍵分隔開來
-  TABLES
-    DATA_TAB                      = TXT_READ_DATA  &amp;quot;寫入相應的內表中
-    EXCEPTIONS
-    FILE_OPEN_ERROR               = 1
-    FILE_READ_ERROR               = 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;获取excel数据&#34;&gt;获取Excel数据&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. 选择屏幕上加个文件路径选择
-    SELECTION-SCREEN:BEGIN OF BLOCK BLK01 WITH FRAME TITLE TEXT-001.
-    PARAMETERS:P_FILE LIKE RLGRAP-FILENAME.
-    SELECTION-SCREEN END OF BLOCK BLK01.
-2. 给文件搜索帮助
-  AT SELECTION-SCREEN ON VALUE-REQUEST FOR P_FILE.
-  PERFORM FRM_GET_FILEPATH.
-    FORM FRM_GET_FILEPATH .
-      CALL FUNCTION &#39;WS_FILENAME_GET&#39;
-        EXPORTING
-          MASK             = &#39;,Excel(*.xls),*.XLS,*.XLSX,&#39;
-          TITLE            = &#39;选择文件&#39;(100)
-        IMPORTING
-          FILENAME         = P_FILE
-        EXCEPTIONS
-          INV_WINSYS       = 1
-          NO_BATCH         = 2
-          SELECTION_CANCEL = 3
-          SELECTION_ERROR  = 4
-          OTHERS           = 5.
-      IF SY-SUBRC &amp;lt;&amp;gt; 0.
-        MESSAGE E100(ZDEV) WITH &#39;选择文件出错！&#39;(007).
-      ENDIF.
-    ENDFORM.
-3. 获取EXCEL内容
-    CALL FUNCTION &#39;ALSM_EXCEL_TO_INTERNAL_TABLE&#39;
-      EXPORTING
-        FILENAME    = P_FILE
-        I_BEGIN_COL = &#39;1&#39;
-        I_BEGIN_ROW = &#39;2&#39;
-        I_END_COL   = &#39;300&#39;
-        I_END_ROW   = &#39;65535&#39;
-      TABLES
-        INTERN      = GT_EXCEL_T.
-4. 获取EXCEL行，列，值进行数据处理
-    LOOP AT GT_EXCEL_T INTO GS_EXCEL_T.
-    AT NEW ROW.
-      CLEAR:GW_EXCEL.
-    ENDAT.
-    CASE GS_EXCEL_T-COL.
-      WHEN 1.
-        GW_EXCEL-LIFNR = GS_EXCEL_T-VALUE.
-        CALL FUNCTION &#39;CONVERSION_EXIT_ALPHA_INPUT&#39;
-          EXPORTING
-            INPUT  = GW_EXCEL-LIFNR
-          IMPORTING
-            OUTPUT = GW_EXCEL-LIFNR.
-      WHEN 2.
-        GW_EXCEL-MATNR = GS_EXCEL_T-VALUE.
-        CALL FUNCTION &#39;CONVERSION_EXIT_ALPHA_INPUT&#39;
-          EXPORTING
-            INPUT  = GW_EXCEL-MATNR
-          IMPORTING
-            OUTPUT = GW_EXCEL-MATNR.
-      WHEN 3.
-        GW_EXCEL-EKORG = GS_EXCEL_T-VALUE.
-      WHEN 4.
-        GW_EXCEL-WERKS = GS_EXCEL_T-VALUE.
-      WHEN 5.
-        GW_EXCEL-NETPR = GS_EXCEL_T-VALUE.
-      WHEN 6.
-        GW_EXCEL-KPEIN = GS_EXCEL_T-VALUE.
-      WHEN 7.
-        GW_EXCEL-LIFAB = GS_EXCEL_T-VALUE.
-      WHEN 8.
-   *    GW_EXCEL-NORBM = GS_EXCEL_T-VALUE.
-        GW_EXCEL-LIFBI = GS_EXCEL_T-VALUE.
-      WHEN 9.
-        GW_EXCEL-MWSKZ = GS_EXCEL_T-VALUE.
-      WHEN OTHERS.
-    ENDCASE.
-
-    AT END OF ROW.
-      APPEND GW_EXCEL TO GT_EXCEL.
-    ENDAT.
-  ENDLOOP.
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;获取excel数据函数&#34;&gt;获取Excel数据函数：&lt;/h4&gt;
-
-&lt;p&gt;“TEXT_CONVERT_XLS_TO_SAP”：这个函数直接可以把 execl 的内容原原本本的写入到内表，不用格式转化那么麻烦。如果该内表 ITAB 的数据最后要写入你的自建表里，那么还得迂回一下，因为透明表里有个 MANDT 客户端字段。所以得再建一个内表来迂回。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1.EXCEL 中第一行是标题，调用 FM 时，参数 I_LINE_HEADER=’X’&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;读第一条数据时，会把标题放入 “值是空的字段”&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. 模板中前两行是标题，调用 FM 时，参数 I_LINE_HEADER=”，然后再把前两行数据删除&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;100*N+1 行，有把标题放入 “值是空的字段” 的情况&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;* 定义一个内表来存储数据，内表的列数和要传得数据的列数要相同，其按照列来匹配传值
-DATA: BEGIN OF gt_data OCCURS 0,
-     col1 TYPE char10,
-     col2 TYPE char10,
-      END OF gt_data.
-
-CALL FUNCTION &#39;TEXT_CONVERT_XLS_TO_SAP&#39;  
-  EXPORTING  
-*   I_FIELD_SEPERATOR          =  
-    I_LINE_HEADER               = &#39;X&#39;  
-    i_tab_raw_data             = IT_RAW  
-    i_filename                 = fname1  
-  tables  
-    i_tab_converted_data       = gt_data  
-  EXCEPTIONS  
-    CONVERSION_FAILED          = 1  
-    OTHERS                     = 2  
-          .  
-IF sy-subrc &amp;lt;&amp;gt; 0.  
-  MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO  
-      WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.  
-ENDIF.  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;实例-https-github-com-coldinfire-erp-wiki-e6-96-87-e6-a1-a3-e4-b8-8a-e4-bc-a0-e5-92-8c-e4-b8-8b-e8-bd-bd-e4-b8-89-e5-ae-9e-e4-be-8b&#34;&gt;&lt;a href=&#34;https://github.com/coldinfire/ERP/wiki/%E6%96%87%E6%A1%A3%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD#%E4%B8%89%E5%AE%9E%E4%BE%8B&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;实例&lt;/a&gt;&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;SELECTION-SCREEN:
-  PUSHBUTTON /2(30) button1 USER-COMMAND but1.&amp;quot;30是按钮长度
-
-SELECTION-SCREEN BEGIN OF BLOCK blk1 WITH FRAME TITLE text-001.
-SELECTION-SCREEN BEGIN OF LINE.
-PARAMETERS p_file TYPE rlgrap-filename.
-SELECTION-SCREEN POSITION 50.
-SELECTION-SCREEN COMMENT (20) p_comm FOR FIELD p_file.
-SELECTION-SCREEN END OF LINE.
-SELECTION-SCREEN END OF BLOCK blk1.
-
-AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_file.
-  &amp;quot;发出上传文件时，弹出选择文件框，选择对应的文件
-  PERFORM frm_get_filepath.
-
-AT SELECTION-SCREEN. &amp;quot;检查界面操作并响应
-  IF sscrfields EQ &#39;BUT1&#39;.&amp;quot;下载按钮时，下载文档模板
-    PERFORM download_file.
-  ENDIF.
-  IF p_file IS NOT INITIAL.
-    PERFORM frm_check_file.&amp;quot;当文档上传框有请求时，检验路径是否存在
-  ENDIF.
-
-INITIALIZATION.
-  p_comm = &#39;&#39;.
-  button1 = &#39;Download template file&#39;.
-
-START-OF-SELECTION.
-  PERFORM frm_inter_table.
-*  PERFORM frm_check_xzael.
-
-FORM download_file .
-  DATA: lwa_wwwdata_tab LIKE wwwdatatab,
-        l_filename      TYPE rlgrap-filename,
-        mes             TYPE string.
-
-  l_filename = &#39;C:/temp/BatchInput.xlsx&#39;.
-  SELECT SINGLE *
-    FROM wwwdata
-   INNER JOIN tadir
-      ON wwwdata~objid = tadir~obj_name
-    INTO CORRESPONDING FIELDS OF lwa_wwwdata_tab
-   WHERE wwwdata~srtf2  = 0
-     AND wwwdata~relid  = &#39;MI&#39;             &amp;quot;标识二进制的对象
-     AND tadir~pgmid    = &#39;R3TR&#39;
-     AND tadir~object   = &#39;W3MI&#39;
-     AND tadir~obj_name = &#39;ZMI05&#39;.         &amp;quot;模板名字
-
-  IF sy-subrc = 0.
-    CALL FUNCTION &#39;DOWNLOAD_WEB_OBJECT&#39;
-      EXPORTING
-        key         = lwa_wwwdata_tab
-        destination = l_filename.
-    IF sy-subrc = 0.
-      CONCATENATE &#39;The File Download Directory:&#39; l_filename INTO mes.
-      MESSAGE mes TYPE &#39;S&#39;.
-    ENDIF.
-  ENDIF.
-ENDFORM.                    &amp;quot; DOWNLOAD_FILE
-
-FORM frm_get_filepath .
-  DATA lv_filepath TYPE ibipparms-path.
-
-  CALL FUNCTION &#39;WS_FILENAME_GET&#39;
-    EXPORTING
-      mask             = &#39;,EXCEL FILE,*.XLS;*.XLSX;&#39;
-      mode             = &#39;O&#39; &amp;quot;S为保存，O为打开
-    IMPORTING
-      filename         = p_file
-    EXCEPTIONS
-      inv_winsys       = 1
-      no_batch         = 2
-      selection_cancel = 3
-      selection_error  = 4
-      OTHERS           = 5.
-ENDFORM.                    &amp;quot; FRM_GET_FILEPATH
-
-FORM frm_check_file .
-  DATA:lv_filename TYPE string,
-       lv_result TYPE c.
-  lv_filename = p_file.
-  CALL METHOD cl_gui_frontend_services=&amp;gt;file_exist
-    EXPORTING
-      file                 = lv_filename
-    RECEIVING
-      result               = lv_result
-    EXCEPTIONS
-      cntl_error           = 1
-      error_no_gui         = 2
-      wrong_parameter      = 3
-      not_supported_by_gui = 4
-      OTHERS               = 5.
-  IF sy-subrc NE 0.
-  ENDIF.
-  IF lv_result = &#39;&#39;.
-    MESSAGE &#39;The File Not Found In The Direct!&#39; TYPE &#39;E&#39;.
-  ENDIF.
-ENDFORM.                    &amp;quot; FRM_CHECK_FILE
-
-FORM frm_inter_table.
-    CALL FUNCTION &#39;ALSM_EXCEL_TO_INTERNAL_TABLE&#39;
-    EXPORTING
-      filename                = p_file   &amp;quot;本地文件全路径名
-      i_begin_col             = &#39;1&#39;      &amp;quot;开始列
-      i_begin_row             = &#39;2&#39;      &amp;quot;开始行
-      i_end_col               = &#39;7&#39;      &amp;quot;结束列
-      i_end_row               = &#39;6666&#39;   &amp;quot;结束行
-    TABLES
-      intern                  = it_file   &amp;quot;输出文件内容到it_file
-    EXCEPTIONS
-      inconsistent_parameters = 1
-      upload_ole              = 2
-      OTHERS                  = 3.
-
-  IF it_file[] IS INITIAL.
-    MESSAGE &#39;There is no data in the excel!&#39; TYPE &#39;E&#39;.
-  ENDIF.
-  SORT it_file BY row.
-  LOOP AT it_file ASSIGNING &amp;lt;wa_file&amp;gt;.     &amp;quot;将上传文件的内容写到内表中
-    CASE &amp;lt;wa_file&amp;gt;-col.
-      WHEN &#39;0001&#39;.
-        wa_iseg-gjahr  =  &amp;lt;wa_file&amp;gt;-value.
-      WHEN &#39;0002&#39;.
-        wa_iseg-iblnr  =  &amp;lt;wa_file&amp;gt;-value.
-      WHEN &#39;0003&#39;.
-        wa_iseg-zeili  =  &amp;lt;wa_file&amp;gt;-value.
-      WHEN &#39;0004&#39;.
-        wa_iseg-buchm  =  &amp;lt;wa_file&amp;gt;-value.
-      WHEN &#39;0005&#39;.
-        wa_iseg-meins  =  &amp;lt;wa_file&amp;gt;-value.
-      WHEN &#39;0006&#39;.
-        wa_iseg-lgort  =  &amp;lt;wa_file&amp;gt;-value.
-      WHEN &#39;0007&#39;.
-        wa_iseg-usnam  =  &amp;lt;wa_file&amp;gt;-value.
-    ENDCASE.
-    AT END OF row.
-      APPEND wa_iseg TO it_iseg.
-      CLEAR wa_iseg.
-    ENDAT.
-  ENDLOOP.
-ENDFORM.                    &amp;quot; FRM_UPLOAD_FILE
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

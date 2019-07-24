@@ -125,6 +125,16 @@ perform close_group.
 perform close_dataset using dataset.
 ```
 
+- /SAPLSETB 0230 X . 表示数据表选择窗口
+
+- /1BCDWB/DB 1000 X. 表示数据查询窗口
+
+- /1BCDWB/DB 0101 X. 表示数据录入窗口
+
+- BDC_OKCODE = 'SAVE' 表示单击‘保存’按钮
+
+- SPFLI-CARRID NG 表示窗口字段 'SPFLI-CARRID' 值为 'NG'
+
 #### 程序主要逻辑
 
 open dataset. "读取外部数据源
