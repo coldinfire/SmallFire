@@ -47,3 +47,22 @@ WE42:配置进站处理代码
 WE02:IDOC发送信息检查
 ```
 
+3.IDoc常用TCode
+
+/BD87
+
+/SM58
+
+/WE09
+
+/WE18
+
+/WE19
+
+/WE20
+
+/SUIM
+
+/GS03
+
+/BDLS

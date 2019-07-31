@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>移库动作产生的报错:Error BS001 when posting goods movment</title>
+      <link>https://coldinfire.github.io/2019/SAPQ1/</link>
+      <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPQ1/</guid>
+      <description>Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU XXXXXX? A：需要每次进行移库前刷新数据： &amp;ldquo;调用BAPI</description>
+    </item>
+    
+    <item>
+      <title>STO详解</title>
+      <link>https://coldinfire.github.io/2019/ABAPSTO/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPSTO/</guid>
+      <description>一、工厂间转储 （1）MB1B 移动类型 301 工厂到工厂（一步）转账 -&amp;gt; 简单明了一步转储；过账后会产生 GR，MITA 增加了，MIZH 减少了， MB03：</description>
+    </item>
     
     <item>
       <title> SAP下载程序源码工具 </title>
@@ -45,6 +63,15 @@
       
       <guid>https://coldinfire.github.io/2019/FioriOverview/</guid>
       <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
+    </item>
+    
+    <item>
+      <title> SAP HANA</title>
+      <link>https://coldinfire.github.io/2019/SAPHANA1/</link>
+      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPHANA1/</guid>
+      <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana HANA主要组成成分 客户端：HANA Studio(In-memory studio) 内存内数据库：HANA Database 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices 三种复制数据方法</description>
     </item>
     
     <item>
@@ -162,6 +189,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAPExcel/</guid>
       <description>使用 BAPI 1. 内表数据下载到文件: CALL FUNCTION &#39;DOWNLOAD&#39;：提示保存 CALL FUNCTION &#39;WS_DOWNLOAD&#39;：不提示直接保存 CALL FUNCTION &#39;DOWNLOAD_WEB_</description>
+    </item>
+    
+    <item>
+      <title>SAP Query操作</title>
+      <link>https://coldinfire.github.io/2018/ABAPQuery/</link>
+      <pubDate>Sun, 28 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPQuery/</guid>
+      <description>Query</description>
     </item>
     
     <item>

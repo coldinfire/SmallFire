@@ -88,7 +88,7 @@ chown user file:修改文件所有者
 
 •`file/stat`：查看文件类型或文件属性信息
 
-•`find []`：查找文件
+•`find [-name]`：在文件系统中的指定目录下查找指定文件
 
 •`cat`：从第一行显示 [n]:行号 [v]:列出特殊字符
 
@@ -104,7 +104,13 @@ chown user file:修改文件所有者
 
 •`tail`：尾巴几行  [-n number]:显示几行
 
-•`wc -l file_name`：统计文件有多少行
+•`wc -m file_name`：统计文件字符数
+
+•`wc -w file_name`：统计文件文本字数
+
+•`wc -l file_name`：统计文件行数
+
+•`wc file_name`：统计文件行数，字数，字符数
 
 ### 链接创建 ###
 •`ln f1 f2`：创建f1的一个硬连接文件f2

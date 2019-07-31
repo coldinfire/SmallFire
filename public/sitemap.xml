@@ -30,6 +30,118 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
+      
+      <lastmod>2019-04-14T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2019-04-14T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2019-04-14T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/QA/</loc>
+      
+      <lastmod>2019-04-14T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2019-04-14T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2019-04-14T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPQ1/</loc>
+      
+      <lastmod>2019-04-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/STO/</loc>
+      
+      <lastmod>2019-04-01T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAPSTO/</loc>
+      
+      <lastmod>2019-04-01T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAPUtils10/</loc>
       
       <lastmod>2019-03-27T00:00:00+00:00</lastmod>
@@ -53,66 +165,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
-      
-      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/</loc>
-      
-      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
-      
-      <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -170,6 +222,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/SAPHANA1/</loc>
+      
+      <lastmod>2019-03-16T17:20:58+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/SAPUI5/</loc>
       
       <lastmod>2019-03-16T17:20:58+08:00</lastmod>
@@ -185,6 +251,18 @@
   
     <url>
       <loc>https://coldinfire.github.io/categories/Sap-Fiori/</loc>
+      
+      <lastmod>2019-03-16T17:20:58+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/hana/</loc>
       
       <lastmod>2019-03-16T17:20:58+08:00</lastmod>
       
@@ -467,6 +545,32 @@
       
       
       <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAPQuery/</loc>
+      
+      <lastmod>2018-10-28T15:15:42+08:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/Utils/</loc>
+      
+      <lastmod>2018-10-28T15:15:42+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>

@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>QA</title>
+      <link>https://coldinfire.github.io/tags/QA/</link>
+      <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/QA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>STO</title>
+      <link>https://coldinfire.github.io/tags/STO/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/STO/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>abap</title>
@@ -26,6 +44,15 @@
       <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/utils/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hana</title>
+      <link>https://coldinfire.github.io/tags/hana/</link>
+      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/hana/</guid>
       <description></description>
     </item>
     
@@ -89,6 +116,15 @@
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/Excel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Utils</title>
+      <link>https://coldinfire.github.io/tags/Utils/</link>
+      <pubDate>Sun, 28 Oct 2018 15:15:42 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/Utils/</guid>
       <description></description>
     </item>
     
