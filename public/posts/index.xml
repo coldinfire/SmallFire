@@ -93,7 +93,16 @@
     </item>
     
     <item>
-      <title>MM 包含流程解析</title>
+      <title>MM 采购</title>
+      <link>https://coldinfire.github.io/2019/MMDetail2/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMDetail2/</guid>
+      <description>库存采购基础 采购流程： 1. MRP &amp;amp; Purch.Req (Determination of reqmts)（确认需求） 2. Source determination (购买方式和货源) 3. Vendor selection （跟哪个供应商买） 4. Request for Quotation (要求报价) 5. Purchase Requisition (采购</description>
+    </item>
+    
+    <item>
+      <title>MM Material Master</title>
       <link>https://coldinfire.github.io/2019/MMDetail1/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       

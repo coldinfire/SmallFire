@@ -2823,280 +2823,12 @@ Acct cat : 账户参考必填字段。选择合适的值）
     </item>
     
     <item>
-      <title>MM 包含流程解析</title>
-      <link>https://coldinfire.github.io/2019/MMDetail1/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <title>MM 采购</title>
+      <link>https://coldinfire.github.io/2019/MMDetail2/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMDetail1/</guid>
+      <guid>https://coldinfire.github.io/2019/MMDetail2/</guid>
       <description>
-
-&lt;h2 id=&#34;企业组织结构&#34;&gt;企业组织结构&lt;/h2&gt;
-
-&lt;h3 id=&#34;整体架构&#34;&gt;整体架构&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。&lt;/li&gt;
-&lt;li&gt;公司代码：一个公司代码代表一个独立的会计实体。每个公司代码都有它自己得到资产负债表和损益表。&lt;/li&gt;
-&lt;li&gt;工厂：是公司内的组织单元，生产产品、提供服务或销售产品，工厂可以是（制造厂、仓库中转中心、 区域销售办公司、公司总部）&lt;/li&gt;
-&lt;li&gt;仓储地点：是工厂内存放不同类型物料的组织单位，如：材料仓，成品仓，材损仓。&lt;/li&gt;
-&lt;li&gt;采购组织：是负责为一个或多个工厂工厂采购物料和提供服务及与供应商协商价格和供货条款的主旨单位。价格条件在采购组织层次设置。如果一个采购组织为多个工厂采购，则价格在各个工厂都有效。&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;采购组：是采购组织的进一步细分，负责日常的采购活动，一个采购组也可以为多个采购组织工作&lt;/p&gt;
-
-&lt;h4 id=&#34;集团-公司代码-工厂&#34;&gt;集团 / 公司代码 / 工厂&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/Client1.png&#34; alt=&#34;架构关系&#34; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;公司代码-工厂-库存地点&#34;&gt;公司代码 / 工厂 / 库存地点&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/Client2.png&#34; alt=&#34;架构关系&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;物料主数据&#34;&gt;物料主数据&lt;/h3&gt;
-
-&lt;h4 id=&#34;主要信息&#34;&gt;主要信息:&lt;/h4&gt;
-
-&lt;p&gt;描述性信息：描述，尺寸，体积等&lt;/p&gt;
-
-&lt;p&gt;控制性信息：MRP类型，价格控制，采购组等&lt;/p&gt;
-
-&lt;p&gt;物料主数据：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;General:           Material Number、Description、Base Unit Of Measure、Technical&lt;/li&gt;
-&lt;li&gt;Plan Specific：MRP type、Planned delivery time、Purchasing group、Batch indicator&lt;/li&gt;
-&lt;li&gt;Valuation：     Valuation price、Valuation procedure、Valuated quantity&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;物料主数据记录中的数据是集合在不同的视图中；不同部门会有不同的物料主数据视图。&lt;/p&gt;
-
-&lt;h4 id=&#34;1-物料信息录入&#34;&gt;1.物料信息录入&lt;/h4&gt;
-
-&lt;p&gt;必须数据：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;物料号：根据需求定义 ；&lt;/li&gt;
-&lt;li&gt;行业领域：（控制哪些数据需要显示）；&lt;/li&gt;
-&lt;li&gt;物料类型：（群组，归类）：控制哪些部门需要维护&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;设置：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;SPRO：SAP后台配置 =&amp;gt; 后勤常规---&amp;gt;物料主数据---&amp;gt;基本设置---&amp;gt;物料类型---&amp;gt;定义物料类型的属性
-                详细信息---&amp;gt;用户部门（决定哪些部门需要维护）
-                控制内外部采购订单：决定是不是自己生产的（影响采购类型）
-                控制账户分类参考：
-                控制数量/价值更新：决定数量和价值的更新
-            客户供料：只会做数量更新，不会做价钱更新（不属于本公司）
-            显示具体信息：设置显示（专家模式）
-                成品（FERT）&amp;lt;Finished Product&amp;gt;
-                半成品（HALB）&amp;lt;Semifinished Product&amp;gt;
-                原材料（ROH）&amp;lt;Raw materials&amp;gt;
-                备品备件（ERSA）&amp;lt;Spare Parts&amp;gt;
-                贸易货物（HAWA）&amp;lt;Trading Goods&amp;gt;
-                包装物料（VERP）&amp;lt;Packaging&amp;gt;
-                可反复利用包装（LEIH）&amp;lt;Returnable packaging&amp;gt;
-                未估价物料(UNBW)
-                管线物料（PIPE）&amp;lt;Pipeline materials&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MMMain.png&#34; alt=&#34;视图&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/MM/MMScreen.png&#34; alt=&#34;数据屏幕&#34; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;2-消耗型物料&#34;&gt;2.消耗型物料&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;办公材料 &amp;lt;成本中心&amp;gt;&lt;/li&gt;
-&lt;li&gt;计算机系统 &amp;lt; 固定资产 &amp;gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;1&gt; 消耗型物料时直接为了一个科目设置对象而购买的物料 (不需要办理入库和出库手续)&lt;/p&gt;
-
-&lt;p&gt;&lt;2&gt; 库存管理未被执行&lt;/p&gt;
-
-&lt;p&gt;&lt;3&gt; 系统会自动更新有物料主记录的消耗型物料&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;          库存物料            《=》              消耗型物料
-    输入要求的物料编号                     可以输入物料编号，但不是必须的
-    无科目设置类别                         强制科目设置类别
-    过账到库存科目                         过账到消耗科目
-    在物料主记录中更新数量和价值            消耗品更新（只使用于物料主记录中的物料）、移动平均价格被调整
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;非库存物料（NLAG）: 有一定采购频率、是有物料主数据，但不做库存管理的物料。（价值，数量）。
-
-&lt;ul&gt;
-&lt;li&gt;使用该物料类型（NLAG）的物料，创建采购订单需要指定账户分类（如 K 等）；根据采购订单收货时，直接财务上消耗记账。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;未评估物料（UNBW) : 做数量管理，不做价值管理
-
-&lt;ul&gt;
-&lt;li&gt;使用该物料类型（UNBW）的物料，创建采购订单需要指定账户分类（如 K 等）；根据采购订单收货时，直接财务消耗记账，更新库存数量；消耗时，只记录库存数量减少。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;3-bom&#34;&gt;3.BOM&lt;/h4&gt;
-
-&lt;p&gt;BOM：物料清单 (零件结构表)，将产品的原材料、零配件、组件予以拆解，并将各单位项材料依材料编号、名称、
-规格、基本单位、单位用量、产品损耗等依制造流程的顺序记录下来，排列为一个清单，就是 BOM。&lt;/p&gt;
-
-&lt;h4 id=&#34;4-mrp&#34;&gt;4.MRP&lt;/h4&gt;
-
-&lt;p&gt;MRP：物料需求计划，利用生产日程表（MPS）、零件结构表（BOM）、库存报表、已订购未交货订单等等
-各种相关资料，经正确计算而得出各种物料零件的变量需求，提出各种新的订购或修正各种以开出订购
-的物料管理技术。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MRP.png&#34; alt=&#34;MRP原理&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/MM/MRP2.png&#34; alt=&#34;MRP&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MRP元素缩写&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;SimReq：简单需求&lt;/p&gt;
-
-&lt;p&gt;AR：相关预订&lt;/p&gt;
-
-&lt;p&gt;BA：采购申请  &lt;/p&gt;
-
-&lt;p&gt;BB：提供物料转包商需求&lt;/p&gt;
-
-&lt;p&gt;BE：订单项目计划行&lt;/p&gt;
-
-&lt;p&gt;BP：总需求计划&lt;/p&gt;
-
-&lt;p&gt;BR：流程订单&lt;/p&gt;
-
-&lt;p&gt;OrdRes：订单需求&lt;/p&gt;
-
-&lt;p&gt;PurRqs：采购申请&lt;/p&gt;
-
-&lt;p&gt;SubReq：外协请求&lt;/p&gt;
-
-&lt;p&gt;PrcOrd：处理订单&lt;/p&gt;
-
-&lt;p&gt;OI-SL：采购订单&lt;/p&gt;
-
-&lt;p&gt;PrdOrd：生产订单&lt;/p&gt;
-
-&lt;p&gt;PMOrdr：PM 订单&lt;/p&gt;
-
-&lt;p&gt;FE：生产订单&lt;/p&gt;
-
-&lt;p&gt;IH：维护订单&lt;/p&gt;
-
-&lt;p&gt;CH：批库存&lt;/p&gt;
-
-&lt;p&gt;KB：单独客户库存&lt;/p&gt;
-
-&lt;p&gt;BtchSt：批量库存&lt;/p&gt;
-
-&lt;p&gt;CStock  客户库存&lt;/p&gt;
-
-&lt;p&gt;DD：有效外日期&lt;/p&gt;
-
-&lt;p&gt;E1：分包合同采购&lt;/p&gt;
-
-&lt;p&gt;FH：计划时界末&lt;/p&gt;
-
-&lt;p&gt;IW：工厂中（仅和 IS 汽车相关）&lt;/p&gt;
-
-&lt;p&gt;JI：JIT 提取&lt;/p&gt;
-
-&lt;p&gt;JIT：JIT 调用&lt;/p&gt;
-
-&lt;h4 id=&#34;5-视图选择&#34;&gt;5.视图选择&lt;/h4&gt;
-
-&lt;p&gt;根据选择的部门不同，输入的内容也不同，系统自动识别所属类型.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;缺省值的设置。&lt;/strong&gt;
- - 行业领域、选择视图、组织级别都可以设置缺省值。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;基本数据 1：一般属于物料描述等属性，属于集团类别。
-X 单位：基本单位，订单单位，转换因子（附加数据中有计量单位的设定，
-计量单位组：预先定义好单位转换 &amp;lt;通过后台设置关键字 设置计量单位组中进行设置的&amp;gt;）
-X 物料组：做分析会用到、可以利用不同的物料组决定种类分类账
-X 旧物料号： 便于查找旧系统数据
-X 部门：Division (1) 影响 SD/FI 两个模块 (2) 无值将导致销售无法生成订单，单价录入，报告书等
-实验室 / 办公室：描述信息没有特殊描述
-X 产品组：根据公司产品分组，不填写销售无法生成订单
-X 附加数据：通过附加数据来维护不同语言环境的物料描述
-凭证数据、内部批注、计量单位
-号码范围：通过后台维护 ---&amp;gt; 定义号码范围 （组 物料类型 定义号码范围）
-外部给号，内部给号范围的限制。未检测的外部号分配
-X 毛重、净重：报关使用
-
-销售组织数据 1：
-X 交货工厂编码：
-X 税务数：国家，纳税类型
-销售组织数据 2：影响销售订单
-分组条款：
-X 物料定价组：（固定值）
-X 科目设置组：
-X 项目类别组：（固定值）
-物料组：X1，2，3，4，5
-销售一般 / 工厂：影响销售的订单
-工厂：工厂代码
-批次管理：（包装品必须勾选）
-运输组：
-装载组：
-利润中心：
-采购：
-采购组：用于区分资材类型（BOM、Non BOM） 报表所需
-批次管理：（勾选，HANON 暂不使用）
-配额安排：同意物料对应多个供应商时用到此值（用分配的比例确定供应商的纳品数）
-源清单：物料与供应商信息的结合，不勾选，无法生成采购订单
-
-MRP1：MRP 类型、MRP 控制者、批量（在 PP 中会使用到的）
-MRP 组：
-MRP 类型：（固定值 PD）
-MRP 控制者：
-批量大小：（固定值 EX）
-MRP2：影响 MRP 运算
-采购类型：内部生产或则外部采购
-特殊采购类型：有偿加工必填 &amp;lt;31&amp;gt;, 无偿加工品必填 &amp;lt; 30&amp;gt;
-外部采购仓储地点：物料存储仓库
-计划边际码：采购品须填写准确日期，影响 MRP 运输
-计划交货时间：进口件
-MRP3：可用性检查（02）
-策略组：内部生产品必填，固定值
-MRP4:
-  选择方法：内部生产品必填，固定值
-  重复生产：内部生产品必填，固定值
-  重复生产参数 文件：内部生产品必填，固定值
-工厂数据 / 存储：
-存储条件：关系到销售出库
-End Item：直买直卖的物品必须勾选
-
-会计 1：
-评估分类：影响会计计算，必须准确
-价格确定：系统自动存在，没有时必须输入
-
-成本 1：
-勾选物料来源：
-主要视图：
-基础视图 -- 物料基本描述（集团层次通用）- 不同的工厂，不同公司看到的数据都是一样的
-采购视图 -- 采购模块数据
-销售视图 -- 销售业务数据
-生产视图 --MRP 数据
-会计视图 -- 财务会计数据
-成本视图 -- 成本会计数据
-外部采购 与 计划交货时间（必输 &amp;lt;采购提前期&amp;gt;）
-
-MRP：
-MRP1：MRP 类型、MRP 控制者、批量（在 PP 中会使用到的）
-MRP2：采购类型、计划交货时间、计划边际码
-MRP3：可用性检查（02）
-MRP4： 不输入
-会计 1：
-评估类、价格控制、价格单位、标准价格
-后续可以不用输入。即可建立料号。
-Control string：material type、plant、industry sector、transaction、procurement indicator（采购类型）
-通过字段选择 --&amp;gt; 维护数据屏幕的字段选择来修改屏幕的状态
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;6-组织层次&#34;&gt;6.组织层次&lt;/h4&gt;
-
-&lt;p&gt;工厂，库存地点，销售机构，分销渠道&lt;/p&gt;
 
 &lt;h2 id=&#34;库存采购基础&#34;&gt;库存采购基础&lt;/h2&gt;
 
@@ -3269,6 +3001,434 @@ Control string：material type、plant、industry sector、transaction、procure
 &lt;li&gt;根据采购订单、物料凭证、发票信息进行记账&lt;/li&gt;
 &lt;li&gt;发票过账时，会创建一张会计凭证。各项目将被发送到相应的科目。&lt;/li&gt;
 &lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MM Material Master</title>
+      <link>https://coldinfire.github.io/2019/MMDetail1/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMDetail1/</guid>
+      <description>
+
+&lt;h2 id=&#34;企业组织结构&#34;&gt;企业组织结构&lt;/h2&gt;
+
+&lt;h3 id=&#34;整体架构&#34;&gt;整体架构&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。&lt;/li&gt;
+&lt;li&gt;公司代码：一个公司代码代表一个独立的会计实体。每个公司代码都有它自己得到资产负债表和损益表。&lt;/li&gt;
+&lt;li&gt;工厂：是公司内的组织单元，生产产品、提供服务或销售产品，工厂可以是（制造厂、仓库中转中心、 区域销售办公司、公司总部）。&lt;/li&gt;
+&lt;li&gt;仓储地点：是工厂内存放不同类型物料的组织单位，如：材料仓，成品仓，材损仓。&lt;/li&gt;
+&lt;li&gt;采购组织：是负责为一个或多个工厂工厂采购物料和提供服务及与供应商协商价格和供货条款的主旨单位。价格条件在采购组织层次设置。如果一个采购组织为多个工厂采购，则价格在各个工厂都有效。&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;采购组：是采购组织的进一步细分，负责日常的采购活动，一个采购组也可以为多个采购组织工作。&lt;/p&gt;
+
+&lt;h4 id=&#34;集团-公司代码-工厂&#34;&gt;集团 / 公司代码 / 工厂&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/Client1.png&#34; alt=&#34;架构关系&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;公司代码-工厂-库存地点&#34;&gt;公司代码 / 工厂 / 库存地点&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/Client2.png&#34; alt=&#34;架构关系&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;物料主数据&#34;&gt;物料主数据&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MM01：创建&lt;/li&gt;
+&lt;li&gt;MM02：修改&lt;/li&gt;
+&lt;li&gt;MM03：显示&lt;/li&gt;
+&lt;li&gt;MM06：立即删除标记，Material的删除分两个层次， 一个是加Delete
+flag material,但号码还存在， 但强制使用还是可以的， 所以建议使用Status来控制，将所有的状态都block住。&lt;/li&gt;
+&lt;li&gt;MM17：批量维护物料主数据内容&lt;/li&gt;
+&lt;li&gt;MM50：物料视图扩充&lt;/li&gt;
+&lt;li&gt;MM60：物料清单&lt;/li&gt;
+&lt;li&gt;MMAM：配置物料类型&lt;/li&gt;
+&lt;li&gt;MMD1：MRP文档创建&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;主要信息&#34;&gt;主要信息:&lt;/h4&gt;
+
+&lt;p&gt;描述性信息：描述，尺寸，体积等&lt;/p&gt;
+
+&lt;p&gt;控制性信息：MRP类型，价格控制，采购组等&lt;/p&gt;
+
+&lt;p&gt;物料主数据：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;General:           Material Number、Description、Base Unit Of Measure、Technical&lt;/li&gt;
+&lt;li&gt;Plan Specific：MRP type、Planned delivery time、Purchasing group、Batch indicator&lt;/li&gt;
+&lt;li&gt;Valuation：     Valuation price、Valuation procedure、Valuated quantity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;物料主数据录入&#34;&gt;物料主数据录入&lt;/h4&gt;
+
+&lt;p&gt;必要数据：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;物料编码：物料编码用来唯一地识别有关物料主记录，用户可在物料管理客户化修改中设置长度并记录物料编码的模式。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;号码范围： （Group、Material type、Number Ranges）
+外部给号，内部给号范围的限制；允不允许外部给号，需要设置Group中包不包含外部Number range；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_NR.png&#34; alt=&#34;定义Number Ranger&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;行业领域：根据不同的行业领域，决定有哪些与行业相关的数据可以显示；&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;物料类型：按照物料在公司的不同用途，将物料分为不同类型；决定财务和仓库管理的特性。例如：可将物料分为原材料、半成品、成品、服务。贸易型货物或内部、外部拥有的空容器等各种类型。可做如下控制：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;定义哪个部门可维护物料数据&lt;/li&gt;
+&lt;li&gt;定义采购类型&lt;/li&gt;
+&lt;li&gt;在相关的工厂中定义库存管理类型，例如，可通过物料类型定义更新哪些数据，但价值不变&lt;/li&gt;
+&lt;li&gt;是自动过帐定义的一个因素，财务参照物料类型确定库存科目&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;标准物料类型：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Detail&lt;/th&gt;
+&lt;th&gt;Detail&lt;/th&gt;
+&lt;th&gt;Detail&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;成品（FERT）：Finished Product&lt;/td&gt;
+&lt;td&gt;备品备件（ERSA）：Spare Parts&lt;/td&gt;
+&lt;td&gt;可反复利用包装（LEIH）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;半成品（HALB）：Semifinished Product&lt;/td&gt;
+&lt;td&gt;贸易货物（HAWA）：Trading Goods&lt;/td&gt;
+&lt;td&gt;未估价物料(UNBW)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;原材料（ROH）：Raw materials&lt;/td&gt;
+&lt;td&gt;包装物料（VERP）：Packaging&lt;/td&gt;
+&lt;td&gt;管线物料（PIPE）：Pipeline materials&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;物料类型设置：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;SPRO：SAP后台配置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type1.png&#34; alt=&#34;Material Types&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;详细信息&amp;mdash;&amp;gt;User departments（决定哪些部门需要维护）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type.png&#34; alt=&#34;Material Types Control&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;External no.
+assignment w/o check, 如果选中就代表，建立Material 并且外部给号的时候， 不会去检查是否符合External no range。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;控制数量/价值更新：决定数量和价值的更新（客户供料：只会做数量更新，不会做价钱更新&amp;lt;不属于本公司&amp;gt;）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type2.png&#34; alt=&#34;Material Types Control&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;控制内/外部采购订单：决定是不是自己生产的（影响采购类型），这两个配置主要作用于 MRP2 中的 “采购类型” 字段&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;0：不允许&lt;/li&gt;
+&lt;li&gt;1：允许外部采购，但是会有警告&lt;/li&gt;
+&lt;li&gt;2：允许外部采购&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type3.png&#34; alt=&#34;Material Types Control&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;决定使用哪个G/L Account：
+过账时的总账分类账&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type4.png&#34; alt=&#34;Material Types Control&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;更改物料类型：满足以下条件并使用TCode：&lt;strong&gt;&lt;em&gt;MMAM&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;没有库存;没有预留;没有采购文档（PR，PO，协议，合同）可以更改&lt;/li&gt;
+&lt;li&gt;新的物料类型和旧的物料类型有相同的G/L Account；有相同的数量/价值更新&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;物料状态定义：控制该物料可以做什么和不可以做什么&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;SPRO&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_MS1.png&#34; alt=&#34;Material Status&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;定义&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_MS2.png&#34; alt=&#34;Material Status&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;设置&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_MS3.png&#34; alt=&#34;Material Status&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;视图设置：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;物料主数据记录中的数据是集合在不同的视图中；&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;公司所有部门都需要使用物料主数据，因此在不同的部门会有不同的物料主数据视图。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;视图结构：&lt;img src=&#34;https://coldinfire.github.io/images/MM/MMMain.png&#34; alt=&#34;视图&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;视图默认值设置：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通过缺省值设置默认Industry sector&lt;/li&gt;
+&lt;li&gt;通过缺省值设置默认View&lt;/li&gt;
+&lt;li&gt;通过缺省值设置默认Organization level，可从其他工厂复制&lt;/li&gt;
+&lt;li&gt;通过复制其他的物料号&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;数据屏幕：可以分为以下三层数据结构&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;初始级别：设置初始化必需数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;主体工作级别：主要的数据设置&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;辅助数据级别：在主数据级别外进行额外的信息补充&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MMScreen.png&#34; alt=&#34;数据屏幕&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;字段控制：控制前台字段的显示状态&lt;/p&gt;
+
+&lt;p&gt;​   给字段组分配字段；通过组别的方式进行设置字段的显示状态：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_FS.png&#34; alt=&#34;组别类型&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_FS2.png&#34; alt=&#34;各组别定义&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_FS1.png&#34; alt=&#34;各组别定义&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;多个因素的优先级：
+
+&lt;ul&gt;
+&lt;li&gt;Hide&lt;/li&gt;
+&lt;li&gt;Display&lt;/li&gt;
+&lt;li&gt;Required entry field&lt;/li&gt;
+&lt;li&gt;Option entry field&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;视图选择&#34;&gt;视图选择&lt;/h4&gt;
+
+&lt;p&gt;​   &lt;strong&gt;Basic Data1:一般属于物料描述等属性，属于集团类别。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;单位：基本单位，订单单位，转换因子（附加数据中有计量单位的设定，
+计量单位组：预先定义好单位转换 &amp;lt;通过后台设置关键字 设置计量单位组中进行设置的&amp;gt;）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;计量单位(计量单位组)
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_DUMG.png&#34; alt=&#34;计量单位组定义&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;物料组：对物料进行分组，便于分析；不同的物料组决定过账时的G/L Account&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;旧物料号： 便于查找旧系统数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;部门：Division (1) 影响 SD/FI 两个模块 (2) 无值将导致销售无法生成订单，单价录入，报告书等&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;实验室 / 办公室：描述信息没有特殊描述&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;产品组：根据公司产品分组，不填写销售无法生成订单&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;毛重、净重：报关使用,创建SO的时候，重量会被自动带出&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;附加数据：通过附加数据来维护不同语言环境的物料描述&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;凭证数据、内部批注
+
+
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;MRP1：MRP控制&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   MRP 类型、MRP 控制者、批量（在 PP 中会使用到的）&lt;/p&gt;
+
+&lt;p&gt;​   MRP 组：&lt;/p&gt;
+
+&lt;p&gt;​   MRP 类型：（固定值 &lt;strong&gt;PD&lt;/strong&gt;）&lt;/p&gt;
+
+&lt;p&gt;​   MRP 控制者：谁来负责该MRP控制&lt;/p&gt;
+
+&lt;p&gt;​   批量大小：（固定值 &lt;strong&gt;EX&lt;/strong&gt;）&lt;/p&gt;
+
+&lt;p&gt;​   MRP参数文件：MMD1创建&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MRP2：影响 MRP 运算&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;采购类型：内部生产或则外部采购&lt;/p&gt;
+
+&lt;p&gt;特殊采购类型：有偿加工必填 &lt;31&gt;, 无偿加工品必填 &amp;lt; 30&amp;gt;
+外部采购&lt;/p&gt;
+
+&lt;p&gt;仓储地点：物料存储仓库&lt;/p&gt;
+
+&lt;p&gt;计划边际码：采购品须填写准确日期，影响 MRP 运输&lt;/p&gt;
+
+&lt;p&gt;计划交货时间：进口件&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MRP3：可用性检查（02）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   策略组：内部生产品必填，固定值&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MRP4:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   选择方法：内部生产品必填，固定值&lt;/p&gt;
+
+&lt;p&gt;​   重复生产：内部生产品必填，固定值&lt;/p&gt;
+
+&lt;p&gt;​   重复生产参数 文件：内部生产品必填，固定值&lt;/p&gt;
+
+&lt;p&gt;​   工厂数据 / 存储：&lt;/p&gt;
+
+&lt;p&gt;​   存储条件：关系到销售出库&lt;/p&gt;
+
+&lt;p&gt;​   End Item：直买直卖的物品必须勾选&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;会计 1：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;评估类、价格控制、价格单位、标准价格&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​   评估分类：影响会计计算，必须准确&lt;/p&gt;
+
+&lt;p&gt;​   价格确定：系统自动存在，没有时必须输入&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;成本 1：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   勾选物料来源：`&lt;/p&gt;
+
+&lt;h4 id=&#34;2-消耗型物料&#34;&gt;2.消耗型物料&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;办公材料 &amp;lt;成本中心&amp;gt;&lt;/li&gt;
+&lt;li&gt;计算机系统 &amp;lt; 固定资产 &amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;1&gt; 消耗型物料时直接为了一个科目设置对象而购买的物料 (不需要办理入库和出库手续)&lt;/p&gt;
+
+&lt;p&gt;&lt;2&gt; 库存管理未被执行&lt;/p&gt;
+
+&lt;p&gt;&lt;3&gt; 系统会自动更新有物料主记录的消耗型物料&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;          库存物料            《=》              消耗型物料
+    输入要求的物料编号                     可以输入物料编号，但不是必须的
+    无科目设置类别                         强制科目设置类别
+    过账到库存科目                         过账到消耗科目
+    在物料主记录中更新数量和价值            消耗品更新（只使用于物料主记录中的物料）、移动平均价格被调整
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;非库存物料（NLAG）: 有一定采购频率、是有物料主数据，但不做库存管理的物料。（价值，数量）。
+
+&lt;ul&gt;
+&lt;li&gt;使用该物料类型（NLAG）的物料，创建采购订单需要指定账户分类（如 K 等）；根据采购订单收货时，直接财务上消耗记账。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;未评估物料（UNBW) : 做数量管理，不做价值管理
+
+&lt;ul&gt;
+&lt;li&gt;使用该物料类型（UNBW）的物料，创建采购订单需要指定账户分类（如 K 等）；根据采购订单收货时，直接财务消耗记账，更新库存数量；消耗时，只记录库存数量减少。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;3-bom&#34;&gt;3.BOM&lt;/h4&gt;
+
+&lt;p&gt;BOM：物料清单 (零件结构表)，将产品的原材料、零配件、组件予以拆解，并将各单位项材料依材料编号、名称、
+规格、基本单位、单位用量、产品损耗等依制造流程的顺序记录下来，排列为一个清单，就是 BOM。&lt;/p&gt;
+
+&lt;h4 id=&#34;4-mrp&#34;&gt;4.MRP&lt;/h4&gt;
+
+&lt;p&gt;MRP：物料需求计划，利用生产日程表（MPS）、零件结构表（BOM）、库存报表、已订购未交货订单等等
+各种相关资料，经正确计算而得出各种物料零件的变量需求，提出各种新的订购或修正各种以开出订购
+的物料管理技术。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MRP.png&#34; alt=&#34;MRP原理&#34; /&gt;
+&lt;img src=&#34;https://coldinfire.github.io/images/MM/MRP2.png&#34; alt=&#34;MRP&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MRP元素缩写&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Detail&lt;/th&gt;
+&lt;th&gt;Detail&lt;/th&gt;
+&lt;th&gt;Detail&lt;/th&gt;
+&lt;th&gt;Detail&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;SimReq：简单需求&lt;/td&gt;
+&lt;td&gt;BR：流程订单&lt;/td&gt;
+&lt;td&gt;PrdOrd：生产订单&lt;/td&gt;
+&lt;td&gt;BtchSt：批量库存&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;AR：相关预订&lt;/td&gt;
+&lt;td&gt;OrdRes：订单需求&lt;/td&gt;
+&lt;td&gt;PMOrdr：PM 订单&lt;/td&gt;
+&lt;td&gt;CStock  客户库存&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BA：采购申请&lt;/td&gt;
+&lt;td&gt;PurRqs：采购申请&lt;/td&gt;
+&lt;td&gt;FE：生产订单&lt;/td&gt;
+&lt;td&gt;DD：有效外日期&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BB：提供物料转包商需求&lt;/td&gt;
+&lt;td&gt;SubReq：外协请求&lt;/td&gt;
+&lt;td&gt;IH：维护订单&lt;/td&gt;
+&lt;td&gt;E1：分包合同采购&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BE：订单项目计划行&lt;/td&gt;
+&lt;td&gt;PrcOrd：处理订单&lt;/td&gt;
+&lt;td&gt;CH：批库存&lt;/td&gt;
+&lt;td&gt;FH：计划时界末&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BP：总需求计划&lt;/td&gt;
+&lt;td&gt;OI-SL：采购订单&lt;/td&gt;
+&lt;td&gt;KB：单独客户库存&lt;/td&gt;
+&lt;td&gt;JI：JIT 提取/JIT：JIT 调用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
     </item>
     
@@ -3594,491 +3754,6 @@ Control string：material type、plant、industry sector、transaction、procure
 
 &lt;p&gt;Get Parameter: 允许读取SAP Memory的值并默认显示(类似于执行GET PARAMETER ID语句).&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ABAP DOI使用</title>
-      <link>https://coldinfire.github.io/2019/ABAPDOI/</link>
-      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPDOI/</guid>
-      <description>
-
-&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
-
-&lt;p&gt;DOI（Desktop office Integration）采用OO的思想实现与Office的结合使用。&lt;/p&gt;
-
-&lt;p&gt;可以先上传模板到服务器(OAOR)，然后对模板进行填充。也可以通过代码创建ExceL文档。&lt;/p&gt;
-
-&lt;p&gt;OAOR：class name, class type，object key。&lt;/p&gt;
-
-&lt;p&gt;会使用到的对象：TYPE-POOLS:vrm, sbdst, soi.&lt;/p&gt;
-
-&lt;p&gt;重要对象：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;container: 存放excel电子表格(spreadsheet)的容器。spreadsheet需要一个容器来存放。&lt;/li&gt;
-&lt;li&gt;container control: 容器中用于创建和管理其他Office集成所需要的对象。container control是一个接口，类型是i_oi_container_control。&lt;/li&gt;
-&lt;li&gt;document proxy: 每一个document proxy的实例代表用office application打开的档,excel，    word。如果想打开多个文档，需要定义多个实例，类型为i_oi_document_proxy。&lt;/li&gt;
-&lt;li&gt;spreadsheet: spreadsheet接口，代表最终要操作的excel文档。类型是   i_oi_spreadsheet&lt;/li&gt;
-&lt;li&gt;errors：异常的处理，保存操作时的异常，类型是 i_oi_error。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;如果读取服务器上的文档模板，需要cl_bds_document_set类：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;business document set：business document set用于管理后续要操作的文档，可以包含一个或多个文档。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;操作步骤(OAOR上传文档后)&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;获取container&lt;/li&gt;
-&lt;li&gt;创建container control对象实例并初始化&lt;/li&gt;
-&lt;li&gt;创建document proxy对象的实例&lt;/li&gt;
-&lt;li&gt;打开一个服务器上的模板文档或新建一个excel文档&lt;/li&gt;
-&lt;li&gt;操作excel文档，设置excel的属性&lt;/li&gt;
-&lt;li&gt;退出时关闭excel文档，释放资源&lt;/li&gt;
-&lt;li&gt;异常管理&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;定义和使用&#34;&gt;定义和使用&lt;/h2&gt;
-
-&lt;h3 id=&#34;字段定义&#34;&gt;字段定义：&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;* SAP Desktop Office Integration Interfaces
-DATA: cl_container type ref to cl_gui_container,
-      cl_control type ref to i_oi_container_control,
-      cl_document type ref to i_oi_document_proxy,
-      cl_spreadsheet type ref to i_oi_spreadsheet，
-      cl_error    TYPE REF TO i_oi_error，
-      cl_errors  TYPE REF TO i_oi_error OCCURS 0 WITH HEADER LINE.
-* Spreadsheet interface structures for Excel data input
-DATA: wa_cellitem    TYPE soi_generic_item,
-      wa_rangeitem   TYPE soi_range_item,
-      gt_ranges      TYPE soi_range_list,
-      gt_excel_input TYPE soi_generic_table,
-      wa_excel_input TYPE soi_generic_item,
-      g_initialized  type c,
-      g_retcode      TYPE soi_ret_string,
-      gt_excel_format TYPE soi_format_table,
-      wa_format      LIKE LINE OF gt_excel_format.
-DATA: gt_itab     TYPE TABLE OF alsmex_tabline WITH HEADER LINE,
-      gt_imt_tab  TYPE TABLE OF typ_area_excel,
-      wa_imt_tab  LIKE LINE OF gt_imt_tab,
-      g_macro     TYPE text100,
-      g_sheet(10) TYPE c,
-      g_cell_fit  TYPE c.
-DATA: cl_bds_instance   TYPE REF TO cl_bds_document_set,
-      gt_doc_signature  TYPE sbdst_signature,
-      wa_doc_signature  LIKE LINE OF gt_doc_signature,
-      gt_doc_components TYPE sbdst_components,
-      gt_doc_uris       TYPE sbdst_uri,
-      wa_doc_uris       LIKE LINE OF gt_doc_uris.
-DATA: g_app      TYPE vrm_id,
-      gt_applist TYPE vrm_values,
-      g_excel    TYPE text80 VALUE &#39;Excel.Sheet&#39;,       &amp;quot;EXCEL的表单
-      g_docu_type TYPE text80,
-      g_url(256)  TYPE c,
-      g_has_activex TYPE c,
-      g_col TYPE i,         &amp;quot;字段所在的列数
-      g_row TYPE i.         &amp;quot;字段所在的行数
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以下三个值为Tcode:OAOR里面新建模板文件的参数&lt;/p&gt;
-
-&lt;p&gt;DATA: g_classname  TYPE sbdst_classname VALUE &amp;lsquo;HRFPM_EXCEL_STANDARD&amp;rsquo;,&lt;/p&gt;
-
-&lt;p&gt;g_classtype  TYPE sbdst_classtype VALUE &amp;lsquo;OT&amp;rsquo;,&lt;/p&gt;
-
-&lt;p&gt;g_object_key TYPE sbdst_object_key VALUE &amp;lsquo;ZTEST&amp;rsquo;.&lt;/p&gt;
-
-&lt;h3 id=&#34;开始创建doi&#34;&gt;开始创建DOI:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*===== Get_container (动态Container)
-CREATE OBJECT cl_splitter
-    EXPORTING
-        parent  = cl_gui_container=&amp;gt;screen0
-        rows    = 1
-        columns = 1.
-CALL METHOD cl_splitter-&amp;gt;set_border
-    EXPORTING
-        border = cl_gui_cfw=&amp;gt;false.
-        cl_container  = cl_splitter-&amp;gt;get_container( row = 1 column = 1 ).
-*===== Get the SAP DOI  i_oi_container_control interface
-CALL METHOD c_oi_container_control_creator=&amp;gt;get_container_control
-    IMPORTING
-      control = cl_control
-      error   = cl_error.
-* check no errors occured
-CALL METHOD cl_error-&amp;gt;raise_message
-    EXPORTING
-      type = &#39;E&#39;.
-*===== Initialize the SAP DOI Container, tell it to run in the container
-call method gr_control-&amp;gt;init_control
-    exporting
-      inplace_enabled          = &#39;X &#39;
-      inplace_scroll_documents = &#39;X&#39;
-      register_on_close_event  = &#39;X&#39;
-      register_on_custom_event = &#39;X&#39;
-      r3_application_name      = &#39;DOI Test&#39;
-      parent                  = cl_container
-      no_flush      =   &#39;X&#39;
-    IMPORTING
-      error                    = cl_errors.
-* save error object in collection
-  APPEND cl_errors.
-*===== Ask the SAP DOI container for a i_oi_document_proxy for Excel
-CALL METHOD cl_control-&amp;gt;get_document_proxy
-    EXPORTING
-      document_type      = &#39;Excel.Sheet&#39;
-      no_flush           = &#39;X&#39;
-*    REGISTER_CONTAINER = &#39;X&#39;
-    IMPORTING
-      document_proxy     = cl_docu_proxy
-      error              = cl_errors.
-  APPEND cl_errors.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;对excel进行操作&#34;&gt;对Excel进行操作：&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt; wa_doc_signature-prop_name = &#39;DESCRIPTION&#39;.
- wa_doc_signature-prop_value = &#39;PP_REPORT&#39;.
-APPEND wa_doc_signature TO gt_doc_signature.
-&amp;quot;===== Create_excel_document
-call method gr_control-&amp;gt;get_document_proxy
-  exporting
-    document_type  = &#39;Excel.Sheet&#39;
-    no_flush      = &#39;X&#39;
-  importing
-    document_proxy = gr_document.
-call method gr_document-&amp;gt;create_document
-  exporting
-    document_title = &#39;DOI test by Stone Wang &#39;
-    no_flush      = &#39;X &#39;
-    open_inplace  = &#39;X&#39;.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;操作模板文档&#34;&gt;操作模板文档：&lt;/h3&gt;
-
-&lt;p&gt;操作excel模板文档，使用cl_bds_document_set类，这个类的get_with_url方法获取文档的url&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*Business document system
-*=====get_template_url
-create object gr_bds_documents.
-  call method cl_bds_document_set=&amp;gt;get_info
-    exporting
-      classname  = g_classname
-      classtype  = g_classtype
-      object_key = g_objectkey
-    changing
-      components = g_doc_components
-      signature  = g_doc_signature.
-call method cl_bds_document_set=&amp;gt;get_with_url
-  exporting
-    classname  = g_classname
-    classtype  = g_classtype
-    object_key = g_objectkey
-  changing
-    uris      = gt_bds_uris
-    signature  = g_doc_signature.
- free gr_bds_documents.
- read table gt_bds_uris into gs_bds_url index 1.
- g_url = gs_bds_url-uri.
-   &amp;lt;cl_bds_document_set&amp;gt; 的静态方法get_with_url获取excel template的url。数据存放在内表中，
-读取后放在global变量g_template_url里面。
-
-&amp;quot;Open the excel
-call method gr_control-&amp;gt;get_document_proxy
-   exporting
-     document_type      = &#39;Excel.Sheet&#39;
-     no_flush          = &#39;X&#39;
-     register_container = &#39;X&#39;
-   importing
-     document_proxy    = gr_document.
-call method gr_document-&amp;gt;open_document
-   exporting
-     open_inplace = &#39;X&#39;
-     document_url = g_template_url.
- data: available type i.
-call method gr_document-&amp;gt;has_spreadsheet_interface
-   exporting
-     no_flush    = &#39;X&#39;
-   importing
-     is_available = available.
-call method gr_document-&amp;gt;get_spreadsheet_interface
-   exporting
-     no_flush        = &#39;X&#39;
-   importing
-     sheet_interface = gr_spreadsheet.
-CALL method spreadsheet-&amp;gt;select_sheet
-   exporting
-     name    = &#39;Sheet1&#39;
-     no_flush = &#39;&#39;
-   importing
-     error    = error
-     retcode  = retcode.
-CALL method spreadsheet-&amp;gt;get_active_sheet
-    exporting
-      no_flush  = &#39;&#39;
-    importing
-      sheetname = sheetname
-      error    = error
-      retcode  = retcode.
-CALL method spreadsheet-&amp;gt;add_sheet
-   exporting
-     name    = &#39;年度报表&#39;
-     no_flush = &#39;&#39;
-   importing
-     error    = error
-     retcode  = retcode.
-CALL method spreadsheet-&amp;gt;delete_sheet
-   exporting
-     name    = sheetname
-     no_flush = &#39;&#39;
-   importing
-     error    = error
-     retcode  = retcode.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;作者：SAPmatinal&lt;/p&gt;
-
-&lt;p&gt;来源：CSDN&lt;/p&gt;
-
-&lt;p&gt;原文：&lt;a href=&#34;https://blog.csdn.net/SAPmatinal/article/details/52776862&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://blog.csdn.net/SAPmatinal/article/details/52776862&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;数据写入excel&#34;&gt;数据写入Excel:&lt;/h3&gt;
-
-&lt;p&gt;数据写入Excel，可以使用批量的方式或者逐个单元格写入的方式。批量写入的方式效率高，逐个单元格写入的方式比较灵活。将数据写入excel需要使用 i_oi_spreadsheet接口实例的两个方法：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;* insert_range_dim 方法，定义一个范围(range)，设定range的名称、位置和大小。
-CALL method gr_spreadsheet-&amp;gt;insert_range_dim
- exporting
-    name    = &#39;cell&#39;
-    no_flush = &#39;X&#39;
-    top      = 2
-    left    = 1
-    rows    = line_count
-    columns  = 4.
-
-* set_range_data 方法，写入数据到range，写入的时候，ranges参数设定range的名称和大小, contents参数
-设定写入的内容。
-CALL methodgr_spreadsheet-&amp;gt;set_ranges_data
- exporting
-    ranges=gt_ranges
-    contents=gt_contents
-    no_flush= &#39;X&#39;.
-
-Ex:*界定ranges范围
-CALL METHOD R_HANDLE_EXCEL-&amp;gt;INSERT_RANGE_DIM
-  EXPORTING
-      NAME= &#39;title&#39;
-      NO_FLUSH= &#39;X&#39;
-      TOP= 1
-      LEFT     = 1
-      ROWS     = 1
-      COLUMNS= LV_TOTAL_COLUMNS.
-  WA_RANGES-NAME= &#39;title&#39;.
-  WA_RANGES-ROWS = 1.
-  WA_RANGES-COLUMNS= LV_TOTAL_COLUMNS.
-  APPEND WA_RANGESTO IT_RANGES.
-DATA LV_ROWTYPE I.
-DATA LV_COLUMNTYPE I.
-FIELD-SYMBOLS .
-DATA LWA_FIELDCATTYPE SLIS_FIELDCAT_ALV.
-CLEAR LV_COLUMN.
-LOOP AT IT_FIELDCATINTO LWA_FIELDCAT.
-  LV_COLUMN= LV_COLUMN +1.
-  WA_CONTENTS-ROW= 1.
-  WA_CONTENTS-COLUMN= LV_COLUMN.
-  WA_CONTENTS-VALUE = LWA_FIELDCAT-SELTEXT_L.
-  APPEND WA_CONTENTSTO IT_CONTENTS.
-ENDLOOP.
-
-* Set data
-CALL METHOD R_HANDLE_EXCEL-&amp;gt;SET_RANGES_DATA
-  EXPORTING
-    RANGES   = IT_RANGE
-    CONTENTS= IT_CONTENTS
-    NO_FLUSH= &#39;X&#39;.
-CALL METHOD R_HANDLE_EXCEL-&amp;gt;FIT_WIDEST
-  EXPORTING
-    NAME= SPACE
-    NO_FLUSH= &#39;X&#39;.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;对象销毁&#34;&gt;对象销毁：&lt;/h3&gt;
-
-&lt;p&gt;PAI的exit-command事件中对spreadsheet, control和container等对象的销毁。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;module exit_program input.
-  save_ok = ok_code.
-  clear ok_code.
-  if save_ok = &#39;EXIT&#39;.
-    if not gr_document is initial.
-      call method gr_document-&amp;gt;close_document.
-      free gr_document.
-    endif.
-    if not gr_control is initial.
-      call method gr_control-&amp;gt;destroy_control.
-      free gr_control.
-    endif.
-    if gr_container is not initial.
-      call method gr_container-&amp;gt;free.
-    endif.
-    leave program.
-  endif.
-endmodule.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;其他实现&#34;&gt;其他实现&lt;/h2&gt;
-
-&lt;h3 id=&#34;1-如何根据屏幕大小让-excel-自适应&#34;&gt;1. 如何根据屏幕大小让 Excel 自适应&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;data: cl_container type ref to cl_gui_container,
-      cl_splitter type ref to cl_gui_splitter_container,
-    ......
-form get_dynamic_container.
-  create object gr_splitter
-    exporting
-      parent      = cl_gui_container=&amp;gt;screen0
-      rows        = 1
-      columns  = 1 .
-  call method gr_splitter-&amp;gt;set_border
-    exporting
-      border = cl_gui_cfw=&amp;gt;false.
-  gr_container = gr_splitter-&amp;gt;get_container( row = 1 column = 1 ).
-endform.
-container control 初始化的时候，设定 parent 为 gr_container
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;2-excel-单个单元格写入&#34;&gt;2. Excel 单个单元格写入&lt;/h3&gt;
-
-&lt;p&gt;单个单元格写入的方法，同批量写入一样，使用 i_oi_spreadsheet 接口的set_range_dim 方法和 set_range_data方法。区别在于 range 只包含一行一列：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;form write_single_cell using p_row p_col p_value.
-* define internal table for ranges and contents parameters
-  data: lt_ranges type soi_range_list,
-        ls_rangeitem type soi_range_item,
-        lt_contents type soi_generic_table,
-        ls_content type soi_generic_item.
-* populate ranges
-  clear ls_rangeitem.
-  clear lt_ranges[].
-  ls_rangeitem-name = &#39;cell&#39; .
-  ls_rangeitem-columns = 1.
-  ls_rangeitem-rows = 1.
-  ls_rangeitem-code = 4.
-  append ls_rangeitem to lt_ranges.
-* populate contents
-  clear ls_content.
-  clear lt_contents[].
-  ls_content-column = 1.
-  ls_content-row = 1.
-  ls_content-value = p_value.
-  append ls_content to lt_contents.
-* 每次只写一行一列
-  call method gr_spreadsheet-&amp;gt;insert_range_dim
-    exporting
-      name    = &#39;cell&#39;
-      no_flush = &#39;X&#39;
-      top      = p_row
-      left    = p_col
-      rows    = 1
-      columns  = 1.
-  call method gr_spreadsheet-&amp;gt;set_ranges_data
-    exporting
-      ranges  = lt_ranges
-      contents = lt_contents
-      no_flush = &#39;X&#39;.
-endform.   
-
-循环写入：
-loop at gt_spfli into gs_spfli.
-   row_index = sy-tabix + 1.
-   perform write_single_cell using row_index 1 gs_spfli-carrid.
-   perform write_single_cell using row_index 2 gs_spfli-connid.
-   perform write_single_cell using row_index 3 gs_spfli-cityfrom.
-   perform write_single_cell using row_index 4 gs_spfli-cityto.
-   clear gs_spfli.
-endloop.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;3-设置-excel-属性&#34;&gt;3. 设置 Excel 属性&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;form set_excel_attributes.
-* 修改WORK SHEET 的名字
-  CALL METHOD cl_spreadsheet-&amp;gt;set_sheet_name
-    EXPORTING
-      newname = &#39;物料主数据清单&#39;
-      oldname = &#39;Sheet1&#39;
-    IMPORTING
-      error   = cl_errors.
-* set border line for range
-  call method gr_spreadsheet-&amp;gt;set_frame
-    exporting
-      rangename = &#39;cell&#39;
-      typ      = &#39;127&#39;
-      color    = &#39;1&#39;
-      no_flush  = &#39;X&#39;.
-* auto fit
-  call method gr_spreadsheet-&amp;gt;fit_widest
-    exporting
-      name    = space
-      no_flush = &#39;X&#39;.
-endform.   
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;4-错误处理&#34;&gt;4. 错误处理&lt;/h3&gt;
-
-&lt;p&gt;通常有两种方法来处理错误：&lt;/p&gt;
-
-&lt;p&gt;第一种方法：使用 c_oi_errors 的静态方法 raise_message 简单地显示相关的错误：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;CALL METHODC_OI_ERRORS=&amp;gt;RAISE_MESSAGE
-    EXPORTING
-       TYPE = type
- type 可以是 A, E, W, I, S 其中之一。
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;第二种方法是区分不同的错误，给用户一个更明确的提示：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;IF ret_code EQ c_oi_errors=&amp;gt;ret_ok.
-  &amp;quot; Document opened successfully
-ELSEIF ret_code EQ c_oi_errors=&amp;gt; ret_document_already_open.
-  &amp;quot; Special error handling, e.g. dialog box.
-ELSE.
-  CALL METHOD c_oi_errors=&amp;gt;raise_message
-     EXPORTING type = &#39;E&#39;.
-ENDIF.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;也可以把 ret_code 返回的错误码先储存在内表中，集中处理：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;DATA: errors TYPE REF TO i_oi_error OCCURS 0 WITH HEADER LINE.
-* DOI processing
-CALL METHOD control-&amp;gt;get_link_server
-  EXPORTING server_type = server_type
-    no_flush = &#39;X&#39;
-  IMPORTING link_server = link_server
-    retcode = retcode
-    error = errors.
-APPEND errors.
-LOOP AT errors. 
-  CALL METHOD errors-&amp;gt;raise_message
-    EXPORTING
-      type = &#39;E&#39;
-    EXCEPTIONS 
-      message_raised = 1
-      flush_failed = 2.
-ENDLOOP.
-FREE errors.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;原文：&lt;a href=&#34;https://blog.csdn.net/stone0823/article/details/53819960&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://blog.csdn.net/stone0823/article/details/53819960&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
