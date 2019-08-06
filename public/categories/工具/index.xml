@@ -21,12 +21,12 @@
     </item>
     
     <item>
-      <title> Hugo快速搭建博客  </title>
+      <title> 使用Hugo&#43;GitHub Pages快速搭建博客  </title>
       <link>https://coldinfire.github.io/2018/hugo1/</link>
       <pubDate>Mon, 12 Mar 2018 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2018/hugo1/</guid>
-      <description>工具准备 hugo node.js git github 操作步骤</description>
+      <description>工具准备 Hugo：博客框架 https://github.com/gohugoio/hugo Git：用来发布博客内容 https://git-scm.com/ Github：保存和显示博客内容 https://github.com/ MarkDown编辑软件：用来进行博客文章的编辑 Typora C</description>
     </item>
     
     <item>
