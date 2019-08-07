@@ -219,8 +219,6 @@ Form frm_set_command using p_ucomm type sy-ucomm
 endform.
 ```
 
-​	
-
 
 
 **自定义按钮**

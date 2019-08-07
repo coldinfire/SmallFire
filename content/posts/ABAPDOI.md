@@ -160,7 +160,7 @@ call method gr_document->create_document
     no_flush      = 'X '
     open_inplace  = 'X'.
 ```
-### 操作模板文档：###
+### 操作模板文档：
 
   操作excel模板文档，使用cl_bds_document_set类，这个类的get_with_url方法获取文档的url
 
@@ -431,7 +431,7 @@ endform.
 
 ### 4. 错误处理 ###
 通常有两种方法来处理错误：
-   
+
  第一种方法：使用 c_oi_errors 的静态方法 raise_message 简单地显示相关的错误：
 ```JS
 CALL METHODC_OI_ERRORS=>RAISE_MESSAGE

@@ -56,6 +56,7 @@ tags:
     MODIFY TABLE <itab> FROM <wa> [TRANSPORTING <f1> <f2>...].[修改单条]
     MODIFY <itab> FROM <wa> TRANSPORTING <f1> <f2> ... WHERE <cond>.[修改多条]
     UPDATE dbtab SET f1=g1 ... fi=gi WHERE <con>.
+    TRANSPORTING:根据后面的字段进行比较，当字段出现不一致现象时，触发修改操作
 <5> DELETE TABLE <itab> FROM <wa> [USING KEY key_name].[删除单条]
     DELETE TABLE <itab> WITH TABLE KEY <k1>=<f1>.. .
     DELETE <itab> WHERE <cond>.[删除多行]
@@ -74,15 +75,16 @@ tags:
 ### 【查】
 
 ```JS
- SELECT SINGLE ... INTO [CORRESPONDING FIELDS OF] <wa> WHERE ...
-  SELECT ... INTO|APPENDING CORRESPONDING FIELDS OF TABLE <itab>...
-  RANG条件内.表：
-    RANGES sel FOR obj [OCCURS n].
-    SELECT-OPTIONS selcrit FOR {dobj|(name)}.
-  FOR ALLENTRIES:
-    1:会自动删除重复行   2:WHERE后还有其他条件，会忽略后续条件
-  表连接：
-    INNER JOIN、LEFT OUTER JOIN.
+SELECT SINGLE ... INTO [CORRESPONDING FIELDS OF] <wa> WHERE ...
+SELECT ... INTO|APPENDING CORRESPONDING FIELDS OF TABLE <itab>...
+RANGES ：
+  RANGES sel FOR obj [OCCURS n].
+  SELECT-OPTIONS selcrit FOR {dobj|(name)}.
+FOR ALLENTRIES:
+  1:会自动删除重复行   
+  2:WHERE后还有其他条件，会忽略后续条件
+表连接：
+  INNER JOIN、LEFT OUTER JOIN.
 ```
 
 ### 【SAP锁】
@@ -108,7 +110,6 @@ S:共享锁     E:可重入的排他锁     X:排他锁
   （MESSAGE TYPE为A或者X的时候），使用语句LEAVE PROGRAM，LEAVE TO TRANSACTION，或者在
    命令行输入/n回车以后。使用DEQUEUE FUNCTION MODULE来解锁的时候，不会产生EXCEPTION。
    要解开你在程序中创建的所有的逻辑锁，可以用FM：DEQUEUE_ALL.
-
 ```
 
 ### 【事务处理】

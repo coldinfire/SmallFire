@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  1516 ,
+  "wordcount":  1608 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP4\/",
   "datePublished": "2018-05-24T17:20:58\x2b08:00",
   "dateModified": "2018-05-24T17:20:58\x2b08:00",
@@ -193,10 +193,17 @@
 <p>MESSAGE显示:</p>
 
 <ol>
-<li><p>ID : &ldquo;00&rdquo;消息ID中的001消息本身未设置任何消息串，这条消息可以传递8个参数。</p></li>
-
-<li><p>消息常量 : MESSAGE &lsquo;xxxxxxxxxxxxxxx&rsquo; TYPE &rsquo;S&rsquo; [DISPLAY LIKE &lsquo;E&rsquo;].</p></li>
+<li>ID : &ldquo;00&rdquo;消息ID中的001消息本身未设置任何消息串，这条消息可以传递8个参数。</li>
+<li>消息常量 : MESSAGE &lsquo;xxxxxxxxxxxxxxx&rsquo; TYPE &rsquo;S&rsquo; [DISPLAY LIKE &lsquo;E&rsquo;].</li>
 </ol>
+
+<p>消息存储的内表：T100/T100C/T100S/T100U/T160M</p>
+
+<ul>
+<li>T100 这个表包括所有的消息</li>
+<li>T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中</li>
+<li>T100S 就是表示可以修改消息类型的表</li>
+</ul>
 
 <h2 id="数据格式化-转换">数据格式化、转换</h2>
 
@@ -208,7 +215,7 @@
 
 <p>通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).</p>
 
-<p>去除前导0：<code>SHIT ITAB-FIELD LEFT DELETING LEADING ‘0’</code></p>
+<p>去除前导0：<code>SHIFT ITAB-FIELD LEFT DELETING LEADING ‘0’</code></p>
 
 <pre><code class="language-JS">  ** 添加前导零 **
   CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
@@ -239,11 +246,12 @@
 <li><p>货币转换因子</p></li>
 </ul>
 
-<pre><code class="language-JS">CURRENCY_CONVERTING_FACTOR：输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取出时应做转换
+<pre><code class="language-JS">OB07、OB08：维护各币种之间的汇率
+CURRENCY_CONVERTING_FACTOR：输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取
+出时应做转换
 BAPI_CURRENCY_CONV_TO_INTERNAL：转换为数据库中内部存储金额
 BAPI_CURRENCY_CONV_TO_EXTERNAL：转换成外部的实际金额
 CONVERT_TO_LOCAL_CURRENCY：自动将最近时间多的汇率作为转换的汇率
-OB07、OB08：维护各币种之间的汇率
 CONVERT_TO_FOREIGN_CURRENCY：将外币转换为本位币
 CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
 </code></pre>
@@ -339,7 +347,7 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1516</span>
+                   <span>1608</span>
             </p>
             
             <p class="copyright-item">

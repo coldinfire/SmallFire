@@ -1,5 +1,5 @@
 ---
-title: "移库动作产生的报错:Error BS001 when posting goods movment"
+title: "移库产生的报错"
 date: 2019-04-14
 draft: false
 author: Small Fire
@@ -13,7 +13,7 @@ tags:
 
 
 
-Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU  XXXXXX?
+Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU  XXXXXX(Error BS001 when posting goods movment)?
 
 A：需要每次进行移库前刷新数据：
 

@@ -28,7 +28,7 @@ tags:
 
 ​    使用CALL FUNCTION 'AAA'调用FM时，相应的FUNCTION GROUP 被加载到调用程序所在的 internal session。当FM执行完毕后，接着执行调用程序。FUNCTION GROUP 和其 GLOBAL DATA 会一直保存在这个 internal session 直到调用程序结束。当调用程序再次调用这个 FM 的时候，不会再次加载相应的 FUNCTION GROUP。这个 FUNCTON GROUP 的 GLOBAL DATA 和第一次调用它时的内容是一样的。
 
-    使用 SUBMIT [program] AND RETURN 或者 CALL TRANSACTION [tcode] 的时候，实际是插入了一个新的 internal session，当被调用的程序执行完毕之后，新插入的 internal session 会被删除，继续执行调用程序。可以使用 leave program 语句来结束程序。
+    使用 SUBMIT [program] AND RETURN 或者 CALL TRANSACTION [tcode] 的时候，实际是插入了一个新的 internal session，当被调用的程序执行完毕之后，新插入的 internal session 会被删除，继续执行调用程序。可以使用 leave program 语句来结束程序。
 
 #### 顺序执行
 

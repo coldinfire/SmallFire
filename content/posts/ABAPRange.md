@@ -29,10 +29,11 @@ tags:
 
   - For 后面字段必须为参考表的字段.
 
-  - ```JS
+    ```JS
     TABLES：marc.
     RANGES: gr_matnr FOR marc-matnr.
     ```
+  
 
 #### 使用
 

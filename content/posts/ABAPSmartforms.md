@@ -23,7 +23,7 @@ tags:
 
 ### Smartforms使用
 
-
+​	记录总页数：sfsy-page(当前页数) / sfsy-formpages(总页数)
 
 ### Smartforms注意事项
 

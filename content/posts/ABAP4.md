@@ -31,8 +31,13 @@ MESSAGE E001(ZTEST).
 MESSAGE显示:
 
 1. ID : "00"消息ID中的001消息本身未设置任何消息串，这条消息可以传递8个参数。
-
 2. 消息常量 : MESSAGE 'xxxxxxxxxxxxxxx' TYPE 'S' [DISPLAY LIKE 'E']. 
+
+消息存储的内表：T100/T100C/T100S/T100U/T160M
+
+-  T100 这个表包括所有的消息
+- T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中
+- T100S 就是表示可以修改消息类型的表
 
 ## 数据格式化、转换
 
@@ -42,7 +47,7 @@ MESSAGE显示:
 
   通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).
 
-  去除前导0：`SHIT ITAB-FIELD LEFT DELETING LEADING ‘0’`
+  去除前导0：`SHIFT ITAB-FIELD LEFT DELETING LEADING ‘0’`
 
   ```JS
   ** 添加前导零 **
@@ -73,11 +78,12 @@ MESSAGE显示:
 - 货币转换因子
 
 ```JS
-CURRENCY_CONVERTING_FACTOR：输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取出时应做转换
+OB07、OB08：维护各币种之间的汇率
+CURRENCY_CONVERTING_FACTOR：输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取
+出时应做转换
 BAPI_CURRENCY_CONV_TO_INTERNAL：转换为数据库中内部存储金额
 BAPI_CURRENCY_CONV_TO_EXTERNAL：转换成外部的实际金额
 CONVERT_TO_LOCAL_CURRENCY：自动将最近时间多的汇率作为转换的汇率
-OB07、OB08：维护各币种之间的汇率
 CONVERT_TO_FOREIGN_CURRENCY：将外币转换为本位币
 CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
 ```

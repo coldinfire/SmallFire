@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>移库动作产生的报错:Error BS001 when posting goods movment</title>
+      <title>移库产生的报错</title>
       <link>https://coldinfire.github.io/2019/SAPQ1/</link>
       <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPQ1/</guid>
-      <description>Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU XXXXXX? A：需要每次进行移库前刷新数据： &amp;ldquo;调用BAPI</description>
+      <description>Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU XXXXXX(Error BS001 when posting goods movment)? A：需要每次进行移库前刷新数据： &amp;ldquo;调</description>
     </item>
     
     <item>
@@ -594,15 +594,6 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP1/</guid>
       <description>ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :</description>
-    </item>
-    
-    <item>
-      <title> Hugo搭建博客(自动化部署)</title>
-      <link>https://coldinfire.github.io/2018/hugo2/</link>
-      <pubDate>Wed, 14 Mar 2018 17:20:58 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/hugo2/</guid>
-      <description>工具准备 hugo node.js git github 操作步骤</description>
     </item>
     
     <item>

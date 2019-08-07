@@ -271,13 +271,6 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 
 ​	为了后续通过Travis-CI自动部署，这里需要在Github上创建两个repo，一个是文件repo(自定义名称[blog]),一个是博客展示repo(必须为[username].github.io)。
 
-```JS
-git add -A
-git commint -m "initial all files"
-git remote add origin https://github.com/<username>/blog
-git push -u origin master
-```
-
 **配置Travis：**
 
 - 生成 [Github Access Token](https://github.com/settings/tokens/new)，只勾repo内容。
@@ -351,8 +344,16 @@ git push -u origin master
 
 **发布博客：**
 
--  将修改后的内容发布到blog仓库中，Travis CI会自动将生成的博客展示界面部署完成。
+- 将修改后的内容发布到blog仓库中，Travis CI会自动将生成的博客展示界面部署完成。
+
 - 通过`https://<user_name>.github.io/`访问博客
+
+  ```JS
+  git add -A
+  git commint -m "initial all files"
+  git remote add origin https://github.com/<username>/blog
+  git push -u origin master
+  ```
 
 ### 添加Gittalk
 
