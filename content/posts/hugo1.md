@@ -44,8 +44,8 @@ tags:
 #├── config.toml：配置文件，在里面可以定义博客地址、构建配置、标题、导航栏等等。
 #├── content：博客文章存放的目录
 #├── data
-#├── layouts
-#├── static
+#├── layouts：网站的模板文件
+#├── static：图片、css、js 等资源。
 #└── themes：主题目录，可以将喜欢主题，下载到该目录下
 ```
 

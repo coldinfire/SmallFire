@@ -57,6 +57,15 @@
     </item>
     
     <item>
+      <title>STVARV使用详情</title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils14/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils14/</guid>
+      <description>STVARV使用 ​ 该配置不能跨Client因此需要在每个Client单独配置；使用TCode：stvarv进入配置界面，可以新建、修改、删除</description>
+    </item>
+    
+    <item>
       <title> ALV tree显示BOM结构 </title>
       <link>https://coldinfire.github.io/2018/BOMTree/</link>
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>

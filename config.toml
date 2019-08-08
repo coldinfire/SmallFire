@@ -57,7 +57,10 @@ googleAnalytics = ""
     name = "About"
     url = "/about/"
     weight = 5
-
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = 6
 [params]
   since = 2017
   author = "Small Fire"
@@ -199,3 +202,18 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   avatar = 'mm'
   placeholder = 'your comments ...'
   visitor = true
+
+
+# [outputFormats.Algolia]
+#   baseName = "algolia"
+#   isPlainText = true
+#   mediaType = "application/json"
+#   notAlternative = true
+
+# #vars 是 Hugo 内置变量； params 是自定义变量，按自己情况增减。
+# [params.algolia]
+#   vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+#   params = ["categories", "tags","series"]
+
+# [outputs]
+#   home = ["HTML","RSS","Algolia"]
