@@ -5,7 +5,7 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 14 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2019 15:05:27 +0800</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -88,6 +88,15 @@
       <guid>https://coldinfire.github.io/about/</guid>
       <description>&lt;p&gt;这个人很懒，什么都没留下&amp;hellip;&amp;hellip;&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://coldinfire.github.io/search/</link>
+      <pubDate>Thu, 08 Aug 2019 15:05:27 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/search/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -3698,62 +3707,6 @@ assignment w/o check, 如果选中就代表，建立Material 并且外部给号�
 14. 为科目过账定义容差组
 15. 输入总账凭证，显示科目余额
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>SAP memory使用</title>
-      <link>https://coldinfire.github.io/2019/ABAPMemory/</link>
-      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPMemory/</guid>
-      <description>
-
-&lt;h3 id=&#34;sap-memory和abap-memory&#34;&gt;SAP memory和ABAP memory&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;使用的语句不同&lt;/p&gt;
-
-&lt;p&gt;SAP memory使用SET/GET parameters；&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;SPA：SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD p_matnr.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;GPA：GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD p_matnr.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ABAP Memory使用EXPORT 和IMPORT :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;EXPORT p_matnr = p_matnr TO MEMORY ID &amp;lsquo;ZTESTMAT&amp;rsquo;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;IMPORT p_matnr = p_matnr FROM MEMORY ID &amp;lsquo;ZTESTMAT&amp;rsquo;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;FREE MEMORY ID &amp;lsquo;ZTESTMAT&amp;rsquo;.         清空指定的ABAPmemory&lt;/p&gt;
-
-&lt;p&gt;FREE MEMORY.                                    清空externalsession内的所有ABAPmemory&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;共享范围不同&lt;/p&gt;
-
-&lt;p&gt;SAP memory用于所有external session间.&lt;/p&gt;
-
-&lt;p&gt;ABAP memory用于同一个external session的internal session间。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;作用范围不同（就是生存期）&lt;/p&gt;
-
-&lt;p&gt;SAP memory在登陆到退出这期间一直有效。&lt;/p&gt;
-
-&lt;p&gt;ABAP memory只在同一个session(window) 内有效。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Dialog获取SAPMemory方式&lt;/p&gt;
-
-&lt;p&gt;在dialog 屏幕上建一个input field, 然后Parameter ID属性与&amp;rsquo;SAP_MMR&amp;rsquo;绑定,并打上2个勾。&lt;/p&gt;
-
-&lt;p&gt;Set Parameter: 允许将屏幕值返回给SAP Memory (类似于执行SET PARAMETER ID语句)&lt;/p&gt;
-
-&lt;p&gt;Get Parameter: 允许读取SAP Memory的值并默认显示(类似于执行GET PARAMETER ID语句).&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
 </description>
     </item>
     
