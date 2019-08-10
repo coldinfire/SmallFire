@@ -1,6 +1,6 @@
 ---
-title: "MM 主要数据创建"
-date: 2019-03-14
+title: "MM 物料主数据创建"
+date: 2019-05-12
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -81,11 +81,17 @@ tags:
 
   - SPRO -> IMG -> Enterprice Structure -> Assign -> Material Mast -> Assign Purchase Org to RPO
 
-11.Assign Purchase Org to Plant : OX17
+11.Assign Purchase Organization to Plant : OX17
 
   - SPRO -> IMG -> Enterprice Structure ->Assignment -> Material Mast -> Assign PO to Plant
 
 ![Org To Plant](/images/MMMasterData/12.png)
+
+12.Assign  standard purchasing org to plant：SM30(V_001W_E)
+
+- SPRO -> IMG -> Enterprice Structure -> Assignment -> Masterial Management -> Assign standard purchasing org to plant
+
+  一个工厂可以指定多个采购组织，但在一些特定的业务中需要自动确定采购组织，这时就需要在后台对工厂指定唯一的采购组织，也就是标准采购组织.
 
 
 ###  Master Data ###
@@ -165,8 +171,8 @@ Acct cat : 账户参考必填字段。选择合适的值）
 
   为不同的采购类型创建采购信息记录，例如标准、分包、管道、寄售。用于将供应商和物料在工厂级别或则采购组织数据作为主数据存储。
 
+![Info Record](/images/MM/MMInfoRecord.png)
 
-#### Info Record ####
 总账科目确认：
 
  - 按物料级别设置科目：手动输入的科目

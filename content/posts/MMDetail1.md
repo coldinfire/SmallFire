@@ -1,6 +1,6 @@
 ---
-title: "MM Material Master"
-date: 2019-03-10
+title: "MM概述(一)"
+date: 2019-05-10
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -170,6 +170,7 @@ tags:
 
   - 计量单位(计量单位组)
     
+  
   ![计量单位组定义](/images/MM/MM_DUMG.png)
   
 - 物料组：对物料进行分组，便于分析；不同的物料组决定过账时的G/L Account
@@ -189,7 +190,7 @@ tags:
   - 凭证数据、内部批注
 
 
-  
+
 
 **MRP1：MRP控制**
 
