@@ -100,671 +100,9 @@
     </item>
     
     <item>
-      <title>移库产生的报错</title>
-      <link>https://coldinfire.github.io/2019/SAPQ1/</link>
-      <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAPQ1/</guid>
-      <description>&lt;p&gt;Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU  XXXXXX(Error BS001 when posting goods movment)?&lt;/p&gt;
-
-&lt;p&gt;A：需要每次进行移库前刷新数据：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&amp;ldquo;调用BAPI进行移库操作&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;CALL FUNCTION &amp;lsquo;HU_PACKING_REFRESH&amp;rsquo;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;CALL FUNCTION &amp;lsquo;SERIAL_INTTAB_REFRESH&amp;rsquo;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;CALL FUNCTION &amp;lsquo;V51G_REFRESH&amp;rsquo;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  CALL FUNCTION &#39;HU_CREATE_GOODS_MOVEMENT&#39;
-    EXPORTING
-      IF_EVENT       = &#39;0006&#39;
-      IF_COMMIT      = &#39;&#39;
-      IF_TCODE       = &#39;HUMO&#39;
-      IT_MOVE_TO     = IT_MOVE_TO[]
-      IT_EXTERNAL_ID = IT_EXTERNAL_ID[]
-    IMPORTING
-      ES_MESSAGE     = ES_MESSAGE
-      ET_MESSAGES    = ET_MESSAGES[]
-      ES_EMKPF       = ES_EMKPF.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>STO详解</title>
-      <link>https://coldinfire.github.io/2019/ABAPSTO/</link>
-      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPSTO/</guid>
-      <description>
-
-&lt;h3 id=&#34;一-工厂间转储&#34;&gt;一、工厂间转储&lt;/h3&gt;
-
-&lt;p&gt;（1）MB1B 移动类型 301 工厂到工厂（一步）转账 -&amp;gt; 简单明了一步转储；过账后会产生 GR，MITA 增加了，MIZH 减少了，&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;MB03：-&amp;gt; 会产生 GR, 如果俩工厂标准价或者移动平均价不同，差异会调整到库存调拨损益科目。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;（2）MB1B （两步转储）移动类型 1. 转出 303, 2. 转入 305，两步转储操作，过账后，产生&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;物料凭证 - MB03,&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;会计凭证 - FB03,&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;（3）区别&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;​ MMBE 仔细看一下接收库存，会发现和一步的 区别，
-在库存传送那出现了 - 转储的数量，
-接下来就是接收库存，MB1B,过账后,也会产生 GR , 却不会产生 FR 财务凭证。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   移动类型的工厂 1 步，2 步的转储，后台配置主要配置好存货科目，及转储中的损益科目便可。&lt;/p&gt;
-
-&lt;h3 id=&#34;二-跨工厂转储-公司间调拨&#34;&gt;二、跨工厂转储（公司间调拨）&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;MM 转储操作 MB1B&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;【过账抬头】&lt;/p&gt;
-
-&lt;p&gt;​   移动类型：表示库存地点一步转储&lt;/p&gt;
-
-&lt;p&gt;​   工厂：指定公司代码&lt;/p&gt;
-
-&lt;p&gt;​   库存地点：物料储存的仓库代码&lt;/p&gt;
-
-&lt;p&gt;【过账项目】&lt;/p&gt;
-
-&lt;p&gt;​   接收库存地点：物料转储后存放的库位代码&lt;/p&gt;
-
-&lt;p&gt;​   物料：原料等级代码&lt;/p&gt;
-
-&lt;p&gt;​   数量：转储物料的量,和后面单位要对应&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;WM 层面 转储操作 LT06&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;​   此界面正常情况下自动进入，若出现断线等异常情况，则用事物码 LT05 进入本界面，
-并输入相应的物料凭证号。&lt;/p&gt;
-
-&lt;p&gt;【抬头】&lt;/p&gt;
-
-&lt;p&gt;​   物料凭证：物料转储后产生的凭证号&lt;/p&gt;
-
-&lt;p&gt;​   物料凭证年份： 指定的年份&lt;/p&gt;
-
-&lt;p&gt;​   仓库号：指定的仓库好&lt;/p&gt;
-
-&lt;p&gt;​   在将转出的仓位号前填写转移数量&lt;/p&gt;
-
-&lt;p&gt;​   去掉 “记帐到同一仓位” 下的√&lt;/p&gt;
-
-&lt;h3 id=&#34;原料厂内转储单&#34;&gt;原料厂内转储单&lt;/h3&gt;
-
-&lt;p&gt;在 “工厂” 中输入工厂在 “物料凭证编号” 中输入‘凭证号‘点执行按钮&lt;/p&gt;
-
-&lt;p&gt;1   检查单据内容，无误后点菜单栏 “文本”→“打印”    打印原料厂内转储单&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; 查询各物料库存信息： MMBE/MB52/LS24&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt;SAP 系统内进行转储操作 MB1B&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;移动类型 311；工厂 &amp;lsquo;XXXX&amp;rsquo;；发货库存地点 &amp;lsquo;XXXX&amp;rsquo;；转储物料编码 &amp;lsquo;XXXX&amp;rsquo;；数量 &amp;lsquo;XXXX&amp;rsquo;；接收库存地点 &amp;lsquo;XXXX&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;-&amp;gt; 在 SAP 系统的 WM 模块中确定&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;确定转出、转入仓位 &amp;lsquo;XXXX&amp;rsquo;；物料凭证&amp;rsquo;XXXX&amp;rsquo;；物料凭证的年份&amp;rsquo;XXXX&amp;rsquo;；仓库号&amp;rsquo;XXXX&amp;rsquo;；源仓位 &amp;lsquo;01-01-08&amp;rsquo;；目的仓位 &amp;lsquo;01-01-05&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;-&amp;gt; 查看物料凭证 MB03&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; 查询物料凭证清单 MB51&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; MMBE 单个料查询库存&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; MB52（此查询带金额）&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; LS24（查询某一物料的仓位库存）&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; MB03 显示物料凭证 &amp;lt;-&amp;gt; 同部分 migo&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title> SAP下载程序源码工具 </title>
-      <link>https://coldinfire.github.io/2019/ABAPUtils10/</link>
-      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPUtils10/</guid>
-      <description>&lt;p&gt;程序：转自 &lt;a href=&#34;http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*@---------------------------------------------------------------------*
-*@ Report ZZXUE01 下载程序代码
-*@ T-code
-*@---------------------------------------------------------------------*
-*@ Created by Xavery Hsueh on 2011-03-01
-*@ Lasted Edited date:
-*@---------------------------------------------------------------------*
-REPORT XXX NO STANDARD PAGE HEADING.
-
-***********************************************************************@
-** 声明数据库表
-***********************************************************************@
-TABLES:rs38m,
-trdir. &amp;quot;
-***********************************************************************@
-** 内表结构类型的定义
-***********************************************************************@
-DATA BEGIN OF dynpfields OCCURS 1.
-INCLUDE STRUCTURE dynpread.
-DATA END OF dynpfields.
-
-TYPES:BEGIN OF typ_result,
-box TYPE c,
-tabix TYPE sytabix, &amp;quot;顺序号
-name TYPE char40, &amp;quot;程序名称
-cnam TYPE cnam, &amp;quot;创建人员
-unam TYPE unam, &amp;quot;最后修改人
-code(72) TYPE c, &amp;quot;程序描述
-END OF typ_result.
-***********************************************************************@
-** 变量与内表的定义
-***********************************************************************@
-DATA:gt_report TYPE TABLE OF tdline WITH HEADER LINE.
-DATA:gt_result TYPE TABLE OF typ_result WITH HEADER LINE.
-DATA:gt_trdir TYPE TABLE OF trdir WITH HEADER LINE.
-DATA:gt_btab TYPE TABLE OF textpool WITH HEADER LINE.
-
-DATA:g_filenm TYPE rlgrap-filename. &amp;quot;文件名称
-RANGES r_prog FOR rs38m-programm. &amp;quot;程序名称
-*@------------------ ALV 相关的变量 -----------------------------------*
-TYPE-POOLS:slis.
-DATA: g_repid LIKE sy-repid,
-wa_print TYPE slis_print_alv,
-gt_list_top_of_page TYPE slis_t_listheader,
-gt_events TYPE slis_t_event WITH HEADER LINE,
-gt_sort TYPE slis_t_sortinfo_alv,
-wa_layout TYPE slis_layout_alv,
-gt_fieldcat TYPE slis_t_fieldcat_alv WITH HEADER LINE,
-wa_fieldcat LIKE LINE OF gt_fieldcat,
-g_save TYPE c,
-g_pos TYPE i.
-***********************************************************************@
-** 宏定义
-***********************************************************************@
-DEFINE mcr_field.
-clear wa_fieldcat.
-g_pos = g_pos + 1 .
-wa_fieldcat-col_pos = g_pos.
-wa_fieldcat-fieldname = &amp;amp;1.
-wa_fieldcat-tabname = &#39;I_RESULT&#39;.
-
-&amp;quot; wa_fieldcat-no_out = &#39;X&#39;. &amp;quot;field no display, choose from layout
-  wa_fieldcat-key = &#39; &#39;. &amp;quot;SUBTOTAL KEY
-  wa_fieldcat-seltext_l = &amp;amp;2.
-  wa_fieldcat-outputlen = &amp;amp;3.
-  append wa_fieldcat to gt_fieldcat.
-  END-OF-DEFINITION.
-*@---------------------------------------------------------------------*
-*@ MACRO MCR_RANGE 初始化选择条件
-*@---------------------------------------------------------------------*
-* &amp;amp;1 RANGE 变量
-* &amp;amp;2 操作符
-* &amp;amp;3 LOW
-* &amp;amp;4 HIGH
-*----------------------------------------------------------------------*
-  DEFINE mcr_range.
-  clear &amp;amp;1.
-  &amp;amp;1-sign = &#39;I&#39;.
-  &amp;amp;1-option = &amp;amp;2.
-  &amp;amp;1-low = &amp;amp;3.
-  &amp;amp;1-high = &amp;amp;4.
-  append &amp;amp;1.
-  END-OF-DEFINITION.
- ***********************************************************************@
- ** 屏幕定义
- ***********************************************************************@
-  SELECTION-SCREEN BEGIN OF BLOCK xavery WITH FRAME TITLE text_001.
-  SELECTION-SCREEN BEGIN OF LINE.
-  SELECTION-SCREEN COMMENT 1(15) text_002 FOR FIELD p_prog.
-  PARAMETERS:p_prog TYPE rs38m-programm MEMORY ID rid.
-  SELECTION-SCREEN END OF LINE.
-
-SELECTION-SCREEN BEGIN OF LINE.
-SELECTION-SCREEN COMMENT 1(15) text_003 FOR FIELD p_cnam.
-PARAMETERS:p_cnam TYPE cnam DEFAULT sy-uname.
-SELECTION-SCREEN END OF LINE.
-
-SELECTION-SCREEN BEGIN OF LINE.
-SELECTION-SCREEN COMMENT 1(15) text_004 FOR FIELD p_filenm.
-PARAMETERS:p_filenm TYPE rlgrap-filename.
-SELECTION-SCREEN END OF LINE.
-SELECTION-SCREEN END OF BLOCK xavery.
-***********************************************************************@
-** 执行程序事件
-***********************************************************************@
-INITIALIZATION.
-PERFORM f_init_condition.
-
-AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_prog.
-PERFORM sub_get_program.
-
-START-OF-SELECTION.
-PERFORM sub_query_report.
-PERFORM sub_process_report.
-
-END-OF-SELECTION.
-PERFORM sub_init_layout.
-PERFORM sub_create_fieldcat.
-PERFORM sub_display_as_alv. &amp;quot;以ALV的方式输出结果表
-*@---------------------------------------------------------------------*
-*@ Form F_INIT_CONDITION
-*@---------------------------------------------------------------------*
-* 初始化选择条件
-*----------------------------------------------------------------------*
-  FORM f_init_condition .
-  text_001 = &#39;查询条件&#39;.
-  text_002 = &#39;程序名称&#39;.
-  text_003 = &#39;程序创建人&#39;.
-  text_004 = &#39;下载文件名称&#39;.
-&amp;quot; 选择屏幕初始值
-  p_prog = &#39;Z*&#39;.
-  p_filenm = &#39;C:\ABAP\&#39;.
-  ENDFORM. &amp;quot; F_INIT_CONDITION
-*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp; Form SUB_GET_PROGRAM
-*&amp;amp;---------------------------------------------------------------------*
-* text
-*----------------------------------------------------------------------*
-  FORM sub_get_program .
-  DATA: repid LIKE sy-repid.
-  dynpfields-fieldname = &#39;P_PROG&#39;.
-  APPEND dynpfields.
-  repid = sy-repid.
-  CALL FUNCTION &#39;DYNP_VALUES_READ&#39;
-  EXPORTING
-  dyname = repid
-  dynumb = sy-dynnr
-  TABLES
-  dynpfields = dynpfields
-  EXCEPTIONS
-  OTHERS.
-  READ TABLE dynpfields INDEX 1.
-  p_prog = dynpfields-fieldvalue.
-  PERFORM program_directory USING p_prog &#39;X&#39;.
-  ENDFORM. &amp;quot; SUB_GET_PROGRAM
-
-*---------------------------------------------------------------------*
-* FORM PROGRAM_DIRECTORY *
-*---------------------------------------------------------------------*
-  FORM program_directory USING programm LIKE rs38m-programm
-  f4_call.
-  DATA: info_object LIKE euobj-id,
-  l_programm LIKE rs38m-programm.
-  IF sy-tcode(4) = &#39;SE38&#39;.
-  info_object = &#39;PROG&#39;.
-  IF f4_call = &#39;X&#39;.
-  CALL FUNCTION &#39;REPOSITORY_INFO_SYSTEM_F4&#39;
-  EXPORTING
-  object_type = info_object
-  object_name = programm
-  suppress_selection = &#39;X&#39;
-  IMPORTING
-  object_name_selected = programm
-  EXCEPTIONS
-  cancel = 01.
-  ELSE.
-  CALL FUNCTION &#39;REPOSITORY_INFO_SYSTEM&#39;
-  EXPORTING
-  object_type = info_object
-  action = &#39;S&#39;
-  object_name = programm
-  IMPORTING
-  object_name_selected = programm
-  EXCEPTIONS
-  cancel = 01
-  wrong_type = 02.
-  ENDIF.
-  ELSE.
-  l_programm = programm.
-  IF l_programm = space.
-  SUBMIT rsabadab AND RETURN VIA SELECTION-SCREEN
-  WITH f4_call = f4_call.
-  ELSE.
-  SUBMIT rsabadab AND RETURN VIA SELECTION-SCREEN
-  WITH repname CP l_programm
-  WITH f4_call = f4_call.
-  ENDIF.
-  GET PARAMETER ID &#39;RID&#39; FIELD p_prog.
-  ENDIF.
-  ENDFORM. &amp;quot;program_directory
-*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp; Form SUB_QUERY_REPORT
-*&amp;amp;---------------------------------------------------------------------*
-* 查询程序代码
-*----------------------------------------------------------------------*
-  FORM sub_query_report .
-  mcr_range r_prog &#39;CP&#39; p_prog &#39;&#39;.
-  SELECT * FROM trdir
-  INTO TABLE gt_trdir
-  WHERE name IN r_prog AND
-  cnam EQ p_cnam AND
-  subc NE &#39;X&#39;.
-  ENDFORM. &amp;quot; SUB_QUERY_REPORT
-*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp; Form SUB_DOWNLOAD_REPORT
-*&amp;amp;---------------------------------------------------------------------*
-*下载程序代码
-*----------------------------------------------------------------------*
-  FORM sub_download_report USING l_filenm TYPE rlgrap-filename.
-  DATA: binfilesize TYPE i.
-  DATA: l_file TYPE string.
-  DATA: l_message TYPE char100.
-  CONCATENATE &#39;文件已下载到：&#39; p_filenm &#39;文件夹中！&#39;
-  INTO l_message.
-  l_file = l_filenm.
-  CALL FUNCTION &#39;GUI_DOWNLOAD&#39;
-  EXPORTING
-  bin_filesize = binfilesize
-  filename = l_file
-  filetype = &#39;ASC&#39;
-  TABLES
-  data_tab = gt_report[]
-  EXCEPTIONS
-  file_write_error = 1
-  no_batch = 2
-  gui_refuse_filetransfer = 3
-  invalid_type = 4
-  no_authority = 5
-  unknown_error = 6
-  header_not_allowed = 7
-  separator_not_allowed = 8
-  filesize_not_allowed = 9
-  header_too_long = 10
-  dp_error_create = 11
-  dp_error_send = 12
-  dp_error_write = 13
-  unknown_dp_error = 14
-  access_denied = 15
-  dp_out_of_memory = 16
-  disk_full = 17
-  dp_timeout = 18
-  file_not_found = 19
-  dataprovider_exception = 20
-  control_flush_error = 21
-  OTHERS = 22.
-
-IF sy-subrc = 0.
-MESSAGE l_message TYPE &#39;S&#39;.
-ENDIF.
-ENDFORM. &amp;quot; SUB_DOWNLOAD_REPORT
-*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp; Form SUB_PROCESS_REPORT
-*&amp;amp;---------------------------------------------------------------------*
-* 处理文件名称，并放到内表中
-*----------------------------------------------------------------------*
-  FORM sub_process_report .
-  SORT gt_trdir BY name.
-  LOOP AT gt_trdir.
-  CLEAR gt_result.
-  gt_result-name = gt_trdir-name.
-  gt_result-cnam = gt_trdir-cnam.
-  gt_result-unam = gt_trdir-unam.
-  gt_result-tabix = sy-tabix.
-  REFRESH gt_btab.
-  READ TEXTPOOL gt_trdir-name INTO gt_btab LANGUAGE sy-langu.
-  CLEAR gt_btab.
-  READ TABLE gt_btab WITH KEY &#39;R&#39;.
-  IF sy-subrc = 0.
-  MOVE gt_btab-entry TO gt_result-code.
-  ENDIF.
-  APPEND gt_result.
-  ENDLOOP.
-&amp;quot; 清空内表
-  FREE gt_trdir.
-  ENDFORM. &amp;quot; SUB_PROCESS_REPORT
-*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp; Form SUB_CREATE_FIELDCAT
-*&amp;amp;---------------------------------------------------------------------*
-* text
-*----------------------------------------------------------------------*
-  FORM sub_create_fieldcat .
-  CLEAR gt_fieldcat[].
-  mcr_field &#39;TABIX&#39; &#39;顺序号&#39; &#39;10&#39;.
-  mcr_field &#39;NAME&#39; &#39;程序名称&#39; &#39;15&#39;.
-  mcr_field &#39;CNAM&#39; &#39;程序创建人&#39; &#39;20&#39;.
-  mcr_field &#39;UNAM&#39; &#39;最后修改人&#39; &#39;20&#39;.
-  mcr_field &#39;CODE&#39; &#39;程序描述&#39; &#39;30&#39;.
-  ENDFORM. &amp;quot; SUB_CREATE_FIELDCAT
-*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp; Form SUB_INIT_LAYOUT
-*&amp;amp;---------------------------------------------------------------------*
-* text
-*----------------------------------------------------------------------*
-  FORM sub_init_layout .
-  wa_layout-zebra = &#39;X&#39;.
-  wa_layout-window_titlebar = &#39;开发程序名称清单&#39;.
-  wa_layout-colwidth_optimize = &#39;X&#39;.
-  wa_layout-box_fieldname = &#39;BOX&#39;.
-  ENDFORM. &amp;quot; SUB_INIT_LAYOUT
-*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp; Form SUB_DISPLAY_AS_ALV
-*&amp;amp;---------------------------------------------------------------------*
-* text
-*----------------------------------------------------------------------*
-  FORM sub_display_as_alv .
-  g_repid = sy-repid.
-  *ABAP List Viewer
-  CALL FUNCTION &#39;REUSE_ALV_GRID_DISPLAY&#39;
-  EXPORTING
-  i_callback_program = g_repid
-  i_structure_name = &#39;TYP_RESULT&#39;
-  i_callback_user_command = &#39;SUB_USER_COMMAND&#39;
-  i_callback_pf_status_set = &#39;SUB_SET_PF_STATUS&#39;
-  i_save = g_save
-  is_layout = wa_layout
-  it_fieldcat = gt_fieldcat[]
-  TABLES
-  t_outtab = gt_result
-  EXCEPTIONS
-  program_error = 1
-  OTHERS = 2.
-  ENDFORM. &amp;quot; SUB_DISPLAY_AS_ALV
-*@--------------------------------------------------------------------*
-*@ Form sub_user_command
-*@--------------------------------------------------------------------*
-* --&amp;gt;R_UCOMM 事务功能码
-* --&amp;gt;RS_SELFIELD ALV相关的数据
-*---------------------------------------------------------------------*
-  FORM sub_user_command USING r_ucomm LIKE sy-ucomm
-  rs_selfield TYPE slis_selfield.
-
-CASE r_ucomm.
-WHEN &#39;&amp;amp;IC1&#39;. &amp;quot;双击事件的功能码
-WHEN &#39;DOWNLOAD&#39;. &amp;quot;下载代码
-PERFORM sub_ucomm_down.
-ENDCASE.
-
-* 刷新ALV屏幕报表
-  rs_selfield-refresh = &#39;X&#39;.
-  ENDFORM. &amp;quot;sub_user_command
-*@---------------------------------------------------------------------*
-*@ FORM SUB_SET_PF_STATUS *
-*@---------------------------------------------------------------------*
-* 设置ALV菜单
-* 通过SE41，拷贝程序SAPLSLVC_FULLSCREEN的状态STANDARD_FULLSCREEN过来
-*@---------------------------------------------------------------------*
-  FORM sub_set_pf_status USING rt_extab TYPE slis_t_extab.
-  SET PF-STATUS &#39;STANDARD_FULLSCREEN&#39;.
-  ENDFORM. &amp;quot;sub_set_pf_status
-*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp; Form SUB_UCOMM_DOWN
-*&amp;amp;---------------------------------------------------------------------*
-* 下载选中的行的程序代码
-*----------------------------------------------------------------------*
-  FORM sub_ucomm_down .
-  LOOP AT gt_result WHERE box = &#39;X&#39;.
-* 得到文件名称
-  CLEAR g_filenm.
-  CONCATENATE p_filenm gt_result-name &#39;-&#39;
-  gt_result-code &#39;.txt&#39;
-  INTO g_filenm.
-* 得到程序代码
-  CLEAR gt_report[].
-  READ REPORT gt_result-name INTO gt_report.
-* 下载程序
-  PERFORM sub_download_report USING g_filenm.
-  ENDLOOP.
-  ENDFORM. &amp;quot; SUB_UCOMM_DOWN
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title> SAP发送邮件 </title>
-      <link>https://coldinfire.github.io/2019/ABAPUtils11/</link>
-      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPUtils11/</guid>
-      <description>&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;TRY.
-&amp;quot; 创建发送请求
-  l_send_request = cl_bcs=&amp;gt;create_persistent( ).
-&amp;quot; 设定发送内容
-  l_document = cl_document_bcs=&amp;gt;create_document( i_type  = &#39;RAW&#39;
-                                           i_text  = i_content[]
-                                           I_IMPORTANCE = &#39;1&#39;
-                                           i_subject = l_subject ).
-&amp;quot; 增加发送内容到发送请求
-  CALL METHOD l_send_request-&amp;gt;set_document( l_document ).
-&amp;quot; 取得发送者（取得发件人，前提是这个邮箱地址能发邮件，并且不需要密码）
-  l_uname = sy-uname.
-  l_sender = cl_sapuser_bcs=&amp;gt;create( l_uname ).
-  CALL METHOD l_send_request-&amp;gt;set_sender
-    EXPORTING
-      i_sender = l_sender.
-&amp;quot; 设置收件人
-   LOOP AT it_mailaccept.
-     CONCATENATE it_mailaccept-name &#39;@XXXXX.COM&#39; INTO i_email.
-     TRANSLATE i_email TO LOWER CASE.
-     l_recipient = cl_cam_address_bcs=&amp;gt;create_internet_address( i_email ).
-     CALL METHOD l_send_request-&amp;gt;add_recipient
-       EXPORTING
-         i_recipient  = l_recipient
-         i_express    = &#39;X&#39;
-         i_copy       = &#39; &#39;
-         i_blind_copy = &#39; &#39;
-         i_no_forward = &#39; &#39;.
-   ENDLOOP.
-&amp;quot; 设置抄送人
-    LOOP AT it_mailaccept_copy.
-      CONCATENATE it_mailaccept_copy-name &#39;@XXXXX&#39; INTO i_email.
-      TRANSLATE i_email TO LOWER CASE.
-      l_recipient = cl_cam_address_bcs=&amp;gt;create_internet_address( i_email ).
-      CALL METHOD l_send_request-&amp;gt;add_recipient
-        EXPORTING
-          i_recipient  = l_recipient
-          i_express    = &#39;X&#39;
-          i_copy       = &#39;X&#39;
-          i_blind_copy = &#39; &#39;
-          i_no_forward = &#39; &#39;.
-    ENDLOOP.
-*&amp;amp;  立即发送
-  l_send_request-&amp;gt;set_send_immediately( &#39;X&#39; ).
-*&amp;amp;  发送
-  CALL METHOD l_send_request-&amp;gt;send( ).
-    COMMIT WORK.
-  CATCH cx_document_bcs INTO l_bcs_exception.
-  CATCH cx_send_req_bcs INTO l_send_exception.
-  CATCH cx_address_bcs  INTO l_addr_exception.
-ENDTRY.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>SAP后台JOB</title>
-      <link>https://coldinfire.github.io/2019/ABAPJOB/</link>
-      <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPJOB/</guid>
-      <description>
-
-&lt;h3 id=&#34;定义后台-job&#34;&gt;定义后台 job&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;第一种：SE38执行可执行程序&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB1.png&#34; alt=&#34;后台JOB&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;输入输出设备&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB3.png&#34; alt=&#34;输出设备&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;选择开始时间（立刻执行，或定义日期时间，也可周期执行）后保存。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB2.png&#34; alt=&#34;时间&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;第二种：SM36定义作业名&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;点击‘Start condition’选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB4.png&#34; alt=&#34;Start Condition&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;再点击‘Step’，填写abap程序‘NAME’和‘Variant’后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB5.png&#34; alt=&#34;Step&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.sina.com.cn/s/blog_76c57b480100rumm.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;如何在 SAP 中定义 Event 类型的后台 Job&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;强制结束后台作业-sap-sm37-sm35-sm50&#34;&gt;强制结束后台作业（SAP SM37 SM35 SM50)&lt;/h4&gt;
-
-&lt;p&gt;解决方法：&lt;/p&gt;
-
-&lt;p&gt;第一步：SM50&lt;/p&gt;
-
-&lt;p&gt;​   找到Ty. 列为 BGD 的(Background)，然后再找到你刚运行的那个后台 Job 的行，选中；然后在菜单点击：Process&amp;mdash;Cancel with core. 即可。&lt;/p&gt;
-
-&lt;p&gt;第二步：SM37 查看 Background Job，应该为 “取消” 状态。&lt;/p&gt;
-
-&lt;p&gt;第三步：SM35，选中 Session Name，点击小绿旗 release 即可。&lt;/p&gt;
-
-&lt;h4 id=&#34;如何查看一个后台job对应哪些程序&#34;&gt;如何查看一个后台job对应哪些程序?&lt;/h4&gt;
-
-&lt;p&gt;​   sm36&amp;ndash;&amp;gt;点击“job selection”&amp;ndash;&amp;gt;运行结果双击选择job&amp;ndash;&amp;gt;回到第一个界面，点击“步骤”按钮，转到步骤清单总览，里面就可以看到程序名称了已取消，完成的job是不能修改的其它状态的都可以改，在sm37里，选择相应的job，菜单里有个更改项
-sm37就是sm36里job selection的链接.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title> Fiori简介 </title>
       <link>https://coldinfire.github.io/2019/FioriOverview/</link>
-      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
+      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/FioriOverview/</guid>
       <description>
@@ -790,8 +128,7 @@ sm37就是sm36里job selection的链接.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;交易应用&lt;/li&gt;
 &lt;li&gt;实况报道&lt;/li&gt;
-&lt;li&gt;分析应用程序
-&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;分析应用程序&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;交易应用程序最重要的功能是 ：&lt;/p&gt;
@@ -843,7 +180,7 @@ sm37就是sm36里job selection的链接.&lt;/p&gt;
     <item>
       <title> SAP HANA</title>
       <link>https://coldinfire.github.io/2019/SAPHANA1/</link>
-      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPHANA1/</guid>
       <description>
@@ -885,7 +222,7 @@ sm37就是sm36里job selection的链接.&lt;/p&gt;
     <item>
       <title> SAPUI5 </title>
       <link>https://coldinfire.github.io/2019/SAPUI5/</link>
-      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
       <description>
@@ -2623,1090 +1960,1201 @@ var oComboBox = new sap.ui.commons.ComboBox({
     </item>
     
     <item>
-      <title>MM 主要数据创建</title>
-      <link>https://coldinfire.github.io/2019/MMMasterData/</link>
-      <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
+      <title>移库产生的报错</title>
+      <link>https://coldinfire.github.io/2019/SAPQ1/</link>
+      <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMMasterData/</guid>
+      <guid>https://coldinfire.github.io/2019/SAPQ1/</guid>
+      <description>&lt;p&gt;Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU  XXXXXX(Error BS001 when posting goods movment)?&lt;/p&gt;
+
+&lt;p&gt;A：需要每次进行移库前刷新数据：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;ldquo;调用BAPI进行移库操作&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;CALL FUNCTION &amp;lsquo;HU_PACKING_REFRESH&amp;rsquo;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;CALL FUNCTION &amp;lsquo;SERIAL_INTTAB_REFRESH&amp;rsquo;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;CALL FUNCTION &amp;lsquo;V51G_REFRESH&amp;rsquo;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  CALL FUNCTION &#39;HU_CREATE_GOODS_MOVEMENT&#39;
+    EXPORTING
+      IF_EVENT       = &#39;0006&#39;
+      IF_COMMIT      = &#39;&#39;
+      IF_TCODE       = &#39;HUMO&#39;
+      IT_MOVE_TO     = IT_MOVE_TO[]
+      IT_EXTERNAL_ID = IT_EXTERNAL_ID[]
+    IMPORTING
+      ES_MESSAGE     = ES_MESSAGE
+      ET_MESSAGES    = ET_MESSAGES[]
+      ES_EMKPF       = ES_EMKPF.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title> SAP下载程序源码工具 </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils10/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils10/</guid>
+      <description>&lt;p&gt;程序：转自 &lt;a href=&#34;http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*@---------------------------------------------------------------------*
+*@ Report ZZXUE01 下载程序代码
+*@ T-code
+*@---------------------------------------------------------------------*
+*@ Created by Xavery Hsueh on 2011-03-01
+*@ Lasted Edited date:
+*@---------------------------------------------------------------------*
+REPORT XXX NO STANDARD PAGE HEADING.
+
+***********************************************************************@
+** 声明数据库表
+***********************************************************************@
+TABLES:rs38m,
+trdir. &amp;quot;
+***********************************************************************@
+** 内表结构类型的定义
+***********************************************************************@
+DATA BEGIN OF dynpfields OCCURS 1.
+INCLUDE STRUCTURE dynpread.
+DATA END OF dynpfields.
+
+TYPES:BEGIN OF typ_result,
+box TYPE c,
+tabix TYPE sytabix, &amp;quot;顺序号
+name TYPE char40, &amp;quot;程序名称
+cnam TYPE cnam, &amp;quot;创建人员
+unam TYPE unam, &amp;quot;最后修改人
+code(72) TYPE c, &amp;quot;程序描述
+END OF typ_result.
+***********************************************************************@
+** 变量与内表的定义
+***********************************************************************@
+DATA:gt_report TYPE TABLE OF tdline WITH HEADER LINE.
+DATA:gt_result TYPE TABLE OF typ_result WITH HEADER LINE.
+DATA:gt_trdir TYPE TABLE OF trdir WITH HEADER LINE.
+DATA:gt_btab TYPE TABLE OF textpool WITH HEADER LINE.
+
+DATA:g_filenm TYPE rlgrap-filename. &amp;quot;文件名称
+RANGES r_prog FOR rs38m-programm. &amp;quot;程序名称
+*@------------------ ALV 相关的变量 -----------------------------------*
+TYPE-POOLS:slis.
+DATA: g_repid LIKE sy-repid,
+wa_print TYPE slis_print_alv,
+gt_list_top_of_page TYPE slis_t_listheader,
+gt_events TYPE slis_t_event WITH HEADER LINE,
+gt_sort TYPE slis_t_sortinfo_alv,
+wa_layout TYPE slis_layout_alv,
+gt_fieldcat TYPE slis_t_fieldcat_alv WITH HEADER LINE,
+wa_fieldcat LIKE LINE OF gt_fieldcat,
+g_save TYPE c,
+g_pos TYPE i.
+***********************************************************************@
+** 宏定义
+***********************************************************************@
+DEFINE mcr_field.
+clear wa_fieldcat.
+g_pos = g_pos + 1 .
+wa_fieldcat-col_pos = g_pos.
+wa_fieldcat-fieldname = &amp;amp;1.
+wa_fieldcat-tabname = &#39;I_RESULT&#39;.
+
+&amp;quot; wa_fieldcat-no_out = &#39;X&#39;. &amp;quot;field no display, choose from layout
+  wa_fieldcat-key = &#39; &#39;. &amp;quot;SUBTOTAL KEY
+  wa_fieldcat-seltext_l = &amp;amp;2.
+  wa_fieldcat-outputlen = &amp;amp;3.
+  append wa_fieldcat to gt_fieldcat.
+  END-OF-DEFINITION.
+*@---------------------------------------------------------------------*
+*@ MACRO MCR_RANGE 初始化选择条件
+*@---------------------------------------------------------------------*
+* &amp;amp;1 RANGE 变量
+* &amp;amp;2 操作符
+* &amp;amp;3 LOW
+* &amp;amp;4 HIGH
+*----------------------------------------------------------------------*
+  DEFINE mcr_range.
+  clear &amp;amp;1.
+  &amp;amp;1-sign = &#39;I&#39;.
+  &amp;amp;1-option = &amp;amp;2.
+  &amp;amp;1-low = &amp;amp;3.
+  &amp;amp;1-high = &amp;amp;4.
+  append &amp;amp;1.
+  END-OF-DEFINITION.
+ ***********************************************************************@
+ ** 屏幕定义
+ ***********************************************************************@
+  SELECTION-SCREEN BEGIN OF BLOCK xavery WITH FRAME TITLE text_001.
+  SELECTION-SCREEN BEGIN OF LINE.
+  SELECTION-SCREEN COMMENT 1(15) text_002 FOR FIELD p_prog.
+  PARAMETERS:p_prog TYPE rs38m-programm MEMORY ID rid.
+  SELECTION-SCREEN END OF LINE.
+
+SELECTION-SCREEN BEGIN OF LINE.
+SELECTION-SCREEN COMMENT 1(15) text_003 FOR FIELD p_cnam.
+PARAMETERS:p_cnam TYPE cnam DEFAULT sy-uname.
+SELECTION-SCREEN END OF LINE.
+
+SELECTION-SCREEN BEGIN OF LINE.
+SELECTION-SCREEN COMMENT 1(15) text_004 FOR FIELD p_filenm.
+PARAMETERS:p_filenm TYPE rlgrap-filename.
+SELECTION-SCREEN END OF LINE.
+SELECTION-SCREEN END OF BLOCK xavery.
+***********************************************************************@
+** 执行程序事件
+***********************************************************************@
+INITIALIZATION.
+PERFORM f_init_condition.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_prog.
+PERFORM sub_get_program.
+
+START-OF-SELECTION.
+PERFORM sub_query_report.
+PERFORM sub_process_report.
+
+END-OF-SELECTION.
+PERFORM sub_init_layout.
+PERFORM sub_create_fieldcat.
+PERFORM sub_display_as_alv. &amp;quot;以ALV的方式输出结果表
+*@---------------------------------------------------------------------*
+*@ Form F_INIT_CONDITION
+*@---------------------------------------------------------------------*
+* 初始化选择条件
+*----------------------------------------------------------------------*
+  FORM f_init_condition .
+  text_001 = &#39;查询条件&#39;.
+  text_002 = &#39;程序名称&#39;.
+  text_003 = &#39;程序创建人&#39;.
+  text_004 = &#39;下载文件名称&#39;.
+&amp;quot; 选择屏幕初始值
+  p_prog = &#39;Z*&#39;.
+  p_filenm = &#39;C:\ABAP\&#39;.
+  ENDFORM. &amp;quot; F_INIT_CONDITION
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_GET_PROGRAM
+*&amp;amp;---------------------------------------------------------------------*
+* text
+*----------------------------------------------------------------------*
+  FORM sub_get_program .
+  DATA: repid LIKE sy-repid.
+  dynpfields-fieldname = &#39;P_PROG&#39;.
+  APPEND dynpfields.
+  repid = sy-repid.
+  CALL FUNCTION &#39;DYNP_VALUES_READ&#39;
+  EXPORTING
+  dyname = repid
+  dynumb = sy-dynnr
+  TABLES
+  dynpfields = dynpfields
+  EXCEPTIONS
+  OTHERS.
+  READ TABLE dynpfields INDEX 1.
+  p_prog = dynpfields-fieldvalue.
+  PERFORM program_directory USING p_prog &#39;X&#39;.
+  ENDFORM. &amp;quot; SUB_GET_PROGRAM
+
+*---------------------------------------------------------------------*
+* FORM PROGRAM_DIRECTORY *
+*---------------------------------------------------------------------*
+  FORM program_directory USING programm LIKE rs38m-programm
+  f4_call.
+  DATA: info_object LIKE euobj-id,
+  l_programm LIKE rs38m-programm.
+  IF sy-tcode(4) = &#39;SE38&#39;.
+  info_object = &#39;PROG&#39;.
+  IF f4_call = &#39;X&#39;.
+  CALL FUNCTION &#39;REPOSITORY_INFO_SYSTEM_F4&#39;
+  EXPORTING
+  object_type = info_object
+  object_name = programm
+  suppress_selection = &#39;X&#39;
+  IMPORTING
+  object_name_selected = programm
+  EXCEPTIONS
+  cancel = 01.
+  ELSE.
+  CALL FUNCTION &#39;REPOSITORY_INFO_SYSTEM&#39;
+  EXPORTING
+  object_type = info_object
+  action = &#39;S&#39;
+  object_name = programm
+  IMPORTING
+  object_name_selected = programm
+  EXCEPTIONS
+  cancel = 01
+  wrong_type = 02.
+  ENDIF.
+  ELSE.
+  l_programm = programm.
+  IF l_programm = space.
+  SUBMIT rsabadab AND RETURN VIA SELECTION-SCREEN
+  WITH f4_call = f4_call.
+  ELSE.
+  SUBMIT rsabadab AND RETURN VIA SELECTION-SCREEN
+  WITH repname CP l_programm
+  WITH f4_call = f4_call.
+  ENDIF.
+  GET PARAMETER ID &#39;RID&#39; FIELD p_prog.
+  ENDIF.
+  ENDFORM. &amp;quot;program_directory
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_QUERY_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+* 查询程序代码
+*----------------------------------------------------------------------*
+  FORM sub_query_report .
+  mcr_range r_prog &#39;CP&#39; p_prog &#39;&#39;.
+  SELECT * FROM trdir
+  INTO TABLE gt_trdir
+  WHERE name IN r_prog AND
+  cnam EQ p_cnam AND
+  subc NE &#39;X&#39;.
+  ENDFORM. &amp;quot; SUB_QUERY_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_DOWNLOAD_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+*下载程序代码
+*----------------------------------------------------------------------*
+  FORM sub_download_report USING l_filenm TYPE rlgrap-filename.
+  DATA: binfilesize TYPE i.
+  DATA: l_file TYPE string.
+  DATA: l_message TYPE char100.
+  CONCATENATE &#39;文件已下载到：&#39; p_filenm &#39;文件夹中！&#39;
+  INTO l_message.
+  l_file = l_filenm.
+  CALL FUNCTION &#39;GUI_DOWNLOAD&#39;
+  EXPORTING
+  bin_filesize = binfilesize
+  filename = l_file
+  filetype = &#39;ASC&#39;
+  TABLES
+  data_tab = gt_report[]
+  EXCEPTIONS
+  file_write_error = 1
+  no_batch = 2
+  gui_refuse_filetransfer = 3
+  invalid_type = 4
+  no_authority = 5
+  unknown_error = 6
+  header_not_allowed = 7
+  separator_not_allowed = 8
+  filesize_not_allowed = 9
+  header_too_long = 10
+  dp_error_create = 11
+  dp_error_send = 12
+  dp_error_write = 13
+  unknown_dp_error = 14
+  access_denied = 15
+  dp_out_of_memory = 16
+  disk_full = 17
+  dp_timeout = 18
+  file_not_found = 19
+  dataprovider_exception = 20
+  control_flush_error = 21
+  OTHERS = 22.
+
+IF sy-subrc = 0.
+MESSAGE l_message TYPE &#39;S&#39;.
+ENDIF.
+ENDFORM. &amp;quot; SUB_DOWNLOAD_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_PROCESS_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+* 处理文件名称，并放到内表中
+*----------------------------------------------------------------------*
+  FORM sub_process_report .
+  SORT gt_trdir BY name.
+  LOOP AT gt_trdir.
+  CLEAR gt_result.
+  gt_result-name = gt_trdir-name.
+  gt_result-cnam = gt_trdir-cnam.
+  gt_result-unam = gt_trdir-unam.
+  gt_result-tabix = sy-tabix.
+  REFRESH gt_btab.
+  READ TEXTPOOL gt_trdir-name INTO gt_btab LANGUAGE sy-langu.
+  CLEAR gt_btab.
+  READ TABLE gt_btab WITH KEY &#39;R&#39;.
+  IF sy-subrc = 0.
+  MOVE gt_btab-entry TO gt_result-code.
+  ENDIF.
+  APPEND gt_result.
+  ENDLOOP.
+&amp;quot; 清空内表
+  FREE gt_trdir.
+  ENDFORM. &amp;quot; SUB_PROCESS_REPORT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_CREATE_FIELDCAT
+*&amp;amp;---------------------------------------------------------------------*
+* text
+*----------------------------------------------------------------------*
+  FORM sub_create_fieldcat .
+  CLEAR gt_fieldcat[].
+  mcr_field &#39;TABIX&#39; &#39;顺序号&#39; &#39;10&#39;.
+  mcr_field &#39;NAME&#39; &#39;程序名称&#39; &#39;15&#39;.
+  mcr_field &#39;CNAM&#39; &#39;程序创建人&#39; &#39;20&#39;.
+  mcr_field &#39;UNAM&#39; &#39;最后修改人&#39; &#39;20&#39;.
+  mcr_field &#39;CODE&#39; &#39;程序描述&#39; &#39;30&#39;.
+  ENDFORM. &amp;quot; SUB_CREATE_FIELDCAT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_INIT_LAYOUT
+*&amp;amp;---------------------------------------------------------------------*
+* text
+*----------------------------------------------------------------------*
+  FORM sub_init_layout .
+  wa_layout-zebra = &#39;X&#39;.
+  wa_layout-window_titlebar = &#39;开发程序名称清单&#39;.
+  wa_layout-colwidth_optimize = &#39;X&#39;.
+  wa_layout-box_fieldname = &#39;BOX&#39;.
+  ENDFORM. &amp;quot; SUB_INIT_LAYOUT
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_DISPLAY_AS_ALV
+*&amp;amp;---------------------------------------------------------------------*
+* text
+*----------------------------------------------------------------------*
+  FORM sub_display_as_alv .
+  g_repid = sy-repid.
+  *ABAP List Viewer
+  CALL FUNCTION &#39;REUSE_ALV_GRID_DISPLAY&#39;
+  EXPORTING
+  i_callback_program = g_repid
+  i_structure_name = &#39;TYP_RESULT&#39;
+  i_callback_user_command = &#39;SUB_USER_COMMAND&#39;
+  i_callback_pf_status_set = &#39;SUB_SET_PF_STATUS&#39;
+  i_save = g_save
+  is_layout = wa_layout
+  it_fieldcat = gt_fieldcat[]
+  TABLES
+  t_outtab = gt_result
+  EXCEPTIONS
+  program_error = 1
+  OTHERS = 2.
+  ENDFORM. &amp;quot; SUB_DISPLAY_AS_ALV
+*@--------------------------------------------------------------------*
+*@ Form sub_user_command
+*@--------------------------------------------------------------------*
+* --&amp;gt;R_UCOMM 事务功能码
+* --&amp;gt;RS_SELFIELD ALV相关的数据
+*---------------------------------------------------------------------*
+  FORM sub_user_command USING r_ucomm LIKE sy-ucomm
+  rs_selfield TYPE slis_selfield.
+
+CASE r_ucomm.
+WHEN &#39;&amp;amp;IC1&#39;. &amp;quot;双击事件的功能码
+WHEN &#39;DOWNLOAD&#39;. &amp;quot;下载代码
+PERFORM sub_ucomm_down.
+ENDCASE.
+
+* 刷新ALV屏幕报表
+  rs_selfield-refresh = &#39;X&#39;.
+  ENDFORM. &amp;quot;sub_user_command
+*@---------------------------------------------------------------------*
+*@ FORM SUB_SET_PF_STATUS *
+*@---------------------------------------------------------------------*
+* 设置ALV菜单
+* 通过SE41，拷贝程序SAPLSLVC_FULLSCREEN的状态STANDARD_FULLSCREEN过来
+*@---------------------------------------------------------------------*
+  FORM sub_set_pf_status USING rt_extab TYPE slis_t_extab.
+  SET PF-STATUS &#39;STANDARD_FULLSCREEN&#39;.
+  ENDFORM. &amp;quot;sub_set_pf_status
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Form SUB_UCOMM_DOWN
+*&amp;amp;---------------------------------------------------------------------*
+* 下载选中的行的程序代码
+*----------------------------------------------------------------------*
+  FORM sub_ucomm_down .
+  LOOP AT gt_result WHERE box = &#39;X&#39;.
+* 得到文件名称
+  CLEAR g_filenm.
+  CONCATENATE p_filenm gt_result-name &#39;-&#39;
+  gt_result-code &#39;.txt&#39;
+  INTO g_filenm.
+* 得到程序代码
+  CLEAR gt_report[].
+  READ REPORT gt_result-name INTO gt_report.
+* 下载程序
+  PERFORM sub_download_report USING g_filenm.
+  ENDLOOP.
+  ENDFORM. &amp;quot; SUB_UCOMM_DOWN
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title> SAP发送邮件 </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils11/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils11/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;TRY.
+&amp;quot; 创建发送请求
+  l_send_request = cl_bcs=&amp;gt;create_persistent( ).
+&amp;quot; 设定发送内容
+  l_document = cl_document_bcs=&amp;gt;create_document( i_type  = &#39;RAW&#39;
+                                           i_text  = i_content[]
+                                           I_IMPORTANCE = &#39;1&#39;
+                                           i_subject = l_subject ).
+&amp;quot; 增加发送内容到发送请求
+  CALL METHOD l_send_request-&amp;gt;set_document( l_document ).
+&amp;quot; 取得发送者（取得发件人，前提是这个邮箱地址能发邮件，并且不需要密码）
+  l_uname = sy-uname.
+  l_sender = cl_sapuser_bcs=&amp;gt;create( l_uname ).
+  CALL METHOD l_send_request-&amp;gt;set_sender
+    EXPORTING
+      i_sender = l_sender.
+&amp;quot; 设置收件人
+   LOOP AT it_mailaccept.
+     CONCATENATE it_mailaccept-name &#39;@XXXXX.COM&#39; INTO i_email.
+     TRANSLATE i_email TO LOWER CASE.
+     l_recipient = cl_cam_address_bcs=&amp;gt;create_internet_address( i_email ).
+     CALL METHOD l_send_request-&amp;gt;add_recipient
+       EXPORTING
+         i_recipient  = l_recipient
+         i_express    = &#39;X&#39;
+         i_copy       = &#39; &#39;
+         i_blind_copy = &#39; &#39;
+         i_no_forward = &#39; &#39;.
+   ENDLOOP.
+&amp;quot; 设置抄送人
+    LOOP AT it_mailaccept_copy.
+      CONCATENATE it_mailaccept_copy-name &#39;@XXXXX&#39; INTO i_email.
+      TRANSLATE i_email TO LOWER CASE.
+      l_recipient = cl_cam_address_bcs=&amp;gt;create_internet_address( i_email ).
+      CALL METHOD l_send_request-&amp;gt;add_recipient
+        EXPORTING
+          i_recipient  = l_recipient
+          i_express    = &#39;X&#39;
+          i_copy       = &#39;X&#39;
+          i_blind_copy = &#39; &#39;
+          i_no_forward = &#39; &#39;.
+    ENDLOOP.
+*&amp;amp;  立即发送
+  l_send_request-&amp;gt;set_send_immediately( &#39;X&#39; ).
+*&amp;amp;  发送
+  CALL METHOD l_send_request-&amp;gt;send( ).
+    COMMIT WORK.
+  CATCH cx_document_bcs INTO l_bcs_exception.
+  CATCH cx_send_req_bcs INTO l_send_exception.
+  CATCH cx_address_bcs  INTO l_addr_exception.
+ENDTRY.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SAP后台JOB</title>
+      <link>https://coldinfire.github.io/2019/ABAPJOB/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPJOB/</guid>
       <description>
 
-&lt;h3 id=&#34;enterprise-struture&#34;&gt;Enterprise Struture&lt;/h3&gt;
-
-&lt;p&gt;1.Define Company : OX15&lt;/p&gt;
+&lt;h3 id=&#34;定义后台-job&#34;&gt;定义后台 job&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Define Company&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;第一种：SE38执行可执行程序&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/1.png&#34; alt=&#34;Define Company&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/2.png&#34; alt=&#34;Details&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB1.png&#34; alt=&#34;后台JOB&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;1.Enter company&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;2.Enter company name&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;3.Update address&lt;/li&gt;
-&lt;li&gt;4.Enter country code of company&lt;/li&gt;
-&lt;li&gt;5.Enter language key&lt;/li&gt;
-&lt;li&gt;6.Enter local currency&lt;/li&gt;
+&lt;li&gt;输入输出设备&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;2.Define Company Code : OX02&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB3.png&#34; alt=&#34;输出设备&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Edit,Copy,Delete Company Code
-&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/3.png&#34; alt=&#34;Company Code&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/4.png&#34; alt=&#34;Details&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;选择开始时间（立刻执行，或定义日期时间，也可周期执行）后保存。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;3.Assign Company Code to Company : OX16&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB2.png&#34; alt=&#34;时间&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;第二种：SM36定义作业名&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Assign Company Code To Company&lt;/li&gt;
+&lt;li&gt;点击‘Start condition’选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/5.png&#34; alt=&#34;Assign Demo&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;4.Define Plant : OX10&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB4.png&#34; alt=&#34;Start Condition&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Logistics -&amp;gt;General -&amp;gt; Define plant&lt;/li&gt;
+&lt;li&gt;再点击‘Step’，填写abap程序‘NAME’和‘Variant’后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/6.png&#34; alt=&#34;Define Plant&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;5.Assign Plant to Company Code : OX18&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Assignment -&amp;gt; Logistics -&amp;gt; AssignPlant to Company Code&lt;/li&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB5.png&#34; alt=&#34;Step&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/7.png&#34; alt=&#34;Assign&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.sina.com.cn/s/blog_76c57b480100rumm.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;如何在 SAP 中定义 Event 类型的后台 Job&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;6.Maintain Storage Locations : OX09&lt;/p&gt;
+&lt;h4 id=&#34;强制结束后台作业-sap-sm37-sm35-sm50&#34;&gt;强制结束后台作业（SAP SM37 SM35 SM50)&lt;/h4&gt;
+
+&lt;p&gt;解决方法：&lt;/p&gt;
+
+&lt;p&gt;第一步：SM50&lt;/p&gt;
+
+&lt;p&gt;​   找到Ty. 列为 BGD 的(Background)，然后再找到你刚运行的那个后台 Job 的行，选中；然后在菜单点击：Process&amp;mdash;Cancel with core. 即可。&lt;/p&gt;
+
+&lt;p&gt;第二步：SM37 查看 Background Job，应该为 “取消” 状态。&lt;/p&gt;
+
+&lt;p&gt;第三步：SM35，选中 Session Name，点击小绿旗 release 即可。&lt;/p&gt;
+
+&lt;h4 id=&#34;如何查看一个后台job对应哪些程序&#34;&gt;如何查看一个后台job对应哪些程序?&lt;/h4&gt;
+
+&lt;p&gt;​   sm36&amp;ndash;&amp;gt;点击“job selection”&amp;ndash;&amp;gt;运行结果双击选择job&amp;ndash;&amp;gt;回到第一个界面，点击“步骤”按钮，转到步骤清单总览，里面就可以看到程序名称了已取消，完成的job是不能修改的其它状态的都可以改，在sm37里，选择相应的job，菜单里有个更改项
+sm37就是sm36里job selection的链接.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>STO详解</title>
+      <link>https://coldinfire.github.io/2019/ABAPSTO/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPSTO/</guid>
+      <description>
+
+&lt;h3 id=&#34;一-工厂间转储&#34;&gt;一、工厂间转储&lt;/h3&gt;
+
+&lt;p&gt;（1）MB1B 移动类型 301 工厂到工厂（一步）转账 -&amp;gt; 简单明了一步转储；过账后会产生 GR，MITA 增加了，MIZH 减少了，&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Material Mast -&amp;gt; Maintain storage Location&lt;/li&gt;
+&lt;li&gt;MB03：-&amp;gt; 会产生 GR, 如果俩工厂标准价或者移动平均价不同，差异会调整到库存调拨损益科目。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/8.png&#34; alt=&#34;Storage Location&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;7.Maintain Purchase Organization : OX08&lt;/p&gt;
+&lt;p&gt;（2）MB1B （两步转储）移动类型 1. 转出 303, 2. 转入 305，两步转储操作，过账后，产生&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt;Enterprice Structure -&amp;gt; Definition -&amp;gt; Material Mast -&amp;gt; Maintain Purchasing Org&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;物料凭证 - MB03,&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;会计凭证 - FB03,&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/9.png&#34; alt=&#34;Purchase Org&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;8.Create Purchase groups : OME4&lt;/p&gt;
+&lt;p&gt;（3）区别&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt;MM -&amp;gt; Purchasing -&amp;gt; Create Purchasing Groups&lt;/li&gt;
+&lt;li&gt;​ MMBE 仔细看一下接收库存，会发现和一步的 区别，
+在库存传送那出现了 - 转储的数量，
+接下来就是接收库存，MB1B,过账后,也会产生 GR , 却不会产生 FR 财务凭证。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/10.png&#34; alt=&#34;Purchasing Groups&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;​   移动类型的工厂 1 步，2 步的转储，后台配置主要配置好存货科目，及转储中的损益科目便可。&lt;/p&gt;
 
-&lt;p&gt;9.Assign Purchasing org to Company Code : OX01&lt;/p&gt;
+&lt;h3 id=&#34;二-跨工厂转储-公司间调拨&#34;&gt;二、跨工厂转储（公司间调拨）&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;MM 转储操作 MB1B&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;【过账抬头】&lt;/p&gt;
+
+&lt;p&gt;​   移动类型：表示库存地点一步转储&lt;/p&gt;
+
+&lt;p&gt;​   工厂：指定公司代码&lt;/p&gt;
+
+&lt;p&gt;​   库存地点：物料储存的仓库代码&lt;/p&gt;
+
+&lt;p&gt;【过账项目】&lt;/p&gt;
+
+&lt;p&gt;​   接收库存地点：物料转储后存放的库位代码&lt;/p&gt;
+
+&lt;p&gt;​   物料：原料等级代码&lt;/p&gt;
+
+&lt;p&gt;​   数量：转储物料的量,和后面单位要对应&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WM 层面 转储操作 LT06&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   此界面正常情况下自动进入，若出现断线等异常情况，则用事物码 LT05 进入本界面，
+并输入相应的物料凭证号。&lt;/p&gt;
+
+&lt;p&gt;【抬头】&lt;/p&gt;
+
+&lt;p&gt;​   物料凭证：物料转储后产生的凭证号&lt;/p&gt;
+
+&lt;p&gt;​   物料凭证年份： 指定的年份&lt;/p&gt;
+
+&lt;p&gt;​   仓库号：指定的仓库好&lt;/p&gt;
+
+&lt;p&gt;​   在将转出的仓位号前填写转移数量&lt;/p&gt;
+
+&lt;p&gt;​   去掉 “记帐到同一仓位” 下的√&lt;/p&gt;
+
+&lt;h3 id=&#34;原料厂内转储单&#34;&gt;原料厂内转储单&lt;/h3&gt;
+
+&lt;p&gt;在 “工厂” 中输入工厂在 “物料凭证编号” 中输入‘凭证号‘点执行按钮&lt;/p&gt;
+
+&lt;p&gt;1   检查单据内容，无误后点菜单栏 “文本”→“打印”    打印原料厂内转储单&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; 查询各物料库存信息： MMBE/MB52/LS24&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt;SAP 系统内进行转储操作 MB1B&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt; Enterprice Structure -&amp;gt; Assign -&amp;gt; Material Mast  -&amp;gt; Assign Purchase Org to Company Code
-&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/11.png&#34; alt=&#34;Assign&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;移动类型 311；工厂 &amp;lsquo;XXXX&amp;rsquo;；发货库存地点 &amp;lsquo;XXXX&amp;rsquo;；转储物料编码 &amp;lsquo;XXXX&amp;rsquo;；数量 &amp;lsquo;XXXX&amp;rsquo;；接收库存地点 &amp;lsquo;XXXX&amp;rsquo;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;10.Assign Purchasing organization to reference purchasing org&lt;/p&gt;
+&lt;p&gt;-&amp;gt; 在 SAP 系统的 WM 模块中确定&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt; Enterprice Structure -&amp;gt; Assign -&amp;gt; Material Mast -&amp;gt; Assign Purchase Org to RPO&lt;/li&gt;
+&lt;li&gt;确定转出、转入仓位 &amp;lsquo;XXXX&amp;rsquo;；物料凭证&amp;rsquo;XXXX&amp;rsquo;；物料凭证的年份&amp;rsquo;XXXX&amp;rsquo;；仓库号&amp;rsquo;XXXX&amp;rsquo;；源仓位 &amp;lsquo;01-01-08&amp;rsquo;；目的仓位 &amp;lsquo;01-01-05&amp;rsquo;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;11.Assign Purchase Org to Plant : OX17&lt;/p&gt;
+&lt;p&gt;-&amp;gt; 查看物料凭证 MB03&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; 查询物料凭证清单 MB51&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; MMBE 单个料查询库存&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; MB52（此查询带金额）&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; LS24（查询某一物料的仓位库存）&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; MB03 显示物料凭证 &amp;lt;-&amp;gt; 同部分 migo&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>库存管理</title>
+      <link>https://coldinfire.github.io/2019/MMInventoryManagement/</link>
+      <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMInventoryManagement/</guid>
+      <description>
+
+&lt;h2 id=&#34;一-基本介绍&#34;&gt;一、基本介绍&lt;/h2&gt;
+
+&lt;h4 id=&#34;1-库存类型&#34;&gt;1.库存类型&lt;/h4&gt;
+
+&lt;p&gt;​      可用库存：可通过BAPI_MATERIAL_AVAILABILITY来获取&lt;/p&gt;
+
+&lt;p&gt;​      当前库存：一般保存在MARD-LABST字段中&lt;/p&gt;
+
+&lt;p&gt;​      在途库存：MARC-UMLMC（中转库存）+ MARC-TRAME（在途库存），在途库存是不存在库位关系的&lt;/p&gt;
+
+&lt;p&gt;​      寄售库存：MSKU-KULAB，寄售库存是不存在库位关系的&lt;/p&gt;
+
+&lt;h4 id=&#34;2-物料凭证-material-document-mb51-查看物料凭证&#34;&gt;2.物料凭证 Material Document  : MB51(查看物料凭证)&lt;/h4&gt;
+
+&lt;p&gt;​      物料凭证批记录物料变动的单据：如收发货、调拨、销售、盘点过账等都会产生。&lt;/p&gt;
+
+&lt;p&gt;​      凭证类型，即物料的移动类型，三位编码。常用物料移动类型：&lt;/p&gt;
+
+&lt;p&gt;​        101 : 采购订单收货/生产订单收货 (MB01 采购订单的过账收货、MB31 按生产订单收货）&lt;/p&gt;
+
+&lt;p&gt;​        102：反冲；&lt;/p&gt;
+
+&lt;p&gt;​        103 : 入库冻结&lt;/p&gt;
+
+&lt;p&gt;​        105 : 释放冻结库&lt;/p&gt;
+
+&lt;p&gt;​        122：退货&lt;/p&gt;
+
+&lt;p&gt;​        261：从仓库发货到订单的消耗（领料生产MB1A）&lt;/p&gt;
+
+&lt;p&gt;​        301：跨工厂间一步库存转移&lt;/p&gt;
+
+&lt;p&gt;​        311：同一工厂一步库存转移&lt;/p&gt;
+
+&lt;p&gt;​        561：期初库存的导入&lt;/p&gt;
+
+&lt;p&gt;​        601 : 成品、原材料的销售出库&lt;/p&gt;
+
+&lt;h4 id=&#34;3-创建移动类型-omjj&#34;&gt;3.创建移动类型 ： OMJJ&lt;/h4&gt;
+
+&lt;p&gt;​    SPRO &amp;gt; MM &amp;gt; Inventory Management and Physical Inventory &amp;gt; Movement Types&lt;/p&gt;
+
+&lt;h4 id=&#34;4-stock-transfer-me27-me21&#34;&gt;4. Stock Transfer  : ME27/ME21&lt;/h4&gt;
+
+&lt;p&gt;​    库存转移：将物料从一个工厂转移到另一个存储地点，从工厂到工厂，从公司代码工厂转移到另一个公司代码工厂。发生库存转移时，两个工厂数量都回发生变化。&lt;/p&gt;
+
+&lt;p&gt;Transfer Posting : MB1B&lt;/p&gt;
+
+&lt;p&gt;​    将物料从一个工厂移动到另一个工厂或则存储地点。&lt;/p&gt;
+
+&lt;p&gt;​    &amp;lt; 1.物料到物料，工厂到工厂过账&lt;/p&gt;
+
+&lt;p&gt;​    &amp;lt; 2.从估价类型转移过账到估价类型&lt;/p&gt;
+
+&lt;p&gt;​    &amp;lt; 3.释放(Q)质量检验库存，将库存转移到SAP中的(U)无限制使用状态&lt;/p&gt;
+
+&lt;p&gt;​               库存转移 ME27/ME21                                           转移过账 / MB1B&lt;/p&gt;
+
+&lt;p&gt;​    库存转移是货物的实际移动，是强制性的            货物的实物流动是转移过账的选项&lt;/p&gt;
+
+&lt;p&gt;​    库存转移包括从发货点发货和收货点收货            特殊库存到公司库存和工厂间转移&lt;/p&gt;
+
+&lt;p&gt;​    移动类型是 641-transfer，643-跨公司                 301-工厂到工厂  309 物料到物料&lt;/p&gt;
+
+&lt;p&gt;​                                                                                 311库存地点到库存地点&lt;/p&gt;
+
+&lt;h2 id=&#34;二-库存目的&#34;&gt;二、库存目的&lt;/h2&gt;
+
+&lt;p&gt;​     ★ 完成接收、发送和转储库存的流程&lt;/p&gt;
+
+&lt;p&gt;​     ★ 设置库存主数据&lt;/p&gt;
+
+&lt;p&gt;​     ★ 创建按批次和序列号管理的物料&lt;/p&gt;
+
+&lt;p&gt;​     ★ 针对销售库存拣配和包装物料&lt;/p&gt;
+
+&lt;p&gt;​     ★ 创建价格清单和特殊价格&lt;/p&gt;
+
+&lt;p&gt;​     ★ 针对物料运输运行MRP&lt;/p&gt;
+
+&lt;h4 id=&#34;仓库管理流程&#34;&gt;仓库管理流程：&lt;/h4&gt;
+
+&lt;p&gt;​       1. 三个流程：【收货】   【库存转储】   【发货】&lt;/p&gt;
+
+&lt;p&gt;​           主要单据：发货单，库存转储单，收货单&lt;/p&gt;
+
+&lt;p&gt;​       2. 销售订单  —&amp;gt;【拣配】 —&amp;gt;  交货单创建  —&amp;gt;【包装以交货】—&amp;gt;  应收发票&lt;/p&gt;
+
+&lt;p&gt;​       3. 定义计划数据—&amp;gt;运行MRP—&amp;gt;查看订单建议—&amp;gt;生产订单/采购订单（建议结果）&lt;/p&gt;
+
+&lt;p&gt;​       4.序列号：用于跟踪单个队形&lt;/p&gt;
+
+&lt;p&gt;​          批次号：用于跟踪具有普遍性的物料组&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>收货</title>
+      <link>https://coldinfire.github.io/2019/MMGoodsReceive/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMGoodsReceive/</guid>
+      <description>&lt;p&gt;1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO&lt;/p&gt;
+
+&lt;p&gt;​    GRIN清单：供应商发票上的PO# 与Org PO #相同&lt;/p&gt;
+
+&lt;p&gt;​                        供应商地址和采购订单地址匹配&lt;/p&gt;
+
+&lt;p&gt;​                        物料数量应在Org PO中可用&lt;/p&gt;
+
+&lt;p&gt;​                        发票价格和采购订单价格匹配&lt;/p&gt;
+
+&lt;p&gt;​                        发票和采购订单物料描述相同&lt;/p&gt;
+
+&lt;p&gt;​                        供应商名称与发票和PO间匹配&lt;/p&gt;
+
+&lt;p&gt;​                        PO和发票中的税匹配&lt;/p&gt;
+
+&lt;p&gt;​    收货：MIGO&lt;/p&gt;
+
+&lt;p&gt;​            输入PO NO.然后输入详细信息&lt;/p&gt;
+
+&lt;p&gt;​            Delivery Note：交货单输入发票参考：&lt;/p&gt;
+
+&lt;p&gt;​            Vendor :检查供应商名称&lt;/p&gt;
+
+&lt;p&gt;​            Bill of Lading : Non-bounded&lt;/p&gt;
+
+&lt;p&gt;​            Header Text：输入项目参考&lt;/p&gt;
+
+&lt;p&gt;​            Tick on collective slip：集体票据(打钩)&lt;/p&gt;
+
+&lt;p&gt;​            附件添加          更新所有必填信息后，可以保留、检查、发布&lt;/p&gt;
+
+&lt;p&gt;​            点击执行按钮保存文档生成GRIN#。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMGR/MIGO.png&#34; alt=&#34;MIGO&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​    MIGO ：Select Cancellation and update GRIN No to reverse the GRIN. Post.&lt;/p&gt;
+
+&lt;p&gt;2.Post goods issue : MB1A (发料)&lt;/p&gt;
+
+&lt;p&gt;​    Update the movement type from options.&lt;/p&gt;
+
+&lt;p&gt;​    Enter the plant code.&lt;/p&gt;
+
+&lt;p&gt;​    Update the reason for movement key from the possible entries.&lt;/p&gt;
+
+&lt;p&gt;​    Updating all the required,press enter to continue.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMGR/MB1A.png&#34; alt=&#34;MB1A&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3.发票校验：MIRO&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 介绍&lt;/p&gt;
+
+&lt;p&gt;​        发票校验是MM的一部分。提供物料管理部分和财务会计，成本控制和资产管理部分的连       接。&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 目的&lt;/p&gt;
+
+&lt;p&gt;​        完成物料采购的全过程：物料采购从采购申请(PR)开始，然后下PO和收货,并以收到发票       而结束。&lt;/p&gt;
+
+&lt;p&gt;​        允许处理不基于物料采购的发票（服务费，其他花费等）&lt;/p&gt;
+
+&lt;p&gt;​        允许处理贷项凭证，既可以是发票的取消，也可以是打折扣&lt;/p&gt;
+
+&lt;p&gt;​        发票校验不是对支付进行处理，也不是对发票进行分析，这些需要处理的信息传递到其他       部门。&lt;/p&gt;
+
+&lt;p&gt;​     ♣ 任务&lt;/p&gt;
+
+&lt;p&gt;​        输入接收到的发票和贷项凭证，检验发票内容,价格和计算第准确性&lt;/p&gt;
+
+&lt;p&gt;​        执行一个发票的账目记账&lt;/p&gt;
+
+&lt;p&gt;​        更新SAP系统内的一些数据，如未结算项目和物料价格&lt;/p&gt;
+
+&lt;p&gt;​        检查因为与采购订单出入太大而别冻结的发票&lt;/p&gt;
+
+&lt;p&gt;​     ♣ 过程&lt;/p&gt;
+
+&lt;p&gt;​        基于采购订单的发票校验：输入采购订单号，查看信息，可修改缺省数据。&lt;/p&gt;
+
+&lt;p&gt;​        基于收货的发票校验：先收货，再开票。&lt;strong&gt;&lt;em&gt;一般建议基于收货的发票校验&lt;/em&gt;&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;​        如果发票和PO有误差，系统将会发出警告。如果变化在预先设定的容差范围内，系统将允     许该发票被记账，但会自动的冻结发票并支付。如果变化不在允许的范围内，系统将不允许      发票被记账。&lt;/p&gt;
+
+&lt;p&gt;​        发票必须在一个分开的步骤中被批准。&lt;/p&gt;
+
+&lt;p&gt;​        发票被输入时，系统将找到对应的账户科目。系统将自动生成销售税，现金折扣清算和价       格差异，这些记账记录被显示出来。如果存在余额，用户要进行修正，&lt;strong&gt;&lt;em&gt;只有余额为零发票才&lt;/em&gt;&lt;/strong&gt;        &lt;strong&gt;&lt;em&gt;能被记账。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​        发票被记账后，一些数据会在系统内被更新，如订购的物料的平均价格和采购订单历史。&lt;/p&gt;
+
+&lt;p&gt;​        发票记账完成了发票校验。需要被支付的数据包含在系统中，会计部门可以读入这些数据       并作出合适的支付。&lt;/p&gt;
+
+&lt;p&gt;​     ♣ 校验种类&lt;/p&gt;
+
+&lt;p&gt;​        规则：一张发票表示一个事务，事务的发货方要求被付款。&lt;/p&gt;
+
+&lt;p&gt;​        基于采购订单的发票：&lt;/p&gt;
+
+&lt;p&gt;​            基于采购订单的发票校验，一个订单的所有项目可以被一起处理，接收部分收货。所有          的收货被汇总并作为一个项目进行记账。&lt;/p&gt;
+
+&lt;p&gt;​        基于收货的发票：&lt;/p&gt;
+
+&lt;p&gt;​            发票不是关联于采购订单，而是关联于分别的交货活动。发票的参考凭证不是采购订单           PO,而是交货通知或则收料单凭证。一个货物接收活动必须在发票已经输入系统之前。&lt;/p&gt;
+
+&lt;p&gt;​         发票输入的方式可能是参考一个交货通知或一个货物接收凭证。&lt;/p&gt;
+
+&lt;p&gt;​         前提条件：&lt;/p&gt;
+
+&lt;p&gt;​             有关的 PO 项目必须有基于收货的发票校验标志。&lt;/p&gt;
+
+&lt;p&gt;​         操作：&lt;/p&gt;
+
+&lt;p&gt;​             转向采购定单项目详细屏幕。选择字段  GR-IV。保存采购定单。&lt;/p&gt;
+
+&lt;p&gt;​             你可以在任何时候显示货物接受和发票的关系。你将在采购定单项目的历史中找到这些         信息。&lt;/p&gt;
+
+&lt;p&gt;​        没有订单的发票：&lt;/p&gt;
+
+&lt;p&gt;​            如果没有采购订单做参考，可以直接将事务记入一个物料帐户，一个总帐帐户，或一个           资产帐户.&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 有差异的发票校验&lt;/p&gt;
+
+&lt;p&gt;​        差异分为：数量差异，价格差异，计划差异，采购订单价格数量差异，质量检查&lt;/p&gt;
+
+&lt;p&gt;​        数量差异：发票数量大于已交货数量和已开发票数量的差异&lt;/p&gt;
+
+&lt;p&gt;​        价格差异:发票金额/发票数量&amp;lt;&amp;gt;净订单价格&lt;/p&gt;
+
+&lt;p&gt;​        计划差异:PO Delivery Schedule 的收货日期与实际收货日期的差异.&lt;/p&gt;
+
+&lt;p&gt;​        采购订单价格数量差异:收货数量/价格与采购订单的数量价格之间的差异.&lt;/p&gt;
+
+&lt;p&gt;​        质量管理:如果商品激活了质量管理,则在过账时过到检查库存.&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 无差异的发票校验&lt;/p&gt;
+
+&lt;p&gt;​        过程一样，只是数量和金额无差异。&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 预置发票：MIR7&lt;/p&gt;
+
+&lt;p&gt;​        相当于发票请求单，可以进行多次修改，保存后不自动过账。做完预置发票后执行MIRO,选择预置发票。&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 后台发票校验：MIRA&lt;/p&gt;
+
+&lt;p&gt;​        后台校验是在后台进行发票的检查，如果在容差范围之内，将在后台直接过账&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 后台检查发票的正确性：WC23&lt;/p&gt;
+
+&lt;p&gt;4.后台配置&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 容差配置：OMR6&lt;/p&gt;
+
+&lt;p&gt;​        容差是基于公司代码的配置,因为发票是根据公司代码开具.配置上/下限&amp;rdquo;检查限制&amp;rdquo;,或设置%.一般企业要配置四种容差：&lt;/p&gt;
+
+&lt;p&gt;​            BD：(自动形成小的差异)&lt;/p&gt;
+
+&lt;p&gt;​            DQ：(超出金额: 数量偏差)&lt;/p&gt;
+
+&lt;p&gt;​            PP：(价格变化)&lt;/p&gt;
+
+&lt;p&gt;​            VP：(移动平均价格差异).&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 配置供应商容差:PATH:物料管理-&amp;gt;后期发票校验-&amp;gt;收到的账单-&amp;gt;配置指定供应商容差,在发票校验中，供应商特定的参数的设置。在一个公司代码中，只可以将一个容差组分配到一个供应商。在供商主数据(XK02)中有一个容差组&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 配置发票校验条件:PATH:物料管理-&amp;gt;后期发票校验-&amp;gt;信息确认-&amp;gt;维护条件-&amp;gt;修改-发票校验&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 配置凭证类型:PATH:物料管理-&amp;gt;后期发票校验-&amp;gt;收到的账单-&amp;gt;号码分配-&amp;gt;维护科目凭证的编号范围-&amp;gt;凭证类型&lt;/p&gt;
+
+&lt;p&gt;​    ♣ 配置默认税代码: PATH:物料管理-&amp;gt;后期发票校验-&amp;gt;收到的账单-&amp;gt;维护税代码的缺省值　(根据公司代码设置)&lt;/p&gt;
+
+&lt;p&gt;​    开票前准备：在做采购订单时在项目明细“发票”页“基于收货的IV”字段设置为‘X’.&lt;/p&gt;
+
+&lt;p&gt;5.基于收货的发票校验：MIRO&lt;/p&gt;
+
+&lt;p&gt;​    输入公司代码；选择凭证类型(贷项凭证/发票)，结算总金额为负则为贷项凭证，为正则为发票。当发票即含有进也含有退时在输入采购订单号右边的Button,单击进入后,把退货选成贷向,进货选成借向,否则无法做发票校验。&lt;/p&gt;
+
+&lt;p&gt;MIR4：显示发票凭证&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Info Record</title>
+      <link>https://coldinfire.github.io/2019/MMInfoRecord/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMInfoRecord/</guid>
+      <description>
+
+&lt;h3 id=&#34;创建info-record&#34;&gt;创建Info Record&lt;/h3&gt;
+
+&lt;p&gt;信息记录 (Info record)**：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。&lt;/p&gt;
+
+&lt;p&gt;创建方式：手工输入，报价单选择，采购订单，框架协议更新&lt;/p&gt;
+
+&lt;h4 id=&#34;手工输入-me11-12-13-14-15-memmasg&#34;&gt;手工输入：ME11/12/13/14/15,MEMMASG&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt; Enterprice Structure -&amp;gt;Assignment -&amp;gt; Material Mast -&amp;gt; Assign PO to Plant&lt;/li&gt;
+&lt;li&gt;SPRO &amp;gt; IMG &amp;gt; MM &amp;gt; Purchasing &amp;gt; Main data &amp;gt; Info Recore&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMMasterData/12.png&#34; alt=&#34;Org To Plant&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;master-data&#34;&gt;Master Data&lt;/h3&gt;
-
-&lt;p&gt;1.物料主数据视图：&lt;/p&gt;
+&lt;p&gt;主要数据：&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;包含：常规，采购，销售，库存， 计划，属性，备注等视图维护。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;供应商，物料，采购组织&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;信息类别&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;标准&lt;/li&gt;
+&lt;li&gt;分包：委外&lt;/li&gt;
+&lt;li&gt;管道线：石油，水，电&lt;/li&gt;
+&lt;li&gt;寄售：供应商协议&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;2.Split Valuation configuration (定义全球估价类型) : OMWC&lt;/p&gt;
+&lt;p&gt;详细信息：&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; IMG -&amp;gt; MM -&amp;gt; valuation and account assign -&amp;gt; split valuation -&amp;gt;config split valuation&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;供应商数据&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;供应商物料编号：对应供应商方提供物料的编号，方便对方发货&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;子范围：同一供应商具有不同的发货点&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;第一个屏幕（Global Types）&lt;/p&gt;
+&lt;p&gt;开启功能：SPRO&amp;gt;商业伙伴&amp;gt;供应商&amp;gt;控制&amp;gt;定义科目组合字段选择&amp;gt;【相关的供应商子域，相关工厂级别】&lt;/p&gt;
 
-&lt;p&gt;第二个屏幕（创建新的估价类型 Valuation Types：&lt;/p&gt;
+&lt;p&gt;定义供应商时：设置对应的子范围和子范围对应的替代数据&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;Valuation type:识别估价类型的关键
-Ext.PO : 是否允许外部采购订单（0：不允许，1：允许，提示警告，2：允许）
-Int.PO  : 是否允许内部订单（0：不允许，1：允许，提示警告，2：允许）
-Acct cat : 账户参考必填字段。选择合适的值）
-     （创建新的估价类别： Valuation category :
-        Def ext.procure:默认外部采购
-        ext.procurement mand ： 复选框勾选则无法在PO级别更改评估类型
-        Def in-house:
-        val.type automatic: 复选框用于拆分评估和批次管理
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用：创建PO时&amp;gt;Item&amp;gt;主数据&amp;gt;定子范围&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;2.Create Material Group ： OMSF&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;供应选择&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; Logistic general -&amp;gt; MM -&amp;gt; Settings for Key Fields -&amp;gt; Define Material Group&lt;/li&gt;
+&lt;li&gt;可使用时间段&lt;/li&gt;
+&lt;li&gt;常规供应商&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;订单单位(从物料主数据获取)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;订单单位&lt;/li&gt;
+&lt;li&gt;转换关系&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;物料组：是物料统计分组的标识，属于无组织机构级别，它在采购信息记录、采购订单等中使用。在创建采购订单时， 当输入物料编号，物料组就自动被带出。物料组用于内部管理，分类较细。用户可以通过物料组获取整个采购状况及当前库存的标准SAP报表。&lt;/p&gt;
-
-&lt;p&gt;3.Create Material Types ： OMS2&lt;/p&gt;
+&lt;p&gt;采购组织数据1：&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO -&amp;gt; Logistic general -&amp;gt; MM -&amp;gt; Basic Settings -&amp;gt; Material Types&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;控制&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;计划交货时间:Lead Timd=L/T，前置时间，（下PO到供应商送货日期）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Underdel.tol/Overdeliv.tol：收货数量容差百分比&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;物料类型用来控制视图的范围，也用来控制物料的计价方式以及物料是否能够用于库存管理。也是SAP报表和分析涉及的重要对象。作为物料统计和分类的标准之一。如需新建物料类型，不能采用新建条目，只能采用复制方法，具体步骤是：&lt;/p&gt;
+&lt;p&gt;Unlimited：不加收货数量限制&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;1&gt;参考已有的物料类型进行复制，但不要修改条目细节的属性值；&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;采购组&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;2&gt;对新建的物料类型进行修改，以其符合自身需求。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Standard qty：等级（不同购买量，价格等级）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Minimum qty、Maximum qty&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;剩余货架寿命(Rem.shelf life)：收货后物品失效日期&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;GR-based IV&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;NO ERS：财务定期结账；前提是设置【供应商的采购数据&amp;gt;控制数据&amp;gt;设定评估】 TCode:&lt;code&gt;MRRL&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;需求确认：收到货后是否需要供应商确认&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Condation&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;设定价格有效期，不同时间段不同价格&lt;/li&gt;
+&lt;li&gt;等级对比（F2）,设定购买不同数量级的价格&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  新建物料类型后，需要维护编码范围；维护数量/价值更新；字段状态维护。
-  字段参考：为字段状态服务的分组码
-  项目类别组：设定默认的项目类别组，用于销售项目类别确认、计划类别确认、交货项目类别确认
-  账户分类参考：设计会计视图的可应用的评估类，与自动记账相关
-  用户部门：根据业务需求选择部门内部，外部采购订单：根据业务要求选择值
-  计价：
-  价格控制：选择适用
-  关联科目：从列表中选择，检查输入评估类是否允许维护物料主记录中的会计数据
-  库存项目：不是库存项目，值更新；具有值的库存项目，数量更新和值更新
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;4.Define industry Sectors ： OMS3&lt;/p&gt;
-
-&lt;p&gt;Industry sectors , industry desc , Field Reference.&lt;/p&gt;
-
-&lt;p&gt;5.Maintain company codes for material management&lt;/p&gt;
-
-&lt;p&gt;SPRO &amp;gt; Logistics &amp;gt; General &amp;gt; MM &amp;gt; Basic settings &amp;gt; Maintain company code for MM&lt;/p&gt;
-
-&lt;p&gt;CoCD,Company Name,Year,等字段信息更新保存。&lt;/p&gt;
-
-&lt;p&gt;6.Define MRP Controllers&lt;/p&gt;
+&lt;p&gt;采购组织数据2：&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO &amp;gt; IMG &amp;gt; Production &amp;gt; MRP &amp;gt; Master Data &amp;gt; Define MRP Controllers(Plant,MRP Controller, Tel)&lt;/li&gt;
+&lt;li&gt;采购凭证：与采购订单相关联&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;SAP MRP are planned for each plant and every plant has its own MRP data.&lt;/p&gt;
+&lt;h4 id=&#34;报价单选择-a-b-c&#34;&gt;报价单选择：A/B/C&lt;/h4&gt;
 
-&lt;p&gt;7.Create,Change,Display Material : MM01/MM02/MM03&lt;/p&gt;
+&lt;p&gt;​   在报价单创建时，选择Info Record update。产生报价单时，会产生Info Record&lt;/p&gt;
+
+&lt;h4 id=&#34;采购订单&#34;&gt;采购订单&lt;/h4&gt;
+
+&lt;p&gt;​   ME21N &amp;gt; Item &amp;gt; MM &amp;gt; Info Record Update&lt;/p&gt;
+
+&lt;h4 id=&#34;框架协议&#34;&gt;框架协议&lt;/h4&gt;
+
+&lt;h3 id=&#34;更新&#34;&gt;更新&lt;/h3&gt;
+
+&lt;p&gt;Customizing：Define control of conditions at plan level&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SPRO &amp;gt; Logistics &amp;gt; MMt &amp;gt; MMa &amp;gt; Material &amp;gt; Create general&lt;/li&gt;
+&lt;li&gt;NULL：Conditions allowed with or w/o plant&lt;/li&gt;
+&lt;li&gt;+：Only plant-based conditions allowed&lt;/li&gt;
+&lt;li&gt;-：No plant-based conditions allowed&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;8.Create Purchasing info records : ME11/ME12/ME13&lt;/p&gt;
+&lt;h3 id=&#34;使用&#34;&gt;使用&lt;/h3&gt;
 
-&lt;p&gt;为不同的采购类型创建采购信息记录，例如标准、分包、管道、寄售。用于将供应商和物料在工厂级别或则采购组织数据作为主数据存储。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Info Record和价钱决定：ME21n创建PO&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h4 id=&#34;info-record&#34;&gt;Info Record&lt;/h4&gt;
+&lt;p&gt;1）如果是手工输入价钱，得到输入的价钱&lt;/p&gt;
 
-&lt;p&gt;总账科目确认：&lt;/p&gt;
+&lt;p&gt;2）如果手工没有输入，系统检查是否有 Info record，没有Info record 需要手工输入；如果有Info Record且Info Record中有有效的价钱，采用 Info record 价格。&lt;/p&gt;
+
+&lt;p&gt;3 ）如果Info record中没有Info record价格，最后采用Last  PO 价钱，也可以不从Last PO 带入价格。(Info record &amp;gt; 采购组织数据2 &amp;gt; 采购凭证)&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;按物料级别设置科目：手动输入的科目&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;按仓库设置总账科目：仓库定义中的科目&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;按物料组设置总账科目：物料组定义中的科目&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;物料&amp;gt;采购&amp;gt;定义采购员的缺省值：定义采用价格&amp;gt;一直复制&lt;/li&gt;
+&lt;li&gt;Purchasing&amp;gt;Env Data &amp;gt;Define default values for Buyers&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
-      <title>MM 采购</title>
-      <link>https://coldinfire.github.io/2019/MMDetail2/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <title>RFQ</title>
+      <link>https://coldinfire.github.io/2019/MMPurchaseRFQ/</link>
+      <pubDate>Mon, 18 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMDetail2/</guid>
+      <guid>https://coldinfire.github.io/2019/MMPurchaseRFQ/</guid>
       <description>
 
-&lt;h2 id=&#34;库存采购基础&#34;&gt;库存采购基础&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/Buy.png&#34; alt=&#34;采购环境&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;采购流程&#34;&gt;采购流程：&lt;/h3&gt;
+&lt;h3 id=&#34;request-for-quotation-rfq-me41-42-43&#34;&gt;Request For Quotation (RFQ): ME41 /42/43&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;1. MRP &amp;amp; Purch.Req (Determination of reqmts)（确认需求）&lt;/li&gt;
-&lt;li&gt;2. Source determination (购买方式和货源)&lt;/li&gt;
-&lt;li&gt;3. Vendor selection （跟哪个供应商买）&lt;/li&gt;
-&lt;li&gt;4. Request for Quotation (要求报价)&lt;/li&gt;
-&lt;li&gt;5. Purchase Requisition (采购申请)&lt;/li&gt;
-&lt;li&gt;6. PO processing （下采购订单）&lt;/li&gt;
-&lt;li&gt;7. PO monitoring （订单跟踪）&lt;/li&gt;
-&lt;li&gt;8. Goods receipt （收货）&lt;/li&gt;
-&lt;li&gt;9. Invoice verfication （发票校验）&lt;/li&gt;
-&lt;li&gt;10. Payment processing （付钱）&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; RFQ/Quotation &amp;gt; RFQ&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enter REQ type,Date limit,Purch Org,Purch Group, Plant ,Storage Location&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;MRP：&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/RFQ_ME41.png&#34; alt=&#34;RFQ&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;使用预计的制造生产计划来确定所需材料以及何时需要信息。&lt;/li&gt;
+&lt;li&gt;Enter Collective No to track of all RFQ related to particular instance and ref data&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;供应商选择：&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/RFQ_Head.png&#34; alt=&#34;RFQ Head&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;从报价中比较选择供应商。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Enter the appropriate item category&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enter the material NO , RFQ Quantity&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enter the Deliv. Date，Plant code , Submission date , Click Create Vendor address&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;报价请求：&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/RFQ_Items.png&#34; alt=&#34;RFQ Item&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Create Vendor Address Screen:&lt;/p&gt;
+
+&lt;p&gt;​   &lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/Vendor_addr.png&#34; alt=&#34;Vendor Addr&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;maintain-quotation-me47&#34;&gt;Maintain Quotation : ME47&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;要求潜在供应商提交材料或服务报价。Quatation 包含供应商的条款和条件。&lt;/li&gt;
+&lt;li&gt;SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; RFQ/Quotation &amp;gt; Quotation &amp;gt; Maintain&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;采购申请：&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;价格比较-me49&#34;&gt;价格比较：ME49&lt;/h4&gt;
+
+&lt;h4 id=&#34;市场价-mekh-mp01&#34;&gt;市场价：MEKH(MP01)&lt;/h4&gt;
+
+&lt;h4 id=&#34;info-record-update-选择工厂更新&#34;&gt;Info Record update：选择工厂更新&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;物料使用部门提出的队某种物料的需求&lt;/li&gt;
-&lt;li&gt;可以由系统自动生成 (MRP) 或手工生成&lt;/li&gt;
-&lt;li&gt;公司内部谁用文件&lt;/li&gt;
-&lt;li&gt;可以没有供应商、没有价格，只有评估价值&lt;/li&gt;
-&lt;li&gt;可以自动或手动地转化为采购订单&lt;/li&gt;
-&lt;li&gt;交货指示&lt;/li&gt;
+&lt;li&gt;A：有或则没有工厂的更新&lt;/li&gt;
+&lt;li&gt;B：只允许有工厂的更新&lt;/li&gt;
+&lt;li&gt;C：无工厂更新&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;采购订单：&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;维护工厂的条件维护：SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; Conditions &amp;gt; Define Condition Control at Plant level&lt;/p&gt;
+
+&lt;h3 id=&#34;set-tolerance-limits-for-price-variance&#34;&gt;Set Tolerance Limits For Price Variance&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;PO 是供应商在特定条件下提供某些材料或服务的正式请求。&lt;/li&gt;
-&lt;li&gt;询价 / 报价：第一次购买的物料，为一种库存物料创建一张采购订单&lt;/li&gt;
-&lt;li&gt;采购订单处理：参考采购订单输入一张物料接收，评估自动生成的各个凭证&lt;/li&gt;
-&lt;li&gt;收货：输入与采购订单相关的收据，同时进行价格及质量检查&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SPR &amp;gt; IMG &amp;gt; MM &amp;gt; Purchasing &amp;gt; Purchase Order &amp;gt; Set Tolerance Limits For Price Var&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Tolerance key: PE-价格差异购买&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;SE-最大现金光盘扣除(购买)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;检查供应商发票：核实在发票过账基础上创建的财务会计凭证，验证其可信程度&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/Tolerance.png&#34; alt=&#34;Tolerance&#34; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&#34;询价报价&#34;&gt;询价报价&lt;/h4&gt;
+&lt;h3 id=&#34;maintain-source-list-me01-me02-me03&#34;&gt;Maintain source list : ME01/ME02/ME03&lt;/h3&gt;
+
+&lt;p&gt;Enter Valid time,Vendor,Purchasing Org,Fix(固定源),Blk(供应商阻止采购此物料)，MRP 1.包含&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/SourceList.png&#34; alt=&#34;Source List&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;create-purchasing-requisition-me51n-me52n-me53n&#34;&gt;Create Purchasing Requisition : ME51N/ME52N/ME53N&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;询价单 / 报价单：ME41/ME47 &lt;RFQ&gt;&lt;/li&gt;
-&lt;li&gt;打印询价单：ME9A&lt;/li&gt;
-&lt;li&gt;价格对比：ME49&lt;/li&gt;
-&lt;li&gt;信息清单：ME11&lt;/li&gt;
+&lt;li&gt;SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; Purchase Requisition &amp;gt; Create&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ol&gt;
-&lt;li&gt;确定购买需求&lt;/li&gt;
-&lt;li&gt;确定货源的供应&lt;/li&gt;
-&lt;li&gt;向选定的多个供应商发送询价单（物料价格，物料数量，送货时间，等等）&lt;/li&gt;
-&lt;li&gt;根据供应商返回的报价单挑选合适的 (报价单处理：输入价格和条件，应用价格比较列表比较报价单)&lt;/li&gt;
-&lt;li&gt;参照报价单创建采购订单&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;0.Header note:部门账号，授权部门签名，交货说明，条款和条件&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;采购信息记录和价格决定：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1.Select document type for PR&lt;/p&gt;
 
-&lt;p&gt;1）手工输入价钱&lt;/p&gt;
+&lt;p&gt;2.Enter material code&lt;/p&gt;
 
-&lt;p&gt;2）如果手工没有输入，系统找 Info record，如果信息记录中有合适的价钱，采用 Info record 价格。&lt;/p&gt;
+&lt;p&gt;3.Enter quantity of material&lt;/p&gt;
 
-&lt;p&gt;3 ）没有Info record价格，最后采用 PO 价钱，也可以不从最后的 PO 带入价格。&lt;/p&gt;
+&lt;p&gt;4.Update delivery date&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;配额协议&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;5.Enter respective plant code&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;货源清单 (Source List)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;6.Enter corresponding storage location&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;信息记录 (Info record)&lt;/strong&gt;：ME11（手工输入，报价单，采购订单，框架协议更新）
-：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;价格条件：&lt;/strong&gt;
-报价价格、采购订单、信息记录、框架协议会 （用到价格条件类型）&lt;/p&gt;
-
-&lt;p&gt;市场价：对个供应商的价格平均值，查询市场价 &lt;MEKH&gt;&lt;/p&gt;
-
-&lt;p&gt;采购订单：将采购订单发送给供应商《同时发送给生产的工厂》产生采购凭证&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;价钱条件：ME12
-手工创建采购订单：ME21N       
-跟踪采购订单：ME23N
-采购订单订单查询：ME2L
-一般数据：供应商数据、原始数据、订购单位等
-价格和条件：总价格、折扣、运费、关税、其他
-控制数据：交付时间、最小数量、容差
-文本：采购订单文本、Int.信息记录备注
-统计：价格历史记录、采购订单统计、改变历史记录. . . . . 
-
-订单结构：
-    PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期
-    PR Item : 物料编号、短文本、发货日期、采购订单数量、采购订单价格、分类
-    科目设置对象：
-        A：资产    K：成本中心    P：项目    F：订单(生产，考虑)    C：销售订单    其他
-无物料的采购订单：
-    采购订单中不输入物料，只输入描述
-    可以收获，但是必须是直接消耗，没有库存管理
-    适用于低值品的采购           
-采购合同   &amp;lt;联系、集成、自动&amp;gt;   采购订单
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;自动采购：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;主数据和合同,资源清单&lt;/li&gt;
-&lt;li&gt;物料需求计划(MRP)&lt;/li&gt;
-&lt;li&gt;自动生成采购单&lt;/li&gt;
-&lt;li&gt;发送通知和物料接收&lt;/li&gt;
-&lt;li&gt;评估收货结算(ERS)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/PRecord.png&#34; alt=&#34;采购订单的自动生成&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;收货：事务代码 《MIGO》&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;供应商根据采购订单将货物发送到指定地区，以及发票&lt;/li&gt;
-&lt;li&gt;工厂在收货地点进行收货&lt;/li&gt;
-&lt;li&gt;收货时同时产生物料凭证和会计凭证 创建物料凭证：MB03&lt;/li&gt;
-&lt;li&gt;货物会收到指定的 Location &amp;lt;货物移动凭证&amp;gt;&lt;/li&gt;
-&lt;li&gt;移动类型：仓库收货 &lt;101&gt;、退货发运 &amp;lt; 122&amp;gt;&amp;hellip; &amp;hellip;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;收货后：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;会更新物料主数据的工厂库存视图 (库存查看 MMBE, MB52)&lt;/li&gt;
-&lt;li&gt;物料凭证，会计凭证产生&lt;/li&gt;
-&lt;li&gt;自动触发启用 QM/WM&lt;/li&gt;
-&lt;li&gt;采购订单历史数据更新&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/GR.png&#34; alt=&#34;收货实现&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/MM/proof.png&#34; alt=&#34;凭证产生&#34; /&gt;
-&lt;strong&gt;发票校验：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;主数据、发票、采购订单、物料凭证综合数据进行发票校验&lt;/li&gt;
-&lt;li&gt;根据校验的结果生产发票凭证 &amp;lt;发票校验科目&amp;gt;&lt;/li&gt;
-&lt;li&gt;记账过账处理&lt;/li&gt;
-&lt;li&gt;根据发票凭证触发付款程序&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/invoice1.png&#34; alt=&#34;发票检验&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/MM/invoice2.png&#34; alt=&#34;凭证产生&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;记账过账：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;根据采购订单、物料凭证、发票信息进行记账&lt;/li&gt;
-&lt;li&gt;发票过账时，会创建一张会计凭证。各项目将被发送到相应的科目。&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>MM Material Master</title>
-      <link>https://coldinfire.github.io/2019/MMDetail1/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MMDetail1/</guid>
-      <description>
-
-&lt;h2 id=&#34;企业组织结构&#34;&gt;企业组织结构&lt;/h2&gt;
-
-&lt;h3 id=&#34;整体架构&#34;&gt;整体架构&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。&lt;/li&gt;
-&lt;li&gt;公司代码：一个公司代码代表一个独立的会计实体。每个公司代码都有它自己得到资产负债表和损益表。&lt;/li&gt;
-&lt;li&gt;工厂：是公司内的组织单元，生产产品、提供服务或销售产品，工厂可以是（制造厂、仓库中转中心、 区域销售办公司、公司总部）。&lt;/li&gt;
-&lt;li&gt;仓储地点：是工厂内存放不同类型物料的组织单位，如：材料仓，成品仓，材损仓。&lt;/li&gt;
-&lt;li&gt;采购组织：是负责为一个或多个工厂工厂采购物料和提供服务及与供应商协商价格和供货条款的主旨单位。价格条件在采购组织层次设置。如果一个采购组织为多个工厂采购，则价格在各个工厂都有效。&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;采购组：是采购组织的进一步细分，负责日常的采购活动，一个采购组也可以为多个采购组织工作。&lt;/p&gt;
-
-&lt;h4 id=&#34;集团-公司代码-工厂&#34;&gt;集团 / 公司代码 / 工厂&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/Client1.png&#34; alt=&#34;架构关系&#34; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;公司代码-工厂-库存地点&#34;&gt;公司代码 / 工厂 / 库存地点&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/Client2.png&#34; alt=&#34;架构关系&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;物料主数据&#34;&gt;物料主数据&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;MM01：创建&lt;/li&gt;
-&lt;li&gt;MM02：修改&lt;/li&gt;
-&lt;li&gt;MM03：显示&lt;/li&gt;
-&lt;li&gt;MM06：立即删除标记，Material的删除分两个层次， 一个是加Delete
-flag material,但号码还存在， 但强制使用还是可以的， 所以建议使用Status来控制，将所有的状态都block住。&lt;/li&gt;
-&lt;li&gt;MM17：批量维护物料主数据内容&lt;/li&gt;
-&lt;li&gt;MM50：物料视图扩充&lt;/li&gt;
-&lt;li&gt;MM60：物料清单&lt;/li&gt;
-&lt;li&gt;MMAM：配置物料类型&lt;/li&gt;
-&lt;li&gt;MMD1：MRP文档创建&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;主要信息&#34;&gt;主要信息:&lt;/h4&gt;
-
-&lt;p&gt;描述性信息：描述，尺寸，体积等&lt;/p&gt;
-
-&lt;p&gt;控制性信息：MRP类型，价格控制，采购组等&lt;/p&gt;
-
-&lt;p&gt;物料主数据：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;General:           Material Number、Description、Base Unit Of Measure、Technical&lt;/li&gt;
-&lt;li&gt;Plan Specific：MRP type、Planned delivery time、Purchasing group、Batch indicator&lt;/li&gt;
-&lt;li&gt;Valuation：     Valuation price、Valuation procedure、Valuated quantity&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;物料主数据录入&#34;&gt;物料主数据录入&lt;/h4&gt;
-
-&lt;p&gt;必要数据：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;物料编码：物料编码用来唯一地识别有关物料主记录，用户可在物料管理客户化修改中设置长度并记录物料编码的模式。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;号码范围： （Group、Material type、Number Ranges）
-外部给号，内部给号范围的限制；允不允许外部给号，需要设置Group中包不包含外部Number range；&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_NR.png&#34; alt=&#34;定义Number Ranger&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;行业领域：根据不同的行业领域，决定有哪些与行业相关的数据可以显示；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;物料类型：按照物料在公司的不同用途，将物料分为不同类型；决定财务和仓库管理的特性。例如：可将物料分为原材料、半成品、成品、服务。贸易型货物或内部、外部拥有的空容器等各种类型。可做如下控制：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;定义哪个部门可维护物料数据&lt;/li&gt;
-&lt;li&gt;定义采购类型&lt;/li&gt;
-&lt;li&gt;在相关的工厂中定义库存管理类型，例如，可通过物料类型定义更新哪些数据，但价值不变&lt;/li&gt;
-&lt;li&gt;是自动过帐定义的一个因素，财务参照物料类型确定库存科目&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;标准物料类型：&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Detail&lt;/th&gt;
-&lt;th&gt;Detail&lt;/th&gt;
-&lt;th&gt;Detail&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;成品（FERT）：Finished Product&lt;/td&gt;
-&lt;td&gt;备品备件（ERSA）：Spare Parts&lt;/td&gt;
-&lt;td&gt;可反复利用包装（LEIH）&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;半成品（HALB）：Semifinished Product&lt;/td&gt;
-&lt;td&gt;贸易货物（HAWA）：Trading Goods&lt;/td&gt;
-&lt;td&gt;未估价物料(UNBW)&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;原材料（ROH）：Raw materials&lt;/td&gt;
-&lt;td&gt;包装物料（VERP）：Packaging&lt;/td&gt;
-&lt;td&gt;管线物料（PIPE）：Pipeline materials&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;物料类型设置：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SPRO：SAP后台配置&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type1.png&#34; alt=&#34;Material Types&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;详细信息&amp;mdash;&amp;gt;User departments（决定哪些部门需要维护）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type.png&#34; alt=&#34;Material Types Control&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;External no.
-assignment w/o check, 如果选中就代表，建立Material 并且外部给号的时候， 不会去检查是否符合External no range。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;控制数量/价值更新：决定数量和价值的更新（客户供料：只会做数量更新，不会做价钱更新&amp;lt;不属于本公司&amp;gt;）&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type2.png&#34; alt=&#34;Material Types Control&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;控制内/外部采购订单：决定是不是自己生产的（影响采购类型），这两个配置主要作用于 MRP2 中的 “采购类型” 字段&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;0：不允许&lt;/li&gt;
-&lt;li&gt;1：允许外部采购，但是会有警告&lt;/li&gt;
-&lt;li&gt;2：允许外部采购&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type3.png&#34; alt=&#34;Material Types Control&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;决定使用哪个G/L Account：
-过账时的总账分类账&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_material_type4.png&#34; alt=&#34;Material Types Control&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;更改物料类型：满足以下条件并使用TCode：&lt;strong&gt;&lt;em&gt;MMAM&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;没有库存;没有预留;没有采购文档（PR，PO，协议，合同）可以更改&lt;/li&gt;
-&lt;li&gt;新的物料类型和旧的物料类型有相同的G/L Account；有相同的数量/价值更新&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;物料状态定义：控制该物料可以做什么和不可以做什么&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SPRO&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_MS1.png&#34; alt=&#34;Material Status&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;定义&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_MS2.png&#34; alt=&#34;Material Status&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;设置&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_MS3.png&#34; alt=&#34;Material Status&#34; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;视图设置：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;物料主数据记录中的数据是集合在不同的视图中；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;公司所有部门都需要使用物料主数据，因此在不同的部门会有不同的物料主数据视图。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;视图结构：&lt;img src=&#34;https://coldinfire.github.io/images/MM/MMMain.png&#34; alt=&#34;视图&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;视图默认值设置：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;通过缺省值设置默认Industry sector&lt;/li&gt;
-&lt;li&gt;通过缺省值设置默认View&lt;/li&gt;
-&lt;li&gt;通过缺省值设置默认Organization level，可从其他工厂复制&lt;/li&gt;
-&lt;li&gt;通过复制其他的物料号&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;数据屏幕：可以分为以下三层数据结构&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;初始级别：设置初始化必需数据&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;主体工作级别：主要的数据设置&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;辅助数据级别：在主数据级别外进行额外的信息补充&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MMScreen.png&#34; alt=&#34;数据屏幕&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;字段控制：控制前台字段的显示状态&lt;/p&gt;
-
-&lt;p&gt;​   给字段组分配字段；通过组别的方式进行设置字段的显示状态：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_FS.png&#34; alt=&#34;组别类型&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_FS2.png&#34; alt=&#34;各组别定义&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_FS1.png&#34; alt=&#34;各组别定义&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;多个因素的优先级：
-
-&lt;ul&gt;
-&lt;li&gt;Hide&lt;/li&gt;
-&lt;li&gt;Display&lt;/li&gt;
-&lt;li&gt;Required entry field&lt;/li&gt;
-&lt;li&gt;Option entry field&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;视图选择&#34;&gt;视图选择&lt;/h4&gt;
-
-&lt;p&gt;​   &lt;strong&gt;Basic Data1:一般属于物料描述等属性，属于集团类别。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;单位：基本单位，订单单位，转换因子（附加数据中有计量单位的设定，
-计量单位组：预先定义好单位转换 &amp;lt;通过后台设置关键字 设置计量单位组中进行设置的&amp;gt;）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;计量单位(计量单位组)
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MM_DUMG.png&#34; alt=&#34;计量单位组定义&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;物料组：对物料进行分组，便于分析；不同的物料组决定过账时的G/L Account&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;旧物料号： 便于查找旧系统数据&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;部门：Division (1) 影响 SD/FI 两个模块 (2) 无值将导致销售无法生成订单，单价录入，报告书等&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;实验室 / 办公室：描述信息没有特殊描述&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;产品组：根据公司产品分组，不填写销售无法生成订单&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;毛重、净重：报关使用,创建SO的时候，重量会被自动带出&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;附加数据：通过附加数据来维护不同语言环境的物料描述&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;凭证数据、内部批注
-
-
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;MRP1：MRP控制&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;​   MRP 类型、MRP 控制者、批量（在 PP 中会使用到的）&lt;/p&gt;
-
-&lt;p&gt;​   MRP 组：&lt;/p&gt;
-
-&lt;p&gt;​   MRP 类型：（固定值 &lt;strong&gt;PD&lt;/strong&gt;）&lt;/p&gt;
-
-&lt;p&gt;​   MRP 控制者：谁来负责该MRP控制&lt;/p&gt;
-
-&lt;p&gt;​   批量大小：（固定值 &lt;strong&gt;EX&lt;/strong&gt;）&lt;/p&gt;
-
-&lt;p&gt;​   MRP参数文件：MMD1创建&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MRP2：影响 MRP 运算&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;采购类型：内部生产或则外部采购&lt;/p&gt;
-
-&lt;p&gt;特殊采购类型：有偿加工必填 &lt;31&gt;, 无偿加工品必填 &amp;lt; 30&amp;gt;
-外部采购&lt;/p&gt;
-
-&lt;p&gt;仓储地点：物料存储仓库&lt;/p&gt;
-
-&lt;p&gt;计划边际码：采购品须填写准确日期，影响 MRP 运输&lt;/p&gt;
-
-&lt;p&gt;计划交货时间：进口件&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MRP3：可用性检查（02）&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;​   策略组：内部生产品必填，固定值&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MRP4:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;​   选择方法：内部生产品必填，固定值&lt;/p&gt;
-
-&lt;p&gt;​   重复生产：内部生产品必填，固定值&lt;/p&gt;
-
-&lt;p&gt;​   重复生产参数 文件：内部生产品必填，固定值&lt;/p&gt;
-
-&lt;p&gt;​   工厂数据 / 存储：&lt;/p&gt;
-
-&lt;p&gt;​   存储条件：关系到销售出库&lt;/p&gt;
-
-&lt;p&gt;​   End Item：直买直卖的物品必须勾选&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;会计 1：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;评估类、价格控制、价格单位、标准价格&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;​   评估分类：影响会计计算，必须准确&lt;/p&gt;
-
-&lt;p&gt;​   价格确定：系统自动存在，没有时必须输入&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;成本 1：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;​   勾选物料来源：`&lt;/p&gt;
-
-&lt;h4 id=&#34;2-消耗型物料&#34;&gt;2.消耗型物料&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;办公材料 &amp;lt;成本中心&amp;gt;&lt;/li&gt;
-&lt;li&gt;计算机系统 &amp;lt; 固定资产 &amp;gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;1&gt; 消耗型物料时直接为了一个科目设置对象而购买的物料 (不需要办理入库和出库手续)&lt;/p&gt;
-
-&lt;p&gt;&lt;2&gt; 库存管理未被执行&lt;/p&gt;
-
-&lt;p&gt;&lt;3&gt; 系统会自动更新有物料主记录的消耗型物料&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;          库存物料            《=》              消耗型物料
-    输入要求的物料编号                     可以输入物料编号，但不是必须的
-    无科目设置类别                         强制科目设置类别
-    过账到库存科目                         过账到消耗科目
-    在物料主记录中更新数量和价值            消耗品更新（只使用于物料主记录中的物料）、移动平均价格被调整
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;非库存物料（NLAG）: 有一定采购频率、是有物料主数据，但不做库存管理的物料。（价值，数量）。
-
-&lt;ul&gt;
-&lt;li&gt;使用该物料类型（NLAG）的物料，创建采购订单需要指定账户分类（如 K 等）；根据采购订单收货时，直接财务上消耗记账。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;未评估物料（UNBW) : 做数量管理，不做价值管理
-
-&lt;ul&gt;
-&lt;li&gt;使用该物料类型（UNBW）的物料，创建采购订单需要指定账户分类（如 K 等）；根据采购订单收货时，直接财务消耗记账，更新库存数量；消耗时，只记录库存数量减少。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;3-bom&#34;&gt;3.BOM&lt;/h4&gt;
-
-&lt;p&gt;BOM：物料清单 (零件结构表)，将产品的原材料、零配件、组件予以拆解，并将各单位项材料依材料编号、名称、
-规格、基本单位、单位用量、产品损耗等依制造流程的顺序记录下来，排列为一个清单，就是 BOM。&lt;/p&gt;
-
-&lt;h4 id=&#34;4-mrp&#34;&gt;4.MRP&lt;/h4&gt;
-
-&lt;p&gt;MRP：物料需求计划，利用生产日程表（MPS）、零件结构表（BOM）、库存报表、已订购未交货订单等等
-各种相关资料，经正确计算而得出各种物料零件的变量需求，提出各种新的订购或修正各种以开出订购
-的物料管理技术。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MM/MRP.png&#34; alt=&#34;MRP原理&#34; /&gt;
-&lt;img src=&#34;https://coldinfire.github.io/images/MM/MRP2.png&#34; alt=&#34;MRP&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MRP元素缩写&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Detail&lt;/th&gt;
-&lt;th&gt;Detail&lt;/th&gt;
-&lt;th&gt;Detail&lt;/th&gt;
-&lt;th&gt;Detail&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SimReq：简单需求&lt;/td&gt;
-&lt;td&gt;BR：流程订单&lt;/td&gt;
-&lt;td&gt;PrdOrd：生产订单&lt;/td&gt;
-&lt;td&gt;BtchSt：批量库存&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;AR：相关预订&lt;/td&gt;
-&lt;td&gt;OrdRes：订单需求&lt;/td&gt;
-&lt;td&gt;PMOrdr：PM 订单&lt;/td&gt;
-&lt;td&gt;CStock  客户库存&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;BA：采购申请&lt;/td&gt;
-&lt;td&gt;PurRqs：采购申请&lt;/td&gt;
-&lt;td&gt;FE：生产订单&lt;/td&gt;
-&lt;td&gt;DD：有效外日期&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;BB：提供物料转包商需求&lt;/td&gt;
-&lt;td&gt;SubReq：外协请求&lt;/td&gt;
-&lt;td&gt;IH：维护订单&lt;/td&gt;
-&lt;td&gt;E1：分包合同采购&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;BE：订单项目计划行&lt;/td&gt;
-&lt;td&gt;PrcOrd：处理订单&lt;/td&gt;
-&lt;td&gt;CH：批库存&lt;/td&gt;
-&lt;td&gt;FH：计划时界末&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;BP：总需求计划&lt;/td&gt;
-&lt;td&gt;OI-SL：采购订单&lt;/td&gt;
-&lt;td&gt;KB：单独客户库存&lt;/td&gt;
-&lt;td&gt;JI：JIT 提取/JIT：JIT 调用&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>MM Summary</title>
-      <link>https://coldinfire.github.io/2019/MMSummary/</link>
-      <pubDate>Thu, 07 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MMSummary/</guid>
-      <description>
-
-&lt;h3 id=&#34;mm概要&#34;&gt;MM概要&lt;/h3&gt;
-
-&lt;h4 id=&#34;业务&#34;&gt;业务&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;(采购询价 ME41 / 报价 ME47 录入、ME49 报价比较)&amp;mdash;-&amp;gt; 采购申请 (PR)&amp;mdash;-&amp;gt; 采购订单 (PO)&amp;mdash;-&amp;gt; 发送采购单给供应商 &amp;lt; ME9F&amp;gt;&amp;mdash;-&amp;gt; 采购收货 (产生物料凭证)&amp;mdash;-&amp;gt; 发票校验 (产生会计凭证)&amp;mdash;-&amp;gt; 应付&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;买物料（Purchasing、Invoicing）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;基本数据管理：物料、供应商、采购信息、货源、配额、批次数据&lt;/li&gt;
-&lt;li&gt;采购管理：采购申请、货源确定、采购批准、采购订单处理、订单跟踪、采购货物接收&lt;/li&gt;
-&lt;li&gt;采购发票校验：订单、收货单、发票数量、金额匹配&lt;/li&gt;
-&lt;li&gt;库存管理：库存事务处理、库存状态控制、库存分析与评估&lt;/li&gt;
-&lt;li&gt;仓库管理：数量整理&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;业务流程&#34;&gt;业务流程&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;SAP 物流相关模块中，工厂是最重要的组织结构，隶属于公司代码，并且包括了和物流管理相关的最多的控制参数。这里首先创建一个工厂。&lt;/li&gt;
-&lt;li&gt;创建工厂下面的 3 个库存地点：仓库、生产、运输。&lt;/li&gt;
-&lt;li&gt;创建采购组织，再创建两个采购组：原材料和运营供应、贸易商品
-（注意：此时采购组织以及采购组和公司代码没有任何联系，采购组织和采购组也并没有联系，实际上，采购组在 client 层次，client 下的任何公司，任何工厂都可以使用这个采购组）；&lt;/li&gt;
-&lt;li&gt;定义与工厂相关的两个 MRP 控制者，分别控制自制品计划和贸易商品的计划。&lt;/li&gt;
-&lt;li&gt;将创建的工厂分配给公司代码。&lt;/li&gt;
-&lt;li&gt;分配采购组织到公司代码。&lt;/li&gt;
-&lt;li&gt;分配工厂到采购组织。SAP 系统 SAP 中的一个采购组织可以同时负责几个工厂的采购。&lt;/li&gt;
-&lt;li&gt;定义物料组：0001 原材料、0002 产成品和 0003 贸易商品。在维护主数据的时候，需要分配物料组。&lt;/li&gt;
-&lt;li&gt;定义计划边际码。这个操作满足这样一种情况：公司除了正常的采购和生产时间，还规定在操作、产前、产后和订单下达各阶段预留一天的缓冲时间。这样的规则被定义在 “计划边际码” 中。&lt;/li&gt;
-&lt;li&gt;工厂中有很多控制参数。如在库存管理中，对库存物料可以通过预留号进行预留，比如预留给生产订单或者销售订单。设定该工厂对于库存的预留允许比计划日期提前一个月使用，同时过期一个月以内的预留仍然可以使用。&lt;/li&gt;
-&lt;li&gt;维护和库存相关的工厂参数 - 自动创建物料的库存地点视图。只有某个视图被定义了，才可以对这个物料进行某项操作。&lt;/li&gt;
-&lt;li&gt;由于公司收到的发票大多是 17% 的增值税发票，因此这里我们可以把它设为缺省值，方便发票校验。因此我们可以在此处维护税务代码的缺省值。&lt;/li&gt;
-&lt;li&gt;物料管理在 SAP 中只能开当月的账，或者至多当月或者上个月的账，而且开账只允许一个月一个月往后开，因此一开始我们要设定一个初始期间。
-一般初始期间设为上线前的那个月，如 12 月上线，就设定初始日期为 11 月，在 11 月中导入期末库存余额。&lt;/li&gt;
-&lt;li&gt;维护和物料需求计划相关的工厂参数。这部分涉及的参数很多，首先可以采用先复制之前的，再更改不适用的参数。&lt;/li&gt;
-&lt;li&gt;此处激活物料需求计划 MRP 这项功能，通过后台的配置实现。&lt;/li&gt;
-&lt;li&gt;此处定义计划运行的号码范围。运行物料需求计划会产生很多凭证，比如计划订单、非独立需求等，这些凭证都有它们的编号范围。
-在 13 步复制 0001 的时候，这些编号范围都已经复制了，这里只需要进行检查。&lt;/li&gt;
-&lt;li&gt;物料类型是定义物料主数据的最重要的一个参数。它决定了各类物料主数据需要维护哪些信息和参数，物料主数据的编号范围等。
-公司决定使用 SAP 标准的物料类型：HAWA 贸易商品、ROH 原材料、FERT 产成品。&lt;/li&gt;
-&lt;li&gt;定义评估控制，激活按 “评估分组代码” 来定义科目，这样可以当集团公司有很多工厂时候，而它们的记账规则又是一样，不用一个一个的进行维护，而是将工厂集合成组统一来定义记账规则。&lt;/li&gt;
-&lt;li&gt;将之前定义的工厂归入我们的 CN01 评估分组代码，这样以后该集团增加工厂时候，只需要把它分配给 CN01 就可以了，而不必再定义一套记账规则。&lt;/li&gt;
-&lt;li&gt;除了工厂，另一个决定不同的会计科目的因素是物料本身，此处我们在物料主数据中定义一个 “评估类” 参数，通过 “评估类” 来决定会计科目。
-本处我们使用标准评估类：3000 原材料、3100 贸易商品、7920 成品。&lt;/li&gt;
-&lt;li&gt;这时可以进行原材料主数据的录入了（MMRL）。填入相应的采购组、物料组 MRP 控制者、计划边际码等。&lt;/li&gt;
-&lt;li&gt;随后新建贸易商品主数据 MMH1。&lt;/li&gt;
-&lt;li&gt;新建生产成品主数据 MMF1。&lt;/li&gt;
-&lt;li&gt;创建完各种物料后，可以在 MM60 中显示物料主记录清单。&lt;/li&gt;
-&lt;li&gt;创建供应商的采购数据 MK01。创建的时候要填采购组织，账户组，账户组是在 FI 的时候创建的。
-供应商的采购数据是和具体的采购组织相关的，也就是说不同的采购组织向同一个供应商采购，可以有不同的规定。&lt;/li&gt;
-&lt;li&gt;新建采购信息记录 ME11。采购信息记录包括信息如标准订单数量，净价，几天内交货，由哪个采购组负责等。
-保存这样的数据，可以方便实际采购时候参照使用。&lt;/li&gt;
-&lt;li&gt;设置 SAP 中最为重要的集成配置之一，即物料移动在 SAP 中如何自动找到会计科目完成自动记账。&lt;/li&gt;
-&lt;li&gt;将存货科目设置为只能自动记账，在 FS00 中实现。&lt;/li&gt;
-&lt;li&gt;SAP 在处理采购订单时，会检查采购订单中的价格和物料主数据的成本价格差异有多大，同时也会检查采购订单中的现金折扣是否可接受。
-如果差异超过一定的荣差，系统会发出警告消息或者错误信息。
-不同的容差检查存放在 “容差码” 中，容差码 “PE” 是检查价格的，“SE” 是检查现金折扣的。这里复制 0001 公司的采购价格差异的容差限制。&lt;/li&gt;
-&lt;li&gt;SAP 允许采购订单定价数量单位和采购订单数量单位有所不同。比如采购订单数量是按件，但定价是按斤。
-这种情况下，收货的时候，两种单位的数量都要输入。在收货的时候，系统会检查定价数量和采购订单中的差异。
-这里通过复制 0001 的方式建立公司的收货容差限制。&lt;/li&gt;
-&lt;li&gt;SAP 系统在发票校验的时候会做大量检查，如果校验不通过发票就会被冻结。这里复制 0110 的容差检查。&lt;/li&gt;
-&lt;li&gt;维护公司的项目全额检查。&lt;/li&gt;
-&lt;li&gt;在 MD03 中运行物料需求计划，MD04 可以显示库存 / 需求清单。（MD05 显示 MRP 清单）。&lt;/li&gt;
-&lt;li&gt;这里计划部门手动创建采购申请（ME51N）。根据采购申请，采购部门需要向供应商采购（ME21N）。&lt;/li&gt;
-&lt;li&gt;进行采购收货（MIGO）。（MB03 显示凭证；显示库存 MMBE）&lt;/li&gt;
-&lt;li&gt;供应商采购发票随后到达，在 MIRO 中输入发票，由于发票比采购订单原定的日期提前到达，并超过了荣差，所以发票被冻结了。&lt;/li&gt;
-&lt;li&gt;被冻结的发票可以经过相关管理人员检查后手工下达，这里我们下达 35 步被冻结的发票。事物码 MRBR。&lt;/li&gt;
-&lt;li&gt;在 MIR4 中显示发票和会计凭证。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;mm常用透明表&#34;&gt;MM常用透明表&lt;/h3&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Table&lt;/th&gt;
-&lt;th&gt;Desc&lt;/th&gt;
-&lt;th&gt;Table&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Desc&lt;/th&gt;
-&lt;th&gt;Table&lt;/th&gt;
-&lt;th&gt;Desc&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;MARA&lt;/td&gt;
-&lt;td&gt;物料主数据&lt;/td&gt;
-&lt;td&gt;MARC&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;物料工厂(在途库存)&lt;/td&gt;
-&lt;td&gt;MSKA&lt;/td&gt;
-&lt;td&gt;销售订单库存&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;MAKT&lt;/td&gt;
-&lt;td&gt;物料描述&lt;/td&gt;
-&lt;td&gt;MARD&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;物料库存(当前库存)&lt;/td&gt;
-&lt;td&gt;T001L&lt;/td&gt;
-&lt;td&gt;工厂库位关系&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;MARM&lt;/td&gt;
-&lt;td&gt;物料的计量单位&lt;/td&gt;
-&lt;td&gt;MARDH&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;历史库存&lt;/td&gt;
-&lt;td&gt;T001W&lt;/td&gt;
-&lt;td&gt;工厂表&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;MBEW&lt;/td&gt;
-&lt;td&gt;物料评估/价格&lt;/td&gt;
-&lt;td&gt;MSKU&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;第三方库存表&lt;/td&gt;
-&lt;td&gt;RKPF&lt;/td&gt;
-&lt;td&gt;预留抬头&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;MKPF&lt;/td&gt;
-&lt;td&gt;物料凭证抬头&lt;/td&gt;
-&lt;td&gt;EKKO&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;采购订单抬头&lt;/td&gt;
-&lt;td&gt;EINE&lt;/td&gt;
-&lt;td&gt;Purchasing Org&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;MSEG&lt;/td&gt;
-&lt;td&gt;物料凭证明细&lt;/td&gt;
-&lt;td&gt;EKPO&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;采购订单明细&lt;/td&gt;
-&lt;td&gt;EINA&lt;/td&gt;
-&lt;td&gt;Info record(G_data)&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;MVKE&lt;/td&gt;
-&lt;td&gt;物料的销售数据&lt;/td&gt;
-&lt;td&gt;EBAN&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;采购申请抬头&lt;/td&gt;
-&lt;td&gt;MAST&lt;/td&gt;
-&lt;td&gt;物料到BOM link&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;MVVE&lt;/td&gt;
-&lt;td&gt;物料的销售数据&lt;/td&gt;
-&lt;td&gt;EBKN&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;采购申请明细&lt;/td&gt;
-&lt;td&gt;MVER&lt;/td&gt;
-&lt;td&gt;物料消耗&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;T023&lt;/td&gt;
-&lt;td&gt;物料类型&lt;/td&gt;
-&lt;td&gt;LFA1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;供应商主数据&lt;/td&gt;
-&lt;td&gt;T161T&lt;/td&gt;
-&lt;td&gt;采购订单类型文本&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;T024&lt;/td&gt;
-&lt;td&gt;采购组&lt;/td&gt;
-&lt;td&gt;LFB1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Vendor master&lt;/td&gt;
-&lt;td&gt;EKET&lt;/td&gt;
-&lt;td&gt;安排协议交付时间表&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;T157H&lt;/td&gt;
-&lt;td&gt;移动类型帮助文档&lt;/td&gt;
-&lt;td&gt;RESB&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;保留/依赖 要求&lt;/td&gt;
-&lt;td&gt;EKKN&lt;/td&gt;
-&lt;td&gt;采购订单账号分配&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NRIV&lt;/td&gt;
-&lt;td&gt;数字范围间隔&lt;/td&gt;
-&lt;td&gt;EKBE&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;历史采购订单&lt;/td&gt;
-&lt;td&gt;EKAB&lt;/td&gt;
-&lt;td&gt;发布文档&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;ISEG&lt;/td&gt;
-&lt;td&gt;实物盘存凭证项目&lt;/td&gt;
-&lt;td&gt;A501&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;冻结购买价格。&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;IKPF&lt;/td&gt;
-&lt;td&gt;实物盘存凭证抬头&lt;/td&gt;
-&lt;td&gt;USR21&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;SAP所有用户信息&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&#34;mm配置&#34;&gt;MM配置&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. 创建工厂、公司代码                    22. 批量导入物料主数据（BAPI）
-2. 创建库存地点                         23. 创建供应商
-3. 创建采购组织                         24. 创建采购信息记录（Info Recode）
-4. 创建采购组                           25. 维护物料管理的自动记账
-5. MRP Controller                      26. 将存货科目设置为只能自动记账
-6. 分配工厂到公司                       27. 设置采购价格差异容差限制
-7. 分配采购组织到公司                    28. 设置收货的容差限制
-8. 分配工厂到采购组织                    29. 设置发票冻结的容差限制
-9. 定义物料                             30. 激活项目金额检查
-10. 定义计划边界码                      31. 运行MRP
-11. 物料管理设置-库存预留                32. 创建采购申请
-12. 自动创建库存地点                    33. 创建采购订单
-13. 税务代码缺省值                      34. 采购订单收货
-14. 物料管理的初始期间                  35. 采购发票输入
-15. 物料需求计划相关的参数维护           36. 发票冻结
-16. 激活物料需求计划                    37. 在MIR4中显示发票和会计凭证
-17. 检查MRP相关参数维护(主要看01范围)
-18. 定义物料类型的属性
-19. 定义评估控制方式
-20. 定义评估分组
-21. 定义评估类
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;fi配置&#34;&gt;FI配置&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;1. 创建会计科目表   (A999账目表)
-2. 定义会计年度变式 (正常记账期间12、特殊期间4)
-3. 创建信贷控制范围
-4. 依据以上信息维护公司参数
-5. 定义科目账户组合编号范围、
-6. 定义公司字段状态变式
-7. 把字段状态分配到公司代码
-8. 定义预留收益科目
-9. FS00科目批量导入 （LSMW）
-10. 赋值凭证号码范围到公司代码
-11. 定义记账期间变式
-12. 把记账期间变式分配给公司代码
-13. 拷贝设置记账期间
-14. 为科目过账定义容差组
-15. 输入总账凭证，显示科目余额
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;7.Enter requisitioner use id&lt;/p&gt;
 </description>
     </item>
     

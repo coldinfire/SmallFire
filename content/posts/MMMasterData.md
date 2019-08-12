@@ -1,6 +1,6 @@
 ---
 title: "MM 物料主数据创建"
-date: 2019-05-12
+date: 2019-03-12
 draft: false
 author: Small Fire
 isCJKLanguage: true

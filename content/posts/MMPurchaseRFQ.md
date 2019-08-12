@@ -1,6 +1,6 @@
 ---
 title: "RFQ"
-date: 2019-05-18
+date: 2019-03-18
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -14,7 +14,9 @@ tags:
 
 
 
-### Request For Quotation (RFQ): ME41 
+### Request For Quotation (RFQ): ME41 /42/43
+
+- SPRO > IMG > Logistics > MM > Purchasing > RFQ/Quotation > RFQ
 
 - Enter REQ type,Date limit,Purch Org,Purch Group, Plant ,Storage Location
 
@@ -38,13 +40,29 @@ Create Vendor Address Screen:
 
 ### Maintain Quotation : ME47 
 
-​    SPRO > IMG > Logistics > MM > Purchasing > RFQ/Quotation > Quotation > Maintain
+- SPRO > IMG > Logistics > MM > Purchasing > RFQ/Quotation > Quotation > Maintain
+
+#### 价格比较：ME49
+
+#### 市场价：MEKH(MP01)
+
+#### Info Record update：选择工厂更新
+
+- A：有或则没有工厂的更新
+- B：只允许有工厂的更新
+- C：无工厂更新
+
+维护工厂的条件维护：SPRO > IMG > Logistics > MM > Purchasing > Conditions > Define Condition Control at Plant level
+
+
 
 ### Set Tolerance Limits For Price Variance
 
-​    SPR > IMG > MM > Purchasing > Purchase Order > Set Tolerance Limits For Price Var
+- SPR > IMG > MM > Purchasing > Purchase Order > Set Tolerance Limits For Price Var
 
-​    Tolerance key: PE-价格差异购买              SE-最大现金光盘扣除(购买)
+
+- Tolerance key: PE-价格差异购买              
+- SE-最大现金光盘扣除(购买)
 
 ![Tolerance](/images/MMPurchasing/Tolerance.png)
 
@@ -73,3 +91,4 @@ Enter Valid time,Vendor,Purchasing Org,Fix(固定源),Blk(供应商阻止采购�
  6.Enter corresponding storage location
 
  7.Enter requisitioner use id
+

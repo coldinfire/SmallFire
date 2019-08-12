@@ -6,10 +6,37 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 14 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> Fiori简介 </title>
+      <link>https://coldinfire.github.io/2019/FioriOverview/</link>
+      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/FioriOverview/</guid>
+      <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
+    </item>
+    
+    <item>
+      <title> SAP HANA</title>
+      <link>https://coldinfire.github.io/2019/SAPHANA1/</link>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPHANA1/</guid>
+      <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana HANA主要组成成分 客户端：HANA Studio(In-memory studio) 内存内数据库：HANA Database 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices 三种复制数据方法</description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5/</link>
+      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
+      <description>概述 MVC模式 ​ MVC是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。 ​ M : Model</description>
+    </item>
     
     <item>
       <title>移库产生的报错</title>
@@ -18,6 +45,33 @@
       
       <guid>https://coldinfire.github.io/2019/SAPQ1/</guid>
       <description>Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU XXXXXX(Error BS001 when posting goods movment)? A：需要每次进行移库前刷新数据： &amp;ldquo;调</description>
+    </item>
+    
+    <item>
+      <title> SAP下载程序源码工具 </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils10/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils10/</guid>
+      <description>程序：转自 http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html *@---------------------------------------------------------------------* *@ Report ZZXUE01 下载程序代码 *@ T-code *@---------------------------------------------------------------------* *@ Created by Xavery Hsueh on 2011-03-01 *@ Lasted Edited date: *@---------------------------------------------------------------------* REPORT XXX NO STANDARD PAGE HEADING. ***********************************************************************@ ** 声明数据库表 ***********************************************************************@ TABLES:rs38m, trdir. &amp;quot; ***********************************************************************@ ** 内表结构类型的定义 ***********************************************************************@ DATA BEGIN OF dynpfields OCCURS 1. INCLUDE STRUCTURE dynpread.</description>
+    </item>
+    
+    <item>
+      <title> SAP发送邮件 </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils11/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils11/</guid>
+      <description>TRY. &amp;quot; 创建发送请求 l_send_request = cl_bcs=&amp;gt;create_persistent( ). &amp;quot; 设定发送内容 l_document = cl_document_bcs=&amp;gt;create_document( i_type = &#39;RAW&#39; i_text = i_content[] I_IMPORTANCE = &#39;1&#39; i_subject = l_subject ). &amp;quot; 增加发送内容到发送请求 CALL METHOD l_send_request-&amp;gt;set_document( l_document ). &amp;quot; 取得发送者（取得发件人，前提是这个</description>
+    </item>
+    
+    <item>
+      <title>SAP后台JOB</title>
+      <link>https://coldinfire.github.io/2019/ABAPJOB/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPJOB/</guid>
+      <description>定义后台 job 第一种：SE38执行可执行程序 菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo; 输入输出设备 选择开始时</description>
     </item>
     
     <item>
@@ -30,70 +84,70 @@
     </item>
     
     <item>
-      <title> SAP下载程序源码工具 </title>
-      <link>https://coldinfire.github.io/2019/ABAPUtils10/</link>
-      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      <title>库存管理</title>
+      <link>https://coldinfire.github.io/2019/MMInventoryManagement/</link>
+      <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAPUtils10/</guid>
-      <description>程序：转自 http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html *@---------------------------------------------------------------------* *@ Report ZZXUE01 下载程序代码 *@ T-code *@---------------------------------------------------------------------* *@ Created by Xavery Hsueh on 2011-03-01 *@ Lasted Edited date: *@---------------------------------------------------------------------* REPORT XXX NO STANDARD PAGE HEADING. ***********************************************************************@ ** 声明数据库表 ***********************************************************************@ TABLES:rs38m, trdir. &amp;quot; ***********************************************************************@ ** 内表结构类型的定义 ***********************************************************************@ DATA BEGIN OF dynpfields OCCURS 1. INCLUDE STRUCTURE dynpread.</description>
+      <guid>https://coldinfire.github.io/2019/MMInventoryManagement/</guid>
+      <description>一、基本介绍 1.库存类型 ​ 可用库存：可通过BAPI_MATERIAL_AVAILABILITY来获取 ​ 当前库存：一般保存在MARD-LABS</description>
     </item>
     
     <item>
-      <title> SAP发送邮件 </title>
-      <link>https://coldinfire.github.io/2019/ABAPUtils11/</link>
-      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      <title>收货</title>
+      <link>https://coldinfire.github.io/2019/MMGoodsReceive/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAPUtils11/</guid>
-      <description>TRY. &amp;quot; 创建发送请求 l_send_request = cl_bcs=&amp;gt;create_persistent( ). &amp;quot; 设定发送内容 l_document = cl_document_bcs=&amp;gt;create_document( i_type = &#39;RAW&#39; i_text = i_content[] I_IMPORTANCE = &#39;1&#39; i_subject = l_subject ). &amp;quot; 增加发送内容到发送请求 CALL METHOD l_send_request-&amp;gt;set_document( l_document ). &amp;quot; 取得发送者（取得发件人，前提是这个</description>
+      <guid>https://coldinfire.github.io/2019/MMGoodsReceive/</guid>
+      <description>1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO ​ GRIN清单：供应商发票上的PO# 与Org PO #相同 ​ 供应商地址和采购订单地址匹配 ​ 物料数量应在Org PO中可用 ​</description>
     </item>
     
     <item>
-      <title>SAP后台JOB</title>
-      <link>https://coldinfire.github.io/2019/ABAPJOB/</link>
-      <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Info Record</title>
+      <link>https://coldinfire.github.io/2019/MMInfoRecord/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAPJOB/</guid>
-      <description>定义后台 job 第一种：SE38执行可执行程序 菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo; 输入输出设备 选择开始时</description>
+      <guid>https://coldinfire.github.io/2019/MMInfoRecord/</guid>
+      <description>创建Info Record 信息记录 (Info record)**：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。 创建方式：手工输入，报价单选择，</description>
     </item>
     
     <item>
-      <title> Fiori简介 </title>
-      <link>https://coldinfire.github.io/2019/FioriOverview/</link>
-      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
+      <title>RFQ</title>
+      <link>https://coldinfire.github.io/2019/MMPurchaseRFQ/</link>
+      <pubDate>Mon, 18 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/FioriOverview/</guid>
-      <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
+      <guid>https://coldinfire.github.io/2019/MMPurchaseRFQ/</guid>
+      <description>Request For Quotation (RFQ): ME41 /42/43 SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; RFQ/Quotation &amp;gt; RFQ Enter REQ type,Date limit,Purch Org,Purch Group, Plant ,Storage Location Enter Collective No to track of all RFQ related to particular instance and ref data Enter the appropriate item category Enter the material NO , RFQ Quantity Enter the Deliv. Date，Plant code ,</description>
     </item>
     
     <item>
-      <title> SAP HANA</title>
-      <link>https://coldinfire.github.io/2019/SAPHANA1/</link>
-      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
+      <title>有库存的采购</title>
+      <link>https://coldinfire.github.io/2019/MMPurchase/</link>
+      <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPHANA1/</guid>
-      <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana HANA主要组成成分 客户端：HANA Studio(In-memory studio) 内存内数据库：HANA Database 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices 三种复制数据方法</description>
+      <guid>https://coldinfire.github.io/2019/MMPurchase/</guid>
+      <description>采购流程： 单据流： 仓库数量被预约(采购订单下达) 收货采购订单，总账增加，库存成本增加； 应付账款不改变库存数量，根据数量和价格计算价格； 采购物</description>
     </item>
     
     <item>
-      <title> SAPUI5 </title>
-      <link>https://coldinfire.github.io/2019/SAPUI5/</link>
-      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
-      <description>概述 MVC模式 ​ MVC是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。 ​ M : Model</description>
-    </item>
-    
-    <item>
-      <title>MM 主要数据创建</title>
-      <link>https://coldinfire.github.io/2019/MMMasterData/</link>
+      <title>供应商主数据创建</title>
+      <link>https://coldinfire.github.io/2019/MMVenderCreate/</link>
       <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMVenderCreate/</guid>
+      <description>1.Define vendor account groups : OBD3 SPRO &amp;gt; IMG &amp;gt; Financial accounting &amp;gt; Accounts Receivable and Accounts Payable &amp;gt; Vendor Accounts &amp;gt; Master data &amp;gt; preparation for creating vendor master data &amp;gt; Define Account groups with screen layout(Vendors) ​ &amp;lt;1.Enter Account group Code and Name. ​ &amp;lt;2.Choose: Company code data and select Account management under group. ​ &amp;lt;3.Select Reconciliation account（对账账</description>
+    </item>
+    
+    <item>
+      <title>MM 物料主数据创建</title>
+      <link>https://coldinfire.github.io/2019/MMMasterData/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MMMasterData/</guid>
       <description>Enterprise Struture 1.Define Company : OX15 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Define Company 1.Enter company 2.Enter company name 3.Update address 4.Enter country code of company 5.Enter language key 6.Enter local currency 2.Define Company Code : OX02 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Edit,Copy,Delete Company Code 3.Assign Company Code to Company : OX16 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition</description>
     </item>
     
     <item>
-      <title>MM 采购</title>
+      <title>MM概述(二)</title>
       <link>https://coldinfire.github.io/2019/MMDetail2/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -102,7 +156,7 @@
     </item>
     
     <item>
-      <title>MM Material Master</title>
+      <title>MM概述(一)</title>
       <link>https://coldinfire.github.io/2019/MMDetail1/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -729,6 +783,15 @@
       
       <guid>https://coldinfire.github.io/2017/CSS/</guid>
       <description>CSS语法 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器单独一行； 一条声明的开大括号前留一</description>
+    </item>
+    
+    <item>
+      <title>供应商(Vendor)</title>
+      <link>https://coldinfire.github.io/1/MMVender/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/1/MMVender/</guid>
+      <description>供应商主数据 供应商主数据的维护：采购和会计数据可以集中或分散维护 供应商主数据：采购业务，缺少不能创建采购凭证或则发票校验等 一般数据：地址、通</description>
     </item>
     
   </channel>

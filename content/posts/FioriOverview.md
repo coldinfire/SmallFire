@@ -1,6 +1,6 @@
 ---
 title: " Fiori简介 "
-date: 2019-03-16T17:20:58+08:00
+date: 2019-04-22
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -32,7 +32,7 @@ SAP Fiori应用程序分为三类。它们的功能和基础设施要求非常�
    - 交易应用
    - 实况报道
    - 分析应用程序
-  
+
 交易应用程序最重要的功能是 ：
 
    - SAP Fiori的第一个版本包括25个交易应用程序。

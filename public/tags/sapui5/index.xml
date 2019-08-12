@@ -6,7 +6,7 @@
     <description>Recent content in sapui5 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Mar 2019 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/sapui5/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title> Fiori简介 </title>
       <link>https://coldinfire.github.io/2019/FioriOverview/</link>
-      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
+      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/FioriOverview/</guid>
       <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
@@ -23,7 +23,7 @@
     <item>
       <title> SAPUI5 </title>
       <link>https://coldinfire.github.io/2019/SAPUI5/</link>
-      <pubDate>Sat, 16 Mar 2019 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
       <description>概述 MVC模式 ​ MVC是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。 ​ M : Model</description>
