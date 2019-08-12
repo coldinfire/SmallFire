@@ -5,7 +5,7 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 08 Aug 2019 15:05:27 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -87,6 +87,40 @@
       
       <guid>https://coldinfire.github.io/about/</guid>
       <description>&lt;p&gt;这个人很懒，什么都没留下&amp;hellip;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ABAP混合算术运算</title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils14/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils14/</guid>
+      <description>
+
+&lt;h3 id=&#34;使用&#34;&gt;使用&lt;/h3&gt;
+
+&lt;p&gt;在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DATA: JS_PROCESSOR TYPE REF TO CL_JAVA_SCRIPT.
+&amp;quot;计算表达式
+JS_PROCESSOR = CL_JAVA_SCRIPT=&amp;gt;CREATE( ).
+CONCATENATE
+  &#39;var string = &#39; FORMULA &#39;;&#39;
+  &#39;function Set_String()                          &#39;
+  &#39;  { string = eval(string);                     &#39;
+  &#39;  }                                            &#39;
+  &#39;Set_String();                                  &#39;
+  &#39;string;                                        &#39;
+  INTO HSLM_SOURCE SEPARATED BY CL_ABAP_CHAR_UTILITIES=&amp;gt;CR_LF.
+HSLM_VALUE = JS_PROCESSOR-&amp;gt;EVALUATE( HSLM_SOURCE )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;程序内使用&#34;&gt;程序内使用&lt;/h4&gt;
+
+&lt;p&gt;​   程序内只是取出配置的值，该值存储在表TVARVC中。如果有前导零问题，需要调用Function添加前导零。&lt;/p&gt;
 </description>
     </item>
     
@@ -3055,106 +3089,6 @@ sm37就是sm36里job selection的链接.&lt;/p&gt;
 &lt;li&gt;物料&amp;gt;采购&amp;gt;定义采购员的缺省值：定义采用价格&amp;gt;一直复制&lt;/li&gt;
 &lt;li&gt;Purchasing&amp;gt;Env Data &amp;gt;Define default values for Buyers&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>RFQ</title>
-      <link>https://coldinfire.github.io/2019/MMPurchaseRFQ/</link>
-      <pubDate>Mon, 18 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MMPurchaseRFQ/</guid>
-      <description>
-
-&lt;h3 id=&#34;request-for-quotation-rfq-me41-42-43&#34;&gt;Request For Quotation (RFQ): ME41 /42/43&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; RFQ/Quotation &amp;gt; RFQ&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Enter REQ type,Date limit,Purch Org,Purch Group, Plant ,Storage Location&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/RFQ_ME41.png&#34; alt=&#34;RFQ&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Enter Collective No to track of all RFQ related to particular instance and ref data&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/RFQ_Head.png&#34; alt=&#34;RFQ Head&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Enter the appropriate item category&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Enter the material NO , RFQ Quantity&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Enter the Deliv. Date，Plant code , Submission date , Click Create Vendor address&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/RFQ_Items.png&#34; alt=&#34;RFQ Item&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Create Vendor Address Screen:&lt;/p&gt;
-
-&lt;p&gt;​   &lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/Vendor_addr.png&#34; alt=&#34;Vendor Addr&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;maintain-quotation-me47&#34;&gt;Maintain Quotation : ME47&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; RFQ/Quotation &amp;gt; Quotation &amp;gt; Maintain&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;价格比较-me49&#34;&gt;价格比较：ME49&lt;/h4&gt;
-
-&lt;h4 id=&#34;市场价-mekh-mp01&#34;&gt;市场价：MEKH(MP01)&lt;/h4&gt;
-
-&lt;h4 id=&#34;info-record-update-选择工厂更新&#34;&gt;Info Record update：选择工厂更新&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A：有或则没有工厂的更新&lt;/li&gt;
-&lt;li&gt;B：只允许有工厂的更新&lt;/li&gt;
-&lt;li&gt;C：无工厂更新&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;维护工厂的条件维护：SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; Conditions &amp;gt; Define Condition Control at Plant level&lt;/p&gt;
-
-&lt;h3 id=&#34;set-tolerance-limits-for-price-variance&#34;&gt;Set Tolerance Limits For Price Variance&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;SPR &amp;gt; IMG &amp;gt; MM &amp;gt; Purchasing &amp;gt; Purchase Order &amp;gt; Set Tolerance Limits For Price Var&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Tolerance key: PE-价格差异购买&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;SE-最大现金光盘扣除(购买)&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/Tolerance.png&#34; alt=&#34;Tolerance&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;maintain-source-list-me01-me02-me03&#34;&gt;Maintain source list : ME01/ME02/ME03&lt;/h3&gt;
-
-&lt;p&gt;Enter Valid time,Vendor,Purchasing Org,Fix(固定源),Blk(供应商阻止采购此物料)，MRP 1.包含&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMPurchasing/SourceList.png&#34; alt=&#34;Source List&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;create-purchasing-requisition-me51n-me52n-me53n&#34;&gt;Create Purchasing Requisition : ME51N/ME52N/ME53N&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; Purchase Requisition &amp;gt; Create&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;0.Header note:部门账号，授权部门签名，交货说明，条款和条件&lt;/p&gt;
-
-&lt;p&gt;1.Select document type for PR&lt;/p&gt;
-
-&lt;p&gt;2.Enter material code&lt;/p&gt;
-
-&lt;p&gt;3.Enter quantity of material&lt;/p&gt;
-
-&lt;p&gt;4.Update delivery date&lt;/p&gt;
-
-&lt;p&gt;5.Enter respective plant code&lt;/p&gt;
-
-&lt;p&gt;6.Enter corresponding storage location&lt;/p&gt;
-
-&lt;p&gt;7.Enter requisitioner use id&lt;/p&gt;
 </description>
     </item>
     

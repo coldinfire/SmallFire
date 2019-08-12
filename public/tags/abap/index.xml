@@ -6,10 +6,19 @@
     <description>Recent content in abap on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/abap/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ABAP混合算术运算</title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils14/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils14/</guid>
+      <description>使用 在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。 DATA: JS_PROCESSOR TYPE REF TO CL_JAVA_SCRIPT. &amp;quot;计算表达式 JS_PROCESSOR = CL_JAVA_SCRIPT=&amp;gt;CREATE( ). CONCATENATE &#39;var string = &#39; FORMULA &#39;;&#39; &#39;function Set_String() &#39; &#39; { string =</description>
+    </item>
     
     <item>
       <title> SAP下载程序源码工具 </title>
@@ -58,10 +67,10 @@
     
     <item>
       <title>STVARV使用详情</title>
-      <link>https://coldinfire.github.io/2019/ABAPUtils14/</link>
+      <link>https://coldinfire.github.io/2019/ABAPUtils15/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAPUtils14/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAPUtils15/</guid>
       <description>STVARV使用 ​ 该配置不能跨Client因此需要在每个Client单独配置；使用TCode：stvarv进入配置界面，可以新建、修改、删除</description>
     </item>
     
