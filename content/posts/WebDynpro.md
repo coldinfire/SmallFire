@@ -6,12 +6,10 @@ draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-
-- ABAP
+  - ABAP
 
 tags: 
-
-- WebDynpro
+  - WebDynpro
 
 ---
 

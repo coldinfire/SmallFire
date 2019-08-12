@@ -119,3 +119,4 @@ Customizing：Define control of conditions at plan level
 
 - 物料>采购>定义采购员的缺省值：定义采用价格>一直复制
 - Purchasing>Env Data >Define default values for Buyers
+

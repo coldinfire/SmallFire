@@ -125,7 +125,7 @@
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MMPurchase/</guid>
-      <description>采购流程： 单据流： 仓库数量被预约(采购订单下达) 收货采购订单，总账增加，库存成本增加； 应付账款不改变库存数量，根据数量和价格计算价格； 采购物</description>
+      <description>采购流程： **单据流：** 仓库数量被预约(采购订单下达) 收货采购订单，总账增加，库存成本增加； 应付账款不改变库存数量，根据数量和价格计算价格</description>
     </item>
     
     <item>
@@ -593,7 +593,7 @@
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPUtils3/</guid>
-      <description>负号前置 定义函数：CONVERSION_EXIT_Z001_OUTPUT. FUNCTION conversion_exit_z001_output. *&amp;quot;---------------------------------------------------------------------- *&amp;quot;*&amp;quot;本地接口： *&amp;quot; IMPORTING *&amp;quot; REFERENCE(INPUT) *&amp;quot; EXPORTING *&amp;quot; REFERENCE(OUTPUT) *&amp;quot;---------------------------------------------------------------------- *作</description>
+      <description>负号前置 SAP 系统中，很多种情况下负号都是在数字后面，如果在显示或计算数据时需要将负号放到数字前面。 调用系统BAPI 可以使用 function module：CL</description>
     </item>
     
     <item>

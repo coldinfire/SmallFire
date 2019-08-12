@@ -7,7 +7,9 @@ isCJKLanguage: true
 categories: 
   - ABAP
 
-tags: ["Excel","abap"]
+tags: 
+  - Excel
+  - abap
 
 
 ---
@@ -222,10 +224,10 @@ CALL FUNCTION 'GUI_UPLOAD'
 
 ```JS
 * 定义一个内表来存储数据，内表的列数和要传得数据的列数要相同，其按照列来匹配传值
-DATA: BEGIN OF gt_data OCCURS 0,
-     col1 TYPE char10,
-     col2 TYPE char10,
-      END OF gt_data.
+DATA: BEGIN OF gt_data OCCURS 0,
+     col1 TYPE char10,
+     col2 TYPE char10,
+      END OF gt_data.
 
 CALL FUNCTION 'TEXT_CONVERT_XLS_TO_SAP'  
   EXPORTING  
