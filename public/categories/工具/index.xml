@@ -6,7 +6,7 @@
     <description>Recent content in 工具 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 12 Mar 2018 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title> 使用Hugo&#43;GitHub Pages快速搭建博客  </title>
       <link>https://coldinfire.github.io/2018/hugo1/</link>
-      <pubDate>Mon, 12 Mar 2018 17:20:58 +0800</pubDate>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/hugo1/</guid>
       <description>工具准备 Hugo：博客框架 https://github.com/gohugoio/hugo Git：用来发布博客内容 https://git-scm.com/ Github：保存和显示博客内容 https://github.com/ MarkDown编辑软件：用来进行博客文章的编辑 Typora C</description>
@@ -23,7 +23,7 @@
     <item>
       <title>Git学习与总结</title>
       <link>https://coldinfire.github.io/2018/git/</link>
-      <pubDate>Sun, 11 Mar 2018 17:20:58 +0800</pubDate>
+      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/git/</guid>
       <description>Git本地结构 ​ Workspace：工作区，实际操作的目录。 ​ Index / Stage：暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友</description>

@@ -6,7 +6,7 @@
     <description>Recent content in 前端 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 14 Sep 2017 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>JavaScript学习与总结</title>
       <link>https://coldinfire.github.io/2017/JS/</link>
-      <pubDate>Thu, 14 Sep 2017 17:20:58 +0800</pubDate>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JS/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>CSS背景设置</title>
       <link>https://coldinfire.github.io/2017/CSSBackgroup/</link>
-      <pubDate>Wed, 13 Sep 2017 17:20:58 +0800</pubDate>
+      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/CSSBackgroup/</guid>
       <description>属性介绍 网页的背景设计： background-color 颜色设置方式 Color name：red，green&amp;hellip; HEX Value：#rrggbb RGB Value：rgb(255</description>
@@ -32,7 +32,7 @@
     <item>
       <title>CSS格式与标准总结</title>
       <link>https://coldinfire.github.io/2017/CSS/</link>
-      <pubDate>Tue, 12 Sep 2017 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/CSS/</guid>
       <description>CSS语法 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器单独一行； 一条声明的开大括号前留一</description>

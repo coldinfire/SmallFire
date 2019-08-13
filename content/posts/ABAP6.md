@@ -1,6 +1,6 @@
 ---
 title: "ABAP程序间调用"
-date: 2018-06-05T17:20:58+08:00
+date: 2018-06-05
 draft: false
 author: Small Fire
 isCJKLanguage: true

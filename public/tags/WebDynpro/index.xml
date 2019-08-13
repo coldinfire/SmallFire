@@ -6,7 +6,7 @@
     <description>Recent content in WebDynpro on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Oct 2018 17:20:58 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/WebDynpro/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title> WebDynpro </title>
       <link>https://coldinfire.github.io/2018/WebDynpro/</link>
-      <pubDate>Tue, 16 Oct 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WebDynpro/</guid>
       <description>简介 Web Dynpro 在业务应用程序的主要结构和视觉设计部分的方式，在很大程度上是独立于实现语言. 一个Web Dynpro 组件不是一个JAVA类，而是一系列类集合所有</description>

@@ -17,7 +17,25 @@
       <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAPUtils14/</guid>
-      <description>使用 在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。 DATA: JS_PROCESSOR TYPE REF TO CL_JAVA_SCRIPT. &amp;quot;计算表达式 JS_PROCESSOR = CL_JAVA_SCRIPT=&amp;gt;CREATE( ). CONCATENATE &#39;var string = &#39; FORMULA &#39;;&#39; &#39;function Set_String() &#39; &#39; { string =</description>
+      <description>使用 ​ 在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。 一、调用BAPI：EVAL_FORMULA TYPES:BEGIN OF TY_VAL, OPERAND TYPE C, VALUE TYPE STRING, END OF TY_VAL. TYPES:BEGIN</description>
+    </item>
+    
+    <item>
+      <title>递归遍历成本中心组</title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils17/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils17/</guid>
+      <description>成本中心组下嵌套成本中心组 ​ 成本中心后台数据表是 CSKS，描述表是 CSKT。在表 CSKS 中，主键是 MANDT（客户端）、KOKRS（控制范围）、K</description>
+    </item>
+    
+    <item>
+      <title> ALV Tree标准Demo </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils13/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils13/</guid>
+      <description>Demo列表 BCALV_TREE_01 ALV 树控制：构建层次树 BCALV_TREE_02 ALV 树控制：事件处理 BCALV_TREE_03 ALV 树控制：使用自己的上下文菜单 BCALV_TREE_04 ALV 树控制：添加按钮到工具栏 BCALV_TREE_05 ALV 树控制：添加菜单到工具</description>
     </item>
     
     <item>
@@ -113,7 +131,7 @@
     <item>
       <title>RFC外部调用</title>
       <link>https://coldinfire.github.io/2018/ABAPRFC/</link>
-      <pubDate>Fri, 12 Oct 2018 15:15:42 +0800</pubDate>
+      <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPRFC/</guid>
       <description>RFC 什么是 RFC ​ RFC 是 SAP 系统和其他（SAP 或非 SAP）系统间的一个重要而常用的双向接口技术，也被视为 SAP 与外部通信的基本协议。简单地说，RFC 过程就</description>
@@ -129,12 +147,30 @@
     </item>
     
     <item>
+      <title>负号前置</title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils3/</link>
+      <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils3/</guid>
+      <description>负号前置 SAP 系统中，很多种情况下负号都是在数字后面，如果在显示或计算数据时需要将负号放到数字前面。 调用系统BAPI 可以使用 function module：CL</description>
+    </item>
+    
+    <item>
       <title>可输入弹出框</title>
       <link>https://coldinfire.github.io/2018/ABAPUtils5/</link>
       <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPUtils5/</guid>
       <description>POPUP_GET_VALUES_USER_HELP 输入表格，SVAL相应的字段信息决定显示的效果： tabname = &#39;AFKO&#39;. fieldname = &#39;AUFNR&#39;. fieldtext = &#39;生产订单号&#39;. field_attr = &#39;02&#39;. //是否可输入和显示 value = &#39;val&#39;. CALL FUNCTION &#39;POPUP_GET_VALUES_USER_HELP&#39; EXPORTING * F1_FORMNAME = &#39; &#39; * F1_PROGRAMNAME = &#39;</description>
+    </item>
+    
+    <item>
+      <title>字符串前拼接空格、物料单位转换</title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils16/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils16/</guid>
+      <description>字符串前拼接空格 在Grid ALV上也显示敲到空格： IF &amp;lt;fw_output&amp;gt;-name2+0(1) eq space AND &amp;lt;fw_output&amp;gt;-name2 IS NOT INITIAL. h_white = cl_abap_conv_in_ce=&amp;gt;uccpi( 160 ). REPLACE ALL OCCURRENCES OF REGEX &#39;\s&#39; IN &amp;lt;fw_output&amp;gt;-name2 WITH h_white. ENDIF. MARM物料单位转换 call function &#39;MD_CONVERT_MATERIAL_UNIT&#39; exporting i_matnr = matnr i_in_me = in_me</description>
     </item>
     
     <item>
@@ -147,21 +183,12 @@
     </item>
     
     <item>
-      <title> ALV Tree标准Demo </title>
-      <link>https://coldinfire.github.io/2018/ABAPUtils13/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      <title>SAP锁机制</title>
+      <link>https://coldinfire.github.io/2018/ABAPLock/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAPUtils13/</guid>
-      <description>Demo列表 BCALV_TREE_01 ALV 树控制：构建层次树 BCALV_TREE_02 ALV 树控制：事件处理 BCALV_TREE_03 ALV 树控制：使用自己的上下文菜单 BCALV_TREE_04 ALV 树控制：添加按钮到工具栏 BCALV_TREE_05 ALV 树控制：添加菜单到工具</description>
-    </item>
-    
-    <item>
-      <title> ABAP通过字段找表程序 </title>
-      <link>https://coldinfire.github.io/2018/ABAPUtils12/</link>
-      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAPUtils12/</guid>
-      <description>获取数据保存在哪个表 前台对指定栏位 使用 F1 帮助找表 ST05 跟踪业务操作过程，检索需要的数据表.（此方法找表很高效） 对于文本字段找表，可以找到前台维护</description>
+      <guid>https://coldinfire.github.io/2018/ABAPLock/</guid>
+      <description>一、SAP 为什么要设置锁： 1，保持数据的一致性 ​ 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防</description>
     </item>
     
     <item>
@@ -184,10 +211,10 @@
     
     <item>
       <title>业务流程</title>
-      <link>https://coldinfire.github.io/2018/ABAPSumory/</link>
+      <link>https://coldinfire.github.io/2018/ABAPSummory/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAPSumory/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAPSummory/</guid>
       <description>PP流程 MM01(Material)-&amp;gt;CS01(BOM)-&amp;gt;CR01(WORKCENTERY)-&amp;gt;CA01(ROUTING)-&amp;gt;MD11(PLANNED ORDER)-&amp;gt; COO1(PRODUCTION ORDERS)也可通过CO41/CO40转换计划单得来. COMAC:对生产订单进行可用性检查 COHVOMPRINT:打印订单 M</description>
     </item>
     
@@ -210,6 +237,15 @@
     </item>
     
     <item>
+      <title> ABAP通过字段找表程序 </title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils12/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils12/</guid>
+      <description>获取数据保存在哪个表 前台对指定栏位 使用 F1 帮助找表 ST05 跟踪业务操作过程，检索需要的数据表.（此方法找表很高效） 对于文本字段找表，可以找到前台维护</description>
+    </item>
+    
+    <item>
       <title>红绿灯</title>
       <link>https://coldinfire.github.io/2018/ABAPUtils4/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
@@ -228,15 +264,6 @@
     </item>
     
     <item>
-      <title>负号前置</title>
-      <link>https://coldinfire.github.io/2018/ABAPUtils3/</link>
-      <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAPUtils3/</guid>
-      <description>负号前置 SAP 系统中，很多种情况下负号都是在数字后面，如果在显示或计算数据时需要将负号放到数字前面。 调用系统BAPI 可以使用 function module：CL</description>
-    </item>
-    
-    <item>
       <title>添加修改人信息</title>
       <link>https://coldinfire.github.io/2018/ABAPUtils/</link>
       <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
@@ -248,7 +275,7 @@
     <item>
       <title>ABAP程序间调用</title>
       <link>https://coldinfire.github.io/2018/ABAP6/</link>
-      <pubDate>Tue, 05 Jun 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP6/</guid>
       <description>同步调用 在一个程序中调用其他ABAP程序。有两种方式 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function] SUBMIT [program] AND RETURN CALL TRANSACTION [TCode]</description>
@@ -257,7 +284,7 @@
     <item>
       <title>ABAP 语法详解(优化)</title>
       <link>https://coldinfire.github.io/2018/ABAP5/</link>
-      <pubDate>Fri, 01 Jun 2018 17:20:58 +0800</pubDate>
+      <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP5/</guid>
       <description>效率优化 数据库 不要使用 SELECT * &amp;hellip;，选择需要的字段, SELECT * 既浪费CPU，还需占用大量的ABAP内存 不要使用SELECT DISTINCT .，会绕过缓存</description>
@@ -266,7 +293,7 @@
     <item>
       <title>ABAP 语法详解(SQL)</title>
       <link>https://coldinfire.github.io/2018/ABAP4/</link>
-      <pubDate>Thu, 24 May 2018 17:20:58 +0800</pubDate>
+      <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP4/</guid>
       <description>MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;amp;’定义多个占位符。 MESSAGE E001(ZTEST). ​ E:消息显示类型 (E[Error]</description>
@@ -275,7 +302,7 @@
     <item>
       <title>ABAP 语法详解(Field&amp;Form)</title>
       <link>https://coldinfire.github.io/2018/ABAP3/</link>
-      <pubDate>Sun, 20 May 2018 17:20:58 +0800</pubDate>
+      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP3/</guid>
       <description>字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY sep] [RESPECTING BLANKS]. ​ C,D,N,T类型的前导空格会保留，尾部空格会去掉，对String类型的所有空格都会保留； ​ se</description>
@@ -284,7 +311,7 @@
     <item>
       <title>ABAP 语法详解(内表)</title>
       <link>https://coldinfire.github.io/2018/ABAP2/</link>
-      <pubDate>Wed, 16 May 2018 17:20:58 +0800</pubDate>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP2/</guid>
       <description>内表定义和使用 内表定义 工作区域：工作区域可以存放多个变量数据。 ​ 直接定义：DATA: BEGIN OF &amp;lt;str&amp;gt; END OF &amp;lt;str&amp;gt;. ​ 参照DB或则结构：DATA &amp;lt;wa&amp;gt; TYPE &amp;lt;dbtab&amp;gt;|&amp;lt;str&amp;gt;. ​ 参照内表</description>

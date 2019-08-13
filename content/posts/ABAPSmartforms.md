@@ -21,23 +21,35 @@ tags:
 调用方式是通过函数‘XXX_SSF’ 将 form 生产一个函数，然后调用函数
 打印 form 。
 
+- 记录总页数：sfsy-page(当前页数) / sfsy-formpages(总页数)
+
 ### Smartforms使用
 
-​	记录总页数：sfsy-page(当前页数) / sfsy-formpages(总页数)
+​	在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。但是 SmartForms 是一个独立的外部 Function Module，对于程序内部定义的内表数据不能直接传递，需要定义外部的数据结构 Structure 或者使用标准的表结构，如果程序变更，需要传递的数据发生变化，那么该 Sturcture 也需要修改，这是 SmartForms 中不方便的地方。
+
+​	我们也可以在 SmartForms 内部写取数据的逻辑，但是在 SmartForms 中编程不是很方便，而且有时我们的数据需要首先以 List 或者 ALV List 的方式显示，然后再打印，所以在 smartforms 中书写取数据逻辑只能对一些要求非常简单的场合适用。
 
 ### Smartforms注意事项
 
-Table和template区别：
+#### Table和template区别：
 
-1、`table` 行为动态，数据输出时会根据列宽自动换行，可以固定列宽，
-但是默认情况下控制不了行高，如果要想 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （还是 table 控件？）的高度来自动翻页.
+- 1、`table` 行为动态，数据输出时会根据列宽自动换行，可以固定列宽，
+  但是默认情况下控制不了行高，如果要想 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （还是 table 控件？）的高度来自动翻页.
 
-2、`template` 为静态，固定列宽、行高，当输出数据过长时会自动截断，通常被用于静态表单开发。
-template 跟 loop 嵌套使用，可以实现固定行高、列宽的表单开发。需要手动翻页，并程序中计算页码；（程序中计算页码？）.
+- 2、`template` 为静态，固定列宽、行高，当输出数据过长时会自动截断，通常被用于静态表单开发。
+  template 跟 loop 嵌套使用，可以实现固定行高、列宽的表单开发。需要手动翻页，并程序中计算页码；（程序中计算页码？）.
 
 ### Smartforms Debug
 
+1. 使用TCode:Smartforms进入，输入smartform name或则同个NACE查找到smartform
 
+2. 在smartform中找到需要Debug的一段代码，打上相应的断点
+
+3. 在导航栏中通过 Environment –> Function Module Name 获取Function module
+
+4. 在SE37中打开该Function Module,进入Main program找到Perform GLOBAL_INIT
+5. 该FORM中进行所有的程序数据初始化，所有smartform中的程序行在此处定义，可以打断点
+6. 或则在Main program中找到想要打断点的代码位置，运行Smartform，会进入断点，进行查错
 
 ### Smartforms 打印条码
 

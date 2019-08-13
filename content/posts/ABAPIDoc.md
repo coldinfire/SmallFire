@@ -1,6 +1,6 @@
 ---
 title: "IDoc操作"
-date: 2018-10-22T15:15:42+08:00
+date: 2018-10-22
 draft: false
 author: Small Fire
 isCJKLanguage: true

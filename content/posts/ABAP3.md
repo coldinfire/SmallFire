@@ -1,6 +1,6 @@
 ---
 title: "ABAP 语法详解(Field&Form)"
-date: 2018-05-20T17:20:58+08:00
+date: 2018-05-20
 draft: false
 author: Small Fire
 isCJKLanguage: true

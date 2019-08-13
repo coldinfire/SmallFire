@@ -1,6 +1,6 @@
 ---
 title: "BAPI使用"
-date: 2018-10-16T15:15:42+08:00
+date: 2018-10-16
 draft: false
 draft: false
 author: Small Fire
@@ -23,7 +23,7 @@ tags:
 2. 查找事务码对应的BAPI
    
 - 进入事务码，system status --> 事务码双击，找到Package VA --> SE80打开包VA/Display Object List
-   
+  
 3. BAPI事务处理
 
    - 同时调用多个BAPI，需要在程序中进行事务控制，决定何时执行数据库提交或回滚；

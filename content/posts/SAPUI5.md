@@ -1,7 +1,7 @@
 ---
 
 title: " SAPUI5 "
-date: 2019-04-16T17:20:58+08:00
+date: 2019-04-16
 draft: false
 author: Small Fire
 isCJKLanguage: true

@@ -1,7 +1,7 @@
 ---
 
 title: " Pycharm "
-date: 2019-01-03T17:20:58+08:00
+date: 2019-01-03
 draft: false
 author: Small Fire
 isCJKLanguage: true

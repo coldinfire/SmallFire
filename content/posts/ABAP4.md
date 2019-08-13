@@ -1,6 +1,6 @@
 ---
 title: "ABAP 语法详解(SQL)"
-date: 2018-05-24T17:20:58+08:00
+date: 2018-05-24
 draft: false
 author: Small Fire
 isCJKLanguage: true

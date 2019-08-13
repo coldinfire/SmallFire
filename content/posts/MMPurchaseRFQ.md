@@ -26,9 +26,7 @@ tags:
 
   ![RFQ Head](/images/MMPurchasing/RFQ_Head.png)
 
-- Enter the appropriate item category
-
-- Enter the material NO , RFQ Quantity
+- Enter the appropriate item category,material NO, RFQ Quantity
 
 - Enter the Deliv. Date，Plant code , Submission date , Click Create Vendor address
 

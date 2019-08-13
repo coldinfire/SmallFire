@@ -1,6 +1,6 @@
 ---
 title: "RFC外部调用"
-date: 2018-10-12T15:15:42+08:00
+date: 2018-10-12
 draft: false
 author: Small Fire
 isCJKLanguage: true

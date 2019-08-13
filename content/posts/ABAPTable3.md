@@ -1,6 +1,6 @@
 ---
 title: "报表开发<内表操作>"
-date: 2018-06-23T17:20:58+08:00
+date: 2018-06-23
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -85,31 +85,6 @@ FOR ALLENTRIES:
   2:WHERE后还有其他条件，会忽略后续条件
 表连接：
   INNER JOIN、LEFT OUTER JOIN.
-```
-
-### 【SAP锁】
-
-```JS
-通用数据库表锁函数：ENQUEUE_E_TABLE、DEQUEUE_E_TABLE、DEQUEUE_ALL
-特定数据库表函数：ENQUEUE_<LOCK OBJ>、DEQUEUE_<LOCK OBJ>
-自定义锁对象：EZ_/EY_命名
-S:共享锁     E:可重入的排他锁     X:排他锁
-1、在SE11里创建锁对象，自定义的锁对象都必须以EZ或者EY开头来命名。一个锁对象里只包含一个
-     PRIMARY TABLE，可以包含若干个SECONDARY TABLE，锁的模式有三种：E，S，X。
-   模式E：当更改数据的时候设置为此模式。   (Shared lock, read lock) 【一般使用E】
-   模式S：本身不需更改数据，但是希望显示的数据不被别人更改 (Exclusive lock, write lock)
-   模式X：和E类似，但是不允许累加，完全独占。 
-          (Exclusive lock, extended write lock, cannot be cumulated)
-2、上锁的一般步骤
-      先上锁，上锁成功之后，从数据库取数据，然后更改数据，接着更新到数据库，最后解锁。
-   按照这个步骤，才能保证更改完全运行在锁的保护机制下。
-3、上锁与解锁
-   ENQUEUE_<lock object的名字> 对象 EZZSOPR0032 要求的锁定
-   DEQUEUE_<lock object的名字> 释放对象 EZZSOPR0032 的锁定
-     有些情况下，程序中设置成功的逻辑锁会隐式的自己解锁。比如说程序结束发生的时候
-  （MESSAGE TYPE为A或者X的时候），使用语句LEAVE PROGRAM，LEAVE TO TRANSACTION，或者在
-   命令行输入/n回车以后。使用DEQUEUE FUNCTION MODULE来解锁的时候，不会产生EXCEPTION。
-   要解开你在程序中创建的所有的逻辑锁，可以用FM：DEQUEUE_ALL.
 ```
 
 ### 【事务处理】

@@ -9,7 +9,7 @@ categories:
 
 tags: 
   - abap
-  - DOI
+  - utils
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 
 title: "Git学习与总结"
-date: 2018-03-11T17:20:58+08:00
+date: 2018-03-11
 draft: false
 author: Small Fire
 isCJKLanguage: true

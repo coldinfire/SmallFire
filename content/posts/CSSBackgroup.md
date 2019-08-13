@@ -1,6 +1,6 @@
 ---
 title: "CSS背景设置"
-date: 2017-09-13T17:20:58+08:00
+date: 2017-09-13
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -17,7 +17,7 @@ tags:
 
 ### background-color ###
 颜色设置方式
- 
+
  - Color name：red，green...
  - HEX Value：#rrggbb
  - RGB Value：rgb(255,255,0)

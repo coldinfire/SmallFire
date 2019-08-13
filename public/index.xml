@@ -100,27 +100,135 @@
 
 &lt;h3 id=&#34;使用&#34;&gt;使用&lt;/h3&gt;
 
-&lt;p&gt;在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。&lt;/p&gt;
+&lt;p&gt;​   在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;DATA: JS_PROCESSOR TYPE REF TO CL_JAVA_SCRIPT.
-&amp;quot;计算表达式
-JS_PROCESSOR = CL_JAVA_SCRIPT=&amp;gt;CREATE( ).
-CONCATENATE
-  &#39;var string = &#39; FORMULA &#39;;&#39;
-  &#39;function Set_String()                          &#39;
-  &#39;  { string = eval(string);                     &#39;
-  &#39;  }                                            &#39;
-  &#39;Set_String();                                  &#39;
-  &#39;string;                                        &#39;
-  INTO HSLM_SOURCE SEPARATED BY CL_ABAP_CHAR_UTILITIES=&amp;gt;CR_LF.
-HSLM_VALUE = JS_PROCESSOR-&amp;gt;EVALUATE( HSLM_SOURCE )
+&lt;h4 id=&#34;一-调用bapi-eval-formula&#34;&gt;一、调用BAPI：EVAL_FORMULA&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;TYPES:BEGIN OF TY_VAL,
+      OPERAND TYPE C,
+      VALUE TYPE STRING,
+      END OF TY_VAL.
+TYPES:BEGIN OF TY_FRM,
+      NO TYPE I,
+      FORMULA TYPE CHAR50,
+      END OF TY_FRM.
+DATA:IT_VAL TYPE TABLE OF TY_VAL,
+     WA_VAL TYPE TY_VAL.
+DATA:IT_FORMULA TYPE TABLE OF TY_FRM,
+     WA_FRM TYPE TY_FRM.
+DATA:WF_STRING TYPE CHAR255,
+     WF_LEN TYPE I,
+     WF_FORMULA TYPE CHAR50.
+DATA: WF_RETCODE      LIKE SY-SUBRC,
+      WF_FUNCNAME(30) TYPE C,
+      WF_MESSAGE(70)  TYPE C,
+      WF_POS          TYPE I,
+      WF_C            TYPE P LENGTH 15 DECIMALS 2.
+      
+WA_VAL-OPERAND = &#39;A&#39;.
+WA_VAL-VALUE = &#39;1&#39;.
+APPEND WA_VAL TO IT_VAL.
+WA_VAL-OPERAND = &#39;B&#39;.
+WA_VAL-VALUE = &#39;2&#39;.
+APPEND WA_VAL TO IT_VAL.
+WA_VAL-OPERAND = &#39;C&#39;.
+WA_VAL-VALUE = &#39;3&#39;.
+APPEND WA_VAL TO IT_VAL.
+WA_FRM-NO = 1.
+WA_FRM-FORMULA = &#39;A*B+C&#39;.
+APPEND WA_FRM TO IT_FORMULA.
+WA_FRM-NO = 2.
+WA_FRM-FORMULA = &#39;C*(A-B)&#39;.
+APPEND WA_FRM TO IT_FORMULA.
+LOOP AT IT_FORMULA INTO WA_FRM.
+  WF_STRING = WA_FRM-FORMULA.
+  WF_FORMULA = WA_FRM-FORMULA.
+  REPLACE ALL OCCURRENCES OF REGEX &#39;[^[:alpha:]]&#39; IN WF_STRING WITH ` `.
+  CONDENSE WF_STRING NO-GAPS.
+  WF_LEN = STRLEN( WF_STRING ).
+  DO WF_LEN TIMES.
+    SY-INDEX = SY-INDEX - 1.
+    READ TABLE IT_VAL INTO WA_VAL WITH KEY OPERAND = WF_STRING+SY-INDEX(1).
+    IF SY-SUBRC = 0.
+      REPLACE ALL OCCURRENCES OF WF_STRING+SY-INDEX(1)
+                              IN WF_FORMULA
+                              WITH WA_VAL-VALUE.
+    ENDIF.
+  ENDDO.
+  CALL FUNCTION &#39;CHECK_FORMULA&#39;
+    EXPORTING
+      FORMULA  = WF_FORMULA
+    IMPORTING
+      SUBRC    = WF_RETCODE
+      FUNCNAME = WF_FUNCNAME
+      MESSAGE  = WF_MESSAGE
+      POS      = WF_POS.
+  IF WF_RETCODE IS INITIAL.
+    CALL FUNCTION &#39;EVAL_FORMULA&#39;
+      EXPORTING
+        FORMULA = WF_FORMULA
+      IMPORTING
+        VALUE   = WF_C
+      EXCEPTIONS
+        OTHERS  = 1.
+    IF SY-SUBRC = 0.
+      WRITE: / WA_FRM-FORMULA,&#39;-&#39;, WF_C.
+    ELSE.
+      WRITE: / &#39;Error&#39;..
+    ENDIF.
+  ELSE.
+    WRITE: / WF_FUNCNAME, WF_MESSAGE, WF_POS.
+  ENDIF.
+ENDLOOP.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;替换表达式的运算单位&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h4 id=&#34;程序内使用&#34;&gt;程序内使用&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;REPLACE ALL OCCURRENCES OF REGEX &#39;[^[:alnum:]]&#39; IN WF_STRING WITH ‘ ’&lt;/code&gt; .&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;REPLACE ALL OCCURRENCES OF REGEX &#39;[^[:alpha:]]&#39; IN WF_STRING WITH ‘ ’&lt;/code&gt; .&lt;/li&gt;
+&lt;li&gt;``：两个表示空格&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;​   程序内只是取出配置的值，该值存储在表TVARVC中。如果有前导零问题，需要调用Function添加前导零。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;将字符串切分保存到内表&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SPLIT  WF_STRING  AT SPACE INTO TABLE table_name.&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;二-通过直接调用表达式完成计算&#34;&gt;二、通过直接调用表达式完成计算&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;DATA: MESSAGE TYPE STRING,
+      SOURCE TYPE STRING,
+      RETURN_VALUE TYPE P LENGTH 15 DECIMALS 2,
+      TXT_VAR1 TYPE CHAR40,
+      TXT_VAR2 TYPE CHAR40,
+      TXT_VAR3 TYPE CHAR40 VALUE &#39;987979.234-&#39;.
+
+CALL FUNCTION &#39;CLOI_PUT_SIGN_IN_FRONT&#39;
+  CHANGING
+    VALUE  = TXT_VAR3.
+
+MESSAGE = &#39;(-351422999.55+-59211228.95+-1297670.94+-3135583.53+-35337844.40)*100/(613848716.07+0.00+-1552672.73)&#39;.
+
+DATA: JS_PROCESSOR TYPE REF TO CL_JAVA_SCRIPT.
+  JS_PROCESSOR = CL_JAVA_SCRIPT=&amp;gt;CREATE( ).
+    CONCATENATE
+      &#39;var string = &#39; MESSAGE &#39;;&#39;
+      &#39;function Set_String()                          &#39;
+      &#39;  { string = eval(string);                     &#39;
+      &#39;  }                                            &#39;
+      &#39;Set_String();                                  &#39;
+      &#39;string;                                        &#39;
+    INTO SOURCE SEPARATED BY
+    CL_ABAP_CHAR_UTILITIES=&amp;gt;CR_LF.
+RETURN_VALUE = JS_PROCESSOR-&amp;gt;EVALUATE( SOURCE ).
+WRITE: RETURN_VALUE.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;实际使用&#34;&gt;实际使用&lt;/h4&gt;
+
+&lt;p&gt;​   可以将以上两种方法进行结合，计算出表达式的结果。&lt;/p&gt;
 </description>
     </item>
     
@@ -131,6 +239,97 @@ HSLM_VALUE = JS_PROCESSOR-&amp;gt;EVALUATE( HSLM_SOURCE )
       
       <guid>https://coldinfire.github.io/search/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>递归遍历成本中心组</title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils17/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils17/</guid>
+      <description>
+
+&lt;h4 id=&#34;成本中心组下嵌套成本中心组&#34;&gt;成本中心组下嵌套成本中心组&lt;/h4&gt;
+
+&lt;p&gt;​   成本中心后台数据表是 CSKS，描述表是 CSKT。在表 CSKS 中，主键是 MANDT（客户端）、KOKRS（控制范围）、KOSTL（成本中心）、DATBI（有效截至日期），在一个控制范围下的某个成本中心，会因为时间段的不同，会在表 CSKS 和 CSKT 存储多条记录。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;img src=&#34;https://coldinfire.github.io/images/ABAP/utils17.jpg&#34; alt=&#34;成本中心组&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​   这是一个树型结构，针对根节点、子节点、叶节点，SAP 有三张表：SETHEADER、SETNODE、SETLEAF。既然是树型结构那用递归遍历是最合适不过了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;--------------------------------------------------------------------*
+*&amp;amp;      Form  frm_get_kostl
+*&amp;amp;--------------------------------------------------------------------*
+*       递归查询一个成本中心组下的所有成本中心。
+*---------------------------------------------------------------------*
+*      --&amp;gt;I_TREE     成本中心组根节点
+*---------------------------------------------------------------------*
+FORM FRM_GET_KOSTL USING I_TREE LIKE I_TREE.
+  DATA: I_TEMPTREE LIKE I_TREE OCCURS 0 WITH HEADER LINE.
+  SELECT SUBSETNAME
+    INTO I_TEMPTREE
+    FROM SETNODE
+    WHERE SETCLASS = &#39;0101&#39;
+    AND SUBCLASS = &#39;YZJT&#39;
+    AND SETNAME = I_TREE-SETNAME.
+   IF SY-SUBRC = 0.
+    PERFORM FRM_GET_KOSTL USING I_TEMPTREE.
+   ENDIF.
+  ENDSELECT.
+  SELECT VALFROM FROM SETLEAF INTO F_KOSTL
+    WHERE SETCLASS = &#39;0101&#39;
+    AND SUBCLASS = &#39;YZJT&#39;
+    AND SETNAME = I_TREE-SETNAME.
+   APPEND F_KOSTL .
+  ENDSELECT.
+ENDFORM.                    &amp;quot;frm_get_kostl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;调用：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;&amp;quot;数据结构定义
+DATA: BEGIN OF I_TREE OCCURS 0,
+      SETNAME LIKE SETNODE-SETNAME,
+      END OF I_TREE.
+DATA: BEGIN OF I_KOSTL OCCURS 0,
+      VALFROM LIKE SETLEAF-VALFROM,
+      END OF I_KOSTL.
+DATA: I_SETHEADER LIKE I_TREE OCCURS 0 WITH HEADER LINE. 
+
+PERFORM FRM_GET_KOSTL USING I_SETHEADER.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;针对 SAP 中 SET（集）的操作，有好多函数，如 G_SET_GET_ALL_VALUES：Read All Values in a Set Hierarchy&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title> ALV Tree标准Demo </title>
+      <link>https://coldinfire.github.io/2019/ABAPUtils13/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPUtils13/</guid>
+      <description>
+
+&lt;h3 id=&#34;demo列表&#34;&gt;Demo列表&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;BCALV_TREE_01                  ALV 树控制：构建层次树
+BCALV_TREE_02                  ALV 树控制：事件处理
+BCALV_TREE_03                  ALV 树控制：使用自己的上下文菜单
+BCALV_TREE_04                  ALV 树控制：添加按钮到工具栏
+BCALV_TREE_05                  ALV 树控制：添加菜单到工具栏
+BCALV_TREE_06                  ALV 树控制: 节点/项目的图标和图标栏
+BCALV_TREE_DEMO                ALV 树控制的演示
+BCALV_TREE_DND                 ALV 树控制: 在层次树中拖放
+BCALV_TREE_DND_MULTIPLE        ALV 树控制: 在层次树中拖放
+BCALV_TREE_EVENT_RECEIVER
+BCALV_TREE_EVENT_RECEIVER01
+BCALV_TREE_ITEMLAYOUT          ALV 树: 在运行时更改项目格式
+BCALV_TREE_MOVE_NODE_TEST
+BCALV_TREE_SIMPLE_DEMO         程序 BCALV_TREE_SIMPLE_DEMO
+BCALV_TREE_VERIFY              ALV 树和简单 ALV 树的校验者
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -254,9 +453,71 @@ HSLM_VALUE = JS_PROCESSOR-&amp;gt;EVALUATE( HSLM_SOURCE )
     </item>
     
     <item>
+      <title> SD Function module</title>
+      <link>https://coldinfire.github.io/2019/SAPSDFunction/</link>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPSDFunction/</guid>
+      <description>
+
+&lt;h3 id=&#34;function-modules&#34;&gt;Function Modules&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;RV_ORDER_FLOW_INFORMATION&lt;/strong&gt; - Reads sales document flow of sales document after delivery and billing
+Don&amp;rsquo;t forget also check direct reference documents for the both starting document # and preceding/following document types that you are searching for (For example, if you search delivery for the given SO, check also LIPS-VGBEL and LIPS-VGPOS, if it&amp;rsquo;s possible with regard to performance).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_SALES_DOCUMENT_READ&lt;/strong&gt; - Reads sales document header and business data: tables VBAK, VBKD and VBPA (Sold-to (AG), Payer (RG) and Ship-to (WE) parties)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_SALES_DOCUMENT_READ_POS&lt;/strong&gt; - Reads sales document header and item material: tables VBAK, VBAP-MATNR&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_DOCUMENT_PARTNER_READ&lt;/strong&gt; - partner information including address. Calls SD_PARTNER_READ&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_DETERMINE_CONTRACT_TYPE&lt;/strong&gt; - Determines, if document is service contract or quantity contract
+In: at least VBAK-VBELN
+Exceptions: NO CONTRACT | SERVICE_CONTRACT | QUANTITY_CONTRACT&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_SALES_DOCUMENT_COPY&lt;/strong&gt; - copy Sales Doc into new one with the required Sales Doc Type (VBAK-AUART) for further creating. ExampleO - create subsequent document&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_SALES_DOCUMENT_SAVE&lt;/strong&gt; - create Sales Doc from the copied document&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_SALES_DOCUMENT_ENQUEUE&lt;/strong&gt; - to dequeue use DEQUEUE_EVVBAKE&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_PARTNER_READ&lt;/strong&gt; - all the partners information and addresses&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RV_DELIVERY_PRINT_VIEW&lt;/strong&gt; - Data provision for delivery note printing&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_PACKING_PRINT_VIEW&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_DELIVERY_VIEW&lt;/strong&gt; - Data collection for printing
+called from RV_DELIVERY_PRINT_VIEW, SD_PACKING_PRINT_VIEW&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RV_BILLING_PRINT_VIEW&lt;/strong&gt; - Data Provision for Billing Document Print&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RV_PRICE_PRINT_HEAD&lt;/strong&gt; - To be used in print program to get pricing data on header [and item] level.
+Input: structures KOMK (fields mandt,kalsm,waerk,knumv,vbtyp to be taken from VBDKR, kappl=&amp;lsquo;V&amp;rsquo;).
+[and KOMP (field kposn to be taken from VBDPR, field mglme (quantity) can be changed to calculate price accordingly].
+Output: pricing data in tables TKOMV [and TKOMVD].&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BAPI_OUTB_DELIVERY_CONFIRM_DEC&lt;/strong&gt; - BAPI for Outbound Delivery Verification from a Decentralized System
+You can use this method to report back outbound deliveries from a WM system to an enterprise resource planning (ERP) system.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BAPI_OUTB_DELIVERY_CHANGE&lt;/strong&gt; - BAPI for Change to Outbound Delivery&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BAPI_INB_DELIVERY_SAVEREPLICA&lt;/strong&gt; - Create Inbound Delivery&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RV_DELIVERY_CREATE&lt;/strong&gt; - Create Delivery&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GN_DELIVERY_CREATE&lt;/strong&gt; - Create an Outbound Delivery&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SHP_VL10_DELIVERY_CREATE&lt;/strong&gt; - Create Outbound Delivery&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SD_COND_ACCESS&lt;/strong&gt; - Select condition records&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title> SAPUI5 </title>
       <link>https://coldinfire.github.io/2019/SAPUI5/</link>
-      <pubDate>Tue, 16 Apr 2019 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
       <description>
@@ -2546,7 +2807,11 @@ ENDTRY.
 &lt;h4 id=&#34;如何查看一个后台job对应哪些程序&#34;&gt;如何查看一个后台job对应哪些程序?&lt;/h4&gt;
 
 &lt;p&gt;​   sm36&amp;ndash;&amp;gt;点击“job selection”&amp;ndash;&amp;gt;运行结果双击选择job&amp;ndash;&amp;gt;回到第一个界面，点击“步骤”按钮，转到步骤清单总览，里面就可以看到程序名称了已取消，完成的job是不能修改的其它状态的都可以改，在sm37里，选择相应的job，菜单里有个更改项
-sm37就是sm36里job selection的链接.&lt;/p&gt;
+sm37就是sm36里job selection的链接。&lt;/p&gt;
+
+&lt;h4 id=&#34;调试后台job&#34;&gt;调试后台Job&lt;/h4&gt;
+
+&lt;p&gt;​   事务码：sm37，选中要调试的 job，输入事务码 JDBG，回车，进入调试界面，根据需要打断点等就行了。&lt;/p&gt;
 </description>
     </item>
     
@@ -2652,443 +2917,6 @@ sm37就是sm36里job selection的链接.&lt;/p&gt;
 &lt;p&gt;-&amp;gt; LS24（查询某一物料的仓位库存）&lt;/p&gt;
 
 &lt;p&gt;-&amp;gt; MB03 显示物料凭证 &amp;lt;-&amp;gt; 同部分 migo&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>库存管理</title>
-      <link>https://coldinfire.github.io/2019/MMInventoryManagement/</link>
-      <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MMInventoryManagement/</guid>
-      <description>
-
-&lt;h2 id=&#34;一-基本介绍&#34;&gt;一、基本介绍&lt;/h2&gt;
-
-&lt;h4 id=&#34;1-库存类型&#34;&gt;1.库存类型&lt;/h4&gt;
-
-&lt;p&gt;​      可用库存：可通过BAPI_MATERIAL_AVAILABILITY来获取&lt;/p&gt;
-
-&lt;p&gt;​      当前库存：一般保存在MARD-LABST字段中&lt;/p&gt;
-
-&lt;p&gt;​      在途库存：MARC-UMLMC（中转库存）+ MARC-TRAME（在途库存），在途库存是不存在库位关系的&lt;/p&gt;
-
-&lt;p&gt;​      寄售库存：MSKU-KULAB，寄售库存是不存在库位关系的&lt;/p&gt;
-
-&lt;h4 id=&#34;2-物料凭证-material-document-mb51-查看物料凭证&#34;&gt;2.物料凭证 Material Document  : MB51(查看物料凭证)&lt;/h4&gt;
-
-&lt;p&gt;​      物料凭证批记录物料变动的单据：如收发货、调拨、销售、盘点过账等都会产生。&lt;/p&gt;
-
-&lt;p&gt;​      凭证类型，即物料的移动类型，三位编码。常用物料移动类型：&lt;/p&gt;
-
-&lt;p&gt;​        101 : 采购订单收货/生产订单收货 (MB01 采购订单的过账收货、MB31 按生产订单收货）&lt;/p&gt;
-
-&lt;p&gt;​        102：反冲；&lt;/p&gt;
-
-&lt;p&gt;​        103 : 入库冻结&lt;/p&gt;
-
-&lt;p&gt;​        105 : 释放冻结库&lt;/p&gt;
-
-&lt;p&gt;​        122：退货&lt;/p&gt;
-
-&lt;p&gt;​        261：从仓库发货到订单的消耗（领料生产MB1A）&lt;/p&gt;
-
-&lt;p&gt;​        301：跨工厂间一步库存转移&lt;/p&gt;
-
-&lt;p&gt;​        311：同一工厂一步库存转移&lt;/p&gt;
-
-&lt;p&gt;​        561：期初库存的导入&lt;/p&gt;
-
-&lt;p&gt;​        601 : 成品、原材料的销售出库&lt;/p&gt;
-
-&lt;h4 id=&#34;3-创建移动类型-omjj&#34;&gt;3.创建移动类型 ： OMJJ&lt;/h4&gt;
-
-&lt;p&gt;​    SPRO &amp;gt; MM &amp;gt; Inventory Management and Physical Inventory &amp;gt; Movement Types&lt;/p&gt;
-
-&lt;h4 id=&#34;4-stock-transfer-me27-me21&#34;&gt;4. Stock Transfer  : ME27/ME21&lt;/h4&gt;
-
-&lt;p&gt;​    库存转移：将物料从一个工厂转移到另一个存储地点，从工厂到工厂，从公司代码工厂转移到另一个公司代码工厂。发生库存转移时，两个工厂数量都回发生变化。&lt;/p&gt;
-
-&lt;p&gt;Transfer Posting : MB1B&lt;/p&gt;
-
-&lt;p&gt;​    将物料从一个工厂移动到另一个工厂或则存储地点。&lt;/p&gt;
-
-&lt;p&gt;​    &amp;lt; 1.物料到物料，工厂到工厂过账&lt;/p&gt;
-
-&lt;p&gt;​    &amp;lt; 2.从估价类型转移过账到估价类型&lt;/p&gt;
-
-&lt;p&gt;​    &amp;lt; 3.释放(Q)质量检验库存，将库存转移到SAP中的(U)无限制使用状态&lt;/p&gt;
-
-&lt;p&gt;​               库存转移 ME27/ME21                                           转移过账 / MB1B&lt;/p&gt;
-
-&lt;p&gt;​    库存转移是货物的实际移动，是强制性的            货物的实物流动是转移过账的选项&lt;/p&gt;
-
-&lt;p&gt;​    库存转移包括从发货点发货和收货点收货            特殊库存到公司库存和工厂间转移&lt;/p&gt;
-
-&lt;p&gt;​    移动类型是 641-transfer，643-跨公司                 301-工厂到工厂  309 物料到物料&lt;/p&gt;
-
-&lt;p&gt;​                                                                                 311库存地点到库存地点&lt;/p&gt;
-
-&lt;h2 id=&#34;二-库存目的&#34;&gt;二、库存目的&lt;/h2&gt;
-
-&lt;p&gt;​     ★ 完成接收、发送和转储库存的流程&lt;/p&gt;
-
-&lt;p&gt;​     ★ 设置库存主数据&lt;/p&gt;
-
-&lt;p&gt;​     ★ 创建按批次和序列号管理的物料&lt;/p&gt;
-
-&lt;p&gt;​     ★ 针对销售库存拣配和包装物料&lt;/p&gt;
-
-&lt;p&gt;​     ★ 创建价格清单和特殊价格&lt;/p&gt;
-
-&lt;p&gt;​     ★ 针对物料运输运行MRP&lt;/p&gt;
-
-&lt;h4 id=&#34;仓库管理流程&#34;&gt;仓库管理流程：&lt;/h4&gt;
-
-&lt;p&gt;​       1. 三个流程：【收货】   【库存转储】   【发货】&lt;/p&gt;
-
-&lt;p&gt;​           主要单据：发货单，库存转储单，收货单&lt;/p&gt;
-
-&lt;p&gt;​       2. 销售订单  —&amp;gt;【拣配】 —&amp;gt;  交货单创建  —&amp;gt;【包装以交货】—&amp;gt;  应收发票&lt;/p&gt;
-
-&lt;p&gt;​       3. 定义计划数据—&amp;gt;运行MRP—&amp;gt;查看订单建议—&amp;gt;生产订单/采购订单（建议结果）&lt;/p&gt;
-
-&lt;p&gt;​       4.序列号：用于跟踪单个队形&lt;/p&gt;
-
-&lt;p&gt;​          批次号：用于跟踪具有普遍性的物料组&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>收货</title>
-      <link>https://coldinfire.github.io/2019/MMGoodsReceive/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MMGoodsReceive/</guid>
-      <description>&lt;p&gt;1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO&lt;/p&gt;
-
-&lt;p&gt;​    GRIN清单：供应商发票上的PO# 与Org PO #相同&lt;/p&gt;
-
-&lt;p&gt;​                        供应商地址和采购订单地址匹配&lt;/p&gt;
-
-&lt;p&gt;​                        物料数量应在Org PO中可用&lt;/p&gt;
-
-&lt;p&gt;​                        发票价格和采购订单价格匹配&lt;/p&gt;
-
-&lt;p&gt;​                        发票和采购订单物料描述相同&lt;/p&gt;
-
-&lt;p&gt;​                        供应商名称与发票和PO间匹配&lt;/p&gt;
-
-&lt;p&gt;​                        PO和发票中的税匹配&lt;/p&gt;
-
-&lt;p&gt;​    收货：MIGO&lt;/p&gt;
-
-&lt;p&gt;​            输入PO NO.然后输入详细信息&lt;/p&gt;
-
-&lt;p&gt;​            Delivery Note：交货单输入发票参考：&lt;/p&gt;
-
-&lt;p&gt;​            Vendor :检查供应商名称&lt;/p&gt;
-
-&lt;p&gt;​            Bill of Lading : Non-bounded&lt;/p&gt;
-
-&lt;p&gt;​            Header Text：输入项目参考&lt;/p&gt;
-
-&lt;p&gt;​            Tick on collective slip：集体票据(打钩)&lt;/p&gt;
-
-&lt;p&gt;​            附件添加          更新所有必填信息后，可以保留、检查、发布&lt;/p&gt;
-
-&lt;p&gt;​            点击执行按钮保存文档生成GRIN#。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMGR/MIGO.png&#34; alt=&#34;MIGO&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;​    MIGO ：Select Cancellation and update GRIN No to reverse the GRIN. Post.&lt;/p&gt;
-
-&lt;p&gt;2.Post goods issue : MB1A (发料)&lt;/p&gt;
-
-&lt;p&gt;​    Update the movement type from options.&lt;/p&gt;
-
-&lt;p&gt;​    Enter the plant code.&lt;/p&gt;
-
-&lt;p&gt;​    Update the reason for movement key from the possible entries.&lt;/p&gt;
-
-&lt;p&gt;​    Updating all the required,press enter to continue.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/MMGR/MB1A.png&#34; alt=&#34;MB1A&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;3.发票校验：MIRO&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 介绍&lt;/p&gt;
-
-&lt;p&gt;​        发票校验是MM的一部分。提供物料管理部分和财务会计，成本控制和资产管理部分的连       接。&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 目的&lt;/p&gt;
-
-&lt;p&gt;​        完成物料采购的全过程：物料采购从采购申请(PR)开始，然后下PO和收货,并以收到发票       而结束。&lt;/p&gt;
-
-&lt;p&gt;​        允许处理不基于物料采购的发票（服务费，其他花费等）&lt;/p&gt;
-
-&lt;p&gt;​        允许处理贷项凭证，既可以是发票的取消，也可以是打折扣&lt;/p&gt;
-
-&lt;p&gt;​        发票校验不是对支付进行处理，也不是对发票进行分析，这些需要处理的信息传递到其他       部门。&lt;/p&gt;
-
-&lt;p&gt;​     ♣ 任务&lt;/p&gt;
-
-&lt;p&gt;​        输入接收到的发票和贷项凭证，检验发票内容,价格和计算第准确性&lt;/p&gt;
-
-&lt;p&gt;​        执行一个发票的账目记账&lt;/p&gt;
-
-&lt;p&gt;​        更新SAP系统内的一些数据，如未结算项目和物料价格&lt;/p&gt;
-
-&lt;p&gt;​        检查因为与采购订单出入太大而别冻结的发票&lt;/p&gt;
-
-&lt;p&gt;​     ♣ 过程&lt;/p&gt;
-
-&lt;p&gt;​        基于采购订单的发票校验：输入采购订单号，查看信息，可修改缺省数据。&lt;/p&gt;
-
-&lt;p&gt;​        基于收货的发票校验：先收货，再开票。&lt;strong&gt;&lt;em&gt;一般建议基于收货的发票校验&lt;/em&gt;&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;​        如果发票和PO有误差，系统将会发出警告。如果变化在预先设定的容差范围内，系统将允     许该发票被记账，但会自动的冻结发票并支付。如果变化不在允许的范围内，系统将不允许      发票被记账。&lt;/p&gt;
-
-&lt;p&gt;​        发票必须在一个分开的步骤中被批准。&lt;/p&gt;
-
-&lt;p&gt;​        发票被输入时，系统将找到对应的账户科目。系统将自动生成销售税，现金折扣清算和价       格差异，这些记账记录被显示出来。如果存在余额，用户要进行修正，&lt;strong&gt;&lt;em&gt;只有余额为零发票才&lt;/em&gt;&lt;/strong&gt;        &lt;strong&gt;&lt;em&gt;能被记账。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;​        发票被记账后，一些数据会在系统内被更新，如订购的物料的平均价格和采购订单历史。&lt;/p&gt;
-
-&lt;p&gt;​        发票记账完成了发票校验。需要被支付的数据包含在系统中，会计部门可以读入这些数据       并作出合适的支付。&lt;/p&gt;
-
-&lt;p&gt;​     ♣ 校验种类&lt;/p&gt;
-
-&lt;p&gt;​        规则：一张发票表示一个事务，事务的发货方要求被付款。&lt;/p&gt;
-
-&lt;p&gt;​        基于采购订单的发票：&lt;/p&gt;
-
-&lt;p&gt;​            基于采购订单的发票校验，一个订单的所有项目可以被一起处理，接收部分收货。所有          的收货被汇总并作为一个项目进行记账。&lt;/p&gt;
-
-&lt;p&gt;​        基于收货的发票：&lt;/p&gt;
-
-&lt;p&gt;​            发票不是关联于采购订单，而是关联于分别的交货活动。发票的参考凭证不是采购订单           PO,而是交货通知或则收料单凭证。一个货物接收活动必须在发票已经输入系统之前。&lt;/p&gt;
-
-&lt;p&gt;​         发票输入的方式可能是参考一个交货通知或一个货物接收凭证。&lt;/p&gt;
-
-&lt;p&gt;​         前提条件：&lt;/p&gt;
-
-&lt;p&gt;​             有关的 PO 项目必须有基于收货的发票校验标志。&lt;/p&gt;
-
-&lt;p&gt;​         操作：&lt;/p&gt;
-
-&lt;p&gt;​             转向采购定单项目详细屏幕。选择字段  GR-IV。保存采购定单。&lt;/p&gt;
-
-&lt;p&gt;​             你可以在任何时候显示货物接受和发票的关系。你将在采购定单项目的历史中找到这些         信息。&lt;/p&gt;
-
-&lt;p&gt;​        没有订单的发票：&lt;/p&gt;
-
-&lt;p&gt;​            如果没有采购订单做参考，可以直接将事务记入一个物料帐户，一个总帐帐户，或一个           资产帐户.&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 有差异的发票校验&lt;/p&gt;
-
-&lt;p&gt;​        差异分为：数量差异，价格差异，计划差异，采购订单价格数量差异，质量检查&lt;/p&gt;
-
-&lt;p&gt;​        数量差异：发票数量大于已交货数量和已开发票数量的差异&lt;/p&gt;
-
-&lt;p&gt;​        价格差异:发票金额/发票数量&amp;lt;&amp;gt;净订单价格&lt;/p&gt;
-
-&lt;p&gt;​        计划差异:PO Delivery Schedule 的收货日期与实际收货日期的差异.&lt;/p&gt;
-
-&lt;p&gt;​        采购订单价格数量差异:收货数量/价格与采购订单的数量价格之间的差异.&lt;/p&gt;
-
-&lt;p&gt;​        质量管理:如果商品激活了质量管理,则在过账时过到检查库存.&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 无差异的发票校验&lt;/p&gt;
-
-&lt;p&gt;​        过程一样，只是数量和金额无差异。&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 预置发票：MIR7&lt;/p&gt;
-
-&lt;p&gt;​        相当于发票请求单，可以进行多次修改，保存后不自动过账。做完预置发票后执行MIRO,选择预置发票。&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 后台发票校验：MIRA&lt;/p&gt;
-
-&lt;p&gt;​        后台校验是在后台进行发票的检查，如果在容差范围之内，将在后台直接过账&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 后台检查发票的正确性：WC23&lt;/p&gt;
-
-&lt;p&gt;4.后台配置&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 容差配置：OMR6&lt;/p&gt;
-
-&lt;p&gt;​        容差是基于公司代码的配置,因为发票是根据公司代码开具.配置上/下限&amp;rdquo;检查限制&amp;rdquo;,或设置%.一般企业要配置四种容差：&lt;/p&gt;
-
-&lt;p&gt;​            BD：(自动形成小的差异)&lt;/p&gt;
-
-&lt;p&gt;​            DQ：(超出金额: 数量偏差)&lt;/p&gt;
-
-&lt;p&gt;​            PP：(价格变化)&lt;/p&gt;
-
-&lt;p&gt;​            VP：(移动平均价格差异).&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 配置供应商容差:PATH:物料管理-&amp;gt;后期发票校验-&amp;gt;收到的账单-&amp;gt;配置指定供应商容差,在发票校验中，供应商特定的参数的设置。在一个公司代码中，只可以将一个容差组分配到一个供应商。在供商主数据(XK02)中有一个容差组&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 配置发票校验条件:PATH:物料管理-&amp;gt;后期发票校验-&amp;gt;信息确认-&amp;gt;维护条件-&amp;gt;修改-发票校验&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 配置凭证类型:PATH:物料管理-&amp;gt;后期发票校验-&amp;gt;收到的账单-&amp;gt;号码分配-&amp;gt;维护科目凭证的编号范围-&amp;gt;凭证类型&lt;/p&gt;
-
-&lt;p&gt;​    ♣ 配置默认税代码: PATH:物料管理-&amp;gt;后期发票校验-&amp;gt;收到的账单-&amp;gt;维护税代码的缺省值　(根据公司代码设置)&lt;/p&gt;
-
-&lt;p&gt;​    开票前准备：在做采购订单时在项目明细“发票”页“基于收货的IV”字段设置为‘X’.&lt;/p&gt;
-
-&lt;p&gt;5.基于收货的发票校验：MIRO&lt;/p&gt;
-
-&lt;p&gt;​    输入公司代码；选择凭证类型(贷项凭证/发票)，结算总金额为负则为贷项凭证，为正则为发票。当发票即含有进也含有退时在输入采购订单号右边的Button,单击进入后,把退货选成贷向,进货选成借向,否则无法做发票校验。&lt;/p&gt;
-
-&lt;p&gt;MIR4：显示发票凭证&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Info Record</title>
-      <link>https://coldinfire.github.io/2019/MMInfoRecord/</link>
-      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MMInfoRecord/</guid>
-      <description>
-
-&lt;h3 id=&#34;创建info-record&#34;&gt;创建Info Record&lt;/h3&gt;
-
-&lt;p&gt;信息记录 (Info record)**：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。&lt;/p&gt;
-
-&lt;p&gt;创建方式：手工输入，报价单选择，采购订单，框架协议更新&lt;/p&gt;
-
-&lt;h4 id=&#34;手工输入-me11-12-13-14-15-memmasg&#34;&gt;手工输入：ME11/12/13/14/15,MEMMASG&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SPRO &amp;gt; IMG &amp;gt; MM &amp;gt; Purchasing &amp;gt; Main data &amp;gt; Info Recore&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;主要数据：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;供应商，物料，采购组织&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;信息类别&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;标准&lt;/li&gt;
-&lt;li&gt;分包：委外&lt;/li&gt;
-&lt;li&gt;管道线：石油，水，电&lt;/li&gt;
-&lt;li&gt;寄售：供应商协议&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;详细信息：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;供应商数据&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;供应商物料编号：对应供应商方提供物料的编号，方便对方发货&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;子范围：同一供应商具有不同的发货点&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;开启功能：SPRO&amp;gt;商业伙伴&amp;gt;供应商&amp;gt;控制&amp;gt;定义科目组合字段选择&amp;gt;【相关的供应商子域，相关工厂级别】&lt;/p&gt;
-
-&lt;p&gt;定义供应商时：设置对应的子范围和子范围对应的替代数据&lt;/p&gt;
-
-&lt;p&gt;使用：创建PO时&amp;gt;Item&amp;gt;主数据&amp;gt;定子范围&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;供应选择&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;可使用时间段&lt;/li&gt;
-&lt;li&gt;常规供应商&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;订单单位(从物料主数据获取)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;订单单位&lt;/li&gt;
-&lt;li&gt;转换关系&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;采购组织数据1：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;控制&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;计划交货时间:Lead Timd=L/T，前置时间，（下PO到供应商送货日期）&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Underdel.tol/Overdeliv.tol：收货数量容差百分比&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Unlimited：不加收货数量限制&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;采购组&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Standard qty：等级（不同购买量，价格等级）&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Minimum qty、Maximum qty&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;剩余货架寿命(Rem.shelf life)：收货后物品失效日期&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;GR-based IV&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;NO ERS：财务定期结账；前提是设置【供应商的采购数据&amp;gt;控制数据&amp;gt;设定评估】 TCode:&lt;code&gt;MRRL&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;需求确认：收到货后是否需要供应商确认&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Condation&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;设定价格有效期，不同时间段不同价格&lt;/li&gt;
-&lt;li&gt;等级对比（F2）,设定购买不同数量级的价格&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;采购组织数据2：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;采购凭证：与采购订单相关联&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;报价单选择-a-b-c&#34;&gt;报价单选择：A/B/C&lt;/h4&gt;
-
-&lt;p&gt;​   在报价单创建时，选择Info Record update。产生报价单时，会产生Info Record&lt;/p&gt;
-
-&lt;h4 id=&#34;采购订单&#34;&gt;采购订单&lt;/h4&gt;
-
-&lt;p&gt;​   ME21N &amp;gt; Item &amp;gt; MM &amp;gt; Info Record Update&lt;/p&gt;
-
-&lt;h4 id=&#34;框架协议&#34;&gt;框架协议&lt;/h4&gt;
-
-&lt;h3 id=&#34;更新&#34;&gt;更新&lt;/h3&gt;
-
-&lt;p&gt;Customizing：Define control of conditions at plan level&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;NULL：Conditions allowed with or w/o plant&lt;/li&gt;
-&lt;li&gt;+：Only plant-based conditions allowed&lt;/li&gt;
-&lt;li&gt;-：No plant-based conditions allowed&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;使用&#34;&gt;使用&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Info Record和价钱决定：ME21n创建PO&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;1）如果是手工输入价钱，得到输入的价钱&lt;/p&gt;
-
-&lt;p&gt;2）如果手工没有输入，系统检查是否有 Info record，没有Info record 需要手工输入；如果有Info Record且Info Record中有有效的价钱，采用 Info record 价格。&lt;/p&gt;
-
-&lt;p&gt;3 ）如果Info record中没有Info record价格，最后采用Last  PO 价钱，也可以不从Last PO 带入价格。(Info record &amp;gt; 采购组织数据2 &amp;gt; 采购凭证)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;物料&amp;gt;采购&amp;gt;定义采购员的缺省值：定义采用价格&amp;gt;一直复制&lt;/li&gt;
-&lt;li&gt;Purchasing&amp;gt;Env Data &amp;gt;Define default values for Buyers&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

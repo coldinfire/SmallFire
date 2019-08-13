@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>SD</title>
+      <link>https://coldinfire.github.io/tags/SD/</link>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/SD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>hana</title>
       <link>https://coldinfire.github.io/tags/hana/</link>
       <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
@@ -75,18 +84,9 @@
     </item>
     
     <item>
-      <title>DOI</title>
-      <link>https://coldinfire.github.io/tags/DOI/</link>
-      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/DOI/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>python</title>
       <link>https://coldinfire.github.io/tags/python/</link>
-      <pubDate>Wed, 16 Jan 2019 17:20:58 +0800</pubDate>
+      <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/python/</guid>
       <description></description>
@@ -122,34 +122,34 @@
     <item>
       <title>IDoc</title>
       <link>https://coldinfire.github.io/tags/IDoc/</link>
-      <pubDate>Mon, 22 Oct 2018 15:15:42 +0800</pubDate>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/IDoc/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>WebDynpro</title>
-      <link>https://coldinfire.github.io/tags/WebDynpro/</link>
-      <pubDate>Tue, 16 Oct 2018 17:20:58 +0800</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/WebDynpro/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>BAPI</title>
       <link>https://coldinfire.github.io/tags/BAPI/</link>
-      <pubDate>Tue, 16 Oct 2018 15:15:42 +0800</pubDate>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/BAPI/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>WebDynpro</title>
+      <link>https://coldinfire.github.io/tags/WebDynpro/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/WebDynpro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>RFC</title>
       <link>https://coldinfire.github.io/tags/RFC/</link>
-      <pubDate>Fri, 12 Oct 2018 15:15:42 +0800</pubDate>
+      <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/RFC/</guid>
       <description></description>
@@ -158,7 +158,7 @@
     <item>
       <title>BDC</title>
       <link>https://coldinfire.github.io/tags/BDC/</link>
-      <pubDate>Wed, 26 Sep 2018 19:15:42 +0800</pubDate>
+      <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/BDC/</guid>
       <description></description>
@@ -194,7 +194,7 @@
     <item>
       <title>range</title>
       <link>https://coldinfire.github.io/tags/range/</link>
-      <pubDate>Thu, 16 Aug 2018 17:20:58 +0800</pubDate>
+      <pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/range/</guid>
       <description></description>
@@ -212,7 +212,7 @@
     <item>
       <title>报表开发</title>
       <link>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</link>
-      <pubDate>Sat, 28 Jul 2018 17:20:58 +0800</pubDate>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</guid>
       <description></description>
@@ -221,7 +221,7 @@
     <item>
       <title>hugo</title>
       <link>https://coldinfire.github.io/tags/hugo/</link>
-      <pubDate>Mon, 12 Mar 2018 17:20:58 +0800</pubDate>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/hugo/</guid>
       <description></description>
@@ -230,7 +230,7 @@
     <item>
       <title>Git</title>
       <link>https://coldinfire.github.io/tags/Git/</link>
-      <pubDate>Sun, 11 Mar 2018 17:20:58 +0800</pubDate>
+      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/Git/</guid>
       <description></description>
@@ -284,7 +284,7 @@
     <item>
       <title>JS</title>
       <link>https://coldinfire.github.io/tags/JS/</link>
-      <pubDate>Thu, 14 Sep 2017 17:20:58 +0800</pubDate>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/JS/</guid>
       <description></description>
@@ -293,7 +293,7 @@
     <item>
       <title>CSS</title>
       <link>https://coldinfire.github.io/tags/CSS/</link>
-      <pubDate>Wed, 13 Sep 2017 17:20:58 +0800</pubDate>
+      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/CSS/</guid>
       <description></description>

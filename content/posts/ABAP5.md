@@ -1,6 +1,6 @@
 ---
 title: "ABAP 语法详解(优化)"
-date: 2018-06-01T17:20:58+08:00
+date: 2018-06-01
 draft: false
 author: Small Fire
 isCJKLanguage: true

@@ -1,6 +1,6 @@
 ---
 title: "OO语法"
-date: 2018-07-27T17:20:58+08:00
+date: 2018-07-10
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -267,7 +267,7 @@ ENDCLASS.
 
 ​	方法重载过程中，使用基类的方法可以通过***SUPER***关键字来指定基类中对应的方法。
 
-###  抽象和Final
+###  抽象和Final
 
 #### 抽象类
 

@@ -1,5 +1,4 @@
 ---
-
 title: " ABAP截取字符串长度 "
 date: 2018-06-16
 draft: false

@@ -1,6 +1,6 @@
 ---
 title: "CSS格式与标准总结"
-date: 2017-09-12T17:20:58+08:00
+date: 2017-09-12
 draft: false
 author: Small Fire
 isCJKLanguage: true

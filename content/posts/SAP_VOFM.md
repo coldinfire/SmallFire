@@ -1,6 +1,6 @@
 ---
 title: " VOFM使用 "
-date: 2018-08-19T17:20:58+08:00
+date: 2018-08-19
 draft: false
 author: Small Fire
 isCJKLanguage: true

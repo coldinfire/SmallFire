@@ -1,7 +1,7 @@
 ---
 
 title: " WebDynpro "
-date: 2018-10-16T17:20:58+08:00
+date: 2018-10-16
 draft: false
 author: Small Fire
 isCJKLanguage: true

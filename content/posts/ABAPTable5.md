@@ -1,6 +1,6 @@
 ---
 title: "报表开发<常用工具>"
-date: 2018-07-03T17:20:58+08:00
+date: 2018-07-03
 draft: false
 author: Small Fire
 isCJKLanguage: true

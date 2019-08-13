@@ -1,6 +1,6 @@
 ---
 title: "报表开发<ALV显示设置>"
-date: 2018-06-28T17:20:58+08:00
+date: 2018-06-28
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -70,6 +70,8 @@ LAYOUT.`
    “COLOR”，并为其内表每行复制，颜色参数范围C000~C999，例如：LT_OUT-COLOR = 'C012'.
 ```
 **【颜色】**
+
+​	[颜色设置](http://blog.sina.com.cn/s/blog_3f2c03e30100mk1s.html)
 
 ​	行颜色:gs_layout-<info_fieldname> = 'COLOR'
 

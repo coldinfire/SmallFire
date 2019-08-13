@@ -1,6 +1,6 @@
 ---
 title: "BDC屏幕录制"
-date: 2018-09-26T19:15:42+08:00
+date: 2018-09-26
 draft: false
 author: Small Fire
 isCJKLanguage: true

@@ -10,8 +10,8 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPUtils12/" />
-  <link rel="next" href="https://coldinfire.github.io/2018/ABAPUtils13/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPTable2/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAPTable4/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPTable3/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -55,10 +55,10 @@
   },
   "genre": "posts",
   "keywords": "报表开发",
-  "wordcount":  1739 ,
+  "wordcount":  1103 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAPTable3\/",
-  "datePublished": "2018-06-23T17:20:58\x2b08:00",
-  "dateModified": "2018-06-23T17:20:58\x2b08:00",
+  "datePublished": "2018-06-23T00:00:00\x2b00:00",
+  "dateModified": "2018-06-23T00:00:00\x2b00:00",
   
   "publisher": {
     "@type": "Organization",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                4 min
+                3 min
         </div>
     </header>
     <div class="post-content">
@@ -241,30 +241,6 @@ FOR ALLENTRIES:
   INNER JOIN、LEFT OUTER JOIN.
 </code></pre>
 
-<h3 id="sap锁">【SAP锁】</h3>
-
-<pre><code class="language-JS">通用数据库表锁函数：ENQUEUE_E_TABLE、DEQUEUE_E_TABLE、DEQUEUE_ALL
-特定数据库表函数：ENQUEUE_&lt;LOCK OBJ&gt;、DEQUEUE_&lt;LOCK OBJ&gt;
-自定义锁对象：EZ_/EY_命名
-S:共享锁     E:可重入的排他锁     X:排他锁
-1、在SE11里创建锁对象，自定义的锁对象都必须以EZ或者EY开头来命名。一个锁对象里只包含一个
-     PRIMARY TABLE，可以包含若干个SECONDARY TABLE，锁的模式有三种：E，S，X。
-   模式E：当更改数据的时候设置为此模式。   (Shared lock, read lock) 【一般使用E】
-   模式S：本身不需更改数据，但是希望显示的数据不被别人更改 (Exclusive lock, write lock)
-   模式X：和E类似，但是不允许累加，完全独占。 
-          (Exclusive lock, extended write lock, cannot be cumulated)
-2、上锁的一般步骤
-      先上锁，上锁成功之后，从数据库取数据，然后更改数据，接着更新到数据库，最后解锁。
-   按照这个步骤，才能保证更改完全运行在锁的保护机制下。
-3、上锁与解锁
-   ENQUEUE_&lt;lock object的名字&gt; 对象 EZZSOPR0032 要求的锁定
-   DEQUEUE_&lt;lock object的名字&gt; 释放对象 EZZSOPR0032 的锁定
-     有些情况下，程序中设置成功的逻辑锁会隐式的自己解锁。比如说程序结束发生的时候
-  （MESSAGE TYPE为A或者X的时候），使用语句LEAVE PROGRAM，LEAVE TO TRANSACTION，或者在
-   命令行输入/n回车以后。使用DEQUEUE FUNCTION MODULE来解锁的时候，不会产生EXCEPTION。
-   要解开你在程序中创建的所有的逻辑锁，可以用FM：DEQUEUE_ALL.
-</code></pre>
-
 <h3 id="事务处理">【事务处理】</h3>
 
 <pre><code class="language-JS">COMMIT WORK.         异步更新。
@@ -295,7 +271,7 @@ ROLLBACK WORK.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1739</span>
+                   <span>1103</span>
             </p>
             
             <p class="copyright-item">
@@ -324,10 +300,10 @@ ROLLBACK WORK.
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/ABAPUtils12/" class="prev" rel="prev" title=" ABAP通过字段找表程序 "><i class="iconfont icon-dajiantou"></i>&nbsp; ABAP通过字段找表程序 </a>
+        <a href="https://coldinfire.github.io/2018/ABAPTable2/" class="prev" rel="prev" title="报表开发&lt;屏幕设置&gt;"><i class="iconfont icon-dajiantou"></i>&nbsp;报表开发&lt;屏幕设置&gt;</a>
          
         
-        <a href="https://coldinfire.github.io/2018/ABAPUtils13/" class="next" rel="next" title=" ALV Tree标准Demo "> ALV Tree标准Demo &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/ABAPTable4/" class="next" rel="next" title="报表开发&lt;ALV显示设置&gt;">报表开发&lt;ALV显示设置&gt;&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -338,7 +314,7 @@ ROLLBACK WORK.
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-06-23 17:20:58 \x2b0800 CST',
+        id: '2018-06-23 00:00:00 \x2b0000 UTC',
         title: '报表开发\x3c内表操作\x3e',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',

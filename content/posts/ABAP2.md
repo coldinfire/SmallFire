@@ -1,6 +1,6 @@
 ---
 title: "ABAP 语法详解(内表)"
-date: 2018-05-16T17:20:58+08:00
+date: 2018-05-16
 draft: false
 author: Small Fire
 isCJKLanguage: true
