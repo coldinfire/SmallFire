@@ -12,7 +12,7 @@ tags:
 
 ---
 
-## 字符串处理
+### 字符串处理
 **合并字符串**：
 
    CONCATENATE var1 var2 INTO result [SEPARATED BY sep] [RESPECTING BLANKS]. 
@@ -42,14 +42,14 @@ tags:
 
 **大小写转换：**TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写
 
-## 全局变量，局部变量
+### 全局变量，局部变量
 ​	报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subroutines (FORM子过程)、Function Modules中声明的变量为局部的。
 
 ​	其他块里的变量属于全局的（报表事件块、列表事件块、对话module）效果与在程序开头定义的变量一样。
 
-## Form、Function
+### Form、Function
 
-### Form中的参数：
+#### Form中的参数：
 
 1. TABLES：Type和like只能接标准内表类型或标准内表对象
        
@@ -83,7 +83,7 @@ tags:
      
    -  ...`AND RETURN.`    "调用指定程序执行后可返回上一屏幕
 
-### Function Group （SE37）
+#### Function Group （SE37）
 
   系统会自动创建Main program与相应的include程序。
 
@@ -99,13 +99,13 @@ tags:
 
 ​	`L<fgrp>PAI，L<fgrp>PBO：`PAI,PBO事件。
 
-## AT...END (SUM)
+### AT...END (SUM)
 
 1. AT...END：中的组件名不一定要是结构中的关键字段，但是需要在声明结构时按调用顺序排序。
       - f1，f2，fn.  f1，f2，fn
 2. SUM:根据结构中对应的字段进行分组求和，且指定字段之前的依次分组
 
-## 事件终止
+### 事件终止
 
 - RETURN : 用来退出当前执行的程序块，而不仅仅是退出循环。如FORM，METHOD，报表事件块
 

@@ -12,7 +12,7 @@ tags:
 
 ---
 
-## 执行程序的使用范围，报表事件
+### 执行程序的使用范围，报表事件
 
 - LOAD-OF-PROGRAM.
 
@@ -34,14 +34,14 @@ tags:
 
 - Interactive Eventrs. (User for interactive reporting)
 
-## 报表程序大体逻辑结构
+### 报表程序大体逻辑结构
 ​	**抬  头:** 报表的主要信息(抬头信息)
 
 ​	**行项目:** 查询出的每行记录信息
 
 ​	**明  细:** 每个行项目出关键字外其他明细内容
 
-## 字段符号
+### 字段符号
 
 **定义：** FIELD-SYMBOLS <FS> LIKE structure.
 
@@ -67,11 +67,11 @@ ASSIGN隐式强转
 
 ```JS
 TYPES: BEGIN OF t_date,
-​    year(4) TYPE  n,
-​        month(2) TYPE n,
-​    day(2) TYPE n,
+    year(4) TYPE  n,
+    month(2) TYPE n,
+    day(2) TYPE n,
   END OF t_date.
-FIELD-SYMBOLS <fs> TYPE t_date."将<fs>定义成了具体限定类型
+FIELD-SYMBOLS <fs> TYPE t_date.  "将<fs>定义成了具体限定类型
 ASSIGN sy-datum TO <fs> CASTING. "后面没有指定具体类型，所以使用定义时的类型进行隐式转换
 ```
 
@@ -86,28 +86,14 @@ ASSIGN显示强转
 **动态引用：**通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。
 
 ```JS
-  field-symbols:<l_shortageqty> type mng01.
-  loop at <dyn_table> assigning <dyn_wa>.
-​    assign component 'SHORTAGEQTY' of structure <dyn_wa> to <l_shortageqty>.
-​    <l_shortageqty> = <l_shortageqty> - <l_fvalue>.
+field-symbols:<l_shortageqty> type mng01.
+loop at <dyn_table> assigning <dyn_wa>.
+  assign component 'SHORTAGEQTY' of structure <dyn_wa> to <l_shortageqty>.
+  <l_shortageqty> = <l_shortageqty> - <l_fvalue>.
+endloop.
 ```
 
-## MESSAGE ：SE91
-<1> 消息类的操作
 
-​	使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&，如"1&2&3&"表示有三个输入参数。
-
-​	Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功。
-
-​	引用语法为：Message W000(00)，表示调用'00'类的'000' Message类型为警告。
-
-```JS
-EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
-	1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
-	2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
-	3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
-   	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
-```
 
 
 

@@ -12,7 +12,7 @@ tags:
 
 ---
 
-## ABAP基本数据类型
+### ABAP基本数据类型
 
   基本数据类型
 
@@ -29,7 +29,7 @@ tags:
 | **SY-DYNNR:屏幕的编号** | **SY-DBCNT:DB操作处理过的表行号** | **SY-HOST:服务器名称** |
 | **SY-CPROG:当前程序名** | **SY-TCODE:当前执行的TCode** | **SY-TMAXL:内表总行数** |
 
-## 变量的声明
+### 变量的声明
 - 透明表，数据字典，结构：既是类型又是对象，可用type和like。
 
 - 只能使用LIKE引用另一定义变量的类型，type不可以
@@ -50,7 +50,7 @@ DATA:BEGIN OF STAFFINFO. <此处是.操作符>
  END OF STAFFINFO.
 ```
 
-## 定义常量、宏
+### 定义常量、宏
 
 **常量定义**
 
@@ -74,7 +74,7 @@ END-OF-DEFINITION.
 ```
 使用：operation 4+3.
 
-##  DESCRIBE使用
+###  DESCRIBE使用
 
 `DESCRIBE TABLE lt_mat LINES lv_cont.`：这行的意思是 计算内表 lt_mat 的行数 ，将行数放到变量 lv_cont 里。
 

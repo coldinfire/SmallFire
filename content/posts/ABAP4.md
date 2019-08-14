@@ -12,17 +12,17 @@ tags:
 
 ---
 
-## MESSAGES
+### MESSAGE ：SE91
 
-SE91定义:
+ **消息类的操作**
 
-  设置消息类，保存该Function的多条消息定义，通过‘&’定义多个占位符。
+​	使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&，通过‘&’定义多个占位符,如"1&2&3&"表示有三个输入参数。
 
 ![定义消息类](/images/ABAP/SE91.jpg)
 
 MESSAGE E001(ZTEST).
 
-​	E:消息显示类型 (E[Error],W[Warning],I[Info],A[异常终止],S[Success])
+​	E:消息显示类型 (Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功)
 
 ​	001:自定义的消息字段
 
@@ -30,8 +30,13 @@ MESSAGE E001(ZTEST).
 
 MESSAGE显示:
 
-1. ID : "00"消息ID中的001消息本身未设置任何消息串，这条消息可以传递8个参数。
-2. 消息常量 : MESSAGE 'xxxxxxxxxxxxxxx' TYPE 'S' [DISPLAY LIKE 'E']. 
+```JS
+EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
+	1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
+	2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
+	3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
+   	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
+```
 
 消息存储的内表：T100/T100C/T100S/T100U/T160M
 
@@ -39,7 +44,7 @@ MESSAGE显示:
 - T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中
 - T100S 就是表示可以修改消息类型的表
 
-## 数据格式化、转换
+### 数据格式化、转换
 
 - 输入输出转换
 
@@ -88,7 +93,7 @@ CONVERT_TO_FOREIGN_CURRENCY：将外币转换为本位币
 CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
 ```
 
-## Open SQL
+### Open SQL
 
 - ABAP可以通过两种方式与数据库交互
 
