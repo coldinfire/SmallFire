@@ -319,10 +319,10 @@
     
     <item>
       <title> WebDynpro </title>
-      <link>https://coldinfire.github.io/2018/WebDynpro/</link>
+      <link>https://coldinfire.github.io/2018/SAPWebDynpro/</link>
       <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/WebDynpro/</guid>
+      <guid>https://coldinfire.github.io/2018/SAPWebDynpro/</guid>
       <description>简介 Web Dynpro 在业务应用程序的主要结构和视觉设计部分的方式，在很大程度上是独立于实现语言. 一个Web Dynpro 组件不是一个JAVA类，而是一系列类集合所有</description>
     </item>
     
@@ -364,11 +364,11 @@
     
     <item>
       <title>SAP Authorization</title>
-      <link>https://coldinfire.github.io/2018/Authorization/</link>
+      <link>https://coldinfire.github.io/2018/SAPAuthorization/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/Authorization/</guid>
-      <description>简介 TCode ​ SU01：查看和编辑Role ​ SU10：实现对用户组的批量维护 ​ SU20：权限字段清单，可以增、删、改权限字段，可以浏览字段具体被哪</description>
+      <guid>https://coldinfire.github.io/2018/SAPAuthorization/</guid>
+      <description>TCode简介 ​ SU01：查看和编辑Role ​ SU10：实现对用户组的批量维护 ​ SU20：权限字段清单，可以增、删、改权限字段，可以浏览字段</description>
     </item>
     
     <item>
@@ -427,10 +427,10 @@
     
     <item>
       <title> VOFM使用 </title>
-      <link>https://coldinfire.github.io/2018/SAP_VOFM/</link>
+      <link>https://coldinfire.github.io/2018/SAPVOFM/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAP_VOFM/</guid>
+      <guid>https://coldinfire.github.io/2018/SAPVOFM/</guid>
       <description>SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以通过Bas</description>
     </item>
     
@@ -485,7 +485,16 @@
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPUtils1/</guid>
-      <description>判断是否包含特定值 IF field CN &amp;lsquo;0123456789&amp;rsquo;. IF field CN &amp;lsquo;ABCDEFG*&amp;rsquo; IF field CN &amp;lsquo;abcdefg*&amp;rsquo; IF field CN &amp;lsquo;/&amp;rsquo; &amp;hellip;.. CN：Contains Not Only (包含，不仅包含) CO：Contains Only（仅包含） CS</description>
+      <description>Commit 和 Rollback CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39; EXPORTING wait = &#39;X&#39;. IMPORTING return = commback. CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39; IMPORTING return = commback. 文本增强 T-CODE:CMOD-&amp;gt;转到-&amp;gt;文本增强-&amp;gt;关键字-&amp;gt;更改 查找S</description>
+    </item>
+    
+    <item>
+      <title> 修改所属 Package </title>
+      <link>https://coldinfire.github.io/2018/ABAPPackage/</link>
+      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPPackage/</guid>
+      <description>​ 创建 ABAP 程序的时候都要选择一个 Package，当后续需要修改程序所属的Package时可以使用以下方法： 通过SE38或则SE80打开对应的程</description>
     </item>
     
     <item>
@@ -651,6 +660,15 @@
     </item>
     
     <item>
+      <title>数据输入输出转换</title>
+      <link>https://coldinfire.github.io/2018/ABAPUtils0/</link>
+      <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPUtils0/</guid>
+      <description>输入输出转换 ​ 如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。 ​ 通过转换规</description>
+    </item>
+    
+    <item>
       <title>ABAP程序间调用</title>
       <link>https://coldinfire.github.io/2018/ABAP6/</link>
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
@@ -665,7 +683,7 @@
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP5/</guid>
-      <description>效率优化 数据库 不要使用 SELECT * &amp;hellip;，选择需要的字段, SELECT * 既浪费CPU，还需占用大量的ABAP内存 不要使用SELECT DISTINCT .，会绕过缓存</description>
+      <description>数据库 不要使用 SELECT * &amp;hellip;，选择需要的字段, SELECT * 既浪费CPU，还需占用大量的ABAP内存 不要使用SELECT DISTINCT .，会绕过缓存，可使用</description>
     </item>
     
     <item>
@@ -674,16 +692,16 @@
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP4/</guid>
-      <description>MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;amp;’定义多个占位符。 MESSAGE E001(ZTEST). ​ E:消息显示类型 (E[Error]</description>
+      <description>Open SQL ABAP可以通过两种方式与数据库交互 Native SQL:数据库自身的SQL，可以直接访问数据库，不够安全。 Open SQL:集成到ABAP中的标准SQL子</description>
     </item>
     
     <item>
-      <title>ABAP 语法详解(Field&amp;Form)</title>
+      <title>ABAP 语法详解(String&amp;Form&amp;Func)</title>
       <link>https://coldinfire.github.io/2018/ABAP3/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP3/</guid>
-      <description>字符串处理 合并字符串： CONCATENATE var1 var2 INTO result [SEPARATED BY sep] [RESPECTING BLANKS]. ​ C,D,N,T类型的前导空格会保留，尾部空格会去掉，对String类型的所有空格都会保留； ​ se</description>
+      <description>字符串处理 判断是否包含特定值 IF field CN &amp;lsquo;0123456789&amp;rsquo;. IF field CN &amp;lsquo;ABCDEFG*&amp;rsquo; IF field CN &amp;lsquo;abcdefg*&amp;rsquo; IF field CN &amp;lsquo;/&amp;rsquo; &amp;hellip;.. CN：Contains Not Only (包含，不仅包含) CO：Contains Only（仅</description>
     </item>
     
     <item>

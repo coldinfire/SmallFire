@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ABAP 语法详解(SQL)"/>
-<meta name="twitter:description" content="MESSAGES SE91定义: 设置消息类，保存该Function的多条消息定义，通过‘&amp;’定义多个占位符。 MESSAGE E001(ZTEST). ​ E:消息显示类型 (E[Error]"/>
+<meta name="twitter:description" content="Open SQL ABAP可以通过两种方式与数据库交互 Native SQL:数据库自身的SQL，可以直接访问数据库，不够安全。 Open SQL:集成到ABAP中的标准SQL子"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  1608 ,
+  "wordcount":  980 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP4\/",
   "datePublished": "2018-05-24T00:00:00\x2b00:00",
   "dateModified": "2018-05-24T00:00:00\x2b00:00",
@@ -152,14 +152,12 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                4 min
+                2 min
         </div>
     </header>
     <div class="post-content">
         
 
-        
-            
         
 
         
@@ -175,89 +173,7 @@
 
           
 
-<h2 id="messages">MESSAGES</h2>
-
-<p>SE91定义:</p>
-
-<p>设置消息类，保存该Function的多条消息定义，通过‘&amp;’定义多个占位符。</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/ABAP/SE91.jpg" alt="定义消息类" class="lazyload"><figcaption class="image-caption">定义消息类</figcaption></figure></p>
-
-<p>MESSAGE E001(ZTEST).</p>
-
-<p>​   E:消息显示类型 (E[Error],W[Warning],I[Info],A[异常终止],S[Success])</p>
-
-<p>​   001:自定义的消息字段</p>
-
-<p>​   ZTEST:自定义的消息类</p>
-
-<p>MESSAGE显示:</p>
-
-<ol>
-<li>ID : &ldquo;00&rdquo;消息ID中的001消息本身未设置任何消息串，这条消息可以传递8个参数。</li>
-<li>消息常量 : MESSAGE &lsquo;xxxxxxxxxxxxxxx&rsquo; TYPE &rsquo;S&rsquo; [DISPLAY LIKE &lsquo;E&rsquo;].</li>
-</ol>
-
-<p>消息存储的内表：T100/T100C/T100S/T100U/T160M</p>
-
-<ul>
-<li>T100 这个表包括所有的消息</li>
-<li>T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中</li>
-<li>T100S 就是表示可以修改消息类型的表</li>
-</ul>
-
-<h2 id="数据格式化-转换">数据格式化、转换</h2>
-
-<ul>
-<li>输入输出转换</li>
-</ul>
-
-<p>如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。</p>
-
-<p>通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).</p>
-
-<p>去除前导0：<code>SHIFT ITAB-FIELD LEFT DELETING LEADING ‘0’</code></p>
-
-<pre><code class="language-JS">  ** 添加前导零 **
-  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
-      EXPORTING
-        input  = p_in     //传入变量
-      IMPORTING
-        output = p_out.   //添加前导零后数据
-        
-  ** 去除前导零 ** 
-  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-      EXPORTING
-        input  = p_in     //传入变量
-      IMPORTING
-        output = p_out.   //去除前导零后数据
-</code></pre>
-
-<ul>
-<li><p>显示内容</p>
-
-<p>基本数据类型是QUAN,其小数位由字段关联的度量衡单位决定。</p>
-
-<p>ALV显示时，如果是金额或数量时，需通过Fieldcat设置cfieldname、ctabname等才会正确显示。</p></li>
-
-<li><p>单位换算</p>
-
-<p>UNIT_CONVERSION_SIMPLE</p></li>
-
-<li><p>货币转换因子</p></li>
-</ul>
-
-<pre><code class="language-JS">OB07、OB08：维护各币种之间的汇率
-CURRENCY_CONVERTING_FACTOR：输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取
-出时应做转换
-BAPI_CURRENCY_CONV_TO_INTERNAL：转换为数据库中内部存储金额
-BAPI_CURRENCY_CONV_TO_EXTERNAL：转换成外部的实际金额
-CONVERT_TO_LOCAL_CURRENCY：自动将最近时间多的汇率作为转换的汇率
-CONVERT_TO_FOREIGN_CURRENCY：将外币转换为本位币
-CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
-</code></pre>
-
-<h2 id="open-sql">Open SQL</h2>
+<h3 id="open-sql">Open SQL</h3>
 
 <ul>
 <li><p>ABAP可以通过两种方式与数据库交互</p>
@@ -277,7 +193,7 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
          INTO &lt;target&gt;                ：内表或则结构
          [INTO &lt;f1&gt;...&lt;fn&gt;]           :将查询结果赋值到具体字段
          [INTO CORRESPONDING FILES OF &lt;itab&gt;]
-                                       : 将查询结果按字段匹配赋值给具体的表或者结构体。
+                                      : 将查询结果按字段匹配赋值给具体的表或者结构体。
          WHERE &lt;condition&gt;            ：查询条件
          Group BY &lt;fields&gt;            ：分组查询条件
          ORDER BY &lt;fields&gt;.           ：排序条件 
@@ -332,6 +248,64 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
 <pre><code class="language-JS">  MODIFY &lt;dbtab&gt; FROM TABLE &lt;itab&gt;.
 </code></pre>
 
+<h3 id="native-sql">Native SQL</h3>
+
+<p>​   EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。</p>
+
+<p><strong>连接其他的数据库</strong>：TCode:DBCO</p>
+
+<p>​   添加新的连接：<code>MSSQL_SERVER=IP adress MSSQL_DBNAME=dbname OBJECT_SOURCE=dbname</code></p>
+
+<p><strong>程序调用</strong>：</p>
+
+<pre><code class="language-json">DATA: p_dbname(10) VALUE 'SIPS',
+DATA: l_sql_error TYPE REF TO cx_sy_native_sql_error, 
+      l_error_text TYPE string.
+...
+ 内表数据准备
+...
+&quot;连接数据库
+TRY. 
+ EXEC SQL. 
+  CONNECT TO :p_dbname 
+ ENDEXEC.
+CATCH cx_sy_native_sql_error INTO l_sql_error. 
+ CALL METHOD l_sql_error-&gt;get_text 
+  RECEIVING 
+   result = l_error_text. 
+ENDTRY. 
+IF sy-subrc &lt;&gt; 0.
+ WRITE: /1 ‘连接到数据库失败:’, l_error_text.
+ STOP. 
+ENDIF.
+&quot;执行SQL
+TRY. 
+ LOOP AT gt_room INTO gs_room. 
+  EXEC SQL. 
+   insert into ljc_room ( room_id, room_name, room_people, room_desc ) 
+   values(:gs_room-room_id, :gs_room-room_name, :gs_room-room_people, :gs_room-room_desc)
+  ENDEXEC.
+ ENDLOOP.
+CATCH cx_sy_native_sql_error INTO l_sql_error. 
+ l_error_text = l_sql_error-&gt;get_text( ). 
+ENDTRY. 
+&quot;异常处理
+IF l_error_text IS INITIAL.
+ EXEC SQL.
+  commit.
+ ENDEXEC.
+ELSE.
+ CLEAR l_error_text. 
+ EXEC SQL. 
+  rollback 
+ ENDEXEC.  
+ENDIF.
+&quot;断开连接
+EXEC SQL. 
+ DISCONNECT :p_dbname 
+ENDEXEC.
+</code></pre>
+
 <hr />
 
 <p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2018/ABAP5/" rel="nofollow noreferrer" target="_blank">ABAP 语法详解(优化)</a></p>
@@ -348,7 +322,7 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1608</span>
+                   <span>980</span>
             </p>
             
             <p class="copyright-item">
@@ -377,7 +351,7 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/ABAP3/" class="prev" rel="prev" title="ABAP 语法详解(Field&amp;Form)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(Field&amp;Form)</a>
+        <a href="https://coldinfire.github.io/2018/ABAP3/" class="prev" rel="prev" title="ABAP 语法详解(String&amp;Form&amp;Func)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(String&amp;Form&amp;Func)</a>
          
         
         <a href="https://coldinfire.github.io/2018/ABAP5/" class="next" rel="next" title="ABAP 语法详解(优化)">ABAP 语法详解(优化)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
@@ -437,9 +411,8 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
 
 
     
-     <link href="//lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">  
-      
-     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
   
 

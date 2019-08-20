@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "报表开发",
-  "wordcount":  1330 ,
+  "wordcount":  1272 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAPTable1\/",
   "datePublished": "2018-06-18T00:00:00\x2b00:00",
   "dateModified": "2018-06-18T00:00:00\x2b00:00",
@@ -173,7 +173,7 @@
 
           
 
-<h2 id="执行程序的使用范围-报表事件">执行程序的使用范围，报表事件</h2>
+<h3 id="执行程序的使用范围-报表事件">执行程序的使用范围，报表事件</h3>
 
 <ul>
 <li><p>LOAD-OF-PROGRAM.</p></li>
@@ -203,7 +203,7 @@
 <li><p>Interactive Eventrs. (User for interactive reporting)</p></li>
 </ul>
 
-<h2 id="报表程序大体逻辑结构">报表程序大体逻辑结构</h2>
+<h3 id="报表程序大体逻辑结构">报表程序大体逻辑结构</h3>
 
 <p>​   <strong>抬  头:</strong> 报表的主要信息(抬头信息)</p>
 
@@ -211,9 +211,17 @@
 
 <p>​   <strong>明  细:</strong> 每个行项目出关键字外其他明细内容</p>
 
-<h2 id="字段符号">字段符号</h2>
+<h3 id="字段符号">字段符号</h3>
 
-<p><strong>定义：</strong> FIELD-SYMBOLS <FS> LIKE structure.</p>
+<h4 id="定义">定义:</h4>
+
+<ul>
+<li><code>FIELD-SYMBOLS: &lt;fs&gt; TYPE ANY TABLE.</code></li>
+
+<li><p><code>FIELD-SYMBOLS: &lt;fs&gt; LIKE LINE OF &lt;t_TABLE&gt;</code></p></li>
+
+<li><p><code>FIELD-SYMBOLS: &lt;fs&gt; type any.</code></p></li>
+</ul>
 
 <p>​    <1> FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。</p>
 
@@ -227,20 +235,112 @@
 <p><strong>循环：</strong>LOOP内表INTO Structure和 LOOP内表ASSIGNING Structure的比较</p>
 
 <p>​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
-  MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会
-  影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程
-  修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。</p>
+MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程。修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。</p>
 
-<p><strong>读表：</strong>READ TABLE内表</p>
+<p><strong>读表：</strong>将内表数据的行记录分配到FS，修改FS的值也就是相当于直接修改内表里的数据。</p>
+
+<h4 id="使用">使用：</h4>
+
+<ul>
+<li>APPEND &amp; INSERT</li>
+</ul>
+
+<pre><code class="language-JS">  &quot;Append line
+  APPEND INITIAL LINE TO t_mara ASSIGNING &lt;fs_mara&gt;.
+  &lt;fs_mara&gt;-matnr = 'sapclub'.
+  
+  &quot;Insert table
+  INSERT INITIAL LINE INTO t_mara ASSIGNING &lt;fs_mara&gt; INDEX 2.
+  &lt;fs_mara&gt;-matnr = 'ABCDEF'.
+</code></pre>
+
+<ul>
+<li>LOOP &amp; READ</li>
+</ul>
+
+<pre><code class="language-JS">  &quot;Read table
+  READ TABLE t_mara ASSIGNING &lt;fs_mara&gt; WITH KEY matnr = 'sapclub'.
+  IF sy-subrc EQ 0.
+    WRITE:/ &lt;fs_mara&gt;-matnr.
+  ENDIF.
+  
+  &quot;Loop
+  LOOP AT t_mara ASSIGNING &lt;fs_mara&gt;.
+    WRITE:/ &lt;fs_mara&gt;-matnr.
+  ENDLOOP.
+</code></pre>
+
+<ul>
+<li>MODIFY</li>
+</ul>
+
+<pre><code class="language-JS">  &quot;READ and MODIFY
+  READ TABLE t_mara ASSIGNING &lt;fs_mara&gt; WITH KEY matnr = 'sapclub'.
+  IF sy-subrc EQ 0.
+    &lt;fs_mara&gt;-ersda = sy-datum.
+  ENDIF.
+  
+  &quot;LOOP and MODIFY
+  LOOP AT t_mara ASSIGNING &lt;fs_mara&gt;.
+  &lt;fs_mara&gt;-ersda = sy-datum + 1.
+  ENDLOOP.
+</code></pre>
+
+<ul>
+<li>直接复制内表数据</li>
+</ul>
+
+<pre><code class="language-JS">  ASSIGN lt_1 TO &lt;fs1&gt;
+  ASSIGN lt_2 TO &lt;fs2&gt;.
+  ...
+  &lt;lt_2&gt; = &lt;lt_1&gt;.
+  DATA: lv_lines TYPE i.
+  lv_lines = lines( lt_2 ).
+  WRITE: lv_lines.
+</code></pre>
+
+<ul>
+<li>循环单条复制内表数据</li>
+</ul>
+
+<pre><code class="language-JS">  LOOP AT lt_1 ASSIGNING &lt;fs1&gt;.
+    APPEND INITIAL LINE TO lt_2 ASSIGNING &lt;ls_2&gt;.
+    &lt;ls_2&gt; = &lt;ls_1&gt;.
+  ENDLOOP.
+</code></pre>
+
+<ul>
+<li>通过结构中字段名称获取内表数据</li>
+</ul>
+
+<pre><code class="language-JS">  DATA:field_name type char20.
+  FIELD-SYMBOLS:&lt;lv_field&gt; type any.
+  LOOP AT lt ASSIGNING &lt;fs&gt;.
+    ASSIGN COMPONENT field_name OF STRUCTURE &lt;fs&gt; TO &lt;lv_field&gt;.
+    CHECK &lt;lv_field&gt; IS ASSIGNED.
+  ENDLOOP.
+</code></pre>
+
+<ul>
+<li>通过结构中字段索引获取内表数据</li>
+</ul>
+
+<pre><code class="language-JS">  DATA:index_number type i.
+  FIELD-SYMBOLS:&lt;lv_field&gt; type any.
+  LOOP AT lt ASSIGNING &lt;fs&gt;.
+    ASSIGN COMPONENT index_number OF STRUCTURE &lt;fs&gt; TO &lt;lv_field&gt;.
+    CHECK &lt;lv_field&gt; IS ASSIGNED.
+  ENDLOOP.
+</code></pre>
 
 <p>ASSIGN隐式强转</p>
 
 <pre><code class="language-JS">TYPES: BEGIN OF t_date,
-​    year(4) TYPE  n,
-​        month(2) TYPE n,
-​    day(2) TYPE n,
+    year(4) TYPE  n,
+    month(2) TYPE n,
+    day(2) TYPE n,
   END OF t_date.
-FIELD-SYMBOLS &lt;fs&gt; TYPE t_date.&quot;将&lt;fs&gt;定义成了具体限定类型
+FIELD-SYMBOLS &lt;fs&gt; TYPE t_date.  &quot;将&lt;fs&gt;定义成了具体限定类型
 ASSIGN sy-datum TO &lt;fs&gt; CASTING. &quot;后面没有指定具体类型，所以使用定义时的类型进行隐式转换
 </code></pre>
 
@@ -253,27 +353,11 @@ ASSIGN sy-datum TO &lt;fs&gt; CASTING. &quot;后面没有指定具体类型，�
 
 <p><strong>动态引用：</strong>通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。</p>
 
-<pre><code class="language-JS">  field-symbols:&lt;l_shortageqty&gt; type mng01.
-  loop at &lt;dyn_table&gt; assigning &lt;dyn_wa&gt;.
-​    assign component 'SHORTAGEQTY' of structure &lt;dyn_wa&gt; to &lt;l_shortageqty&gt;.
-​    &lt;l_shortageqty&gt; = &lt;l_shortageqty&gt; - &lt;l_fvalue&gt;.
-</code></pre>
-
-<h2 id="message-se91">MESSAGE ：SE91</h2>
-
-<p><1> 消息类的操作</p>
-
-<p>​   使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&amp;，如&rdquo;1&amp;2&amp;3&amp;&ldquo;表示有三个输入参数。</p>
-
-<p>​   Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功。</p>
-
-<p>​   引用语法为：Message W000(00)，表示调用&rsquo;00&rsquo;类的&rsquo;000&rsquo; Message类型为警告。</p>
-
-<pre><code class="language-JS">EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
-    1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
-    2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
-    3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
-       EXIT.                                   //Screen 界面查询数据无，则返回原界面
+<pre><code class="language-JS">field-symbols:&lt;l_shortageqty&gt; type mng01.
+loop at &lt;dyn_table&gt; assigning &lt;dyn_wa&gt;.
+  assign component 'SHORTAGEQTY' of structure &lt;dyn_wa&gt; to &lt;l_shortageqty&gt;.
+  &lt;l_shortageqty&gt; = &lt;l_shortageqty&gt; - &lt;l_fvalue&gt;.
+endloop.
 </code></pre>
 
     </div>
@@ -288,7 +372,7 @@ ASSIGN sy-datum TO &lt;fs&gt; CASTING. &quot;后面没有指定具体类型，�
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1330</span>
+                   <span>1272</span>
             </p>
             
             <p class="copyright-item">

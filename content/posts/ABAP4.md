@@ -12,87 +12,6 @@ tags:
 
 ---
 
-### MESSAGE ：SE91
-
- **消息类的操作**
-
-​	使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&，通过‘&’定义多个占位符,如"1&2&3&"表示有三个输入参数。
-
-![定义消息类](/images/ABAP/SE91.jpg)
-
-MESSAGE E001(ZTEST).
-
-​	E:消息显示类型 (Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功)
-
-​	001:自定义的消息字段
-
-​	ZTEST:自定义的消息类
-
-MESSAGE显示:
-
-```JS
-EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
-	1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
-	2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
-	3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
-   	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
-```
-
-消息存储的内表：T100/T100C/T100S/T100U/T160M
-
--  T100 这个表包括所有的消息
-- T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中
-- T100S 就是表示可以修改消息类型的表
-
-### 数据格式化、转换
-
-- 输入输出转换
-
-  如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。
-
-  通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).
-
-  去除前导0：`SHIFT ITAB-FIELD LEFT DELETING LEADING ‘0’`
-
-  ```JS
-  ** 添加前导零 **
-  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
-      EXPORTING
-        input  = p_in     //传入变量
-      IMPORTING
-        output = p_out.   //添加前导零后数据
-        
-  ** 去除前导零 ** 
-  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-      EXPORTING
-        input  = p_in     //传入变量
-      IMPORTING
-        output = p_out.   //去除前导零后数据
-  ```
-
-- 显示内容
-
-   	基本数据类型是QUAN,其小数位由字段关联的度量衡单位决定。
-
-      ALV显示时，如果是金额或数量时，需通过Fieldcat设置cfieldname、ctabname等才会正确显示。
-
-- 单位换算
-
-    UNIT_CONVERSION_SIMPLE
-
-- 货币转换因子
-
-```JS
-OB07、OB08：维护各币种之间的汇率
-CURRENCY_CONVERTING_FACTOR：输入币种，可以得到相应的转换比率。SE16中看到数据的经过转换后存入，取
-出时应做转换
-BAPI_CURRENCY_CONV_TO_INTERNAL：转换为数据库中内部存储金额
-BAPI_CURRENCY_CONV_TO_EXTERNAL：转换成外部的实际金额
-CONVERT_TO_LOCAL_CURRENCY：自动将最近时间多的汇率作为转换的汇率
-CONVERT_TO_FOREIGN_CURRENCY：将外币转换为本位币
-CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
-```
-
 ### Open SQL
 
 - ABAP可以通过两种方式与数据库交互
@@ -111,7 +30,7 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
          INTO <target>                ：内表或则结构
          [INTO <f1>...<fn>]           :将查询结果赋值到具体字段
          [INTO CORRESPONDING FILES OF <itab>]
-                                       : 将查询结果按字段匹配赋值给具体的表或者结构体。
+                                      : 将查询结果按字段匹配赋值给具体的表或者结构体。
          WHERE <condition>            ：查询条件
          Group BY <fields>            ：分组查询条件
          ORDER BY <fields>.           ：排序条件 
@@ -174,6 +93,67 @@ CONVERT_TO_LOCAL_CURRENCY：将本位币转换为其他外币
   ```
 
   
+
+### Native SQL
+
+​	EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。
+
+**连接其他的数据库**：TCode:DBCO
+
+​	添加新的连接：`MSSQL_SERVER=IP adress MSSQL_DBNAME=dbname OBJECT_SOURCE=dbname`
+
+**程序调用**：
+
+```json
+DATA: p_dbname(10) VALUE 'SIPS',
+DATA: l_sql_error TYPE REF TO cx_sy_native_sql_error, 
+      l_error_text TYPE string.
+...
+ 内表数据准备
+...
+"连接数据库
+TRY. 
+ EXEC SQL. 
+  CONNECT TO :p_dbname 
+ ENDEXEC.
+CATCH cx_sy_native_sql_error INTO l_sql_error. 
+ CALL METHOD l_sql_error->get_text 
+  RECEIVING 
+   result = l_error_text. 
+ENDTRY. 
+IF sy-subrc <> 0.
+ WRITE: /1 ‘连接到数据库失败:’, l_error_text.
+ STOP. 
+ENDIF.
+"执行SQL
+TRY. 
+ LOOP AT gt_room INTO gs_room. 
+  EXEC SQL. 
+   insert into ljc_room ( room_id, room_name, room_people, room_desc ) 
+   values(:gs_room-room_id, :gs_room-room_name, :gs_room-room_people, :gs_room-room_desc)
+  ENDEXEC.
+ ENDLOOP.
+CATCH cx_sy_native_sql_error INTO l_sql_error. 
+ l_error_text = l_sql_error->get_text( ). 
+ENDTRY. 
+"异常处理
+IF l_error_text IS INITIAL.
+ EXEC SQL.
+  commit.
+ ENDEXEC.
+ELSE.
+ CLEAR l_error_text. 
+ EXEC SQL. 
+  rollback 
+ ENDEXEC.  
+ENDIF.
+"断开连接
+EXEC SQL. 
+ DISCONNECT :p_dbname 
+ENDEXEC.
+```
+
+
 
 ------
 

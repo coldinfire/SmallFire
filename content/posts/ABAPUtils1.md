@@ -13,22 +13,6 @@ tags:
 
 ---
 
-
-### 判断是否包含特定值
-
-- IF field CN '0123456789'.
-- IF field CN 'ABCDEFG*' 
-- IF field CN 'abcdefg*'
-- IF field CN '/' .....
-
-
-
-| **CN：Contains Not Only (包含，不仅包含)** | **CO：Contains Only（仅包含）**           |
-| ------------------------------------------ | :---------------------------------------- |
-| **CS：Contains String (包含字符串)**       | **NS：Contains No String (不包含字符串)** |
-| **NP：No Pattern （不包含记号）**          | **NA：Contains Not Only(不包含任何)**     |
-| **CA：Contains Any（包含任何）**           | **CP：Covers Pattern (包含记号)**         |
-
 ### Commit 和 Rollback ###
 ```JS
 CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
@@ -76,3 +60,4 @@ SARA : 归档管理，批量删除数据
 ME2L : 供应商采购凭证
 MBST : 取消物料凭证
 ```
+

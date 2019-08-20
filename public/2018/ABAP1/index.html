@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  643 ,
+  "wordcount":  1043 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP1\/",
   "datePublished": "2018-05-12T00:00:00\x2b00:00",
   "dateModified": "2018-05-12T00:00:00\x2b00:00",
@@ -152,12 +152,14 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                2 min
+                3 min
         </div>
     </header>
     <div class="post-content">
         
 
+        
+            
         
 
         
@@ -173,7 +175,7 @@
 
           
 
-<h2 id="abap基本数据类型">ABAP基本数据类型</h2>
+<h3 id="abap基本数据类型">ABAP基本数据类型</h3>
 
 <p>基本数据类型</p>
 
@@ -215,8 +217,8 @@
 <tbody>
 <tr>
 <td align="left"><strong>SY-SUBRC:表示系统执行成功与否</strong></td>
-<td align="left"><strong>SY-INDEX:LOOP循环次数</strong></td>
-<td align="left"><strong>SY-TABIX:内表循环第几行</strong></td>
+<td align="left"><strong>SY-INDEX:DO-ENDDO 中是有效的</strong></td>
+<td align="left"><strong>SY-TABIX:LOOP索引，Read内表索引</strong></td>
 </tr>
 
 <tr>
@@ -233,7 +235,7 @@
 </tbody>
 </table>
 
-<h2 id="变量的声明">变量的声明</h2>
+<h3 id="变量的声明">变量的声明</h3>
 
 <ul>
 <li><p>透明表，数据字典，结构：既是类型又是对象，可用type和like。</p></li>
@@ -257,7 +259,7 @@
  END OF STAFFINFO.
 </code></pre>
 
-<h2 id="定义常量-宏">定义常量、宏</h2>
+<h3 id="定义常量-宏">定义常量、宏</h3>
 
 <p><strong>常量定义</strong></p>
 
@@ -281,7 +283,7 @@ END-OF-DEFINITION.
 
 <p>使用：operation 4+3.</p>
 
-<h2 id="describe使用">DESCRIBE使用</h2>
+<h3 id="describe使用">DESCRIBE使用</h3>
 
 <p><code>DESCRIBE TABLE lt_mat LINES lv_cont.</code>：这行的意思是 计算内表 lt_mat 的行数 ，将行数放到变量 lv_cont 里。</p>
 
@@ -291,6 +293,39 @@ END-OF-DEFINITION.
 <p>内表：<code>DESCRIBE TABLE itab [kind knd] [LINES lin] [COCCURS n].</code></p>
 
 <p>两个字段不同：<code>DESCRIBE distance ...</code></p>
+
+<h3 id="message-se91">MESSAGE ：SE91</h3>
+
+<p><strong>消息类的操作</strong></p>
+
+<p>​   使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&amp;，通过‘&amp;’定义多个占位符,如&rdquo;1&amp;2&amp;3&amp;&ldquo;表示有三个输入参数。</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/ABAP/SE91.jpg" alt="定义消息类" class="lazyload"><figcaption class="image-caption">定义消息类</figcaption></figure></p>
+
+<p>MESSAGE E001(ZTEST).</p>
+
+<p>​   E:消息显示类型 (Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功)</p>
+
+<p>​   001:自定义的消息字段</p>
+
+<p>​   ZTEST:自定义的消息类</p>
+
+<p>MESSAGE显示:</p>
+
+<pre><code class="language-JS">EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
+    1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
+    2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
+    3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
+       EXIT.                                   //Screen 界面查询数据无，则返回原界面
+</code></pre>
+
+<p>消息存储的内表：T100/T100C/T100S/T100U/T160M</p>
+
+<ul>
+<li>T100 这个表包括所有的消息</li>
+<li>T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中</li>
+<li>T100S 就是表示可以修改消息类型的表</li>
+</ul>
 
 <p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2018/ABAP2/" rel="nofollow noreferrer" target="_blank">ABAP 语法详解(内表)</a></p>
 
@@ -306,7 +341,7 @@ END-OF-DEFINITION.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>643</span>
+                   <span>1043</span>
             </p>
             
             <p class="copyright-item">
@@ -395,8 +430,9 @@ END-OF-DEFINITION.
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 

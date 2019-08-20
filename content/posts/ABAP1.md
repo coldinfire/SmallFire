@@ -25,7 +25,7 @@ tags:
 
 | SY-UNAME:用户登录名     | SY-DATUM:当前系统日期                 | SY-UZEIT:当前系统时间 |
 | :---------------------- | :-------------------------------- | :--------------------- |
-| **SY-SUBRC:表示系统执行成功与否** | **SY-INDEX:LOOP循环次数** | **SY-TABIX:内表循环第几行** |
+| **SY-SUBRC:表示系统执行成功与否** | **SY-INDEX:DO-ENDDO 中是有效的** | **SY-TABIX:LOOP索引，Read内表索引** |
 | **SY-DYNNR:屏幕的编号** | **SY-DBCNT:DB操作处理过的表行号** | **SY-HOST:服务器名称** |
 | **SY-CPROG:当前程序名** | **SY-TCODE:当前执行的TCode** | **SY-TMAXL:内表总行数** |
 
@@ -84,6 +84,38 @@ END-OF-DEFINITION.
 内表：`DESCRIBE TABLE itab [kind knd] [LINES lin] [COCCURS n].`
 
 两个字段不同：`DESCRIBE distance ...`
+
+### MESSAGE ：SE91
+
+ **消息类的操作**
+
+​	使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&，通过‘&’定义多个占位符,如"1&2&3&"表示有三个输入参数。
+
+![定义消息类](/images/ABAP/SE91.jpg)
+
+MESSAGE E001(ZTEST).
+
+​	E:消息显示类型 (Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功)
+
+​	001:自定义的消息字段
+
+​	ZTEST:自定义的消息类
+
+MESSAGE显示:
+
+```JS
+EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
+	1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
+	2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
+	3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
+   	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
+```
+
+消息存储的内表：T100/T100C/T100S/T100U/T160M
+
+- T100 这个表包括所有的消息
+- T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中
+- T100S 就是表示可以修改消息类型的表
 
 
 未完待续......[ABAP 语法详解(内表)](https://coldinfire.github.io/2018/ABAP2/)
