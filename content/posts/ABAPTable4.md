@@ -102,7 +102,7 @@ FIELDCAT主要用于ALV结构定义，包括具体字段的名称、类型、格
 ☞ JUST：定义字段对齐方式(R)RIGHT、(L)LEFT、(C)CENTER。
 ☞ IZERO：将定义字段以前导"0"的形式显示。
 ☞ NO_SIGN：将定义字段符号设置为不显示。
-☞ NO_ZERO：定义字段是否显示。
+☞ NO_ZERO：如果取值为零，则为空，既不输出零。
 ☞ EMPHASIZE：设置字段的颜色。
 ☞ DO_SUM：对字段进行汇总。
 ☞ SELTEXT_L/M/S：设置字段名称描述长/中/短。

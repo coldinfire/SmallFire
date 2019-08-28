@@ -105,16 +105,19 @@ tags:
 **程序调用**：
 
 ```json
-DATA: p_dbname(10) VALUE 'SIPS',
+DATA: p_dbname(10) VALUE 'DBNAME',
 DATA: l_sql_error TYPE REF TO cx_sy_native_sql_error, 
-      l_error_text TYPE string.
+      error_text TYPE string.
 ...
  内表数据准备
 ...
 "连接数据库
 TRY. 
  EXEC SQL. 
-  CONNECT TO :p_dbname 
+  CONNECT TO 'DBNAME'/ CONNECT TO :p_dbname
+ ENDEXEC.
+ EXEC SQL.
+  SET CONNECTION 'DBNAME'
  ENDEXEC.
 CATCH cx_sy_native_sql_error INTO l_sql_error. 
  CALL METHOD l_sql_error->get_text 
@@ -134,7 +137,7 @@ TRY.
   ENDEXEC.
  ENDLOOP.
 CATCH cx_sy_native_sql_error INTO l_sql_error. 
- l_error_text = l_sql_error->get_text( ). 
+ error_text = l_sql_error->get_text( ). 
 ENDTRY. 
 "异常处理
 IF l_error_text IS INITIAL.

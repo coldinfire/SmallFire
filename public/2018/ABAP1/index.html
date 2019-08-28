@@ -10,7 +10,7 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/hugo1/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP0/" />
   <link rel="next" href="https://coldinfire.github.io/2018/ABAP2/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP1/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
@@ -24,10 +24,10 @@
   <title>
        
        
-           ABAP 语法详解(数据类型) | Small Fire`s Blog
+           ABAP 语法详解(数据表) | Small Fire`s Blog
        
   </title>
-  <meta name="title" content="ABAP 语法详解(数据类型) | Small Fire`s Blog">
+  <meta name="title" content="ABAP 语法详解(数据表) | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,14 +35,14 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ABAP 语法详解(数据类型)"/>
-<meta name="twitter:description" content="ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :"/>
+<meta name="twitter:title" content="ABAP 语法详解(数据表)"/>
+<meta name="twitter:description" content="Table:透明表(Transparent table)、簇表 (Cluster table)、 池表(Pool table) ​ 透明表：和数据库具有相同结构的表存储结构。数据"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "ABAP 语法详解(数据类型)",
+  "headline": "ABAP 语法详解(数据表)",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https:\/\/coldinfire.github.io\/2018\/ABAP1\/"
@@ -55,10 +55,10 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  1043 ,
+  "wordcount":  1255 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP1\/",
-  "datePublished": "2018-05-12T00:00:00\x2b00:00",
-  "dateModified": "2018-05-12T00:00:00\x2b00:00",
+  "datePublished": "2018-05-14T00:00:00\x2b00:00",
+  "dateModified": "2018-05-14T00:00:00\x2b00:00",
   
   "publisher": {
     "@type": "Organization",
@@ -139,11 +139,11 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title">ABAP 语法详解(数据类型)</h1>
+        <h1 class="post-title">ABAP 语法详解(数据表)</h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
-                    on <time datetime=2018-05-12 >12 May 2018</time>
+                    on <time datetime=2018-05-14 >14 May 2018</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -175,159 +175,103 @@
 
           
 
-<h3 id="abap基本数据类型">ABAP基本数据类型</h3>
+<h3 id="table-透明表-transparent-table-簇表-cluster-table-池表-pool-table"><strong>Table:透明表(Transparent table)、簇表 (Cluster table)、 池表(Pool table)</strong></h3>
 
-<p>基本数据类型</p>
+<p>​    <strong>透明表：</strong>和数据库具有相同结构的表存储结构。数据库中有一个相应得物理表。</p>
 
-<table>
-<thead>
-<tr>
-<th align="left">C : Character text</th>
-<th align="left">D : Date(YYYYMMDD)</th>
-<th align="left">P : Packed(包类型:1-16)</th>
-</tr>
-</thead>
+<p>​    <strong>簇表：</strong>该表在SAP Dict展现在我们眼前的结构，由透明表转化<Extras—Change table category>从单个表去理解与透明表没有差异，但是多个表组成簇表，它们在物理上对主键只存储一遍，故对簇表的关联查询可以极大提高访问速度。
+​</p>
 
-<tbody>
-<tr>
-<td align="left"><strong>N : Numeric text(不能进行计算)</strong></td>
-<td align="left"><strong>T : Time(HHMMSS)</strong></td>
-<td align="left"><strong>X : 十六进制</strong></td>
-</tr>
-
-<tr>
-<td align="left"><strong>I : Interger</strong></td>
-<td align="left"><strong>F : Floating point</strong></td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-
-<p>常用系统变量：</p>
-
-<table>
-<thead>
-<tr>
-<th align="left">SY-UNAME:用户登录名</th>
-<th align="left">SY-DATUM:当前系统日期</th>
-<th align="left">SY-UZEIT:当前系统时间</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="left"><strong>SY-SUBRC:表示系统执行成功与否</strong></td>
-<td align="left"><strong>SY-INDEX:DO-ENDDO 中是有效的</strong></td>
-<td align="left"><strong>SY-TABIX:LOOP索引，Read内表索引</strong></td>
-</tr>
-
-<tr>
-<td align="left"><strong>SY-DYNNR:屏幕的编号</strong></td>
-<td align="left"><strong>SY-DBCNT:DB操作处理过的表行号</strong></td>
-<td align="left"><strong>SY-HOST:服务器名称</strong></td>
-</tr>
-
-<tr>
-<td align="left"><strong>SY-CPROG:当前程序名</strong></td>
-<td align="left"><strong>SY-TCODE:当前执行的TCode</strong></td>
-<td align="left"><strong>SY-TMAXL:内表总行数</strong></td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="变量的声明">变量的声明</h3>
+<p>​   <strong>池表：</strong>由透明表转换，可用来存储控制数据，与数据库中的表是多对一关系。</p>
 
 <ul>
-<li><p>透明表，数据字典，结构：既是类型又是对象，可用type和like。</p></li>
+<li><p>INSERT 透明表 INTO 簇表。 只要透明的簇表的主键都在透明表里面就行。就是透明表主键多了也无所谓。</p></li>
 
-<li><p>只能使用LIKE引用另一定义变量的类型，type不可以</p></li>
+<li><p>INSERT 透明表 INTO 池表. 透明表和池表的主键必须相同的。</p></li>
 </ul>
 
-<pre><code class="language-JS">&lt;1&gt; DATA &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt; [&lt;decimals&gt;]. &lt;自定义变量类型&gt;
-&lt;2&gt; DATA &lt;var1&gt; like  &lt;var2&gt; . &lt;参考定义变量&gt;
-       DATA &lt;var1&gt; type &lt;var2&gt;. 
-</code></pre>
+<p>​   <strong>表簇：</strong>几个簇表可以组合成一个表簇，几个簇表存贮在数据库中一个相应的表里，DB层的物理表。</p>
+
+<p>​   <strong>结构：</strong>结构在数据库不存在数据记录。结构用于在程序之间或程序与屏幕之间的接口定义。
+​</p>
+
+<p>​   <strong>附加结构：</strong>附加结构定义字段的子集，该字段属于其他表格或结构，但是在修正管理中作为单独的对象。</p>
+
+<h3 id="sap数据表的组成元素">SAP数据表的组成元素</h3>
+
+<p><strong>Data element：</strong>构成结构、表的基本组件 search help、parameter ID、标签描述。Goto &gt; Documentation &gt; Change ：修改提示文档信息</p>
+
+<p><strong>Domain：</strong>定义数据元素的技术属性，类型，长度，精度。</p>
+
+<p>​    Definition：
+​</p>
 
 <ul>
-<li>继承结构</li>
+<li><p>Format、Output Charact</p></li>
+
+<li><p>Converse Routine(转换规则)：注意前导0的补充问题，将该字段设置为<code>ALPHA</code>。</p></li>
+
+<li><p>Lower Case：不勾选，默认会全部转换为大写字母。</p></li>
+
+<li><p>value range：设置该Domain的固定取值列表和其含义,C,Y,F类型中的一种。</p></li>
 </ul>
 
-<pre><code class="language-JS">DATA:BEGIN OF STAFFINFO. &lt;此处是.操作符&gt;
-    INCLUDE STRUCTURE USER_INFO.
- DATA:BIRTHDAY TYPE D,
-    ADDRESS(50) TYPE C,
- END OF STAFFINFO.
+<pre><code class="language-JS">  DEC:double    FLTP:Float  INT1:0~255  INT2:-32768~32767     INT4:4字节   
+  NUMC:数字字符(1-255)   CHAR:字符(1-255)    STRING
+  CURR:货币字段(1-17)    CUKY:货币代码(5)     QUAN:金额(1-17)  UNIT:单位(2-3)   
+  DATS:Date(8)          TIMS:Time(6)       CLNT:Client(3)    
+  LANG:Language(internal 1,external 2)
 </code></pre>
 
-<h3 id="定义常量-宏">定义常量、宏</h3>
+<p><strong>Field:</strong>透明表字段，可以作为透明表的主 / 外键，继承了 Data Element 的所有属性。</p>
 
-<p><strong>常量定义</strong></p>
+<p>​   透明表中的Technical Setting设置Log data changes后可以使用SCU3，STAD查看日志。【非特殊情况不设置，会占用很大的内存】</p>
 
-<p>​     <code>CONSTANTS &lt;var&gt;(len) TYPE &lt;type&gt; VALUE &lt;value&gt;.</code></p>
-
-<p>​     <code>CONSTANTS &lt;var&gt;(len) LIKE &lt;var2&gt; VALUE &lt;value&gt;.
-</code></p>
-
-<p><strong>宏定义</strong></p>
-
-<p>定义：</p>
-
-<pre><code class="language-ABAP">DEFINE operation.
-  result = &amp;1 &amp;2 &amp;3.
-  output   &amp;1 &amp;2 &amp;3 result.
-END-OF-DEFINITION.
-DEFINE output.
-  write: / 'The result of &amp;1 &amp;2 &amp;3 is', &amp;4.
-END-OF-DEFINITION.
-</code></pre>
-
-<p>使用：operation 4+3.</p>
-
-<h3 id="describe使用">DESCRIBE使用</h3>
-
-<p><code>DESCRIBE TABLE lt_mat LINES lv_cont.</code>：这行的意思是 计算内表 lt_mat 的行数 ，将行数放到变量 lv_cont 里。</p>
-
-<p>字段属性：<code>DESCRIBE FIELD &lt;field&gt; [mes var]...
-</code>     (一个data的类型、长度、小数点、输出长度等信息)</p>
-
-<p>内表：<code>DESCRIBE TABLE itab [kind knd] [LINES lin] [COCCURS n].</code></p>
-
-<p>两个字段不同：<code>DESCRIBE distance ...</code></p>
-
-<h3 id="message-se91">MESSAGE ：SE91</h3>
-
-<p><strong>消息类的操作</strong></p>
-
-<p>​   使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&amp;，通过‘&amp;’定义多个占位符,如&rdquo;1&amp;2&amp;3&amp;&ldquo;表示有三个输入参数。</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/ABAP/SE91.jpg" alt="定义消息类" class="lazyload"><figcaption class="image-caption">定义消息类</figcaption></figure></p>
-
-<p>MESSAGE E001(ZTEST).</p>
-
-<p>​   E:消息显示类型 (Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功)</p>
-
-<p>​   001:自定义的消息字段</p>
-
-<p>​   ZTEST:自定义的消息类</p>
-
-<p>MESSAGE显示:</p>
-
-<pre><code class="language-JS">EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
-    1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
-    2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
-    3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
-       EXIT.                                   //Screen 界面查询数据无，则返回原界面
-</code></pre>
-
-<p>消息存储的内表：T100/T100C/T100S/T100U/T160M</p>
+<h4 id="数据分类">数据分类</h4>
 
 <ul>
-<li>T100 这个表包括所有的消息</li>
-<li>T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中</li>
-<li>T100S 就是表示可以修改消息类型的表</li>
+<li><p><strong>Master Data</strong>：业务主数据；即：SAP 各模块中的主数据：总账科目、供应商主数据、物料主数据等；</p></li>
+
+<li><p><strong>Transaction Data</strong>：业务处理数据；在业务处理操作中，生成的凭证号等数据，如：销售订单凭证号、采购订单凭证号、收货凭证号等；</p></li>
+
+<li><p><strong>System Data</strong>：系统数据；包括 ABAP 程序的源码、元数据、文档等数据；</p></li>
+
+<li><p><strong>Configuration Data</strong>：配置数据；存放企业项目实施时，配置的初始化信息，如：货币汇率、订单类型、变式等</p></li>
 </ul>
 
-<p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2018/ABAP2/" rel="nofollow noreferrer" target="_blank">ABAP 语法详解(内表)</a></p>
+<h3 id="维护abap数据字典">维护ABAP数据字典</h3>
+
+<ul>
+<li><strong>SE80 – Repository Browser</strong></li>
+<li><strong>SE15 – Repository Information System</strong></li>
+<li><strong>SE16 /SE16N – Data Browser</strong></li>
+<li><strong>SE11 – ABAP Dictionary</strong></li>
+<li><strong>SE13 – Dictionary technical settings</strong></li>
+<li><strong>SM30 – Maintain Table Views</strong></li>
+<li><strong>SM31 – Table Maintenance</strong></li>
+</ul>
+
+<h3 id="复制结构-表中的所有字段">复制结构/表中的所有字段</h3>
+
+<ul>
+<li>SE11创建自定义表/结构</li>
+<li>Edit -&gt; Transfer Fields</li>
+<li>选择要复制的表/结构和要复制的字段<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/ABAP/Table1.png" alt="Copy Components" class="lazyload"><figcaption class="image-caption">Copy Components</figcaption></figure></li>
+<li>选择要复制的字段并选择Copy<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/ABAP/Table2.png" alt="Field Selection" class="lazyload"><figcaption class="image-caption">Field Selection</figcaption></figure></li>
+<li>粘贴所有复制的字段并激活自定义的表/结构<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/ABAP/Table3.png" alt="Field paste" class="lazyload"><figcaption class="image-caption">Field paste</figcaption></figure></li>
+</ul>
+
+<h3 id="表维护创建">表维护创建</h3>
+
+<pre><code class="language-JS">SM30：表维护 Utilities -----&gt;Table maintenance generator
+          Technical Dialog Details
+          Authorization Group：&amp;NC&amp;
+          Function group：ZFG_tablename
+          Maintenance Screens : 
+          Maintenance type：one step
+</code></pre>
+
+<p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2018/ABAP3" rel="nofollow noreferrer" target="_blank">ABAP 语法详解(内表)</a></p>
 
     </div>
 
@@ -341,7 +285,7 @@ END-OF-DEFINITION.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1043</span>
+                   <span>1255</span>
             </p>
             
             <p class="copyright-item">
@@ -370,7 +314,7 @@ END-OF-DEFINITION.
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/hugo1/" class="prev" rel="prev" title=" 使用Hugo&#43;GitHub Pages快速搭建博客  "><i class="iconfont icon-dajiantou"></i>&nbsp; 使用Hugo&#43;GitHub Pages快速搭建博客  </a>
+        <a href="https://coldinfire.github.io/2018/ABAP0/" class="prev" rel="prev" title="ABAP 语法详解(数据类型)"><i class="iconfont icon-dajiantou"></i>&nbsp;ABAP 语法详解(数据类型)</a>
          
         
         <a href="https://coldinfire.github.io/2018/ABAP2/" class="next" rel="next" title="ABAP 语法详解(内表)">ABAP 语法详解(内表)&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
@@ -384,8 +328,8 @@ END-OF-DEFINITION.
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-05-12 00:00:00 \x2b0000 UTC',
-        title: 'ABAP 语法详解(数据类型)',
+        id: '2018-05-14 00:00:00 \x2b0000 UTC',
+        title: 'ABAP 语法详解(数据表)',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',

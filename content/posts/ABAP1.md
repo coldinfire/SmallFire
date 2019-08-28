@@ -1,6 +1,6 @@
 ---
-title: "ABAP 语法详解(数据类型)"
-date: 2018-05-12
+title: "ABAP 语法详解(数据表)"
+date: 2018-05-14
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -12,111 +12,94 @@ tags:
 
 ---
 
-### ABAP基本数据类型
+### **Table:透明表(Transparent table)、簇表 (Cluster table)、 池表(Pool table)**
 
-  基本数据类型
+​    **透明表：**和数据库具有相同结构的表存储结构。数据库中有一个相应得物理表。
 
-| C : Character text                 | D : Date(YYYYMMDD)     | P : Packed(包类型:1-16) |
-| :--------------------------------- | :--------------------- | :---------------------- |
-| **N : Numeric text(不能进行计算)** | **T : Time(HHMMSS)**   | **X : 十六进制**        |
-| **I : Interger**                   | **F : Floating point** |                         |
+​    **簇表：**该表在SAP Dict展现在我们眼前的结构，由透明表转化<Extras—Change table category>从单个表去理解与透明表没有差异，但是多个表组成簇表，它们在物理上对主键只存储一遍，故对簇表的关联查询可以极大提高访问速度。
+​    
 
-   常用系统变量：
+​	**池表：**由透明表转换，可用来存储控制数据，与数据库中的表是多对一关系。
 
-| SY-UNAME:用户登录名     | SY-DATUM:当前系统日期                 | SY-UZEIT:当前系统时间 |
-| :---------------------- | :-------------------------------- | :--------------------- |
-| **SY-SUBRC:表示系统执行成功与否** | **SY-INDEX:DO-ENDDO 中是有效的** | **SY-TABIX:LOOP索引，Read内表索引** |
-| **SY-DYNNR:屏幕的编号** | **SY-DBCNT:DB操作处理过的表行号** | **SY-HOST:服务器名称** |
-| **SY-CPROG:当前程序名** | **SY-TCODE:当前执行的TCode** | **SY-TMAXL:内表总行数** |
+- INSERT 透明表 INTO 簇表。 只要透明的簇表的主键都在透明表里面就行。就是透明表主键多了也无所谓。
 
-### 变量的声明
-- 透明表，数据字典，结构：既是类型又是对象，可用type和like。
+- INSERT 透明表 INTO 池表. 透明表和池表的主键必须相同的。
+      
 
-- 只能使用LIKE引用另一定义变量的类型，type不可以
+​	**表簇：**几个簇表可以组合成一个表簇，几个簇表存贮在数据库中一个相应的表里，DB层的物理表。
 
-```JS
-<1> DATA <var>(len) TYPE <type> VALUE <value> [<decimals>]. <自定义变量类型>
-<2> DATA <var1> like  <var2> . <参考定义变量>
-	   DATA <var1> type <var2>. 
-```
+​	**结构：**结构在数据库不存在数据记录。结构用于在程序之间或程序与屏幕之间的接口定义。
+​    
 
-- 继承结构
+​	**附加结构：**附加结构定义字段的子集，该字段属于其他表格或结构，但是在修正管理中作为单独的对象。
 
-```JS
-DATA:BEGIN OF STAFFINFO. <此处是.操作符>
-    INCLUDE STRUCTURE USER_INFO.
- DATA:BIRTHDAY TYPE D,
-    ADDRESS(50) TYPE C,
- END OF STAFFINFO.
-```
+### SAP数据表的组成元素
 
-### 定义常量、宏
+**Data element：**构成结构、表的基本组件 search help、parameter ID、标签描述。Goto > Documentation > Change ：修改提示文档信息
 
-**常量定义**
+**Domain：**定义数据元素的技术属性，类型，长度，精度。
 
-​	  `CONSTANTS <var>(len) TYPE <type> VALUE <value>.`
+​	 Definition：
+​       
 
-​	  `CONSTANTS <var>(len) LIKE <var2> VALUE <value>.
-`
+- Format、Output Charact
+  
+- Converse Routine(转换规则)：注意前导0的补充问题，将该字段设置为`ALPHA`。
+  
+- Lower Case：不勾选，默认会全部转换为大写字母。
 
-**宏定义** 
+- value range：设置该Domain的固定取值列表和其含义,C,Y,F类型中的一种。
 
-定义：
+  ```JS
+  DEC:double    FLTP:Float  INT1:0~255  INT2:-32768~32767     INT4:4字节   
+  NUMC:数字字符(1-255)   CHAR:字符(1-255)    STRING
+  CURR:货币字段(1-17)    CUKY:货币代码(5)     QUAN:金额(1-17)  UNIT:单位(2-3)   
+  DATS:Date(8)          TIMS:Time(6)       CLNT:Client(3)    
+  LANG:Language(internal 1,external 2)
+  ```
 
-```ABAP
-DEFINE operation.
-  result = &1 &2 &3.
-  output   &1 &2 &3 result.
-END-OF-DEFINITION.
-DEFINE output.
-  write: / 'The result of &1 &2 &3 is', &4.
-END-OF-DEFINITION.
-```
-使用：operation 4+3.
+**Field:**透明表字段，可以作为透明表的主 / 外键，继承了 Data Element 的所有属性。
 
-###  DESCRIBE使用
+​	透明表中的Technical Setting设置Log data changes后可以使用SCU3，STAD查看日志。【非特殊情况不设置，会占用很大的内存】
 
-`DESCRIBE TABLE lt_mat LINES lv_cont.`：这行的意思是 计算内表 lt_mat 的行数 ，将行数放到变量 lv_cont 里。
+#### 数据分类
 
-字段属性：`DESCRIBE FIELD <field> [mes var]...
- `     (一个data的类型、长度、小数点、输出长度等信息)
+- **Master Data**：业务主数据；即：SAP 各模块中的主数据：总账科目、供应商主数据、物料主数据等；
 
-内表：`DESCRIBE TABLE itab [kind knd] [LINES lin] [COCCURS n].`
+- **Transaction Data**：业务处理数据；在业务处理操作中，生成的凭证号等数据，如：销售订单凭证号、采购订单凭证号、收货凭证号等；
 
-两个字段不同：`DESCRIBE distance ...`
+- **System Data**：系统数据；包括 ABAP 程序的源码、元数据、文档等数据；
 
-### MESSAGE ：SE91
+- **Configuration Data**：配置数据；存放企业项目实施时，配置的初始化信息，如：货币汇率、订单类型、变式等
 
- **消息类的操作**
+### 维护ABAP数据字典
 
-​	使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&，通过‘&’定义多个占位符,如"1&2&3&"表示有三个输入参数。
+- **SE80 – Repository Browser**
+- **SE15 – Repository Information System**
+- **SE16 /SE16N – Data Browser**
+- **SE11 – ABAP Dictionary**
+- **SE13 – Dictionary technical settings**
+- **SM30 – Maintain Table Views**
+- **SM31 – Table Maintenance**
 
-![定义消息类](/images/ABAP/SE91.jpg)
+### 复制结构/表中的所有字段
 
-MESSAGE E001(ZTEST).
+- SE11创建自定义表/结构
+- Edit -> Transfer Fields
+- 选择要复制的表/结构和要复制的字段![Copy Components](/images/ABAP/Table1.png)
+- 选择要复制的字段并选择Copy![Field Selection](/images/ABAP/Table2.png)
+-  粘贴所有复制的字段并激活自定义的表/结构![Field paste](/images/ABAP/Table3.png)
 
-​	E:消息显示类型 (Message共分以下几种类型：E:错误、W:警告、I：信息、A：异常中止、S:成功)
-
-​	001:自定义的消息字段
-
-​	ZTEST:自定义的消息类
-
-MESSAGE显示:
+### 表维护创建
 
 ```JS
-EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
-	1. 消息ID MESSAGE e001(00) WITH '12345678'. //利用定义的参数
-	2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
-	3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
-   	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
+SM30：表维护 Utilities ----->Table maintenance generator
+          Technical Dialog Details
+          Authorization Group：&NC&
+          Function group：ZFG_tablename
+          Maintenance Screens : 
+          Maintenance type：one step
 ```
 
-消息存储的内表：T100/T100C/T100S/T100U/T160M
-
-- T100 这个表包括所有的消息
-- T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中
-- T100S 就是表示可以修改消息类型的表
-
-
-未完待续......[ABAP 语法详解(内表)](https://coldinfire.github.io/2018/ABAP2/)
+未完待续......[ABAP 语法详解(内表)](https://coldinfire.github.io/2018/ABAP3)
 

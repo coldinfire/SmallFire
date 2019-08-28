@@ -29,15 +29,30 @@ tags:
 
 ​	我们也可以在 SmartForms 内部写取数据的逻辑，但是在 SmartForms 中编程不是很方便，而且有时我们的数据需要首先以 List 或者 ALV List 的方式显示，然后再打印，所以在 smartforms 中书写取数据逻辑只能对一些要求非常简单的场合适用。
 
-### Smartforms注意事项
+### Smartforms 知识点
 
 #### Table和template区别：
 
 - 1、`table` 行为动态，数据输出时会根据列宽自动换行，可以固定列宽，
   但是默认情况下控制不了行高，如果要想 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （还是 table 控件？）的高度来自动翻页.
-
 - 2、`template` 为静态，固定列宽、行高，当输出数据过长时会自动截断，通常被用于静态表单开发。
   template 跟 loop 嵌套使用，可以实现固定行高、列宽的表单开发。需要手动翻页，并程序中计算页码；（程序中计算页码？）.
+
+#### Page Break in a smartforms
+
+ Page break based on a field value,Compare the field value and if the value chnaged then do a page break.
+
+- Create a Page with a Main Window to display the item deatils as Table in the smartform.
+
+- Create a Loop inside the Main window, to loop the internal tables with data.
+
+- Create a Command in the loop, in the condition tab of the command check the field value.
+
+- Select the checkbox (Go to New Page) and give the next page which you want to display.
+
+- Create a text under the command to display data.
+
+  Based on the condition you have given in the condition tab of the command, a page break will automatically get triggered and the needed data will get flowed to the next page.
 
 ### Smartforms Debug
 

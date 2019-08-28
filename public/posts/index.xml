@@ -714,11 +714,20 @@
     </item>
     
     <item>
-      <title>ABAP 语法详解(数据类型)</title>
+      <title>ABAP 语法详解(数据表)</title>
       <link>https://coldinfire.github.io/2018/ABAP1/</link>
-      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP1/</guid>
+      <description>Table:透明表(Transparent table)、簇表 (Cluster table)、 池表(Pool table) ​ 透明表：和数据库具有相同结构的表存储结构。数据</description>
+    </item>
+    
+    <item>
+      <title>ABAP 语法详解(数据类型)</title>
+      <link>https://coldinfire.github.io/2018/ABAP0/</link>
+      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP0/</guid>
       <description>ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :</description>
     </item>
     

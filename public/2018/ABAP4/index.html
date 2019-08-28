@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  980 ,
+  "wordcount":  989 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP4\/",
   "datePublished": "2018-05-24T00:00:00\x2b00:00",
   "dateModified": "2018-05-24T00:00:00\x2b00:00",
@@ -258,16 +258,19 @@
 
 <p><strong>程序调用</strong>：</p>
 
-<pre><code class="language-json">DATA: p_dbname(10) VALUE 'SIPS',
+<pre><code class="language-json">DATA: p_dbname(10) VALUE 'DBNAME',
 DATA: l_sql_error TYPE REF TO cx_sy_native_sql_error, 
-      l_error_text TYPE string.
+      error_text TYPE string.
 ...
  内表数据准备
 ...
 &quot;连接数据库
 TRY. 
  EXEC SQL. 
-  CONNECT TO :p_dbname 
+  CONNECT TO 'DBNAME'/ CONNECT TO :p_dbname
+ ENDEXEC.
+ EXEC SQL.
+  SET CONNECTION 'DBNAME'
  ENDEXEC.
 CATCH cx_sy_native_sql_error INTO l_sql_error. 
  CALL METHOD l_sql_error-&gt;get_text 
@@ -287,7 +290,7 @@ TRY.
   ENDEXEC.
  ENDLOOP.
 CATCH cx_sy_native_sql_error INTO l_sql_error. 
- l_error_text = l_sql_error-&gt;get_text( ). 
+ error_text = l_sql_error-&gt;get_text( ). 
 ENDTRY. 
 &quot;异常处理
 IF l_error_text IS INITIAL.
@@ -322,7 +325,7 @@ ENDEXEC.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>980</span>
+                   <span>989</span>
             </p>
             
             <p class="copyright-item">
