@@ -11,10 +11,11 @@ weight: 4
 | ------ | ------------------------------------------------------------ | ------------------ |
 | <img width=200/> | <img width=500/> |<img width=500/> |
 | 0 | [小王子](<https://book.douban.com/subject/1084336/>) |✅ |
-| 1      | [好好学习](<https://book.douban.com/subject/26952718/>) | 🕐 |
-| 2      | [好好说话](<https://book.douban.com/subject/26948148/>) | 🕐 |
-| 3      | [围城](<https://book.douban.com/subject/1008145/>) | 🕐 |
+| 1      | [我们仨](https://book.douban.com/subject/1023045/) | ✅ |
+| 2      | 孩子你慢些走 | ✅ |
+| 3      | [围城](<https://book.douban.com/subject/1008145/>) | ✅ |
 | 4      | [穷查理宝典](<https://book.douban.com/subject/5346110/>) | 🕐 |
 | 5      | [非暴力沟通](<https://book.douban.com/subject/3533221/>) | 🕐           |
 | 6      | [人性的弱点](<https://book.douban.com/subject/1056295/>) | 🕐           |
+| 7 | [看见](https://book.douban.com/subject/20427187/) | ✅ |
 
