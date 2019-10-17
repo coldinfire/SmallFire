@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abap",
-  "wordcount":  989 ,
+  "wordcount":  1272 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP4\/",
   "datePublished": "2018-05-24T00:00:00\x2b00:00",
   "dateModified": "2018-05-24T00:00:00\x2b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                2 min
+                3 min
         </div>
     </header>
     <div class="post-content">
@@ -203,7 +203,14 @@
 
 <pre><code class="language-JS">  INNER JOIN：查询结果包含两个连接表中彼此相对应的数据记录。
   LEFT OUTER JOIN：查询结果集中包含左表中的所有数据记录，右表中仅查询出包含相匹配的数据。
-  FULL OUTER JOIN：包含左右表所有的记录。
+  连接语句：
+    使用ON 和 AND 语句将左右两个表关联起来，一般使用主键；
+      INNER JOIN不能使用NOT、LIKE、IN;
+    LEFT OUTER JOIN只能使用 EQ;
+  WHERE语句：
+    至少有一个表达式的两个操作数分别来自于左右两个表，建立连接关系；
+    LEFT OUTER JOIN的右表字段不能在WHERE中使用；
+      
 </code></pre>
 
 <p>以内表为查询条件：</p>
@@ -227,13 +234,15 @@
 
 <p>​     <2> UPDATE（修改更新操作）</p>
 
-<pre><code class="language-JS">  UPDATE &lt;dbtab&gt; SET: f1...fn (WHERE &lt;condition&gt;).    
+<pre><code class="language-JS">  UPDATE &lt;dbtab&gt; SET f1 = v1...fn = vn (WHERE &lt;condition&gt;).
+  UPDATE &lt;dbtab&gt; FROM &lt;wa&gt;.
   UPDATE &lt;dbtab&gt; FROM TABLE &lt;itab&gt; (WHERE &lt;condition&gt;).
 </code></pre>
 
 <p>​     <3> INSERT(插入数据)</p>
 
 <pre><code class="language-JS">  INSERT INTO &lt;dbtab&gt; VALUES &lt;conditin&gt;.
+  INSERT &lt;dbtab&gt; FROM &lt;wa&gt;.
   INSERT &lt;dbtab&gt; FROM TABLE &lt;itab&gt;.
 </code></pre>
 
@@ -245,7 +254,8 @@
 
 <p>​     <5> MODIFY(修改操作，相当于Update &amp; Insert)</p>
 
-<pre><code class="language-JS">  MODIFY &lt;dbtab&gt; FROM TABLE &lt;itab&gt;.
+<pre><code class="language-JS">MODIFY &lt;dbtab&gt; FROM &lt;wa&gt;.  
+MODIFY &lt;dbtab&gt; FROM TABLE &lt;itab&gt;.
 </code></pre>
 
 <h3 id="native-sql">Native SQL</h3>
@@ -255,6 +265,14 @@
 <p><strong>连接其他的数据库</strong>：TCode:DBCO</p>
 
 <p>​   添加新的连接：<code>MSSQL_SERVER=IP adress MSSQL_DBNAME=dbname OBJECT_SOURCE=dbname</code></p>
+
+<p>注意事项：</p>
+
+<p>​   Native SQL 语句不能有结尾符号;</p>
+
+<p>​   EXEC SQL &hellip;&hellip; ENDEXEC间不能有注释;</p>
+
+<p>​   参数占位符是冒号：;</p>
 
 <p><strong>程序调用</strong>：</p>
 
@@ -309,6 +327,31 @@ EXEC SQL.
 ENDEXEC.
 </code></pre>
 
+<p>游标使用：</p>
+
+<pre><code class="language-JS">DATA : arg1 TYPE string VALUE '800' .
+TABLES : t001 .
+EXEC SQL .
+  OPEN c1 FOR  &quot; 打开游标
+  SELECT MANDT , BUKRS 
+    FROM T001  &quot; 远程数据库表 
+    WHERE MANDT = :arg1 AND BUKRS &gt;= 'ZA01'
+ENDEXEC .
+DO .
+  EXEC SQL .
+    FETCH NEXT c1 INTO :t001-mandt, :t001-bukrs &quot;读取游标
+  ENDEXEC .
+  IF sy - subrc &lt;&gt; 0 .
+    EXIT .
+  ELSE .
+    WRITE : / t001-mandt, t001-bukrs .
+  ENDIF .
+ENDDO .
+EXEC SQL .
+  CLOSE c1 &quot;关闭游标
+ENDEXEC .
+</code></pre>
+
 <hr />
 
 <p>未完待续&hellip;&hellip;<a href="https://coldinfire.github.io/2018/ABAP5/" rel="nofollow noreferrer" target="_blank">ABAP 语法详解(优化)</a></p>
@@ -325,7 +368,7 @@ ENDEXEC.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>989</span>
+                   <span>1272</span>
             </p>
             
             <p class="copyright-item">

@@ -41,11 +41,19 @@ tags:
   ```JS
   INNER JOIN：查询结果包含两个连接表中彼此相对应的数据记录。
   LEFT OUTER JOIN：查询结果集中包含左表中的所有数据记录，右表中仅查询出包含相匹配的数据。
-  FULL OUTER JOIN：包含左右表所有的记录。
+  连接语句：
+  	使用ON 和 AND 语句将左右两个表关联起来，一般使用主键；
+      INNER JOIN不能使用NOT、LIKE、IN;
+  	LEFT OUTER JOIN只能使用 EQ;
+  WHERE语句：
+  	至少有一个表达式的两个操作数分别来自于左右两个表，建立连接关系；
+  	LEFT OUTER JOIN的右表字段不能在WHERE中使用；
+      
   ```
+  
+    
 
-
-  以内表为查询条件：
+以内表为查询条件：
 
   ​         `SELECT <f1...fn> FROM <dbtab> FOR ALL ENTRIED IN <itab> WHERE <cond>.`
 
@@ -68,7 +76,8 @@ tags:
   ​     <2> UPDATE（修改更新操作）
 
   ```JS
-  UPDATE <dbtab> SET: f1...fn (WHERE <condition>).    
+  UPDATE <dbtab> SET f1 = v1...fn = vn (WHERE <condition>).
+  UPDATE <dbtab> FROM <wa>.
   UPDATE <dbtab> FROM TABLE <itab> (WHERE <condition>).
   ```
 
@@ -76,6 +85,7 @@ tags:
 
   ```JS
   INSERT INTO <dbtab> VALUES <conditin>.
+  INSERT <dbtab> FROM <wa>.
   INSERT <dbtab> FROM TABLE <itab>.
   ```
 
@@ -89,7 +99,8 @@ tags:
   ​     <5> MODIFY(修改操作，相当于Update & Insert)    
 
   ```JS
-  MODIFY <dbtab> FROM TABLE <itab>.
+MODIFY <dbtab> FROM <wa>.  
+MODIFY <dbtab> FROM TABLE <itab>.
   ```
 
   
@@ -101,6 +112,14 @@ tags:
 **连接其他的数据库**：TCode:DBCO
 
 ​	添加新的连接：`MSSQL_SERVER=IP adress MSSQL_DBNAME=dbname OBJECT_SOURCE=dbname`
+
+注意事项：
+
+​	Native SQL 语句不能有结尾符号;
+
+​	EXEC SQL ...... ENDEXEC间不能有注释;
+
+​	参数占位符是冒号：;
 
 **程序调用**：
 
@@ -156,6 +175,31 @@ EXEC SQL.
 ENDEXEC.
 ```
 
+游标使用：
+
+```JS
+DATA : arg1 TYPE string VALUE '800' .
+TABLES : t001 .
+EXEC SQL .
+  OPEN c1 FOR  " 打开游标
+  SELECT MANDT , BUKRS 
+	FROM T001  " 远程数据库表 
+    WHERE MANDT = :arg1 AND BUKRS >= 'ZA01'
+ENDEXEC .
+DO .
+  EXEC SQL .
+    FETCH NEXT c1 INTO :t001-mandt, :t001-bukrs "读取游标
+  ENDEXEC .
+  IF sy - subrc <> 0 .
+    EXIT .
+  ELSE .
+    WRITE : / t001-mandt, t001-bukrs .
+  ENDIF .
+ENDDO .
+EXEC SQL .
+  CLOSE c1 "关闭游标
+ENDEXEC .
+```
 
 
 ------
