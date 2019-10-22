@@ -5,7 +5,7 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -93,6 +93,18 @@
       
       <guid>https://coldinfire.github.io/about/</guid>
       <description>&lt;p&gt;这个人很懒，什么都没留下&amp;hellip;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SO10</title>
+      <link>https://coldinfire.github.io/2019/ABAP_SO10/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SO10/</guid>
+      <description>&lt;p&gt;SO10使用&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
 </description>
     </item>
     
@@ -2818,111 +2830,6 @@ sm37就是sm36里job selection的链接。&lt;/p&gt;
 &lt;h4 id=&#34;调试后台job&#34;&gt;调试后台Job&lt;/h4&gt;
 
 &lt;p&gt;​   事务码：sm37，选中要调试的 job，输入事务码 JDBG，回车，进入调试界面，根据需要打断点等就行了。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>STO详解</title>
-      <link>https://coldinfire.github.io/2019/ABAPSTO/</link>
-      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPSTO/</guid>
-      <description>
-
-&lt;h3 id=&#34;一-工厂间转储&#34;&gt;一、工厂间转储&lt;/h3&gt;
-
-&lt;p&gt;（1）MB1B 移动类型 301 工厂到工厂（一步）转账 -&amp;gt; 简单明了一步转储；过账后会产生 GR，MITA 增加了，MIZH 减少了，&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;MB03：-&amp;gt; 会产生 GR, 如果俩工厂标准价或者移动平均价不同，差异会调整到库存调拨损益科目。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;（2）MB1B （两步转储）移动类型 1. 转出 303, 2. 转入 305，两步转储操作，过账后，产生&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;物料凭证 - MB03,&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;会计凭证 - FB03,&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;（3）区别&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;​ MMBE 仔细看一下接收库存，会发现和一步的 区别，
-在库存传送那出现了 - 转储的数量，
-接下来就是接收库存，MB1B,过账后,也会产生 GR , 却不会产生 FR 财务凭证。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;​   移动类型的工厂 1 步，2 步的转储，后台配置主要配置好存货科目，及转储中的损益科目便可。&lt;/p&gt;
-
-&lt;h3 id=&#34;二-跨工厂转储-公司间调拨&#34;&gt;二、跨工厂转储（公司间调拨）&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;MM 转储操作 MB1B&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;【过账抬头】&lt;/p&gt;
-
-&lt;p&gt;​   移动类型：表示库存地点一步转储&lt;/p&gt;
-
-&lt;p&gt;​   工厂：指定公司代码&lt;/p&gt;
-
-&lt;p&gt;​   库存地点：物料储存的仓库代码&lt;/p&gt;
-
-&lt;p&gt;【过账项目】&lt;/p&gt;
-
-&lt;p&gt;​   接收库存地点：物料转储后存放的库位代码&lt;/p&gt;
-
-&lt;p&gt;​   物料：原料等级代码&lt;/p&gt;
-
-&lt;p&gt;​   数量：转储物料的量,和后面单位要对应&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;WM 层面 转储操作 LT06&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;​   此界面正常情况下自动进入，若出现断线等异常情况，则用事物码 LT05 进入本界面，
-并输入相应的物料凭证号。&lt;/p&gt;
-
-&lt;p&gt;【抬头】&lt;/p&gt;
-
-&lt;p&gt;​   物料凭证：物料转储后产生的凭证号&lt;/p&gt;
-
-&lt;p&gt;​   物料凭证年份： 指定的年份&lt;/p&gt;
-
-&lt;p&gt;​   仓库号：指定的仓库好&lt;/p&gt;
-
-&lt;p&gt;​   在将转出的仓位号前填写转移数量&lt;/p&gt;
-
-&lt;p&gt;​   去掉 “记帐到同一仓位” 下的√&lt;/p&gt;
-
-&lt;h3 id=&#34;原料厂内转储单&#34;&gt;原料厂内转储单&lt;/h3&gt;
-
-&lt;p&gt;在 “工厂” 中输入工厂在 “物料凭证编号” 中输入‘凭证号‘点执行按钮&lt;/p&gt;
-
-&lt;p&gt;1   检查单据内容，无误后点菜单栏 “文本”→“打印”    打印原料厂内转储单&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; 查询各物料库存信息： MMBE/MB52/LS24&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt;SAP 系统内进行转储操作 MB1B&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;移动类型 311；工厂 &amp;lsquo;XXXX&amp;rsquo;；发货库存地点 &amp;lsquo;XXXX&amp;rsquo;；转储物料编码 &amp;lsquo;XXXX&amp;rsquo;；数量 &amp;lsquo;XXXX&amp;rsquo;；接收库存地点 &amp;lsquo;XXXX&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;-&amp;gt; 在 SAP 系统的 WM 模块中确定&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;确定转出、转入仓位 &amp;lsquo;XXXX&amp;rsquo;；物料凭证&amp;rsquo;XXXX&amp;rsquo;；物料凭证的年份&amp;rsquo;XXXX&amp;rsquo;；仓库号&amp;rsquo;XXXX&amp;rsquo;；源仓位 &amp;lsquo;01-01-08&amp;rsquo;；目的仓位 &amp;lsquo;01-01-05&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;-&amp;gt; 查看物料凭证 MB03&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; 查询物料凭证清单 MB51&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; MMBE 单个料查询库存&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; MB52（此查询带金额）&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; LS24（查询某一物料的仓位库存）&lt;/p&gt;
-
-&lt;p&gt;-&amp;gt; MB03 显示物料凭证 &amp;lt;-&amp;gt; 同部分 migo&lt;/p&gt;
 </description>
     </item>
     
