@@ -97,7 +97,7 @@ SM30：表维护 Utilities ----->Table maintenance generator
           Technical Dialog Details
           Authorization Group：&NC&
           Function group：ZFG_tablename
-          Maintenance Screens : 
+          Maintenance Screens : 1
           Maintenance type：one step
 ```
 

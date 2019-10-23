@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ABAP 科学计数法问题</title>
+      <link>https://coldinfire.github.io/2019/ABAPNumberQAS/</link>
+      <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPNumberQAS/</guid>
+      <description>科学计数法转换数字 ​ ABAP 函数 QSS0_FLTP_TO_CHAR_CONVERSION，能将 SAP 系统内的科学计数法显示的数字转换成一般数字。 DATA: l_result TYPE</description>
+    </item>
     
     <item>
       <title>SO10</title>
@@ -18,6 +27,15 @@
       
       <guid>https://coldinfire.github.io/2019/ABAP_SO10/</guid>
       <description>SO10使用 ​</description>
+    </item>
+    
+    <item>
+      <title>ABAP字符串处理</title>
+      <link>https://coldinfire.github.io/2019/ABAPString/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPString/</guid>
+      <description>​ 字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。 1.获取字符串长度 var1 = str</description>
     </item>
     
     <item>
@@ -705,12 +723,12 @@
     </item>
     
     <item>
-      <title>ABAP 语法详解(String&amp;Form&amp;Func)</title>
+      <title>ABAP 语法详解(Form&amp;Func)</title>
       <link>https://coldinfire.github.io/2018/ABAP3/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP3/</guid>
-      <description>字符串处理 判断是否包含特定值 IF field CN &amp;lsquo;0123456789&amp;rsquo;. IF field CN &amp;lsquo;ABCDEFG*&amp;rsquo; IF field CN &amp;lsquo;abcdefg*&amp;rsquo; IF field CN &amp;lsquo;/&amp;rsquo; &amp;hellip;.. CN：Contains Not Only (包含，不仅包含) CO：Contains Only（仅</description>
+      <description>全局变量，局部变量 ​ 报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subrouti</description>
     </item>
     
     <item>

@@ -1,5 +1,5 @@
 ---
-title: "ABAP 语法详解(String&Form&Func)"
+title: "ABAP 语法详解(Form&Func)"
 date: 2018-05-20
 draft: false
 author: Small Fire
@@ -11,50 +11,6 @@ tags:
   - abap
 
 ---
-
-### 字符串处理
-
-#### 判断是否包含特定值
-
-- IF field CN '0123456789'.
-- IF field CN 'ABCDEFG*' 
-- IF field CN 'abcdefg*'
-- IF field CN '/' .....
-
-| **CN：Contains Not Only (包含，不仅包含)** | **CO：Contains Only（仅包含）**           |
-| ------------------------------------------ | :---------------------------------------- |
-| **CS：Contains String (包含字符串)**       | **NS：Contains No String (不包含字符串)** |
-| **NP：No Pattern （不包含记号）**          | **NA：Contains Not Only(不包含任何)**     |
-| **CA：Contains Any（包含任何）**           | **CP：Covers Pattern (包含记号)**         |
-
-**合并字符串**：
-
-   CONCATENATE var1 var2 INTO result [SEPARATED BY sep] [RESPECTING BLANKS]. 
-
-​	C,D,N,T类型的前导空格会保留，尾部空格会去掉，对String类型的所有空格都会保留；
-
-​     separated：根据该间隔符号进行拼接(SPACE)
-
-​     respecting：针对C,D,N,T数据，表示尾部空格会保留
-
-**去空格**：`CONDENSE <c> [NO-GAPS]`  :重新整合分配字符串，去除空格;指定no-gaps去除所有空格
-
-**拆分字符串**：
-
-​	SPLIT dobj AT sep INTO {res1 res2......resn}. ：将字符串的值分配给具体变量
-
-
-​	SPLIT s_source AT sep INTO TABLE itab：将字符串的值分配给一内表。
-
-**移动字符：**SHIFT dobj [LEFT|RIGHT] BY num PLACES. ：指定移动字符位数
-
-**判断包含字符：**contains (val=TEXT)
-
-**根据正则替换：**REPLACE ALL OCCURRENCES OF REGEX regex IN  dobj WITH new
-
-**取出指定字串：**`Var1 = <field>+4(6) :` 从指点字段的第4位开始往后取出长度为6的内容
-
-**大小写转换：**TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写
 
 ### 全局变量，局部变量
 ​	报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subroutines (FORM子过程)、Function Modules中声明的变量为局部的。

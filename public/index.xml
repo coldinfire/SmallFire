@@ -5,7 +5,7 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -97,6 +97,233 @@
     </item>
     
     <item>
+      <title>ABAP 科学计数法问题</title>
+      <link>https://coldinfire.github.io/2019/ABAPNumberQAS/</link>
+      <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPNumberQAS/</guid>
+      <description>
+
+&lt;h4 id=&#34;科学计数法转换数字&#34;&gt;科学计数法转换数字&lt;/h4&gt;
+
+&lt;p&gt;​   ABAP 函数 &lt;code&gt;QSS0_FLTP_TO_CHAR_CONVERSION&lt;/code&gt;，能将 SAP 系统内的科学计数法显示的数字转换成一般数字。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;DATA: l_result TYPE qsollwerte,
+       l_value TYPE char16.
+       
+CALL FUNCTION &#39;QSS0_FLTP_TO_CHAR_CONVERSION&#39;
+  EXPORTING
+    i_number_of_digits  = 2
+    i_fltp_value        = l_result
+  IMPORTING
+    e_char_field        = l_value
+           .
+  CONDENSE l_value.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;数字千分位的转换处理&#34;&gt;数字千分位的转换处理&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-jsp&#34;&gt;DATA: p_value type p,
+       l_value TYPE char16.
+
+CALL FUNCTION &#39;HRCM_STRING_TO_AMOUNT_CONVERT&#39;
+  EXPORTING
+    string            = l_value
+    decimal_separator  = &#39;.&#39;
+  IMPORTING
+    betrg                     = p_value
+  EXCEPTIONS
+    convert_error             = 1
+    OTHERS                    = 2
+           .
+IF sy-subrc = 1.
+   CALL FUNCTION &#39;HRCM_STRING_TO_AMOUNT_CONVERT&#39;
+     EXPORTING
+       string            = l_value
+       decimal_separator = &#39;,&#39;
+     IMPORTING
+       betrg             = p_value
+     EXCEPTIONS
+       convert_error     = 1
+       OTHERS            = 2.
+ENDIF.
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;既要有千分位又要把符号提前的情况:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp;      Form  NUMTOSTR
+*&amp;amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*      --&amp;gt;VALUE      text
+*      --&amp;gt;(ZNUM)     text
+*      --&amp;gt;VALUE      text
+*      --&amp;gt;(ZSTR)     text
+*----------------------------------------------------------------------*
+FORM  numtostr CHANGING  p_is_result_amount
+                         ``p_is_result_amount_h
+                         ``p_is_result_total
+                         ``p_is_result_total_h.
+  ``DATA : zclen TYPE i,
+  ``n TYPE i,
+  ``zcstr(30) TYPE c,
+  ``zcstr2(30) TYPE c,
+  ``zctemp(3) TYPE c,
+  ``zflag(1) TYPE c VALUE ``&#39;.&#39;``,
+  ``zflag2 TYPE i VALUE 0,
+  ``zcdec(30) TYPE c, &amp;quot;记录小数部分.
+  ``znum(30),
+  ``znum_h(30),
+  ``ztotal(30),
+  ``ztotal_h(30).
+  ``&amp;quot;zstr = ``&#39;&#39;``.
+  ``znum = is_result-amount.
+  ``znum_h = is_result-amount_h.
+  ``ztotal = is_result-total.
+  ``ztotal_h = is_result-total_h.
+  ``CLEAR: is_result-amount,is_result-amount_h,is_result-total,is_result-total_h.
+*---------------------------------------------------------------------------------------------*1
+  ``IF znum &amp;lt;&amp;gt; 0.
+    ``IF znum &amp;lt;= -1000.
+      ``zflag2 = 1.
+      ``znum = znum * ( -1 ).
+    ``ENDIF.
+    ``IF znum &amp;gt;= 1000.
+      ``zcstr = znum.
+* 压缩字符串，去除前面的空格。
+      ``CONDENSE zcstr NO-GAPS.
+* 分离整数与小数，好单独处理整数。
+      ``SPLIT zcstr AT zflag INTO zcstr zcdec.
+      ``zclen = ``strlen``( zcstr ).
+* 在循环中从右面在每三位的前面加上一个逗号。
+      ``WHILE zclen &amp;gt; 3.
+        ``n = zclen - 3.
+        ``zctemp = zcstr+n(3).
+        ``IF NOT zcstr2 IS INITIAL.
+          ``CONCATENATE zctemp zcstr2 INTO zcstr2 SEPARATED BY ``&#39;,&#39;``.
+        ``ELSE.
+          ``zcstr2 = zctemp.
+        ``ENDIF.
+        ``zclen = zclen - 3.
+      ``ENDWHILE.
+* 将不剩下的不足三位数加到前面
+      ``CONCATENATE zcstr+0(zclen) zcstr2 INTO zcstr2 SEPARATED BY ``&#39;,&#39;``.
+      ``IF zflag2 = 1.
+        ``CONCATENATE ``&#39;-&#39;` `zcstr2 INTO zcstr2.
+      ``ENDIF.
+      ``CLEAR zcstr.
+* 将处理过的整数与小数连接起来。
+      ``IF ``strlen``( zcdec ) &amp;gt; 1.
+        ``CONCATENATE zcstr2 zcdec INTO zcstr SEPARATED BY zflag.
+      ``ELSE.
+        ``CONCATENATE zcdec ``&#39;00&#39;` `INTO zcdec.
+        ``CONCATENATE zcstr2 zcdec  INTO zcstr SEPARATED BY zflag.
+      ``ENDIF.
+* 将值返回
+      ``is_result-amount = zcstr.
+    ``ELSE.
+      ``is_result-amount = znum.
+    ``ENDIF.
+  ``ENDIF.
+  ``CLEAR: zflag2,zcstr,zcdec,zclen,zctemp,zcstr2,n.
+ENDFORM
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;计算数学表达式的方法&#34;&gt;计算数学表达式的方法&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;FORM cacule_value  USING    p_wf_formula TYPE string
+                            p_source  TYPE string
+                            p_js_processor TYPE REF TO cl_java_script
+                   CHANGING p_value .
+  DATA:molecule TYPE string,
+     denominator TYPE string,
+     denominator_source TYPE string,
+     denominator_value  TYPE rr_szntr,
+     l_result TYPE qsollwerte,
+     l_value TYPE char16.
+
+  IF p_wf_formula CS &#39;/&#39;.
+    CLEAR:molecule,denominator.
+    SPLIT p_wf_formula AT &#39;/&#39; INTO molecule denominator.
+    CONCATENATE
+    &#39;var string = &#39; denominator &#39;;&#39;
+    &#39;function Set_String()                          &#39;
+    &#39;  { string = eval(string);                     &#39;
+    &#39;  }                                            &#39;
+    &#39;Set_String();                                  &#39;
+    &#39;string;                                        &#39;
+      INTO denominator_source SEPARATED BY cl_abap_char_utilities=&amp;gt;cr_lf.
+    denominator_value = js_processor-&amp;gt;evaluate( denominator_source ).
+    IF denominator_value = 0.
+      p_value = 0.
+    ELSE.
+      CONCATENATE
+      &#39;var string = &#39; p_wf_formula &#39;;&#39;
+      &#39;function Set_String()                          &#39;
+      &#39;  { string = eval(string);                     &#39;
+      &#39;  }                                            &#39;
+      &#39;Set_String();                                  &#39;
+      &#39;string;                                        &#39;
+        INTO p_source SEPARATED BY cl_abap_char_utilities=&amp;gt;cr_lf.
+      l_result = js_processor-&amp;gt;evaluate( p_source ).
+*      p_value = js_processor-&amp;gt;evaluate( p_source ).
+
+      CALL FUNCTION &#39;QSS0_FLTP_TO_CHAR_CONVERSION&#39;
+        EXPORTING
+          i_number_of_digits             = 2
+          i_fltp_value                   = l_result
+*         I_VALUE_NOT_INITIAL_FLAG       = &#39;X&#39;
+*         I_SCREEN_FIELDLENGTH           = 16
+       IMPORTING
+         e_char_field                   = l_value
+                .
+      CONDENSE l_value.
+
+      CALL FUNCTION &#39;HRCM_STRING_TO_AMOUNT_CONVERT&#39;
+        EXPORTING
+          string                    = l_value
+         decimal_separator         = &#39;.&#39;
+*         THOUSANDS_SEPARATOR       =
+*         WAERS                     = &#39; &#39;
+       IMPORTING
+         betrg                     = p_value
+       EXCEPTIONS
+         convert_error             = 1
+         OTHERS                    = 2
+                .
+      IF sy-subrc = 1.
+        CALL FUNCTION &#39;HRCM_STRING_TO_AMOUNT_CONVERT&#39;
+          EXPORTING
+            string            = l_value
+            decimal_separator = &#39;,&#39;
+          IMPORTING
+            betrg             = p_value
+          EXCEPTIONS
+            convert_error     = 1
+            OTHERS            = 2.
+      ENDIF.
+
+    ENDIF.
+  ELSE.
+    CONCATENATE
+      &#39;var string = &#39; p_wf_formula &#39;;&#39;
+      &#39;function Set_String()                          &#39;
+      &#39;  { string = eval(string);                     &#39;
+      &#39;  }                                            &#39;
+      &#39;Set_String();                                  &#39;
+      &#39;string;                                        &#39;
+        INTO p_source SEPARATED BY cl_abap_char_utilities=&amp;gt;cr_lf.
+    p_value = js_processor-&amp;gt;evaluate( p_source ).
+  ENDIF.
+ENDFORM.                    &amp;quot; CACULE_VALUE
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>SO10</title>
       <link>https://coldinfire.github.io/2019/ABAP_SO10/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
@@ -105,6 +332,131 @@
       <description>&lt;p&gt;SO10使用&lt;/p&gt;
 
 &lt;p&gt;​&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ABAP字符串处理</title>
+      <link>https://coldinfire.github.io/2019/ABAPString/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPString/</guid>
+      <description>&lt;p&gt;​       字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.获取字符串长度&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;var1  = strlen(str);&lt;/code&gt;将str作为字符数据处理，计算出其字符长度&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  DATA: l_len type i,
+        str1(20) VALUE &#39;1234&#39;.
+    l_len = strlen(str1).
+  WRITE: / len.  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;2.拼接字符串&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CONCATENATE &amp;lt;str1&amp;gt; ... &amp;lt;strn&amp;gt; into &amp;lt;var&amp;gt; [SEPARATED BY &amp;lt;s&amp;gt;][RESPECTING BLANKS]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将多个字符串拼接到指定的变量Var中，注意Var的长度&lt;/li&gt;
+&lt;li&gt;C,D,N,T类型的前导空格会保留，尾部空格会去掉，对String类型的所有空格都会保留&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[SEPARATED BY &amp;lt;s&amp;gt;]&lt;/code&gt;:根据该间隔符号(S)进行拼接(SPACE)&lt;/li&gt;
+&lt;li&gt;respecting：针对C,D,N,T数据，表示尾部空格会保留&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;3.压缩字符串&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CONDENCE &amp;lt;str&amp;gt; [NO-GAPS]&lt;/code&gt;:去除字段str中的前后空格，并将字段中多个空格使用一个空格替换；如果加上NO-GAPS则去除所有空格。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;4.截取字符串&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;subtext = str+0(4)：从最左边取出4个字符&lt;/li&gt;
+&lt;li&gt;subtext = str+2(4)：从第2个字符开始取出4个字符&lt;/li&gt;
+&lt;li&gt;str+0(1) = &amp;lsquo;X&amp;rsquo;：变更指定位置的值&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;5.查找字符串&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SEARCH &amp;lt;var&amp;gt; FOR &amp;lt;str&amp;gt; &amp;lt;options&amp;gt;.&lt;/code&gt;:在var中搜索子字符串，成功SY-SUBRC=0&lt;/li&gt;
+&lt;li&gt;str:可以使用正则表达式，也可以使用普通字符串&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;6.替换字符串&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;REPLACE &amp;lt;str1&amp;gt; WITH &amp;lt;str2&amp;gt; INTO &amp;lt;var&amp;gt; [LENGTH &amp;lt;l&amp;gt;].&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将str1在var中的字段替换为str2&lt;/li&gt;
+&lt;li&gt;如果指定长度，则只将str1中指定长度的字符替换为str2中的内容&lt;/li&gt;
+&lt;li&gt;如果替换后内容总长度超过var定义的长度，会出现截断现象&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;7.移动字符串内容&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;SHIFT &amp;lt;var&amp;gt; [BY &amp;lt;n&amp;gt; PLACES] [&amp;lt;mode&amp;gt;].&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;将var移动n个位置，&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MODE:LEFT(默认),RIGHT,CIRCULAR&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;SHIFT &amp;lt;var&amp;gt; LEFT DELETING LEADING &amp;lt;str&amp;gt;.&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;SHIFT &amp;lt;var&amp;gt; RIGHT DELETING TRAILING &amp;lt;str&amp;gt;.&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;如果左边第一个字符串或则右边第一个字符串出现在str中，将var移动相应的位置&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;8.比较字符串&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;判断是否包含特定值&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;IF field CN &amp;lsquo;0123456789&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;IF field CN &amp;lsquo;ABCDEFG*&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;IF field CN &amp;lsquo;abcdefg*&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;IF field CN &amp;lsquo;/&amp;rsquo; &amp;hellip;..&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;CN：Contains Not Only (包含，不仅包含)&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;CO：Contains Only（仅包含）&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;CS：Contains String (包含字符串)&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;NS：Contains No String (不包含字符串)&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;NP：No Pattern （不包含记号）&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;NA：Contains Not Only(不包含任何)&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;CA：Contains Any（包含任何）&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;CP：Covers Pattern (包含记号)&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;9.&lt;strong&gt;拆分字符串&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;p&gt;​   SPLIT dobj AT sep INTO {res1 res2&amp;hellip;&amp;hellip;resn}. ：将字符串的值分配给具体变量&lt;/p&gt;
+
+&lt;p&gt;​   SPLIT s_source AT sep INTO TABLE itab：将字符串的值分配给一内表。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10.大小写转换：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;​   TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写&lt;/p&gt;
 </description>
     </item>
     
@@ -2698,138 +3050,6 @@ ENDCASE.
   ENDLOOP.
   ENDFORM. &amp;quot; SUB_UCOMM_DOWN
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title> SAP发送邮件 </title>
-      <link>https://coldinfire.github.io/2019/ABAPUtils11/</link>
-      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPUtils11/</guid>
-      <description>&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;TRY.
-&amp;quot; 创建发送请求
-  l_send_request = cl_bcs=&amp;gt;create_persistent( ).
-&amp;quot; 设定发送内容
-  l_document = cl_document_bcs=&amp;gt;create_document( i_type  = &#39;RAW&#39;
-                                           i_text  = i_content[]
-                                           I_IMPORTANCE = &#39;1&#39;
-                                           i_subject = l_subject ).
-&amp;quot; 增加发送内容到发送请求
-  CALL METHOD l_send_request-&amp;gt;set_document( l_document ).
-&amp;quot; 取得发送者（取得发件人，前提是这个邮箱地址能发邮件，并且不需要密码）
-  l_uname = sy-uname.
-  l_sender = cl_sapuser_bcs=&amp;gt;create( l_uname ).
-  CALL METHOD l_send_request-&amp;gt;set_sender
-    EXPORTING
-      i_sender = l_sender.
-&amp;quot; 设置收件人
-   LOOP AT it_mailaccept.
-     CONCATENATE it_mailaccept-name &#39;@XXXXX.COM&#39; INTO i_email.
-     TRANSLATE i_email TO LOWER CASE.
-     l_recipient = cl_cam_address_bcs=&amp;gt;create_internet_address( i_email ).
-     CALL METHOD l_send_request-&amp;gt;add_recipient
-       EXPORTING
-         i_recipient  = l_recipient
-         i_express    = &#39;X&#39;
-         i_copy       = &#39; &#39;
-         i_blind_copy = &#39; &#39;
-         i_no_forward = &#39; &#39;.
-   ENDLOOP.
-&amp;quot; 设置抄送人
-    LOOP AT it_mailaccept_copy.
-      CONCATENATE it_mailaccept_copy-name &#39;@XXXXX&#39; INTO i_email.
-      TRANSLATE i_email TO LOWER CASE.
-      l_recipient = cl_cam_address_bcs=&amp;gt;create_internet_address( i_email ).
-      CALL METHOD l_send_request-&amp;gt;add_recipient
-        EXPORTING
-          i_recipient  = l_recipient
-          i_express    = &#39;X&#39;
-          i_copy       = &#39;X&#39;
-          i_blind_copy = &#39; &#39;
-          i_no_forward = &#39; &#39;.
-    ENDLOOP.
-*&amp;amp;  立即发送
-  l_send_request-&amp;gt;set_send_immediately( &#39;X&#39; ).
-*&amp;amp;  发送
-  CALL METHOD l_send_request-&amp;gt;send( ).
-    COMMIT WORK.
-  CATCH cx_document_bcs INTO l_bcs_exception.
-  CATCH cx_send_req_bcs INTO l_send_exception.
-  CATCH cx_address_bcs  INTO l_addr_exception.
-ENDTRY.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>SAP后台JOB</title>
-      <link>https://coldinfire.github.io/2019/ABAPJOB/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPJOB/</guid>
-      <description>
-
-&lt;h3 id=&#34;定义后台-job&#34;&gt;定义后台 job&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;第一种：SE38执行可执行程序&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB1.png&#34; alt=&#34;后台JOB&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;输入输出设备&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB3.png&#34; alt=&#34;输出设备&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;选择开始时间（立刻执行，或定义日期时间，也可周期执行）后保存。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB2.png&#34; alt=&#34;时间&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;第二种：SM36定义作业名&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;点击‘Start condition’选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB4.png&#34; alt=&#34;Start Condition&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;再点击‘Step’，填写abap程序‘NAME’和‘Variant’后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/JOB5.png&#34; alt=&#34;Step&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.sina.com.cn/s/blog_76c57b480100rumm.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;如何在 SAP 中定义 Event 类型的后台 Job&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;强制结束后台作业-sap-sm37-sm35-sm50&#34;&gt;强制结束后台作业（SAP SM37 SM35 SM50)&lt;/h4&gt;
-
-&lt;p&gt;解决方法：&lt;/p&gt;
-
-&lt;p&gt;第一步：SM50&lt;/p&gt;
-
-&lt;p&gt;​   找到Ty. 列为 BGD 的(Background)，然后再找到你刚运行的那个后台 Job 的行，选中；然后在菜单点击：Process&amp;mdash;Cancel with core. 即可。&lt;/p&gt;
-
-&lt;p&gt;第二步：SM37 查看 Background Job，应该为 “取消” 状态。&lt;/p&gt;
-
-&lt;p&gt;第三步：SM35，选中 Session Name，点击小绿旗 release 即可。&lt;/p&gt;
-
-&lt;h4 id=&#34;如何查看一个后台job对应哪些程序&#34;&gt;如何查看一个后台job对应哪些程序?&lt;/h4&gt;
-
-&lt;p&gt;​   sm36&amp;ndash;&amp;gt;点击“job selection”&amp;ndash;&amp;gt;运行结果双击选择job&amp;ndash;&amp;gt;回到第一个界面，点击“步骤”按钮，转到步骤清单总览，里面就可以看到程序名称了已取消，完成的job是不能修改的其它状态的都可以改，在sm37里，选择相应的job，菜单里有个更改项
-sm37就是sm36里job selection的链接。&lt;/p&gt;
-
-&lt;h4 id=&#34;调试后台job&#34;&gt;调试后台Job&lt;/h4&gt;
-
-&lt;p&gt;​   事务码：sm37，选中要调试的 job，输入事务码 JDBG，回车，进入调试界面，根据需要打断点等就行了。&lt;/p&gt;
 </description>
     </item>
     
