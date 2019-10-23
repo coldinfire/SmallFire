@@ -97,20 +97,23 @@ Note:
 ```JS
 CALL FUNCTION 'CS_BOM_EXPL_MAT_V2'
   EXPORTING
-     capid = pm_capid      “应用程序一般为PP01
-     datuv = pm_datuv     “通常为系统的当前日期
-     mtnrv = pm_mtnrv    “要展开BOM的物料
-     mehrs = 'X'                “ x表示多层展开﹐space表示只展开第一层
-     werks = pm_werks    “通常为1000
+     capid = pm_capid      “BOM应用程序，应用程序一般为PP01
+     datuv = pm_datuv     “有效开始日通常为系统的当前日期
+     emeng = menge		  “需求数量
+     mtnrv = pm_mtnrv    “物料专用号，要展开BOM的物料
+     mehrs = 'X'              “ x表示多层展开﹐space表示只展开第一层
+     werks = pm_werks    “工厂
+     stlan = xxx          “BOM用途
+     stlal = xxxx		  “BOM可选
    IMPORTING
-     topmat = selpool
+     topmat = selpool      “抬头明细
      dstst = dstst_flg
     TABLES
       stb = stb                “展开的BOM存放在该内表
       matcat = matcat     “下面含有元件的物料存放在该内表
 ```
 
-### 逆查BOM
+### 逆查BOM(CS15)
 
 ```JS
 DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
@@ -123,21 +126,22 @@ DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
   CLEAR:IT_WULTB,IT_WULTB[].
   CALL  FUNCTION  'CS_WHERE_USED_MAT'
     EXPORTING
-      DATUB              = SY-DATUM
-      DATUV              = SY-DATUM
-      MATNR              = P_C_MATNR
+      DATUB              = SY-DATUM    "有效日期至
+      DATUV              = SY-DATUM		"有效日期从
+      MATNR              = P_C_MATNR	"物料号
 *     POSTP               = ' '
 *     RETCODE_ONLY        = ' '
-*     STLAN               = ' '
+*     STLAN               = ' '			"BOM用途
       MCLMT              = '00000000'
       WERKS              = S2_WERKS
 *    IMPORTING
 *    TOPMAT              =
     TABLES
-       WULTB           = IT_WULTB
+       WULTB           = IT_WULTB   "反查出的子件上层物料明细，包含上层编码、
+       		"上层编码描述、上层需求数量（默认是 BOM抬头基本数量）、子件需求数量等。
        EQUICAT         = IT_EQUICAT
        KNDCAT          = IT_KNDCAT
-       MATCAT          = IT_MATCAT
+       MATCAT          = IT_MATCAT	"反查出的子件上层物料明细（按物料号汇总后的结果）
        STDCAT          = IT_STDCAT
        TPLCAT          = IT_TPLCAT
     EXCEPTIONS
@@ -159,7 +163,7 @@ CALL FUNCTION 'CSAP_MAT_BOM_ALLOC_DELETE'
   EXPORTING
     MATERIAL                 = ITAB-MATNR
     PLANT                    = ITAB-WERKS
-    BOM_USAGE                = '1'
+    BOM_USAGE                = '1'  "（BOM 用途）
     ALTERNATIVE              =
     FL_NO_CHANGE_DOC         = ' '
     FL_COMMIT_AND_WAIT       = ' '
