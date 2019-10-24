@@ -21,12 +21,12 @@
     </item>
     
     <item>
-      <title>SO10</title>
+      <title>SO10创建标准文本</title>
       <link>https://coldinfire.github.io/2019/ABAP_SO10/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SO10/</guid>
-      <description>SO10使用 ​</description>
+      <description>通过 Tcode SO10 可以创建标准文本： ​ ​ 通过占位符替换长文本： ​ DATA lv_name TYPE thead-tdname. DATA lv_langu LIKE sy-langu VALUE &#39;EN&#39;. DATA lt_line TYPE STANDARD TABLE OF tline WITH HEADER LINE. DATA lv_count TYPE i. lv_name = &#39;Z_TEST&#39;. &amp;quot;read text from SO10 CALL FUNCTION &#39;READ_TEXT&#39; EXPORTING client = sy-mandt id = &#39;ST&#39; language =</description>
     </item>
     
     <item>
@@ -179,7 +179,7 @@
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPIDoc/</guid>
-      <description>IDoc IDoc:是基于文档，用作异步传输数据的载体，类似于XML ● IDoc支持异步、同步、可以收集一定数量的包后发送，最重要的是，IDOC有完整</description>
+      <description>参考链接 IDoc 1.IDoc简介 IDoc:是基于文档，用作异步传输数据的载体，类似于XML;使用功能场景：假设 1040 和 1020 是同一个集团下两个不同子公司的</description>
     </item>
     
     <item>

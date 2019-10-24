@@ -15,7 +15,7 @@ weight: 4
 | 2      | 孩子你慢些走 | ✅ |
 | 3      | [围城](<https://book.douban.com/subject/1008145/>) | ✅ |
 | 4      | [穷查理宝典](<https://book.douban.com/subject/5346110/>) | 🕐 |
-| 5      | [非暴力沟通](<https://book.douban.com/subject/3533221/>) | 🕐           |
+| 5      | [非暴力沟通](<https://book.douban.com/subject/3533221/>) | ✅          |
 | 6      | [人性的弱点](<https://book.douban.com/subject/1056295/>) | 🕐           |
 | 7 | [看见](https://book.douban.com/subject/20427187/) | ✅ |
 

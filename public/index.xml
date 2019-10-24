@@ -67,7 +67,7 @@
 &lt;tr&gt;
 &lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://book.douban.com/subject/3533221/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;非暴力沟通&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;🕐&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -324,14 +324,67 @@ ENDFORM.                    &amp;quot; CACULE_VALUE
     </item>
     
     <item>
-      <title>SO10</title>
+      <title>SO10创建标准文本</title>
       <link>https://coldinfire.github.io/2019/ABAP_SO10/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SO10/</guid>
-      <description>&lt;p&gt;SO10使用&lt;/p&gt;
+      <description>&lt;p&gt;通过 Tcode SO10 可以创建标准文本：&lt;/p&gt;
+
+&lt;p&gt;​   &lt;img src=&#34;https://coldinfire.github.io/images/ABAP/SO10.png&#34; alt=&#34;SO10&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;​&lt;/p&gt;
+
+&lt;p&gt;通过占位符替换长文本：&lt;/p&gt;
+
+&lt;p&gt;​   &lt;img src=&#34;https://coldinfire.github.io/images/ABAP/SO10_1.png&#34; alt=&#34;SO10 Symbol&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;DATA lv_name TYPE thead-tdname.
+DATA lv_langu LIKE sy-langu VALUE &#39;EN&#39;.
+DATA lt_line TYPE STANDARD TABLE OF tline WITH HEADER LINE.
+DATA lv_count TYPE i.
+lv_name = &#39;Z_TEST&#39;.
+&amp;quot;read text from SO10
+  CALL FUNCTION &#39;READ_TEXT&#39;
+  EXPORTING
+    client                  = sy-mandt
+    id                      = &#39;ST&#39;
+    language                = lv_langu
+    name                    = lv_name
+    object                  = &#39;TEXT&#39;
+  TABLES
+    lines                   = lt_line
+  EXCEPTIONS
+    id                      = 1
+    language                = 2
+    name                    = 3
+    not_found               = 4
+    object                  = 5
+    reference_check         = 6
+    wrong_access_to_archive = 7
+    OTHERS                  = 8.
+  IF sy-subrc EQ 0 .
+&amp;quot;initialize the text symbols
+  CALL FUNCTION &#39;INIT_TEXTSYMBOL&#39;.
+&amp;quot;set dynamic text symbol
+  CALL FUNCTION &#39;SET_TEXTSYMBOL&#39;
+    EXPORTING
+      name    = &#39;&amp;amp;l_aa&amp;amp;&#39;
+      value   = &#39;输入需要替换的内容&#39;
+      replace = &#39;X&#39;.
+  DESCRIBE TABLE lt_line LINES lv_count.
+&amp;quot;replace all text symbol in your long text
+  CALL FUNCTION &#39;REPLACE_TEXTSYMBOL&#39;
+    EXPORTING
+      endline   = lv_count
+      startline = 1
+    TABLES
+      lines     = lt_line.
+ENDIF.
+LOOP AT lt_line.
+  WRITE:/ lt_line-tdline.
+ENDLOOP.
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

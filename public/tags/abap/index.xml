@@ -21,12 +21,12 @@
     </item>
     
     <item>
-      <title>SO10</title>
+      <title>SO10创建标准文本</title>
       <link>https://coldinfire.github.io/2019/ABAP_SO10/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SO10/</guid>
-      <description>SO10使用 ​</description>
+      <description>通过 Tcode SO10 可以创建标准文本： ​ ​ 通过占位符替换长文本： ​ DATA lv_name TYPE thead-tdname. DATA lv_langu LIKE sy-langu VALUE &#39;EN&#39;. DATA lt_line TYPE STANDARD TABLE OF tline WITH HEADER LINE. DATA lv_count TYPE i. lv_name = &#39;Z_TEST&#39;. &amp;quot;read text from SO10 CALL FUNCTION &#39;READ_TEXT&#39; EXPORTING client = sy-mandt id = &#39;ST&#39; language =</description>
     </item>
     
     <item>
