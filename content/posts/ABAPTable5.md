@@ -8,7 +8,7 @@ categories:
   - ABAP
 
 tags: 
-  - 报表开发
+  - ALV
 
 ---
 
@@ -67,4 +67,21 @@ endform.                    "frm_user_command
 - TR_F4_HELP ：简单实现 Search Help ，数据来源于内表
 
 
+
+## 双击字段功能
+
+```JS
+FORM frm_user_command USING r_ucomm LIKE sy-ucomm
+							rs_selfield TYPE slis_selfield.
+                            
+  IF r_ucomm = '&IC1'.
+  	myindex = rs_selfield-tabindex.
+    READ it_table INDEX myindex.
+    SUBMIT z_pro AND RETURN WITH p_param1 = it_table-param1
+							WITH p_param2 = it_table-param2.
+    "如果是TCode - CALL Transation
+   ENDIF.
+
+ENDFORM.
+```
 

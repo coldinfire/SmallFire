@@ -1412,18 +1412,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</loc>
-      
-      <lastmod>2018-07-10T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2018/ABAPTable8/</loc>
       
       <lastmod>2018-07-08T00:00:00+00:00</lastmod>
@@ -1601,6 +1589,18 @@
       
       
       <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</loc>
+      
+      <lastmod>2018-06-14T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>
