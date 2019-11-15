@@ -73,11 +73,20 @@ LAYOUT.`
 
 ​	[颜色设置](http://blog.sina.com.cn/s/blog_3f2c03e30100mk1s.html)
 
-​	行颜色:gs_layout-<info_fieldname> = 'COLOR'
+- 行颜色:gs_layout-<info_fieldname> = 'COLOR'
 
-​	列颜色:gt_fieldcat-emphasize = 'C510'.[1：C固定，2：颜色值0~7,3：高亮0、1(X)，4：颜色反转，0、1]
+  - ALV 中的每行数据颜色是通过 LayOut 来控制的。需要在显示输出内表结构中增加一列字段，用来存储数据行的颜色
 
-​	单元格颜色:gs_layout-<coltab_fieldname>='COLORTABLE'.
+  - 颜色值定义为 4 位字符，首位固定为字母 “C”，第 2 位为颜色，由 0~7 表示，不同的数字表示不同的颜色属性，如：
+
+    0 = background color     1 = Gray-blue     2 = Light gray    3 = yellow   4 = blue-gray        5 = green       6 = red      7 = orange
+
+    第 3 位表示输出文字是否高亮显示，由 0~1 表示，为 1 时表示高亮显示。第 4 位测试了一下，基本上 0~9 颜色都差不多，唯一就是当取值为 1 时，底色又回到了灰色（且只是在第 3 位为 0 时才有此效果）。
+
+- 列颜色:gt_fieldcat-emphasize = 'C510'.[1：C固定，2：颜色值0~7,3：高亮0、1(X)，4：颜色反转，0、1]
+
+- 单元格颜色:gs_layout-<coltab_fieldname>='COLORTABLE'.
+
 
 **【可编辑】**
 
@@ -241,4 +250,6 @@ AT USER-COMMAND.   "当单击某个按钮时，触发该事件
 
 
 
+### 文本增强
 
+- T-CODE:CMOD->转到->文本增强->关键字->更改

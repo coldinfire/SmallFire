@@ -90,9 +90,19 @@ FOR ALLENTRIES:
 ### 【事务处理】
 
 ```JS
+CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+  EXPORTING
+     wait = 'X'.
+  IMPORTING
+     return = commback.
+CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'
+  IMPORTING
+     return = commback.
+
 COMMIT WORK.         异步更新。
 COMMIT WORK AND WAIT.同步跟新，执行结果可通过sy-subrc判断是否提交成功。
 ROLLBACK WORK.
+
 ```
 
 ## Focus

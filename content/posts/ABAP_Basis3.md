@@ -1,5 +1,5 @@
 ---
-title: "ABAP 语法详解(内表)"
+title: "ABAP 内表"
 date: 2018-05-16
 draft: false
 author: Small Fire
@@ -241,7 +241,5 @@ SM30：表维护 Utilities ----->Table maintenance generator
           Maintenance type：one step
 ```
 
-未完待续......[ABAP 语法详解(Field&Form)](https://coldinfire.github.io/2018/ABAP3)
 
-参考.......[报表开发<内表操作>](https://coldinfire.github.io/2018/ABAPTable3)
 

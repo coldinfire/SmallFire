@@ -13,7 +13,7 @@ tags:
 
 ---
 
-本文主要记录一些收集来的BAPI,在SE38环境下的程序名输入栏输入'DEMO*'后按F4，你可以查到SAP所有的DEMO示例程序，会学到很多ABAP功能的实现方法,输入'BCALV*'后按F4，你可以查到很多ALV示例程序 。
+本文主要记录一些收集来的BAPI,在SE38环境下的程序名输入栏输入'DEMO*'后按F4，你可以查到SAP所有的DEMO示例程序，会学到很多ABAP功能的实现方法,输入'BCALV*'后按F4，你可以查到很多ALV示例程序 。
 ## 函数名 描述 
 ```JS
 • CONVERSION_EXIT_ALPHA_INPUT     数字串前补0
@@ -46,11 +46,11 @@ tags:
 • SXPG_COMMAND_EXECUTE		  检查用户是否有执行某个命令的权限，拥有授权则执行命令
 • FILENAME_GET 			  弹出一个文件选择对话框
 	DATA out(60) TYPE c.
-	 CALL FUNCTION 'FILENAME_GET'  
-	 EXPORTING    
-		filename = 'c:/1.txt'    
-		title = 'GET FILENAME'  
-	  IMPORTING   
+	 CALL FUNCTION 'FILENAME_GET'  
+	 EXPORTING    
+		filename = 'c:/1.txt'    
+		title = 'GET FILENAME'  
+	  IMPORTING   
 		filename = OUT.
 • GET_JOB_RUNTIME_INFO      	  获得job相关信息
 • BP_JOBLOG_READ 		  获得job log的执行结果
@@ -119,8 +119,8 @@ tags:
 • EPS_GET_DIRECTORY_LISTING 	返回一个本地或网络目录的文件列表
 • F4_DATE 				弹出一个窗口显示一个日历允许用户选择一个日期
 • F4IF_SHLP_EXIT_EXAMPLE 		F4接口模块
-• FTP_CONNECT    	     打开并登陆FTP服务器的连接
-• FTP_COMMAND    	     在FTP服务器上执行一个命令
+• FTP_CONNECT    	     打开并登陆FTP服务器的连接
+• FTP_COMMAND    	     在FTP服务器上执行一个命令
 • FTP_DISCONNECT 	     关闭指向FTP服务器的连接
 • FORMAT_MESSAGE 	     获取消息ID和数字，并将其放入变量
 • GET_GLOBAL_SYMBOLS     返回一个程序的tables, select options, texts, etc.包含selection screen的文本
@@ -141,12 +141,12 @@ tags:
 • CONVERT_ABAPSPOOLJOB_2_PDF     将ABAP假脱机输出转换为PDF
 • POPUP_TO_CONFIRM_LOSS_OF_DATA  弹出一个对话框告知用户有可能丢失数据，询问是否操作继续
 • POPUP_TO_CONFIRM_STEP          弹出一个对话框询问用户是否操作继续。 
-• POPUP_TO_CONFIRM_WITH_MESSAGE  可以显示定制的提示信息的确认窗口 类似POPUP_TO_CONFIRM_STEP只是多三行的
+• POPUP_TO_CONFIRM_WITH_MESSAGE  可以显示定制的提示信息的确认窗口 类似POPUP_TO_CONFIRM_STEP只是多三行的
 								 文本错误诊断提示。
-• POPUP_TO_CONFIRM_WITH_VALUE    用此函数可以建立一个对话框用于询问用户是否执行某步操作，该操作可能
+• POPUP_TO_CONFIRM_WITH_VALUE    用此函数可以建立一个对话框用于询问用户是否执行某步操作，该操作可能
 	会丢失数据，用户可以选择Yes No或者Cancel。该函数可以传入一个标题,两行的文本（提示问题）和一个对象值 
-• POPUP_TO_DECIDE     		   显示一个对话框，用户可以两个操作中的一个或者取消。可以传入三行提示文本
-• POPUP_TO_DECIDE_WITH_MESSAGE     类似POPUP_TO_DECIDEPOPUP_TO_DISPLAY_TEXT  显示多行信息的窗口
+• POPUP_TO_DECIDE     		   显示一个对话框，用户可以两个操作中的一个或者取消。可以传入三行提示文本
+• POPUP_TO_DECIDE_WITH_MESSAGE     类似POPUP_TO_DECIDEPOPUP_TO_DISPLAY_TEXT  显示多行信息的窗口
 • POPUP_TO_SELECT_MONTH   	   弹出一个对话框供选择月。
 • POPUP_WITH_TABLE_DISPLAY 	   提供一个表的显示供用户选择一个，选中时返回的表行的值
 • PRICING 		获得定价条件

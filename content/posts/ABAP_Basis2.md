@@ -1,5 +1,5 @@
 ---
-title: "ABAP 语法详解(数据表)"
+title: "ABAP 数据表"
 date: 2018-05-14
 draft: false
 author: Small Fire
@@ -100,6 +100,4 @@ SM30：表维护 Utilities ----->Table maintenance generator
           Maintenance Screens : 1
           Maintenance type：one step
 ```
-
-未完待续......[ABAP 语法详解(内表)](https://coldinfire.github.io/2018/ABAP3)
 

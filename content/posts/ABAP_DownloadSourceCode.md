@@ -25,16 +25,16 @@ tags:
 *@ Created by Xavery Hsueh on 2011-03-01
 *@ Lasted Edited date:
 *@---------------------------------------------------------------------*
-REPORT XXX NO STANDARD PAGE HEADING.
+"REPORT XXX NO STANDARD PAGE HEADING.
 
 ***********************************************************************@
 ** 声明数据库表
 ***********************************************************************@
 TABLES:rs38m,
-trdir. "
-***********************************************************************@
-** 内表结构类型的定义
-***********************************************************************@
+trdir. 
+"***********************************************************************@
+"** 内表结构类型的定义
+"***********************************************************************@
 DATA BEGIN OF dynpfields OCCURS 1.
 INCLUDE STRUCTURE dynpread.
 DATA END OF dynpfields.
@@ -101,9 +101,9 @@ wa_fieldcat-tabname = 'I_RESULT'.
   &1-high = &4.
   append &1.
   END-OF-DEFINITION.
- ***********************************************************************@
- ** 屏幕定义
- ***********************************************************************@
+***********************************************************************@
+** 屏幕定义
+***********************************************************************@
   SELECTION-SCREEN BEGIN OF BLOCK xavery WITH FRAME TITLE text_001.
   SELECTION-SCREEN BEGIN OF LINE.
   SELECTION-SCREEN COMMENT 1(15) text_002 FOR FIELD p_prog.
@@ -334,7 +334,7 @@ ENDFORM. " SUB_DOWNLOAD_REPORT
 *----------------------------------------------------------------------*
   FORM sub_display_as_alv .
   g_repid = sy-repid.
-  *ABAP List Viewer
+*ABAP List Viewer
   CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'
   EXPORTING
   i_callback_program = g_repid

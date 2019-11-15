@@ -95,3 +95,15 @@ tags:
 **10.大小写转换：**
 
 ​	TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写
+
+**11.字符前拼接空格**
+
+​	在Grid ALV上也显示空格：
+
+```JS
+IF <fw_output>-name2+0(1) eq space AND <fw_output>-name2 IS NOT INITIAL.
+  h_white = cl_abap_conv_in_ce=>uccpi( 160 ).
+  REPLACE ALL OCCURRENCES OF REGEX '\s' IN <fw_output>-name2 WITH h_white.
+ENDIF.
+```
+

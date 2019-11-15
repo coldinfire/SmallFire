@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "报表开发",
-  "wordcount":  1103 ,
+  "wordcount":  1121 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAPTable3\/",
   "datePublished": "2018-06-23T00:00:00\x2b00:00",
   "dateModified": "2018-06-23T00:00:00\x2b00:00",
@@ -243,9 +243,19 @@ FOR ALLENTRIES:
 
 <h3 id="事务处理">【事务处理】</h3>
 
-<pre><code class="language-JS">COMMIT WORK.         异步更新。
+<pre><code class="language-JS">CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+  EXPORTING
+     wait = 'X'.
+  IMPORTING
+     return = commback.
+CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'
+  IMPORTING
+     return = commback.
+
+COMMIT WORK.         异步更新。
 COMMIT WORK AND WAIT.同步跟新，执行结果可通过sy-subrc判断是否提交成功。
 ROLLBACK WORK.
+
 </code></pre>
 
 <h2 id="focus">Focus</h2>
@@ -271,7 +281,7 @@ ROLLBACK WORK.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1103</span>
+                   <span>1121</span>
             </p>
             
             <p class="copyright-item">

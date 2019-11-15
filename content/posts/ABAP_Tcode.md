@@ -1,5 +1,5 @@
 ---
-title: "工具合计"
+title: "常用Tcode"
 date: 2018-08-09
 draft: false
 author: Small Fire
@@ -13,27 +13,7 @@ tags:
 
 ---
 
-### Commit 和 Rollback ###
-```JS
-CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
-  EXPORTING
-     wait = 'X'.
-  IMPORTING
-     return = commback.
-CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'
-  IMPORTING
-     return = commback.
-```
-### 文本增强 ###
 
-- T-CODE:CMOD->转到->文本增强->关键字->更改
-
-### 查找Smartforms ###
-- TCode：NACE可以查找
-- Table：TNAPR根据smartform名字查找对应的smartform程序
-
-### 批量删除后台作业 ###
-- RSBTCDEL2 : 根据条件输入后台Job名或则根据用户天数，Commit尽可能大一点，Test Run勾上会显示满足条件的Job名字
 
 ### TCode ###
 ```JS

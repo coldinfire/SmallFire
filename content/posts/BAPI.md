@@ -1,6 +1,6 @@
 ---
 title: "BAPI使用"
-date: 2018-10-16
+date: 2019-06-16
 draft: false
 draft: false
 author: Small Fire

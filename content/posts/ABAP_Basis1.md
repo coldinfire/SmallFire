@@ -1,5 +1,5 @@
 ---
-title: "ABAP 语法详解(数据类型)"
+title: "ABAP 数据类型"
 date: 2018-05-12
 draft: false
 author: Small Fire
@@ -64,15 +64,22 @@ DATA:BEGIN OF STAFFINFO. <此处是.操作符>
 定义：
 
 ```ABAP
-DEFINE operation.
-  result = &1 &2 &3.
-  output   &1 &2 &3 result.
-END-OF-DEFINITION.
-DEFINE output.
-  write: / 'The result of &1 &2 &3 is', &4.
-END-OF-DEFINITION.
+DEFINE alv_ref1.
+  clear gw_field.
+  gw_field-fieldname = &1.
+  gw_field-coltext  = &2.
+  gw_field-outputlen = &3.
+  gw_field-ref_field = &4.
+  gw_field-ref_table = &5.
+  gw_field-edit = &6.
+  gw_field-f4availabl = &7.
+ 
+append gw_field to gt_field.
+ENDDEFINE alv_ref1.
 ```
-使用：operation 4+3.
+使用：
+
+
 
 ###  DESCRIBE使用
 
@@ -116,7 +123,4 @@ EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
 - T100 这个表包括所有的消息
 - T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中
 - T100S 就是表示可以修改消息类型的表
-
-
-未完待续......[ABAP 语法详解(数据表)](https://coldinfire.github.io/2018/ABAP1/)
 

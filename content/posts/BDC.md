@@ -16,7 +16,7 @@ tags:
 
 
 
-## 定义 Batch data communication
+## 定义BDC (Batch Data Communication)
 
   BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输.  
 
@@ -48,79 +48,104 @@ tags:
 
 ### 基本流程
 
-- <1> 通过事务录制工具录制事务，生成BDC程序框架
-- <2> 如有需要，可以调整修改已生成的BDC程序代码
+- 获取源数据：一般情况下，在进行传输之前要把数据放入内表
+  - 从系统内部获取
+  - 从系统外部获取
 
-- <3> 该程序可通过批量输入或则调用事务进行数据传输，填充BDC表作为输入数据集
+-  通过Tcode:**SHDB**录制工具录制事务，生成BDC程序框架
+
+  - 可以把保存号的程序导出到本地文件
+  - 让系统自动生成代码
+
+- 数据转换：把要输入的数据转换为BDCDATA的格式。循环内表，把内表字段赋值给BDCDATA
+
+-  执行：该程序可通过批量输入或则调用事务进行数据传输，填充BDC表作为输入数据集
+
+  - 如有需要，可以调整修改已生成的BDC程序代码
+
+  - CALL TRANSACTION
+
+    
+  
+    ```JS
+    CALL TRANSACTION <TCode> USING <BDCDATA>
+    				         MODE <CTUMODE>
+    				         UPDATE <CPUDATE>
+    				         MESSAGES INTO <MESSTAB>.
+                    
+    TCode:相应的事务代码
+    BDCDATA:需要的BDC传入数据
+    MODE:A-Show all dynpros
+    	 E-Show dynpro on error only
+         N-Do not display dynpro
+    UPDATE:S-Synchronously
+    	   A-Asynchronously
+    	   L-Local
+    MESSAGE:用于存放消息
+    ```
+  
 
 ### 录制，更新
 
 使用SHDB/SM35事务录制BDC，SE35 Upoload BDC
 
-- <1>SHDB；输入NAME,T-Code,然后执行，最后用保存或则返回来结束录屏。录制中不要乱动键盘,尽量使用鼠标点击。
+<1>SHDB：查看创建过的BDC信息，创建 New Recording
 
 ![SHDB](/images/ABAP/BDC1.png)
 
-![SHDB](/images/ABAP/BDC2.png)
+- 输入Record Name,和需要进行BDC录制的TCode,然后执行，程序会自动跳到输入的TCode界面。
 
-- <2> 选择记录，创建程序，放到本地。记录的所有东西都保存在程序中了
+  ![SHDB](/images/ABAP/BDC2.png)
+
+- 根据需求进行对应的录制，完成后保存或则返回结束录屏。录制中不要乱动键盘,尽量使用鼠标点击。
+
+  ![SHDB](/images/ABAP/BDC4.png)
+
+<2> 选择记录，创建程序，放到本地。记录的所有东西都保存在程序中了
 
 ![SHDB](/images/ABAP/BDC3.png)
 
-- <3> 处理程序达到想要的目的   	
+<3> 也可以通过导出BDC Record,然后在其他Client导入BDC,再创建程序。
 
-```JS
-start-of-selection.
-perform open_dataset using dataset.
+<4> 对系统自动生成的程序进行修改，达到想要的目的   	
+
+```js
+** bdc attribute define
+DATA:GT_BDCDATA        TYPE TABLE OF BDCDATA,  "执行的参数传递表
+     GS_BDCDATA        TYPE BDCDATA,
+     GT_MSG            TYPE TABLE OF BDCMSGCOLL,"返回执行结果
+     GS_MSG            TYPE BDCMSGCOLL.
+DATA LS_CTUPARAMS LIKE CTU_PARAMS.   "ctuparams LIKE ctu_params
+  CLEAR LS_CTUPARAMS.
+  LS_CTUPARAMS-DISMODE  = 'N'.
+  LS_CTUPARAMS-UPDMODE  = 'S'.
+  LS_CTUPARAMS-RACOMMIT = 'X'.
+  
 perform open_group.
-do.
-read dataset dataset into record.
-if sy-subrc <> 0. exit. endif.
-perform bdc_dynpro      using 'SAPMM07R' '0560'.
-perform bdc_field       using 'BDC_CURSOR'
-                              'RM07M-RSNUM'.
-perform bdc_field       using 'BDC_OKCODE'
-                              '/00'.
-perform bdc_field       using 'RM07M-RSNUM'
-                              record-RSNUM_001.
-perform bdc_field       using 'XFULL'
-                              record-XFULL_002.
-perform bdc_dynpro      using 'SAPMM07R' '0521'.
-perform bdc_field       using 'BDC_CURSOR'
-                              'RESB-ERFMG(01)'.
-perform bdc_field       using 'BDC_OKCODE'
-                              '/00'.
-perform bdc_field       using 'RESB-ERFMG(01)'
-                              record-ERFMG_01_003.
-perform bdc_field       using 'DKACB-FMORE'
-                              record-FMORE_004.
-perform bdc_dynpro      using 'SAPLKACB' '0002'.
-perform bdc_field       using 'BDC_CURSOR'
-                              'COBL-KOSTL'.
-perform bdc_field       using 'BDC_OKCODE'
-                              '=ENTE'.
-perform bdc_dynpro      using 'SAPMM07R' '0510'.
-perform bdc_field       using 'BDC_CURSOR'
-                              'RESB-ERFMG'.
-perform bdc_field       using 'BDC_OKCODE'
-                              '=BU'.
-perform bdc_field       using 'RESB-CHARG'
-                              record-CHARG_005.
-perform bdc_field       using 'RESB-ERFMG'
-                              record-ERFMG_006.
-perform bdc_field       using 'RESB-BDTER'
-                              record-BDTER_007.
-perform bdc_field       using 'RESB-XWAOK'
-                              record-XWAOK_008.
-perform bdc_field       using 'DKACB-FMORE'
-                              record-FMORE_009.
-perform bdc_dynpro      using 'SAPLKACB' '0002'.
-perform bdc_field       using 'BDC_CURSOR'
-                              'COBL-KOSTL'.
-perform bdc_field       using 'BDC_OKCODE'
-                              '=ENTE'.
-perform bdc_transaction using 'MB22'.
-enddo.
+LOOP AT <DYN_TABLE> ASSIGNING <DYN_WA>.
+	CLEAR GT_BDCDATA.
+    PERFORM FRM_BDC_DYNPRO USING  'SAPLCOKO1'        '0110'.
+    PERFORM FRM_BDC_FIELD  USING: 'BDC_CURSOR'       'CAUFVD-AUFNR',
+                                  'BDC_OKCODE'       '/00',
+                                  'CAUFVD-AUFNR'     L_AUFNR,
+                                  'R62CLORD-FLG_OVIEW' 'X'.
+
+    PERFORM FRM_BDC_DYNPRO USING  'SAPLCOKO1'        '0115'.
+    PERFORM FRM_BDC_FIELD  USING: 'BDC_OKCODE'       '=BU',
+                                  'BDC_CURSOR'       'CAUFVD-GSTRS',
+                                  'CAUFVD-GLTRS'     L_ENDDA_S,
+                                  'CAUFVD-GLUZS'     '23:40',
+                                  'CAUFVD-GSTRS'     L_BEGDA_S,
+                                  'CAUFVD-GSUZS'     '23:01',
+                                  'CAUFVD-TERKZ'     '3' .
+
+    CLEAR GT_MSG.
+    CALL TRANSACTION 'CO02' USING GT_BDCDATA
+                   OPTIONS FROM LS_CTUPARAMS
+                   MESSAGES INTO GT_MSG.
+
+ENDLOOP.
+
 perform close_group.
 perform close_dataset using dataset.
 ```
@@ -135,34 +160,16 @@ perform close_dataset using dataset.
 
 - SPFLI-CARRID NG 表示窗口字段 'SPFLI-CARRID' 值为 'NG'
 
-#### 程序主要逻辑
-
-open dataset. "读取外部数据源
-
-do. “循环
-
-​    perform 填充 BDCDATA 子程序.
-
-​    perform bdc_transcation.
-
-endo.
-
-Close dataset.  "关闭读取
-
-### 固定声明
-
 #### 有两个固定表
 
-*       Batch inputdata of single transaction：输入数据表
-*       data: abc like bdcdata occurs 0 with header line.
-*       Messages of call transaction：返回信息
-*       data: def like bdcmsgcoll occurs 0 with header line.
+*       Batch inputdata of single transaction：输入数据表`data: BDC_DATA like bdcdata occurs 0 with header line.`
+*       Messages of call transaction：返回信息`data: MESSAGE like bdcmsgcoll occurs 0 with header line.`
 
 #### 两个固定Form
 
 尽量不要对这两个form中的内容进行修改。
 
-- bdc_dynapro
+- bdc_dynpro:指定bdc_dynpro的实参，告知系统dialog程序名称；以及Screen number
 
   ```JS
   *----------------------------------------------------------------------*
@@ -177,7 +184,7 @@ Close dataset.  "关闭读取
   ENDFORM.
   ```
 
-- bdc_field
+- bdc_field：指定bdc_field的实参，告知系统把光标放在哪个字段
 
   ```JS
   *----------------------------------------------------------------------*
@@ -208,7 +215,9 @@ DATA:GS_CTU_PARAMS TYPE CTU_PARAMS. 调事务代码时带的一些参数，是�
   gs_ctu_params-dismode = 'E'.
   gs_ctu_params-defsize = ''."设置窗口非默认大小
   "调用BDC执行 T-code COOIS 显示订单抬头
- CALL TRANSACTION 'COOIS' USING bdcdata OPTIONS FROM gs_ctu_params.
+ CALL TRANSACTION 'COOIS' USING bdcdata 
+ 						OPTIONS FROM gs_ctu_params
+                        MESSAGE INTO MESSTAB.
 ```
 
 (2)执行类的录屏和上面同样的方法生成程序。然后选择需要的代码段。不需要的可以注释，或者删除。

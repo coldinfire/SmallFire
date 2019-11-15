@@ -41,7 +41,7 @@ tags:
 
 [如何在 SAP 中定义 Event 类型的后台 Job](<http://blog.sina.com.cn/s/blog_76c57b480100rumm.html>)
 
-#### 强制结束后台作业（SAP SM37 SM35 SM50)
+### 强制结束后台作业（SAP SM37 SM35 SM50)
 
 解决方法：
 
@@ -53,11 +53,15 @@ tags:
 
 第三步：SM35，选中 Session Name，点击小绿旗 release 即可。
 
-#### 如何查看一个后台job对应哪些程序?
+### 如何查看一个后台job对应哪些程序?
 
 ​	sm36-->点击“job selection”-->运行结果双击选择job-->回到第一个界面，点击“步骤”按钮，转到步骤清单总览，里面就可以看到程序名称了已取消，完成的job是不能修改的其它状态的都可以改，在sm37里，选择相应的job，菜单里有个更改项
 sm37就是sm36里job selection的链接。
 
-#### 调试后台Job
+### 调试后台Job
 
 ​	事务码：sm37，选中要调试的 job，输入事务码 JDBG，回车，进入调试界面，根据需要打断点等就行了。
+
+### 批量删除后台作业
+
+- RSBTCDEL2 : 根据条件输入后台Job名或则根据用户天数，Commit尽可能大一点，Test Run勾上会显示满足条件的Job名字

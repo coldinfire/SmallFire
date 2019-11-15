@@ -1,5 +1,5 @@
 ---
-title: "ABAP 语法详解(Form&Func)"
+title: "ABAP Form和Function"
 date: 2018-05-20
 draft: false
 author: Small Fire
@@ -114,8 +114,6 @@ tags:
 - REJECT : 用在逻辑数据库GET event blocks中，可以从循环或则一个FORM中直接跳出所在的GET事件块
 
 
-
-未完待续......[ABAP 语法详解(SQL)](https://coldinfire.github.io/2018/ABAP4)
 
 
 

@@ -8,11 +8,17 @@ categories:
   - ABAP
 
 tags: 
+  - ABAP
   - smartforms
 
 ---
 
 
+
+### 查找Smartforms
+
+- TCode：NACE可以查找
+- Table：TNAPR根据smartform名字查找对应的smartform程序
 
 ### Smartforms组成
 

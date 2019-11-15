@@ -10,7 +10,7 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/ABAPUtils8/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP_SM30/" />
   <link rel="next" href="https://coldinfire.github.io/2018/ABAPTable3/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAPTable2/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "报表开发",
-  "wordcount":  3724 ,
+  "wordcount":  4036 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAPTable2\/",
   "datePublished": "2018-06-19T00:00:00\x2b00:00",
   "dateModified": "2018-06-19T00:00:00\x2b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                8 min
+                9 min
         </div>
     </header>
     <div class="post-content">
@@ -469,6 +469,62 @@ ACTIVE：控制屏幕的可见性 1:可见  2:不可见
     ENDCASE.
 </code></pre>
 
+<h3 id="屏幕单选框分组显示界面内容">屏幕单选框分组显示界面内容</h3>
+
+<p>​   通过Group将GUI需要显示的界面进行分组，并在 <code>AT SELECTION-SCREEN OUTPUT.</code>事件中对每一个单选项选择进行判断，并激活对应的界面。</p>
+
+<pre><code class="language-JS">SELECTION-SCREEN BEGIN OF BLOCK BLK1 WITH FRAME TITLE TEXT-008.
+PARAMETERS: P_R1 TYPE FLAG RADIOBUTTON GROUP C1 DEFAULT 'X' USER-COMMAND US1,
+            P_R2 TYPE FLAG RADIOBUTTON GROUP C1,
+            P_R3 TYPE FLAG RADIOBUTTON GROUP C1.
+SELECTION-SCREEN END OF BLOCK BLK1.
+
+SELECTION-SCREEN BEGIN OF BLOCK BLK2 WITH FRAME TITLE TEXT-007.
+PARAMETERS: P_PEDTR TYPE PLAF-PEDTR MODIF ID PR1 DEFAULT SY-DATUM.
+PARAMETERS: P_WERKS TYPE T001W-WERKS MODIF ID PR1 MEMORY ID WRK.
+PARAMETERS: P_TIME  TYPE MSEG-MENGE VISIBLE LENGTH 6 DEFAULT '22.5' MODIF ID PR1.
+SELECT-OPTIONS: S_AUFNR FOR AFKO-AUFNR MODIF ID PR1  .
+SELECTION-SCREEN END OF BLOCK BLK2.
+
+SELECTION-SCREEN BEGIN OF BLOCK BLK3 WITH FRAME TITLE TEXT-008.
+PARAMETERS: P_WERK TYPE T001W-WERKS  MODIF ID PR2 MEMORY ID WRK.
+SELECT-OPTIONS: S_MATNR FOR MARA-MATNR  MODIF ID PR2 ,
+                S_DRAWN FOR MARA-ZZ_DRAWING_NO MODIF ID PR2 ,
+                S_ZMC FOR ZPP_MOLDMACTON-Z_MC MODIF ID PR2,
+                S_ZTONS FOR ZPP_MOLDMACTON-ZTONS MODIF ID PR2 ,
+                S_WSHOP FOR ZPP_MOLDMACTON-ZWKSHOP MODIF ID PR2,
+                S_SDATE FOR ZPP_MOLDSCHE-SDATE MODIF ID PR2 NO-EXTENSION NO INTERVALS DEFAULT SY-DATUM,
+                S_SDAT2 FOR ZPP_MOLDSCHE-SDATE MODIF ID PR2 DEFAULT SY-DATUM.
+SELECTION-SCREEN END OF BLOCK BLK3.
+
+AT SELECTION-SCREEN OUTPUT.
+  LOOP AT SCREEN.
+    IF P_R1 = 'X'.
+      IF SCREEN-GROUP1 = 'PR2'.
+        SCREEN-ACTIVE = 0.
+      ELSE.
+        SCREEN-ACTIVE = 1.
+      ENDIF.
+    ELSEIF P_R2 = 'X' OR P_R3 = 'X'.
+      IF SCREEN-GROUP1 = 'PR1'.
+        SCREEN-ACTIVE = 0.
+      ELSE.
+        SCREEN-ACTIVE = 1.
+        IF P_R3 = 'X'.
+          IF  SCREEN-NAME CS 'S_SDATE'.
+            SCREEN-ACTIVE = 0.
+          ENDIF.
+        ELSEIF P_R2 = 'X'.
+          IF  SCREEN-NAME CS 'S_SDAT2'.
+            SCREEN-ACTIVE = 0.
+          ENDIF.
+        ENDIF.
+      ENDIF.
+    ENDIF.
+    MODIFY SCREEN.
+  ENDLOOP.
+</code></pre>
+
     </div>
 
     <div class="post-copyright">
@@ -481,7 +537,7 @@ ACTIVE：控制屏幕的可见性 1:可见  2:不可见
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>3724</span>
+                   <span>4036</span>
             </p>
             
             <p class="copyright-item">
@@ -510,7 +566,7 @@ ACTIVE：控制屏幕的可见性 1:可见  2:不可见
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/ABAPUtils8/" class="prev" rel="prev" title=" SM30表维护 "><i class="iconfont icon-dajiantou"></i>&nbsp; SM30表维护 </a>
+        <a href="https://coldinfire.github.io/2018/ABAP_SM30/" class="prev" rel="prev" title=" SM30表维护 "><i class="iconfont icon-dajiantou"></i>&nbsp; SM30表维护 </a>
          
         
         <a href="https://coldinfire.github.io/2018/ABAPTable3/" class="next" rel="next" title="报表开发&lt;内表操作&gt;">报表开发&lt;内表操作&gt;&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
