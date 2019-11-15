@@ -8,7 +8,6 @@ categories:
   - ABAP
 
 tags: 
-  - abap
   - workflow
 
 ---
@@ -45,7 +44,7 @@ Event：Triggering Events，Terminating Events。
 Agent resolution：流程的节点负责人。
 
 ### 定义和创建 ###
- 
+
 #### 定义: ####
    每个workflow都能在SAP中找到业务流程；由很多步骤组成；可以由事件触发。
 
@@ -78,12 +77,12 @@ Agent resolution：流程的节点负责人。
  - Task Tcode : PFTC_INS / _CHG / _DIS / _COP：Create / Change / Display /Copy Tasks
 
 ####  Agents  ####
-   
+
 Role:"assign agents",通过PFCG进行分配到用户    
 Rule:"define agents",通过PFAC进行定义
 
    `PFAC_INS / _CHG / _DIS/_COP：Create / Change / Display /Copy Rules`
-   
+
 Rule:允许我们定义和实施问题处理流程。允许我们根据定义时定义的模板在运行时指定数据。与电子邮件通知一起，工作流程规则可帮助我们自动跟踪和管理问题。如果在工作流中使用Rule来确定责任代理，则Rule解析的结果会存储在容器元素_RULE_RESULT中，可以通过绑定传输到工作流容器中。
 
 Scenario:创建一个rule找到任意user/agent的上级。

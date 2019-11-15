@@ -6,19 +6,10 @@
     <description>Recent content in 报表开发 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title> ALV Tree标准Demo </title>
-      <link>https://coldinfire.github.io/2019/ABAP_ALVTree/</link>
-      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_ALVTree/</guid>
-      <description>Demo列表 BCALV_TREE_01 ALV 树控制：构建层次树 BCALV_TREE_02 ALV 树控制：事件处理 BCALV_TREE_03 ALV 树控制：使用自己的上下文菜单 BCALV_TREE_04 ALV 树控制：添加按钮到工具栏 BCALV_TREE_05 ALV 树控制：添加菜单到工具</description>
-    </item>
     
     <item>
       <title>OO语法</title>

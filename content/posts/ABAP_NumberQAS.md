@@ -8,8 +8,7 @@ categories:
   - ABAP
 
 tags: 
-  - abap
-  - utils
+  - abaputils
 ---
 
 #### 科学计数法转换数字

@@ -8,8 +8,7 @@ categories:
   - ABAP
 
 tags: 
-  - abap
-  - utils
+  - BOM
 
 ---
 

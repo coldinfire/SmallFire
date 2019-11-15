@@ -8,8 +8,6 @@ categories:
   - ABAP
 
 tags: 
-  - abap
-  - utils
   - ALV
 
 ---

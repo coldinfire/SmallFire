@@ -8,9 +8,14 @@ categories:
   - ABAP
 
 tags: 
-  - abap
-  - utils
+  - abaputils
+  - abapbasis
+
 ---
+
+
+
+
 
 ​		字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。
 

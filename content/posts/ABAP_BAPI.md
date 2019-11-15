@@ -8,7 +8,6 @@ categories:
   - ABAP
 
 tags: 
-  - abap
   - BAPI
 
 ---

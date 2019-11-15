@@ -8,8 +8,8 @@ categories:
   - ABAP
 
 tags: 
-  - abap
-  - utils
+  - abaputils
+  - JOB
 
 ---
 

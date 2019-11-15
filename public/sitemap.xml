@@ -104,19 +104,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/abap/</loc>
-      
-      <lastmod>2019-10-20T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/utils/</loc>
+      <loc>https://coldinfire.github.io/tags/abaputils/</loc>
       
       <lastmod>2019-10-20T00:00:00+00:00</lastmod>
       
@@ -177,6 +165,18 @@
       
       
       <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/abapbasis/</loc>
+      
+      <lastmod>2019-09-18T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>
@@ -278,7 +278,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</loc>
+      <loc>https://coldinfire.github.io/tags/ALV/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       
@@ -538,6 +538,30 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/Email/</loc>
+      
+      <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/JOB/</loc>
+      
+      <lastmod>2019-04-05T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_JOB/</loc>
       
       <lastmod>2019-04-05T00:00:00+00:00</lastmod>
@@ -769,6 +793,18 @@
       
       
       <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/DOI/</loc>
+      
+      <lastmod>2019-02-22T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>
@@ -1054,6 +1090,18 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/abapbusiness/</loc>
+      
+      <lastmod>2018-09-22T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/tags/authority/</loc>
       
       <lastmod>2018-09-22T00:00:00+00:00</lastmod>
@@ -1188,6 +1236,18 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/utils/</loc>
+      
+      <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Range/</loc>
       
       <lastmod>2018-08-16T00:00:00+00:00</lastmod>
@@ -1197,30 +1257,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/ALV/</loc>
-      
-      <lastmod>2018-08-16T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/ABAP/</loc>
-      
-      <lastmod>2018-08-14T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -1336,6 +1372,18 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/LOCK/</loc>
+      
+      <lastmod>2018-07-12T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Lock/</loc>
       
       <lastmod>2018-07-12T00:00:00+00:00</lastmod>
@@ -1359,6 +1407,18 @@
       
       
       <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</loc>
+      
+      <lastmod>2018-07-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>

@@ -8,7 +8,8 @@ categories:
   - ABAP
 
 tags: 
-  - abap
+  - abaputils
+  - LOCK
 
 ---
 
@@ -56,7 +57,7 @@ tags:
 
 - `ENQUEUE_<lock object的名字> 对象` EZZSOPR0032 要求的锁定
 -   `DEQUEUE_<lock object的名字>` 释放对象 EZZSOPR0032 的锁定
-       
+    
 
 ​    当用逻辑锁来锁定表条目的时候，系统会自动向 LOCK TABLE 中写入记录。
 
