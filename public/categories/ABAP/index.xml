@@ -6,10 +6,19 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SAP JCO连接</title>
+      <link>https://coldinfire.github.io/2019/SAP_JCO/</link>
+      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_JCO/</guid>
+      <description>SAP JCO简介 ​ 为了在R/3系统和JAVA平台之间进行实时的交换数据。SAP提供了一套高效的基于RFC的ABAP和JAVA进程间通讯组件：SA</description>
+    </item>
     
     <item>
       <title>ABAP 科学计数法问题</title>

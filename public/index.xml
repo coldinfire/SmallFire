@@ -5,7 +5,7 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -93,6 +93,162 @@
       
       <guid>https://coldinfire.github.io/about/</guid>
       <description>&lt;p&gt;这个人很懒，什么都没留下&amp;hellip;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SAP JCO连接</title>
+      <link>https://coldinfire.github.io/2019/SAP_JCO/</link>
+      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_JCO/</guid>
+      <description>
+
+&lt;h4 id=&#34;sap-jco简介&#34;&gt;SAP JCO简介&lt;/h4&gt;
+
+&lt;p&gt;​   为了在R/3系统和JAVA平台之间进行实时的交换数据。SAP提供了一套高效的基于RFC的ABAP和JAVA进程间通讯组件：SAP JAV Connector.&lt;/p&gt;
+
+&lt;p&gt;​   Jco库提供了可以直接在JAVA程序中使用的API.该API通过JNI调用部署在客户端的SAP的RFC库。&lt;/p&gt;
+
+&lt;h4 id=&#34;安装与配置&#34;&gt;安装与配置&lt;/h4&gt;
+
+&lt;p&gt;​   下载Jco库的jar包。然后解压，将文件librfc32.dll的文件复制到目录system32下面。这个文件就是SAP的RFC协议实现。然后确保CLASSPATH环境下包含文件sapjco.jar所在的目录。该jar包中包含有在JAVA程序中需要直接调用的类和接口。&lt;/p&gt;
+
+&lt;h4 id=&#34;建立连接&#34;&gt;建立连接&lt;/h4&gt;
+
+&lt;p&gt;​   类JCO是Jco库中最主要的一个入口，提供了很多静态方法。其中有一系列重载的createClient方法可以用来创建于SAP系统的连接信息。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;直接输入参数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  JCO.Client myCont = JCO.createClient(&amp;quot;000&amp;quot;,&amp;quot;UserName&amp;quot;,&amp;quot;PassWord&amp;quot;,&amp;quot;EN&amp;quot;,&amp;quot;ClientIP&amp;quot;,&amp;quot;ClientID&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用JAVA 配置文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  Properties properties = new Properties();
+  properties.put(&amp;quot;jco.client.ashost&amp;quot;,&amp;quot;HostIP&amp;quot;);
+  properties.put(&amp;quot;jco.client.client&amp;quot;,&amp;quot;client&amp;quot;);
+  properties.put(&amp;quot;jco.client.user&amp;quot;,&amp;quot;user&amp;quot;);
+  properties.put(&amp;quot;jco.client.passwd&amp;quot;,&amp;quot;passwd&amp;quot;);
+  properties.put(&amp;quot;jco.client.sysnr&amp;quot;,&amp;quot;00&amp;quot;);
+  properties.put(&amp;quot;jco.client.lange&amp;quot;,&amp;quot;EN&amp;quot;);
+  
+  JCO.Client myCont = JCO.createClient(properties);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;​   建立从当前JAVA进程到SAP服务器的连接:  &lt;code&gt;this.myCont.connect();&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​   获取连接状态：&lt;code&gt;if( myCont != null &amp;amp;&amp;amp; myCont.isAlive())&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;连接池&#34;&gt;连接池&lt;/h5&gt;
+
+&lt;p&gt;​   Jco库支持以连接池的形式重用已经创建的连接。需要调用JCO类的静态方法addClientPool即可创建一个连接池，并可以在参数中指定连接池的名字和允许同时激活的最大连接数。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;public static final String POOL_NAME = &amp;quot;JCO_Pool&amp;quot;;
+public static int max_cont = 3;
+
+JCO.Pool pool = JCO.getClientPoolManager().getPool(POOL_NAME);
+if(poo == null){
+   Properties properties = new Properties();
+    ... read properties file ...
+   JCO.addClentPool(POOL_NAME,max_cont,properties);
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;获取连接：&lt;code&gt;myCont = JCO.getClient(POOL_NAME);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;释放连接：&lt;code&gt;JCO.releaseClient(myCont);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;移除连接池：&lt;code&gt;JCO.removeClientPool(POOL_NAME);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt; 移除连接池会导致其中所有的活动连接被迫强行关闭，必须在确保连接池中所有的连接都不在被使用时才能执行该操作。&lt;/p&gt;
+
+&lt;h4 id=&#34;调用function-models&#34;&gt;调用Function Models&lt;/h4&gt;
+
+&lt;p&gt;​   Jco库使用RFC的方式来调用ABAP中的函数，所以被调用的函数必须已经勾选&amp;rdquo;Remote-enabled&amp;rdquo;属性。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;第一步：创建JCO.Repository类的对象，获取所有ABPA函数的元数据。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;JCO.Repository myRepository = new JCO.Repository(&amp;quot;Repository&amp;quot;,myCont/POOL_NAME);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;构造函数有两个参数，第一个是可以任意指定的名字；第二个是当前使用的连接。可以指定连接池名字，Jco库会自动从该连接池获取连接&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;第二步：通过该实例获取函数的信息。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  String strFunc = &amp;quot;BAPI_Name&amp;quot;;
+  IFunctionTemplate ft =  myRepository.getFunctionTemplate(strFunc.toUpperCase());
+  JCO.Function function = ft.getFunction();
+  
+  //Set up scalar parameter
+  JCO.ParameterList input = function.getImportParameterList();
+  input.setValue(10,&amp;quot;MAX_ROWS&amp;quot;);
+  
+  //Set up structure parameter
+  JCO.Structure sFrom = input.getStructure(&amp;quot;STRUC_NAME&amp;quot;);
+  sFrom.seValue(&amp;quot;Value&amp;quot;,&amp;quot;FIELD_NAME&amp;quot;);
+  input.setValue(sFrom,&amp;quot;STRUC_NAME&amp;quot;);
+  
+  //Set up table parameter
+  JCO.Table table = function.getTableParameterList().getTable(&amp;quot;TABLE_NAME&amp;quot;);
+  table.appendRow();
+  table.setRow(0);
+  talbe.setValue(&amp;quot;Value&amp;quot;,&amp;quot;FIELD_NAME&amp;quot;);
+  ....
+  table.appendRow();
+  table.setRow(n);
+  table.setValue(&amp;quot;Value&amp;quot;,&amp;quot;FIELD_NAME&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;第三步：执行&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;JCO.Client client = JCO.getClient(POOL_NAME); client.execute(function);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;myCont.execute(funtion);&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;第四部：获取输出参数&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  // GET Export parameter
+  JCO.ParameterList output = function.getExportParameterList();
+  // GET export structure
+  JCO.Structure struct = function.getExportParameterList.getStructure(&amp;quot;RETURN&amp;quot;);
+  //GET table parameter
+  JCO.Table table = function.getTableParameterList().getTable(&amp;quot;TABLE_NAME&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;异常处理&#34;&gt;异常处理&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JCO.AbapException：ABAP函数执行过程中出现异常，在JAVA进程中触发该异常。&lt;/li&gt;
+&lt;li&gt;JCO.ConversionException：当执行参数的get,set方法时，如果在Java类型和ABAP类型间转换失败，会触发该异常。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;调试&#34;&gt;调试&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;激活Jco的ABAP调试功能：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;JCO.Pool pool = JCO.getClientPoolManage().getPool(POOL_NAME);
+pool.setAbapDebug(true);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在ABAP程序内设置外部断点。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;并设置Debugging里设置External Debugging的Users为设置的外部名。&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </description>
     </item>
     
@@ -1194,15 +1350,6 @@ BCALV_TREE_VERIFY              ALV 树和简单 ALV 树的校验者
 
 &lt;p&gt;​   BOM:物料清单，是部件完整、正式的结构化清单，组成一个产品或装配。包括每个部件的项目号、损耗、数量和计量单位。&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Work Center 了解</title>
-      <link>https://coldinfire.github.io/2019/MMWorkCenter/</link>
-      <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MMWorkCenter/</guid>
-      <description></description>
     </item>
     
   </channel>
