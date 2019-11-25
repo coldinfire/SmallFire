@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BOM</title>
+      <link>https://coldinfire.github.io/tags/BOM/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/BOM/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>JCO</title>
@@ -57,6 +66,24 @@
     </item>
     
     <item>
+      <title>SAPbusiness</title>
+      <link>https://coldinfire.github.io/tags/SAPbusiness/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/SAPbusiness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sapbusiness</title>
+      <link>https://coldinfire.github.io/tags/sapbusiness/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/sapbusiness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>ALV</title>
       <link>https://coldinfire.github.io/tags/ALV/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
@@ -71,15 +98,6 @@
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/BAPI/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>BOM</title>
-      <link>https://coldinfire.github.io/tags/BOM/</link>
-      <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/BOM/</guid>
       <description></description>
     </item>
     
@@ -219,15 +237,6 @@
     </item>
     
     <item>
-      <title>abapbusiness</title>
-      <link>https://coldinfire.github.io/tags/abapbusiness/</link>
-      <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/abapbusiness/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>authority</title>
       <link>https://coldinfire.github.io/tags/authority/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
@@ -278,15 +287,6 @@
       <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/LOCK/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>报表开发</title>
-      <link>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</link>
-      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</guid>
       <description></description>
     </item>
     

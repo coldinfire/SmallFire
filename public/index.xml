@@ -5,7 +5,7 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -97,6 +97,64 @@
     </item>
     
     <item>
+      <title> CS12 ALV的增强 </title>
+      <link>https://coldinfire.github.io/2019/BOM_Enhance/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/BOM_Enhance/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Tcode：CS12的执行程序查看&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BOM_Enhance1.png&#34; alt=&#34;CS12&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看到，最终执行的程序是RCS12001，因此可以在该程序中查找增强。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BOM_Enhance2.png&#34; alt=&#34;RCS12001&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;执行的程序：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;RCS11001 Display BOM Level by Level&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;RCS12001 Display Multilevel BOM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;RCS13001 Summarized BOM - Multilevel&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;User Exits:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;PCSD0001：Applications development R/3 BOMS&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0002： BOMs: Customer fields in item&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0003： BOMs: Customer fields in header&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0004： BOM comparison&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0005 BOMs: component check for material items&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0006： Mass changes user exit&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0007： Check changes in STKO&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0008： WBS BOM: Customer-specific explosion for creating&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0009： Order/WBS BOM, determine URL page&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0010： Order/WBS BOM, determine explosion date&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0011： Knowledge-based order BOM, parallel update&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0012： Customer - Mat. number/mat. number during material exchange&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0013： Customer-specific processing of an explosion for BOM browser&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PCSD0014： Knowledge-Based Order BOM: Status&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>SAP JCO连接</title>
       <link>https://coldinfire.github.io/2019/SAP_JCO/</link>
       <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
@@ -122,7 +180,13 @@
 &lt;li&gt;直接输入参数&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  JCO.Client myCont = JCO.createClient(&amp;quot;000&amp;quot;,&amp;quot;UserName&amp;quot;,&amp;quot;PassWord&amp;quot;,&amp;quot;EN&amp;quot;,&amp;quot;ClientIP&amp;quot;,&amp;quot;ClientID&amp;quot;)
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  import com.sap.mw.jco.*;
+  JCO.Client myCont = JCO.createClient(&amp;quot;000&amp;quot;,        //SAP Client
+                                       &amp;quot;UserName&amp;quot;,   //userid
+                                       &amp;quot;PassWord&amp;quot;,   //password
+                                       &amp;quot;EN&amp;quot;,         //Language
+                                       &amp;quot;ClientIP&amp;quot;,   //application server host name
+                                       &amp;quot;ClientID&amp;quot;)   //system number
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
@@ -155,7 +219,7 @@ JCO.Pool pool = JCO.getClientPoolManager().getPool(POOL_NAME);
 if(poo == null){
    Properties properties = new Properties();
     ... read properties file ...
-   JCO.addClentPool(POOL_NAME,max_cont,properties);
+   JCO.addClientPool(POOL_NAME,max_cont,properties);
 };
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -165,14 +229,14 @@ if(poo == null){
 
 &lt;p&gt;移除连接池：&lt;code&gt;JCO.removeClientPool(POOL_NAME);&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt; 移除连接池会导致其中所有的活动连接被迫强行关闭，必须在确保连接池中所有的连接都不在被使用时才能执行该操作。&lt;/p&gt;
+&lt;p&gt;移除连接池会导致其中所有的活动连接被迫强行关闭，必须在确保连接池中所有的连接都不在被使用时才能执行该操作。&lt;/p&gt;
 
 &lt;h4 id=&#34;调用function-models&#34;&gt;调用Function Models&lt;/h4&gt;
 
 &lt;p&gt;​   Jco库使用RFC的方式来调用ABAP中的函数，所以被调用的函数必须已经勾选&amp;rdquo;Remote-enabled&amp;rdquo;属性。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;第一步：创建JCO.Repository类的对象，获取所有ABPA函数的元数据。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;第一步：创建JCO.Repository类的对象，获取所有ABAP函数的元数据。&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;JCO.Repository myRepository = new JCO.Repository(&amp;quot;Repository&amp;quot;,myCont/POOL_NAME);&lt;/code&gt;&lt;/li&gt;
@@ -185,6 +249,9 @@ if(poo == null){
 &lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  String strFunc = &amp;quot;BAPI_Name&amp;quot;;
   IFunctionTemplate ft =  myRepository.getFunctionTemplate(strFunc.toUpperCase());
   JCO.Function function = ft.getFunction();
+  
+  //Get a client form the pool
+  JCO.Clietn client = JCO.getClient(pool);
   
   //Set up scalar parameter
   JCO.ParameterList input = function.getImportParameterList();
@@ -214,13 +281,14 @@ if(poo == null){
 &lt;li&gt;&lt;code&gt;myCont.execute(funtion);&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;第四部：获取输出参数&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;第四步：关闭连接&lt;code&gt;myCont.disconnect();&lt;/code&gt;或则&lt;code&gt;JCO.releaseClient(myCont)&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;第五步：获取输出参数&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  // GET Export parameter
-  JCO.ParameterList output = function.getExportParameterList();
-  // GET export structure
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  // GET export structure
   JCO.Structure struct = function.getExportParameterList.getStructure(&amp;quot;RETURN&amp;quot;);
+  
   //GET table parameter
   JCO.Table table = function.getTableParameterList().getTable(&amp;quot;TABLE_NAME&amp;quot;);
 &lt;/code&gt;&lt;/pre&gt;
@@ -234,21 +302,211 @@ if(poo == null){
 
 &lt;h4 id=&#34;调试&#34;&gt;调试&lt;/h4&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;激活Jco的ABAP调试功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;激活Jco的ABAP调试功能：&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;JCO.Pool pool = JCO.getClientPoolManage().getPool(POOL_NAME);
-pool.setAbapDebug(true);
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  JCO.Pool pool = JCO.getClientPoolManage().getPool(POOL_NAME);
+  pool.setAbapDebug(true);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ol&gt;
-&lt;li&gt;在ABAP程序内设置外部断点。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在ABAP程序内设置外部断点。&lt;/p&gt;
 
-&lt;p&gt;并设置Debugging里设置External Debugging的Users为设置的外部名。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;并设置Debugging里设置External Debugging的Users为设置的外部名。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;​&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h4 id=&#34;data-type&#34;&gt;DATA TYPE&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ABAP Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;JAVA Data Type&lt;/th&gt;
+&lt;th&gt;JCo Type Code&lt;/th&gt;
+&lt;th&gt;JCo Access Method&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;b&lt;/td&gt;
+&lt;td&gt;1-byte integer&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_INT1&lt;/td&gt;
+&lt;td&gt;int getInt()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;s&lt;/td&gt;
+&lt;td&gt;2-byte integer&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_INT2&lt;/td&gt;
+&lt;td&gt;int getInt()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;I&lt;/td&gt;
+&lt;td&gt;4-byte integer&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_INT&lt;/td&gt;
+&lt;td&gt;int getInt()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;Character&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_CHAR&lt;/td&gt;
+&lt;td&gt;String getString()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Numerical Character&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_NUM&lt;/td&gt;
+&lt;td&gt;String getString()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;P&lt;/td&gt;
+&lt;td&gt;Binary Coded Decimal&lt;/td&gt;
+&lt;td&gt;BigDecimal&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_BCD&lt;/td&gt;
+&lt;td&gt;BigDecimal getBigDecimal()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;D&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_DATE&lt;/td&gt;
+&lt;td&gt;Date getDate()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;Time&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_TIME&lt;/td&gt;
+&lt;td&gt;Date getTime()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;Float&lt;/td&gt;
+&lt;td&gt;double&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_FLOAT&lt;/td&gt;
+&lt;td&gt;double getDouble()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;X&lt;/td&gt;
+&lt;td&gt;Raw data&lt;/td&gt;
+&lt;td&gt;bytes[]&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_BYTE&lt;/td&gt;
+&lt;td&gt;byte[] getByteArray()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;g&lt;/td&gt;
+&lt;td&gt;String(variable-length)&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_STRING&lt;/td&gt;
+&lt;td&gt;String getString()&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;y&lt;/td&gt;
+&lt;td&gt;Raw data&lt;/td&gt;
+&lt;td&gt;byte[]&lt;/td&gt;
+&lt;td&gt;JCO.TYPE_XSTRING&lt;/td&gt;
+&lt;td&gt;byte[] getByteArray()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;jco-table-method&#34;&gt;JCO Table method&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;JCO.Table Method&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;int getNumRows()&lt;/td&gt;
+&lt;td&gt;Returns teh number of rows&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;void setRow(int pos)&lt;/td&gt;
+&lt;td&gt;Sets the current row pointer&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;int getRow()&lt;/td&gt;
+&lt;td&gt;Returns the current row pointer&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;void firstRow()&lt;/td&gt;
+&lt;td&gt;Moves to the first row&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;void firstRow()&lt;/td&gt;
+&lt;td&gt;Moves to the last row&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;boolean nextRow()&lt;/td&gt;
+&lt;td&gt;Moves to the next row&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;boolean previousRow(0)&lt;/td&gt;
+&lt;td&gt;Moves to the previous row&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;void appendRow()&lt;/td&gt;
+&lt;td&gt;Adds one row at the end of the table&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;void appendRow(int num_rows)&lt;/td&gt;
+&lt;td&gt;Adds multiple rows at the end of table&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;void deleteAllRows()&lt;/td&gt;
+&lt;td&gt;Deletes all table rows&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;void deleteRow()&lt;/td&gt;
+&lt;td&gt;Delete the current row&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;void deleteRow(int pos)&lt;/td&gt;
+&lt;td&gt;Deletes the specified row&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;void insertRow(int pos)&lt;/td&gt;
+&lt;td&gt;Inserts a row at the specified position&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
     </item>
     
@@ -873,6 +1131,26 @@ ENDIF.
     </item>
     
     <item>
+      <title>SQVI-创建一张简易的报表</title>
+      <link>https://coldinfire.github.io/2019/SAP_SQVI/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_SQVI/</guid>
+      <description>&lt;p&gt;SAP提供的SQVI功能，用以快速自定义一个自己需要的报表。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;创建，并选择数据源为：表连接，然后插入需要查数的表，接着将表的主键进行连接&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;完成所有表的插入后，点击返回按钮，系统将进入报表显示及筛选字段的选择界面，将报表需要显示的字段筛选出来&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;完成报表中字段的选择后，点击“选择字段”。我们知道，每一个报表都需要筛选界面，在“选择字段”中，就是用于我们添加筛选界面的筛选字段。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;“筛选字段”与“报表显示字段”选择完毕后，我们可以点击执行，创建并展示出这一报表。我们可以根据实际业务，输入筛选条件，并查出需要的数据。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>生产订单标准BAPI</title>
       <link>https://coldinfire.github.io/2019/SAP_PO_BAPI/</link>
       <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
@@ -952,7 +1230,164 @@ ENDIF.
   ENDLOOP.
   ENDFORM.                    &amp;quot; FRM_ORDER_CREATE
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;修改po&#34;&gt;修改PO&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp;      Form  frm_order_change
+*&amp;amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+FORM frm_order_change.
+  DATA: ls_upload LIKE LINE OF gt_upload,
+        ls_style  TYPE lvc_s_styl,
+        lv_index  LIKE sy-tabix.
+
+  DATA: ls_order  TYPE bapi_pp_order_change,
+        ls_orderx TYPE bapi_pp_order_changex,
+        ls_return TYPE bapiret2,
+        lv_ordnum TYPE bapi_order_key-order_number,
+        lv_ordtyp TYPE bapi_order_copy-order_type.
+
+  LOOP AT gt_upload INTO ls_upload WHERE
+                                       box EQ &#39;X&#39;.
+
+    lv_index = sy-tabix.
+    CLEAR: ls_order, ls_return, lv_ordnum, lv_ordtyp, ls_style, ls_orderx.
+
+    ls_order-quantity = ls_upload-gamng.
+    ls_order-quantity_uom = ls_upload-gmein.
+    ls_order-basic_start_date = ls_upload-gstps.
+
+    ls_upload-gltps = ls_upload-gstps + ls_upload-nlfzt .
+    ls_order-basic_end_date = ls_upload-gltps .
+    ls_order-unloading_point = ls_upload-ablad.
+    ls_order-sequence_number = ls_upload-cy_seqnr.
+    ls_order-prod_version = ls_upload-verid.
+    ls_order-storage_location = ls_upload-lgort.
+*    ls_order-TERKZ
+
+    ls_orderx-quantity = &#39;X&#39;.
+    ls_orderx-basic_start_date = &#39;X&#39;.
+    ls_orderx-basic_end_date = &#39;X&#39;.
+    ls_orderx-sequence_number = &#39;X&#39;.
+    ls_orderx-unloading_point = &#39;X&#39;.
+    ls_orderx-storage_location = &#39;X&#39;.
+    ls_orderx-prod_version = &#39;X&#39;.
+
+    CALL FUNCTION &#39;BAPI_PRODORD_CHANGE&#39;
+      EXPORTING
+        number     = ls_upload-aufnr
+        orderdata  = ls_order
+        orderdatax = ls_orderx
+      IMPORTING
+        return     = ls_return.
+
+    IF ls_return-type EQ &#39;S&#39; OR ls_return-type EQ space.
+      CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39;
+        EXPORTING
+          wait = &#39;X&#39;.
+
+      CLEAR: ls_upload-fstyle, ls_upload-fstyle[].
+      ls_style-style = cl_gui_alv_grid=&amp;gt;mc_style_disabled.
+      INSERT ls_style INTO TABLE ls_upload-fstyle.
+      ls_upload-ztype = &#39;S&#39;.
+
+      ls_upload-id = c_green.
+      ls_upload-message = &#39;Updated successfully&#39;.
+    ELSE.
+      ls_upload-ztype = ls_return-type.
+      ls_upload-id = c_red.
+      ls_upload-message = ls_return-message.
+      CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39;.
+    ENDIF.
+
+
+    IF ls_return-type NE space.
+      APPEND ls_return TO ls_upload-retmsg.
+    ENDIF.
+
+    IF ls_upload-ztype = &#39;E&#39; .
+      ls_upload-zcol = &#39;C610&#39; .
+    ENDIF .
+
+    MODIFY gt_upload FROM ls_upload INDEX lv_index.
+  ENDLOOP.
+
+ENDFORM.                    &amp;quot;frm_order_change
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;order-release&#34;&gt;Order Release&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp;      Form  frm_order_RELEASE
+*&amp;amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+FORM frm_order_release.
+  DATA: ls_upload LIKE LINE OF gt_upload,
+        ls_style  TYPE lvc_s_styl,
+        lv_index  LIKE sy-tabix.
+
+  DATA: lt_orders  TYPE TABLE OF bapi_order_key WITH HEADER LINE,
+        ls_return  TYPE bapiret2,
+        lt_detail_return TYPE TABLE OF bapi_order_return WITH HEADER LINE.
+
+  LOOP AT gt_upload INTO ls_upload WHERE ztype EQ &#39;S&#39; AND box EQ &#39;X&#39;.
+    lv_index = sy-tabix.
+
+    CLEAR:lt_orders.
+    lt_orders-order_number = ls_upload-aufnr.
+    APPEND lt_orders .
+
+    CALL FUNCTION &#39;BAPI_PRODORD_RELEASE&#39;
+     EXPORTING
+       release_control          = &#39;1&#39;
+*     WORK_PROCESS_GROUP       = &#39;COWORK_BAPI&#39;
+*     WORK_PROCESS_MAX         = 99
+     IMPORTING
+        return                   = ls_return
+     TABLES
+        orders                   = lt_orders
+        detail_return            = lt_detail_return
+*     APPLICATION_LOG          =
+              .
+    IF ls_return-number EQ space.
+      CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39;
+        EXPORTING
+          wait = &#39;X&#39;.
+
+      CLEAR: ls_upload-fstyle, ls_upload-fstyle[].
+      ls_style-style = cl_gui_alv_grid=&amp;gt;mc_style_disabled.
+      INSERT ls_style INTO TABLE ls_upload-fstyle.
+
+      ls_upload-aufnr = lt_orders-order_number.
+      ls_upload-xtype = &#39;S&#39;.
+    ELSE.
+      &amp;quot;if lt_DETAIL_RETURN-NUMBER eq &#39;093&#39;.
+      &amp;quot;ls_upload-xtype = lt_DETAIL_RETURN-MESSAGE.
+      &amp;quot;endif.
+      IF lt_detail_return-number EQ &#39;086&#39;.
+        ls_upload-xtype = lt_detail_return-message.
+        ls_upload-zcol = &#39;C610&#39; .
+      ENDIF.
+      CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39;.
+    ENDIF.
+    MODIFY gt_upload FROM ls_upload INDEX lv_index.
+  ENDLOOP.
+
+ENDFORM.                    &amp;quot;frm_order_RELEASE
+&lt;/code&gt;&lt;/pre&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>获取工单的Work Center</title>
+      <link>https://coldinfire.github.io/2019/SAP_WorkCenter/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_WorkCenter/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -1253,102 +1688,6 @@ PERFORM FRM_GET_KOSTL USING I_SETHEADER.
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;针对 SAP 中 SET（集）的操作，有好多函数，如 G_SET_GET_ALL_VALUES：Read All Values in a Set Hierarchy&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title> ALV Tree标准Demo </title>
-      <link>https://coldinfire.github.io/2019/ABAP_ALVTree/</link>
-      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_ALVTree/</guid>
-      <description>
-
-&lt;h3 id=&#34;demo列表&#34;&gt;Demo列表&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;BCALV_TREE_01                  ALV 树控制：构建层次树
-BCALV_TREE_02                  ALV 树控制：事件处理
-BCALV_TREE_03                  ALV 树控制：使用自己的上下文菜单
-BCALV_TREE_04                  ALV 树控制：添加按钮到工具栏
-BCALV_TREE_05                  ALV 树控制：添加菜单到工具栏
-BCALV_TREE_06                  ALV 树控制: 节点/项目的图标和图标栏
-BCALV_TREE_DEMO                ALV 树控制的演示
-BCALV_TREE_DND                 ALV 树控制: 在层次树中拖放
-BCALV_TREE_DND_MULTIPLE        ALV 树控制: 在层次树中拖放
-BCALV_TREE_EVENT_RECEIVER
-BCALV_TREE_EVENT_RECEIVER01
-BCALV_TREE_ITEMLAYOUT          ALV 树: 在运行时更改项目格式
-BCALV_TREE_MOVE_NODE_TEST
-BCALV_TREE_SIMPLE_DEMO         程序 BCALV_TREE_SIMPLE_DEMO
-BCALV_TREE_VERIFY              ALV 树和简单 ALV 树的校验者
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>BAPI使用</title>
-      <link>https://coldinfire.github.io/2019/BAPI/</link>
-      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/BAPI/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的RFC函数。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;BAPI函数及函数参数参考的结构类型名，都要以ZBAPI开头；&lt;/li&gt;
-&lt;li&gt;BAPI函数参数只能是传值，不能有Change与Exception参数&lt;/li&gt;
-&lt;li&gt;BAPI函数需要有Return返回参数&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;查找事务码对应的BAPI&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-&lt;li&gt;进入事务码，system status &amp;ndash;&amp;gt; 事务码双击，找到Package VA &amp;ndash;&amp;gt; SE80打开包VA/Display Object List
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;BAPI事务处理&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;同时调用多个BAPI，需要在程序中进行事务控制，决定何时执行数据库提交或回滚；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;BAPI内部不包含COMMIT WORK,ROLLBACK WORK&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;根据BAPI函数的返回数据进行判断：&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt; IF return-type &amp;lt;&amp;gt; &#39;S&#39;.
-   CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39;.
- ELSE.
-   CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39;
- EXPORTING
-   wait = &#39;X&#39;.
- ENDIF.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;4.多个BAPI调用时需要遵守以下原则&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;1&gt;如果有更新操作的BAPI,对实例进行另外的读取操作的BAPI只能访问上一个COMMIT WORK 执行后的最新数据&lt;/li&gt;
-&lt;li&gt;&lt;2&gt;在同一个LUW中，不能对同一个业务对象实例时行超过一次的更新操作。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>BOM了解</title>
-      <link>https://coldinfire.github.io/2019/BOM/</link>
-      <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/BOM/</guid>
-      <description>
-
-&lt;h3 id=&#34;bom定义&#34;&gt;BOM定义&lt;/h3&gt;
-
-&lt;p&gt;​   BOM:物料清单，是部件完整、正式的结构化清单，组成一个产品或装配。包括每个部件的项目号、损耗、数量和计量单位。&lt;/p&gt;
 </description>
     </item>
     

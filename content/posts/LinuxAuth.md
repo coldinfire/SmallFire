@@ -10,7 +10,6 @@ categories:
 
 tags: 
   - linux
-  - authority
 
 ---
 ## 用户权限
@@ -59,7 +58,7 @@ tags:
 解锁：usermod -U username
 
 新建组：groupadd group_name
- 
+
 - 用户修改所属组：usermod  -aG  group_new  aim_group
 
 ### 文件权限  ll  ###

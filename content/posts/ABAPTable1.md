@@ -12,17 +12,28 @@ tags:
 
 ---
 
+
+
+### 报表格式
+
+- 程序说明：包括程序名称，实现的业务功能等信息
+- 数据定义
+- Include内容
+- 定义选择屏幕
+- 执行程序业务代码
+- 创建TCode：SE93
+
 ### 执行程序的使用范围，报表事件
 
 - LOAD-OF-PROGRAM.
 
-- INITIALIZATION.          （Before display the selection screen）
+- INITIALIZATION. //初始化事件，用来填充选择屏幕默认值
 
-  - AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）
-
-  - AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.
-
-- AT SELECTION-SCREEN. //After enter the option data check
+  - AT-SELECTION SCREEN ON fiedl.  //在PAI事件结束后执行，进行校验和检查输入值
+- AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX. //选择屏幕字段选择功能扩展
+  
+- AT SELECTION-SCREEN OUTPUT.   //（PBO）显示选择屏幕之前触发
+- AT SELECTION-SCREEN.   // (PAI)选择屏幕中执行某些功能后触发
 
   - ​	PERFORM check_input.
 
@@ -30,7 +41,7 @@ tags:
 
   - xxxx
 
-- END-OF-SELECTION.
+- END-OF-SELECTION. 
 
 - Interactive Eventrs. (User for interactive reporting)
 
@@ -99,7 +110,7 @@ MODIFY语句把更改后的值传回内表。也就是说，结构是内表里�
 
   ```JS
   "READ and MODIFY
-  READ TABLE t_mara ASSIGNING <fs_mara> WITH KEY matnr = 'sapclub'.
+  READ TABLE t_mara ASSIGNING <fs_mara> WITH KEY matnr = 'matnr'
   IF sy-subrc EQ 0.
     <fs_mara>-ersda = sy-datum.
   ENDIF.
@@ -137,7 +148,7 @@ MODIFY语句把更改后的值传回内表。也就是说，结构是内表里�
   DATA:field_name type char20.
   FIELD-SYMBOLS:<lv_field> type any.
   LOOP AT lt ASSIGNING <fs>.
-    ASSIGN COMPONENT field_name OF STRUCTURE <fs> TO <lv_field>.
+    ASSIGN COMPONENT <field_name> OF STRUCTURE <fs> TO <lv_field>.
     CHECK <lv_field> IS ASSIGNED.
   ENDLOOP.
   ```

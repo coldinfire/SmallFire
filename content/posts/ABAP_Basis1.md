@@ -108,7 +108,7 @@ MESSAGE E001(ZTEST).
 
 ​	ZTEST:自定义的消息类
 
-MESSAGE显示:
+**MESSAGE显示:**
 
 ```JS
 EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
@@ -118,7 +118,33 @@ EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
    	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
 ```
 
-消息存储的内表：T100/T100C/T100S/T100U/T160M
+**获取消息内容的BAPI:**
+
+```JS
+DATA l_msgid     TYPE bapiret2-id.
+DATA l_msgnr     TYPE bapiret2-number.
+DATA l_message   TYPE bapiret2-message.
+CALL FUNCTION 'BAPI_MESSAGE_GETDETAIL'
+        EXPORTING
+          id                 = l_msgid
+          number             = l_msgnr
+          language           = sy-langu
+          textformat         = 'HTM'
+*         LINKPATTERN        =
+*         MESSAGE_V1         =
+*         MESSAGE_V2         =
+*         MESSAGE_V3         =
+*         MESSAGE_V4         =
+*         LANGUAGE_ISO       =
+       IMPORTING
+         message            = l_message.
+*         RETURN             =
+*       TABLES
+*         TEXT               =    
+  
+```
+
+**消息存储的内表**：T100/T100C/T100S/T100U/T160M
 
 - T100 这个表包括所有的消息
 - T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中

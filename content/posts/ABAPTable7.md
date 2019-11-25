@@ -16,6 +16,14 @@ tags:
 
 ## 类声明和实现
 
+l 类具有属性和方法
+
+l  对象是类的实例
+
+l  对象是通过指针变量来访问的
+
+l  对象有独立的 **interface**
+
 ```js
 *Class Declarations
 CLASS application DEFINITION.

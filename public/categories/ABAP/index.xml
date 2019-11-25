@@ -6,10 +6,19 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> CS12 ALV的增强 </title>
+      <link>https://coldinfire.github.io/2019/BOM_Enhance/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/BOM_Enhance/</guid>
+      <description>Tcode：CS12的执行程序查看 可以看到，最终执行的程序是RCS12001，因此可以在该程序中查找增强。 执行的程序： RCS11001 Display BOM Level by Level RCS12001 Display Multilevel BOM RCS13001</description>
+    </item>
     
     <item>
       <title>SAP JCO连接</title>
@@ -57,12 +66,30 @@
     </item>
     
     <item>
+      <title>SQVI-创建一张简易的报表</title>
+      <link>https://coldinfire.github.io/2019/SAP_SQVI/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_SQVI/</guid>
+      <description>SAP提供的SQVI功能，用以快速自定义一个自己需要的报表。 创建，并选择数据源为：表连接，然后插入需要查数的表，接着将表的主键进行连接 完成所</description>
+    </item>
+    
+    <item>
       <title>生产订单标准BAPI</title>
       <link>https://coldinfire.github.io/2019/SAP_PO_BAPI/</link>
       <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAP_PO_BAPI/</guid>
       <description>创建PO *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Form FRM_ORDER_CREATE *&amp;amp;---------------------------------------------------------------------* *----------------------------------------------------------------------* &amp;quot;--&amp;gt; p1 text &amp;quot;&amp;lt;-- p2 text *----------------------------------------------------------------------* FORM frm_order_create . DATA: ls_upload LIKE LINE OF gt_upload, ls_style TYPE lvc_s_styl, lv_index LIKE sy-tabix. DATA: ls_order TYPE bapi_pp_order_create, ls_return TYPE bapiret2, lv_ordnum TYPE bapi_order_key-order_number, lv_ordtyp TYPE bapi_order_copy-order_type. LOOP AT gt_upload INTO ls_upload WHERE ztype EQ space AND box EQ &#39;X&#39;. lv_index = sy-tabix. CLEAR: ls_order, ls_return, lv_ordnum, lv_ordtyp, ls_style. IF ls_upload-externind EQ</description>
+    </item>
+    
+    <item>
+      <title>获取工单的Work Center</title>
+      <link>https://coldinfire.github.io/2019/SAP_WorkCenter/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_WorkCenter/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -201,15 +228,6 @@
     </item>
     
     <item>
-      <title> ALV tree显示BOM结构 </title>
-      <link>https://coldinfire.github.io/2018/BOM_Tree/</link>
-      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/BOM_Tree/</guid>
-      <description>代码 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo. TABLES: stpox. INCLUDE &amp;lt;icon&amp;gt;. CLASS: cl_gui_column_tree DEFINITION LOAD, cl_gui_cfw DEFINITION LOAD . DATA: tree1 TYPE REF TO cl_gui_alv_tree , mr_toolbar TYPE REF TO cl_gui_toolbar . DATA: gs_stpox TYPE stpox, gt_stpox TYPE stpox OCCURS 0, gt_fieldcatalog TYPE lvc_t_fcat, gt_item_layout TYPE lvc_t_laci, gs_item_layout TYPE lvc_s_laci, okcode LIKE sy-ucomm . TYPES: BEGIN OF gs_f. INCLUDE STRUCTURE stpox. TYPES: node_key TYPE lvc_nkey, END OF gs_f. DATA: gs_xstpox TYPE</description>
-    </item>
-    
-    <item>
       <title>BOM展开</title>
       <link>https://coldinfire.github.io/2018/BOM_USE/</link>
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
@@ -243,6 +261,15 @@
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynpro1/</guid>
       <description>简介</description>
+    </item>
+    
+    <item>
+      <title> ALV tree显示BOM结构 </title>
+      <link>https://coldinfire.github.io/2018/BOM_Tree/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/BOM_Tree/</guid>
+      <description>代码 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo. TABLES: stpox. INCLUDE &amp;lt;icon&amp;gt;. CLASS: cl_gui_column_tree DEFINITION LOAD, cl_gui_cfw DEFINITION LOAD . DATA: tree1 TYPE REF TO cl_gui_alv_tree , mr_toolbar TYPE REF TO cl_gui_toolbar . DATA: gs_stpox TYPE stpox, gt_stpox TYPE stpox OCCURS 0, gt_fieldcatalog TYPE lvc_t_fcat, gt_item_layout TYPE lvc_t_laci, gs_item_layout TYPE lvc_s_laci, okcode LIKE sy-ucomm . TYPES: BEGIN OF gs_f. INCLUDE STRUCTURE stpox. TYPES: node_key TYPE lvc_nkey, END OF gs_f. DATA: gs_xstpox TYPE</description>
     </item>
     
     <item>
@@ -390,30 +417,30 @@
     </item>
     
     <item>
-      <title>ALV控制单元格不可编辑</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</link>
-      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</guid>
-      <description>如果设置了可编辑的字段那么 alv 便会添加相应的编辑按钮。如果不需要这些按钮那么可以按上面说过的方法排除他们。 如果已经把整列设为可编辑，而只想让这</description>
-    </item>
-    
-    <item>
-      <title>常用Tcode</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Tcode/</link>
-      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Tcode/</guid>
-      <description>TCode SPRO : 显示后勤 ST05 : Trace Sql 路径跟踪 ST22：ABAP Runtime Error SE19 : BADI修改和创建 SE24 : 创建、修改、查询类的开发工具 SE21 : 创建、修改、查询包的开发工具 ST22</description>
-    </item>
-    
-    <item>
       <title>物料单位转换</title>
       <link>https://coldinfire.github.io/2018/ABAP_CONVERT_MATERIAL_UNIT/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_CONVERT_MATERIAL_UNIT/</guid>
       <description>MARM物料单位转换 call function &#39;MD_CONVERT_MATERIAL_UNIT&#39; exporting i_matnr = matnr i_in_me = in_me i_out_me = out_me i_menge = in_menge importing e_menge = out_menge exceptions error_in_application = 1 error = 2 others = 3 . if sy-subrc &amp;lt;&amp;gt; 0. MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4. endif. 取字段简短描述 DATA inttab LIKE STANDARD TABLE</description>
+    </item>
+    
+    <item>
+      <title>常用Tcode</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Tcode/</link>
+      <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Tcode/</guid>
+      <description>TCode SPRO : 显示后勤 ST05 : Trace Sql 路径跟踪 ST22：ABAP Runtime Error SE19 : BADI修改和创建 SE24 : 创建、修改、查询类的开发工具 SE21 : 创建、修改、查询包的开发工具 ST22</description>
+    </item>
+    
+    <item>
+      <title>ALV控制单元格不可编辑</title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</link>
+      <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</guid>
+      <description>如果设置了可编辑的字段那么 alv 便会添加相应的编辑按钮。如果不需要这些按钮那么可以按上面说过的方法排除他们。 如果已经把整列设为可编辑，而只想让这</description>
     </item>
     
     <item>
@@ -440,7 +467,7 @@
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable7/</guid>
-      <description>类声明和实现 *Class Declarations CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &#39;This is my first ABAP Object.&#39;. ENDCLASS. *Class Implementation CLASS application IMPLEMENTATION. METHOD show_text. WRITE text. ENDMETHOD. ENDCLASS. PUBLIC SECTION：可被所有对象使用 PROTECTED SECTION：只能被类</description>
+      <description>类声明和实现 l 类具有属性和方法 l 对象是类的实例 l 对象是通过指针变量来访问的 l 对象有独立的 interface *Class Declarations CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &#39;This is my first ABAP Object.&#39;. ENDCLASS. *Class Implementation</description>
     </item>
     
     <item>
@@ -476,7 +503,7 @@
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable4/</guid>
-      <description>ALV常使用的BAPI 在ALV开发中有两个重要的对象：LAYOUT和FIELDCAT,它们同属于类型池SLIS。 LAYOUT主要用于设置AL</description>
+      <description>ALV常使用的FM LVC_FIELDCATALOG_MERGE：根据内表结构返回FIELDCAT字段结构信息. REUSE_ALV_GRID_</description>
     </item>
     
     <item>
@@ -512,7 +539,7 @@
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable1/</guid>
-      <description>执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST</description>
+      <description>报表格式 程序说明：包括程序名称，实现的业务功能等信息 数据定义 Include内容 定义选择屏幕 执行程序业务代码 创建TCode：SE93 执行程序的</description>
     </item>
     
     <item>
@@ -656,7 +683,7 @@
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis3/</guid>
-      <description>内表定义和使用 内表定义 工作区域：工作区域可以存放多个变量数据。 ​ 直接定义：DATA: BEGIN OF &amp;lt;str&amp;gt; END OF &amp;lt;str&amp;gt;. ​ 参照DB或则结构：DATA &amp;lt;wa&amp;gt; TYPE &amp;lt;dbtab&amp;gt;|&amp;lt;str&amp;gt;. ​ 参照内表</description>
+      <description>内表定义和使用 内表定义 工作区域：工作区域可以存放多个变量数据,相当于一维数组。 通过Type声明自定义工作区：需要使用Data进行赋值 TYPES: BEGIN OF str_name.</description>
     </item>
     
     <item>
@@ -675,6 +702,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis1/</guid>
       <description>ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :</description>
+    </item>
+    
+    <item>
+      <title>ALV添加复选框，并添加全选，不全选功能</title>
+      <link>https://coldinfire.github.io/1/ABAP_ALV_CHECKBOX/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/1/ABAP_ALV_CHECKBOX/</guid>
+      <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT添加并定义CheckBox &amp;quot;$. Region ALV_Data TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &#39;CHECKBOX&#39;. alv_fieldcat-scrtext_m = &#39;Choose&#39;. alv_fieldcat-checkbox =</description>
     </item>
     
   </channel>

@@ -80,6 +80,9 @@ FORM frm_user_command USING r_ucomm LIKE sy-ucomm
     SUBMIT z_pro AND RETURN WITH p_param1 = it_table-param1
 							WITH p_param2 = it_table-param2.
     "如果是TCode - CALL Transation
+	"传入输入参数值并调用其他TCode
+ 	SET PARAMETER ID 'ANR' FIELD ls_upload-aufnr.
+  	CALL TRANSACTION 'CO03' AND SKIP FIRST SCREEN."跳过第一屏屏幕
    ENDIF.
 
 ENDFORM.

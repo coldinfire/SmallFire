@@ -30,9 +30,35 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/BOM_Enhance/</loc>
+      
+      <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
-      <lastmod>2019-11-13T00:00:00+00:00</lastmod>
+      <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/BOM/</loc>
+      
+      <lastmod>2019-11-19T00:00:00+00:00</lastmod>
       
       
       
@@ -44,7 +70,43 @@
     <url>
       <loc>https://coldinfire.github.io/categories/</loc>
       
-      <lastmod>2019-11-13T00:00:00+00:00</lastmod>
+      <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2019-11-19T00:00:00+00:00</lastmod>
       
       
       
@@ -66,18 +128,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2019-11-13T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2019/SAP_JCO/</loc>
       
       <lastmod>2019-11-13T00:00:00+00:00</lastmod>
@@ -87,30 +137,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2019-11-13T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
-      
-      <lastmod>2019-11-13T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -220,7 +246,59 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/SAPbusiness/</loc>
+      
+      <lastmod>2019-08-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAP_SQVI/</loc>
+      
+      <lastmod>2019-08-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/sapbusiness/</loc>
+      
+      <lastmod>2019-08-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/SAP_PO_BAPI/</loc>
+      
+      <lastmod>2019-08-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAP_WorkCenter/</loc>
       
       <lastmod>2019-08-28T00:00:00+00:00</lastmod>
       
@@ -337,18 +415,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/BOM/</loc>
-      
-      <lastmod>2019-04-25T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -916,20 +982,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/BOM_Tree/</loc>
-      
-      <lastmod>2018-11-25T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2018/BOM_USE/</loc>
       
       <lastmod>2018-11-25T00:00:00+00:00</lastmod>
@@ -1017,6 +1069,20 @@
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/BOM_Tree/</loc>
+      
+      <lastmod>2018-10-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>
@@ -1111,18 +1177,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/abapbusiness/</loc>
-      
-      <lastmod>2018-09-22T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -1342,7 +1396,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_CONVERT_MATERIAL_UNIT/</loc>
       
       <lastmod>2018-08-09T00:00:00+00:00</lastmod>
       
@@ -1358,7 +1412,7 @@
     <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Tcode/</loc>
       
-      <lastmod>2018-08-09T00:00:00+00:00</lastmod>
+      <lastmod>2018-08-05T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1370,9 +1424,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_CONVERT_MATERIAL_UNIT/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</loc>
       
-      <lastmod>2018-08-09T00:00:00+00:00</lastmod>
+      <lastmod>2018-08-03T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1615,18 +1669,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/%E6%8A%A5%E8%A1%A8%E5%BC%80%E5%8F%91/</loc>
-      
-      <lastmod>2018-06-14T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -2131,6 +2173,18 @@
       <loc>https://coldinfire.github.io/2017/CSS/</loc>
       
       <lastmod>2017-09-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/1/ABAP_ALV_CHECKBOX/</loc>
       
       
       <changefreq>monthly</changefreq>

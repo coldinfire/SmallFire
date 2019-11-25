@@ -65,22 +65,21 @@ tags:
 
   - CALL TRANSACTION
 
-    
-  
     ```JS
-    CALL TRANSACTION <TCode> USING <BDCDATA>
+  CALL TRANSACTION <TCode> USING <BDCDATA>
     				         MODE <CTUMODE>
     				         UPDATE <CPUDATE>
     				         MESSAGES INTO <MESSTAB>.
                     
     TCode:相应的事务代码
     BDCDATA:需要的BDC传入数据
-    MODE:A-Show all dynpros
-    	 E-Show dynpro on error only
-         N-Do not display dynpro
-    UPDATE:S-Synchronously
-    	   A-Asynchronously
-    	   L-Local
+    MODE:A-(默认)显示所有输入屏幕，如果在 bdc_tab 中包含该屏幕的功能码，则会出现小窗口显示这个功能码。
+    	 E-只有在出现错误时才显示屏幕，用户可以修正数据，修正后程序可以继续处理。
+         N-不显示屏幕的静默模式。如果到达被调用事务的断点，则系统处理终止。
+         P-不显示屏幕的调试模式。如果到达被调用事务的断点，则系统自动转到ABAP调试器，主要用于调试过程。
+    UPDATE:S-Synchronously (这种方式比较适 合于数据一致性要求比较高，多个不同事务码的连续处理。)
+    	   A-Asynchronously（这种 方式比较适合于用一个事务码大量更新指定数据，比如维护主数据等。）
+    	   L-Local（数据更新在主程序所在的进程中完成，主程序必定等到被调用事务完成才继续执行。）
     MESSAGE:用于存放消息
     ```
   
@@ -219,6 +218,15 @@ DATA:GS_CTU_PARAMS TYPE CTU_PARAMS. 调事务代码时带的一些参数，是�
  						OPTIONS FROM gs_ctu_params
                         MESSAGE INTO MESSTAB.
 ```
+
+- OPTIONS FROM [opt]：参考ABAP字典结构类型CTU_PARAMS的结构数据对象来传递参数。
+  - DISMODE：显示模式，其值对应于前面介绍的 MODE 参数；
+  - UPDMODE：更新模式，其值对应于前面介绍的 UPDATE 参数；
+  - CATTMODE：CATT 模式，有三个值：""、非 CATT 模式；"N"、CATT 模式但不对每个屏幕进行控制；"A"、CATT 模式并对每个屏幕进行控制；
+  - DEFSIZE：是否使用屏幕的定义大小，有两个值：""、不使用屏幕定义大小，即显示给用户的屏幕跟普通运行时一样，根据用户窗口大小而自动扩展到全屏；"X"、使用屏幕定义大小，即只用源程序中固定的屏幕大小，无论用户窗口如何；
+  - RACOMMIT： 英文原文（CALL TRANSACTION USING... is not completed by COMMIT）
+  - NOBINPT：调用事务码时，系统字段 sy-binpt 的值，有两个值：""、在被调用事务执行时，系统字段 sy-binpt 的值为"X"；："X"、在被调用事务执行时，系统字段 sy-binpt 的值为" "；
+  - NOBIEND：调用事务码完成后，系统字段 sy-binpt 的值，有两个值：""、在被调用事务执行后，系统字段 sy-binpt 的值为"X"；："X"、在被调用事务执行后，系统字段 sy-binpt 的值为" "。
 
 (2)执行类的录屏和上面同样的方法生成程序。然后选择需要的代码段。不需要的可以注释，或者删除。
 

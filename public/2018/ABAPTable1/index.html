@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="报表开发&lt;概述&gt;"/>
-<meta name="twitter:description" content="执行程序的使用范围，报表事件 LOAD-OF-PROGRAM. INITIALIZATION. （Before display the selection screen） AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值） AT SELECTION-SCREEN ON VALUE-REQUEST"/>
+<meta name="twitter:description" content="报表格式 程序说明：包括程序名称，实现的业务功能等信息 数据定义 Include内容 定义选择屏幕 执行程序业务代码 创建TCode：SE93 执行程序的"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  1272 ,
+  "wordcount":  1382 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAPTable1\/",
   "datePublished": "2018-06-18T00:00:00\x2b00:00",
   "dateModified": "2018-06-18T00:00:00\x2b00:00",
@@ -173,20 +173,33 @@
 
           
 
+<h3 id="报表格式">报表格式</h3>
+
+<ul>
+<li>程序说明：包括程序名称，实现的业务功能等信息</li>
+<li>数据定义</li>
+<li>Include内容</li>
+<li>定义选择屏幕</li>
+<li>执行程序业务代码</li>
+<li>创建TCode：SE93</li>
+</ul>
+
 <h3 id="执行程序的使用范围-报表事件">执行程序的使用范围，报表事件</h3>
 
 <ul>
 <li><p>LOAD-OF-PROGRAM.</p></li>
 
-<li><p>INITIALIZATION.          （Before display the selection screen）</p>
+<li><p>INITIALIZATION. //初始化事件，用来填充选择屏幕默认值</p>
 
 <ul>
-<li><p>AT-SELECTION SCREEN ON fiedl.（在PAI事件结束后执行，进行校验和检查输入值）</p></li>
-
-<li><p>AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX.</p></li>
+<li>AT-SELECTION SCREEN ON fiedl.  //在PAI事件结束后执行，进行校验和检查输入值</li>
 </ul></li>
 
-<li><p>AT SELECTION-SCREEN. //After enter the option data check</p>
+<li><p>AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX. //选择屏幕字段选择功能扩展</p></li>
+
+<li><p>AT SELECTION-SCREEN OUTPUT.   //（PBO）显示选择屏幕之前触发</p></li>
+
+<li><p>AT SELECTION-SCREEN.   // (PAI)选择屏幕中执行某些功能后触发</p>
 
 <ul>
 <li>​   PERFORM check_input.</li>
@@ -275,7 +288,7 @@ MODIFY语句把更改后的值传回内表。也就是说，结构是内表里�
 </ul>
 
 <pre><code class="language-JS">  &quot;READ and MODIFY
-  READ TABLE t_mara ASSIGNING &lt;fs_mara&gt; WITH KEY matnr = 'sapclub'.
+  READ TABLE t_mara ASSIGNING &lt;fs_mara&gt; WITH KEY matnr = 'matnr'
   IF sy-subrc EQ 0.
     &lt;fs_mara&gt;-ersda = sy-datum.
   ENDIF.
@@ -316,7 +329,7 @@ MODIFY语句把更改后的值传回内表。也就是说，结构是内表里�
 <pre><code class="language-JS">  DATA:field_name type char20.
   FIELD-SYMBOLS:&lt;lv_field&gt; type any.
   LOOP AT lt ASSIGNING &lt;fs&gt;.
-    ASSIGN COMPONENT field_name OF STRUCTURE &lt;fs&gt; TO &lt;lv_field&gt;.
+    ASSIGN COMPONENT &lt;field_name&gt; OF STRUCTURE &lt;fs&gt; TO &lt;lv_field&gt;.
     CHECK &lt;lv_field&gt; IS ASSIGNED.
   ENDLOOP.
 </code></pre>
@@ -372,7 +385,7 @@ endloop.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1272</span>
+                   <span>1382</span>
             </p>
             
             <p class="copyright-item">

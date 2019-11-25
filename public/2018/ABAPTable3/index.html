@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  1121 ,
+  "wordcount":  1133 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAPTable3\/",
   "datePublished": "2018-06-23T00:00:00\x2b00:00",
   "dateModified": "2018-06-23T00:00:00\x2b00:00",
@@ -243,15 +243,17 @@ FOR ALLENTRIES:
 
 <h3 id="事务处理">【事务处理】</h3>
 
-<pre><code class="language-JS">CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+<pre><code class="language-JS">&quot;Commit
+CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
   EXPORTING
      wait = 'X'.
   IMPORTING
      return = commback.
+&quot;Rollback     
 CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'
   IMPORTING
      return = commback.
-
+&quot;直接使用
 COMMIT WORK.         异步更新。
 COMMIT WORK AND WAIT.同步跟新，执行结果可通过sy-subrc判断是否提交成功。
 ROLLBACK WORK.
@@ -281,7 +283,7 @@ ROLLBACK WORK.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1121</span>
+                   <span>1133</span>
             </p>
             
             <p class="copyright-item">
