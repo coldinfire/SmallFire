@@ -1,6 +1,6 @@
 ---
 title: "ALV添加复选框，并添加全选，不全选功能"
-date: 2018-07-016
+date: 2018-07-16
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -37,5 +37,34 @@ DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE,
     alv_fieldcat-edit      = 'X'.
     alv_fieldcat-just      = 'C'.
     APPEND alv_fieldcat.
+```
+
+#### 自定义按钮
+
+```JS
+FORM f_alv_user_command USING r_ucomm LIKE sy-ucomm
+                              rs_selfield TYPE slis_selfield.
+  CASE r_ucomm.
+     WHEN '&SALL' OR '&UALL'.
+      PERFORM f_select USING r_ucomm.
+  ENDCASE.
+ENDFORM.
+      
+FORM f_select USING cmd TYPE sy-ucomm.
+  DATA: flag TYPE c.
+  CASE cmd.
+    WHEN '&SALL'.
+      flag = 'X'.
+    WHEN '&UALL'.
+      flag = ''.
+    WHEN OTHERS.
+      RETURN.
+  ENDCASE.
+
+  LOOP AT gt_print.
+    gt_print-CHECKBOX = flag.
+    MODIFY gt_print INDEX sy-tabix.
+  ENDLOOP.
+ENDFORM.                    "f_select
 ```
 

@@ -66,7 +66,63 @@ endform.                    "frm_user_command
 
 - TR_F4_HELP ：简单实现 Search Help ，数据来源于内表
 
+```js
+DATA:BEGIN OF it_matf4 OCCURS 0 ,
+      zucode LIKE zecs_mat-zimport_code,
+      g_code LIKE zecs_mat-g_code,
+      g_name LIKE zecs_mat-g_name,
+      zstate LIKE zecs_hd-zstate,
+      zby LIKE zecs_hd-zby,
+     END OF it_matf4.
+     
+DATA: it_return LIKE ddshretval OCCURS 0 WITH HEADER LINE.
 
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR S_TIMSTP-LOW.
+  SELECT *
+    INTO CORRESPONDING FIELDS OF TABLE IT_MATF4
+    FROM <Table>
+    WHERE <Var> = <Option>.
+    
+  CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'   "F4输出函数
+    EXPORTING
+*   DDIC_STRUCTURE         = ' '
+     RETFIELD               = 'ZUCODE'   "field of internal table
+     VALUE_ORG              = 'S'
+     CALLBACK_PROGRAM = SY-REPID
+     CALLBACK_FORM = 'FRM_F4CALLBACK'
+    TABLES
+      VALUE_TAB              = IT_MATF4
+*   FIELD_TAB              =
+     RETURN_TAB             = IT_RETURN
+            .
+  WRITE IT_RETURN-FIELDVAL TO S_TIMSTP-LOW.
+  REFRESH IT_MATF4.
+  
+*&---------------------------------------------------------------------*
+*&      Form  FRM_F4CALLBACK
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*      -->RECORD_TAB   text
+*      -->SHLP         text
+*      -->CALLCONTROL  text
+*----------------------------------------------------------------------*
+FORM frm_f4callback TABLES record_tab 
+					STRUCTURE seahlpres
+					CHANGING shlp TYPE shlp_descr
+      				  callcontrol LIKE ddshf4ctrl.
+  DATA: wa_selopt TYPE ddshselopt.
+  DATA:lt_value TYPE TABLE OF ddshfprop,
+        ls_value TYPE ddshfprop.
+  lt_value[] = shlp-fieldprop[].
+  READ TABLE lt_value INTO ls_value WITH KEY fieldname = 'F0004'.
+  IF sy-subrc = 0.
+    ls_value-defaultval = '''4'''.
+    MODIFY lt_value FROM ls_value INDEX sy-tabix.
+  ENDIF.
+  shlp-fieldprop[] = lt_value[].
+ENDFORM.                    "FRM_F4CALLBACK
+```
 
 ## 双击字段功能
 

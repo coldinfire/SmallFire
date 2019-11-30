@@ -390,12 +390,12 @@
     </item>
     
     <item>
-      <title>Smartforms</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Smartforms/</link>
+      <title>Smartforms Barcode</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartform_Barcode/</link>
       <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
-      <description>查找Smartforms TCode：NACE可以查找 Table：TNAPR根据smartform名字查找对应的smartform程序 Smar</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartform_Barcode/</guid>
+      <description>Smartforms 打印条码 传统的：将数据发送到打印机上，由打印机将数据转换成 条码图案，然后进行打印。 ​ 在 SAP Smartforms 里实现条码打印。在客户机里安装 www.tec-it.com 里的插件 1.定义</description>
     </item>
     
     <item>
@@ -450,6 +450,33 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_Package/</guid>
       <description>​ 创建 ABAP 程序的时候都要选择一个 Package，当后续需要修改程序所属的Package时可以使用以下方法： 通过SE38或则SE80打开对应的程</description>
+    </item>
+    
+    <item>
+      <title>Smartforms常用工具</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</link>
+      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</guid>
+      <description>Table和template区别： 1、table 行为动态，数据输出时会根据列宽自动换行，可以固定列宽， 但是默认情况下控制不了行高，如果要想 template</description>
+    </item>
+    
+    <item>
+      <title>Smartforms</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartforms/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
+      <description>查找Smartforms TCode：NACE可以查找 Table：TNAPR根据smartform名字查找对应的smartform程序 创建 TCode:smartforms S</description>
+    </item>
+    
+    <item>
+      <title>ALV添加复选框，并添加全选，不全选功能</title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_CHECKBOX/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_CHECKBOX/</guid>
+      <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT添加并定义CheckBox &amp;quot;$. Region ALV_Data TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &#39;CHECKBOX&#39;. alv_fieldcat-scrtext_m = &#39;Choose&#39;. alv_fieldcat-checkbox =</description>
     </item>
     
     <item>
@@ -702,15 +729,6 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis1/</guid>
       <description>ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :</description>
-    </item>
-    
-    <item>
-      <title>ALV添加复选框，并添加全选，不全选功能</title>
-      <link>https://coldinfire.github.io/1/ABAP_ALV_CHECKBOX/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/1/ABAP_ALV_CHECKBOX/</guid>
-      <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT添加并定义CheckBox &amp;quot;$. Region ALV_Data TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &#39;CHECKBOX&#39;. alv_fieldcat-scrtext_m = &#39;Choose&#39;. alv_fieldcat-checkbox =</description>
     </item>
     
   </channel>

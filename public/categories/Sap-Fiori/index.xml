@@ -6,10 +6,19 @@
     <description>Recent content in Sap Fiori on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 22 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/Sap-Fiori/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> SAP HANA</title>
+      <link>https://coldinfire.github.io/2019/SAP_HANA_APP1/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_HANA_APP1/</guid>
+      <description>组成结构 ​ Presentation Layer ：SAPGUI -&amp;gt; Browser(BSP/Webdynpro) -&amp;gt; SAP Fiori (UX) -&amp;gt; Web application ​ Application layer : NW Foundation (NW7.4-&amp;gt;NW7.53) ​ DB layer : HANA DB* (Code-to-data) ​ OData : CDS(Extract the data) - EclipseADT CDS Create @OData.publish: ture (Generate OData) Creates an ICF : /n/iwfnd/maint_service Fiori - WebIDE</description>
+    </item>
     
     <item>
       <title> Fiori简介 </title>
