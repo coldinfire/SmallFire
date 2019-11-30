@@ -453,6 +453,15 @@
     </item>
     
     <item>
+      <title>Smartforms调用模板</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</guid>
+      <description>程序中使用Smartform模板 &amp;quot;SMARTFORMS变量定义 DATA: lv_fm_name type rs38l_fnam, &amp;quot;Function Name ls_control type ssfctrlop, &amp;quot;Control structure ls_option type ssfcompop, &amp;quot;Smart Composer (transfer) options ls_ssfcrescl type ssfcrescl. &amp;quot;Return value at end of form printing &amp;quot;</description>
+    </item>
+    
+    <item>
       <title>Smartforms常用工具</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</link>
       <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
