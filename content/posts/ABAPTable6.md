@@ -35,10 +35,9 @@ tags:
 
 - CL_GUI_ALV_GRID：ALV控制类
 - CL_GUI_CONTAINER：容器接口
-
 - LVC_T_FCAT：ALV显示参照字段表
-
 - LVC_S_FCAT：ALV显示参照字段结构
+- LVC_T_SORT: 排序条件字段
 
 ***定义***
 
@@ -58,7 +57,9 @@ tags:
 
 ------
 
-​	先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER容器实例,最后以此容器实例来创建 CL_GUI_ALV_GRID实例。
+​	先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER容器实例,最后以此容器实例来创建 CL_GUI_ALV_GRID实例。首先要在程序内创建一个屏幕，并在程序中定义一个Customer Control.
+
+![屏幕定义](/images/ABAP/OOALV2.png)
 
 ```JS
 DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, "控制容器类
@@ -67,14 +68,15 @@ DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, "控制容器类
 IF obj_wcl_alv IS INITIAL.
  CREATE OBJECT obj_wcl_container
 	EXPORTING
-      container_name  =  'OBJ_WCL_CONTAINER'. "自定义控件名称
+      container_name  =  'CONTAINER'. "自定义控件名称
 	EXCEPTONS
-      cntl_error      = 1.
-	  ...
+      cntl_error      = 1
+	  others          = 6.
   IF sy-subrc <> 0.
-	MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+	MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno 
+		WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   ENEIF.
-”创建GRID实例
+”创建ALV GRID实例
  CREATE OBJECT obj_wcl_alv
     EXPORTING
       i_parent  = obj_wcl_container.
@@ -90,7 +92,7 @@ IF obj_wcl_alv IS INITIAL.
     ENDIF.
 ```
 
-**创建多个ALV：**
+**一个屏幕创建多个ALV：**
 
 ```JS
 DATA:G_SPLITTER TYPE REF TO CL_GUI_SPLITTER_CONTAINER,
@@ -98,7 +100,7 @@ DATA:G_SPLITTER TYPE REF TO CL_GUI_SPLITTER_CONTAINER,
      G_CONTAINER_2000R TYPE REF TO CL_GUI_CONTAINER.
      
 IF g_splitter IS INITIAL.
-    CREATE OBJECT g_splitter  “定义有两个ALV
+    CREATE OBJECT g_splitter  “定义一个屏幕包含两个ALV
       EXPORTING
         parent  = cl_gui_container=>screen0
         rows    = 2
@@ -116,6 +118,160 @@ IF g_splitter IS INITIAL.
 ```
 
 
+
+### FieldCat
+
+------
+
+设置显示数据的字段目录：
+
+- 宏定义
+
+```JS
+DEFINE M_FIELDCAT.
+  CLEAR: &1.
+  &1-FIELDNAME = &2 .
+  &1-COLTEXT   = &3 .
+  &1-CHECKBOX  = &4 .
+  &1-REPREP    = &5 .
+  &1-EDIT      = &6 .
+  &1-OUTPUTLEN = &7 .
+  &1-DECIMALS  = &8 .
+  APPEND &1.
+END-OF-DEFINITION.
+DATA: alv1_fieldcat type standard table of lvc_s_fcat with header line.
+M_FIELDCAT:
+  alv1_fieldcat  'DATUM'         'Plan.Date'          ''      ''     ''    ''          '',
+  "alv1_fieldcat  'UZEIT'        'Plan.Time'          ''      ''     ''    ''          '',
+  alv1_fieldcat  'STATUS'        'Status'             ''      ''     ''    ''          ''.
+    
+```
+
+- 通过调用BAPI完成
+
+```JS
+FORM prepare_field_catalog CHANGING pt_fieldcat TYPE lvc_t_fcat .
+  DATA ls_fcat type lvc_s_fcat . 
+  CALL FUNCTION 'LVC_FIELDCATALOG_MERGE' 
+    EXPORTING
+      i_structure_name = 'SFLIGHT' 
+	CHANGING
+      ct_fieldcat = pt_fieldcat[] 
+	EXCEPTIONS
+	  inconsistent_interface = 1 
+	  program_error = 2 
+	  OTHERS = 3. 
+	IF sy-subrc <> 0. 
+	  Exception handling
+	ENDIF. 
+
+  LOOP AT pt_fieldcat INTO ls_fcat . 
+	CASE pt_fieldcat-fieldname . 
+	  WHEN 'CARRID' . 
+		ls_fcat-outpulen = '10' . 
+		ls_fcat-coltext = 'Airline Carrier ID' . 
+		ls_fcat-edit = 'X'.
+	    MODIFY pt_fieldcat FROM ls_fcat . 
+	  WHEN 'PAYMENTSUM' . 
+		ls_fcat-no_out = 'X' . 
+		MODIFY pt_fieldcat FROM ls_fcat . 
+	ENDCASE .
+  ENDLOOP .
+ENDFORM .
+```
+
+### Layout
+
+------
+
+设置布局：
+
+```JS
+FORM prepare_layout CHANGING ps_layout TYPElvc_s_layo.     
+	ps_layout-zebra = 'X' .    
+	ps_layout-grid_title = 'Flights' .    
+    ps_layout-smalltitle = 'X' .
+ENDFORM. " prepare_layout
+```
+
+排除不必要的按钮：
+
+- 自定义按钮
+
+  ```JS
+  DATA: lt_excl TYPE slis_t_extab.
+    APPEND 'CLOSE' TO lt_excl.
+    APPEND 'SALL.PUL' TO lt_excl.
+    APPEND 'UALL.PUL' TO lt_excl.
+  SET PF-STATUS 'STATUS' EXCLUDING  lt_excl .
+  SET TITLEBAR 'TITLE'.
+  ```
+
+- 系统标准按钮
+
+  ```JS
+  FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
+    DATA ls_exclude TYPE ui_func.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_maximum .      
+      APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_minimum .    
+      APPEND ls_exclude TO pt_exclude.     
+    ls_exclude = cl_gui_alv_grid=>mc_fc_subtot .    
+      APPEND ls_exclude TO pt_exclude.     
+    ls_exclude = cl_gui_alv_grid=>mc_fc_sum .      
+      APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_average .     
+   	APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_mb_sum .     
+   	APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_mb_subtot .
+    	APPEND ls_exclude TO pt_exclude.
+  ENDFORM .
+  ```
+
+### ALV显示
+
+------
+
+CL_GUI_ALV_GRID重要方法
+
+```JS
+-显示ALV 
+ CALL METHOD obj_wcl_alv->set_table_for_first_display 
+    EXPORTING 
+      “i_structure_name             = 'XXXX'      :参照表结构字段显示
+      is_variant                    = ls_variant   :指定布局变式
+      is_layout                     = ls_layout    :布局设置
+      i_save                        = 'A'          :保存表格布局
+      it_toolbar_excluding          = lt_exclude   :排除的按钮
+    CHANGING 
+      it_outtab                     = gt_list[]    :需要显示的内表数据
+      it_fieldcatalog               = lt_fieldcat  :结构字段
+    EXCEPTIONS 
+      invalid_parameter_combination = 1 
+      program_error                 = 2 
+      too_many_lines                = 3 
+      OTHERS                        = 4.
+```
+
+**刷新：REFRESH_TABLE_DISPLAY.**
+
+```JS
+CALL METHODgr_alvgrid->refresh_table_display 
+  "EXPORTING
+  	"IS_STABLE = 
+	"I_SOFT_REFRESH = 'X'
+  EXCEPTIONS
+	finished = 1
+	OTHERS = 2 .
+IF sy-subrc <> 0.
+	"Exception handling
+ENDIF 
+
+IS_STABLE：有行列两个参数，如果设置了相应的参数，对应的行或列属性就不会滚动。刷新的稳定性，就是滚动条保持不动
+I_SOFT_REFRESH:  软刷新，为了显示数据而设置的过滤都将保持不变。临时给ALV创建的合计，排序，等保持不变
+
+```
 
 ### 给ALV对象注册事件
 
@@ -227,159 +383,61 @@ CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
 按回车触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.
 单元格失去焦点触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.
 ```
-### ALV显示
+#### 第一次显示后修改Field Catalog或则Layout
 
-------
+- Field Catalog
+  - get_frontend_fieldcatalog
+  - set_frontend_fieldcatalog
+- Layout
+  - get_frontend_layout
+  - set_frontend_layout
 
-CL_GUI_ALV_GRID重要方法
-
-```JS
--显示ALV 
- CALL METHOD obj_wcl_alv->set_table_for_first_display 
-    EXPORTING 
-      “i_structure_name              = 'SPFLI'      :参照表结构字段显示
-      is_variant                    = ls_variant   :指定布局变式
-      is_layout                     = ls_layout    :布局设置
-      i_save                        = 'A'          :保存表格布局
-      it_toolbar_excluding          = lt_exclude   :排除的按钮
-    CHANGING 
-      it_outtab                     = gt_list[]    :需要显示的内表数据
-      it_fieldcatalog               = lt_fieldcat  :结构字段
-    EXCEPTIONS 
-      invalid_parameter_combination = 1 
-      program_error                 = 2 
-      too_many_lines                = 3 
-      OTHERS                        = 4.
-
-  方法 -> REFRESH_TABLE_DISPLAY.
-
-```
-
-**刷新：REFRESH_TABLE_DISPLAY.**
-
-```JS
-CALL METHODgr_alvgrid->refresh_table_display *
+```js
+DATA ls_fcat TYPE lvc_s_fcat .
+DATA lt_fcat TYPE lvc_t_fcat .
+DATA ls_layout TYPE lvc_s_layo .
+"Field Cattalog
+CALL METHOD gr_alvgrid->get_frontend_fieldcatalog
+  IMPORTING
+    et_fieldcatalog = lt_fcat[] .
+LOOP AT lt_fcat INTO ls_fcat .
+  IF ls_fcat-fieldname = 'Field_name' .
+    ls_fcat-no_out = space .
+    MODIFY lt_fcat FROM ls_fcat .
+  ENDIF .
+ENDLOOP .
+CALL METHOD gr_alvgrid->set_frontend_fieldcatalog
   EXPORTING
-  	IS_STABLE = 
-	I_SOFT_REFRESH = 'X'
-  EXCEPTIONS
-	finished = 1
-	OTHERS = 2 .
-IF sy-subrc <> 0.
-	异常处理
-ENDIF 
-
-IS_STABLE：有行列两个参数，如果设置了相应的参数，回应的行或列舒心就不会滚动。刷新的稳定性，就是滚动条保持不动
-I_SOFT_REFRESH:  软刷新，为了显示数据而设置的过滤都将保持不变。临时给ALV创建的合计，排序，等保持不变
+    it_fieldcatalog = lt_fcat[] .
+"Layout
+CALL METHOD gr_alvgrid->get_frontend_layout
+  IMPORTING
+    es_layout = ls_layout .
+    ls_layout-grid_title = 'Title name' .
+CALL METHOD gr_alvgrid->set_frontend_layout
+  EXPORTING
+    is_layout = ls_layout .
 ```
-### FieldCat
 
-------
 
-设置显示数据的字段目录：
 
-- 宏定义
+#### 排序
+
+​	初始化排序功能，在`set_table_for_first_display`中添加参数`IT_SORT`.如果排序字段在Field catalog会出现Dump。
 
 ```JS
-DEFINE M_FIELDCAT.
-  CLEAR: &1.
-  &1-FIELDNAME = &2 .
-  &1-COLTEXT   = &3 .
-  &1-CHECKBOX  = &4 .
-  &1-REPREP    = &5 .
-  &1-EDIT      = &6 .
-  &1-OUTPUTLEN = &7 .
-  &1-DECIMALS  = &8 .
-  APPEND &1.
-END-OF-DEFINITION.
-DATA: alv1_fieldcat type standard table of lvc_s_fcat with header line.
-M_FIELDCAT:
-  alv1_fieldcat  'DATUM'         'Plan.Date'          ''      ''     ''    ''          '',
-  "alv1_fieldcat  'UZEIT'        'Plan.Time'          ''      ''     ''    ''          '',
-  alv1_fieldcat  'STATUS'        'Status'             ''      ''     ''    ''          ''.
-    
+FORM prepare_sort_table CHANGING pt_sort TYPE lvc_t_sort .
+  DATA ls_sort TYPE lvc_s_sort .
+  ls_sort-spos = '1' .
+  ls_sort-fieldname = 'XXXX' .
+  ls_sort-up = 'X' . "A to Z
+  ls_sort-down = space .
+  APPEND ls_sort TO pt_sort .
+  ls_sort-spos = '2' .
+  ls_sort-fieldname = 'XXXX' .
+  ls_sort-up = space .
+  ls_sort-down = 'X' . "Z to A
+  APPEND ls_sort TO pt_sort .
+ENDFORM. " prepare_sort_table
 ```
 
-- 通过调用BAPI完成
-
-```JS
-FORM prepare_field_catalog CHANGING pt_fieldcat TYPE lvc_t_fcat .
-  DATA ls_fcat type lvc_s_fcat . 
-  CALL FUNCTION 'LVC_FIELDCATALOG_MERGE' 
-    EXPORTING
-      i_structure_name = 'SFLIGHT' 
-	CHANGING
-      ct_fieldcat = pt_fieldcat[] 
-	EXCEPTIONS
-	  inconsistent_interface = 1 
-	  program_error = 2 
-	  OTHERS = 3. 
-	IF sy-subrc <> 0. 
-	  Exception handling
-	ENDIF. 
-
-  LOOP AT pt_fieldcat INTO ls_fcat . 
-	CASE pt_fieldcat-fieldname . 
-	  WHEN 'CARRID' . 
-		ls_fcat-outpulen = '10' . 
-		ls_fcat-coltext = 'Airline Carrier ID' . 
-		ls_fcat-edit = 'X'.
-	    MODIFY pt_fieldcat FROM ls_fcat . 
-	  WHEN 'PAYMENTSUM' . 
-		ls_fcat-no_out = 'X' . 
-		MODIFY pt_fieldcat FROM ls_fcat . 
-	ENDCASE .
-  ENDLOOP .
-ENDFORM .
-```
-
-### Layout
-
-------
-
-设置布局：
-
-```JS
-FORM prepare_layout CHANGING ps_layout TYPElvc_s_layo.     
-	ps_layout-zebra = 'X' .    
-	ps_layout-grid_title = 'Flights' .    
-    ps_layout-smalltitle = 'X' .
-ENDFORM. " prepare_layout
-```
-
-排除不必要的按钮：
-
-- 自定义按钮
-
-  ```JS
-  DATA: lt_excl TYPE slis_t_extab.
-    APPEND 'CLOSE' TO lt_excl.
-    APPEND 'SALL.PUL' TO lt_excl.
-    APPEND 'UALL.PUL' TO lt_excl.
-  SET PF-STATUS 'STATUS' EXCLUDING  lt_excl .
-  SET TITLEBAR 'TITLE'.
-  ```
-
-- 系统标准按钮
-
-  ```JS
-  FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
-    DATA ls_exclude TYPE ui_func.      
-    ls_exclude = cl_gui_alv_grid=>mc_fc_maximum .      
-      APPEND ls_exclude TO pt_exclude.      
-    ls_exclude = cl_gui_alv_grid=>mc_fc_minimum .    
-      APPEND ls_exclude TO pt_exclude.     
-    ls_exclude = cl_gui_alv_grid=>mc_fc_subtot .    
-      APPEND ls_exclude TO pt_exclude.     
-    ls_exclude = cl_gui_alv_grid=>mc_fc_sum .      
-      APPEND ls_exclude TO pt_exclude.      
-    ls_exclude = cl_gui_alv_grid=>mc_fc_average .     
-   	APPEND ls_exclude TO pt_exclude.      
-    ls_exclude = cl_gui_alv_grid=>mc_mb_sum .     
-   	APPEND ls_exclude TO pt_exclude.      
-    ls_exclude = cl_gui_alv_grid=>mc_mb_subtot .
-    	APPEND ls_exclude TO pt_exclude.
-  ENDFORM .
-  ```
-
-  

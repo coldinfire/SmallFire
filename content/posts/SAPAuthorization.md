@@ -136,13 +136,15 @@ AUTHORITY-CHECK OBJECT 'XXX'
   ID 'XXX1' FIELD field
   ID 'XXX2' FIELD field
   ID 'XXX3' FIELD field
-  ID 'XXX4' FIELD field.
+  ID 'XXX4' FIELD field
+  ID 'ACTVT' FIELD '02'.
 IF SY-SUBRC <> 0.
   MESSAGE 'XXXXX'
 ENDIF.
 OBJECT: 表示具体的权限对象。
 ID： 表示权限字段，可以同时检查权限对象中的一个或多个权限字段。
 FIELD： 权限字段所检查的权限值，将该字段改为屏幕元素，可检查该字段所输入的值是否符合要求。
+ACTVT: Create = 01; Change = 02; Display = 03
 *类似一个大致的权限矩阵，纵向是操作人（ID），横向是某些权限对象，权限对象再细分成若干事务代码、
 允许动作、权限字段及其允许的值等。
 ```

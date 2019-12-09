@@ -453,6 +453,15 @@
     </item>
     
     <item>
+      <title>Smartforms循环打印，页码统计</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartform_LoopPrint/</link>
+      <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartform_LoopPrint/</guid>
+      <description>Smartforms循环打印数据 ​ 在smartforms的使用中，偶尔会遇到客户要求按某一条件进行数据的分组打印，并进行页码的统计和区分，这</description>
+    </item>
+    
+    <item>
       <title>Smartforms调用模板</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
@@ -489,6 +498,15 @@
     </item>
     
     <item>
+      <title>报表开发&lt;OO ALV工具&gt;</title>
+      <link>https://coldinfire.github.io/2018/ABAPTable9/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAPTable9/</guid>
+      <description>显示后，修改字段目录和布局 ​ 通过方法在第一次显示之后，设置一个新的布局或则字段目录。 方法 字段目录：GET_FRONTEND_FIELDCAT</description>
+    </item>
+    
+    <item>
       <title>SAP锁机制</title>
       <link>https://coldinfire.github.io/2018/ABAP_Lock/</link>
       <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
@@ -507,12 +525,12 @@
     </item>
     
     <item>
-      <title>报表开发&lt;OO ALV工具&gt;</title>
+      <title>OO ALV实例程序</title>
       <link>https://coldinfire.github.io/2018/ABAPTable8/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAPTable8/</guid>
-      <description>显示后，修改字段目录和布局 ​ 通过方法在第一次显示之后，设置一个新的布局或则字段目录。 方法 字段目录：GET_FRONTEND_FIELDCAT</description>
+      <description>OO ALV简单实例：其中屏幕的创建， 和对应PAI,PBO以及Status title等可以自定调整。 REPORT zoo_alv. TYPE-POOLS: slis. *-- Global data Decleration. TYPES:BEGIN OF ty_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE</description>
     </item>
     
     <item>
