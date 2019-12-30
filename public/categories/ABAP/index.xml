@@ -363,12 +363,21 @@
     </item>
     
     <item>
-      <title> ALV Demo </title>
+      <title> ALV OO Demo </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_OODemo/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_OODemo/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>复制其他的内表/结构到当前表/结构</title>
+      <link>https://coldinfire.github.io/2018/ABAP_TableCopyFields/</link>
+      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_TableCopyFields/</guid>
+      <description>​ 有时需要创建一个结构，但是字段和其他表或则结构类似，就可以采用复制的方式快速创建，而不用一个一个字段去输入。 1.SE11选择需要添加字段的</description>
     </item>
     
     <item>
@@ -381,7 +390,7 @@
     </item>
     
     <item>
-      <title> ALV Demo </title>
+      <title> List ALV Demo </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALVTemp/</link>
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
       
