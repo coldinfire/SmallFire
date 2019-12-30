@@ -363,12 +363,30 @@
     </item>
     
     <item>
+      <title> ALV Demo </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_OODemo/</link>
+      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_OODemo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Dialog程序</title>
       <link>https://coldinfire.github.io/2018/ABAP_Dialog/</link>
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Dialog/</guid>
       <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>
+    </item>
+    
+    <item>
+      <title> ALV Demo </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALVTemp/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALVTemp/</guid>
+      <description>*&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZWR_PI_LOG *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;quot;ALV Data DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, lw_layout TYPE lvc_s_layo. &amp;quot;Select screen PARAMETERS: p_lgnum TYPE lqua-lgnum OBLIGATORY. PARAMETERS: p_status TYPE zpidoc-STATUS. SELECT-OPTIONS: s_lgtyp FOR lqua-lgtyp, s_create FOR sy-datum OBLIGATORY, s_ctdate FOR sy-datum , s_pidoc FOR ZPIDOC-PIDOC, s_lgpla FOR lqua-lgpla, s_lenum FOR</description>
     </item>
     
     <item>
