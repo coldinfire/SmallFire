@@ -228,6 +228,15 @@
     </item>
     
     <item>
+      <title>Smartforms打印成PDF</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</guid>
+      <description>1.程序中使用Smartform模板 &amp;quot;SMARTFORMS变量定义 DATA: lv_form_name TYPE tdsfname VALUE &#39;ZZ_TEST&#39;, &amp;quot;Smartforms Name lv_fm_name type rs38l_fnam, &amp;quot;Function Name ls_control type ssfctrlop, &amp;quot;Control structure ls_option type ssfcompop, &amp;quot;Smart Composer (transfer) options ls_ssfcrescl type ssfcrescl. &amp;quot;Return value at end</description>
+    </item>
+    
+    <item>
       <title>BOM展开</title>
       <link>https://coldinfire.github.io/2018/BOM_USE/</link>
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
@@ -363,21 +372,21 @@
     </item>
     
     <item>
-      <title> ALV OO Demo </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_OODemo/</link>
-      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_OODemo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>复制其他的内表/结构到当前表/结构</title>
       <link>https://coldinfire.github.io/2018/ABAP_TableCopyFields/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_TableCopyFields/</guid>
       <description>​ 有时需要创建一个结构，但是字段和其他表或则结构类似，就可以采用复制的方式快速创建，而不用一个一个字段去输入。 1.SE11选择需要添加字段的</description>
+    </item>
+    
+    <item>
+      <title>Smartforms</title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_OODemo/</link>
+      <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_OODemo/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -490,11 +499,11 @@
     
     <item>
       <title>Smartforms调用模板</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_SmartfomrsToPDF/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</guid>
-      <description>程序中使用Smartform模板 &amp;quot;SMARTFORMS变量定义 DATA: lv_fm_name type rs38l_fnam, &amp;quot;Function Name ls_control type ssfctrlop, &amp;quot;Control structure ls_option type ssfcompop, &amp;quot;Smart Composer (transfer) options ls_ssfcrescl type ssfcrescl. &amp;quot;Return value at end of form printing &amp;quot;</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_SmartfomrsToPDF/</guid>
+      <description>程序中使用Smartform模板 &amp;quot;SMARTFORMS变量定义 DATA: lv_form_name TYPE tdsfname VALUE &#39;ZZ_TEST&#39;, &amp;quot;Smartforms Name lv_fm_name type rs38l_fnam, &amp;quot;Function Name ls_control type ssfctrlop, &amp;quot;Control structure ls_option type ssfcompop, &amp;quot;Smart Composer (transfer) options ls_ssfcrescl type ssfcrescl. &amp;quot;Return value at end of form</description>
     </item>
     
     <item>

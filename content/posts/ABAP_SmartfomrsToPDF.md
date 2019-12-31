@@ -1,6 +1,6 @@
 ---
-title: "Smartforms打印成PDF"
-date: 2018-12-05
+title: "Smartforms调用模板"
+date: 2018-07-28
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -14,7 +14,7 @@ tags:
 
 
 
-#### 1.程序中使用Smartform模板
+#### 程序中使用Smartform模板
 
 ```JS
 "SMARTFORMS变量定义
@@ -85,7 +85,7 @@ CALL FUNCTION lv_fm_name
     CONTROL_PARAMETERS = ls_control
     OUTPUT_OPTIONS     = ls_option
   IMPORTING
-    JOB_OUTPUT_OPTIONS = ls_ssfcrescl "输出参数
+    JOB_OUTPUT_OPTIONS = OPTION "输出参数
   EXCEPTIONS
     FORMATTING_ERROR   = 1
     INTERNAL_ERROR     = 2
@@ -96,68 +96,6 @@ CALL FUNCTION lv_fm_name
    MESSAGE id sy-msgid type sy-msgty number sy-msgno
          with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 . 
  ENDIF.
-
-```
-
-#### 2.打印成PDF
-
-```JS
-" Internal tables declaration
-DATA:
-  " Internal table to hold the OTF data
-  t_otf TYPE itcoo OCCURS 0 WITH HEADER LINE,
-  " Internal table to hold OTF data recd from the SMARTFORM
-  t_otf_from_fm TYPE ssfcrescl,
-  " Internal table to hold the data from the FM CONVERT_OTF
-  t_pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE.
-  t_otf[] = t_otf_from_fm-otfdata[].
-  
- * FM -> CONVERT_OTF 将 OTF 转为 PDF
- CALL FUNCTION 'CONVERT_OTF'
-  EXPORTING
-   format = 'PDF'
-   max_linewidth = 132
-  IMPORTING
-   bin_filesize = w_bin_filesize
-  TABLES
-   otf = t_otf
-   lines = t_pdf_tab
-  EXCEPTIONS
-   err_max_linewidth = 1
-   err_format = 2
-   err_conv_not_possible = 3
-   err_bad_otf = 4
-   OTHERS = 5.
-IF sy-subrc <> 0.
-  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-ENDIF.
-* 显示保存对话框
-CALL METHOD cl_gui_frontend_services=>file_save_dialog
-  CHANGING
-    filename = w_file_name
-    path = w_file_path
-    fullpath = w_full_path
-* USER_ACTION =
-* FILE_ENCODING =
-  EXCEPTIONS
-    cntl_error = 1
-    error_no_gui = 2
-    not_supported_by_gui = 3
-    OTHERS = 4.
-IF sy-subrc <> 0.
-  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-ENDIF.
-* FM -> GUI_DOWNLOAD 下载PDF 
-CALL FUNCTION 'GUI_DOWNLOAD'
-  EXPORTING
-    bin_filesize = w_bin_filesize
-    filename = w_full_path
-    filetype = 'BIN'
-  TABLES
-    data_tab = t_pdf_tab
-
 "Close print request
 CALL FUNCTION 'SSF_CLOSE'
   IMPORTING
@@ -170,5 +108,5 @@ CALL FUNCTION 'SSF_CLOSE'
 IF sy-subrc ne 0.
   "Error
 ENDIF.
-```
 
+```

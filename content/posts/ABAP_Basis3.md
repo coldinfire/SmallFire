@@ -178,9 +178,7 @@ tags:
 
 - DESCRIBE TABLE itab LINES n：获取内表当前总行数，n为整型(i)。
 
-
-
-### 
+- n = lines (itab). 
 
 
 
