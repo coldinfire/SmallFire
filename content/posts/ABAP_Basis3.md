@@ -16,14 +16,14 @@ tags:
 
 #### 内表定义
 
-**工作区域：**工作区域可以存放多个变量数据,相当于一维数组。
+**工作区域**:工作区域可以存放多个变量数据,相当于一维数组。
 
 - 通过Type声明自定义工作区：需要使用Data进行赋值
 
   ```js
   TYPES: BEGIN OF str_name.
   	aufnr  TYPE afko-aufnr,    " Order Number
-      dauat  TYPE afpo-dauat,    " Order Type
+     dauat  TYPE afpo-dauat,    " Order Type
    END OF str_name.
   "TYPE定义的只是一个类型，不可以在程序中直接使用，必须用DATA赋值
   DATA: lt_table TYPE TABLE OF str_name,
@@ -35,7 +35,7 @@ tags:
   ```JS
   DATA: BEGIN OF <str>   
   	aufnr TYPE afko-aufnr,    " Order Number
-      dauat TYPE afpo-dauat,    " Order Type 
+     dauat TYPE afpo-dauat,    " Order Type 
   END OF <str>.
   ```
 
@@ -45,15 +45,42 @@ tags:
 - 参照内表：`DATA  <wa>  LIKE LINE OF <dbtab>.`
 
 
-- 继承结构：
+- 继承结构：结构复用
 
+  
+  - `INCLUDE { {TYPE struc_type} | {STRUCTURE struc} }
+            [AS name [RENAMING WITH SUFFIX suffix]]`.
+  - 该语句只能用在定义结构的 BEGIN OF 与 END OF 之间。作用是将**结构类型** **struc_type** 与**结构变量** **struc** 的所有组件字段拷贝到当前结构定义的指定位置。
+  
   ```JS
-  DATA: BEGIN OF <str>.
-    INCLUDE STRUCTURE <str_Other>.
-    DATA: <ele> TYPE <db-ele> ,
-  END OF <str>.
+TYPES: BEGIN OF pi_type,
+           name TYPE c LENGTH 40,
+           no   TYPE c LENGTH 4,
+         END OF pi_type.
+  DATA: BEGIN OF zpidoc_structure OCCURS 0,
+          matnr type matnr,
+          bukrs type bukrs,
+        END OF zpidoc_structure.
+  结构对象复用：
+  DATA: BEGIN OF gt_result OCCURS 0,
+          endcount TYPE zz_final_count,
+          enddiffs TYPE zz_final_diffs." 直接定义组件字段，但前面语句后面使用逗号
+          INCLUDE STRUCTURE zpidoc_structure." 直接将结构对象包括进来,也可以是已经定义的Structure
+          INCLUDE TYPE pi_type." 直接将结构类型包括进来
+          DATA:comm LIKE zpidoc_structure." 直接参照
+  DATA: END OF gt_result.
+         
+  类型复用：
+  TYPES: BEGIN OF str_pidoc,
+      endcount TYPE zz_final_count,
+      enddiffs TYPE zz_final_diffs. "直接定义字段，但是保留前面的逗号
+      INCLUDE STRUCTURE zpidoc_structure. "直接将结构对象包括进来
+  	INCLUDE TYPE  pi_type.    "直接将结构类型包括进来
+      TYPES: uname type c,
+             ustatus type c.
+  TYPES:  END OF str_pidoc.
   ```
-
+  
   
 
  **内表类型：**
@@ -68,7 +95,7 @@ tags:
 
 ​	哈希表：Hashed table，没有索引的表，只能靠关键字进行寻址，用哈希算法管理数据。
 
-**内表定义：**可以参考结构体、其他内表、透明表
+**内表定义**:可以参考结构体、其他内表、透明表
     
 
 ​	参考结构：`DATA <table_name> TYPE STANDARD TABLE OF <structure> [WITH HEADER LINE].

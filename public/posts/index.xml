@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ABAP BTE增强使用</title>
+      <link>https://coldinfire.github.io/2019/ABAP_BTE/</link>
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_BTE/</guid>
+      <description>配置BTE Tcode：FIBF BTE查找技巧： BTE 技巧： 1）在 FM：`BF_FUNCTIONS_FIND`，设断点，然后查看 CALL FUNCTION &#39;BF_FUNCTIONS_READ&#39; 里面的变量，</description>
+    </item>
     
     <item>
       <title> CS12 ALV的增强 </title>
@@ -953,7 +962,7 @@
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis3/</guid>
-      <description>内表定义和使用 内表定义 工作区域：工作区域可以存放多个变量数据,相当于一维数组。 通过Type声明自定义工作区：需要使用Data进行赋值 TYPES: BEGIN OF str_name.</description>
+      <description>内表定义和使用 内表定义 工作区域:工作区域可以存放多个变量数据,相当于一维数组。 通过Type声明自定义工作区：需要使用Data进行赋值 TYPES: BEGIN OF str_name.</description>
     </item>
     
     <item>
