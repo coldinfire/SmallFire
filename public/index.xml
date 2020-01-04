@@ -104,6 +104,33 @@
       <guid>https://coldinfire.github.io/2019/ABAP_BTE/</guid>
       <description>
 
+&lt;h3 id=&#34;bte概念&#34;&gt;BTE概念&lt;/h3&gt;
+
+&lt;p&gt;​   BTE(&lt;strong&gt;Business Transaction Events&lt;/strong&gt;)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,&lt;/p&gt;
+
+&lt;p&gt;可由 SAP，第三方供应商（合作伙伴）和客户使用。SAP程序通过调用&lt;code&gt;OPEN_FI_PERFORM_&amp;lt;Number&amp;gt;&lt;/code&gt;或&lt;code&gt;OUTBOUNT_CALL_&amp;lt;Number&amp;gt;&lt;/code&gt;函数来调用BTE.&lt;/p&gt;
+
+&lt;p&gt;以下是两种可用于实现BTE的类型：P/S 为检查用的 BTE，Processes 是修改用的&lt;/p&gt;
+
+&lt;p&gt;​   &lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE5.png&#34; alt=&#34;BTE Type&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​   这些接口通知外部软件某些事件已在 SAP 标准应用程序中发生，并向其提供产生的数据。外部软件不会向 SAP Standard System 返回任何数据。它们不会以任何方式影响标准 R / 3 程序。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE6.png&#34; alt=&#34;BTE事件&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE7.png&#34; alt=&#34;BTE提供的FM Template&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE8.png&#34; alt=&#34;FM Tempate&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;bte查找技巧&#34;&gt;BTE查找技巧&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;BTE 技巧：
+  1）在 FM：`BF_FUNCTIONS_FIND`，设断点，然后查看 CALL FUNCTION &#39;BF_FUNCTIONS_READ&#39; 里面的变量，可以
+  查看这个流程，会触发那些 event，以及那些 customerFM，这样就可以在相应的 EVENT 开发对应的 ZFM。
+  2）查找对应合适的 BTE：运行事务码 XD02，查找到对应的程序为 SAPMF02D，在此程序中搜索字符串
+  “OPEN_FI_PERFORM”，可以找到此程序中的所有用到的 BTE。
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3 id=&#34;配置bte&#34;&gt;配置BTE&lt;/h3&gt;
 
 &lt;p&gt;Tcode：FIBF&lt;/p&gt;
@@ -112,18 +139,62 @@
 
 &lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE3.png&#34; alt=&#34;Add entries&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE2.png&#34; alt=&#34;BTE&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE2.png&#34; alt=&#34;创建P/S BTE&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE4.png&#34; alt=&#34;BTE&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;​   根据系统提供的事件模板，创建自定义的FM，并实现相应的业务逻辑。&lt;/p&gt;
 
-&lt;p&gt;BTE查找技巧：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE4.png&#34; alt=&#34;选择对应的事件和处理的函数&#34; /&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;BTE 技巧：
-  1）在 FM：`BF_FUNCTIONS_FIND`，设断点，然后查看 CALL FUNCTION &#39;BF_FUNCTIONS_READ&#39; 里面的变量，可以查看这个流程，会触发那些 event，以及那些 customerFM，这样就可以在相应的 EVENT 开发对应的 ZFM。
-  2）查找对应合适的 BTE：运行事务码 XD02，查找到对应的程序为 SAPMF02D，在此程序中搜索字符串 “OPEN_FI_PERFORM”，可以找到此程序中的所有用到的 BTE。
-&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;bte程序创建&#34;&gt;BTE程序创建&lt;/h3&gt;
 
-&lt;p&gt;​&lt;/p&gt;
+&lt;p&gt;​   将光标放在已识别的 BTE 进程号上，单击示例功能模块，然后将其复制到 Z FM 中并编写自己的功能。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE9.png&#34; alt=&#34;FM Tempate&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE10.png&#34; alt=&#34;FM Tempate Implement&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;bte-有用的tcode&#34;&gt;BTE 有用的Tcode&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;TCode&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;TCode&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;BERE&lt;/td&gt;
+&lt;td&gt;Business Event Repository&lt;/td&gt;
+&lt;td&gt;BF34&lt;/td&gt;
+&lt;td&gt;Customer Modules per Event&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BERP&lt;/td&gt;
+&lt;td&gt;Business Processes&lt;/td&gt;
+&lt;td&gt;BF41&lt;/td&gt;
+&lt;td&gt;Application Modules per Process&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BF31&lt;/td&gt;
+&lt;td&gt;Application modules per Event&lt;/td&gt;
+&lt;td&gt;BF42&lt;/td&gt;
+&lt;td&gt;Partner Modules per Process&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BF32&lt;/td&gt;
+&lt;td&gt;Partner Modules per Event&lt;/td&gt;
+&lt;td&gt;BF44&lt;/td&gt;
+&lt;td&gt;Customer Modules per Process&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
     </item>
     
