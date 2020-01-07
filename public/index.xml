@@ -147,11 +147,17 @@
 
 &lt;h3 id=&#34;bte程序创建&#34;&gt;BTE程序创建&lt;/h3&gt;
 
-&lt;p&gt;​   将光标放在已识别的 BTE 进程号上，单击示例功能模块，然后将其复制到 Z FM 中并编写自己的功能。&lt;/p&gt;
+&lt;p&gt;​   将光标放在已识别的 BTE 进程号上，单击示例功能模块，然后将其复制到 ZFM* 中并编写自己的功能。&lt;/p&gt;
 
 &lt;p&gt;​   &lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE9.png&#34; alt=&#34;FM Tempate&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE10.png&#34; alt=&#34;FM Tempate Implement&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;bte系统间传输&#34;&gt;BTE系统间传输&lt;/h3&gt;
+
+&lt;p&gt;​   通过FIBF创建和配置完成的内容需要传输到其他系统，需要选中对应的Item，并执行下图步骤。可以将配置内容包含在TR中进行传输。&lt;/p&gt;
+
+&lt;p&gt;​   &lt;img src=&#34;https://coldinfire.github.io/images/ABAP/BTE11.png&#34; alt=&#34;Transfer&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;bte-有用的tcode&#34;&gt;BTE 有用的Tcode&lt;/h3&gt;
 

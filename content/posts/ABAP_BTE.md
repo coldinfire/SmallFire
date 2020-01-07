@@ -56,11 +56,17 @@ Tcode：FIBF
 
 ###  BTE程序创建
 
-​	将光标放在已识别的 BTE 进程号上，单击示例功能模块，然后将其复制到 Z FM 中并编写自己的功能。
+​	将光标放在已识别的 BTE 进程号上，单击示例功能模块，然后将其复制到 ZFM* 中并编写自己的功能。
 
 ​	![FM Tempate](/images/ABAP/BTE9.png)
 
 ![FM Tempate Implement](/images/ABAP/BTE10.png)
+
+### BTE系统间传输
+
+​	通过FIBF创建和配置完成的内容需要传输到其他系统，需要选中对应的Item，并执行下图步骤。可以将配置内容包含在TR中进行传输。
+
+​	![Transfer](/images/ABAP/BTE11.png)
 
 ###   BTE 有用的Tcode 
 
