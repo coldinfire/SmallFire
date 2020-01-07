@@ -147,6 +147,24 @@
     </item>
     
     <item>
+      <title> 发送带文本的Email </title>
+      <link>https://coldinfire.github.io/2019/ABAP_EmailText/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_EmailText/</guid>
+      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z14841_TEST010 *&amp;amp;---------------------------------------------------------------------* REPORT z14841_test010. TYPES: BEGIN OF stru_master, kunnr TYPE kunnr, &amp;quot; 客户编号 1 bukrs TYPE bukrs, &amp;quot; 公司代码 pro_mill TYPE werks_d, &amp;quot; 工厂 *quota TYPE zcdfquota, &amp;quot; 额度 *account TYPE char10, &amp;quot; 帐期 *zdays TYPE zcdfdays, &amp;quot; 天数 *valid_beg TYPE zcdfdatum1, &amp;quot; 有效起始日期 *valid_end TYPE</description>
+    </item>
+    
+    <item>
+      <title> 发送带附件(Excel)的Email </title>
+      <link>https://coldinfire.github.io/2019/ABAP_EmailExcel/</link>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_EmailExcel/</guid>
+      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z7258_MAIL_EXCEL * *&amp;amp; * *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Example of sending external email via SAPCONNECT * *&amp;amp; * *&amp;amp;---------------------------------------------------------------------* REPORT z7258_mail_excel . TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT &#39;jszjghw@163.com&#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN</description>
+    </item>
+    
+    <item>
       <title> SAP HANA</title>
       <link>https://coldinfire.github.io/2019/SAP_HANA_APP1/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
@@ -525,6 +543,24 @@
     </item>
     
     <item>
+      <title>查找增强程序3</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Enhance3/</link>
+      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Enhance3/</guid>
+      <description>一个功能非常全面的增强出口查找工具 *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Report: zdamon_004 (V9) &amp;amp;* *&amp;amp; PJA Consultancy Services (www.pjas.com) &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; This report attmpts to find Enhancements, Program-Exits, BADIs &amp;amp;* *&amp;amp; and Business Transaction Events in a particular program/tcode. &amp;amp;* *&amp;amp; Last updated: 09 May 2007 &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Selection Texts: *&amp;amp; P_ALV ALV format *&amp;amp; P_AUTH Include authority-check search</description>
+    </item>
+    
+    <item>
+      <title>查找增强程序2</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Enhance2/</link>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Enhance2/</guid>
+      <description>查找增强出口和BADI *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z_FIND_EXIT_AND_BADI *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Enter the transaction code that you want to search through in order *&amp;amp; to find which Standard SAP User Exits and BADIs *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; For field &#39;SUBC&#39; of table &#39;TRDIR&#39;: *&amp;amp; M Module Pool *&amp;amp; F Function group *&amp;amp; S Subroutine</description>
+    </item>
+    
+    <item>
       <title>查找增强程序1</title>
       <link>https://coldinfire.github.io/2018/ABAP_Enhance1/</link>
       <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
@@ -534,30 +570,21 @@
     </item>
     
     <item>
-      <title>查找增强程序2</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Enhance2/</link>
-      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Enhance2/</guid>
-      <description>查找增强出口和BADI *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z_FIND_EXIT_AND_BADI *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Enter the transaction code that you want to search through in order *&amp;amp; to find which Standard SAP User Exits and BADIs *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; For field &#39;SUBC&#39; of table &#39;TRDIR&#39;: *&amp;amp; M Module Pool *&amp;amp; F Function group *&amp;amp; S Subroutine</description>
-    </item>
-    
-    <item>
-      <title>查找增强程序3</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Enhance3/</link>
-      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Enhance3/</guid>
-      <description>一个功能非常全面的增强出口查找工具 *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Report: zdamon_004 (V9) &amp;amp;* *&amp;amp; PJA Consultancy Services (www.pjas.com) &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; This report attmpts to find Enhancements, Program-Exits, BADIs &amp;amp;* *&amp;amp; and Business Transaction Events in a particular program/tcode. &amp;amp;* *&amp;amp; Last updated: 09 May 2007 &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Selection Texts: *&amp;amp; P_ALV ALV format *&amp;amp; P_AUTH Include authority-check search</description>
-    </item>
-    
-    <item>
       <title>增强</title>
       <link>https://coldinfire.github.io/2018/ABAP_Enhance/</link>
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Enhance/</guid>
       <description>基本概念 User Exits：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。 用户出口</description>
+    </item>
+    
+    <item>
+      <title> Field Symbols </title>
+      <link>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</link>
+      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</guid>
+      <description>字段符号 定义: FIELD-SYMBOLS: &amp;lt;fs&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs&amp;gt; LIKE LINE OF &amp;lt;t_TABLE&amp;gt; FIELD-SYMBOLS: &amp;lt;fs&amp;gt; type any. ​ FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生FS</description>
     </item>
     
     <item>
@@ -669,7 +696,7 @@
     </item>
     
     <item>
-      <title> 修改所属 Package </title>
+      <title> 修改文件所属 Package </title>
       <link>https://coldinfire.github.io/2018/ABAP_Package/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -917,7 +944,7 @@
       <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis8/</guid>
-      <description>程序 READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查找 在循环（LOOP AT &amp;hellip;WHERE..）或查询（READ TABLE &amp;hellip;）某内</description>
+      <description>性能分析工具 ​ SE30(旧)；SAT(新)：运行时间分析工具 ​ ST12: 程序优化 READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查找 在循环（LOOP AT &amp;h</description>
     </item>
     
     <item>

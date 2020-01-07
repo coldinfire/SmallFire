@@ -14,7 +14,14 @@ tags:
 ---
 
 
-### 程序
+
+#### 性能分析工具
+
+​	**SE30(旧)；SAT(新)：运行时间分析工具**
+
+​	**ST12:**
+
+#### 程序优化
 
  1. READ TABLE ...WITH [TABLE] KEY...BINARY SEARCH读取标准内表使用二分查找
 
@@ -31,7 +38,7 @@ tags:
  4. FOR ALL ENTRIES：需要判断内表是否为空，否则会查询出所有数据
 
  5. LOOP AT itab... ASSIGNING ...、READTABLE ...ASSIGNING ... 在循环或读取内表 时，使用字段符号来替换表工作
-    区，将数据分配给字段符号Field Symbols，减少数据来回传递
+    区，将数据分配给字段符号Field Symbols，减少数据来回传递，赋值效率也会更快
     
  6. 尽量避免嵌套循环，如必须时，将循环次数少的放在外层，次数多的放在内层，这样可以减少在不同循环层之间的频繁地
     切换及内部循环次数
@@ -40,46 +47,48 @@ tags:
 
  8. 少使用递归算法，递归时会增加调用栈层次，降低了性能，可使用队列或栈来避免递归
 
- 9. 尽量不要使用通用类型（如FIELD-SYMBOLS、及形式参数），使用具体限定类型；比较时尽量使用同一数据类型：
-    IF c = c.比IF i = c.快，原因是未发生类型转换
+ 9. 尽量不要使用通用类型（如FIELD-SYMBOLS、及形式参数），使用具体限定类型
     
- 10. 不要使用混合类型进行计算与比较，除非有必须
+ 10. 比较时尽量使用同一数据类型：
+    IF c = c.比IF i = c.快，同类型直接比较效率会高，原因是不用产生类型转换
 
- 11. 尽量使用静态语句，少用动态编程，动态编辑虽然灵活，但性能有所下降
+ 11. 不要使用混合类型进行计算与比较，除非有必须
 
- 12. 在对字符进行操作进，尽量使用String代替C固定长度类型，如：concatenate[kənˈkatɪneɪt]语句对固定长度的C连接时
-     会去扫描那些非空字符出来再进行连接，速度没有String快
-     
- 13. READ/MODIFY TABLE时使用TRANSPORTING只读取或修改必要的字段
+ 12. 尽量使用静态语句，少用动态编程，动态编辑虽然灵活，但性能有所下降
 
- 14. 尽量避免使用MOVE-CORRESPONDING和 SELECT...INTO CORRESPONDING FIELDS OF [TABLE] (SELECT时，查询几个字
-     段就定义具有这几个字段的内表，而不是直接使用基于数据库表类型创建的内表，否则如果直接使用INTO TABLE语法检查
-     时会警告，但结果是没有问题的)。
-     CORRESPONDING语句在系统内部存在隐式操作: 逐个字段的检查元素名称匹配; 检查元素类型匹配;元素类型转换； 
-     
- 15. 最好不要向排序内表中插入（INSERT ... INTO TABLE ...）数据，因为在插入时会进行排序，速度会随着数据量的增加
-     而慢下来，所以最好只向标准内表或哈希表中插入数据
-     
- 16. 将某个内表中的全部记录或部分记录追加到另一内表时，使用INSERT/APPEND LINES OF … 代替循环逐条追加；
-     如果是全新赋值，直接对内表使用“=”进行赋值操作即可
-     
- 17. 调用类方法要快于Function：
-	
-	`Calling Methods of global Classes：`    
-	
-	`call method CL_PERFORMANCE_TEST=>M1.`
-	
-	`Calling Function Modules： `        
-	
-	`call function 'FUNCTION1'.`
-	
- 18. 通过运行事务代码SLIN(或者直接通过SE38的菜单)，进行代码静态检查，根据SAP提供的反馈信息，优化代码
+ 13. 在对字符进行操作进，尽量使用String代替C固定长度类型，如：concatenate语句对固定长度的C连接时
+      会去扫描那些非空字符出来再进行连接，速度没有String快
 
- 19. 通过老式方式定义内表时，使用`OCCURS 0 `而非`OCCURS n` ：重现lOCCURS n 代表初始化内表的空间大小为n（空间固定），当内表存储记录条数超出n时，系统将依靠页面文件存放超出部分的数据。 当系统内存资源十分紧缺的时候，我们可以使用OCCURS n的初始化方法，但是这样的效率稍微慢OCCURS 0 代表初始化内表的空间大小为无限，当内表存储记录条数不断增加时， 内表所使用的内存空间不断扩大，直到系统无法分配为止。使用内存比使用页面交换更快一些， 但是要考虑系统的资源状态
-     
- 20. 使用完成后及时清空释放内表所占用的空间：`FREE <itab>.`
+ 14. READ/MODIFY TABLE时使用TRANSPORTING只读取或修改必要的字段
 
- 21. 使用CASE…WHEN语句代替 IF…ELSEIF…；使用WHILE…ENDWHILE 代替 DO…ENDDO
+ 15. 尽量避免使用MOVE-CORRESPONDING和 SELECT...INTO CORRESPONDING FIELDS OF [TABLE] (SELECT时，查询几个字
+      段就定义具有这几个字段的内表，而不是直接使用基于数据库表类型创建的内表，否则如果直接使用INTO TABLE语法检查
+      时会警告，但结果是没有问题的)。
+      CORRESPONDING语句在系统内部存在隐式操作: 逐个字段的检查元素名称匹配; 检查元素类型匹配;元素类型转换； 
 
- 22. LOOP循环内表时加上Where条件减少CPU负荷，而不是在循环里通过IF语句来过滤数据
+ 16. 最好不要向排序内表中插入（INSERT ... INTO TABLE ...）数据，因为在插入时会进行排序，速度会随着数据量的增加
+      而慢下来，所以最好只向标准内表或哈希表中插入数据
+
+ 17. 将某个内表中的全部记录或部分记录追加到另一内表时，使用INSERT/APPEND LINES OF … 代替循环逐条追加；
+      如果是全新赋值，直接对内表使用“=”进行赋值操作即可
+
+ 18. 调用类方法要快于Function：
+
+      `Calling Methods of global Classes：`    
+
+      `call method CL_PERFORMANCE_TEST=>M1.`
+
+      `Calling Function Modules： `        
+
+      `call function 'FUNCTION1'.`
+
+ 19. 通过运行事务代码SLIN(或者直接通过SE38的菜单)，进行代码静态检查，根据SAP提供的反馈信息，优化代码
+
+ 20. 通过老式方式定义内表时，使用`OCCURS 0 `而非`OCCURS n` ：重现lOCCURS n 代表初始化内表的空间大小为n（空间固定），当内表存储记录条数超出n时，系统将依靠页面文件存放超出部分的数据。 当系统内存资源十分紧缺的时候，我们可以使用OCCURS n的初始化方法，但是这样的效率稍微慢OCCURS 0 代表初始化内表的空间大小为无限，当内表存储记录条数不断增加时， 内表所使用的内存空间不断扩大，直到系统无法分配为止。使用内存比使用页面交换更快一些， 但是要考虑系统的资源状态
+
+ 21. 使用完成后及时清空释放内表所占用的空间：`FREE <itab>.`
+
+ 22. 使用CASE…WHEN语句代替 IF…ELSEIF…；使用WHILE…ENDWHILE 代替 DO…ENDDO
+
+ 23. LOOP循环内表时加上Where条件减少CPU负荷，而不是在循环里通过IF语句来过滤数据
 

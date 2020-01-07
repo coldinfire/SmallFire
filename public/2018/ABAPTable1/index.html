@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  1382 ,
+  "wordcount":  512 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAPTable1\/",
   "datePublished": "2018-06-18T00:00:00\x2b00:00",
   "dateModified": "2018-06-18T00:00:00\x2b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                3 min
+                2 min
         </div>
     </header>
     <div class="post-content">
@@ -224,154 +224,25 @@
 
 <p>​   <strong>明  细:</strong> 每个行项目出关键字外其他明细内容</p>
 
-<h3 id="字段符号">字段符号</h3>
-
-<h4 id="定义">定义:</h4>
+<h3 id="报表程序性能问题">报表程序性能问题</h3>
 
 <ul>
-<li><code>FIELD-SYMBOLS: &lt;fs&gt; TYPE ANY TABLE.</code></li>
-
-<li><p><code>FIELD-SYMBOLS: &lt;fs&gt; LIKE LINE OF &lt;t_TABLE&gt;</code></p></li>
-
-<li><p><code>FIELD-SYMBOLS: &lt;fs&gt; type any.</code></p></li>
+<li><strong>1、报表查询维度多，不同的查询维度是完全不同的查询路径</strong></li>
 </ul>
 
-<p>​    <1> FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。</p>
-
-<p>​   <2> <code>ASSIGN structure TO &lt;fs&gt;</code>:将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
-  <code>ASSIGN &lt;Val&gt; TO &lt;fs&gt;</code>: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。</p>
-
-<p>UNASSIGN: 该语句是初始化<code>&lt;FS&gt;</code>字段符号，执行后字段符号将不再引用内存区域，<code>&lt;fs&gt; is assigned</code>返回假。</p>
-
-<p>CLEAR: 与UNASSIGN不同的是，只有一个作用就是初始化它所指向的内存区域，而不是解除分配。</p>
-
-<p><strong>循环：</strong>LOOP内表INTO Structure和 LOOP内表ASSIGNING Structure的比较</p>
-
-<p>​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
-MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程。修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。</p>
-
-<p><strong>读表：</strong>将内表数据的行记录分配到FS，修改FS的值也就是相当于直接修改内表里的数据。</p>
-
-<h4 id="使用">使用：</h4>
+<p>​ 如果大量的查询逻辑和处理代码都是不同的，就应该设计成不同的查询报表。否则将带来极大的运维成本</p>
 
 <ul>
-<li>APPEND &amp; INSERT</li>
+<li><strong>2、报表展示维度杂乱，用户希望在一个普通 ALV 中展示，导致运算处理逻辑混乱、低效</strong></li>
 </ul>
 
-<pre><code class="language-JS">  &quot;Append line
-  APPEND INITIAL LINE TO t_mara ASSIGNING &lt;fs_mara&gt;.
-  &lt;fs_mara&gt;-matnr = 'sapclub'.
-  
-  &quot;Insert table
-  INSERT INITIAL LINE INTO t_mara ASSIGNING &lt;fs_mara&gt; INDEX 2.
-  &lt;fs_mara&gt;-matnr = 'ABCDEF'.
-</code></pre>
+<p>​ 需求不规范，一般情况下一张普通的报表就应该只有一个维度，不同维度的应该用多个报表或者树状报表展示</p>
 
 <ul>
-<li>LOOP &amp; READ</li>
+<li><strong>3、业务逻辑复杂，取数过程繁琐，造成大量的性能问题</strong></li>
 </ul>
 
-<pre><code class="language-JS">  &quot;Read table
-  READ TABLE t_mara ASSIGNING &lt;fs_mara&gt; WITH KEY matnr = 'sapclub'.
-  IF sy-subrc EQ 0.
-    WRITE:/ &lt;fs_mara&gt;-matnr.
-  ENDIF.
-  
-  &quot;Loop
-  LOOP AT t_mara ASSIGNING &lt;fs_mara&gt;.
-    WRITE:/ &lt;fs_mara&gt;-matnr.
-  ENDLOOP.
-</code></pre>
-
-<ul>
-<li>MODIFY</li>
-</ul>
-
-<pre><code class="language-JS">  &quot;READ and MODIFY
-  READ TABLE t_mara ASSIGNING &lt;fs_mara&gt; WITH KEY matnr = 'matnr'
-  IF sy-subrc EQ 0.
-    &lt;fs_mara&gt;-ersda = sy-datum.
-  ENDIF.
-  
-  &quot;LOOP and MODIFY
-  LOOP AT t_mara ASSIGNING &lt;fs_mara&gt;.
-  &lt;fs_mara&gt;-ersda = sy-datum + 1.
-  ENDLOOP.
-</code></pre>
-
-<ul>
-<li>直接复制内表数据</li>
-</ul>
-
-<pre><code class="language-JS">  ASSIGN lt_1 TO &lt;fs1&gt;
-  ASSIGN lt_2 TO &lt;fs2&gt;.
-  ...
-  &lt;lt_2&gt; = &lt;lt_1&gt;.
-  DATA: lv_lines TYPE i.
-  lv_lines = lines( lt_2 ).
-  WRITE: lv_lines.
-</code></pre>
-
-<ul>
-<li>循环单条复制内表数据</li>
-</ul>
-
-<pre><code class="language-JS">  LOOP AT lt_1 ASSIGNING &lt;fs1&gt;.
-    APPEND INITIAL LINE TO lt_2 ASSIGNING &lt;ls_2&gt;.
-    &lt;ls_2&gt; = &lt;ls_1&gt;.
-  ENDLOOP.
-</code></pre>
-
-<ul>
-<li>通过结构中字段名称获取内表数据</li>
-</ul>
-
-<pre><code class="language-JS">  DATA:field_name type char20.
-  FIELD-SYMBOLS:&lt;lv_field&gt; type any.
-  LOOP AT lt ASSIGNING &lt;fs&gt;.
-    ASSIGN COMPONENT &lt;field_name&gt; OF STRUCTURE &lt;fs&gt; TO &lt;lv_field&gt;.
-    CHECK &lt;lv_field&gt; IS ASSIGNED.
-  ENDLOOP.
-</code></pre>
-
-<ul>
-<li>通过结构中字段索引获取内表数据</li>
-</ul>
-
-<pre><code class="language-JS">  DATA:index_number type i.
-  FIELD-SYMBOLS:&lt;lv_field&gt; type any.
-  LOOP AT lt ASSIGNING &lt;fs&gt;.
-    ASSIGN COMPONENT index_number OF STRUCTURE &lt;fs&gt; TO &lt;lv_field&gt;.
-    CHECK &lt;lv_field&gt; IS ASSIGNED.
-  ENDLOOP.
-</code></pre>
-
-<p>ASSIGN隐式强转</p>
-
-<pre><code class="language-JS">TYPES: BEGIN OF t_date,
-    year(4) TYPE  n,
-    month(2) TYPE n,
-    day(2) TYPE n,
-  END OF t_date.
-FIELD-SYMBOLS &lt;fs&gt; TYPE t_date.  &quot;将&lt;fs&gt;定义成了具体限定类型
-ASSIGN sy-datum TO &lt;fs&gt; CASTING. &quot;后面没有指定具体类型，所以使用定义时的类型进行隐式转换
-</code></pre>
-
-<p>ASSIGN显示强转</p>
-
-<pre><code class="language-JS">  DATA txt(8) TYPE c VALUE '19980606'.
-  FIELD-SYMBOLS &lt;fs&gt;.
-  ASSIGN txt TO &lt;fs&gt; CASTING TYPE d.&quot;由于定义时未指定具体的类型，所以这里需要显示强转
-</code></pre>
-
-<p><strong>动态引用：</strong>通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。</p>
-
-<pre><code class="language-JS">field-symbols:&lt;l_shortageqty&gt; type mng01.
-loop at &lt;dyn_table&gt; assigning &lt;dyn_wa&gt;.
-  assign component 'SHORTAGEQTY' of structure &lt;dyn_wa&gt; to &lt;l_shortageqty&gt;.
-  &lt;l_shortageqty&gt; = &lt;l_shortageqty&gt; - &lt;l_fvalue&gt;.
-endloop.
-</code></pre>
+<p>​ 可以根据具体需求，通过增强、自定义表等方式，在不同的业务数据间建立桥梁，简化业务逻辑，简化取数过程。</p>
 
     </div>
 
@@ -385,7 +256,7 @@ endloop.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1382</span>
+                   <span>512</span>
             </p>
             
             <p class="copyright-item">

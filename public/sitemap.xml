@@ -434,6 +434,34 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_EmailText/</loc>
+      
+      <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_EmailExcel/</loc>
+      
+      <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/SAP_HANA_APP1/</loc>
       
       <lastmod>2019-05-12T00:00:00+00:00</lastmod>
@@ -1264,11 +1292,39 @@
     <url>
       <loc>https://coldinfire.github.io/tags/Enhance/</loc>
       
-      <lastmod>2018-09-14T00:00:00+00:00</lastmod>
+      <lastmod>2018-09-18T00:00:00+00:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Enhance3/</loc>
+      
+      <lastmod>2018-09-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Enhance2/</loc>
+      
+      <lastmod>2018-09-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>
@@ -1288,37 +1344,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Enhance2/</loc>
-      
-      <lastmod>2018-09-14T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Enhance3/</loc>
-      
-      <lastmod>2018-09-14T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Enhance/</loc>
       
       <lastmod>2018-09-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</loc>
+      
+      <lastmod>2018-09-08T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
