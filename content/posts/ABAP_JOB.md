@@ -41,7 +41,7 @@ tags:
 
 [如何在 SAP 中定义 Event 类型的后台 Job](<http://blog.sina.com.cn/s/blog_76c57b480100rumm.html>)
 
-### 强制结束后台作业（SAP SM37 SM35 SM50)
+### 强制结束后台作业（ SM37 SM35 SM50)
 
 解决方法：
 
@@ -61,6 +61,13 @@ sm37就是sm36里job selection的链接。
 ### 调试后台Job
 
 ​	事务码：sm37，选中要调试的 job，输入事务码 JDBG，回车，进入调试界面，根据需要打断点等就行了。
+
+- ​	后台JOB状态类型：
+  - Scheduled：job 创建了但是还没有 release，这种状态的 job 是不会执行的
+  - Released：job 在启动条件满足后会启动，Ready 就是启动条件满足后，系统开始为该 job 分配但尚未分配合适的后台进程的一个中间状态
+  - Active：job 正在运行当中
+  - Finished：job 得所有 step 都成功的完成了
+  - Canceled：job 在某一个 step 得运行过程中异常中止了。
 
 ### 批量删除后台作业
 

@@ -408,6 +408,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/ABAPSummory/</loc>
+      
+      <lastmod>2019-06-17T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/tags/BAPI/</loc>
       
       <lastmod>2019-06-16T00:00:00+00:00</lastmod>
@@ -462,6 +476,44 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/MM/</loc>
+      
+      <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/MMMasterData_enhance1/</loc>
+      
+      <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
+      
+      <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/SAP_HANA_APP1/</loc>
       
       <lastmod>2019-05-12T00:00:00+00:00</lastmod>
@@ -509,18 +561,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/MM/</loc>
-      
-      <lastmod>2019-04-25T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -595,18 +635,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/SD/</loc>
-      
-      <lastmod>2019-04-18T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
       
       <lastmod>2019-04-18T00:00:00+00:00</lastmod>
       
@@ -820,9 +848,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMVenderCreate/</loc>
+      <loc>https://coldinfire.github.io/2019/MMMasterData_enhance2/</loc>
       
-      <lastmod>2019-03-14T00:00:00+00:00</lastmod>
+      <lastmod>2019-03-15T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -834,7 +862,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMMAsterData_enhance1/</loc>
+      <loc>https://coldinfire.github.io/2019/MMVenderCreate/</loc>
       
       <lastmod>2019-03-14T00:00:00+00:00</lastmod>
       
@@ -1213,6 +1241,20 @@
       <loc>https://coldinfire.github.io/2018/ABAP_RFC/</loc>
       
       <lastmod>2018-10-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_SM30/</loc>
+      
+      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1786,20 +1828,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_SM30/</loc>
-      
-      <lastmod>2018-06-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2018/ABAPTable1/</loc>
       
       <lastmod>2018-06-18T00:00:00+00:00</lastmod>
@@ -1815,20 +1843,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2018/ABAP_SerialNumber/</loc>
-      
-      <lastmod>2018-06-17T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAPSummory/</loc>
       
       <lastmod>2018-06-17T00:00:00+00:00</lastmod>
       

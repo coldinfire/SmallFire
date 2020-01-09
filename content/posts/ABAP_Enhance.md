@@ -13,37 +13,33 @@ tags:
 ---
 
 ## 基本概念
-- User Exits：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。
+- User Exits(第一代增强)：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。
   用户出口通常用于SD模块，SAP在销售，运输，计费领域提供许多退出。
   - SD出口文档：IMG->Sales and Distribution -> System Modifications -> User Exitrs.
-
-- Customer Exits：使用:SE38找到程序所属的包，使用SMOD导航到Utilities->Find，输入包名，然后执行即可
+- Customer Exits(第二代增强)：使用:SE38找到程序所属的包，使用SMOD导航到Utilities->Find，输入包名，然后执行即可
 
   - FM Exits：在FM中include 保留的 Z 程序来提供功能扩展点
   - Menu Exits：在GUI status中预留+Fcode menu item, 在程序中预留对应的Handling FM Exits
   - Screen Exits：在Screen 中预留 Subscreen, 在程序中预留transport data to subscreen & return/retrieve data from subscreen的 FM Exits
-
 - Enhancement & Enhancement Project：
   - Enhancement：把系统程序中的相关Customer Exits收集起来成为一个Enhancement，一般情况是按功能和类型来收集的, 
         比方说几个相关的FM eixts组成一个enhancemnet，或就一个 screen 或 menu exits 形成一个enhancement。
   -  查看/修改 Enhancement的t-code为：SMOD
   - Enhancement Project：在使用Enhacement时，要先建立一个Enhancement Project，可以将多个Enhancement assign给一个enhancement project去管理，对应t-code：CMOD。
-
-- BADI (Business Add-in)，通过面向对象的方式来提供扩展点，它支持Customer Exits所有的enhancement 类型，
+- BADI (Business Add-in,第三代增强)：通过面向对象的方式来提供扩展点，它支持Customer Exits所有的enhancement 类型，
   因目前Class中不能包含subscreen所以在用BADI enhance screen时比用Customer Exits要复杂些。
   非Multiple Case的BADI同时只能有一个Active Implementation，即要Active新生成的需先inactive旧的。
   若是Multiple Case的BADI则可同时有多个Active Implementation，且所有的Implementation在没有Filter的情况下
   都会被遍历执行。
-
 - Other
   - User Exits与Customer Exits的区别在于User Exits的使用需要Access Key但Customer Exits不要。
-  - FM exits在关联的Function Group中的命名规则为：EXIT_program name_nnn
+  - FM exits在关联的Function Group中的命名规则为：EXIT_programname_xxx.
   - Customer exits的调用方式为：
     - FM Exits: CALL CUSTOMER-FUNCTION 'xxx' EXPORTING ... IMPORTING ...
     - Subscreen: Call CUSTOMER-SUBSCREEN INCLUDING
-
 - VOFM 
   Display:Requirements & Formulas => Formulas => Condition value 可定义增强公式
+- BTE：财务模块常用的替代和验证
 
 ## How to find user exits?
 

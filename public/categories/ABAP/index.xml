@@ -138,6 +138,15 @@
     </item>
     
     <item>
+      <title>业务流程</title>
+      <link>https://coldinfire.github.io/2019/ABAPSummory/</link>
+      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAPSummory/</guid>
+      <description>PP流程 MM01(Material)-&amp;gt;CS01(BOM)-&amp;gt;CR01(WORKCENTERY)-&amp;gt;CA01(ROUTING)-&amp;gt;MD11(PLANNED ORDER)-&amp;gt; COO1(PRODUCTION ORDERS)也可通过CO41/CO40转换计划单得来. COMAC:对生产订单进行可用性检查 COHVOMPRINT:打印订单 M</description>
+    </item>
+    
+    <item>
       <title>BAPI使用</title>
       <link>https://coldinfire.github.io/2019/BAPI/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
@@ -336,6 +345,15 @@
     </item>
     
     <item>
+      <title> SM30表维护 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_SM30/</link>
+      <pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_SM30/</guid>
+      <description>表维护创建 创建自定义表 需要设置为 Display/Maintenance Allowed.允许修改，才可以在SM30中进行数据维护。否则会产生以下异常： 创建表维护 权限组：控制访问权</description>
+    </item>
+    
+    <item>
       <title>BDC屏幕录制</title>
       <link>https://coldinfire.github.io/2018/BDC/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
@@ -395,7 +413,7 @@
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Enhance/</guid>
-      <description>基本概念 User Exits：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。 用户出口</description>
+      <description>基本概念 User Exits(第一代增强)：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的</description>
     </item>
     
     <item>
@@ -651,15 +669,6 @@
     </item>
     
     <item>
-      <title> SM30表维护 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_SM30/</link>
-      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_SM30/</guid>
-      <description>表维护创建 创建自定义表 需要设置为 Display/Maintenance Allowed.允许修改，才可以在SM30中进行数据维护。否则会产生以下异常： 创建表维护 权限组：控制访问权</description>
-    </item>
-    
-    <item>
       <title>报表开发&lt;概述&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAPTable1/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
@@ -675,15 +684,6 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_SerialNumber/</guid>
       <description>TCode SNRO OYSM 读取函数 NUMBER_GET_NEXT 相关表 NRIV TNRO 函数组 SNR0 Online maint. of number ranges &amp;amp; groups SNR1 Interface for number ranges and groups SNR2 Maintenance of number range objects SNR3 Number range checks, assignment &amp;amp; info SNR4 Number ranges utility 使用 如有跳号现象，可以禁用对象的 Buffer 试试 5NZ</description>
-    </item>
-    
-    <item>
-      <title>业务流程</title>
-      <link>https://coldinfire.github.io/2018/ABAPSummory/</link>
-      <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAPSummory/</guid>
-      <description>PP流程 MM01(Material)-&amp;gt;CS01(BOM)-&amp;gt;CR01(WORKCENTERY)-&amp;gt;CA01(ROUTING)-&amp;gt;MD11(PLANNED ORDER)-&amp;gt; COO1(PRODUCTION ORDERS)也可通过CO41/CO40转换计划单得来. COMAC:对生产订单进行可用性检查 COHVOMPRINT:打印订单 M</description>
     </item>
     
     <item>
