@@ -4,13 +4,11 @@ git:
   depth: 1
 
 go:
-  - 1.10.x
-  - 1.11.x
-  - 1.12.x
-  - 1.13.x
+  - "1.8"
 
-before_install:
-  - go get -v golang.org/x/lint/golint
+install:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.62.2/hugo_0.51_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
 
 # install: go get -v github.com/gohugoio/hugo
 
