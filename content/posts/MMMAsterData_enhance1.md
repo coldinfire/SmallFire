@@ -85,7 +85,7 @@ tags:
 ​	如果仅需要在 SAVE 操作期间进行一些错误检查，则可以将代码括在诸如
 
 ```JS
-1. IF sy-ucomm = 'BU'. "此代码仅在 SAVE 期间执行
+1. IF sy-ucomm = 'BU' OR SY-UCOMM = 'YES'. "此代码仅在 SAVE 期间执行
 2.   " 代码逻辑
 3. ENDIF。
 ```
