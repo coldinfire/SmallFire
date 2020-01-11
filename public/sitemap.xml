@@ -448,6 +448,32 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/MM/</loc>
+      
+      <lastmod>2019-05-29T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/MMWorkCenter/</loc>
+      
+      <lastmod>2019-05-29T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_EmailText/</loc>
       
       <lastmod>2019-05-22T00:00:00+00:00</lastmod>
@@ -471,44 +497,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/MM/</loc>
-      
-      <lastmod>2019-05-18T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2019/MMMasterData_enhance1/</loc>
-      
-      <lastmod>2019-05-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
-      
-      <lastmod>2019-05-18T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -552,9 +540,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/BOM/</loc>
+      <loc>https://coldinfire.github.io/2019/MMMasterData_enhance1/</loc>
       
-      <lastmod>2019-04-25T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-08T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -566,7 +554,19 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMWorkCenter/</loc>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
+      
+      <lastmod>2019-05-08T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/BOM/</loc>
       
       <lastmod>2019-04-25T00:00:00+00:00</lastmod>
       
