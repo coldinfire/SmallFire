@@ -1,6 +1,6 @@
 ---
 title: "复制其他的内表/结构到当前表/结构"
-date: 2018-09-08
+date: 2018-09-10
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -30,7 +30,7 @@ tags:
 
 ![输入目标数据](/images/ABAP/copyfield3.png)
 
-可以选择`Copy All`或则选择`Selection`，Copy all则复制所有的字段数据，选择Selection则会跳入以下界面,选择需要复制的字段：
+可以选择`Copy All`或则选择`Selection`，Copy all则复制所有的字段数据，选择Selection则会跳入以下界面,选择需要复制的字段：
 
 ![选择需要复制的字段](/images/ABAP/copyfield4.png)
 

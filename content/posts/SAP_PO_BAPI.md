@@ -1,6 +1,6 @@
 ---
 title: "生产订单标准BAPI"
-date: 2019-08-28
+date: 2019-09-07
 draft: false
 author: Small Fire
 isCJKLanguage: true
