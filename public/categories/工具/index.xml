@@ -6,10 +6,19 @@
     <description>Recent content in 工具 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 12 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> Hugo添加搜索功能(Algolia)  </title>
+      <link>https://coldinfire.github.io/2018/hugo2/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/hugo2/</guid>
+      <description>Algolia：博客框架 https://www.algolia.com/ Algolia配置 ​ ​ 记录API Keys相关信息： Application ID Search-Only API Key Admin API Key Hugo设置 在配置文件config中添加一下内容</description>
+    </item>
     
     <item>
       <title> 使用Hugo&#43;GitHub Pages快速搭建博客  </title>

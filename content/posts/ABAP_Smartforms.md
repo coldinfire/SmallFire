@@ -16,7 +16,8 @@ tags:
 
 ### 查找Smartforms
 
-- TCode：NACE可以查找
+- TCode：NACE可以查找 (例如。采购订单，销售订单等)
+  - NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加的脚本表单或 Smartforms）的 Tcode。
 - Table：TNAPR根据smartform名字查找对应的smartform程序
 
 ### 创建

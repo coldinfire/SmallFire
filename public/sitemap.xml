@@ -568,6 +568,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALVEvent/</loc>
+      
+      <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_SALVColumnSet/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
@@ -625,6 +639,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/2019/ABAP_SALVStatus/</loc>
+      
+      <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALVIConsTooltips/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1638,11 +1666,39 @@
     <url>
       <loc>https://coldinfire.github.io/tags/Dialog/</loc>
       
-      <lastmod>2018-08-28T00:00:00+00:00</lastmod>
+      <lastmod>2018-09-04T00:00:00+00:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_DialogTmp/</loc>
+      
+      <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_DialogDetail/</loc>
+      
+      <lastmod>2018-08-31T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>
@@ -2248,9 +2304,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/hugo1/</loc>
+      <loc>https://coldinfire.github.io/2018/hugo2/</loc>
       
-      <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+      <lastmod>2018-04-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -2264,7 +2320,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/hugo/</loc>
       
-      <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+      <lastmod>2018-04-23T00:00:00+00:00</lastmod>
       
       
       
@@ -2276,11 +2332,25 @@
     <url>
       <loc>https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
       
-      <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+      <lastmod>2018-04-23T00:00:00+00:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/hugo1/</loc>
+      
+      <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>

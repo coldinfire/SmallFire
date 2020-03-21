@@ -56,6 +56,9 @@ tags:
          g_color-int = '1'.
          g_color-inv = '0'.
          lo_column->set_color( g_color ).
+         "数值为空时，不显示0
+		 lo_column = lo_columns->get_column( 'BET01' ).
+         lo_column->set_zero( ' ' ).
          ...
       CATCH cx_salv_not_found.                          "#EC NO_HANDLER
     ENDTRY.

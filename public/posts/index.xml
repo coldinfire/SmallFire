@@ -210,6 +210,15 @@
     </item>
     
     <item>
+      <title> SALV Event处理 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALVEvent/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SALVEvent/</guid>
+      <description>Event 处理 CLASS lcl_event_handler DEFINITION. PUBLIC SECTION. METHODS: on_link_click FOR EVENT link_click OF cl_salv_events_table IMPORTING row column. ENDCLASS. &amp;quot;lcl_event_handler DEFINITION *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD generate_output. DATA: lx_msg TYPE REF TO cx_salv_msg. TRY. cl_salv_table=&amp;gt;factory( IMPORTING r_salv_table = o_alv CHANGING t_table = t_vbak ). CATCH cx_salv_msg INTO lx_msg. ENDTRY. * Get the event object DATA: lo_events TYPE REF TO cl_salv_events_table. lo_events = o_alv-&amp;gt;get_event( ). * Instantiate the event handler object DATA:</description>
+    </item>
+    
+    <item>
       <title> SALV Fieldcat设置 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALVColumnSet/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
@@ -252,6 +261,15 @@
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVStatus/</guid>
       <description>设置Status *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_pf_status CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_pf_status CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_pf_status. DATA: lo_functions TYPE REF TO cl_salv_functions_list. lo_functions = co_alv-&amp;gt;get_functions( ). lo_functions-&amp;gt;set_default( abap_true ). &amp;quot;lo_functions-&amp;gt;set_all( abap_true ). ENDMETHOD. &amp;quot;set_pf_status *$*$*.....CODE_ADD_3 - End....................................3..*$*$* 自定义Stat</description>
+    </item>
+    
+    <item>
+      <title> SALV 图标设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALVIConsTooltips/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SALVIConsTooltips/</guid>
+      <description>图标设置 为了能够在 SALV 上添加 ICON 和工具提示，需要： 列值作为 ICON 值–在输出表中，需要添加 ICON 作为值。这样就可以将 ICON_GREEN_LIGHT 用作交通绿灯 将 SALV 的 ICON 列设置为 ICON –从 SALV</description>
     </item>
     
     <item>
@@ -750,7 +768,25 @@
     </item>
     
     <item>
-      <title>Dialog程序</title>
+      <title>Dialog程序实例</title>
+      <link>https://coldinfire.github.io/2018/ABAP_DialogTmp/</link>
+      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_DialogTmp/</guid>
+      <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>
+    </item>
+    
+    <item>
+      <title>Dialog程序知识汇总</title>
+      <link>https://coldinfire.github.io/2018/ABAP_DialogDetail/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_DialogDetail/</guid>
+      <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>
+    </item>
+    
+    <item>
+      <title>Dialog程序简介</title>
       <link>https://coldinfire.github.io/2018/ABAP_Dialog/</link>
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -764,16 +800,16 @@
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALVTemp/</guid>
-      <description>*&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZWR_PI_LOG *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;quot;ALV Data DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, lw_layout TYPE lvc_s_layo. &amp;quot;Select screen PARAMETERS: p_lgnum TYPE lqua-lgnum OBLIGATORY. PARAMETERS: p_status TYPE zpidoc-STATUS. SELECT-OPTIONS: s_lgtyp FOR lqua-lgtyp, s_create FOR sy-datum OBLIGATORY, s_ctdate FOR sy-datum , s_pidoc FOR ZPIDOC-PIDOC, s_lgpla FOR lqua-lgpla, s_lenum FOR</description>
+      <description>*&amp;amp;--------------------------------------- *&amp;amp; Report ZWR_PI_LOG *&amp;amp;---------------------------------------- REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;quot;ALV Data DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, lw_layout TYPE lvc_s_layo. &amp;quot;Select screen SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &#39;X&#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS: p_chk2 RADIOBUTTON GROUP zr01. &amp;quot; USER-COMMAND</description>
     </item>
     
     <item>
-      <title> VOFM使用 </title>
+      <title> VOFM使用 (例程开发) </title>
       <link>https://coldinfire.github.io/2018/SAPVOFM/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPVOFM/</guid>
-      <description>SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以通过Bas</description>
+      <description>​ SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以通过Ba</description>
     </item>
     
     <item>
@@ -836,7 +872,7 @@
       <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</guid>
-      <description>如果设置了可编辑的字段那么 alv 便会添加相应的编辑按钮。如果不需要这些按钮那么可以按上面说过的方法排除他们。 如果已经把整列设为可编辑，而只想让这</description>
+      <description>如果已经把ALV中的整列设为可编辑，而只想让这个列中的某些单元格不可编辑，可以使用以下这种方法。 具体单元格可编辑状态设置的主要思想：首先通过</description>
     </item>
     
     <item>
@@ -881,7 +917,7 @@
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
-      <description>查找Smartforms TCode：NACE可以查找 Table：TNAPR根据smartform名字查找对应的smartform程序 创建 TCode:smartforms S</description>
+      <description>查找Smartforms TCode：NACE可以查找 (例如。采购订单，销售订单等) NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序</description>
     </item>
     
     <item>
@@ -993,7 +1029,7 @@
     </item>
     
     <item>
-      <title> ABAP截取字符串长度 </title>
+      <title> ABAP截取中文字符串 </title>
       <link>https://coldinfire.github.io/2018/ABAP_StrCNChina/</link>
       <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>
       
@@ -1029,7 +1065,7 @@
     </item>
     
     <item>
-      <title>添加修改人信息</title>
+      <title>表维护添加修改人信息</title>
       <link>https://coldinfire.github.io/2018/ABAP_AddUser/</link>
       <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
       
@@ -1125,6 +1161,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis1/</guid>
       <description>ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :</description>
+    </item>
+    
+    <item>
+      <title> Hugo添加搜索功能(Algolia)  </title>
+      <link>https://coldinfire.github.io/2018/hugo2/</link>
+      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/hugo2/</guid>
+      <description>Algolia：博客框架 https://www.algolia.com/ Algolia配置 ​ ​ 记录API Keys相关信息： Application ID Search-Only API Key Admin API Key Hugo设置 在配置文件config中添加一下内容</description>
     </item>
     
     <item>

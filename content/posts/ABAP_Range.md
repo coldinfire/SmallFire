@@ -18,17 +18,19 @@ tags:
 
 ### Range使用
 
-​	Range Table为SAP R/3系统标准内表的一种，结构与Selection Table一致，由SIGN,OPTION,LOW,HIGH字段组成。Range Table 常用于 Open SQL 语句中的条件筛选，变式判断。
+​	Range Table为SAP R/3系统标准内表的一种，结构与Selection Table一致，由SIGN,OPTION,LOW,HIGH字段组成。Range Table 常用于 Open SQL 语句中的条件筛选，变式判断，可以优化取数效率与程序性能.
+
+- 当然要注意 RANGE 的行项目有上限的，***在 ECC6 中大概 2 万行将导致 ABAP DUMP。***
 
 #### 定义
 
 - DATA: range_tab {TYPE RANGE OF type} | {LIKE RANGE OF dobj}.
   
--  DATA: gr_werks TYPE RANGE OF werks_d,   gw_werks LIKE LINE  OF gr_werks.
+-  DATA: gr_werks TYPE RANGE OF werks_d WITH HEADER LINE,        gw_werks LIKE LINE  OF gr_werks.
   
 - RANGES range_tab FOR dobj [OCCURS n] ：创建一个选择表
 
-  - For 后面字段必须为参考表的字段.
+  - For 后面字段必须为参考表的字段，不能使用 Data Element 来定义.
 
 
 #### 使用

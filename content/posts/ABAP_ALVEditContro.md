@@ -14,39 +14,72 @@ tags:
 
 
 
-如果设置了可编辑的字段那么 alv 便会添加相应的编辑按钮。如果不需要这些按钮那么可以按上面说过的方法排除他们。
+如果已经把ALV中的整列设为可编辑，而只想让这个列中的某些单元格不可编辑，可以使用以下这种方法。
 
-如果已经把整列设为可编辑，而只想让这个列中的某些单元格不可编辑，可以使用这种方法。
+- 具体单元格可编辑状态设置的主要思想：首先通过 EIDT 参数设置列为可编辑状态；其次对输出内表进行循环将不需要编辑的行设置为不可编辑状态，如此单元格的可编辑属性设置完毕。
 
-正如前面所述，需要告诉 layout 哪个字段是 style 字段。
-`Gs_layout-stylefname = ‘CELLSTYLES’.`
+需要告诉 layout 哪个字段是 style 字段。
+`layout-stylefname = ‘CELLSTYLES’.`
 
-下面是关于这些功能的一段代码：把’SEATSMAX’整列设为可编辑状态，但当 CARRID 为’xy’时除外。如果 connid 是’02’时使‘PLANETYPE’可编辑。
+下面是关于这些功能的一段代码：
 
-把 style table 添加到显示表，并在 layout structure 中说明 style field。在 field catalog 中把相应的 EDIT 设为‘X’。
+​	必要条件：
+
+1. 在输出内表中增加字段 `FIELD_STYLE TYPE LVC_T_STYL`
+2. 设置 `STYLE_FNAME = 'FIELD_STYLE'`
+3. 把 style table 添加到显示表，并在 layout structure 中说明 style field。在 field catalog 中把相应的 EDIT 设为‘X’。
+
+
 
 ```JS
-FORM adjust_edittables USING pt_list LIKE gt_list[].
- DATA ls_listrow LIKE LINE OF pt_list.
- DATA ls_stylerow TYPE lvc_s_styl.
- DATA lt_styletab TYPE lvc_t_styl.
+DATA: BEGIN OF ITAB OCCURS 0,
+      ZQRFH_ICON TYPE STRING,
+      ZLDATE TYPE ZLDATE,
+      ZLUSR TYPE ZLUSR,
+      K TYPE STRING,
+      FIELD_STYLE TYPE LVC_T_STYL, " 为内表添加设置编辑状态所需的字段  
+      END OF ITAB.
 
- LOOP AT pt_list INTO ls_listrow.
-IF ls_listrow-carrid = ‘XY’.
- Ls_stylerow-fieldname = ‘SEATSMAX’.
- Ls_stylerow-style = cl_alv_grid=>mc_style_disabled.
- APPEND ls_stylerow TO lt_styletab.
-ENDIF.
-IF ls_listrow-connid = ‘02’.
- Ls_stylerow-fieldname = ‘PLANETYPE’
-Ls_stylerow-.style = cl_alv_grid=>mc_style_enabled.
-APPEND ls_Pstylerow TO lt_styletab.
-ENDIF.
-INSERT LINES OF lt_styletab INTO ls_listrow-cellstyles.
-MODIFY pt_list FROM ls_listrow.
- ENDLOOP.
-ENDFORM.
+"ALV Data
+DATA: T_FIELDCAT TYPE lvc_t_fcat,
+      S_FIELDCAT TYPE lvc_s_fcat,
+      X_LAYOUT TYPE lvc_s_layo.
+      
+S_FIELDCAT-FIELDNAME = 'ZBQ'. " 设置列可编辑
+S_FIELDCAT-EDIT = 'X'.
+APPEND S_FIELDCAT TO T_FIELDCAT.
 
+DATA STYLELIN TYPE LVC_S_STYL.
+
+LOOP AT ITAB.
+    IF ITAB-ZXMDM = 'D' OR ITAB-ZXMDM = 'F' OR ITAB-ZXMDM = 'H'.
+      STYLELIN-FIELDNAME = 'ZBQFS'. " 需要编辑的列名
+      STYLELIN-STYLE = CL_GUI_ALV_GRID=>MC_STYLE_DISABLED. " 设置为不可编辑状态
+      APPEND STYLELIN TO ITAB-FIELD_STYLE.
+      CLEAR STYLELIN.
+      MODIFY ITAB.
+    ELSE.
+	  STYLELIN-FIELDNAME = 'ZBQFS'. " 需要编辑的列名
+	  STYLELIN-STYLE = CL_GUI_ALV_GRID=>MC_STYLE_ENABLED. " 设置为可编辑状态
+	  APPEND STYLELIN TO ITAB-FIELD_STYLE.
+      CLEAR STYLELIN.
+      MODIFY ITAB.
+    ENDIF.
+endloop.
+
+X_LAYOUT-STYLE_FNAME = 'FIELD_STYLE'. " 将内表中的字段名存入显示格式
+
+CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY_LVC'" 调用函数
+    EXPORTING
+      IT_FIELDCAT_LVC    = T_FIELDCAT
+      IS_LAYOUT_LVC      = X_LAYOUT
+    TABLES
+      T_OUTTAB           = ITAB
+    EXCEPTIONS
+      PROGRAM_ERROR      = 1
+      OTHERS             = 2.
 ```
+
+
 
 

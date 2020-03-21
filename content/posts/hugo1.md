@@ -293,10 +293,20 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   language: go
   git:
     depth: 1
-  install: go get -v github.com/gohugoio/hugo
+  
+  go:
+    - "1.8"
+  
+  install:
+    - wget https://github.com/gohugoio/hugo/releases/download/v0.62.2/hugo_0.62.2_Linux-64bit.deb
+    - sudo dpkg -i hugo*.deb
+  
+  # install: go get -v github.com/gohugoio/hugo
   script:
     #运行HUGO命令
     - hugo -D
+    - npm install
+    - npm run algolia
   after_script:
     # 部署
     - cd ./public

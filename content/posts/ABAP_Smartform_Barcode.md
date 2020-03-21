@@ -34,26 +34,35 @@ tags:
 
 **新方法：数据在 SAP 系统中生成条码图案，然后直接发送到打印机进行打印。**
 
-1. ```JS
-    1. 设置系统条码：SE73
-     （1）进入SE73后选择系统条码。
-       （2）点击更改按钮。
-       （3）点击新建按钮。
-       （4）选择已New方式建立条码。
-       （5）输入Barcode Name和Short Text。
-       （6）选择条码类型：例Code39。
-       （7）设置Barcode Alignment： 选Normal。
-        （8）设置Barcode parameters：在设置39码的Mod-43 Check Digit时，如果勾选该项，
-     则打印出来的条码会自动在后面增加一位检查码。
-       （9）Save。
-  2. 设置SmartFom样式（Style）：SmartForms。
-     （1）进入SmartForms后选择样式（Style）。
-       （2）在子元格式下建立一节点。
-       （3）在标准设定View：选择刚才设定的条码。
-       （4）字型：选择TWSONG  12pt.
-       （5)  Save.
-       （6）启用。
-  3. 在SmartForm设计时，字体选择为所设置的条码样式即可。
-  ```
-  
-  
+```JS
+1. 设置系统条码：SE73
+ （1）进入SE73后选择系统条码。
+ （2）点击更改按钮。
+ （3）点击新建按钮。
+ （4）选择已New方式建立条码。
+ （5）输入Barcode Name和Short Text。
+ （6）选择条码类型：例Code39。
+ （7）设置Barcode Alignment： 选Normal。
+ （8）设置Barcode parameters：在设置39码的Mod-43 Check Digit时，如果勾选该项，
+      则打印出来的条码会自动在后面增加一位检查码。
+ （9）Save。
+```
+
+
+
+### 设置SmartFom样式（Style）：
+
+  1. SmartForms。
+     - （1）进入SmartForms后选择样式（Style）。
+
+     - （2）在子元格式下建立一节点。
+
+     - （3）在标准设定View：选择刚才设定的条码。
+
+     - （4）字型：选择TWSONG  12pt.
+
+     - （5)  Save.
+
+     - （6）启用。
+  2. 在SmartForm设计时，字体选择为所设置的条码样式即可。
+

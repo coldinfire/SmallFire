@@ -1,6 +1,6 @@
 ---
-title: "Dialog程序简介"
-date: 2018-08-28
+title: "Dialog程序实例"
+date: 2018-09-04
 draft: false
 author: Small Fire
 isCJKLanguage: true

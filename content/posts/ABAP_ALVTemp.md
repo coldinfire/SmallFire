@@ -20,14 +20,9 @@ tags:
 
 
 ```JS
-*&---------------------------------------------------------------------*
+*&---------------------------------------
 *& Report  ZWR_PI_LOG
-*&
-*&---------------------------------------------------------------------*
-*&
-*&
-*&---------------------------------------------------------------------*
-
+*&----------------------------------------
 REPORT  zwr_pi_log.
 
 TABLES: lqua ,zpidoc.
@@ -42,16 +37,62 @@ DATA: gt_fieldcat TYPE lvc_t_fcat,
       lw_layout TYPE lvc_s_layo.
 
 "Select screen
+SELECTION-SCREEN BEGIN OF LINE.
+SELECTION-SCREEN POSITION 1.
+PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT 'X' USER-COMMAND zchg.
+SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1.
+SELECTION-SCREEN POSITION 12.
+PARAMETERS: p_chk2 RADIOBUTTON GROUP zr01. " USER-COMMAND zchg.
+SELECTION-SCREEN COMMENT 14(12) text-003 FOR FIELD p_chk2.
+SELECTION-SCREEN END OF LINE.
+
+SELECTION-SCREEN BEGIN OF BLOCK blk1 WITH FRAME TITLE text-001.
 PARAMETERS: p_lgnum TYPE lqua-lgnum OBLIGATORY.
 PARAMETERS: p_status TYPE zpidoc-STATUS.
+PARAMETERS: p_file LIKE rlgrap-filename MODIF ID z01.
+SELECTION-SCREEN END OF BLOCK blk1.
 
-SELECT-OPTIONS: s_lgtyp FOR lqua-lgtyp,
-                s_create FOR sy-datum OBLIGATORY,
-                s_ctdate FOR sy-datum ,
-                s_pidoc FOR ZPIDOC-PIDOC,
-                s_lgpla FOR lqua-lgpla,
-                s_lenum FOR lqua-lenum,
-                s_matnr FOR lqua-matnr.
+SELECTION-SCREEN BEGIN OF BLOCK blk2 WITH FRAME TITLE text-004.
+PARAMETERS: p_werks TYPE aufk-werks DEFAULT '1040' MODIF ID z02.
+SELECT-OPTIONS: s_matnr FOR matnr MODIF ID z02,
+                s_seqnr FOR aufk-seqnr MODIF ID z02,
+                s_ablad FOR afpo-ablad MODIF ID z02,
+                s_plnbez FOR afko-plnbez MODIF ID z02,
+                s_fevor FOR afko-fevor MODIF ID z02,
+                s_dispo FOR afko-dispo MODIF ID z02,
+                s_arbpl FOR /sapcem/kla_arb-arbpl MODIF ID z02,
+                s_gstrp FOR afko-gstrp MODIF ID z02,
+                s_gltrp FOR afko-gltrp MODIF ID z02,
+                s_auart FOR aufk-auart MODIF ID z02,
+                s_kdauf FOR afpo-kdauf MODIF ID z02,
+                s_kdpos FOR afpo-kdpos MODIF ID z02.
+SELECTION-SCREEN END OF BLOCK blk2.
+
+" Screen Group control
+AT SELECTION-SCREEN OUTPUT.
+  LOOP AT SCREEN.
+    IF p_chk1 EQ 'X'.
+      IF screen-group1 EQ 'Z02'.
+        screen-input = 0.
+        screen-invisible = 1.
+        MODIFY SCREEN.
+      ELSEIF screen-group1 EQ 'Z01'.
+        screen-input = 1.
+        screen-invisible = 0.
+        MODIFY SCREEN.
+      ENDIF.
+    ELSE.
+      IF screen-group1 EQ 'Z01'.
+        screen-input = 0.
+        screen-invisible = 1.
+        MODIFY SCREEN.
+      ELSEIF screen-group1 EQ 'Z02'.
+        screen-input = 1.
+        screen-invisible = 0.
+        MODIFY SCREEN.
+      ENDIF.
+    ENDIF.
+  ENDLOOP.
 
 "Event
 START-OF-SELECTION .
@@ -67,11 +108,11 @@ END-OF-SELECTION.
 *&---------------------------------------------------------------------*
   FORM frm_pre_check .
   DATA:e_message TYPE char100.
-  AUTHORITY-CHECK OBJECT 'L_LGNUM'
+  AUTHORITY-CHECK OBJECT 'XXXX'
            "ID 'ACTVT' FIELD '03'
            ID 'LGNUM' FIELD p_lgnum.
   IF sy-subrc <> 0.
-    CONCATENATE 'You have no authorization of warehouse ' p_lgnum INTO e_message RESPECTING BLANKS.
+    CONCATENATE 'You have no authorization ' p_lgnum INTO e_message RESPECTING BLANKS.
     MESSAGE e_message TYPE 'S' DISPLAY LIKE 'E'.
     LEAVE LIST-PROCESSING.
   ENDIF.
@@ -80,19 +121,11 @@ END-OF-SELECTION.
   *&      Form  FRM_EXTRACT_DATA
   *&---------------------------------------------------------------------*
   FORM frm_extract_data .
-  SELECT *
-     FROM zpidoc
+   SELECT *
+    FROM zpidoc
      INTO TABLE lt_pidoc
      WHERE lgnum EQ p_lgnum
-      AND STATUS EQ p_status
-      AND lgtyp  IN s_lgtyp
-      AND LGPLA  IN s_LGPLA
-      AND PIDOC  IN s_PIDOC
-      AND ERDAT  In s_create
-      AND count_date IN s_ctdate
-      AND lenum  IN s_lenum
-      AND matnr  In s_matnr
-      .
+      AND PIDOC  IN s_PIDOC.
   IF lt_pidoc IS INITIAL.
     MESSAGE 'No data.' TYPE 'S' DISPLAY LIKE 'E'.
     LEAVE LIST-PROCESSING.
@@ -144,9 +177,11 @@ ENDFORM.                    " FRM_DISPLAY
 *&---------------------------------------------------------------------*
   FORM frm_set_status USING extab TYPE slis_t_extab.
 
-  DATA: ls_slis_extab TYPE slis_extab.
-
-  SET PF-STATUS 'STATUS1' EXCLUDING extab.
+  DATA: lt_fcode TYPE STANDARD TABLE OF sy-ucomm.
+    APPEND '&CHNG' TO lt_fcode.
+    APPEND '&MODI' TO lt_fcode.
+    APPEND '&XDPL' TO lt_fcode.
+  SET PF-STATUS 'STANDARD_COPY' EXCLUDING LT_FCODE.
 
 ENDFORM.                    "frm_set_status
 
@@ -167,7 +202,6 @@ ENDFORM.                    "frm_set_status
   ENDCASE.
 
   rs_selfield-refresh = 'X'.
-
 ENDFORM.                    "frm_user_command
 ```
 

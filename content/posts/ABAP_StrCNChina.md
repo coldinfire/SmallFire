@@ -1,5 +1,5 @@
 ---
-title: " ABAP截取字符串长度 "
+title: " ABAP截取中文字符串 "
 date: 2018-06-16
 draft: false
 author: Small Fire
