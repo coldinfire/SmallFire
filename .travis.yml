@@ -16,6 +16,7 @@ install:
 script:
     #运行HUGO命令
   - hugo -D
+  - npm run algolia
 
 after_script:
   # 部署

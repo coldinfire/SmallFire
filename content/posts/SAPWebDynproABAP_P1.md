@@ -1,5 +1,5 @@
 ---
-title: " Web Dynpro Program Demo 1 "
+title: " Web Dynpro ABAP Program:ALV_VIEW-WDDOINIT "
 date: 2018-10-21
 draft: false
 author: Small Fire
