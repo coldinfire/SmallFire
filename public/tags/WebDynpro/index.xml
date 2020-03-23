@@ -6,26 +6,35 @@
     <description>Recent content in WebDynpro on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/WebDynpro/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title> WebDynpro </title>
-      <link>https://coldinfire.github.io/2018/SAPWebDynpro1/</link>
-      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      <title> Web Dynpro Program Demo 1 </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPWebDynpro1/</guid>
-      <description>简介</description>
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</guid>
+      <description>ALV_VIEW: WDDOINIT method WDDOINIT . *1.数据定义 *========================================================= DATA: lo_alv_usage TYPE REF TO if_wd_component_usage, &amp;quot;①重要的下面要用 lo_if_controller TYPE REF TO iwci_salv_wd_table, &amp;quot;②重要的下面要用 lo_config TYPE REF TO cl_salv_wd_config_table, &amp;quot;③重要的下面要</description>
+    </item>
+    
+    <item>
+      <title> 创建一个Web Dynpro ABAP程序实例 </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP/</guid>
+      <description>在ERP系统中找到Report对应的程序，在Web Dynpro NID系统中创建对应的结构，分别对应选择屏幕和对应的ALV报表。 SE80创建WDA 输入W</description>
     </item>
     
     <item>
       <title> WebDynpro </title>
-      <link>https://coldinfire.github.io/2018/SAPWebDynpro/</link>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproJAVA/</link>
       <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPWebDynpro/</guid>
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproJAVA/</guid>
       <description>简介 Web Dynpro 在业务应用程序的主要结构和视觉设计部分的方式，在很大程度上是独立于实现语言. 一个Web Dynpro 组件不是一个JAVA类，而是一系列类集合所有</description>
     </item>
     

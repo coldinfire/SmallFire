@@ -355,10 +355,10 @@
     
     <item>
       <title>BOM了解</title>
-      <link>https://coldinfire.github.io/2019/BOM/</link>
+      <link>https://coldinfire.github.io/2019/SAP_BOM/</link>
       <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/BOM/</guid>
+      <guid>https://coldinfire.github.io/2019/SAP_BOM/</guid>
       <description>BOM定义 ​ BOM:物料清单，是部件完整、正式的结构化清单，组成一个产品或装配。包括每个部件的项目号、损耗、数量和计量单位。</description>
     </item>
     
@@ -633,29 +633,38 @@
     </item>
     
     <item>
-      <title> WebDynpro </title>
-      <link>https://coldinfire.github.io/2018/SAPWebDynpro1/</link>
-      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/SAPWebDynpro1/</guid>
-      <description>简介</description>
-    </item>
-    
-    <item>
       <title> ALV tree显示BOM结构 </title>
-      <link>https://coldinfire.github.io/2018/BOM_Tree/</link>
-      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
+      <link>https://coldinfire.github.io/2018/SAP_BOM_Tree/</link>
+      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/BOM_Tree/</guid>
+      <guid>https://coldinfire.github.io/2018/SAP_BOM_Tree/</guid>
       <description>代码 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo. TABLES: stpox. INCLUDE &amp;lt;icon&amp;gt;. CLASS: cl_gui_column_tree DEFINITION LOAD, cl_gui_cfw DEFINITION LOAD . DATA: tree1 TYPE REF TO cl_gui_alv_tree , mr_toolbar TYPE REF TO cl_gui_toolbar . DATA: gs_stpox TYPE stpox, gt_stpox TYPE stpox OCCURS 0, gt_fieldcatalog TYPE lvc_t_fcat, gt_item_layout TYPE lvc_t_laci, gs_item_layout TYPE lvc_s_laci, okcode LIKE sy-ucomm . TYPES: BEGIN OF gs_f. INCLUDE STRUCTURE stpox. TYPES: node_key TYPE lvc_nkey, END OF gs_f. DATA: gs_xstpox TYPE</description>
     </item>
     
     <item>
+      <title> Web Dynpro Program Demo 1 </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</guid>
+      <description>ALV_VIEW: WDDOINIT method WDDOINIT . *1.数据定义 *========================================================= DATA: lo_alv_usage TYPE REF TO if_wd_component_usage, &amp;quot;①重要的下面要用 lo_if_controller TYPE REF TO iwci_salv_wd_table, &amp;quot;②重要的下面要用 lo_config TYPE REF TO cl_salv_wd_config_table, &amp;quot;③重要的下面要</description>
+    </item>
+    
+    <item>
+      <title> 创建一个Web Dynpro ABAP程序实例 </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP/</guid>
+      <description>在ERP系统中找到Report对应的程序，在Web Dynpro NID系统中创建对应的结构，分别对应选择屏幕和对应的ALV报表。 SE80创建WDA 输入W</description>
+    </item>
+    
+    <item>
       <title> WebDynpro </title>
-      <link>https://coldinfire.github.io/2018/SAPWebDynpro/</link>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproJAVA/</link>
       <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPWebDynpro/</guid>
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproJAVA/</guid>
       <description>简介 Web Dynpro 在业务应用程序的主要结构和视觉设计部分的方式，在很大程度上是独立于实现语言. 一个Web Dynpro 组件不是一个JAVA类，而是一系列类集合所有</description>
     </item>
     

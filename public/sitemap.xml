@@ -828,7 +828,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/BOM/</loc>
+      <loc>https://coldinfire.github.io/2019/SAP_BOM/</loc>
       
       <lastmod>2019-04-25T00:00:00+00:00</lastmod>
       
@@ -1394,9 +1394,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/SAPWebDynpro1/</loc>
+      <loc>https://coldinfire.github.io/2018/SAP_BOM_Tree/</loc>
       
-      <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-08T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</loc>
+      
+      <lastmod>2018-10-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1410,7 +1424,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/WebDynpro/</loc>
       
-      <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-21T00:00:00+00:00</lastmod>
       
       
       
@@ -1420,9 +1434,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/BOM_Tree/</loc>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP/</loc>
       
-      <lastmod>2018-10-23T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-20T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1434,7 +1448,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/SAPWebDynpro/</loc>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproJAVA/</loc>
       
       <lastmod>2018-10-16T00:00:00+00:00</lastmod>
       
