@@ -453,12 +453,30 @@
     </item>
     
     <item>
-      <title> Web Dynpro Program Demo 1 </title>
+      <title> Web Dynpro ABAP Program:ALV_VIEW-WDDOINIT </title>
       <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</link>
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</guid>
       <description>ALV_VIEW: WDDOINIT method WDDOINIT . *1.数据定义 *========================================================= DATA: lo_alv_usage TYPE REF TO if_wd_component_usage, &amp;quot;①重要的下面要用 lo_if_controller TYPE REF TO iwci_salv_wd_table, &amp;quot;②重要的下面要用 lo_config TYPE REF TO cl_salv_wd_config_table, &amp;quot;③重要的下面要</description>
+    </item>
+    
+    <item>
+      <title> Web Dynpro ABAP Program:DATA_LOAD </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_P2/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P2/</guid>
+      <description>Component Controller: DATA_LOAD method DATA_LOAD . DATA: rARBPL TYPE REF TO data, rKOSTL TYPE REF TO data, rAUFNR TYPE REF TO data, rAUART TYPE REF TO data, rBUDAT TYPE REF TO data, &amp;quot;&amp;quot;&amp;quot;&amp;quot;为alv输出的结构 lt_ZALV_ZPEFF_TOTAL TYPE TABLE OF ZALV_ZPEFF_TOTAL,</description>
+    </item>
+    
+    <item>
+      <title> Web Dynpro ABAP Program:WDDOINIT </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_P3/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P3/</guid>
+      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, id TYPE string, END OF soption. DATA:l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO cl_salv_wd_column, l_it_field TYPE TABLE OF dfies, l_wa_field TYPE dfies, l_fieldname TYPE string, l_invisible TYPE c,</description>
     </item>
     
     <item>
