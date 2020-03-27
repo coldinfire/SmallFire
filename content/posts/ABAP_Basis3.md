@@ -52,38 +52,37 @@ tags:
             [AS name [RENAMING WITH SUFFIX suffix]]`.
   - 该语句只能用在定义结构的 BEGIN OF 与 END OF 之间。作用是将**结构类型** **struc_type** 与**结构变量** **struc** 的所有组件字段拷贝到当前结构定义的指定位置。
   
-  ```JS
-TYPES: BEGIN OF pi_type,
-           name TYPE c LENGTH 40,
-           no   TYPE c LENGTH 4,
-         END OF pi_type.
-  DATA: BEGIN OF zpidoc_structure OCCURS 0,
-          matnr type matnr,
-          bukrs type bukrs,
-        END OF zpidoc_structure.
-  结构对象复用：
-  DATA: BEGIN OF gt_result OCCURS 0,
-          endcount TYPE zz_final_count,
-          enddiffs TYPE zz_final_diffs." 直接定义组件字段，但前面语句后面使用逗号
-          INCLUDE STRUCTURE zpidoc_structure." 直接将结构对象包括进来,也可以是已经定义的Structure
-          INCLUDE TYPE pi_type." 直接将结构类型包括进来
-          DATA:comm LIKE zpidoc_structure." 直接参照
-  DATA: END OF gt_result.
-         
-  类型复用：
-  TYPES: BEGIN OF str_pidoc,
-      endcount TYPE zz_final_count,
-      enddiffs TYPE zz_final_diffs. "直接定义字段，但是保留前面的逗号
-      INCLUDE STRUCTURE zpidoc_structure. "直接将结构对象包括进来
-  	INCLUDE TYPE  pi_type.    "直接将结构类型包括进来
-      TYPES: uname type c,
-             ustatus type c.
-  TYPES:  END OF str_pidoc.
-  ```
-  
-  
 
- **内表类型：**
+```JS
+ TYPES: BEGIN OF pi_type,
+         name TYPE c LENGTH 40,
+         no   TYPE c LENGTH 4,
+       END OF pi_type.
+DATA: BEGIN OF zpidoc_structure OCCURS 0,
+        matnr type matnr,
+        bukrs type bukrs,
+      END OF zpidoc_structure.
+结构对象复用：
+DATA: BEGIN OF gt_result OCCURS 0,
+        endcount TYPE zz_final_count,
+        enddiffs TYPE zz_final_diffs." 直接定义组件字段，但前面语句后面使用逗号
+        INCLUDE STRUCTURE zpidoc_structure." 直接将结构对象包括进来,也可以是已经定义的Structure
+        INCLUDE TYPE pi_type." 直接将结构类型包括进来
+        DATA:comm LIKE zpidoc_structure." 直接参照
+DATA: END OF gt_result.
+       
+类型复用：
+TYPES: BEGIN OF str_pidoc,
+    endcount TYPE zz_final_count,
+    enddiffs TYPE zz_final_diffs. "直接定义字段，但是保留前面的逗号
+    INCLUDE STRUCTURE zpidoc_structure. "直接将结构对象包括进来
+	INCLUDE TYPE  pi_type.    "直接将结构类型包括进来
+    TYPES: uname type c,
+           ustatus type c.
+TYPES:  END OF str_pidoc.
+```
+
+**内表类型：**
 
 ​	索引内表：标准内表(Standard table)、排序表(Sorted table)
 ​      

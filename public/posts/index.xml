@@ -138,6 +138,15 @@
     </item>
     
     <item>
+      <title> BAPI_GOODSMVT_CREATE Demo </title>
+      <link>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</link>
+      <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</guid>
+      <description>Inventory Management使用的BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证</description>
+    </item>
+    
+    <item>
       <title> ALV Tree标准Demo </title>
       <link>https://coldinfire.github.io/2019/ABAP_ALVTree/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
