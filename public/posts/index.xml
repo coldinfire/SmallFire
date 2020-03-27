@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ALV添加执行进度功能</title>
+      <link>https://coldinfire.github.io/2020/ABAP_ALVProgress/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_ALVProgress/</guid>
+      <description>为了提升用户体验添加进度条功能。 DATA:BEGIN OF gt_result OCCURS 0, sel(1), matnr TYPE mara-matnr, zz_edi_grp TYPE mara-zz_edi_grp, werks TYPE mseg-werks, eknam TYPE eknam, maktx TYPE maktx, num TYPE sy-tabix, row TYPE sy-tabix, icon TYPE icon-id, mess TYPE string, flag(1), END OF gt_result. DATA:lt_result LIKE STANDARD TABLE OF gt_result WITH HEADER LINE. DATA: l_perc TYPE int4, l_perc_cnt TYPE int4, l_perc_i</description>
+    </item>
     
     <item>
       <title>ABAP BTE增强使用</title>

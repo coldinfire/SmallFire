@@ -32,7 +32,81 @@
     <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
-      <lastmod>2019-12-21T00:00:00+00:00</lastmod>
+      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/ALV/</loc>
+      
+      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/ABAP_ALVProgress/</loc>
+      
+      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
       
       
       
@@ -51,54 +125,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/</loc>
-      
-      <lastmod>2019-12-21T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2019-12-21T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2019-12-21T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
-      
-      <lastmod>2019-12-21T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -455,18 +481,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/ALV/</loc>
-      
-      <lastmod>2019-06-24T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>

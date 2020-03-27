@@ -114,14 +114,16 @@ TYPES:  END OF str_pidoc.
 **内表清空：**
      
 
-​	`CLEAR <ITAB>`：仅清空HEADER LINE，对内表数据存储空间不影响。
+- `CLEAR <ITAB>`：仅清空HEADER LINE，对内表数据存储空间不影响。
 
-​    `REFRESH <ITAB>`：清空内表数据存储空间，对HEADER LINE不影响。
+-    `REFRESH <ITAB>`：清空内表数据存储空间，对HEADER LINE不影响。
 
-​    `REFRESH <itab> FROM TABLE <dbtab>`：清空内表存储空间，填充从数据库表所获数据。
-​    
 
-   `FREE <ITAB>`：清空内表数据存储空间，对HEADER LINE不影响。
+-    `REFRESH <itab> FROM TABLE <dbtab>`：清空内表存储空间，填充从数据库表所获数据。
+  ​    
+
+-    `FREE <ITAB>`：清空内表数据存储空间，对HEADER LINE不影响。
+
 
 **APPEND(增加，内表赋值)**
     
@@ -140,23 +142,31 @@ TYPES:  END OF str_pidoc.
 **INSERT(向内表插入数据)**
     
 
-​	INSERT itab INDEX idx. :若itab有多行数据，将新记录新增到第一行
+- INSERT itab INDEX idx. :若itab有多行数据，将新记录新增到第一行
 
-​    INSERT wa INTO TABLE itab.   :将结构体中数据新增到内表
 
-​    INSERT LINES OF itab1 [FROM idx] [TO idx2] INTO itab2 [INDEX idx3].:将itab1指定范围数据插入到itab2
+- INSERT wa INTO TABLE itab.   :将结构体中数据新增到内表
+
+
+- INSERT LINES OF itab1 [FROM idx] [TO idx2] INTO itab2 [INDEX idx3].:将itab1指定范围数据插入到itab2
+
 
 **DELETE(删除数据)**
 
-​	DELETE TABLE itab WITH TABLE KEY k1=v1...kn=vn.：按具体值删除。
+- DELETE TABLE itab WITH TABLE KEY k1=v1...kn=vn.：按具体值删除。
 
-​    DELETE TABLE itab [FROM wa].：参照其它内表值删除。
 
-​    DELETE itab INDEX idx.：根据索引删除具体行数据。
+- DELETE TABLE itab [FROM wa].：参照其它内表值删除。
 
-​    DELETE itab FROM idx1 TO idx2.：根据索引删除具体行数范围间数据。
 
-​    DELETE ADJACENT DUPLICATES FROM itab.：删除重复数据，执行此条件前必须先排序。
+- DELETE itab INDEX idx.：根据索引删除具体行数据。
+
+
+- DELETE itab FROM idx1 TO idx2.：根据索引删除具体行数范围间数据。
+
+
+- DELETE ADJACENT DUPLICATES FROM itab.：删除重复数据，执行此条件前必须先排序。
+
 
 **MODIFY:(修改内表数据)**
     
@@ -164,35 +174,45 @@ TYPES:  END OF str_pidoc.
 ​	按内表位置或者具体内表字段值相等条件修改内表数据。
 ​    
 
-​	MODIFY itab [FROM wa] [INDEX idx] [TRANSPORTING f1...fn] WHERE cond.
+- MODIFY itab [FROM wa] [INDEX idx] [TRANSPORTING f1...fn] WHERE cond.
+
 
  **LOOP....ENDLOOP：（循环读取内表数据)**
 
 ​    循环读取内表数据，在循环中使用系统变量SY-TABIX可获取当前所执行的行数。
 
-​    LOOP AT ITAB [INTO WA] FROM n1 TO n2.：读取内表具体行数间数据。
+- LOOP AT ITAB [INTO WA] FROM n1 TO n2.：读取内表具体行数间数据。
 
-​    LOOP AT ITAB [INTO WA] WHERE cond.：按具体字段条件读取内表。
+
+- LOOP AT ITAB [INTO WA] WHERE cond.：按具体字段条件读取内表。
+- LOOP AT ITAB [ASSIGNING wa ] WHERE cond.：分配给字段符号。
 
 **AT...ENDAT（设置内表循环触发条件）**
 
 ​    该语法为事件控制函数，应用于LOOP循环语句中，用于获取内表的数据变化事件。
 
-​    AT NEW f.：当某个字段数据与上一行数据值不同时触发该事件。
+- AT NEW f.：当某个字段数据与上一行数据值不同时触发该事件。
 
-​    AT END OF f.：当内表中某个字段当前行值与下一行值不同时触发该事件。
 
-​    AT FIRST.：当执行内表第一行时触发该事件。
+- AT END OF f.：当内表中某个字段当前行值与下一行值不同时触发该事件。
 
-​    AT LAST.：当执行内表最后一行时触发该事件。
+
+- AT FIRST.：当执行内表第一行时触发该事件。
+
+
+- AT LAST.：当执行内表最后一行时触发该事件。
+
 
 **READ:(读取)**
 
-​    READ TABLE itab [INTO wa] FROM wa.
+- READ TABLE itab [INTO wa] FROM wa.
 
-​    READ TABLE itab [INTO wa] WITH [TABLE] KEY k1=v1...kn=vn [BINARY SEARCH].
 
-​    READ TABLE itab [INTO wa] INDEX i.
+- READ TABLE itab [INTO wa] WITH [TABLE] KEY k1=v1...kn=vn [BINARY SEARCH].
+
+
+- READ TABLE itab [INTO wa] INDEX i.
+
 
 **COLLECT（内表数据分类汇总）**
 

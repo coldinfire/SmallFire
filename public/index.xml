@@ -5,7 +5,7 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -96,6 +96,65 @@
 
 &lt;p&gt;​   此博客中凡无特别说明 “Small Fire 原创” 字样的文章，均来源于互联网，本人只是作为收藏学习之用，其版权为原作者所有，可能由于本人疏忽未注明来源，如本博客转载文章涉及作品内容、版权等问题，原作者有疑义或者认为侵犯了版权的，请尽快联系本人。
 Email：&lt;a href=&#34;mailto:coldinfire@163.com&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;coldinfire@163.com&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ALV添加执行进度功能</title>
+      <link>https://coldinfire.github.io/2020/ABAP_ALVProgress/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_ALVProgress/</guid>
+      <description>&lt;p&gt;为了提升用户体验添加进度条功能。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;DATA:BEGIN OF gt_result OCCURS 0,
+        sel(1),
+        matnr         TYPE mara-matnr,
+        zz_edi_grp    TYPE mara-zz_edi_grp,
+        werks         TYPE mseg-werks,
+        eknam         TYPE eknam,
+        maktx         TYPE maktx,
+        num           TYPE sy-tabix,
+        row           TYPE sy-tabix,
+        icon          TYPE icon-id,
+        mess          TYPE string,
+        flag(1),
+      END OF gt_result.
+
+DATA:lt_result LIKE STANDARD TABLE OF gt_result WITH HEADER LINE.  
+
+DATA:
+    l_perc      TYPE int4,
+    l_perc_cnt  TYPE int4,
+    l_perc_i    TYPE int4,
+    l_perc_stxt TYPE string,
+    l_sperc(3)  TYPE c.  
+
+  READ TABLE gt_result WITH KEY sel = &#39;X&#39;.
+  IF sy-subrc &amp;lt;&amp;gt; 0.
+    MESSAGE &#39;Please select at leaset one line.&#39; TYPE &#39;E&#39; .
+  ENDIF.
+  
+  lt_result[] = gt_result[].
+  DELETE lt_result[] WHERE sel  &amp;lt;&amp;gt; &#39;X&#39;.
+
+  l_perc = 0.
+  l_perc_i = 0.
+  l_perc_cnt = LINES( lt_result ).  &amp;quot;DESCRIBE TABLE itab LINES n
+
+  LOOP AT  lt_result.
+    l_perc_i = l_perc_i + 1.
+    l_perc_stxt = &#39;&#39;.
+    l_perc = l_perc_i * 100 / l_perc_cnt.
+    l_sperc = l_perc.
+    CONCATENATE &#39;Processing: &#39;  l_sperc &#39;% …… &#39; lt_result-matnr &#39;@ plant:&#39; lt_result-werks INTO l_perc_stxt.
+    CALL FUNCTION &#39;SAPGUI_PROGRESS_INDICATOR&#39;
+      EXPORTING
+        percentage = l_perc
+        text       = l_perc_stxt.
+     ........
+  ENDLOOPG.
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -1640,148 +1699,6 @@ ENDFORM.                    &amp;quot;frm_order_RELEASE
   CONTINUE.
   ENDIF.
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ABAP混合算术运算</title>
-      <link>https://coldinfire.github.io/2019/ABAP_MixedCalculate/</link>
-      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_MixedCalculate/</guid>
-      <description>
-
-&lt;h3 id=&#34;使用&#34;&gt;使用&lt;/h3&gt;
-
-&lt;p&gt;​   在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。&lt;/p&gt;
-
-&lt;h4 id=&#34;一-调用bapi-eval-formula&#34;&gt;一、调用BAPI：EVAL_FORMULA&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;TYPES:BEGIN OF TY_VAL,
-      OPERAND TYPE C,
-      VALUE TYPE STRING,
-      END OF TY_VAL.
-TYPES:BEGIN OF TY_FRM,
-      NO TYPE I,
-      FORMULA TYPE CHAR50,
-      END OF TY_FRM.
-DATA:IT_VAL TYPE TABLE OF TY_VAL,
-     WA_VAL TYPE TY_VAL.
-DATA:IT_FORMULA TYPE TABLE OF TY_FRM,
-     WA_FRM TYPE TY_FRM.
-DATA:WF_STRING TYPE CHAR255,
-     WF_LEN TYPE I,
-     WF_FORMULA TYPE CHAR50.
-DATA: WF_RETCODE      LIKE SY-SUBRC,
-      WF_FUNCNAME(30) TYPE C,
-      WF_MESSAGE(70)  TYPE C,
-      WF_POS          TYPE I,
-      WF_C            TYPE P LENGTH 15 DECIMALS 2.
-      
-WA_VAL-OPERAND = &#39;A&#39;.
-WA_VAL-VALUE = &#39;1&#39;.
-APPEND WA_VAL TO IT_VAL.
-WA_VAL-OPERAND = &#39;B&#39;.
-WA_VAL-VALUE = &#39;2&#39;.
-APPEND WA_VAL TO IT_VAL.
-WA_VAL-OPERAND = &#39;C&#39;.
-WA_VAL-VALUE = &#39;3&#39;.
-APPEND WA_VAL TO IT_VAL.
-WA_FRM-NO = 1.
-WA_FRM-FORMULA = &#39;A*B+C&#39;.
-APPEND WA_FRM TO IT_FORMULA.
-WA_FRM-NO = 2.
-WA_FRM-FORMULA = &#39;C*(A-B)&#39;.
-APPEND WA_FRM TO IT_FORMULA.
-LOOP AT IT_FORMULA INTO WA_FRM.
-  WF_STRING = WA_FRM-FORMULA.
-  WF_FORMULA = WA_FRM-FORMULA.
-  REPLACE ALL OCCURRENCES OF REGEX &#39;[^[:alpha:]]&#39; IN WF_STRING WITH ` `.
-  CONDENSE WF_STRING NO-GAPS.
-  WF_LEN = STRLEN( WF_STRING ).
-  DO WF_LEN TIMES.
-    SY-INDEX = SY-INDEX - 1.
-    READ TABLE IT_VAL INTO WA_VAL WITH KEY OPERAND = WF_STRING+SY-INDEX(1).
-    IF SY-SUBRC = 0.
-      REPLACE ALL OCCURRENCES OF WF_STRING+SY-INDEX(1)
-                              IN WF_FORMULA
-                              WITH WA_VAL-VALUE.
-    ENDIF.
-  ENDDO.
-  CALL FUNCTION &#39;CHECK_FORMULA&#39;
-    EXPORTING
-      FORMULA  = WF_FORMULA
-    IMPORTING
-      SUBRC    = WF_RETCODE
-      FUNCNAME = WF_FUNCNAME
-      MESSAGE  = WF_MESSAGE
-      POS      = WF_POS.
-  IF WF_RETCODE IS INITIAL.
-    CALL FUNCTION &#39;EVAL_FORMULA&#39;
-      EXPORTING
-        FORMULA = WF_FORMULA
-      IMPORTING
-        VALUE   = WF_C
-      EXCEPTIONS
-        OTHERS  = 1.
-    IF SY-SUBRC = 0.
-      WRITE: / WA_FRM-FORMULA,&#39;-&#39;, WF_C.
-    ELSE.
-      WRITE: / &#39;Error&#39;..
-    ENDIF.
-  ELSE.
-    WRITE: / WF_FUNCNAME, WF_MESSAGE, WF_POS.
-  ENDIF.
-ENDLOOP.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;替换表达式的运算单位&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;REPLACE ALL OCCURRENCES OF REGEX &#39;[^[:alnum:]]&#39; IN WF_STRING WITH ‘ ’&lt;/code&gt; .&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;REPLACE ALL OCCURRENCES OF REGEX &#39;[^[:alpha:]]&#39; IN WF_STRING WITH ‘ ’&lt;/code&gt; .&lt;/li&gt;
-&lt;li&gt;``：两个表示空格&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;将字符串切分保存到内表&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;SPLIT  WF_STRING  AT SPACE INTO TABLE table_name.&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;二-通过直接调用表达式完成计算&#34;&gt;二、通过直接调用表达式完成计算&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;DATA: MESSAGE TYPE STRING,
-      SOURCE TYPE STRING,
-      RETURN_VALUE TYPE P LENGTH 15 DECIMALS 2,
-      TXT_VAR1 TYPE CHAR40,
-      TXT_VAR2 TYPE CHAR40,
-      TXT_VAR3 TYPE CHAR40 VALUE &#39;987979.234-&#39;.
-
-CALL FUNCTION &#39;CLOI_PUT_SIGN_IN_FRONT&#39;
-  CHANGING
-    VALUE  = TXT_VAR3.
-
-MESSAGE = &#39;(-351422999.55+-59211228.95+-1297670.94+-3135583.53+-35337844.40)*100/(613848716.07+0.00+-1552672.73)&#39;.
-
-DATA: JS_PROCESSOR TYPE REF TO CL_JAVA_SCRIPT.
-  JS_PROCESSOR = CL_JAVA_SCRIPT=&amp;gt;CREATE( ).
-    CONCATENATE
-      &#39;var string = &#39; MESSAGE &#39;;&#39;
-      &#39;function Set_String()                          &#39;
-      &#39;  { string = eval(string);                     &#39;
-      &#39;  }                                            &#39;
-      &#39;Set_String();                                  &#39;
-      &#39;string;                                        &#39;
-    INTO SOURCE SEPARATED BY
-    CL_ABAP_CHAR_UTILITIES=&amp;gt;CR_LF.
-RETURN_VALUE = JS_PROCESSOR-&amp;gt;EVALUATE( SOURCE ).
-WRITE: RETURN_VALUE.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;实际使用&#34;&gt;实际使用&lt;/h4&gt;
-
-&lt;p&gt;​   可以将以上两种方法进行结合，计算出表达式的结果。&lt;/p&gt;
 </description>
     </item>
     
