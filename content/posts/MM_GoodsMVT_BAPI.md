@@ -5,9 +5,10 @@ draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-  - MM
+  - business
 
 tags: 
+  - MM
   - BAPI
 
 ---

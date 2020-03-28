@@ -10,7 +10,7 @@ categories:
 
 tags: 
   - abaputils
-  - abapbasis
+
 ---
 
 
@@ -48,6 +48,24 @@ Recording rountine:
 ![屏幕号生成](/images/ABAP/SM304.png)
 
 当保存完成后即可通过TCode：SM30，通过对应的表名就可以对已建立表维护的表进行数据的维护。
+
+#### 修改table control显示控制
+
+​	双击Overview Screen 进入Screen Painter，修改Attributes显示界面的大小。
+
+![修改屏幕属性](/images/ABAP/SM3013.png)
+
+然后进行字段修改设置为必输或则只显示，修改列描述，字段显示长度调整。
+
+![修改屏幕属性](/images/ABAP/SM3014.png)
+
+#### 添加自定义module
+
+可以根据输入值获取并设置相关字段的值； 设置维护日期 ，维护人赋值等操作
+
+![自定义MODULE](/images/ABAP/SM3015.png)
+
+![设置和维护值](/images/ABAP/SM3016.png)
 
 ### 分配TCode
 

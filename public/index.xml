@@ -5,7 +5,7 @@
     <description>Recent content in Small Fire`s Blog on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://coldinfire.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -100,6 +100,571 @@ Email：&lt;a href=&#34;mailto:coldinfire@163.com&#34; rel=&#34;nofollow norefer
     </item>
     
     <item>
+      <title>OLE下载数据到EXCEL模板及速度优化</title>
+      <link>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</guid>
+      <description>
+
+&lt;p&gt;引用链接：&lt;a href=&#34;https://mp.weixin.qq.com/s/9_1gyAgRwgGa09dXID-_LA&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;OLE 下载数据到EXCEL模板及速度优化&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;问题描述:&lt;/strong&gt;当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员自定义下载数据程序。&lt;/p&gt;
+
+&lt;p&gt;步骤：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上传模板 tcode：smw0&lt;/li&gt;
+&lt;li&gt;获取并展示数据&lt;/li&gt;
+&lt;li&gt;自定义按钮&lt;/li&gt;
+&lt;li&gt;将ALV数据下载到EXCEL模板中&lt;/li&gt;
+&lt;li&gt;下载速度的优化&lt;/li&gt;
+&lt;li&gt;程序源码（ZOLE_EXCEL）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;下载速度优化&#34;&gt;下载速度优化：&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;将内表数据先放到剪切板上，全量粘贴
+DESCRIBE FIELD LW_ALV TYPE LV_TYPE COMPONENTS LV_RC.
+  LOOP AT T_ALV INTO W_ALV.
+    LW_ALV-LINE1 = W_ALV-MANDT.      &amp;quot;
+    LW_ALV-LINE2 = W_ALV-PERSNUMBER.    &amp;quot;
+    LW_ALV-LINE3 = W_ALV-NAME_LAST.    &amp;quot;
+    LW_ALV-LINE4 = W_ALV-NAME_TEXT.    &amp;quot;
+    LW_ALV-LINE5 = W_ALV-COMPANY.    &amp;quot;
+    CLEAR LW_CHAR-LINE.
+    DO LV_RC TIMES.
+      ASSIGN COMPONENT SY-INDEX OF STRUCTURE LW_ALV TO &amp;lt;LV_FIELD&amp;gt;.
+      CONCATENATE LW_CHAR-LINE &amp;lt;LV_FIELD&amp;gt; CL_ABAP_CHAR_UTILITIES=&amp;gt;HORIZONTAL_TAB INTO LW_CHAR-LINE.
+    ENDDO.
+    APPEND LW_CHAR TO LT_CHAR.
+  ENDLOOP.
+* 将内表数据放到excel剪切板上
+  CALL METHOD CL_GUI_FRONTEND_SERVICES=&amp;gt;CLIPBOARD_EXPORT
+    IMPORTING
+      DATA                 = LT_CHAR    &amp;quot; Data
+    CHANGING
+      RC                   = LV_RC    &amp;quot; Return Code
+    EXCEPTIONS
+      CNTL_ERROR           = 1
+      ERROR_NO_GUI         = 2
+      NOT_SUPPORTED_BY_GUI = 3
+*     no_authority         = 4
+      OTHERS               = 5.
+
+  GET PROPERTY OF APPLICATION &#39;ACTIVECELL&#39; = SHEET.
+*
+  CALL METHOD OF APPLICATION &#39;Worksheets&#39; = SHEET
+    EXPORTING
+    #1 = &#39;Sheet1&#39;.
+**
+  CALL METHOD OF SHEET &#39;Activate&#39;.
+* Select the cell A1
+  CALL METHOD OF APPLICATION &#39;CELLS&#39; = CELL
+    EXPORTING
+    #1 = 2  &amp;quot; i_row
+    #2 = 1 . &amp;quot; i_col
+
+* Paste clipboard from cell
+  CALL METHOD OF CELL &#39;SELECT&#39;. &amp;quot; 选择单元格
+  CALL METHOD OF SHEET &#39;Paste&#39;. &amp;quot; 粘贴
+  CALL METHOD OF APPLICATION &#39;CELLS&#39; = CELL
+    EXPORTING
+    #1 = 2
+    #2 = 1 .
+  CALL METHOD OF CELL &#39;SELECT&#39;. &amp;quot; 取消全选
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;程序源码&#34;&gt;程序源码&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;&amp;quot; Declare Table*
+TABLES:ADRP.
+&amp;quot; Declare Internal Table TYPE*
+TYPES:BEGIN OF TP_ALV ,
+       MANDT      TYPE ADRP-CLIENT,      *&amp;quot;* *客户端*
+       PERSNUMBER TYPE ADRP-PERSNUMBER,  *&amp;quot;* *人员编号*
+       NAME_LAST  TYPE ADRP-NAME_LAST,   *&amp;quot;* *姓*
+       NAME_TEXT  TYPE ADRP-NAME_TEXT,   *&amp;quot;* *全名*
+       COMPANY    TYPE CHAR50,           *&amp;quot;* *公司*
+      END OF TP_ALV.
+
+&amp;quot; Declare Internal Table
+DATA T_ALV TYPE STANDARD TABLE OF TP_ALV.
+DATA W_ALV TYPE TP_ALV.
+DATA: W_LAYOUT TYPE LVC_S_LAYO,
+      W_FCAT   TYPE LVC_S_FCAT,
+      T_FCAT   TYPE LVC_T_FCAT.
+
+DATA: APPLICATION TYPE OLE2_OBJECT,       *&amp;quot;excel object*
+      WORKBOOK    TYPE OLE2_OBJECT,       *&amp;quot;excel workbook objcet*
+      SHEET       TYPE OLE2_OBJECT,       *&amp;quot;workbook sheet object*
+      COLUMNS     TYPE OLE2_OBJECT,       *&amp;quot;sheet col objcet*
+      ROWS        TYPE OLE2_OBJECT,       *&amp;quot;sheet row objcet*
+      RANGE       TYPE OLE2_OBJECT,       *&amp;quot;range*
+      RANGE1      TYPE OLE2_OBJECT,                         *&amp;quot;range1*
+      FONT        TYPE OLE2_OBJECT,       *&amp;quot;font*
+      CELL        TYPE OLE2_OBJECT,       *&amp;quot;cell*
+      CELL1       TYPE OLE2_OBJECT,                         *&amp;quot;cell1*
+      SHEET1      TYPE OLE2_OBJECT,       *&amp;quot;workbook sheet object*
+      BORDERS     TYPE OLE2_OBJECT.       *&amp;quot;borders*
+      
+&amp;quot; Constants:
+CONSTANTS LC_PF_STATUS TYPE SLIS_FORMNAME VALUE &#39;ALV_PF_STATUS&#39; .       &amp;quot;alv* *自定义按钮*
+CONSTANTS LC_USER_COMMAND TYPE SLIS_FORMNAME VALUE &#39;ALV_USER_COMMAND&#39; . &amp;quot;alv* *自定义按钮响应事件*
+CONSTANTS LC_COMPANY TYPE CHAR50 VALUE &#39;迈思诚(大连)科技有限公司&#39;.
+
+**---------Selection-Screen----------**
+SELECTION-SCREEN BEGIN OF BLOCK B01 WITH FRAME TITLE TEXT-P01.
+PARAMETERS: R_1 TYPE C RADIOBUTTON GROUP R1 DEFAULT &#39;X&#39;,    
+            R_2 TYPE C RADIOBUTTON GROUP R1 .  
+SELECTION-SCREEN END OF BLOCK B01.
+**======================================================================**
+**  Report Events*
+INITIALIZATION.
+AT SELECTION-SCREEN OUTPUT.             
+AT SELECTION-SCREEN.
+START-OF-SELECTION.
+  SELECT * INTO CORRESPONDING FIELDS OF TABLE T_ALV FROM ADRP.
+  LOOP AT T_ALV INTO W_ALV.
+    W_ALV-MANDT = SY-MANDT.
+    W_ALV-COMPANY = LC_COMPANY.
+    MODIFY T_ALV FROM W_ALV.
+    CLEAR W_ALV.
+  ENDLOOP.
+END-OF-SELECTION.
+
+  DEFINE _APPEND_FCAT.
+    CLEAR w_fcat.
+    w_fcat-fieldname = &amp;amp;1.
+    w_fcat-scrtext_l = &amp;amp;2.
+**  ls_fcat-hotspot   = &amp;amp;3.*
+    append  w_fcat to t_fcat.
+  END-OF-DEFINITION.
+
+  W_LAYOUT-ZEBRA = ABAP_TRUE.
+  W_LAYOUT-CWIDTH_OPT  = ABAP_TRUE.
+  _APPEND_FCAT: &#39;MANDT&#39; &#39;客户端&#39;,
+&#39;PERSNUMBER&#39; &#39;人员编号&#39; ,
+&#39;NAME_LAST&#39; &#39;姓&#39; ,
+&#39;NAME_TEXT&#39; &#39;全名&#39; ,
+&#39;COMPANY&#39; &#39;公司&#39;.
+
+  CALL FUNCTION &#39;REUSE_ALV_GRID_DISPLAY_LVC&#39;
+    EXPORTING
+      I_CALLBACK_PROGRAM       = SY-REPID
+      I_CALLBACK_PF_STATUS_SET = LC_PF_STATUS    &amp;quot; 自定义按钮GUI
+      I_CALLBACK_USER_COMMAND  = LC_USER_COMMAND &amp;quot; 自定义按钮响应事件
+      IS_LAYOUT_LVC            = W_LAYOUT
+      IT_FIELDCAT_LVC          = T_FCAT
+    TABLES
+      T_OUTTAB                 = T_ALV.
+
+FORM ALV_PF_STATUS USING RT_EXTAB TYPE SLIS_T_EXTAB .
+  SET PF-STATUS &#39;STANDARD_001&#39;.
+ENDFORM.
+
+FORM ALV_USER_COMMAND USING R_UCOMM LIKE SY-UCOMM   *&amp;quot;user_command*
+                       RS_SELFIELD  TYPE SLIS_SELFIELD.
+
+  DATA: LR_GRID TYPE REF TO CL_GUI_ALV_GRID.
+  &amp;quot;将变更的数据刷新*
+  CALL FUNCTION &#39;GET_GLOBALS_FROM_SLVC_FULLSCR&#39;
+    IMPORTING
+      E_GRID = LR_GRID.
+  CALL METHOD LR_GRID-&amp;gt;CHECK_CHANGED_DATA.
+  RS_SELFIELD-REFRESH = &#39;X&#39;.
+  
+  CASE R_UCOMM.
+    WHEN &#39;&amp;amp;DOWNLOAD&#39;.
+     PERFORM FRM_DOWNLOAD_ALV. *&amp;quot;* *附加关税成本追加*
+  ENDCASE.
+ENDFORM.
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_DOWNLOAD_ALV*
+**&amp;amp;---------------------------------------------------------------------**
+FORM FRM_DOWNLOAD_ALV .
+  DATA: LV_FILE    TYPE RLGRAP-FILENAME,
+        LV_PATH    TYPE RLGRAP-FILENAME ,
+        LV_ERROR   TYPE CHAR1,
+        LV_PERCENT(5) TYPE P DECIMALS 2.
+  *&amp;quot;**获取文件路径*
+  PERFORM FRM_GET_FILE CHANGING LV_PATH
+                                LV_ERROR.
+  CHECK LV_ERROR IS INITIAL.
+  PERFORM FRM_PROCESS_INDCATOR USING &#39;程序正在下载模板&#39; 0 .
+  LV_FILE = LV_PATH.
+  CONCATENATE LV_FILE
+            &#39;员工信息表&#39;
+            SY-UZEIT
+            &#39;.xlsx&#39;
+       INTO LV_FILE.
+  *&amp;quot;**下载模板*
+  PERFORM FRM_DOWN_TEMPLATE USING LV_FILE
+                            CHANGING LV_ERROR.
+
+  CHECK LV_ERROR IS INITIAL.
+
+  *&amp;quot;**打开**excel*
+  PERFORM FRM_OPEN_EXCEL_HIDE USING LV_FILE &#39;X&#39;.
+
+  PERFORM FRM_PROCESS_INDCATOR USING &#39;程序正在把数据写入到Excel&#39; LV_PERCENT.
+  IF R_1 = &#39;X&#39;.
+    PERFORM FRM_WRITE_DATA.
+  ELSEIF R_2 = &#39;X&#39;.
+    PERFORM FRM_WRITE_DATA_YH .
+  ENDIF.
+
+  *&amp;quot;**关闭**excel*
+  PERFORM FRM_CLOSE_EXCEL USING LV_FILE.
+  PERFORM FRM_FREE_OBJECT.
+
+ENDFORM.                    *&amp;quot; FRM_DOWNLOAD_ALV*
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_GET_FILE*
+**&amp;amp;---------------------------------------------------------------------**
+FORM FRM_GET_FILE  CHANGING OV_FILE
+                            OV_ERROR.
+  DATA: LV_FOLDER  TYPE STRING.
+
+  CALL METHOD CL_GUI_FRONTEND_SERVICES=&amp;gt;DIRECTORY_BROWSE
+    EXPORTING
+      WINDOW_TITLE         = &#39;文件路径选择&#39;
+**     initial_folder       =*
+    CHANGING
+      SELECTED_FOLDER      = LV_FOLDER
+    EXCEPTIONS
+      CNTL_ERROR           = 1
+      ERROR_NO_GUI         = 2
+      NOT_SUPPORTED_BY_GUI = 3
+      OTHERS               = 4.
+  IF SY-SUBRC &amp;lt;&amp;gt; 0.
+    MESSAGE ID SY-MSGID TYPE &#39;S&#39; NUMBER SY-MSGNO
+               WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4
+               DISPLAY LIKE &#39;E&#39;.
+    OV_ERROR = &#39;X&#39;.
+  ELSEIF LV_FOLDER IS INITIAL.
+    MESSAGE &#39;文件下载取消！&#39; TYPE &#39;S&#39;.
+    OV_ERROR = &#39;X&#39;.
+  ELSE.
+    OV_FILE = LV_FOLDER.
+  ENDIF.
+ENDFORM.                    *&amp;quot; FRM_GET_FILE*
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_PROCESS_INDCATOR*
+**&amp;amp;---------------------------------------------------------------------**
+FORM FRM_PROCESS_INDCATOR  USING TEXT PERCENTAGE.
+  CALL FUNCTION &#39;SAPGUI_PROGRESS_INDICATOR&#39;
+    EXPORTING
+      PERCENTAGE = PERCENTAGE
+      TEXT       = TEXT.
+ENDFORM.                    *&amp;quot; FRM_PROCESS_INDCATOR*
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_DOWN_TEMPLATE*
+**&amp;amp;---------------------------------------------------------------------**
+FORM FRM_DOWN_TEMPLATE  USING    I_FILE TYPE RLGRAP-FILENAME
+                        CHANGING OV_ERROR.
+
+  DATA: LO_OBJDATA     LIKE WWWDATATAB,
+      LO_MIME        LIKE W3MIME,
+      LS_OBJNAM      TYPE STRING,
+      LI_RC          LIKE SY-SUBRC,
+      LS_ERRTXT      TYPE STRING,
+      LV_OBJID       TYPE WWWDATA-OBJID.
+
+  LV_OBJID  = &#39;ZOLE_EXCEL&#39;.
+  CONCATENATE LV_OBJID &#39;.XLSX&#39; INTO LS_OBJNAM.
+  CONDENSE LS_OBJNAM NO-GAPS.
+  SELECT SINGLE RELID OBJID FROM WWWDATA
+  INTO CORRESPONDING FIELDS OF LO_OBJDATA
+  WHERE SRTF2    = 0
+    AND RELID    = &#39;MI&#39;
+    AND OBJID    = LV_OBJID.
+
+  IF SY-SUBRC NE 0 OR LO_OBJDATA-OBJID EQ SPACE.
+    MESSAGE &#39;模板文件不存在，请用TCODE：SMW0进行加载!&#39; TYPE &#39;E&#39;.
+    OV_ERROR = &#39;X&#39;.
+  ENDIF.
+
+  CALL FUNCTION &#39;DOWNLOAD_WEB_OBJECT&#39;
+    EXPORTING
+      KEY         = LO_OBJDATA
+      DESTINATION = I_FILE
+    IMPORTING
+      RC          = LI_RC.
+
+  IF LI_RC NE 0.
+    MESSAGE &#39;模板文件下载失败!&#39; TYPE &#39;E&#39;.
+    OV_ERROR = &#39;X&#39;.
+  ENDIF.
+ENDFORM.                    *&amp;quot; FRM_DOWN_TEMPLATE*
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_OPEN_EXCEL_HIDE*
+**&amp;amp;---------------------------------------------------------------------**
+FORM FRM_OPEN_EXCEL_HIDE  USING    P_FILE
+                                   P_HIDE.
+  CREATE OBJECT APPLICATION &#39;EXCEL.APPLICATION&#39;.
+
+  IF P_HIDE IS NOT INITIAL.
+    SET PROPERTY OF APPLICATION &#39;VISIBLE&#39; = 0.
+  ELSE.
+    SET PROPERTY OF APPLICATION &#39;Visible&#39; = 1.
+  ENDIF.
+  CALL METHOD OF APPLICATION &#39;Workbooks&#39; = WORKBOOK.
+  CALL METHOD OF WORKBOOK &#39;Open&#39; = WORKBOOK
+    EXPORTING
+    \#1 = P_FILE.
+
+ENDFORM.                    *&amp;quot; FRM_OPEN_EXCEL_HIDE*
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_WRITE_DATA*
+**&amp;amp;---------------------------------------------------------------------**
+FORM FRM_WRITE_DATA .
+  DATA L_COUNT TYPE I VALUE &#39;1&#39;.
+  LOOP AT T_ALV INTO W_ALV .
+    L_COUNT = L_COUNT + 1.
+    PERFORM FRM_FILL_CELL USING L_COUNT 1 W_ALV-MANDT SPACE.
+    PERFORM FRM_FILL_CELL USING L_COUNT 2 W_ALV-PERSNUMBER SPACE.
+    PERFORM FRM_FILL_CELL USING L_COUNT 3 W_ALV-NAME_LAST SPACE.
+    PERFORM FRM_FILL_CELL USING L_COUNT 4 W_ALV-NAME_TEXT SPACE.
+    PERFORM FRM_FILL_CELL USING L_COUNT 5 W_ALV-COMPANY SPACE.
+  ENDLOOP.
+  CLEAR L_COUNT.
+ENDFORM.                    *&amp;quot; FRM_WRITE_DATA*
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_FILL_CELL*
+**&amp;amp;---------------------------------------------------------------------**
+**       text*
+**----------------------------------------------------------------------**
+**      --&amp;gt;P_2      text*
+**      --&amp;gt;P_1      text*
+**      --&amp;gt;P_L_HEADDATA  text*
+**      --&amp;gt;P_SPACE  text*
+**----------------------------------------------------------------------**
+FORM FRM_FILL_CELL  USING    I_ROW I_COL I_VALUE P_FLAG.
+  CALL METHOD OF APPLICATION &#39;CELLS&#39; = CELL
+    EXPORTING
+    \#1 = I_ROW
+    \#2 = I_COL.
+  SET PROPERTY OF CELL &#39;VALUE&#39; = I_VALUE.
+
+  IF P_FLAG = &#39;&#39;.
+**    SET PROPERTY OF cell &#39;HORIZONTALALIGNMENT&#39; = 2.*
+**  ELSEIF P_FLAG = cns_C.*
+**    SET PROPERTY OF cell &#39;HORIZONTALALIGNMENT&#39; = 3.*
+  ELSEIF P_FLAG = &#39;Z&#39;.
+    SET PROPERTY OF CELL &#39;HORIZONTALALIGNMENT&#39; = -4108.
+  ENDIF.
+
+ENDFORM.                    *&amp;quot; FRM_FILL_CELL*
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_CLOSE_EXCEL*
+**&amp;amp;---------------------------------------------------------------------**
+FORM FRM_CLOSE_EXCEL USING P_FILE.
+
+  GET PROPERTY OF APPLICATION &#39;ActiveWorkbook&#39; = WORKBOOK.
+  CALL METHOD OF WORKBOOK &#39;SAVE&#39;.
+  CALL METHOD OF WORKBOOK &#39;ClOSE&#39;.
+**    EXPORTING*
+**    #1 = 1.*
+  CALL METHOD OF WORKBOOK &#39;QUIT&#39;.
+
+ENDFORM.                      *&amp;quot; FRM_CLOSE_EXCEL*
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_FREE_OBJECT*
+**&amp;amp;---------------------------------------------------------------------**
+FORM FRM_FREE_OBJECT .
+  FREE OBJECT FONT.
+  FREE OBJECT RANGE.
+  FREE OBJECT RANGE1.
+  FREE OBJECT COLUMNS.
+  FREE OBJECT ROWS.
+  FREE OBJECT CELL.
+  FREE OBJECT CELL1.
+  FREE OBJECT SHEET1.
+  FREE OBJECT SHEET.
+  FREE OBJECT WORKBOOK.
+  FREE OBJECT APPLICATION.
+ENDFORM.                    *&amp;quot; FRM_FREE_OBJECT*
+**&amp;amp;---------------------------------------------------------------------**
+**&amp;amp;      Form  FRM_WRITE_DATA_YH*
+**&amp;amp;---------------------------------------------------------------------**
+FORM FRM_WRITE_DATA_YH .
+  DATA: BEGIN OF LW_CHAR,
+    LINE(2200) TYPE C,
+  END OF LW_CHAR.
+
+  DATA LT_CHAR LIKE TABLE OF LW_CHAR.*&amp;quot;**将数据拷贝到剪切板上*
+  DATA: BEGIN OF LW_ALV ,
+           LINE1(200) TYPE C,    *&amp;quot;*
+           LINE2(200) TYPE C,    *&amp;quot;*
+           LINE3(200) TYPE C,    *&amp;quot;*
+           LINE4(200) TYPE C,    *&amp;quot;*
+           LINE5(200) TYPE C,    *&amp;quot;*
+        END OF LW_ALV.
+  DATA LV_RC TYPE I.
+  DATA LV_TYPE TYPE C.
+  FIELD-SYMBOLS &amp;lt;LV_FIELD&amp;gt;.
+
+
+  DESCRIBE FIELD LW_ALV TYPE LV_TYPE COMPONENTS LV_RC.
+  LOOP AT T_ALV INTO W_ALV.
+    LW_ALV-LINE1 = W_ALV-MANDT.      *&amp;quot;*
+    LW_ALV-LINE2 = W_ALV-PERSNUMBER.    *&amp;quot;*
+    LW_ALV-LINE3 = W_ALV-NAME_LAST.    *&amp;quot;*
+    LW_ALV-LINE4 = W_ALV-NAME_TEXT.    *&amp;quot;*
+    LW_ALV-LINE5 = W_ALV-COMPANY.    *&amp;quot;*
+    CLEAR LW_CHAR-LINE.
+    DO LV_RC TIMES.
+      ASSIGN COMPONENT SY-INDEX OF STRUCTURE LW_ALV TO &amp;lt;LV_FIELD&amp;gt;.
+      CONCATENATE LW_CHAR-LINE &amp;lt;LV_FIELD&amp;gt; CL_ABAP_CHAR_UTILITIES=&amp;gt;HORIZONTAL_TAB INTO LW_CHAR-LINE.
+    ENDDO.
+    APPEND LW_CHAR TO LT_CHAR.
+  ENDLOOP.
+*** *将内表数据放到**excel**剪切板上*
+  CALL METHOD CL_GUI_FRONTEND_SERVICES=&amp;gt;CLIPBOARD_EXPORT
+    IMPORTING
+      DATA                 = LT_CHAR    *&amp;quot; Data*
+    CHANGING
+      RC                   = LV_RC    *&amp;quot; Return Code*
+    EXCEPTIONS
+      CNTL_ERROR           = 1
+      ERROR_NO_GUI         = 2
+      NOT_SUPPORTED_BY_GUI = 3
+**     no_authority         = 4*
+      OTHERS               = 5.
+
+
+  GET PROPERTY OF APPLICATION &#39;ACTIVECELL&#39; = SHEET.
+***
+  CALL METHOD OF APPLICATION &#39;Worksheets&#39; = SHEET
+    EXPORTING
+    \#1 = &#39;Sheet1&#39;.
+****
+  CALL METHOD OF SHEET &#39;Activate&#39;.
+** Select the cell A1*
+  CALL METHOD OF APPLICATION &#39;CELLS&#39; = CELL
+    EXPORTING
+    \#1 = 2  *&amp;quot; i_row*
+    \#2 = 1 . *&amp;quot; i_col*
+
+** Paste clipboard from cell*
+  CALL METHOD OF CELL &#39;SELECT&#39;. *&amp;quot;* *选择单元格*
+  CALL METHOD OF SHEET &#39;Paste&#39;. *&amp;quot;* *粘贴*
+  CALL METHOD OF APPLICATION &#39;CELLS&#39; = CELL
+    EXPORTING
+    \#1 = 2
+    \#2 = 1 .
+  CALL METHOD OF CELL &#39;SELECT&#39;. *&amp;quot;* *取消全选*
+ENDFORM.                    *&amp;quot; FRM_WRITE_DATA_YH*  
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ALV复制内容到剪贴板</title>
+      <link>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</link>
+      <pubDate>Wed, 04 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</guid>
+      <description>&lt;p&gt;引用链接：&lt;a href=&#34;https://mp.weixin.qq.com/s/h9vRrzQUir8epaypNdcC6w&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;ALV复制内容到剪贴板&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;用在ALV的USER_COMMAND里面
+复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前
+如果有选中的列，则复制选中的列，如果没有选中的列，复制所有可见的列&lt;/p&gt;
+
+&lt;p&gt;如果要保存ALV的数据到Excel，可以先复制，然后到Excel粘贴。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;FORM user_command USING r_ucomm LIKE sy-ucomm
+                        rs_selfield TYPE slis_selfield.
+  CASE r_ucomm.
+    WHEN &#39;TOCLIP&#39;.
+      PERFORM itabtoclip_alv TABLES itab_dis.
+  ENDCASE.
+ENDFORM. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;--------------------------------------
+*&amp;amp;  用在ALV的USER_COMMAND里面
+*&amp;amp;  复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前
+*&amp;amp;  如果有选中的列，则复制选中的列，如果没有选中的列，复制所有可见的列 
+*&amp;amp;      Form  itabtoclip_alv
+*---------------------*
+FORM itabtoclip_alv TABLES itab.
+  DATA: fldcat TYPE slis_t_fieldcat_alv WITH HEADER LINE,
+        marked TYPE slis_t_fieldcat_alv WITH HEADER LINE,
+        entries TYPE slis_t_fieldcat_entries WITH HEADER LINE.
+
+  DATA: charc TYPE char256,
+        ftype.
+
+  DATA: htab TYPE c VALUE cl_abap_char_utilities=&amp;gt;horizontal_tab.
+  DATA: lt_clip TYPE TABLE OF char2048 WITH HEADER LINE.
+  FIELD-SYMBOLS &amp;lt;fs_fld&amp;gt;.
+
+  CALL FUNCTION &#39;REUSE_ALV_GRID_LAYOUT_INFO_GET&#39;
+    IMPORTING
+      et_fieldcat         = fldcat[]
+      et_marked_columns   = marked[]
+      et_filtered_entries = entries[]
+    EXCEPTIONS
+      no_infos            = 1
+      program_error       = 2
+      OTHERS              = 3.
+  IF sy-subrc &amp;lt;&amp;gt; 0.
+    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+         WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  ENDIF.
+  IF marked[] IS INITIAL.
+    marked[] = fldcat[].
+    DELETE marked WHERE no_out = &#39;X&#39;.
+  ENDIF.
+  SORT entries.
+  CHECK marked[] IS NOT INITIAL.
+  CHECK itab[] IS NOT INITIAL.
+
+  LOOP AT itab.
+    READ TABLE entries WITH KEY table_line = sy-tabix BINARY SEARCH.
+    CHECK sy-subrc &amp;lt;&amp;gt; 0.
+    CLEAR lt_clip.
+    LOOP AT marked.
+      ASSIGN COMPONENT marked-filename OF STRUCTURE itab TO &amp;lt;fs_fld&amp;gt;.
+      CHECK sy-subrc = 0.
+
+      DESCRIBE FIELD &amp;lt;fs_fld&amp;gt; TYPE ftype.
+      CASE  ftype.
+        WHEN  &#39;I&#39; OR &#39;P&#39; OR &#39;F&#39; OR &#39;a&#39; OR &#39;e&#39;.
+          charc = ABS( &amp;lt;fs_fld&amp;gt; ).
+          CONDENSE  charc NO-GAPS.
+          IF &amp;lt;fs_fld&amp;gt; &amp;lt; 0.
+            CONCATENATE &#39;-&#39; charc INTO charc.
+          ENDIF.
+        WHEN OTHERS.
+          WRITE &amp;lt;fs_fld&amp;gt; TO charc.
+      ENDCASE.
+      CONCATENATE lt_clip htab INTO lt_clip.
+    ENDLOOP.
+    SHIFT lt_clip.
+    APPEND lt_clip.
+  ENDLOOP.
+
+  CHECK lt_clip[] IS NOT INITIAL.
+  CALL FUNCTION &#39;CLPB_EXPORT&#39;
+    TABLES
+      data_tab   = lt_clip
+    EXCEPTIONS
+      clpb_error = 1
+      OTHERS     = 2.
+  IF sy-subrc &amp;lt;&amp;gt; 0.
+    MESSAGE s000(00) WITH &#39;已经导出到剪贴板&#39;.
+  ELSE.
+    MESSAGE e000(00) WITH &#39;导出到剪切板错误&#39;.
+  ENDIF.
+ENDFORM.                    &amp;quot;itabtoclip_alv
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>ALV添加执行进度功能</title>
       <link>https://coldinfire.github.io/2020/ABAP_ALVProgress/</link>
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
@@ -108,28 +673,24 @@ Email：&lt;a href=&#34;mailto:coldinfire@163.com&#34; rel=&#34;nofollow norefer
       <description>&lt;p&gt;为了提升用户体验添加进度条功能。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;DATA:BEGIN OF gt_result OCCURS 0,
-        sel(1),
-        matnr         TYPE mara-matnr,
-        zz_edi_grp    TYPE mara-zz_edi_grp,
-        werks         TYPE mseg-werks,
-        eknam         TYPE eknam,
-        maktx         TYPE maktx,
-        num           TYPE sy-tabix,
-        row           TYPE sy-tabix,
-        icon          TYPE icon-id,
-        mess          TYPE string,
-        flag(1),
-      END OF gt_result.
-
+    sel(1),
+    matnr         TYPE mara-matnr,
+    zz_edi_grp    TYPE mara-zz_edi_grp,
+    werks         TYPE mseg-werks,
+    eknam         TYPE eknam,
+    maktx         TYPE maktx,
+    num           TYPE sy-tabix,
+    row           TYPE sy-tabix,
+    icon          TYPE icon-id,
+    mess          TYPE string,
+    flag(1),
+  END OF gt_result.
 DATA:lt_result LIKE STANDARD TABLE OF gt_result WITH HEADER LINE.  
-
-DATA:
-    l_perc      TYPE int4,
-    l_perc_cnt  TYPE int4,
-    l_perc_i    TYPE int4,
-    l_perc_stxt TYPE string,
-    l_sperc(3)  TYPE c.  
-
+DATA: l_perc      TYPE int4,
+      l_perc_cnt  TYPE int4,
+      l_perc_i    TYPE int4,
+      l_perc_stxt TYPE string,
+      l_sperc(3)  TYPE c.  
   READ TABLE gt_result WITH KEY sel = &#39;X&#39;.
   IF sy-subrc &amp;lt;&amp;gt; 0.
     MESSAGE &#39;Please select at leaset one line.&#39; TYPE &#39;E&#39; .
@@ -154,6 +715,524 @@ DATA:
         text       = l_perc_stxt.
      ........
   ENDLOOPG.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>创建PR BAPI_REQUISITION_CREATE</title>
+      <link>https://coldinfire.github.io/2020/SAP_PR/</link>
+      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_PR/</guid>
+      <description>
+
+&lt;p&gt;引用链接：&lt;a href=&#34;https://mp.weixin.qq.com/s/2nt_V5dpgxkspDQsldJJ3A&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/s/2nt_V5dpgxkspDQsldJJ3A&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;创建pr-bapi-requisition-create&#34;&gt;创建PR BAPI_REQUISITION_CREATE&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; BAPI_REQUISITION_CREATE 和 BAPI_PR_CREATE 相关问题查看NOTE
+*&amp;amp; 499627 - FAQ BAPIs for purchase requisitions
+*&amp;amp;---------------------------------------------------------------------*
+REPORT ZLM_CREATE_PR.
+DATA: LT_ITEM     LIKE TABLE OF  BAPIEBANC,
+      LT_RETURN   LIKE TABLE OF  BAPIRETURN.
+DATA: LS_RETURN   LIKE            BAPIRETURN.
+DATA: LS_ITEM     LIKE            BAPIEBANC.
+*&amp;amp;如果有增强字段
+DATA: LT_EXTENSIONIN  TYPE TABLE OF  BAPIPAREX .
+DATA: LW_ITM       TYPE BAPI_TE_REQUISITION_ITEM.
+DATA: LV_PR_NO        TYPE BAPIEBANC-PREQ_NO.
+PARAMETERS:P_MATNR1 TYPE MATNR .
+PARAMETERS:P_MATNR2 TYPE MATNR.
+PARAMETERS:P_EKORG TYPE EKORG .
+PARAMETERS:P_WERKS TYPE WERKS_D .
+START-OF-SELECTION.
+  CLEAR LT_ITEM[].
+  CLEAR LS_ITEM.
+  LS_ITEM-DOC_TYPE          = &#39;NB&#39;.              &amp;quot;凭证类型
+  LS_ITEM-PREQ_ITEM         = &#39;00010&#39;.           &amp;quot;项目
+  LS_ITEM-MATERIAL          = P_MATNR1.             &amp;quot;商品代码
+  LS_ITEM-QUANTITY          = 1.                 &amp;quot;数量
+  LS_ITEM-DELIV_DATE        = SY-DATUM.        &amp;quot;交货日期
+  LS_ITEM-PLANT             = P_WERKS.            &amp;quot;工厂
+  LS_ITEM-PURCH_ORG             = P_EKORG.
+
+  APPEND LS_ITEM TO LT_ITEM.
+  IF P_MATNR2 IS NOT INITIAL.
+    LS_ITEM-DOC_TYPE          = &#39;NB&#39;.              &amp;quot;凭证类型
+    LS_ITEM-PREQ_ITEM         = &#39;00020&#39;.           &amp;quot;项目
+    LS_ITEM-MATERIAL          = P_MATNR2.             &amp;quot;商品代码
+    LS_ITEM-QUANTITY          = 1.                 &amp;quot;数量
+    LS_ITEM-DELIV_DATE        = SY-DATUM.        &amp;quot;交货日期
+    LS_ITEM-PLANT             = P_WERKS.            &amp;quot;工厂
+    LS_ITEM-PURCH_ORG             = P_EKORG.
+    APPEND LS_ITEM TO LT_ITEM.
+
+  ENDIF.
+*  extensionin-structure = &#39;BAPI_TE_REQUISITION_ITEM&#39;.
+*  extensionin-valuepart1 = lw_itm.
+*  APPEND EXTENSIONIN.
+
+  CALL FUNCTION &#39;BAPI_REQUISITION_CREATE&#39;
+    IMPORTING
+      NUMBER            = LV_PR_NO
+    TABLES
+      REQUISITION_ITEMS = LT_ITEM
+*     requisition_account_assignment = pr_account
+*     requisition_item_text          = pr_item_id
+      RETURN            = LT_RETURN.
+*      extensionin                    = extensionin[].
+
+  LOOP AT LT_RETURN INTO LS_RETURN WHERE TYPE = &#39;E&#39; .
+    WRITE LS_RETURN-MESSAGE.
+  ENDLOOP.
+  WRITE LV_PR_NO.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>凭证冲销 BAPI_ACC_DOCUMENT_REV_POST</title>
+      <link>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_REV/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_REV/</guid>
+      <description>
+
+&lt;p&gt;引用链接：&lt;a href=&#34;https://mp.weixin.qq.com/s/0RoUY8nyWfONjKTItjTouA&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/s/0RoUY8nyWfONjKTItjTouA&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;bapi-acc-document-rev-post-凭证冲销&#34;&gt;BAPI_ACC_DOCUMENT_REV_POST 凭证冲销&lt;/h4&gt;
+
+&lt;p&gt;前台操作： FB08&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/FB08.png&#34; alt=&#34;FB08&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;直接点保存,然后查看表BKPF数据。&lt;/p&gt;
+
+&lt;p&gt;自定义程序：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Report  ZLM_DEMO_REVERSE
+*&amp;amp;---------------------------------------------------------------------*
+REPORT ZLM_DEMO_REVERSE.
+PARAMETERS:
+  P_BUKRS TYPE BKPF-BUKRS,
+  P_BELNR TYPE BKPF-BELNR,
+  P_GJAHR TYPE BKPF-GJAHR.
+
+DATA:
+  GS_REVERSAL TYPE BAPIACREV,
+  LV_MSG      TYPE STRING,
+  LV_OBJ_TYPE TYPE BAPIACHE09-OBJ_TYPE,
+  LV_OBJ_KEY  TYPE BAPIACHE09-OBJ_KEY,
+  LV_OBJ_SYS  TYPE BAPIACHE09-OBJ_SYS,
+  LT_RETURN   TYPE TABLE OF BAPIRET2 WITH HEADER LINE.
+
+CLEAR: GS_REVERSAL.
+
+SELECT SINGLE AWTYP AWKEY AWKEY BUDAT
+  INTO (GS_REVERSAL-OBJ_TYPE,GS_REVERSAL-OBJ_KEY,GS_REVERSAL-OBJ_KEY_R,GS_REVERSAL-PSTNG_DATE)
+    FROM BKPF
+      WHERE BELNR EQ P_BELNR
+        AND BUKRS EQ P_BUKRS
+        AND GJAHR EQ P_GJAHR.
+
+CALL FUNCTION &#39;OWN_LOGICAL_SYSTEM_GET&#39;
+  IMPORTING
+    OWN_LOGICAL_SYSTEM = GS_REVERSAL-OBJ_SYS.
+
+GS_REVERSAL-COMP_CODE  = P_BUKRS.
+GS_REVERSAL-REASON_REV = &#39;03&#39;.
+
+CALL FUNCTION &#39;BAPI_ACC_DOCUMENT_REV_POST&#39;
+  EXPORTING
+    REVERSAL = GS_REVERSAL
+    BUS_ACT  = &#39;RFBU&#39;
+  IMPORTING
+    OBJ_TYPE = LV_OBJ_TYPE
+    OBJ_KEY  = LV_OBJ_KEY
+    OBJ_SYS  = LV_OBJ_SYS
+  TABLES
+    RETURN   = LT_RETURN.
+
+LOOP AT LT_RETURN WHERE TYPE = &#39;E&#39;.
+  WRITE LT_RETURN-MESSAGE.
+ENDLOOP.
+
+IF SY-SUBRC &amp;lt;&amp;gt; 0.
+  COMMIT WORK AND WAIT.
+
+  WRITE LV_OBJ_KEY.
+ELSE.
+  ROLLBACK WORK .
+ENDIF.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>创建固定资产凭证 BAPI_ACC_DOCUMENT_POST</title>
+      <link>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_POST/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_POST/</guid>
+      <description>
+
+&lt;p&gt;引用链接：&lt;a href=&#34;https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;​                       &lt;a href=&#34;https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;固定资产-bapi-acc-document-post-凭证创建&#34;&gt;固定资产 BAPI_ACC_DOCUMENT_POST 凭证创建&lt;/h3&gt;
+
+&lt;p&gt;TCode : F-02 (固定资产)&lt;/p&gt;
+
+&lt;h4 id=&#34;增强创建&#34;&gt;增强创建&lt;/h4&gt;
+
+&lt;p&gt;和其他常规标准增强一样：创建自定义结构 ZLM_ENHANCE_ACC_DOC  (ACC_DOCUMENT)&lt;/p&gt;
+
+&lt;p&gt;SE19创建增强实例:ACC_DOCUMENT（大部分项目应该有已经实现的增强实例，不见得需要新建）。&lt;/p&gt;
+
+&lt;h4 id=&#34;自定义程序&#34;&gt;自定义程序：&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;REPORT ZLM_DEMO_F02_ANLN1.
+PARAMETERS:
+P_BUKRS TYPE BUKRS DEFAULT &#39;9160&#39;.
+
+DATA:GS_HEADER TYPE BAPIACHE09.
+DATA:GV_KEY TYPE BAPIACHE09-OBJ_KEY.
+DATA:GT_GL TYPE TABLE OF BAPIACGL09.
+DATA:GS_GL TYPE          BAPIACGL09.
+
+DATA:GT_CUR TYPE TABLE OF BAPIACCR09.
+DATA:GS_CUR TYPE   BAPIACCR09.
+
+DATA:GT_EXT TYPE TABLE OF BAPIPAREX.
+DATA:GS_EXT TYPE  BAPIPAREX.
+
+DATA:GT_RETURN TYPE TABLE OF BAPIRET2.
+DATA:GS_RETURN TYPE        BAPIRET2.
+
+
+DATA:GS_ACC_POST TYPE ZLM_ENHANCE_ACC_DOC.
+
+GS_HEADER-OBJ_TYPE     =       &#39;BKPFF     &#39;.&amp;quot;参考交易
+GS_HEADER-OBJ_KEY      =       &#39;RFBU      &#39;.&amp;quot;字段参考关键
+GS_HEADER-USERNAME     =       SY-UNAME.&amp;quot;用户名
+GS_HEADER-HEADER_TXT   =       &#39;TEST      &#39;.&amp;quot;凭证抬头文本
+GS_HEADER-COMP_CODE    =       P_BUKRS.&amp;quot;公司代码
+GS_HEADER-DOC_DATE     =       SY-DATUM.&amp;quot;凭证中的凭证日期
+GS_HEADER-PSTNG_DATE   =       SY-DATUM.&amp;quot;凭证中的过帐日期
+GS_HEADER-TRANS_DATE   =       SY-DATUM.&amp;quot;换算日期
+GS_HEADER-FISC_YEAR    =       SY-DATUM(4).&amp;quot;会计年度
+GS_HEADER-FIS_PERIOD   =       SY-DATUM+4(2)..&amp;quot;会计期间
+GS_HEADER-DOC_TYPE     =       &#39;SA        &#39;.&amp;quot;凭证类型
+
+
+
+CLEAR:GT_GL[],GT_CUR[],GT_EXT[],GT_RETURN[].
+
+CLEAR GS_GL.
+GS_GL-ITEMNO_ACC = 1.
+GS_GL-GL_ACCOUNT = &#39;1601000060&#39;.
+GS_GL-ITEM_TEXT = &#39;现支_固定资产测试&#39;.
+GS_GL-ACCT_TYPE = &#39;A&#39;.
+GS_GL-PROFIT_CTR = &#39;0000999999&#39;.
+GS_GL-ALLOC_NMBR = &#39;现支_固定资产测试&#39;.
+GS_GL-ASSET_NO = &#39;600000000003&#39;.
+GS_GL-SUB_NUMBER = &#39;0000&#39;.
+GS_GL-COMP_CODE = P_BUKRS.
+
+APPEND GS_GL TO GT_GL.
+
+CLEAR GS_ACC_POST.
+GS_ACC_POST-POSNR = GS_GL-ITEMNO_ACC.
+GS_ACC_POST-BSCHL = &#39;70&#39;.
+GS_ACC_POST-ANBWA = &#39;100&#39;.
+GS_EXT-STRUCTURE  = &#39;ZLM_ENHANCE_ACC_DOC&#39;.
+GS_EXT-VALUEPART1 = GS_ACC_POST.
+APPEND GS_EXT TO GT_EXT[].
+
+
+CLEAR GS_GL.
+GS_GL-ITEMNO_ACC = 2.
+GS_GL-GL_ACCOUNT = &#39;1002001002&#39;.
+GS_GL-ITEM_TEXT = &#39;现支_固定资产测试&#39;.
+GS_GL-VALUE_DATE = SY-DATUM.
+GS_GL-PROFIT_CTR = &#39;0000999999&#39;.
+GS_GL-ALLOC_NMBR = &#39;现支_固定资产测试&#39;.
+GS_GL-COMP_CODE = P_BUKRS.
+
+APPEND GS_GL TO GT_GL.
+
+CLEAR GS_ACC_POST.
+GS_ACC_POST-POSNR = GS_GL-ITEMNO_ACC.
+GS_ACC_POST-BSCHL = &#39;50&#39;.
+GS_ACC_POST-RSTGR = &#39;101&#39;.
+GS_EXT-STRUCTURE  = &#39;ZLM_ENHANCE_ACC_DOC&#39;.
+GS_EXT-VALUEPART1 = GS_ACC_POST.
+APPEND GS_EXT TO GT_EXT[].
+
+
+CLEAR GS_CUR.
+GS_CUR-ITEMNO_ACC = 1.
+GS_CUR-CURRENCY = &#39;CNY&#39;.
+GS_CUR-AMT_DOCCUR = 1000.
+APPEND GS_CUR TO GT_CUR.
+CLEAR GS_CUR.
+
+GS_CUR-ITEMNO_ACC = 2.
+GS_CUR-CURRENCY = &#39;CNY&#39;.
+GS_CUR-AMT_DOCCUR = &#39;-1000&#39;.
+APPEND GS_CUR TO GT_CUR.
+
+
+&amp;quot;凭证数据检查-防止跳号
+CALL FUNCTION &#39;BAPI_ACC_DOCUMENT_CHECK&#39;
+  EXPORTING
+    DOCUMENTHEADER = GS_HEADER
+  TABLES
+    ACCOUNTGL      = GT_GL
+    CURRENCYAMOUNT = GT_CUR
+    RETURN         = GT_RETURN
+    EXTENSION2     = GT_EXT.
+
+
+LOOP AT GT_RETURN INTO GS_RETURN WHERE TYPE = &#39;E&#39;.
+  WRITE GS_RETURN-MESSAGE.
+ENDLOOP.
+
+IF SY-SUBRC &amp;lt;&amp;gt; 0..
+  CALL FUNCTION &#39;BAPI_ACC_DOCUMENT_POST&#39;
+    EXPORTING
+      DOCUMENTHEADER = GS_HEADER
+    IMPORTING
+      OBJ_KEY        = GV_KEY
+    TABLES
+      ACCOUNTGL      = GT_GL
+      CURRENCYAMOUNT = GT_CUR
+      RETURN         = GT_RETURN
+      EXTENSION2     = GT_EXT.
+
+  CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39;.
+
+  WRITE GV_KEY.
+ENDIF.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MIRO根据退货PO创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE</title>
+      <link>https://coldinfire.github.io/2020/SAP_INCOMINGINVOICE_CREATE/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_INCOMINGINVOICE_CREATE/</guid>
+      <description>
+
+&lt;p&gt;引用链接：&lt;a href=&#34;https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;miro根据退货po创建贷项凭证-bapi-incominginvoice-create&#34;&gt;MIRO根据退货PO创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/ABAP/MIRO_PO.png&#34; alt=&#34;MIRO&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;或者不勾选计算税额，手动输入税额。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Report  ZLM_MIRO_2
+*&amp;amp; SAP干货铺
+*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; 根据po创建贷项凭证
+*&amp;amp;---------------------------------------------------------------------*
+REPORT ZLM_MIRO_2.
+
+TABLES EKKO.
+TABLES EKPO.
+
+PARAMETERS P_EBELN   TYPE EKKO-EBELN DEFAULT &#39;4690000030&#39;.
+PARAMETERS P_CA_TAX AS CHECKBOX DEFAULT &#39;X&#39;.&amp;quot;自动计算税费
+
+DATA:LS_EKKO TYPE EKKO.
+DATA:LT_EKPO TYPE TABLE OF EKPO.
+DATA:LS_EKPO TYPE   EKPO.
+
+DATA:LT_MSEG TYPE TABLE OF MSEG.
+DATA:LS_MSEG TYPE   MSEG.
+
+DATA:LS_HEADER TYPE BAPI_INCINV_CREATE_HEADER.
+DATA:LT_TAXDATA  TYPE TABLE OF BAPI_INCINV_CREATE_TAX.
+DATA:LT_ITEM TYPE TABLE OF BAPI_INCINV_CREATE_ITEM.
+DATA:LT_RETURN TYPE TABLE OF BAPIRET2.
+
+DATA:LS_TAXDATA  TYPE   BAPI_INCINV_CREATE_TAX.
+DATA:LS_ITEM TYPE   BAPI_INCINV_CREATE_ITEM.
+DATA:LS_RETURN TYPE   BAPIRET2.
+
+DATA:LV_DOC TYPE BAPI_INCINV_FLD-INV_DOC_NO.
+START-OF-SELECTION.
+  SELECT SINGLE * FROM EKKO INTO LS_EKKO WHERE EBELN = P_EBELN.
+  SELECT * FROM EKPO INTO TABLE LT_EKPO WHERE EBELN = P_EBELN.
+  SELECT * FROM MSEG INTO TABLE LT_MSEG WHERE EBELN = P_EBELN.
+  CHECK SY-SUBRC = 0.
+  CLEAR LS_HEADER.
+  LS_HEADER-DOC_DATE = SY-DATUM.
+  LS_HEADER-PSTNG_DATE = SY-DATUM.
+  LS_HEADER-BLINE_DATE = SY-DATUM.
+  LS_HEADER-REF_DOC_NO = P_EBELN.
+  LS_HEADER-COMP_CODE = LS_EKKO-BUKRS.
+  LS_HEADER-DIFF_INV = LS_EKKO-LIFNR.
+  LS_HEADER-CURRENCY = LS_EKKO-WAERS.
+  
+*LS_HEADER-GROSS_AMOUNT =  .
+*LS_HEADER-HEADER_TXT = p_EBELN.
+  CLEAR LT_ITEM[].
+  CLEAR LT_TAXDATA[].
+  CLEAR LT_RETURN[].
+  CLEAR LS_ITEM.
+  LOOP AT LT_EKPO INTO LS_EKPO.
+    CLEAR LS_MSEG.
+    CLEAR LS_ITEM.
+    READ TABLE LT_MSEG INTO LS_MSEG WITH KEY
+             EBELN  = LS_EKPO-EBELN
+             EBELP  = LS_EKPO-EBELP.
+    LS_ITEM-INVOICE_DOC_ITEM = SY-TABIX.
+    LS_ITEM-PO_NUMBER      = LS_EKPO-EBELN.
+    LS_ITEM-PO_ITEM        = LS_EKPO-EBELP.
+    LS_ITEM-REF_DOC        = LS_MSEG-MBLNR.
+    LS_ITEM-REF_DOC_YEAR   = LS_MSEG-MJAHR.
+    LS_ITEM-REF_DOC_IT     = LS_MSEG-ZEILE.
+    LS_ITEM-TAX_CODE       = LS_EKPO-MWSKZ.
+    LS_ITEM-ITEM_AMOUNT    = LS_EKPO-NETWR.
+    LS_ITEM-QUANTITY       = LS_EKPO-MENGE.
+    LS_ITEM-PO_UNIT        = LS_EKPO-MEINS.
+    LS_HEADER-GROSS_AMOUNT  = LS_HEADER-GROSS_AMOUNT  + LS_EKPO-NETWR.
+    APPEND LS_ITEM TO LT_ITEM.
+
+    CLEAR LS_TAXDATA.
+    LS_TAXDATA-TAX_CODE = LS_EKPO-MWSKZ.
+    LS_TAXDATA-TAX_AMOUNT = LS_EKPO-NETWR *  17 / 100.&amp;quot; demo 默认17%，
+    LS_TAXDATA-ITEMNO_TAX = LS_ITEM-INVOICE_DOC_ITEM.
+
+    LS_HEADER-GROSS_AMOUNT  = LS_HEADER-GROSS_AMOUNT  +
+    LS_TAXDATA-TAX_AMOUNT .
+    APPEND LS_TAXDATA TO LT_TAXDATA.
+    CLEAR LS_EKPO.
+  ENDLOOP.
+
+  IF P_CA_TAX IS NOT INITIAL.
+    LS_HEADER-CALC_TAX_IND = &#39;X&#39;.
+    CLEAR LT_TAXDATA[].
+  ENDIF.
+
+  CALL FUNCTION &#39;BAPI_INCOMINGINVOICE_CREATE&#39;
+    EXPORTING
+      HEADERDATA       = LS_HEADER
+    IMPORTING
+      INVOICEDOCNUMBER = LV_DOC
+    TABLES
+      ITEMDATA         = LT_ITEM
+      TAXDATA          = LT_TAXDATA
+      RETURN           = LT_RETURN.
+
+  LOOP AT LT_RETURN INTO LS_RETURN WHERE TYPE = &#39;E&#39;.
+    WRITE LS_RETURN-MESSAGE.
+    SKIP.
+  ENDLOOP.
+  WRITE LV_DOC.
+  ROLLBACK WORK.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MIRO根据物料创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE</title>
+      <link>https://coldinfire.github.io/2020/SAP_MIRO_Matnr/</link>
+      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_MIRO_Matnr/</guid>
+      <description>&lt;p&gt;引用链接：&lt;a href=&#34;https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;MIRO根据物料创建贷项凭证: BAPI_INCOMINGINVOICE_CREATE&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
+*&amp;amp; Report  ZLM_MIRO
+*&amp;amp;
+*&amp;amp;---------------------------------------------------------------------*
+REPORT ZLM_MIRO.
+DATA:   LS_HEADERDATA       LIKE BAPI_INCINV_CREATE_HEADER,
+        LT_RETURN           LIKE TABLE OF BAPIRET2,
+        LS_RETURN           LIKE BAPIRET2,
+        LV_INVOICEDOCNUMBER LIKE BAPI_INCINV_FLD-INV_DOC_NO.
+
+DATA:LT_TAXDATA             TYPE TABLE OF BAPI_INCINV_CREATE_TAX.
+DATA:LS_TAXDATA             TYPE  BAPI_INCINV_CREATE_TAX.
+DATA:LT_ITEMDATA TYPE TABLE OF BAPI_INCINV_CREATE_ITEM.
+DATA:LS_ITEMDATA TYPE          BAPI_INCINV_CREATE_ITEM.
+DATA:LT_MATERIALDATA        LIKE TABLE OF   BAPI_INCINV_CREATE_MATERIAL.
+DATA:LS_MATERIALDATA        LIKE  BAPI_INCINV_CREATE_MATERIAL.
+DATA:LV_ITEM                TYPE  RBLGP.
+DATA:LV_GROSS               TYPE  BAPI_RMWWR.
+
+PARAMETERS P_MATNR  TYPE  MATNR DEFAULT &#39;V700000526&#39;.
+PARAMETERS P_AMOUNT TYPE  BAPIWRBTR DEFAULT &#39;9&#39;  .
+PARAMETERS P_BWKEY  TYPE  BWKEY DEFAULT &#39;9110&#39; .
+PARAMETERS P_UOM    TYPE  MEINS DEFAULT  &#39;EA&#39;.
+PARAMETERS P_MENGE  TYPE  MENGE_D DEFAULT &#39;1&#39;.
+PARAMETERS P_TAX    TYPE  MWSKZ_MRM DEFAULT &#39;J1&#39;.
+PARAMETERS P_CA_TAX AS CHECKBOX DEFAULT &#39;X&#39;.&amp;quot;自动计算税费
+
+LS_MATERIALDATA-INVOICE_DOC_ITEM = 1.
+LS_MATERIALDATA-MATERIAL = P_MATNR.
+LS_MATERIALDATA-DB_CR_IND = &#39;H&#39;.
+LS_MATERIALDATA-ITEM_AMOUNT = P_AMOUNT.
+LS_MATERIALDATA-QUANTITY = P_MENGE.
+LS_MATERIALDATA-TAX_CODE = P_TAX.
+LS_MATERIALDATA-BASE_UOM = P_UOM.
+LS_MATERIALDATA-VAL_AREA = P_BWKEY.
+APPEND LS_MATERIALDATA TO LT_MATERIALDATA.
+
+LV_GROSS = LV_GROSS + P_AMOUNT + P_AMOUNT  * 17 / 100.
+*&amp;amp;header
+CLEAR: LS_HEADERDATA.
+LS_HEADERDATA-INVOICE_IND  = &#39;&#39;.&amp;quot;贷项凭证
+LS_HEADERDATA-GROSS_AMOUNT = LV_GROSS.
+LS_HEADERDATA-BLINE_DATE   = SY-DATUM.
+LS_HEADERDATA-DIFF_INV     = &#39;S0021&#39;.
+LS_HEADERDATA-REF_DOC_NO   = &#39;4690000030&#39;.
+LS_HEADERDATA-DOC_DATE     = SY-DATUM.
+LS_HEADERDATA-PSTNG_DATE   = SY-DATUM.
+LS_HEADERDATA-COMP_CODE    = &#39;9110&#39;..
+LS_HEADERDATA-CURRENCY     = &#39;CNY&#39;.
+LS_HEADERDATA-CURRENCY_ISO     = &#39;CNY&#39;.
+LS_HEADERDATA-CALC_TAX_IND = &#39;X&#39;.
+LS_HEADERDATA-PMNTTRMS     = &#39;0001&#39;.
+LS_HEADERDATA-ITEM_TEXT    = &#39;text&#39;.
+LS_HEADERDATA-GROSS_AMOUNT = LV_GROSS.
+
+IF P_CA_TAX IS INITIAL.
+  LS_HEADERDATA-CALC_TAX_IND = &#39; &#39;.
+  CLEAR LS_TAXDATA.
+  LS_TAXDATA-TAX_CODE = &#39;J1&#39;.
+  LS_TAXDATA-TAX_AMOUNT = P_AMOUNT  * 17 / 100.&amp;quot; demo 默认17%，
+  LS_TAXDATA-ITEMNO_TAX = 1.
+  APPEND LS_TAXDATA TO LT_TAXDATA.
+ENDIF.
+
+CALL FUNCTION &#39;BAPI_INCOMINGINVOICE_CREATE&#39;
+  EXPORTING
+    HEADERDATA       = LS_HEADERDATA
+  IMPORTING
+    INVOICEDOCNUMBER = LV_INVOICEDOCNUMBER
+  TABLES
+    ITEMDATA         = LT_ITEMDATA
+    MATERIALDATA     = LT_MATERIALDATA
+    TAXDATA          = LT_TAXDATA
+    RETURN           = LT_RETURN.
+
+WRITE LV_INVOICEDOCNUMBER.
+
+ROLLBACK WORK.  
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
@@ -968,736 +2047,6 @@ ENDIF.
 LOOP AT lt_line.
   WRITE:/ lt_line-tdline.
 ENDLOOP.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title> ABAP Dynnamic Programer</title>
-      <link>https://coldinfire.github.io/2019/ABAP_DynamicPrgrm/</link>
-      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_DynamicPrgrm/</guid>
-      <description>&lt;p&gt;利用Field Symbols和数据参考的实例：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp; Report  ZZSM_TEST_DYN
-*&amp;amp;
-*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp;
-*&amp;amp;
-*&amp;amp;---------------------------------------------------------------------*
-REPORT  zzsm_test_dyn.
-DATA: tab_reference TYPE REF TO data,
-      struc_reference TYPE REF TO data.
-DATA: descr TYPE REF TO cl_abap_structdescr.
-FIELD-SYMBOLS: &amp;lt;struc&amp;gt; TYPE ANY,
-               &amp;lt;field&amp;gt; TYPE ANY,
-               &amp;lt;itab&amp;gt; TYPE ANY TABLE.
-PARAMETERS: p_table(20) DEFAULT &#39;LFA1&#39; OBLIGATORY,
-            p_rows   TYPE i OBLIGATORY.
-TRY .
-    &amp;quot;Dynamic create Table &amp;amp; Structure
-    CREATE DATA tab_reference TYPE STANDARD TABLE OF (p_table)
-           WITH NON-UNIQUE DEFAULT KEY.
-    ASSIGN tab_reference-&amp;gt;* TO &amp;lt;itab&amp;gt;.
-    
-    CREATE DATA struc_reference TYPE (p_table).
-    ASSIGN struc_reference-&amp;gt;* TO &amp;lt;struc&amp;gt;.
-    &amp;quot;Get data from table
-    SELECT * FROM (p_table) INTO TABLE &amp;lt;itab&amp;gt; UP TO p_rows ROWS .
-    &amp;quot;Get structure desc by struc
-    descr ?=  cl_abap_typedescr=&amp;gt;describe_by_data( &amp;lt;struc&amp;gt; ).
-    &amp;quot;Data processing logic
-    LOOP AT &amp;lt;itab&amp;gt; INTO &amp;lt;struc&amp;gt;.
-      DO 20 TIMES.
-        ASSIGN COMPONENT sy-index OF STRUCTURE &amp;lt;struc&amp;gt; TO &amp;lt;field&amp;gt;.
-        IF sy-subrc EQ 0.
-          WRITE: &amp;lt;field&amp;gt;.
-        ELSE.
-          EXIT.
-        ENDIF.
-      ENDDO.
-    ENDLOOP.
-  CATCH cx_sy_create_data_error.
-    WRITE &#39;Wrong Database!&#39;.
-ENDTRY.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>IDoc操作</title>
-      <link>https://coldinfire.github.io/2019/ABAP_IDoc/</link>
-      <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_IDoc/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;http://www.baidusap.com/abap/ale_edi_idoc/782&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;参考链接&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;idoc&#34;&gt;IDoc&lt;/h3&gt;
-
-&lt;h4 id=&#34;1-idoc简介&#34;&gt;1.IDoc简介&lt;/h4&gt;
-
-&lt;p&gt;IDoc:是基于文档，用作异步传输数据的载体，类似于XML;使用功能场景：假设 1040 和 1020 是同一个集团下两个不同子公司的 SAP 系统，1040 需要将其采购订单信息及时发送给 1020，可以使用IDoc传输。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;IDOC 的整个配置，涉及了远程连接、ALE、消息控制、tRFC 等技术的集成&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;IDoc支持异步、同步、可以收集一定数量的包后发送，最重要的是，IDOC有完整的监控系统和错误处理机制。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;IDoc支持SAP系统集团之间，SAP-CRM/SRM/PI等之间，SAP-第三方系统之间的集成&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;通过系统预定义IDOC类型，可以自动收集IDoc，挂JOB定时发送，也可以配置消息控制。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;数据段是IDoc结构组件，是IDoc构成的单元;有Segment type：数据段类型与Segment.definition：数据段定义&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;:Segment type名称与SAP版本无关，以&amp;rdquo;E1/Z1&amp;rdquo;开头&lt;/li&gt;
-&lt;li&gt;:Segment definition名称与SAP版本有关，外部系统确定数据段版本的关键；以&amp;rdquo;E2/Z2&amp;rdquo;开头+版本号
-访问IDoc中具体某个字段时，需要通过Segment type。&lt;/li&gt;
-&lt;li&gt;IDoc包含多个Segment,每个Segment内包含有多个字段&lt;/li&gt;
-&lt;li&gt;Segment类似于XML的节点以及节点属性&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;IDoc特性：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;IDoc 包含有三种类型的记录：一条控制记录，一个或多个数据记录，一个或多个状态记录&lt;/li&gt;
-&lt;li&gt;IDoc type：IDoc 结构，不同的 SAP 业务对象对应不同的 IDoc 类型（一个或多个）。&lt;/li&gt;
-&lt;li&gt;IDoc 类型中定义了数据段（Segment）以及数据段的层级和次序。定义节点间的相互逻辑关系。&lt;/li&gt;
-&lt;li&gt;标准 SAP 系统提供的 IDoc 类型称为基本类型（Basic type），该类型可以通过 IDoc 扩展（Extention）进行调整，即在 SAP IDoc 类型结构的基础上增加新的数据段或者在数据段中增加新字段。&lt;/li&gt;
-&lt;li&gt;IDoc Basic Type: 是承载数据的一个类型，可以认为是一个数据结构。Basic Type 由 Segment 构成，有点类似于 XML 的格式。每个 Segment 指定了一些字段，在这些字段里面可以输入一些限定的数据。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;2-包含组件&#34;&gt;2.包含组件&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;ALE（Application Link and Enabling）是 SAP 专门为 SAP 与 SAP 之间所设计的整合中间件，多用于同一个企业中不同 SAP 系统之间的数据交换，通过 IDoc 格式的数据创建分布式系统 。分布式数据交换提供了可靠安全的通讯机制。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;EDI（Electronic Document Interchange，电子数据交换）其实就是采用标准格式的电子数据，用于在通讯网络中在业务伙伴间交换业务文档所用。按相同的排列放置数据到一个数据文档中，并按相同的排列解析此文档以得到所需的内容。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;IDoc（Intermediate Document，中转文档）是 SAP 提供的系统整合专用的数据 / 消息格式，它通过 ALE 方式来进行交换，IDoc 提供了 EDI 的支持，可以认为 IDoc 是 EDI 的一个实现。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;3-idoc发送接收流程&#34;&gt;3.IDoc发送接收流程&lt;/h4&gt;
-
-&lt;p&gt;外发过程（Outbound process：OP）:处理数据集并发出消息&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;应用文档被创建&lt;/li&gt;
-&lt;li&gt;IDoc 生成&lt;/li&gt;
-&lt;li&gt;IDoc 从 SAP 传送到操作系统&lt;/li&gt;
-&lt;li&gt;IDoc 被转换成 EDI 标准格式&lt;/li&gt;
-&lt;li&gt;EDI 文件被传送到业务伙伴处（所以业务伙伴可以没有 SAP，因为 EDI 是个标准）&lt;/li&gt;
-&lt;li&gt;EDI 子系统将传送的状态回报给 SAP&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;接收过程（Inbound process：IP）：接收消息并处理&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;EDI 文档被接收&lt;/li&gt;
-&lt;li&gt;EDI 文档被转换成 IDoc&lt;/li&gt;
-&lt;li&gt;IDoc 传送到 SAP 层&lt;/li&gt;
-&lt;li&gt;应用文档在 SAP 中创建&lt;/li&gt;
-&lt;li&gt;应用文档现在可供浏览了&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;4-idoc流程步骤及tcode&#34;&gt;4.IDoc流程步骤及TCode&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;    外发配置(OP)   					   接收配置(IP)
-WE31:创建IDOC所需要的字段                        WE31:开发Segment Type
-WE30:开发IDOC基本类型和扩展，把Segment分配给IDOC   WE81：开发Message Type
-WE81：开发Message Type
-WE82:Message Type和IDoc Type绑定                WE82:Message Type和IDoc Type绑定
-BD64:添加视图模型，添加消息类型配置伙伴参数    BD64:增加消息类型
-WE20:配置发送系统出站信息                     WE20:配置接收系统入站信息
-SE38:编写发送程序                            SE37:编写接收接口
-WE14:若为黄灯，手动发送                       WE57:分配IDOC类型给处理函数
-BD51:配置进站函数模块属性
-WE42:配置进站处理代码
-WE02:IDOC发送信息检查
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;5-process-code处理代码设定&#34;&gt;5.Process Code处理代码设定&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;WE41,WE42,WE40,WE64&lt;/li&gt;
-&lt;li&gt;处理代码用于确定数据写入 IDoc 或从 IDoc 读取的处理方式，处理代码对应具体的功能模块或者工作流。入站和出站处理的伙伴参数中都可以指定处理代码&lt;/li&gt;
-&lt;li&gt;Outbound Process Code: 出站的处理代码。其实就是具体的一个操作流程。在得到了 Output Type，确定了 IDoc Basic Type 以后，需要从 Output Type 提供的所有数据里面，按 IDoc Basic Type 组合出 IDoc 来，即给 IDoc Basic Type 赋值。&lt;/li&gt;
-&lt;li&gt;Inbound Process Code: 进站的处理代码。就是接收到一个 IDoc 以后，根据 Message Type 来确定要怎么处理这个 IDoc。&lt;/li&gt;
-&lt;li&gt;程序的思路就是，把每个 IDOC 结点按字符串形式逐个添加，而字符串的添加次序自然也体现了 IDOC 结点间的逻辑关系。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;6-端口-port-we21&#34;&gt;6.端口（Port）：WE21&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;端口用于外发流程，它判断 EDI 子系统程序名称、IDoc 文件传送到操作系统的目录，IDoc 文件名和 RFC 目的地&lt;/li&gt;
-&lt;li&gt;端口，指定这个 IDoc 的接收方，可以是任何其他系统，也可以发到当前的 SAP 当前的 Client。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;7-rfc目的地-sm59&#34;&gt;7.RFC目的地：SM59&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;用于定义到远程系统通讯连接的特性以及需要调用何种功能&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;8-partnr-profile-we20&#34;&gt;8.Partnr Profile：WE20&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Partnr:对口的合作伙伴&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Partner Profile：是Partner的一些参数，分为OP和IP.它们是为了让系统知道怎么去处理 Outbound/Inbound 的事件.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Partner Profile 指定在外发过程中所用的各类组件（业务伙伴号、IDoc 类型、信息类型、端口、处理码等），通讯方式（异步或同步）以及当错误时通知何人&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;9-message-type&#34;&gt;9.Message Type&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;用于消息类型的处理，就是告诉 Inbound 一方，我这个 IDoc 是用来做什么的。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;WE81， 创建Message type&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;WE82，连接 Message type和 IDOC type&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;10-idoc类型定义的相关函数&#34;&gt;10.IDoc类型定义的相关函数&lt;/h4&gt;
-
-&lt;p&gt;函数组 EDIM 中的 SAP 内部功能模块用于操作 IDoc 基本类型和扩展：OBJECT代指所操作的队象，既IDOCTYPE或EXTTYPE.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;[OBJECT]_CREATE&lt;/li&gt;
-&lt;li&gt;[OBJECT]_UPDATE&lt;/li&gt;
-&lt;li&gt;[OBJECT]_READ&lt;/li&gt;
-&lt;li&gt;[OBJECT]_DELETE&lt;/li&gt;
-&lt;li&gt;[OBJECT]_CLOSE&lt;/li&gt;
-&lt;li&gt;[OBJECT]_UNCLOSE&lt;/li&gt;
-&lt;li&gt;[OBJECT]_EXISTENCE_CHECK&lt;/li&gt;
-&lt;li&gt;[OBJECT]_INTEGRITY_CHECK&lt;/li&gt;
-&lt;li&gt;[OBJECT]_TRANSPORT&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;函数组EDIJ中的SAP内部功能模块用于操作IDoc数据段&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SEGMENT_CREATE&lt;/li&gt;
-&lt;li&gt;SEGMENT_MODIFY&lt;/li&gt;
-&lt;li&gt;SEGMENT_DELETE&lt;/li&gt;
-&lt;li&gt;SEGMENT_INITION_DELETE&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;11-idoc常用tcode&#34;&gt;11.IDoc常用TCode&lt;/h4&gt;
-
-&lt;p&gt;SAP 提供了一个事务码列出的基本上所有的 IDoc 相关的事务码&lt;code&gt;WEDI&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;/BD87&lt;/th&gt;
-&lt;th&gt;/WE18&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;/SUIM&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;/SM58&lt;/td&gt;
-&lt;td&gt;/WE19&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;/GS03&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;/WE09&lt;/td&gt;
-&lt;td&gt;/WE20&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;/BDLS&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ABAP字符串处理</title>
-      <link>https://coldinfire.github.io/2019/ABAP_String/</link>
-      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_String/</guid>
-      <description>&lt;p&gt;​       字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1.获取字符串长度&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;var1  = strlen(str);&lt;/code&gt;将str作为字符数据处理，计算出其字符长度&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  DATA: l_len type i,
-        str1(20) VALUE &#39;1234&#39;.
-    l_len = strlen(str1).
-  WRITE: / len.  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;2.拼接字符串&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;CONCATENATE &amp;lt;str1&amp;gt; ... &amp;lt;strn&amp;gt; into &amp;lt;var&amp;gt; [SEPARATED BY &amp;lt;s&amp;gt;][RESPECTING BLANKS]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;将多个字符串拼接到指定的变量Var中，注意Var的长度&lt;/li&gt;
-&lt;li&gt;C,D,N,T类型的前导空格会保留，尾部空格会去掉，对String类型的所有空格都会保留&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;[SEPARATED BY &amp;lt;s&amp;gt;]&lt;/code&gt;:根据该间隔符号(S)进行拼接(SPACE)&lt;/li&gt;
-&lt;li&gt;respecting：针对C,D,N,T数据，表示尾部空格会保留&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;3.压缩字符串&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;CONDENCE &amp;lt;str&amp;gt; [NO-GAPS]&lt;/code&gt;:去除字段str中的前后空格，并将字段中多个空格使用一个空格替换；如果加上NO-GAPS则去除所有空格。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;4.截取字符串&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;subtext = str+0(4)：从最左边取出4个字符&lt;/li&gt;
-&lt;li&gt;subtext = str+2(4)：从第2个字符开始取出4个字符&lt;/li&gt;
-&lt;li&gt;str+0(1) = &amp;lsquo;X&amp;rsquo;：变更指定位置的值&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;5.查找字符串&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;SEARCH &amp;lt;var&amp;gt; FOR &amp;lt;str&amp;gt; &amp;lt;options&amp;gt;.&lt;/code&gt;:在var中搜索子字符串，成功SY-SUBRC=0&lt;/li&gt;
-&lt;li&gt;str:可以使用正则表达式，也可以使用普通字符串&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;6.替换字符串&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;REPLACE &amp;lt;str1&amp;gt; WITH &amp;lt;str2&amp;gt; INTO &amp;lt;var&amp;gt; [LENGTH &amp;lt;l&amp;gt;].&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;将str1在var中的字段替换为str2&lt;/li&gt;
-&lt;li&gt;如果指定长度，则只将str1中指定长度的字符替换为str2中的内容&lt;/li&gt;
-&lt;li&gt;如果替换后内容总长度超过var定义的长度，会出现截断现象&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;7.移动字符串内容&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;SHIFT &amp;lt;var&amp;gt; [BY &amp;lt;n&amp;gt; PLACES] [&amp;lt;mode&amp;gt;].&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;将var移动n个位置，&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;MODE:LEFT(默认),RIGHT,CIRCULAR&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;SHIFT &amp;lt;var&amp;gt; LEFT DELETING LEADING &amp;lt;str&amp;gt;.&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;SHIFT &amp;lt;var&amp;gt; RIGHT DELETING TRAILING &amp;lt;str&amp;gt;.&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;如果左边第一个字符串或则右边第一个字符串出现在str中，将var移动相应的位置&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;8.比较字符串&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;判断是否包含特定值&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;IF field CN &amp;lsquo;0123456789&amp;rsquo;.&lt;/li&gt;
-&lt;li&gt;IF field CN &amp;lsquo;ABCDEFG*&amp;rsquo;&lt;/li&gt;
-&lt;li&gt;IF field CN &amp;lsquo;abcdefg*&amp;rsquo;&lt;/li&gt;
-&lt;li&gt;IF field CN &amp;lsquo;/&amp;rsquo; &amp;hellip;..&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;strong&gt;CN：Contains Not Only (包含，不仅包含)&lt;/strong&gt;&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;&lt;strong&gt;CO：Contains Only（仅包含）&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;CS：Contains String (包含字符串)&lt;/strong&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;NS：Contains No String (不包含字符串)&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;NP：No Pattern （不包含记号）&lt;/strong&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;NA：Contains Not Only(不包含任何)&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;CA：Contains Any（包含任何）&lt;/strong&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;CP：Covers Pattern (包含记号)&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;9.&lt;strong&gt;拆分字符串&lt;/strong&gt;：&lt;/p&gt;
-
-&lt;p&gt;​   SPLIT dobj AT sep INTO {res1 res2&amp;hellip;&amp;hellip;resn}. ：将字符串的值分配给具体变量&lt;/p&gt;
-
-&lt;p&gt;​   SPLIT s_source AT sep INTO TABLE itab：将字符串的值分配给一内表。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;10.大小写转换：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;​   TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;11.字符前拼接空格&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;​   在Grid ALV上也显示空格：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;IF &amp;lt;fw_output&amp;gt;-name2+0(1) eq space AND &amp;lt;fw_output&amp;gt;-name2 IS NOT INITIAL.
-  h_white = cl_abap_conv_in_ce=&amp;gt;uccpi( 160 ).
-  REPLACE ALL OCCURRENCES OF REGEX &#39;\s&#39; IN &amp;lt;fw_output&amp;gt;-name2 WITH h_white.
-ENDIF.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>生产订单标准BAPI</title>
-      <link>https://coldinfire.github.io/2019/SAP_PO_BAPI/</link>
-      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_PO_BAPI/</guid>
-      <description>
-
-&lt;h3 id=&#34;创建po&#34;&gt;创建PO&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-jsp&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp;      Form  FRM_ORDER_CREATE
-*&amp;amp;---------------------------------------------------------------------*
-*----------------------------------------------------------------------*
-&amp;quot;--&amp;gt;  p1        text
-&amp;quot;&amp;lt;--  p2        text
-*----------------------------------------------------------------------*
-  FORM frm_order_create .
-  DATA: ls_upload LIKE LINE OF gt_upload,
-        ls_style  TYPE lvc_s_styl,
-        lv_index  LIKE sy-tabix.
-  DATA: ls_order  TYPE bapi_pp_order_create,
-        ls_return TYPE bapiret2,
-        lv_ordnum TYPE bapi_order_key-order_number,
-        lv_ordtyp TYPE bapi_order_copy-order_type.
-  LOOP AT gt_upload INTO ls_upload WHERE ztype EQ space AND box EQ &#39;X&#39;.
-    lv_index = sy-tabix.
-    CLEAR: ls_order, ls_return, lv_ordnum, lv_ordtyp, ls_style.
-    IF ls_upload-externind EQ &#39;X&#39;.
-      ls_order-order_number = ls_upload-aufnr.
-    ENDIF.
-    ls_order-material = ls_upload-plnbez.
-    ls_order-plant = ls_upload-dwerk.
-    ls_order-planning_plant = ls_upload-dwerk.
-    ls_order-order_type = ls_upload-dauat.
-    ls_order-quantity = ls_upload-gamng.
-    ls_order-quantity_uom = ls_upload-gmein.
-    ls_order-basic_start_date = ls_upload-gstps.
-    ls_order-basic_start_time = ls_upload-gsuzs.
-    ls_order-basic_end_date = ls_upload-gltps.
-    ls_order-basic_end_time  = ls_upload-gluzs.
-    ls_order-unloading_point = ls_upload-ablad.
-    ls_order-sequence_number = ls_upload-cy_seqnr.
-    IF ls_upload-verid NE space.
-      ls_order-prod_version = ls_upload-verid.
-    ENDIF.
-    IF ls_upload-lgort NE space.
-      ls_order-storage_location = ls_upload-lgort.
-    ENDIF.
-    CALL FUNCTION &#39;BAPI_PRODORD_CREATE&#39;
-      EXPORTING
-        orderdata    = ls_order
-      IMPORTING
-        return       = ls_return
-        order_number = lv_ordnum
-        order_type   = lv_ordtyp.
-    IF lv_ordnum NE space.
-      CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39;
-        EXPORTING
-          wait = &#39;X&#39;.
-      CLEAR: ls_upload-fstyle, ls_upload-fstyle[].
-      ls_style-style = cl_gui_alv_grid=&amp;gt;mc_style_disabled.
-      INSERT ls_style INTO TABLE ls_upload-fstyle.
-      ls_upload-aufnr = lv_ordnum.
-      ls_upload-ztype = &#39;S&#39;.
-      ls_upload-message = &#39;Update successfully&#39;.
-    ELSE.
-      ls_upload-ztype = ls_return-type.
-      CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39;.
-    ENDIF.
-    IF ls_return-type NE space.
-      APPEND ls_return TO ls_upload-retmsg.
-    ENDIF.
-    IF ls_upload-ztype = &#39;E&#39; .
-      ls_upload-zcol = &#39;C610&#39; .
-    ENDIF .
-    MODIFY gt_upload FROM ls_upload INDEX lv_index.
-  ENDLOOP.
-  ENDFORM.                    &amp;quot; FRM_ORDER_CREATE
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;修改po&#34;&gt;修改PO&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp;      Form  frm_order_change
-*&amp;amp;---------------------------------------------------------------------*
-*       text
-*----------------------------------------------------------------------*
-FORM frm_order_change.
-  DATA: ls_upload LIKE LINE OF gt_upload,
-        ls_style  TYPE lvc_s_styl,
-        lv_index  LIKE sy-tabix.
-
-  DATA: ls_order  TYPE bapi_pp_order_change,
-        ls_orderx TYPE bapi_pp_order_changex,
-        ls_return TYPE bapiret2,
-        lv_ordnum TYPE bapi_order_key-order_number,
-        lv_ordtyp TYPE bapi_order_copy-order_type.
-
-  LOOP AT gt_upload INTO ls_upload WHERE
-                                       box EQ &#39;X&#39;.
-
-    lv_index = sy-tabix.
-    CLEAR: ls_order, ls_return, lv_ordnum, lv_ordtyp, ls_style, ls_orderx.
-
-    ls_order-quantity = ls_upload-gamng.
-    ls_order-quantity_uom = ls_upload-gmein.
-    ls_order-basic_start_date = ls_upload-gstps.
-
-    ls_upload-gltps = ls_upload-gstps + ls_upload-nlfzt .
-    ls_order-basic_end_date = ls_upload-gltps .
-    ls_order-unloading_point = ls_upload-ablad.
-    ls_order-sequence_number = ls_upload-cy_seqnr.
-    ls_order-prod_version = ls_upload-verid.
-    ls_order-storage_location = ls_upload-lgort.
-*    ls_order-TERKZ
-
-    ls_orderx-quantity = &#39;X&#39;.
-    ls_orderx-basic_start_date = &#39;X&#39;.
-    ls_orderx-basic_end_date = &#39;X&#39;.
-    ls_orderx-sequence_number = &#39;X&#39;.
-    ls_orderx-unloading_point = &#39;X&#39;.
-    ls_orderx-storage_location = &#39;X&#39;.
-    ls_orderx-prod_version = &#39;X&#39;.
-
-    CALL FUNCTION &#39;BAPI_PRODORD_CHANGE&#39;
-      EXPORTING
-        number     = ls_upload-aufnr
-        orderdata  = ls_order
-        orderdatax = ls_orderx
-      IMPORTING
-        return     = ls_return.
-
-    IF ls_return-type EQ &#39;S&#39; OR ls_return-type EQ space.
-      CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39;
-        EXPORTING
-          wait = &#39;X&#39;.
-
-      CLEAR: ls_upload-fstyle, ls_upload-fstyle[].
-      ls_style-style = cl_gui_alv_grid=&amp;gt;mc_style_disabled.
-      INSERT ls_style INTO TABLE ls_upload-fstyle.
-      ls_upload-ztype = &#39;S&#39;.
-
-      ls_upload-id = c_green.
-      ls_upload-message = &#39;Updated successfully&#39;.
-    ELSE.
-      ls_upload-ztype = ls_return-type.
-      ls_upload-id = c_red.
-      ls_upload-message = ls_return-message.
-      CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39;.
-    ENDIF.
-
-
-    IF ls_return-type NE space.
-      APPEND ls_return TO ls_upload-retmsg.
-    ENDIF.
-
-    IF ls_upload-ztype = &#39;E&#39; .
-      ls_upload-zcol = &#39;C610&#39; .
-    ENDIF .
-
-    MODIFY gt_upload FROM ls_upload INDEX lv_index.
-  ENDLOOP.
-
-ENDFORM.                    &amp;quot;frm_order_change
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;order-release&#34;&gt;Order Release&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;*&amp;amp;---------------------------------------------------------------------*
-*&amp;amp;      Form  frm_order_RELEASE
-*&amp;amp;---------------------------------------------------------------------*
-*       text
-*----------------------------------------------------------------------*
-FORM frm_order_release.
-  DATA: ls_upload LIKE LINE OF gt_upload,
-        ls_style  TYPE lvc_s_styl,
-        lv_index  LIKE sy-tabix.
-
-  DATA: lt_orders  TYPE TABLE OF bapi_order_key WITH HEADER LINE,
-        ls_return  TYPE bapiret2,
-        lt_detail_return TYPE TABLE OF bapi_order_return WITH HEADER LINE.
-
-  LOOP AT gt_upload INTO ls_upload WHERE ztype EQ &#39;S&#39; AND box EQ &#39;X&#39;.
-    lv_index = sy-tabix.
-
-    CLEAR:lt_orders.
-    lt_orders-order_number = ls_upload-aufnr.
-    APPEND lt_orders .
-
-    CALL FUNCTION &#39;BAPI_PRODORD_RELEASE&#39;
-     EXPORTING
-       release_control          = &#39;1&#39;
-*     WORK_PROCESS_GROUP       = &#39;COWORK_BAPI&#39;
-*     WORK_PROCESS_MAX         = 99
-     IMPORTING
-        return                   = ls_return
-     TABLES
-        orders                   = lt_orders
-        detail_return            = lt_detail_return
-*     APPLICATION_LOG          =
-              .
-    IF ls_return-number EQ space.
-      CALL FUNCTION &#39;BAPI_TRANSACTION_COMMIT&#39;
-        EXPORTING
-          wait = &#39;X&#39;.
-
-      CLEAR: ls_upload-fstyle, ls_upload-fstyle[].
-      ls_style-style = cl_gui_alv_grid=&amp;gt;mc_style_disabled.
-      INSERT ls_style INTO TABLE ls_upload-fstyle.
-
-      ls_upload-aufnr = lt_orders-order_number.
-      ls_upload-xtype = &#39;S&#39;.
-    ELSE.
-      &amp;quot;if lt_DETAIL_RETURN-NUMBER eq &#39;093&#39;.
-      &amp;quot;ls_upload-xtype = lt_DETAIL_RETURN-MESSAGE.
-      &amp;quot;endif.
-      IF lt_detail_return-number EQ &#39;086&#39;.
-        ls_upload-xtype = lt_detail_return-message.
-        ls_upload-zcol = &#39;C610&#39; .
-      ENDIF.
-      CALL FUNCTION &#39;BAPI_TRANSACTION_ROLLBACK&#39;.
-    ENDIF.
-    MODIFY gt_upload FROM ls_upload INDEX lv_index.
-  ENDLOOP.
-
-ENDFORM.                    &amp;quot;frm_order_RELEASE
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>获取工单的Work Center</title>
-      <link>https://coldinfire.github.io/2019/SAP_WorkCenter/</link>
-      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_WorkCenter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQVI-创建一张简易的报表</title>
-      <link>https://coldinfire.github.io/2019/SAP_SQVI/</link>
-      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_SQVI/</guid>
-      <description>&lt;p&gt;SAP提供的SQVI功能，用以快速自定义一个自己需要的报表。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;创建，并选择数据源为：表连接，然后插入需要查数的表，接着将表的主键进行连接&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;完成所有表的插入后，点击返回按钮，系统将进入报表显示及筛选字段的选择界面，将报表需要显示的字段筛选出来&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;完成报表中字段的选择后，点击“选择字段”。我们知道，每一个报表都需要筛选界面，在“选择字段”中，就是用于我们添加筛选界面的筛选字段。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;“筛选字段”与“报表显示字段”选择完毕后，我们可以点击执行，创建并展示出这一报表。我们可以根据实际业务，输入筛选条件，并查出需要的数据。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>SAP Product Order status</title>
-      <link>https://coldinfire.github.io/2019/SAP_PO/</link>
-      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_PO/</guid>
-      <description>
-
-&lt;h3 id=&#34;sap生产订单状态&#34;&gt;SAP生产订单状态&lt;/h3&gt;
-
-&lt;h4 id=&#34;sap-系统的常见订单状态如下&#34;&gt;&lt;strong&gt;SAP 系统的常见订单状态如下：&lt;/strong&gt;&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;CRTD (创建)：&lt;/strong&gt;标识生产订单刚刚创建，此时禁止做后续发料和报工确认等操作；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;PREL (部分下达)：&lt;/strong&gt;当生产订单部分下达时，如仅下达部分工序时出现此状态；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;REL    (已下达)：&lt;/strong&gt;当生产任务已经明确可下发生产时，将生产订单转换为已下达状态，这个状态后可以继续后续业务操作，如打印订单、发料、报完工等操作；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MANC (未检查物料可用性)：&lt;/strong&gt;生产订单未进行零部件物料的可用性检查；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;SETC (结算规则维护)：&lt;/strong&gt;生产订单已维护结算规则；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MSPT (物料短缺)：&lt;/strong&gt;生产订单的零部件物料在进行可用性检查后发现存在短缺；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MACM (已承诺的物料)：&lt;/strong&gt;生产订单的零部件物料在进行可用性检查后确认完全可用；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;GMPS (已过帐的货物移动)：&lt;/strong&gt;生产订单已经进行过发料；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;PCNF (部分确认)：&lt;/strong&gt;生产订单只进行了部分完工确认，比如说订单需求 10 个，只进行了 5 个生产，或者订单有 2 道工序，只完成了第一道工序；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CNF (已确认) ：&lt;/strong&gt;生产订单已全部完工确认；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;PDLV (部分交货)：&lt;/strong&gt;生产订单只有部分产品入库；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DLV (交货) ：&lt;/strong&gt;生产订单已经完全交货入库，这意味着生产订单业务全部完成。CO 看到 DLV 状态或 TECO 状态时将对订单进行完工结算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;VCAL (差异计算) ：&lt;/strong&gt;生产订单进行过差异运算；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;TECO (技术完成) ：&lt;/strong&gt;在生产过程中，会出现订单未完成但是不再继续生产的情况，这时就可以打上技术完结标识，此时订单对零部件的需求同时删除。在很多项目中，为了简便处理，会对所有完成的订单进行技术完结处理 (注：不再继续生产也是一种完成)。CO 看到 DLV 状态或 TECO 状态时将对订单进行完工结算；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;RESA (进行结果分析)：&lt;/strong&gt;生产订单进行过结算；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CLSD (关闭)：&lt;/strong&gt;生产订单做账务关闭，不允许对订单发生任何过账，通常情况下，财务月末对订单进行结算后，如果确认不会再有追加发料等业务发生，则应该将订单进行关闭；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DLID (删除) ：&lt;/strong&gt;对生产订单做删除标识，数据仍然存在数据库中，状态可恢复。如果想彻底删除，需对订单进行归档处理。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;状态相关表&#34;&gt;状态相关表&lt;/h4&gt;
-
-&lt;p&gt;​   根据工单可以去&lt;strong&gt;AUFK&lt;/strong&gt;表中找到工单对应的Object Number(OBJNR).状态表为：&lt;strong&gt;JEST,&lt;/strong&gt; 字段 OBJNR 为 OR + 订单号，STAT 即为订单状态。但是 STAT 的都是 I 打头的状态，通过 &lt;strong&gt;CO03&lt;/strong&gt; 看生产订单状态都是英文简短字段标识。两者间的关系保存在表&lt;strong&gt;TJ02&lt;/strong&gt;中，&lt;strong&gt;TJ02T&lt;/strong&gt;：系统状态文本表（一般文本表都是标准表后加T）。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/Resource/AUFK.png&#34; alt=&#34;AUFK&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/Resource/JEST.png&#34; alt=&#34;JEST&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/Resource/TJ02.png&#34; alt=&#34;TJ02&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://coldinfire.github.io/images/Resource/TJ02T.png&#34; alt=&#34;TJ02T&#34; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;函数使用&#34;&gt;函数使用&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;STATUS_READ：获取输入工单的状态&lt;/li&gt;
-&lt;li&gt;STATUS_CHECK：检查生产订单状态，看是否有某种状态&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;状态判断&#34;&gt;状态判断&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;通过JEST表中的状态判断读取,需要根据AUFNR在表AUFK中获取OBJNR字段&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-JS&#34;&gt;  DATA:jest type standard table jest.
-  SELECT SINGLE * FROM aufk WHERE aufnr = it_table-aufnr. &amp;quot;
-  &amp;quot;判定工单状态
-  &amp;quot; 判定工单是否 RELASE
-  CLEAR: jest.
-  SELECT SINGLE * FROM jest
-  WHERE objnr = aufk-objnr
-  AND ( stat = &#39;I0002&#39; OR &amp;quot; RELEASE
-  stat = &#39;I0042&#39;) &amp;quot; Partial RELEASE
-  AND inact = space.
-  IF sy-subrc &amp;lt;&amp;gt; 0.
-  CONTINUE.
-  ENDIF.
-  
-  &amp;quot; 判定工单状态
-  CLEAR: jest.
-  SELECT SINGLE * FROM jest
-  WHERE objnr = aufk-objnr
-  AND ( stat = &#39;I0045&#39; OR &amp;quot; TECO
-  stat = &#39;I0013&#39; OR &amp;quot; DELETE
-  stat = &#39;I0076&#39; OR &amp;quot; DELETE FLAG
-  stat = &#39;I0046&#39; OR &amp;quot; CLSD
-  stat = &#39;I0012 &#39;) &amp;quot;DLV
-  AND inact = space.
-  IF sy-subrc = 0.
-  CONTINUE.
-  ENDIF.
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

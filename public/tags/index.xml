@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>ALV</title>
       <link>https://coldinfire.github.io/tags/ALV/</link>
-      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/ALV/</guid>
       <description></description>
@@ -23,9 +23,36 @@
     <item>
       <title>abaputils</title>
       <link>https://coldinfire.github.io/tags/abaputils/</link>
-      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/abaputils/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BAPI</title>
+      <link>https://coldinfire.github.io/tags/BAPI/</link>
+      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/BAPI/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MM</title>
+      <link>https://coldinfire.github.io/tags/MM/</link>
+      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/MM/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FICO</title>
+      <link>https://coldinfire.github.io/tags/FICO/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/FICO/</guid>
       <description></description>
     </item>
     
@@ -48,38 +75,11 @@
     </item>
     
     <item>
-      <title>utils</title>
-      <link>https://coldinfire.github.io/tags/utils/</link>
-      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/utils/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>IDoc</title>
       <link>https://coldinfire.github.io/tags/IDoc/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/IDoc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>abapbasis</title>
-      <link>https://coldinfire.github.io/tags/abapbasis/</link>
-      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/abapbasis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PO</title>
-      <link>https://coldinfire.github.io/tags/PO/</link>
-      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/PO/</guid>
       <description></description>
     </item>
     
@@ -93,24 +93,6 @@
     </item>
     
     <item>
-      <title>sapbusiness</title>
-      <link>https://coldinfire.github.io/tags/sapbusiness/</link>
-      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/sapbusiness/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>BAPI</title>
-      <link>https://coldinfire.github.io/tags/BAPI/</link>
-      <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/BAPI/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>SD</title>
       <link>https://coldinfire.github.io/tags/SD/</link>
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
@@ -120,11 +102,11 @@
     </item>
     
     <item>
-      <title>MM</title>
-      <link>https://coldinfire.github.io/tags/MM/</link>
-      <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
+      <title>SALV</title>
+      <link>https://coldinfire.github.io/tags/SALV/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/tags/MM/</guid>
+      <guid>https://coldinfire.github.io/tags/SALV/</guid>
       <description></description>
     </item>
     
@@ -143,24 +125,6 @@
       <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/sapui5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>QA</title>
-      <link>https://coldinfire.github.io/tags/QA/</link>
-      <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/QA/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Email</title>
-      <link>https://coldinfire.github.io/tags/Email/</link>
-      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/Email/</guid>
       <description></description>
     </item>
     
@@ -188,6 +152,15 @@
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/DOI/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>abapbasis</title>
+      <link>https://coldinfire.github.io/tags/abapbasis/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/abapbasis/</guid>
       <description></description>
     </item>
     
@@ -237,15 +210,6 @@
     </item>
     
     <item>
-      <title>RFC</title>
-      <link>https://coldinfire.github.io/tags/RFC/</link>
-      <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/RFC/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>BDC</title>
       <link>https://coldinfire.github.io/tags/BDC/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
@@ -278,6 +242,15 @@
       <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/Dialog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utils</title>
+      <link>https://coldinfire.github.io/tags/utils/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/utils/</guid>
       <description></description>
     </item>
     

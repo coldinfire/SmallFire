@@ -6,10 +6,28 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OLE下载数据到EXCEL模板及速度优化</title>
+      <link>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</guid>
+      <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 问题描述:当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员</description>
+    </item>
+    
+    <item>
+      <title>ALV复制内容到剪贴板</title>
+      <link>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</link>
+      <pubDate>Wed, 04 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</guid>
+      <description>引用链接：ALV复制内容到剪贴板 用在ALV的USER_COMMAND里面 复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前</description>
+    </item>
     
     <item>
       <title>ALV添加执行进度功能</title>
@@ -93,15 +111,6 @@
     </item>
     
     <item>
-      <title>生产订单标准BAPI</title>
-      <link>https://coldinfire.github.io/2019/SAP_PO_BAPI/</link>
-      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_PO_BAPI/</guid>
-      <description>创建PO *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Form FRM_ORDER_CREATE *&amp;amp;---------------------------------------------------------------------* *----------------------------------------------------------------------* &amp;quot;--&amp;gt; p1 text &amp;quot;&amp;lt;-- p2 text *----------------------------------------------------------------------* FORM frm_order_create . DATA: ls_upload LIKE LINE OF gt_upload, ls_style TYPE lvc_s_styl, lv_index LIKE sy-tabix. DATA: ls_order TYPE bapi_pp_order_create, ls_return TYPE bapiret2, lv_ordnum TYPE bapi_order_key-order_number, lv_ordtyp TYPE bapi_order_copy-order_type. LOOP AT gt_upload INTO ls_upload WHERE ztype EQ space AND box EQ &#39;X&#39;. lv_index = sy-tabix. CLEAR: ls_order, ls_return, lv_ordnum, lv_ordtyp, ls_style. IF ls_upload-externind EQ</description>
-    </item>
-    
-    <item>
       <title>获取工单的Work Center</title>
       <link>https://coldinfire.github.io/2019/SAP_WorkCenter/</link>
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
@@ -112,20 +121,11 @@
     
     <item>
       <title>SQVI-创建一张简易的报表</title>
-      <link>https://coldinfire.github.io/2019/SAP_SQVI/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_ALV_SQVI/</link>
       <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAP_SQVI/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_ALV_SQVI/</guid>
       <description>SAP提供的SQVI功能，用以快速自定义一个自己需要的报表。 创建，并选择数据源为：表连接，然后插入需要查数的表，接着将表的主键进行连接 完成所</description>
-    </item>
-    
-    <item>
-      <title>SAP Product Order status</title>
-      <link>https://coldinfire.github.io/2019/SAP_PO/</link>
-      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_PO/</guid>
-      <description>SAP生产订单状态 SAP 系统的常见订单状态如下： CRTD (创建)：标识生产订单刚刚创建，此时禁止做后续发料和报工确认等操作； PREL (部分下达)：当生产订单</description>
     </item>
     
     <item>
@@ -153,15 +153,6 @@
       
       <guid>https://coldinfire.github.io/2019/ABAP_ALVTree/</guid>
       <description>Demo列表 BCALV_TREE_01 ALV 树控制：构建层次树 BCALV_TREE_02 ALV 树控制：事件处理 BCALV_TREE_03 ALV 树控制：使用自己的上下文菜单 BCALV_TREE_04 ALV 树控制：添加按钮到工具栏 BCALV_TREE_05 ALV 树控制：添加菜单到工具</description>
-    </item>
-    
-    <item>
-      <title>业务流程</title>
-      <link>https://coldinfire.github.io/2019/SAP_BS_Workflow/</link>
-      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_BS_Workflow/</guid>
-      <description>PP流程 MM01(Material)-&amp;gt;CS01(BOM)-&amp;gt;CR01(WORKCENTERY)-&amp;gt;CA01(ROUTING)-&amp;gt;MD11(PLANNED ORDER)-&amp;gt; COO1(PRODUCTION ORDERS)也可通过CO41/CO40转换计划单得来. COMAC:对生产订单进行可用性检查 COHVOMPRINT:打印订单 M</description>
     </item>
     
     <item>
@@ -381,15 +372,6 @@
     </item>
     
     <item>
-      <title>STO详解</title>
-      <link>https://coldinfire.github.io/2019/ABAPSTO/</link>
-      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAPSTO/</guid>
-      <description>一、工厂间转储 （1）MB1B 移动类型 301 工厂到工厂（一步）转账 -&amp;gt; 简单明了一步转储；过账后会产生 GR，MITA 增加了，MIZH 减少了， MB03：</description>
-    </item>
-    
-    <item>
       <title>SAP memory使用</title>
       <link>https://coldinfire.github.io/2019/ABAP_Memory/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
@@ -549,15 +531,6 @@
       
       <guid>https://coldinfire.github.io/2018/SAPAuthorization/</guid>
       <description>TCode简介 ​ SU01：查看和编辑Role ​ SU10：实现对用户组的批量维护 ​ SU20：权限字段清单，可以增、删、改权限字段，可以浏览字段</description>
-    </item>
-    
-    <item>
-      <title> 财务凭证冲销 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_FIVoucherReversal/</link>
-      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_FIVoucherReversal/</guid>
-      <description>凭证的更改 1：已经过帐的 TCODE：FB02. ​ 过完帐的允许更改的地方有限，只有凭证抬头文本，参照，分配，文本，原因代码等 2：预制凭证的更改</description>
     </item>
     
     <item>

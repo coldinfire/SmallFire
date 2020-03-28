@@ -7,7 +7,7 @@ categories:
   - ABAP
 
 tags: 
-  - QA
+  - abaputils
 
 ---
 

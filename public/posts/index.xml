@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OLE下载数据到EXCEL模板及速度优化</title>
+      <link>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</guid>
+      <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 问题描述:当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员</description>
+    </item>
+    
+    <item>
+      <title>ALV复制内容到剪贴板</title>
+      <link>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</link>
+      <pubDate>Wed, 04 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</guid>
+      <description>引用链接：ALV复制内容到剪贴板 用在ALV的USER_COMMAND里面 复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前</description>
+    </item>
     
     <item>
       <title>ALV添加执行进度功能</title>
@@ -18,6 +36,51 @@
       
       <guid>https://coldinfire.github.io/2020/ABAP_ALVProgress/</guid>
       <description>为了提升用户体验添加进度条功能。 DATA:BEGIN OF gt_result OCCURS 0, sel(1), matnr TYPE mara-matnr, zz_edi_grp TYPE mara-zz_edi_grp, werks TYPE mseg-werks, eknam TYPE eknam, maktx TYPE maktx, num TYPE sy-tabix, row TYPE sy-tabix, icon TYPE icon-id, mess TYPE string, flag(1), END OF gt_result. DATA:lt_result LIKE STANDARD TABLE OF gt_result WITH HEADER LINE. DATA: l_perc TYPE int4, l_perc_cnt TYPE int4, l_perc_i</description>
+    </item>
+    
+    <item>
+      <title>创建PR BAPI_REQUISITION_CREATE</title>
+      <link>https://coldinfire.github.io/2020/SAP_PR/</link>
+      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_PR/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/2nt_V5dpgxkspDQsldJJ3A 创建PR BAPI_REQUISITION_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; BAPI_REQUISITION_CREATE 和 BAPI_PR_CREATE 相关问题查看</description>
+    </item>
+    
+    <item>
+      <title>凭证冲销 BAPI_ACC_DOCUMENT_REV_POST</title>
+      <link>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_REV/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_REV/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/0RoUY8nyWfONjKTItjTouA BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 前台操作： FB08 直接点保存</description>
+    </item>
+    
+    <item>
+      <title>创建固定资产凭证 BAPI_ACC_DOCUMENT_POST</title>
+      <link>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_POST/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_POST/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q ​ https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA 固定资产 BAPI_ACC_DOCUMENT_POST 凭证创建 TCode : F-02 (固</description>
+    </item>
+    
+    <item>
+      <title>MIRO根据退货PO创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE</title>
+      <link>https://coldinfire.github.io/2020/SAP_INCOMINGINVOICE_CREATE/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_INCOMINGINVOICE_CREATE/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw MIRO根据退货PO创建贷项凭证</description>
+    </item>
+    
+    <item>
+      <title>MIRO根据物料创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE</title>
+      <link>https://coldinfire.github.io/2020/SAP_MIRO_Matnr/</link>
+      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_MIRO_Matnr/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw MIRO根据物料创建贷项凭证: BAPI_INCOMINGINVOICE_CREATE</description>
     </item>
     
     <item>
@@ -112,10 +175,10 @@
     
     <item>
       <title>SQVI-创建一张简易的报表</title>
-      <link>https://coldinfire.github.io/2019/SAP_SQVI/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_ALV_SQVI/</link>
       <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAP_SQVI/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_ALV_SQVI/</guid>
       <description>SAP提供的SQVI功能，用以快速自定义一个自己需要的报表。 创建，并选择数据源为：表连接，然后插入需要查数的表，接着将表的主键进行连接 完成所</description>
     </item>
     

@@ -32,7 +32,7 @@
     <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
-      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
       
       
       
@@ -44,11 +44,99 @@
     <url>
       <loc>https://coldinfire.github.io/tags/ALV/</loc>
       
-      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</loc>
+      
+      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/abaputils/</loc>
+      
+      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</loc>
+      
+      <lastmod>2020-03-04T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>
@@ -68,21 +156,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/</loc>
+      <loc>https://coldinfire.github.io/tags/BAPI/</loc>
       
-      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      <lastmod>2020-02-28T00:00:00+00:00</lastmod>
       
       
       
@@ -92,9 +168,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/</loc>
+      <loc>https://coldinfire.github.io/tags/MM/</loc>
       
-      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      <lastmod>2020-02-28T00:00:00+00:00</lastmod>
       
       
       
@@ -104,13 +180,95 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
       
-      <lastmod>2020-03-01T00:00:00+00:00</lastmod>
+      <lastmod>2020-02-28T00:00:00+00:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/SAP_PR/</loc>
+      
+      <lastmod>2020-02-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/FICO/</loc>
+      
+      <lastmod>2020-02-24T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_REV/</loc>
+      
+      <lastmod>2020-02-24T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_POST/</loc>
+      
+      <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/SAP_INCOMINGINVOICE_CREATE/</loc>
+      
+      <lastmod>2020-02-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/SAP_MIRO_Matnr/</loc>
+      
+      <lastmod>2020-02-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
       
       
     </url>
@@ -125,18 +283,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/abaputils/</loc>
-      
-      <lastmod>2019-12-21T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -236,18 +382,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/utils/</loc>
-      
-      <lastmod>2019-09-25T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/tags/IDoc/</loc>
       
       <lastmod>2019-09-22T00:00:00+00:00</lastmod>
@@ -283,30 +417,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/abapbasis/</loc>
-      
-      <lastmod>2019-09-18T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/PO/</loc>
-      
-      <lastmod>2019-09-07T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -352,7 +462,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/SAP_SQVI/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_ALV_SQVI/</loc>
       
       <lastmod>2019-08-28T00:00:00+00:00</lastmod>
       
@@ -361,18 +471,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/sapbusiness/</loc>
-      
-      <lastmod>2019-08-28T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -443,30 +541,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/BAPI/</loc>
-      
-      <lastmod>2019-07-04T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/MM/</loc>
-      
-      <lastmod>2019-07-04T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -543,18 +617,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/SD/</loc>
-      
-      <lastmod>2019-06-08T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
       
       <lastmod>2019-06-08T00:00:00+00:00</lastmod>
       
@@ -748,6 +810,18 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/SALV/</loc>
+      
+      <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_SALV/</loc>
       
       <lastmod>2019-06-03T00:00:00+00:00</lastmod>
@@ -757,18 +831,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/MM/</loc>
-      
-      <lastmod>2019-05-29T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -936,18 +998,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/QA/</loc>
-      
-      <lastmod>2019-04-14T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2019/SAPQ1/</loc>
       
       <lastmod>2019-04-14T00:00:00+00:00</lastmod>
@@ -985,18 +1035,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/Email/</loc>
-      
-      <lastmod>2019-04-08T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -1276,6 +1314,18 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/abapbasis/</loc>
+      
+      <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/Python1/</loc>
       
       <lastmod>2019-01-16T00:00:00+00:00</lastmod>
@@ -1539,18 +1589,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/RFC/</loc>
-      
-      <lastmod>2018-10-12T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -1823,6 +1861,18 @@
       
       
       <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/utils/</loc>
+      
+      <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>

@@ -17,28 +17,24 @@ tags:
 
 ```JS
 DATA:BEGIN OF gt_result OCCURS 0,
-        sel(1),
-        matnr         TYPE mara-matnr,
-        zz_edi_grp    TYPE mara-zz_edi_grp,
-        werks         TYPE mseg-werks,
-        eknam         TYPE eknam,
-        maktx         TYPE maktx,
-        num           TYPE sy-tabix,
-        row           TYPE sy-tabix,
-        icon          TYPE icon-id,
-        mess          TYPE string,
-        flag(1),
-      END OF gt_result.
-
+    sel(1),
+    matnr         TYPE mara-matnr,
+    zz_edi_grp    TYPE mara-zz_edi_grp,
+    werks         TYPE mseg-werks,
+    eknam         TYPE eknam,
+    maktx         TYPE maktx,
+    num           TYPE sy-tabix,
+    row           TYPE sy-tabix,
+    icon          TYPE icon-id,
+    mess          TYPE string,
+    flag(1),
+  END OF gt_result.
 DATA:lt_result LIKE STANDARD TABLE OF gt_result WITH HEADER LINE.  
-
-DATA:
-    l_perc      TYPE int4,
-    l_perc_cnt  TYPE int4,
-    l_perc_i    TYPE int4,
-    l_perc_stxt TYPE string,
-    l_sperc(3)  TYPE c.  
-
+DATA: l_perc      TYPE int4,
+      l_perc_cnt  TYPE int4,
+      l_perc_i    TYPE int4,
+      l_perc_stxt TYPE string,
+      l_sperc(3)  TYPE c.  
   READ TABLE gt_result WITH KEY sel = 'X'.
   IF sy-subrc <> 0.
     MESSAGE 'Please select at leaset one line.' TYPE 'E' .
