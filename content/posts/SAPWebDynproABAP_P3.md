@@ -16,10 +16,10 @@ tags:
 ```JS
 method WDDOINIT .
 TYPES:BEGIN OF soption,
-        typename TYPE string,
-        id       TYPE string,
+        typename TYPE string, " Selection screen field ref type element
+        id       TYPE string, " selection screen field name
       END OF soption.
-  DATA:l_alv_cmp_usage     TYPE REF TO if_wd_component_usage,
+DATA:  l_alv_cmp_usage     TYPE REF TO if_wd_component_usage,
        l_alvctrl           TYPE REF TO iwci_salv_wd_table,
        l_alvmodel          TYPE REF TO cl_salv_wd_config_table,
        l_it_range_table    TYPE REF TO data,
@@ -51,17 +51,16 @@ TYPES:BEGIN OF soption,
 
 * Get reference to model 获取参考模型
   l_alvctrl = wd_this->wd_cpifc_alv( ).
-*
+* Select Screen node define
   DATA  lo_nd_zoption TYPE REF TO if_wd_context_node.
   DATA: lo_el_zoption TYPE REF TO if_wd_context_element,
         ls_zoption    TYPE wd_this->element_zoption ,
         lv_p_total  TYPE wd_this->element_zoption-p_total,
         lv_p_detail  TYPE wd_this->element_zoption-p_detail.
-
   lo_nd_zoption   = wd_context->get_child_node( name = wd_this->wdctx_zoption ).
   lo_el_zoption = lo_nd_zoption->get_element( ).
 
-  """"选择界面复选框设置默认值
+  " 选择界面复选框设置默认值
   IF lo_el_zoption IS NOT INITIAL.
   lo_el_zoption->set_attribute(
     EXPORTING
@@ -82,43 +81,38 @@ TYPES:BEGIN OF soption,
                               i_display_btn_check   = abap_false
                               i_display_btn_reset   = abap_false
                               i_display_btn_execute = abap_false ).
-*
+* Select screen group init
   l_wa_soption-typename = 'ARBPL'.
   l_wa_soption-id       = 'ARBPL'.
   APPEND l_wa_soption TO l_it_soption.
-
   l_wa_soption-typename = 'KOSTL'.
   l_wa_soption-id       = 'KOSTL'.
   APPEND l_wa_soption TO l_it_soption.
-
   l_wa_soption-typename = 'AUFNR'.
   l_wa_soption-id       = 'AUFNR'.
   APPEND l_wa_soption TO l_it_soption.
-
   l_wa_soption-typename = 'AUFART'.
   l_wa_soption-id       = 'AUART'.
   APPEND l_wa_soption TO l_it_soption.
-
-    l_wa_soption-typename = 'BUDAT'.
+  l_wa_soption-typename = 'BUDAT'.
   l_wa_soption-id       = 'BUDAT'.
   APPEND l_wa_soption TO l_it_soption.
-
-*  DATA: lt_werks_table TYPE RANGE OF werks_d .
-*  DATA: ls_werks_table LIKE LINE OF lt_werks_table .
-*  FIELD-SYMBOLS: <it_werks_table> LIKE lt_werks_table .
-*
+* Select screen default value define
+  DATA: lt_werks_table TYPE RANGE OF werks_d .
+  DATA: ls_werks_table LIKE LINE OF lt_werks_table .
+  FIELD-SYMBOLS: <it_werks_table> LIKE lt_werks_table .
+  
   LOOP AT l_it_soption INTO l_wa_soption.
     l_it_range_table = wd_this->m_handler->create_range_table( i_typename = l_wa_soption-typename ).
-*
-*    """"选择界面ranges给初始值
-*    IF l_wa_soption-typename = 'ZWERKS_D'.
-*      ASSIGN l_it_range_table->* TO <it_werks_table> .
-*      ls_werks_table-sign   = 'I' .
-*      ls_werks_table-option = 'EQ' .
-*      ls_werks_table-low    = '1020' .
-*      APPEND ls_werks_table TO <it_werks_table> .
-*    ENDIF.
-*
+    " 界面ranges给初始值
+    IF l_wa_soption-typename = 'BUDAT'.
+      ASSIGN l_it_range_table->* TO <it_budat_table> .
+      ls_budat_table-sign   = 'I' .
+      ls_budat_table-option = 'EQ' .
+      ls_budat_table-low    = sy-datum .
+      APPEND ls_budat_table TO <it_budat_table> .
+    ENDIF.
+
     wd_this->m_handler->add_selection_field( i_id  = l_wa_soption-id
                                      i_obligatory  = ''
                                         it_result  = l_it_range_table
@@ -140,9 +134,7 @@ TYPES:BEGIN OF soption,
                               i_display_btn_execute = abap_false ).
 
   LOOP AT l_it_soptionh INTO l_wa_soptionh.
-
     l_it_range_tableh = wd_this->m_handlerh->create_range_table( i_typename = l_wa_soptionh-typename ).
-
     wd_this->m_handlerh->add_selection_field( i_id  = l_wa_soptionh-id
                                           it_result = l_it_range_tableh
                                         i_read_only = l_read_only ).

@@ -134,7 +134,7 @@
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_DynamicPrgrm/</guid>
-      <description>利用Field Symbols和数据参考的实例： *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZZSM_TEST_DYN *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* REPORT zzsm_test_dyn. DATA: tab_reference TYPE REF TO data, struc_reference TYPE REF TO data. DATA: descr TYPE REF TO cl_abap_structdescr. FIELD-SYMBOLS: &amp;lt;struc&amp;gt; TYPE ANY, &amp;lt;field&amp;gt; TYPE ANY, &amp;lt;itab&amp;gt; TYPE ANY TABLE. PARAMETERS: p_table(20) DEFAULT &#39;LFA1&#39; OBLIGATORY, p_rows TYPE i</description>
+      <description>利用Field Symbols和数据参考的实例： *&amp;amp;-------------------------------------------------------------------- *&amp;amp; Report ZZSM_TEST_DYN *&amp;amp;-------------------------------------------------------------------- REPORT zzsm_test_dyn. DATA: tab_reference TYPE REF TO data, struc_reference TYPE REF TO data. DATA: descr TYPE REF TO cl_abap_structdescr. FIELD-SYMBOLS: &amp;lt;struc&amp;gt; TYPE ANY, &amp;lt;field&amp;gt; TYPE ANY, &amp;lt;itab&amp;gt; TYPE ANY TABLE. PARAMETERS: p_table(20) DEFAULT &#39;LFA1&#39; OBLIGATORY, p_rows TYPE i OBLIGATORY. TRY . &amp;quot;Dynamic</description>
     </item>
     
     <item>
@@ -678,6 +678,15 @@
     </item>
     
     <item>
+      <title>ABAP Submit 实现程序间互相调用</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Submit/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Submit/</guid>
+      <description>ABAP 代码中通过Submit实现程序的调用以及调用时数据参数的传递. 将要被调用的Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. PARAM SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line TYPE i. lv_line</description>
+    </item>
+    
+    <item>
       <title>Smartforms打印成PDF</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
@@ -737,7 +746,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P2/</guid>
-      <description>Component Controller: DATA_LOAD method DATA_LOAD . DATA: rARBPL TYPE REF TO data, rKOSTL TYPE REF TO data, rAUFNR TYPE REF TO data, rAUART TYPE REF TO data, rBUDAT TYPE REF TO data, &amp;quot;&amp;quot;&amp;quot;&amp;quot;为alv输出的结构 lt_ZALV_ZPEFF_TOTAL TYPE TABLE OF ZALV_ZPEFF_TOTAL,</description>
+      <description>Component Controller: DATA_LOAD method DATA_LOAD . &amp;quot; ALV 输出的结构定义 DATA: lt_ZALV_ZPEFF_TOTAL TYPE TABLE OF ZALV_ZPEFF_TOTAL, ls_ZALV_ZPEFF_TOTAL TYPE ZALV_ZPEFF_TOTAL, lt_ZALV_PROD_EFF TYPE TABLE OF ZALV_PROD_EFF, ls_ZALV_PROD_EFF TYPE ZALV_PROD_EFF, lo_node TYPE REF TO if_wd_context_node. &amp;quot; 选择屏幕数据的单属性定义 DATA: lo_nd_zoption TYPE REF TO if_wd_context_node, lo_el_zoption TYPE REF TO if_wd_context_element, ls_zoption TYPE wd_this-&amp;gt;element_zoption, lv_p_total TYPE wd_this-&amp;gt;element_zoption-p_total, lv_p_detail TYPE wd_this-&amp;gt;element_zoption-p_detail.</description>
     </item>
     
     <item>
@@ -746,7 +755,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P3/</guid>
-      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, id TYPE string, END OF soption. DATA:l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO cl_salv_wd_column, l_it_field TYPE TABLE OF dfies, l_wa_field TYPE dfies, l_fieldname TYPE string, l_invisible TYPE c,</description>
+      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, &amp;quot; Selection screen field ref type element id TYPE string, &amp;quot; selection screen field name END OF soption. DATA: l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO cl_salv_wd_column, l_it_field</description>
     </item>
     
     <item>
@@ -769,10 +778,10 @@
     
     <item>
       <title>BAPI总结列表</title>
-      <link>https://coldinfire.github.io/2018/ABAP_BAPI/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_BAPI_SUM/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_BAPI/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_BAPI_SUM/</guid>
       <description>本文主要记录一些收集来的BAPI,在SE38环境下的程序名输入栏输入&amp;rsquo;DEMO&amp;lsquo;后按F4，你可以查到SAP所有的DE</description>
     </item>
     
@@ -1196,7 +1205,7 @@
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis9/</guid>
-      <description>同步调用 在一个程序中调用其他ABAP程序。有两种方式 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function] SUBMIT [program] AND RETURN CALL TRANSACTION [TCode]</description>
+      <description>同步调用 在一个程序中调用其他ABAP程序。有两种方式 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function]. SUBMIT [program] AND RETURN. CALL TRANSACTION [TCode].</description>
     </item>
     
     <item>

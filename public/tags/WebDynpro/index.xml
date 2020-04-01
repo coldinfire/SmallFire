@@ -26,7 +26,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P2/</guid>
-      <description>Component Controller: DATA_LOAD method DATA_LOAD . DATA: rARBPL TYPE REF TO data, rKOSTL TYPE REF TO data, rAUFNR TYPE REF TO data, rAUART TYPE REF TO data, rBUDAT TYPE REF TO data, &amp;quot;&amp;quot;&amp;quot;&amp;quot;为alv输出的结构 lt_ZALV_ZPEFF_TOTAL TYPE TABLE OF ZALV_ZPEFF_TOTAL,</description>
+      <description>Component Controller: DATA_LOAD method DATA_LOAD . &amp;quot; ALV 输出的结构定义 DATA: lt_ZALV_ZPEFF_TOTAL TYPE TABLE OF ZALV_ZPEFF_TOTAL, ls_ZALV_ZPEFF_TOTAL TYPE ZALV_ZPEFF_TOTAL, lt_ZALV_PROD_EFF TYPE TABLE OF ZALV_PROD_EFF, ls_ZALV_PROD_EFF TYPE ZALV_PROD_EFF, lo_node TYPE REF TO if_wd_context_node. &amp;quot; 选择屏幕数据的单属性定义 DATA: lo_nd_zoption TYPE REF TO if_wd_context_node, lo_el_zoption TYPE REF TO if_wd_context_element, ls_zoption TYPE wd_this-&amp;gt;element_zoption, lv_p_total TYPE wd_this-&amp;gt;element_zoption-p_total, lv_p_detail TYPE wd_this-&amp;gt;element_zoption-p_detail.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P3/</guid>
-      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, id TYPE string, END OF soption. DATA:l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO cl_salv_wd_column, l_it_field TYPE TABLE OF dfies, l_wa_field TYPE dfies, l_fieldname TYPE string, l_invisible TYPE c,</description>
+      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, &amp;quot; Selection screen field ref type element id TYPE string, &amp;quot; selection screen field name END OF soption. DATA: l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO cl_salv_wd_column, l_it_field</description>
     </item>
     
     <item>

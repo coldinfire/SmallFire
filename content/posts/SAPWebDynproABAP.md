@@ -33,7 +33,7 @@ tags:
 
 ![添加Components](/images/webdynproABAP/3.png)
 
-切换页签到Context(还是COMPONENTCONTROLLER),创建节点.
+切换页签到Context(还是COMPONENTCONTROLLER),创建Nodes
 
 进到创建Nodes的界面,输入Node Name, Dictionary structure,然后Cardinality改成0..n，然然后点击Add attribute from structure来选择需要的字段
 
@@ -70,15 +70,12 @@ tags:
 
 ![Input View Context](/images/webdynproABAP/11.png)
 
-然后在Inbound Plugs维护Plug
-Name : FROM_ALV_VIEW
+然后Inbound Plugs 和 Outbound Plugs 分别维护
 
-![Input View Inbound Plugs](/images/webdynproABAP/12.png)
-
-然后在Outbound Plugs维护Plug
-Name : TO_ALV_VIEW
-
-![Input View Outbound Plugs](/images/webdynproABAP/13.png)
+- 在Inbound Plugs维护Plug
+  Name : FROM_ALV_VIEW
+- 在Outbound Plugs维护Plug
+  Name : TO_ALV_VIEW
 
 **接下来我们在Layout设置选择界面的信息。**
 
