@@ -46,6 +46,8 @@ tags:
 
 2、 如果调用后还要返回到主调程序，则使用下面这种方式：
 
+- SET PARAMETER ID '[Screen Parameter ID]' FIELD [field_value].
+
 - CALL TRANSACTION |()  [AND SKIP FIRST SCREEN] [USING <bdc_tab >].
 
 系统会重新开启一个 internal session, 当被调程序结束后，被调 Tcode 所在的这个 internal session 会被 delete 掉，然后返回到主调程序调用处，继续运行主调程序后面的语句
