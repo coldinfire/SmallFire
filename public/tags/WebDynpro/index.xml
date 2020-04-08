@@ -6,10 +6,28 @@
     <description>Recent content in WebDynpro on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/WebDynpro/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> 将开发好的Web Dynpro 挂载到Portal上 </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_PortalConfig/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_PortalConfig/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> Web Dynpro ABAP Program:ALV_VIEW-Function </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</guid>
+      <description>method ONACTIONPRINT . DATA lo_api_controller TYPE REF TO if_wd_controller. DATA lo_message_manager TYPE REF TO if_wd_message_manager. DATA: LT_EKPO TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO TYPE ZEKPO_asn, LT_EKPO_SUM TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM TYPE ZEKPO_asn, LT_EKPO_SUM_TMP TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM_TMP TYPE ZEKPO_asn. DATA lo_lips TYPE REF TO if_wd_context_node. data: lt_lips TYPE TABLE OF ZSLIPSASN, ls_lips TYPE ZSLIPSASN, lt_lips_tmp TYPE TABLE OF ZSLIPSASN, ls_lips_tmp TYPE ZSLIPSASN. data: l_index TYPE sy-tabix,</description>
+    </item>
     
     <item>
       <title> Web Dynpro ABAP Program:ALV_VIEW-WDDOINIT </title>
@@ -44,7 +62,7 @@
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP/</guid>
-      <description>在ERP系统中找到Report对应的程序，在Web Dynpro NID系统中创建对应的结构，分别对应选择屏幕和对应的ALV报表。 SE80创建WDA 输入W</description>
+      <description>准备数据 ​ SAP Web Dynpro 一般都是采用调用ERP接口方式获取业务数据，因此输入，输出参数等结构都需要和ERP系统中接口的内容保持一致。在ERP系统中找</description>
     </item>
     
     <item>

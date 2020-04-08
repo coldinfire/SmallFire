@@ -29,6 +29,10 @@ method WDDOINIT .
     lt_columns         TYPE salv_wd_t_column_ref,
     ls_column          TYPE salv_wd_s_column_ref,
     lo_col_header      TYPE REF TO cl_salv_wd_column_header.
+"添加选择Check Box 
+DATA: lo_checkbox      TYPE REF TO cl_salv_wd_uie_checkbox,
+      lo_input_field   TYPE REF TO cl_salv_wd_uie_input_field.
+ DATA lo_column_hdr    TYPE REF TO cl_salv_wd_column_header.
 
   DATA lo_nd_node TYPE REF TO if_wd_context_node.
   lo_nd_node = wd_context->get_child_node( name = wd_this->wdctx_ZALV_ZPEFF_TOTAL ).
@@ -51,6 +55,9 @@ method WDDOINIT .
 " Set the UI elements.设置UI 元素
   lo_column_settings ?= lo_config.
   lt_columns = lo_column_settings->get_columns( ).
+" Set colums not display in alv
+  lo_column = lo_column_settings->get_column( 'BDAUT' ).
+  lo_column->set_visible( cl_wd_uielement=>e_visible-none ).
   
 *3.ALV Table 设置是否可以输入
 *=========================================================
@@ -75,6 +82,21 @@ method WDDOINIT .
 *6.ALV Table 控制是否有默认的选择黄条，但是能点出黄条
 *=========================================================
   lo_config->if_salv_wd_table_settings~set_selection_mode( cl_wd_table=>e_selection_mode-single_no_lead ).
+
+*7.ALV Table 设置选择按钮和ALV hearder text 设置,ZSELE添加在Context中
+  CREATE OBJECT lo_checkbox
+    EXPORTING
+      checked_fieldname = 'ZSELE'.
+  lo_column_settings ?= lo_config.
+  lo_column = lo_column_settings->get_column( 'ZSELE' ).
+  CREATE OBJECT lo_input_field
+    EXPORTING
+      value_fieldname = 'ZSELE'.
+  lo_column->set_cell_editor( lo_input_field ).
+  lo_column->set_cell_editor( lo_checkbox ).
+  lo_column_hdr = lo_column->create_header( ).
+  lo_column_hdr->set_text( 'Selected' ).
+
 endmethod.
 ```
 

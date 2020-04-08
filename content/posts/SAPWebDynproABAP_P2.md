@@ -84,8 +84,10 @@ method DATA_LOAD .
     IMPORTING
       value = lv_p_DETAIL ).
   
-  " 获取用户名
-  l_name = wdr_task=>client_window->get_parameter( 'USERID' ).
+  " 获取用户名:需要在Content Administration中配置 Application Para "userid=<User.LogonUid>"
+  l_name = wdr_task=>client_window->if_wdr_client_info_object~get_parameter( 'USERID' ).
+  TRANSLATE l_name TO UPPER CASE.
+
       
   " 调用SAP Funciton 获取数据
   CALL FUNCTION 'Z_GET_ZPEFF' DESTINATION 'WIKR3'

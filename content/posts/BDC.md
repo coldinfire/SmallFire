@@ -12,10 +12,6 @@ tags:
 
 ---
 
-
-
-
-
 ## 定义BDC (Batch Data Communication)
 
   BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输.  
@@ -62,21 +58,21 @@ tags:
 -  执行：该程序可通过批量输入或则调用事务进行数据传输，填充BDC表作为输入数据集
 
   - 如有需要，可以调整修改已生成的BDC程序代码
-
-  - CALL TRANSACTION
-
-    ```JS
+- CALL TRANSACTION
+  
+```JS
   CALL TRANSACTION <TCode> USING <BDCDATA>
-    				         MODE <CTUMODE>
-    				         UPDATE <CPUDATE>
-    				         MESSAGES INTO <MESSTAB>.
-                    
-    TCode:相应的事务代码
-    BDCDATA:需要的BDC传入数据
-    MODE:显示模式
-    UPDATE:更新模式
-    MESSAGE:用于存放消息
-    ```
+                           MODE <CTUMODE>
+                           UPDATE <CPUDATE>
+                           MESSAGES INTO <MESSTAB>.
+                  
+  TCode:相应的事务代码
+  BDCDATA:需要的BDC传入数据
+  MODE:显示模式
+  UPDATE:更新模式
+  MESSAGE:用于存放消息
+  ```
+  
   
 
 **MODE:**

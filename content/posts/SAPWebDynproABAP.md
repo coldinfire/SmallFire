@@ -15,7 +15,9 @@ tags:
 
 
 
-- 在ERP系统中找到Report对应的程序，在Web Dynpro NID系统中创建对应的结构，分别对应选择屏幕和对应的ALV报表。
+### 准备数据
+
+​	SAP Web Dynpro 一般都是采用调用ERP接口方式获取业务数据，因此输入，输出参数等结构都需要和ERP系统中接口的内容保持一致。在ERP系统中找到Report对应的程序，在Web Dynpro 系统中创建对应的结构，分别对应选择屏幕和对应的ALV报表。
 
 ### SE80创建WDA
 
@@ -166,9 +168,10 @@ Plugs分别维护
 
 ![View Layout ](/images/webdynproABAP/25.png)
 
-再切换到Methods中，在WDDOINIT中写实现ALV逻辑。
+再切换到Methods中，在WDDOINIT中写实现ALV逻辑。如果在ALV View界面需要进行功能处理，则创建对应的Method并写入功能代码。
 
 - [ALV_VIEW: WDDOINIT](https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/)
+- [ALV_VIEW: Print_Function](https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/)
 
 ### Windows 处理
 

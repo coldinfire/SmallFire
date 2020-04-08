@@ -9,6 +9,7 @@ categories:
 
 tags: 
   - WebDynpro
+
 ---
 
 ## Component Controller: WDDOINIT
@@ -98,9 +99,9 @@ DATA:  l_alv_cmp_usage     TYPE REF TO if_wd_component_usage,
   l_wa_soption-id       = 'BUDAT'.
   APPEND l_wa_soption TO l_it_soption.
 * Select screen default value define
-  DATA: lt_werks_table TYPE RANGE OF werks_d .
-  DATA: ls_werks_table LIKE LINE OF lt_werks_table .
-  FIELD-SYMBOLS: <it_werks_table> LIKE lt_werks_table .
+  DATA: lt_budat_table TYPE RANGE OF datum .
+  DATA: ls_budat_table LIKE LINE OF lt_budat_table .
+  FIELD-SYMBOLS: <it_budat_table> LIKE lt_budat_table .
   
   LOOP AT l_it_soption INTO l_wa_soption.
     l_it_range_table = wd_this->m_handler->create_range_table( i_typename = l_wa_soption-typename ).

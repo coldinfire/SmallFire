@@ -1512,6 +1512,46 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_PortalConfig/</loc>
+      
+      <lastmod>2018-10-29T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/WebDynpro/</loc>
+      
+      <lastmod>2018-10-29T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</loc>
+      
+      <lastmod>2018-10-25T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</loc>
       
       <lastmod>2018-10-21T00:00:00+00:00</lastmod>
@@ -1549,18 +1589,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/WebDynpro/</loc>
-      
-      <lastmod>2018-10-21T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>
@@ -2083,18 +2111,6 @@
       
       
       <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/LOCK/</loc>
-      
-      <lastmod>2018-07-12T00:00:00+00:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
       
       
     </url>

@@ -20,11 +20,8 @@ ABAP 代码中通过Submit实现程序的调用以及调用时数据参数的传
 REPORT ZTEST_SUBMIT1.
 DATA: lv_matnr TYPE matnr.
 DATA: lv_charg TYPE charg.
-
-PARAM
 SELECT-OPTIONS: s1_matnr FOR matnr,
                 s1_lgort FOR lgort.
-                
 START-OF-SELECTION.
   DATA: lv_line TYPE i.
   lv_line = LINES( s1_matnr ).
@@ -38,9 +35,7 @@ START-OF-SELECTION.
 ```JS
 REPORT ZTEST_SUBMIT2.
 DATA: lv_matnr TYPE matnr.
-
-SELECT-OPTIONS: s2_matnr FOR matnr.
-                
+SELECT-OPTIONS: s2_matnr FOR matnr.                
 START-OF-SELECTION.
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
 * 在该代码块实现用不同的方式调用Reprot1
@@ -78,15 +73,14 @@ SUBMIT ztest_submit1
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
 DATA: lt_seltab  TYPE TABLE OF rsparams,
       ls_seltab  LIKE LINE OF lt_seltab.
- 
-  LOOP AT s2_matnr.
-    ls_seltab-selname = 'S1_MATNR'.  " Report1中的屏幕字段名
-    ls_seltab-KIND    = 'S'.
-    ls_seltab-SIGN    = s2_matnr-SIGN.
-    ls_seltab-OPTION  = s2_matnr-OPTION.
-    ls_seltab-LOW     = s2_matnr-LOW.
-    APPEND ls_seltab TO lt_seltab.
-  ENDLOOP.
+LOOP AT s2_matnr.
+  ls_seltab-selname = 'S1_MATNR'.  " Report1中的屏幕字段名
+  ls_seltab-KIND    = 'S'.
+  ls_seltab-SIGN    = s2_matnr-SIGN.
+  ls_seltab-OPTION  = s2_matnr-OPTION.
+  ls_seltab-LOW     = s2_matnr-LOW.
+  APPEND ls_seltab TO lt_seltab.
+ENDLOOP.
  
   ls_seltab-selname = 'S1_LGORT'.
   ls_seltab-KIND    = 'S'.
@@ -94,7 +88,6 @@ DATA: lt_seltab  TYPE TABLE OF rsparams,
   ls_seltab-OPTION  = 'EQ'.
   ls_seltab-LOW     = 'WA01'.
   APPEND ls_seltab TO lt_seltab.
- 
   SUBMIT ztest_submit1
     WITH SELECTION-TABLE lt_seltab
     AND RETURN.
@@ -112,9 +105,71 @@ DATA: lt_seltab  TYPE TABLE OF rsparams,
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 ```
 
+#### 调用程序，显示选择屏幕界面
+
+```JS
+*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
+SUBMIT ztest_submit1 VIA SELECTION-SCREEN AND RETURN.
+*$*$*.....CODE_ADD_1 - End....................................1..*$*$*
+被调报表程序的选择屏幕会显示。如果此选择打开，并且还使用了其他参数选项来传输值时，这些值也会显示在屏幕中相应的
+输入框中，并且用户可以进一步修改这些值。
+```
+
 #### 传递ALV内表数据到被调用的程序
 
-需要用 SAP MEMORY 或者 ABAP MEMORY
+1. 使用 SAP MEMORY 或者 ABAP MEMORY
 
-- 在调用的程序中：EXPORT it_tab TO MEMORY 'Z_SUBMIT_MEMORY'.
-- 在被调用的程序中：IMPORT T_ITAB FROM MEMORY 'Z_SUBMIT_MEMORY''.
+   - 在调用的程序中：EXPORT it_tab TO MEMORY 'Z_SUBMIT_MEMORY'.
+
+   - 在被调用的程序中：IMPORT T_ITAB FROM MEMORY 'Z_SUBMIT_MEMORY''
+
+2. 使用cl_salv_bs_runtime_info 获取report结果并输入到内表
+
+   ```JS
+   FIELD-SYMBOLS: <lt_data> TYPE STANDARD TABLE.
+   FIELD-SYMBOLS: <fs>.
+   
+   DATA: lr_data TYPE REF TO data.
+   DATA: lr_data_descr  TYPE REF TO cl_abap_datadescr.
+   """code start
+   cl_salv_bs_runtime_info=>set( EXPORTING  display   = abap_false
+                                            metadata  = abap_false
+                                            data      = abap_true ).
+   
+   SUBMIT z_report
+     EXPORTING LIST TO MEMORY AND RETURN
+      WITH p_user   EQ i_usnam
+      WITH s_pspid  IN it_project_number
+      WITH s_posid  IN it_wbs_element
+      WITH s_order  IN it_order
+      WITH s_level  IN it_level
+      WITH s_prodat IN it_project_creat_date
+      WITH s_erdat  IN it_wbs_creat_date.
+   
+   TRY.
+      cl_salv_bs_runtime_info=>get_data_ref(
+          IMPORTING r_data_descr      = lr_data_descr
+                          ).
+      CHECK lr_data_descr  IS NOT INITIAL.
+      CREATE DATA lr_data  TYPE HANDLE lr_data_descr.
+      ASSIGN lr_data->* TO <lt_data>.
+      cl_salv_bs_runtime_info=>get_data(
+         IMPORTING
+           t_data       =      <lt_data>
+           ).
+   
+      IF <lt_data> IS ASSIGNED.
+        LOOP AT <lt_data> ASSIGNING <fs>.
+          MOVE-CORRESPONDING <fs> TO result_data.
+          APPEND result_data.
+          CLEAR: result_data.
+        ENDLOOP.
+      ENDIF.
+   
+    CATCH cx_salv_bs_sc_runtime_info...
+      MESSAGE 'Error when call function get data' TYPE 'E'.
+   ENDTRY.
+   ```
+
+   
+

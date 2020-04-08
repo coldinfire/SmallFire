@@ -42,7 +42,7 @@ tags:
 
 - LEAVE TO TRANSACTION |()[AND SKIP FIRST SCREEN].
 
-该语句会结束当前主调程序去执行事务码，并且会将主调程序从 internal sessions 中删除，而被调用 Tcode 将会在该 external session 中新开一个 internal session 再运行，并且被调程序执行后，并不会回到主调程序调用处继续往下执行，而是 the system returns to the area menu from which the original program in the call stack was started.
+该语句会结束当前主调程序去执行事务码，并且会将主调程序从 internal sessions 中删除，而被调用 Tcode 将会在该 external session 中新开一个 internal session 再运行，并且被调程序执行后，并不会回到主调程序调用处继续往下执行，而是系统返回到区域菜单，从该菜单开始调用堆栈中的原始程序。
 
 2、 如果调用后还要返回到主调程序，则使用下面这种方式：
 
@@ -51,10 +51,12 @@ tags:
 - CALL TRANSACTION |()  [AND SKIP FIRST SCREEN] [USING <bdc_tab >].
 
 系统会重新开启一个 internal session, 当被调程序结束后，被调 Tcode 所在的这个 internal session 会被 delete 掉，然后返回到主调程序调用处，继续运行主调程序后面的语句
-<bdc_tab> 用在 BDC 调用输入参数传递
+<bdc_tab> 用在 BDC 调用输入参数传递。
 
-退出程序`
-LEAVE PROGRAM.`
+3、 退出程序
+
+- LEAVE PROGRAM.
+
 退出整个程序，并删除所在内部会话、包括加载的程序、实例、数据。
 
 #### 顺序执行
@@ -79,3 +81,7 @@ CALL FUNCTION 'AAA'
 ​    使用上面语句之后，AAA 和调用其的程序会并行运行。可以在 [subroutine] 中使用 RECEIVE RESULTS FROM FUNCTION 'AAA' 语句来获得 FUNCTION 运行的结果。值得注意的是，用 STARTING NEW TASK 形式的 FM 的 processing type 必须要是 REMOTE-CAPABLE MODULE.
 
  
+
+- [ABAP Submit 实现程序间互相调用](https://coldinfire.github.io/2018/ABAP_Submit/)
+- [ABAP CALL TRANSACTION 详解](https://coldinfire.github.io/2018/BDC/)
+- [ABAP CALL FUNCTION 详解](https://coldinfire.github.io/2018/ABAP_RFC/)
