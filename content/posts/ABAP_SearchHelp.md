@@ -173,13 +173,16 @@ ENDFUNCTION.
 ​	在程序运行时,将某个内表动态的用作 **Search help** 的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果.
 
 ```JS
-PARAMETERS:p_bwart(4).
-AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_bwart.
-
+parameters: p_bname LIKE usr02-bname,
+    p_class LIKE usr02-class.
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_bname.
+	PERFORM frm_valuereq_bwart.
 FORM frm_valuereq_bwart.
+  " 需要显示的结果集
   DATA: BEGIN OF t_data OCCURS 1,
     data(20),
   END OF t_data.
+  " 字段
   DATA: lwa_dfies TYPE dfies,
       h_field_wa LIKE dfies,
       h_field_tab LIKE dfies occurs 0 with header line,
@@ -226,6 +229,7 @@ CALL FUNCTION 'DDIF_FIELDINFO_GET'
   EXPORTING
     TABNAME = fu_tabname
     FIELDNAME = fu_fieldname
+    LANGU     = sy-langu
     LFIELDNAME = fu_fieldname
   IMPORTING
     DFIES_WA = fwa_field_tab
