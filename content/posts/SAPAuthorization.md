@@ -8,7 +8,7 @@ categories:
   - ABAP
 
 tags: 
-  - authority
+  - utils
   - SAPbusiness
 
 ---
@@ -108,27 +108,6 @@ Role
 
 ### 4.在程序中调用权限对象
 
-​	sap 扩展中用户往往都需要使用自己的权限对象，为了达到目的，请按下列流程建立和维护权限对象：
-
-- SE11：创建Domain和数据类型
-- SU20 ：创建权限对象字段（存储在 AUTHX 表中）
-- SU21 ：创建权限对象，创建权限对象类别（存储在 TOBCT 表中）点击对象类别创建权限对象（存储在 TOBJ 表中），生成 SAP_ALL
-- SE38/SE93：创建程序，引用权限对象；给程序分配事务代码
-- SU24：TCode分配权限对象
-- SU01 或 PFCG： 将授权对象分配给对象类
-
-**SE11创建Domain和Data Element**
-
-​	创建权限字段时需要参考此Data Element。
-
-**SU20创建权限字段**
-
-​	输入Tcode:SU20进入界面后点击Create图标，创建新的权限字段。![SU20](/images/ABAP/AUTHORITY_SU20.png)
-
-**SU21创建权限类、权限对象**
-
-​	首先创建权限类，如果存在适用的则不用创建；然后创建权限对象，放到指定的Class并分配对应的权限字段。![SU21](/images/ABAP/AUTHORITY_SU21.png)![SU21](/images/ABAP/AUTHORITY_SU21D.png)
-
 **创建程序，引入权限对象**
 
 ```JS
@@ -150,7 +129,11 @@ ACTVT: Create = 01; Change = 02; Display = 03
 ```
 #### 给Tcode分配权限对象
 
-​	保证每个事务代码所用到的的权限对象都能够完整被带出来。![SU24](/images/ABAP/AUTHORITY_SU24.png)![SU24](/images/ABAP/AUTHORITY_SU24D.png)
+​	保证每个事务代码所用到的的权限对象都能够完整被带出来。
+
+![SU24](/images/ABAP/AUTHORITY_SU24.png)
+
+![SU24](/images/ABAP/AUTHORITY_SU24D.png)
 
 ![SU24](/images/ABAP/AUTHORITY_SU24D1.png)
 
@@ -168,9 +151,11 @@ ACTVT: Create = 01; Change = 02; Display = 03
 
 
 
-参考:
+参考链接:
 
-​	[SAP用户权限控制设置及开发](https://blog.csdn.net/candy_mmyy/article/details/54906571)
+- ​	[SAP用户权限控制设置及开发](https://blog.csdn.net/candy_mmyy/article/details/54906571)
 
-​	[用SAP Authority Object 对权限控制](https://www.cnblogs.com/long2006sky/archive/2009/06/07/1498029.html)
+
+- ​	[用SAP Authority Object 对权限控制](https://www.cnblogs.com/long2006sky/archive/2009/06/07/1498029.html)
+
 
