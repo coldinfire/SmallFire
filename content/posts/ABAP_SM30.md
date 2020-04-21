@@ -63,9 +63,9 @@ Recording rountine:
 
 可以根据输入值获取并设置相关字段的值； 设置维护日期 ，维护人赋值等操作
 
-![自定义MODULE](/images/ABAP/SM3015.png)
+![自定义MODULE](/images/ABAP/sm3015.png)
 
-![设置和维护值](/images/ABAP/SM3016.png)
+![设置和维护值](/images/ABAP/sm3016.png)
 
 ### 分配TCode
 
