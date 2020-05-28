@@ -98,6 +98,8 @@ Recording rountine:
 
 ![event](/images/ABAP/SM3010.png)
 
+- 如果出现错误信息：function group XXXX cannot be processed,检查Function group并完全激活。
+
 ![event](/images/ABAP/SM3012.png)
 
 - 01：数据库保存数据前

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Small Fire`s Blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/git/</guid>
-      <description>Git本地结构 ​ Workspace：工作区，实际操作的目录。 ​ Index / Stage：暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友</description>
+      <description>Git本地结构 ​ **Workspace：**工作区，实际操作的目录。 ​ **Index / Stage：**暂存区，数据暂时存放的区域，可在工作区和版本库之间</description>
     </item>
     
   </channel>

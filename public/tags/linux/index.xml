@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on Small Fire`s Blog</title>
@@ -53,7 +53,7 @@
       <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxVim/</guid>
-      <description>文件编辑：Vim 1) 命令行模式command mode） 控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者</description>
+      <description>文件编辑：Vim 命令行模式command mode） 控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者 到</description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@
       <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxAuth/</guid>
-      <description>用户权限 增删改查用户 增 ： useradd username：创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：修改用户</description>
+      <description>用户权限 增删改查用户 增 ：#### useradd username：创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：</description>
     </item>
     
     <item>
@@ -71,7 +71,7 @@
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxFile/</guid>
-      <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： [d]:目录 [-]:文件 [l]:链接文档 [b]:可随机存储装置 [c]:串行端口设备 后续文字意</description>
+      <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： 后续文字意义： &amp;lt;1&amp;gt;.三个为一组均为[rwx]组合(r:read w:write x:execute) u=第一组(</description>
     </item>
     
     <item>

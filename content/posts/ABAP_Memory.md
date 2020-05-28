@@ -1,6 +1,6 @@
 ---
 title: "SAP memory使用"
-date: 2019-03-04
+date: 2019-02-25
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -15,22 +15,21 @@ tags:
 ### SAP memory和ABAP memory ###
 1. 使用的语句不同
 
-    SAP memory使用SET/GET parameters；
+    SAP memory使用SET/GET parameters
 
       - SPA：SET PARAMETER ID 'MAT' FIELD p_matnr.
 
       - GPA：GET PARAMETER ID 'MAT' FIELD p_matnr.
 
-    ABAP Memory使用EXPORT 和IMPORT :
+    ABAP Memory使用EXPORT 和IMPORT
 
-       - EXPORT p_matnr = p_matnr TO MEMORY ID 'ZTESTMAT'.
-
-       - IMPORT p_matnr = p_matnr FROM MEMORY ID 'ZTESTMAT'
-
-     FREE MEMORY ID 'ZTESTMAT'.         清空指定的ABAPmemory
-
-     FREE MEMORY.                                    清空externalsession内的所有ABAPmemory
-
+    - EXPORT p_matnr = p_matnr TO MEMORY ID 'ZTESTMAT'.
+- IMPORT p_matnr = p_matnr FROM MEMORY ID 'ZTESTMAT'
+    
+ FREE MEMORY ID 'ZTESTMAT'. 清空指定的ABAPmemory
+    
+ FREE MEMORY.  清空externalsession内的所有ABAPmemory
+    
 2. 共享范围不同
 
     SAP memory用于所有external session间.

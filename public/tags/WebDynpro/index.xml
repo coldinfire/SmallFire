@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WebDynpro on Small Fire`s Blog</title>
@@ -44,7 +44,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</guid>
-      <description>ALV_VIEW: WDDOINIT method WDDOINIT . *1.数据定义 *========================================================= DATA: lo_alv_usage TYPE REF TO if_wd_component_usage, &amp;quot;①重要的下面要用 lo_if_controller TYPE REF TO iwci_salv_wd_table, &amp;quot;②重要的下面要用 lo_config TYPE REF TO cl_salv_wd_config_table, &amp;quot;③重要的下面要</description>
+      <description>ALV_VIEW: WDDOINIT method WDDOINIT . *1.数据定义 *========================================================= DATA: lo_alv_usage TYPE REF TO if_wd_component_usage, &amp;#34;①重要的下面要用 lo_if_controller TYPE REF TO iwci_salv_wd_table, &amp;#34;②重要的下面要用 lo_config TYPE REF TO cl_salv_wd_config_table, &amp;#34;③重要的下面要用 lo_column_settings TYPE</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P2/</guid>
-      <description>Component Controller: DATA_LOAD method DATA_LOAD . &amp;quot; ALV 输出的结构定义 DATA: lt_ZALV_ZPEFF_TOTAL TYPE TABLE OF ZALV_ZPEFF_TOTAL, ls_ZALV_ZPEFF_TOTAL TYPE ZALV_ZPEFF_TOTAL, lt_ZALV_PROD_EFF TYPE TABLE OF ZALV_PROD_EFF, ls_ZALV_PROD_EFF TYPE ZALV_PROD_EFF, lo_node TYPE REF TO if_wd_context_node. &amp;quot; 选择屏幕数据的单属性定义 DATA: lo_nd_zoption TYPE REF TO if_wd_context_node, lo_el_zoption TYPE REF TO if_wd_context_element, ls_zoption TYPE wd_this-&amp;gt;element_zoption, lv_p_total TYPE wd_this-&amp;gt;element_zoption-p_total, lv_p_detail TYPE wd_this-&amp;gt;element_zoption-p_detail.</description>
+      <description>Component Controller: DATA_LOAD method DATA_LOAD . &amp;#34; ALV 输出的结构定义 DATA: lt_ZALV_ZPEFF_TOTAL TYPE TABLE OF ZALV_ZPEFF_TOTAL, ls_ZALV_ZPEFF_TOTAL TYPE ZALV_ZPEFF_TOTAL, lt_ZALV_PROD_EFF TYPE TABLE OF ZALV_PROD_EFF, ls_ZALV_PROD_EFF TYPE ZALV_PROD_EFF, lo_node TYPE REF TO if_wd_context_node. &amp;#34; 选择屏幕数据的单属性定义 DATA: lo_nd_zoption TYPE REF TO if_wd_context_node, lo_el_zoption TYPE REF TO if_wd_context_element, ls_zoption TYPE wd_this-&amp;gt;element_zoption, lv_p_total TYPE wd_this-&amp;gt;element_zoption-p_total, lv_p_detail TYPE wd_this-&amp;gt;element_zoption-p_detail.</description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P3/</guid>
-      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, &amp;quot; Selection screen field ref type element id TYPE string, &amp;quot; selection screen field name END OF soption. DATA: l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO cl_salv_wd_column, l_it_field</description>
+      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, &amp;#34; Selection screen field ref type element id TYPE string, &amp;#34; selection screen field name END OF soption. DATA: l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO cl_salv_wd_column, l_it_field</description>
     </item>
     
     <item>

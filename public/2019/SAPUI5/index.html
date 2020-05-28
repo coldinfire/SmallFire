@@ -55,10 +55,10 @@
   },
   "genre": "posts",
   "keywords": "sapui5",
-  "wordcount":  14701 ,
+  "wordcount":  14494 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/SAPUI5\/",
-  "datePublished": "2019-04-16T00:00:00\x2b00:00",
-  "dateModified": "2019-04-16T00:00:00\x2b00:00",
+  "datePublished": "2019-04-16T00:00:00\u002b00:00",
+  "dateModified": "2019-04-16T00:00:00\u002b00:00",
   
   "publisher": {
     "@type": "Organization",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                30 min
+                29 min
         </div>
     </header>
     <div class="post-content">
@@ -173,245 +173,153 @@
           
           
 
-          
-
-<h2 id="概述">概述</h2>
-
+          <h2 id="概述">概述</h2>
 <h3 id="mvc模式">MVC模式</h3>
-
 <p>​     MVC是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。</p>
-
 <p>​    M : Model 代表应用程序的数据</p>
-
 <p>​    V : View 通过界面展示应用程序的数据和其它界面元素</p>
-
 <p>​    C : Controller 处理应用程序的数据，以及处理用户的交互</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/SAPUI5/MVC.png" alt="MVC" class="lazyload"><figcaption class="image-caption">MVC</figcaption></figure></p>
-
+<p><img src="/images/SAPUI5/MVC.png" alt="MVC"></p>
 <p>● Model &amp; View : SAPUI5 有单向绑定和双向绑定两种。通过绑定，当 model 变更时，UI 自动更新。</p>
-
 <p>● Controlle &amp;View : View 通知 Controller，或者 Controller使用API来修改 View。</p>
-
 <p>● Controller &amp; Model : Model 通知 Controller或者 Controller 修改 Model。</p>
-
 <p>SAPUI5提供了JSView、XMLView、JSONView和HTMLView。主要使用XMLView 和 JSView。</p>
-
 <h3 id="核心类库">核心类库</h3>
-
-<p>​   查看<code>Resource</code>版本：Cttl+Shift+Alt+P在对应的App界面或则LunchPad.</p>
-
+<p>​	查看<code>Resource</code>版本：Cttl+Shift+Alt+P在对应的App界面或则LunchPad.</p>
 <p><code>sap.m:</code>主要用于移动设备的响应式组件，并支持很多移动设备特性检测，比如检测touch等，此库下面List, Table等组件使用比较广泛，而且包含了下拉刷新的功能，非常完善，并自动适应不同尺寸平台</p>
-
-<p><code>sap.ui:</code> UI库包含的组件是最为丰富的，主要用于适应桌面平台，同样可以支持响应式的设计，比如sap.ui.table等组件</p>
-
+<p><code> sap.ui:</code> UI库包含的组件是最为丰富的，主要用于适应桌面平台，同样可以支持响应式的设计，比如sap.ui.table等组件</p>
 <p><code>sap.ui.core:</code>核心功能：加载和管理所有的附加资源，并包含模型和渲染管理器，一个负责处理渲染视图和控制的单例，写入DOM</p>
-
 <p><code>sap.ui.layout:</code> 构建视图中元素的特殊控件</p>
-
 <p><code>sap.ui.vk:</code> 包含3D模型的功能和控件</p>
-
 <p><code>sap.ui.unified:</code> 包含用于移动和桌面应用程序的附加控件</p>
-
 <p><code>sap.ui.table:</code> 不适用于手机屏幕，处理大量数据应用而构建的</p>
-
 <p><code>sap.ui.comp:</code> 包含SmartField,SmartFilterBar,SmartTable,ValueHelpDialog等智能控件</p>
-
 <p><code>sap.uxap:</code> 包含更多控件，包括页面标题</p>
-
 <p><code>sap.ushell:</code> 包含几个库包，含有所有统一的与shell服务相关的功能</p>
-
 <p><code>sap.ca:</code> 是官方标准app的常用类库，如果在实际开发过程当中想要拓展标准应用，必须要了解此类库的一些特性，否则拓展起来会有很大问题。</p>
-
 <h3 id="核心函数">核心函数</h3>
-
 <p><code>sap.ui.getCore()</code> : 获取核心的实例</p>
-
-<p><code>sap.ui.getCore().byId(id)</code> : 根据组件id获取其控制；可用于获取已经删除的组件</p>
-
+<p><code> sap.ui.getCore().byId(id)</code> : 根据组件id获取其控制；可用于获取已经删除的组件</p>
 <p><code>sap.ui.getCore().applyChanges()</code> : 在系统运行前修改UI5组件属性</p>
-
-<p><code>jQuery.sap.domById(id)</code> : 根据ID获取HTML元素;如果UI5也存在该ID返回HTML最顶层的元素;和 document.getElementById 类似</p>
-
+<p><code> jQuery.sap.domById(id)</code> : 根据ID获取HTML元素;如果UI5也存在该ID返回HTML最顶层的元素;和 document.getElementById 类似</p>
 <p><code>jQuery.sap.byId(id)</code> : 根据ID获取JQuery对象的DOM元素; $(,,#myId)</p>
-
-<p><code>sap.m.MessageBox</code> : SAPUI5风格对话框显示</p>
-
+<p><code> sap.m.MessageBox</code> : SAPUI5风格对话框显示</p>
 <p><code>sap.m.URLHelper.redirect(&quot;http://www.jd.com&quot;, true);</code>重定向</p>
-
 <h3 id="常用组件">常用组件</h3>
-
 <h4 id="splitapp">SplitApp</h4>
-
 <p>​    SplitApp : 这是一个Master Detail形式的结构，可以在移动，桌面不同尺寸的设备上自适应，也是大部分app需要采用的一种架构形式。</p>
-
 <h4 id="list">List</h4>
-
 <p>List : 列表在任何应用中是比较常见的，List在SAPUI5定义功能比较完善，支持分批加载数据，提高运行效率，支持下拉等功能，并提供给我们丰富的标准Item, 可以简单配置使用，更可以根据自身需求定义item。</p>
-
-<p>​   对于移动设备来说，出于性能考虑，不要超过100行。使用<strong>growing</strong>特性可以加速内部的渲染。</p>
-
-<p>​   List控件继承自<code>sap.m.ListBase</code>，ListBase的items聚合属性(类型：<code>sap.m.ListeItemBase[]</code>) 设置行项目的模板。</p>
-
+<p>​	对于移动设备来说，出于性能考虑，不要超过100行。使用<strong>growing</strong>特性可以加速内部的渲染。</p>
+<p>​	List控件继承自<code>sap.m.ListBase</code>，ListBase的items聚合属性(类型：<code>sap.m.ListeItemBase[]</code>) 设置行项目的模板。</p>
 <ul>
-<li><p>sap.m.List</p>
-
+<li>
+<p>sap.m.List</p>
 <ul>
-<li><p>new sap.m.List({items:{path:&ldquo;/path&rdquo;,template:oTemplate}});</p></li>
-
-<li><p>new sap.m.List().bindItems({path:&ldquo;/path&rdquo;,template:oTemplate});</p></li>
-</ul></li>
-
-<li><p>sap.m.ObjectListItem</p></li>
+<li>
+<p>new sap.m.List({items:{path:&quot;/path&rdquo;,template:oTemplate}});</p>
+</li>
+<li>
+<p>new sap.m.List().bindItems({path:&quot;/path&rdquo;,template:oTemplate});</p>
+</li>
 </ul>
-
+</li>
+<li>
+<p>sap.m.ObjectListItem</p>
+</li>
+</ul>
 <p>ObjectListItem适用于显示行项目的信息，主要使用title属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。继承自sap.m.ObjectListItem，可定义press事件对用户的点击做出回应。</p>
-
 <h4 id="table">Table</h4>
-
 <p>​    Table : 这是一个表单性质的的组件，支持响应式，很多是够我们做一个表单展示需要此控件的支持。自身也携带了丰富的property供我们选择。</p>
-
-<h5 id="sap-ui-table-table">sap.ui.table.Table</h5>
-
+<h5 id="sapuitabletable">sap.ui.table.Table</h5>
 <ol>
-<li><p>sap.ui.table.Table</p>
-
+<li>
+<p>sap.ui.table.Table</p>
 <p><code>oTable.setModel(oModel);</code>实现Table与JSONModel的绑定，也就是View和Model的绑定。</p>
-
 <p><code>oTable.bindRows(&quot;/Suppliers&quot;);</code>语句实现Table与JSON数据的绑定。</p>
-
 <blockquote>
 <p>width : sap.ui.core.CSSSize (default: auto)。表格的宽度可以是百分百，或者基于像素px。</p>
-
 <p>titel : 设置Table的标题 。</p>
-
 <p>visibleRowCount : int (default: 10)。默认显示10行，可以自定义显示的行数。</p>
-
 <p>firstVisibleRow : int (default: 0) 。默认为0，从第一行开始展示数据。</p>
-
-<p>selectionMode : sap.ui.table.SelectionMode (default: MultiToggle)。包括单行(sap.ui.table.SelectionMode.Single)、多行                                           (sap.ui.table.SelectionMode.MultiToggle)和不能选择行(sap.ui.table.SelectionMode.None)。</p>
-
+<p>selectionMode : sap.ui.table.SelectionMode (default: MultiToggle)。包括单行(sap.ui.table.SelectionMode.Single)、多行	         								 (sap.ui.table.SelectionMode.MultiToggle)和不能选择行(sap.ui.table.SelectionMode.None)。</p>
 <p>editable : boolean (default: true)。默认可以编辑，如果只是显示，将此属性设置为false。</p>
-
 <p>columns : [ind1,ind2] 里面填充Table的列元素。</p>
-</blockquote></li>
-
-<li><p>sap.ui.table.Column</p></li>
-</ol>
-
+</blockquote>
+</li>
+<li>
+<p>sap.ui.table.Column</p>
 <blockquote>
 <p>width : 宽度(100px)。</p>
-
 <p>label : 设置标题栏。</p>
-
 <p>template : 设置单元格的显示模板。</p>
-
 <p>sortProperty : 设置排序针对的字段。</p>
 </blockquote>
-
-<h5 id="sap-m-table">sap.m.Table</h5>
-
-<ol>
-<li>sap.m.Table</li>
+</li>
 </ol>
-
+<h5 id="sapmtable">sap.m.Table</h5>
+<ol>
+<li>
+<p>sap.m.Table</p>
 <p>继承自sap.m.ListBase，用于显示包含行和列的表格式数据。表格的列可以通过<code>columns</code>聚合属性来设置，也可以使用<code>addColumn()</code>方法来添加。每一列都是<code>sap.m.Column</code>对象。</p>
-
 <p>使用<code>columns</code>聚合属性和<code>items</code>聚合属性，items属性实现的就是聚合绑定.。</p>
-
 <p>sap.m.Table的重要属性：</p>
-
 <blockquote>
-<p><code>columns:</code>定义Table包含哪些列，类型是sap.m.Column数组。另外，sap.m.Table从sap.m.ListBase继承，所以可以直接使用sap.m.ListBase的属性。</p>
-
-<p><code>growing:</code>设置Table显示的数据可以依据向model的请求增加行noDataText: 当Table没有数据的时候显示的文本，类型是string。</p>
-
-<p><code>items:</code>sap.m.ListItemBase数组，sap.m.ListItemBase类定义了列表项(list item)的基本特征。</p>
+<p><code>columns: </code>定义Table包含哪些列，类型是sap.m.Column数组。另外，sap.m.Table从sap.m.ListBase继承，所以可以直接使用sap.m.ListBase的属性。</p>
+<p><code>growing: </code>设置Table显示的数据可以依据向model的请求增加行noDataText: 当Table没有数据的时候显示的文本，类型是string。</p>
+<p><code>items: </code>sap.m.ListItemBase数组，sap.m.ListItemBase类定义了列表项(list item)的基本特征。</p>
 </blockquote>
-
-<ol>
-<li>sap.m.ColumnListItem:</li>
-</ol>
-
+</li>
+<li>
+<p>sap.m.ColumnListItem:</p>
 <p><code>sap.m.ColumnListItem</code>用于创建<code>sap.m.Table</code>的行，行中包含的<code>cells</code>需要与<code>sap.m.Table</code>的Columns匹配，顺序一致。</p>
-
-<p><code>sap.m.Table().bindItems(&quot;/modelData&quot;,oCllumnListItem);</code>绑定行</p>
-
+<p><code>sap.m.Table().bindItems(&quot;/modelData&quot;,oCllumnListItem); </code>绑定行</p>
 <p><code>sap.m.Table().bindAggregation(&quot;items&quot;,&quot;/modelData&quot;,oCollumnListItem);</code>:聚合绑定。</p>
-
 <p><code>oColumnListItem.addCell();</code>为Items添加元素。</p>
-
 <p><code>sap.m.ColumnListItem</code>的press属性设置为一个数组，这种方法能够保证在Controller中，this表示Controller本身，而不是某个控件。</p>
-
 <blockquote>
-<p><code>vAlign:</code>行的垂直对齐：</p>
-
-<p>​  <code>sap.ui.core.VerticalAlign.Bottom:</code>底部对齐</p>
-
-<p>​  <code>sap.ui.core.VerticalAlign.Inherit:</code>从父控件继承</p>
-
-<p>​  <code>sap.ui.core.VerticalAlign.Middle:</code>居中对齐</p>
-
-<p>​ <code>sap.ui.core.VerticalAlign.Top:</code>顶部对齐</p>
+<p><code>vAlign: </code>行的垂直对齐：</p>
+<p>​	<code>sap.ui.core.VerticalAlign.Bottom:</code>底部对齐</p>
+<p>​	<code>sap.ui.core.VerticalAlign.Inherit:</code>从父控件继承</p>
+<p>​	<code>sap.ui.core.VerticalAlign.Middle: </code>居中对齐</p>
 </blockquote>
-
-<p><code>cells:</code>行包含的cells，每一个cell都是<code>sap.ui.core.Control</code>对象，从而开发人员可以根据需要选择合适的控件，灵活度很高。</p>
-
-<pre><code class="language-JS"> &lt;ObjectIdentifier text=&quot;{ID}&quot;&gt;&lt;/ObjectIdentifier&gt; : cell元素。
-</code></pre>
-
-<h3 id="主题设置">主题设置</h3>
-
+</li>
+</ol>
+<blockquote>
+<p>​	<code>sap.ui.core.VerticalAlign.Top:</code>顶部对齐</p>
+</blockquote>
+<p><code>cells: </code>行包含的cells，每一个cell都是<code>sap.ui.core.Control</code>对象，从而开发人员可以根据需要选择合适的控件，灵活度很高。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ObjectIdentifier</span> <span style="color:#a6e22e">text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ID}&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/ObjectIdentifier&gt; : cell元素。</span>
+</code></pre></div><h3 id="主题设置">主题设置</h3>
 <p>​    SAPUI5 默认提供了一些主题，并在组件添加新的主题。</p>
-
 <p>​        - Blue crystal (常用)</p>
-
 <p>​        - Platium</p>
-
 <p>​        - Gold Reflection (常用)</p>
-
 <p>​        - High Contast Black</p>
-
 <p>​        - Belize (常用)    - …</p>
-
 <p>​    设置主题：</p>
-
-<p>​        1.在Header中设置 : <code>data-sap-ui-theme=&quot;sap_bluecrystal&quot;</code></p>
-
-<p>​        2.在程序中设定样式 :<code>sap.ui.getCore().applyTheme(sThemeName, sThemeBaseUrl?)</code></p>
-
+<p>​        1.在Header中设置 : <code>data-sap-ui-theme=&quot;sap_bluecrystal&quot;   </code></p>
+<p>​        2.在程序中设定样式 :<code> sap.ui.getCore().applyTheme(sThemeName, sThemeBaseUrl?)</code></p>
 <h3 id="文件模块介绍">文件模块介绍</h3>
-
 <h4 id="index">Index</h4>
-
-<pre><code class="language-JS">&lt;script id=&quot;sap-ui-bootstrap&quot;
-        src=&quot;https://openui5.hana.ondemand.com/resources/sap-ui-core.js&quot;
-        data-sap-ui-theme=&quot;sap_belize&quot;
-        data-sap-ui-libs=&quot;sap.m&quot;
-        data-sap-ui-compatVersion=&quot;edge&quot;
-        data-sap-ui-preload=&quot;async&quot;
-        data-sap-ui-bindingSyntax = &quot;complex&quot;
-        data-sap-ui-resourceroots = '{&quot;sFileSourceName&quot;:&quot;oURL&quot;}'&gt;
-&lt;/script&gt;
-</code></pre>
-
-<p>​   src : 核心资源的加载路径。</p>
-
-<p>​   data-sap-ui-theme : 设置主题</p>
-
-<p>​   data-sap-ui-libs : 选择文件默认加载的库文件</p>
-
-<p>​   data-sap-ui-compatVersion : edge兼容模式，为了方便使用新功能</p>
-
-<p>​   data-sap-ui-preload : async 设置文件加载形式为异步加载</p>
-
-<p>​   data-sap-ui-bindingSyntax : 数据绑定的设置 complex复杂绑定，对绑定数据进行计算。</p>
-
-<p>​   data-sap-ui-resourceroots : 命名文件的根目录，声明资源文件位置</p>
-
-<p>​   data-sap-ui-onInit=&ldquo;module:sNameSpace/index&rdquo; : 定义初始化时加载的初始页面文件</p>
-
-<pre><code class="language-JSP">&lt;script&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sap-ui-bootstrap&#34;</span>
+		<span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://openui5.hana.ondemand.com/resources/sap-ui-core.js&#34;</span>
+		<span style="color:#a6e22e">data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">sap</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ui</span><span style="color:#f92672">-</span><span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sap_belize&#34;</span>
+		<span style="color:#a6e22e">data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">sap</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ui</span><span style="color:#f92672">-</span><span style="color:#a6e22e">libs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sap.m&#34;</span>
+		<span style="color:#a6e22e">data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">sap</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ui</span><span style="color:#f92672">-</span><span style="color:#a6e22e">compatVersion</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;edge&#34;</span>
+		<span style="color:#a6e22e">data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">sap</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ui</span><span style="color:#f92672">-</span><span style="color:#a6e22e">preload</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;async&#34;</span>
+		<span style="color:#a6e22e">data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">sap</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ui</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bindingSyntax</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;complex&#34;</span>
+		<span style="color:#a6e22e">data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">sap</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ui</span><span style="color:#f92672">-</span><span style="color:#a6e22e">resourceroots</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{&#34;sFileSourceName&#34;:&#34;oURL&#34;}&#39;</span><span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</code></pre></div><p>​	src : 核心资源的加载路径。</p>
+<p>​	data-sap-ui-theme : 设置主题</p>
+<p>​	data-sap-ui-libs : 选择文件默认加载的库文件</p>
+<p>​	data-sap-ui-compatVersion : edge兼容模式，为了方便使用新功能</p>
+<p>​	data-sap-ui-preload : async 设置文件加载形式为异步加载</p>
+<p>​	data-sap-ui-bindingSyntax : 数据绑定的设置 complex复杂绑定，对绑定数据进行计算。</p>
+<p>​	data-sap-ui-resourceroots : 命名文件的根目录，声明资源文件位置</p>
+<p>​	data-sap-ui-onInit=&quot;module:sNameSpace/index&rdquo; : 定义初始化时加载的初始页面文件</p>
+<pre><code class="language-JSP" data-lang="JSP">&lt;script&gt;
     sap.ui.localResources(&quot;ui5mvc&quot;);
     var app = new sap.m.App({initialPage:&quot;idmain1&quot;});
     var view = sap.ui.view({
@@ -421,104 +329,89 @@
     app.addPage(view);
     app.placeAt(&quot;content&quot;);
 &lt;/script&gt;
-</code></pre>
-
-<ul>
-<li><code>sap.ui.localResources(&quot;filename&quot;)</code> : 将当前目录下的FILE文件夹注册为当前文件夹，程序会在该文件夹下查找</li>
-</ul>
-
+</code></pre><ul>
+<li>
+<p><code>sap.ui.localResources(&quot;filename&quot;)</code> : 将当前目录下的FILE文件夹注册为当前文件夹，程序会在该文件夹下查找</p>
 <p>View和Controller代码。</p>
-
-<ul>
-<li><p><code>sap.m.App</code> : 是SAP移动APP的root element,提供导航功能，并将一些header标签加到HTML页。</p></li>
-
-<li><p><code>sap.ui.view</code> : 定义一个view,ID,name,type来指定显示的View。</p></li>
-</ul>
-
-<p>​                                  <code>sap.ui.xmlview</code>可直接定义xml类型View。View type:</p>
-
+</li>
+<li>
+<p><code>sap.m.App</code> : 是SAP移动APP的root element,提供导航功能，并将一些header标签加到HTML页。</p>
+</li>
+<li>
+<p><code>sap.ui.view</code> : 定义一个view,ID,name,type来指定显示的View。</p>
+<p>​									 <code>sap.ui.xmlview</code>可直接定义xml类型View。View type:</p>
 <ul>
 <li>sap.ui.core.mvc.ViewType.JS       &ldquo;JS&rdquo;</li>
 <li>sap.ui.core.mvc.ViewType.XML    &ldquo;XML&rdquo;</li>
 <li>sap.ui.core.mvc.ViewType.JSON    &ldquo;JSON&rdquo;</li>
-
-<li><p>sap.ui.core.mvc.ViewType.HTML   &ldquo;HTML&rdquo;</p></li>
-
-<li><p><code>app.placeAt()</code> : 该方法将控件放到指定的div中。</p></li>
+<li>sap.ui.core.mvc.ViewType.HTML   &ldquo;HTML&rdquo;</li>
 </ul>
-
+</li>
+<li>
+<p><code>app.placeAt()</code> : 该方法将控件放到指定的div中。</p>
+</li>
+</ul>
 <h4 id="view">View</h4>
-
 <ol>
 <li>view.js</li>
 </ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">jsview</span>(<span style="color:#e6db74">&#34;ui5mvc.main&#34;</span>, {
+	<span style="color:#a6e22e">getControllerName</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;ui5mvc.main&#34;</span>;
+	},
+	<span style="color:#a6e22e">createContent</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">oController</span>) {
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oShell</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">Shell</span>();<span style="color:#75715e">// Create Shell
+</span><span style="color:#75715e"></span>
+		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">addWorksetItem</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">NavigationItem</span>({
+			<span style="color:#a6e22e">key</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;btn&#34;</span>,
+			<span style="color:#a6e22e">text</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Button&#34;</span>
+		}));<span style="color:#75715e">// Add Navigation item
+</span><span style="color:#75715e"></span>
+		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">addWorksetItem</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">NavigationItem</span>({
+			<span style="color:#a6e22e">key</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;tf&#34;</span>,
+			<span style="color:#a6e22e">text</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Textfield&#34;</span>
+		}));
 
-<pre><code class="language-javascript">sap.ui.jsview(&quot;ui5mvc.main&quot;, {
-    getControllerName : function() {
-        return &quot;ui5mvc.main&quot;;
-    },
-    createContent : function(oController) {
-        var oShell = new sap.ui.ux3.Shell();// Create Shell
+		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">addWorksetItem</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">NavigationItem</span>({
+			<span style="color:#a6e22e">key</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;xml&#34;</span>,
+			<span style="color:#a6e22e">text</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;XMLView&#34;</span>
+		}));
 
-        oShell.addWorksetItem(new sap.ui.ux3.NavigationItem({
-            key : &quot;btn&quot;,
-            text : &quot;Button&quot;
-        }));// Add Navigation item
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mContent</span> <span style="color:#f92672">=</span> {}; <span style="color:#75715e">// map holding shell content
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">mContent</span>.<span style="color:#a6e22e">btn</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">commons</span>.<span style="color:#a6e22e">Button</span>({
+			<span style="color:#a6e22e">text</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello World&#34;</span>
+		});
 
-        oShell.addWorksetItem(new sap.ui.ux3.NavigationItem({
-            key : &quot;tf&quot;,
-            text : &quot;Textfield&quot;
-        }));
-
-        oShell.addWorksetItem(new sap.ui.ux3.NavigationItem({
-            key : &quot;xml&quot;,
-            text : &quot;XMLView&quot;
-        }));
-
-        var mContent = {}; // map holding shell content
-        mContent.btn = new sap.ui.commons.Button({
-            text : &quot;Hello World&quot;
-        });
-
-        mContent.tf = new sap.ui.commons.TextField();
-        oShell.attachWorksetItemSelected(function(evt) {
-            var key = evt.getParameter(&quot;key&quot;);
-            oShell.setContent(mContent[key]);
-        });// Add WorksetItem Selected event
-
-        mContent.xml = sap.ui.view({
-            viewName : &quot;ui5mvc.XML&quot;,
-            type : sap.ui.core.mvc.ViewType.XML
-        });
-    
-        oShell.setContent(mContent.btn);//initial content
-        return oShell;
-    }
+		<span style="color:#a6e22e">mContent</span>.<span style="color:#a6e22e">tf</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">commons</span>.<span style="color:#a6e22e">TextField</span>();
+		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">attachWorksetItemSelected</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">evt</span>) {
+			<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">evt</span>.<span style="color:#a6e22e">getParameter</span>(<span style="color:#e6db74">&#34;key&#34;</span>);
+			<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">setContent</span>(<span style="color:#a6e22e">mContent</span>[<span style="color:#a6e22e">key</span>]);
+		});<span style="color:#75715e">// Add WorksetItem Selected event
+</span><span style="color:#75715e"></span>
+		<span style="color:#a6e22e">mContent</span>.<span style="color:#a6e22e">xml</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">view</span>({
+			<span style="color:#a6e22e">viewName</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ui5mvc.XML&#34;</span>,
+			<span style="color:#a6e22e">type</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">mvc</span>.<span style="color:#a6e22e">ViewType</span>.<span style="color:#a6e22e">XML</span>
+		});
+	
+		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">setContent</span>(<span style="color:#a6e22e">mContent</span>.<span style="color:#a6e22e">btn</span>);<span style="color:#75715e">//initial content
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">oShell</span>;
+	}
  });
-</code></pre>
-
-<p><code>getControllerName</code>: 函数用于返回 controller name</p>
-
+</code></pre></div><p><code>getControllerName</code>: 函数用于返回 controller name</p>
 <p><code>createContent</code>: 函数用于返回页面上要显示的元素</p>
-
-<ol>
+<ol start="2">
 <li>view.xml</li>
 </ol>
-
-<pre><code class="language-XML">&lt;core:View xmlns:core=&quot;sap.ui.core&quot;
-    xmlns:mvc=&quot;sap.ui.core.mvc&quot; xmlns=&quot;sap.m&quot; controllerName=&quot;ui5mvc.XML&quot;
-    mlns:html=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-    &lt;html:h1&gt;My first XML-Header&lt;/html:h1&gt;
-    &lt;Panel&gt;
-        &lt;Button press=&quot;.sayHello&quot; text=&quot;Say Hello&quot;&gt;&lt;/Button&gt;
-    &lt;/Panel&gt;
-&lt;/core:View&gt;
-</code></pre>
-
-<p>​       空的的namespace设定 : xmlns = &ldquo;sap.m&rdquo;.</p>
-
-<p>​       命名的namespace设定 : xmlns:mvc = &ldquo;sap.ui.core.mvc&rdquo;. mvc标签指代<code>sap.ui.core.mvc</code></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-XML" data-lang="XML"><span style="color:#f92672">&lt;core:View</span> <span style="color:#a6e22e">xmlns:core=</span><span style="color:#e6db74">&#34;sap.ui.core&#34;</span>
+	<span style="color:#a6e22e">xmlns:mvc=</span><span style="color:#e6db74">&#34;sap.ui.core.mvc&#34;</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;sap.m&#34;</span> <span style="color:#a6e22e">controllerName=</span><span style="color:#e6db74">&#34;ui5mvc.XML&#34;</span>
+	<span style="color:#a6e22e">mlns:html=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xhtml&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#f92672">&lt;html:h1&gt;</span>My first XML-Header<span style="color:#f92672">&lt;/html:h1&gt;</span>
+	<span style="color:#f92672">&lt;Panel&gt;</span>
+		<span style="color:#f92672">&lt;Button</span> <span style="color:#a6e22e">press=</span><span style="color:#e6db74">&#34;.sayHello&#34;</span> <span style="color:#a6e22e">text=</span><span style="color:#e6db74">&#34;Say Hello&#34;</span><span style="color:#f92672">&gt;&lt;/Button&gt;</span>
+	<span style="color:#f92672">&lt;/Panel&gt;</span>
+<span style="color:#f92672">&lt;/core:View&gt;</span>
+</code></pre></div><p>​		空的的namespace设定 : xmlns = &ldquo;sap.m&rdquo;.</p>
+<p>​		命名的namespace设定 : xmlns:mvc = &ldquo;sap.ui.core.mvc&rdquo;. mvc标签指代<code>sap.ui.core.mvc</code></p>
 <ul>
 <li>申明namespace: <code>xmlns:t=&quot;sap.ui.table&quot;</code>。xml中就可以表示为<code>&lt;t:Table&gt; ... &lt;/t:Table&gt;</code></li>
 <li>如果属性是简单类型，可以直接作为atrribute的方式来申明，如Table的width属性、title属性</li>
@@ -527,1382 +420,1151 @@
 <li><strong><code>视图模型可以包含分配给控件的任何配置选项，以绑定属性。</code></strong></li>
 <li><strong><code>一个 ” . ”在格式化程序名称前面表示在当前视图的控制器中查找该函数</code></strong></li>
 </ul>
-
 <p>xmlView 聚合绑定</p>
-
-<p>​   1）xmlview中对需要动态显示的部分不作声明</p>
-
-<p>​   2）在controller中定义factory function，实现控件的绑定和动态加载。</p>
-
+<p>​	1）xmlview中对需要动态显示的部分不作声明</p>
+<p>​	2）在controller中定义factory function，实现控件的绑定和动态加载。</p>
 <h4 id="controller">Controller</h4>
-
 <ol>
 <li>系统生成的文件</li>
 </ol>
-
-<pre><code class="language-javascript">sap.ui.controller(&quot;ui5mvc.XML&quot;, {
-// onInit: function() {
-//      
-// },
-
-// onBeforeRendering: function() {
-//
-// },
-
-// onAfterRendering: function() {
-//
-// },
-
-// onExit: function() {
-//
-// }
-
-sayHello : function() {
-    sap.ui.commons.MessageBox.show(&quot;Hello World&quot;);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">controller</span>(<span style="color:#e6db74">&#34;ui5mvc.XML&#34;</span>, {
+<span style="color:#75715e">// onInit: function() {
+</span><span style="color:#75715e">//		
+</span><span style="color:#75715e">// },
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// onBeforeRendering: function() {
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// },
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// onAfterRendering: function() {
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// },
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// onExit: function() {
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// }
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">sayHello</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+	<span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">commons</span>.<span style="color:#a6e22e">MessageBox</span>.<span style="color:#a6e22e">show</span>(<span style="color:#e6db74">&#34;Hello World&#34;</span>);
 }
 });
-</code></pre>
-
-<ol>
+</code></pre></div><ol start="2">
 <li>通过模块定义</li>
 </ol>
-
-<pre><code class="language-JS">sap.ui.define(
-    [&quot;Dependencies1&quot;,&quot;Dependencies2&quot;,&quot;formatter&quot;],
-    function(Controller,formatter){
-    &quot;use strict&quot;;
-        return Controller.extend(&quot;ControllerName&quot;,{
-            formatter:formatter,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">define</span>(
+	[<span style="color:#e6db74">&#34;Dependencies1&#34;</span>,<span style="color:#e6db74">&#34;Dependencies2&#34;</span>,<span style="color:#e6db74">&#34;formatter&#34;</span>],
+	<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">Controller</span>,<span style="color:#a6e22e">formatter</span>){
+	<span style="color:#e6db74">&#34;use strict&#34;</span>;
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Controller</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#e6db74">&#34;ControllerName&#34;</span>,{
+            <span style="color:#a6e22e">formatter</span><span style="color:#f92672">:</span><span style="color:#a6e22e">formatter</span>,
             
-            onInit:function(){},
-               onBeforeRendering:function(){},
-               onAfterRendering:function(){},
-               onExit:function(){}
-        });
-    }
+			<span style="color:#a6e22e">onInit</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
+               <span style="color:#a6e22e">onBeforeRendering</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
+               <span style="color:#a6e22e">onAfterRendering</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
+               <span style="color:#a6e22e">onExit</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){}
+		});
+	}
 );
-</code></pre>
-
-<ol>
+</code></pre></div><ol>
 <li>生命周期：</li>
 </ol>
-
-<p>​           Start  &ndash;&gt;  视图和控制器被实例化  &ndash;&gt;  控制器被加载(存在控制器) &ndash;&gt;  onInit  &ndash;&gt;  onBeforeRendering  &ndash;&gt;</p>
-
-<p>​       视图被渲染  &ndash;&gt;  onAfterRendering  &ndash;&gt;  onExit  &ndash;&gt;  END(视图和控制器被销毁)</p>
-
+<p>​			Start  &ndash;&gt;  视图和控制器被实例化  &ndash;&gt;  控制器被加载(存在控制器) &ndash;&gt;  onInit  &ndash;&gt;  onBeforeRendering  &ndash;&gt;</p>
+<p>​		视图被渲染  &ndash;&gt;  onAfterRendering  &ndash;&gt;  onExit  &ndash;&gt;  END(视图和控制器被销毁)</p>
 <ul>
-<li><p>onInit : 当视图被实例化并且其控件已经创建时调用。用于在显示前修改视图，绑定事件处理程序并执行其他一次性初始化任务。</p></li>
-
-<li><p>onExit : 视图退出时调用。用于释放资源并完成任务。</p></li>
-
-<li><p>onAfterRendering : 当视图被渲染时调用;是HTML的一部分。用于执行HTML的后续操作，SAPUI5控制在渲染后访问此钩子。</p></li>
-
-<li><p>onBeforeRendering : 在控制器视图重新呈现之前调用，不在第一次呈现之前调用。用于在其中调用第一个渲染前的钩子。</p></li>
+<li>
+<p>onInit : 当视图被实例化并且其控件已经创建时调用。用于在显示前修改视图，绑定事件处理程序并执行其他一次性初始化任务。</p>
+</li>
+<li>
+<p>onExit : 视图退出时调用。用于释放资源并完成任务。</p>
+</li>
+<li>
+<p>onAfterRendering : 当视图被渲染时调用;是HTML的一部分。用于执行HTML的后续操作，SAPUI5控制在渲染后访问此钩子。</p>
+</li>
+<li>
+<p>onBeforeRendering : 在控制器视图重新呈现之前调用，不在第一次呈现之前调用。用于在其中调用第一个渲染前的钩子。</p>
+</li>
 </ul>
-
-<ol>
+<ol start="2">
 <li>控制器只是将加载的格式化程序函数存储在本地属性格式化程序中，以便能够在视图中访问它们。</li>
 </ol>
-
 <h4 id="model">Model</h4>
-
 <p>应用程序数据</p>
-
 <ul>
 <li>客户端 JSON model、XML model、Resource model</li>
 <li>服务端 oData model</li>
 </ul>
-
 <h4 id="resource">Resource</h4>
-
 <p>三种方法声明文件位置：</p>
-
 <ul>
-<li><code>sap.ui.localResources()</code></li>
-</ul>
-
-<p>​ sap.ui.localResources(&ldquo;foldle.foldle&rdquo;);</p>
-
-<ul>
-<li><code>jQuery.sap.registerModulePath()</code></li>
-</ul>
-
-<p>​ jQuery.sap.registerModulePath(sModuleNamePrefix, sURL);</p>
-
-<ul>
-<li>bootstrap声明 : <code>data-sap-ui-resourceroots = '{&quot;sName&quot;:&quot;oURL&quot;}'</code></li>
-</ul>
-
+<li>
+<p><code>sap.ui.localResources()</code></p>
+<p>​	sap.ui.localResources(&ldquo;foldle.foldle&rdquo;);</p>
+</li>
+<li>
+<p><code>jQuery.sap.registerModulePath()</code></p>
+<p>​	jQuery.sap.registerModulePath(sModuleNamePrefix, sURL);</p>
+</li>
+<li>
+<p>bootstrap声明 : <code>data-sap-ui-resourceroots = '{&quot;sName&quot;:&quot;oURL&quot;}'</code></p>
 <p>变更位置后需要修改系统自动生成的文件名称。</p>
-
+</li>
+</ul>
 <p>Component</p>
-
 <p>Component.js通过调用manifest.json的配置信息，完成初始化调用。</p>
-
-<pre><code class="language-JS">sap.ui.define([
-        &quot;sap/ui/core/UIComponent&quot;,
-        &quot;sap/ui/model/resource/ResourceModel&quot;,
-        &quot;sap/ui/model/json/JSONModel&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">define</span>([
+        <span style="color:#e6db74">&#34;sap/ui/core/UIComponent&#34;</span>,
+        <span style="color:#e6db74">&#34;sap/ui/model/resource/ResourceModel&#34;</span>,
+        <span style="color:#e6db74">&#34;sap/ui/model/json/JSONModel&#34;</span>
         
-    ], function (UIComponent, ResourceModel, JSONModel) {
-    &quot;use strict&quot;;
+    ], <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">UIComponent</span>, <span style="color:#a6e22e">ResourceModel</span>, <span style="color:#a6e22e">JSONModel</span>) {
+    <span style="color:#e6db74">&#34;use strict&#34;</span>;
 
-    return UIComponent.extend(&quot;webapp.Component&quot;, {
-        //metadata
-        metadata: {
-            manifest: &quot;json&quot;
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">UIComponent</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#e6db74">&#34;webapp.Component&#34;</span>, {
+		<span style="color:#75715e">//metadata
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">metadata</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">manifest</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;json&#34;</span>
          },
 
-        init : function () {
-            // call the base component's init function
-            UIComponent.prototype.init.apply(this, arguments);
+        <span style="color:#a6e22e">init</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+            <span style="color:#75715e">// call the base component&#39;s init function
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">UIComponent</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">init</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">arguments</span>);
 
-            // create the views based on the url/hash
-            this.getRouter().initialize();
+            <span style="color:#75715e">// create the views based on the url/hash
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getRouter</span>().<span style="color:#a6e22e">initialize</span>();
         }
     });
 });
-</code></pre>
-
-<h4 id="application-descriptor">Application Descriptor</h4>
-
-<p>​   manifest.json配置应用程序的相关信息。被称为Application Descriptor。</p>
-
+</code></pre></div><h4 id="application-descriptor">Application Descriptor</h4>
+<p>​	manifest.json配置应用程序的相关信息。被称为Application Descriptor。</p>
 <ol>
-<li>sap.app</li>
-</ol>
-
+<li>
+<p>sap.app</p>
 <p>包含特定于应用程序的属性</p>
-
 <ul>
-<li><p>ID(强制)：应用程序组件的命名空间，唯一的，必须与组件的空间名称对应</p></li>
-
-<li><p>type：定义我们想要配置的内容，例如：应用程序</p></li>
-
-<li><p>i18n：定义资源包文件的路径</p></li>
-
-<li><p>title：应用程序资源包中引用的句柄语法中的应用程序标题</p></li>
-
-<li><p>description：简短说明文本应用程序在应用程序资源包中引用的句柄语法中的作用</p></li>
-
-<li><p>applicationVersion：应用程序的版本，以便以后可以轻松更新应用程序</p></li>
+<li>
+<p>ID(强制)：应用程序组件的命名空间，唯一的，必须与组件的空间名称对应</p>
+</li>
+<li>
+<p>type：定义我们想要配置的内容，例如：应用程序</p>
+</li>
+<li>
+<p>i18n：定义资源包文件的路径</p>
+</li>
+<li>
+<p>title：应用程序资源包中引用的句柄语法中的应用程序标题</p>
+</li>
+<li>
+<p>description：简短说明文本应用程序在应用程序资源包中引用的句柄语法中的作用</p>
+</li>
+<li>
+<p>applicationVersion：应用程序的版本，以便以后可以轻松更新应用程序</p>
+</li>
 </ul>
-
-<ol>
-<li>sap.ui</li>
-</ol>
-
+</li>
+<li>
+<p>sap.ui</p>
 <p>提供以下UI属性</p>
-
 <ul>
 <li>technology：此值指定UI技术; 在我们的例子中，我们使用SAPUI5</li>
 <li>deviceTypes：告诉应用程序支持哪些设备：台式机，平板电脑，手机（默认情况下均为true）</li>
 </ul>
-
-<ol>
-<li>sap.ui5</li>
-</ol>
-
+</li>
+<li>
+<p>sap.ui5</p>
 <p>该 sap.ui5 namespace添加SAPUI5自动处理的SAPUI5特定配置参数。最重要的参数是：</p>
-
 <ul>
 <li>rootView：如果指定此参数，组件将自动实例化视图并将其用作此组件的根</li>
 <li>dependencies：这里我们声明应用程序中使用的UI库</li>
 <li>models：在描述符的这一部分中，我们可以定义在应用程序启动时由SAPUI5自动实例化的模型。在这里，我们现在可以定义本地资源包。我们将模型“i18n”的名称定义为键，并按名称空间指定包文件。</li>
 </ul>
-
-<h5 id="资源包文件">资源包文件</h5>
-
-<ol>
-<li>sap.app设置资源包文件的路径和文件名。使用的相对于 <code>manifest.json</code> 文件的相对路径。</li>
+</li>
 </ol>
-
+<h5 id="资源包文件">资源包文件</h5>
+<ol>
+<li>
+<p>sap.app设置资源包文件的路径和文件名。使用的相对于 <code>manifest.json</code> 文件的相对路径。</p>
 <blockquote>
 <p>&ldquo;sap.app&rdquo;: {
-    &ldquo;_version&rdquo;: &ldquo;1.1.0&rdquo;,
-    &ldquo;id&rdquo;: &ldquo;resource&rdquo;,
-    &ldquo;type&rdquo;: &ldquo;application&rdquo;,
-    &ldquo;i18n&rdquo;: &ldquo;i18n/i18n.properties&rdquo;,
-    &hellip;</p>
-
+&ldquo;_version&rdquo;: &ldquo;1.1.0&rdquo;,
+&ldquo;id&rdquo;: &ldquo;resource&rdquo;,
+&ldquo;type&rdquo;: &ldquo;application&rdquo;,
+&ldquo;i18n&rdquo;: &ldquo;i18n/i18n.properties&rdquo;,
+&hellip;</p>
 <p>},</p>
 </blockquote>
-
-<ol>
-<li>sap.ui5中models设置名称为 i18n 的 <strong>resource model</strong></li>
-</ol>
-
+</li>
+<li>
+<p>sap.ui5中models设置名称为 i18n 的 <strong>resource model</strong></p>
 <blockquote>
-<p>&ldquo;sap.ui5&rdquo;: {<br />
-   &hellip;
-   &ldquo;models&rdquo;: {
-       &hellip;
-       &ldquo;i18n&rdquo;: {
-           &ldquo;type&rdquo;: &ldquo;sap.ui.model.resource.ResourceModel&rdquo;,
-           &ldquo;settings&rdquo;: {
-               &ldquo;bundleName&rdquo;: &ldquo;webapp.i18n.i18n&rdquo;
-               }
-     }</p>
-
+<p>&ldquo;sap.ui5&rdquo;: {     <br>
+&hellip;
+&ldquo;models&rdquo;: {
+&hellip;
+&ldquo;i18n&rdquo;: {
+&ldquo;type&rdquo;: &ldquo;sap.ui.model.resource.ResourceModel&rdquo;,
+&ldquo;settings&rdquo;: {
+&ldquo;bundleName&rdquo;: &ldquo;webapp.i18n.i18n&rdquo;
+}
+}</p>
 <p>}</p>
 </blockquote>
-
 <p><code>bundleName</code> 后面是根据 index.html文件的 <strong>resource roots</strong> 设置的相对路径。然后在代码中添加对 ResourceBundle 的依赖后，通过 <code>{i18n&gt;xxx}</code> 实现绑定。</p>
-
+</li>
+</ol>
 <h5 id="models">Models</h5>
-
 <ol>
-<li>sap.app设置资源包文件的路径和文件名。使用的相对于 <code>manifest.json</code> 文件的相对路径。</li>
+<li>
+<p>sap.app设置资源包文件的路径和文件名。使用的相对于 <code>manifest.json</code> 文件的相对路径。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#e6db74">&#34;sap.app&#34;</span><span style="color:#f92672">:</span> {
+    ...
+    <span style="color:#e6db74">&#34;dataSources&#34;</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#34;mainService&#34;</span><span style="color:#f92672">:</span> {
+            <span style="color:#e6db74">&#34;uri&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;./service/data.json&#34;</span>,
+            <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;JSON&#34;</span>
+        }
+    }
+</code></pre></div></li>
+<li>
+<p>sap.ui5的<code>models</code>没有指定名称的 model，当 view 中数据绑定时，没有给出前缀的时候，就参照到这个 model。使用sap.app中设置的dataSource.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#e6db74">&#34;sap.ui5&#34;</span><span style="color:#f92672">:</span> {
+        ...
+        <span style="color:#e6db74">&#34;models&#34;</span><span style="color:#f92672">:</span> {
+            <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">:</span> {
+                <span style="color:#e6db74">&#34;dataSource&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;mainService&#34;</span>
+             },
+        ...
+        }
+</code></pre></div></li>
 </ol>
-
-<pre><code class="language-JS">   &quot;sap.app&quot;: {
-       ...
-       &quot;dataSources&quot;: {
-           &quot;mainService&quot;: {
-               &quot;uri&quot;: &quot;./service/data.json&quot;,
-               &quot;type&quot;: &quot;JSON&quot;
-           }
-       }
-</code></pre>
-
-<ol>
-<li>sap.ui5的<code>models</code>没有指定名称的 model，当 view 中数据绑定时，没有给出前缀的时候，就参照到这个 model。使用sap.app中设置的dataSource.</li>
-</ol>
-
-<pre><code class="language-JS">   &quot;sap.ui5&quot;: {
-           ...
-           &quot;models&quot;: {
-               &quot;&quot;: {
-                   &quot;dataSource&quot;: &quot;mainService&quot;
-                },
-           ...
-           }
-</code></pre>
-
 <h5 id="root-view">Root View</h5>
-
-<p>​   Root view (启动即显示的 view)：类型为 xml，名称为 App。OpenUI5 在相应文件夹下面查找名为 <code>App.view.xml</code> 文件并加载。通过这种方式，实现了 root view 的配置化.</p>
-
+<p>​	Root view (启动即显示的 view)：类型为 xml，名称为 App。OpenUI5 在相应文件夹下面查找名为 <code>App.view.xml</code> 文件并加载。通过这种方式，实现了 root view 的配置化.</p>
 <blockquote>
 <p>&ldquo;sap.ui5&rdquo;: {
-      &ldquo;_version&rdquo;: &ldquo;1.1.0&rdquo;,
-      &ldquo;rootView&rdquo;: {
-          &ldquo;viewName&rdquo;: &ldquo;webapp.view.App&rdquo;,
-          &ldquo;type&rdquo;: &ldquo;XML&rdquo;
-      }</p>
-
+&ldquo;_version&rdquo;: &ldquo;1.1.0&rdquo;,
+&ldquo;rootView&rdquo;: {
+&ldquo;viewName&rdquo;: &ldquo;webapp.view.App&rdquo;,
+&ldquo;type&rdquo;: &ldquo;XML&rdquo;
+}</p>
 <p>}</p>
 </blockquote>
-
-<p>​   启动流程 :</p>
-
-<p>​   1) <code>index.html</code> 的 <code>ComponentContainer</code> 根据 <code>name</code> 或 <code>component</code> 属性实例化 Component。</p>
-
-<p>​   2) Component 的 <code>metadata</code> 指向设定的 <code>manifest.json</code> 文件。</p>
-
-<p>​   3) <code>manifest.json</code> 文件的 <code>sap.ui5&gt;rootView</code> 设定了启动时候加载并显示的 root view 为 <code>App.view.xml</code> 。</p>
-
-<p>​   4) App view 并不需要像之前文章介绍的内嵌 master view 和 detail view，而是由路由器根据路径在 pattern 中找匹配的模式，在 target 中找对应的 view 加载。</p>
-
+<p>​	启动流程 :</p>
+<p>​	1) <code>index.html</code> 的 <code>ComponentContainer</code> 根据 <code>name</code> 或 <code>component</code> 属性实例化 Component。</p>
+<p>​	2) Component 的 <code>metadata</code> 指向设定的 <code>manifest.json</code> 文件。</p>
+<p>​	3) <code>manifest.json</code> 文件的 <code>sap.ui5&gt;rootView</code> 设定了启动时候加载并显示的 root view 为 <code>App.view.xml</code> 。</p>
+<p>​	4) App view 并不需要像之前文章介绍的内嵌 master view 和 detail view，而是由路由器根据路径在 pattern 中找匹配的模式，在 target 中找对应的 view 加载。</p>
 <h5 id="routing设置">Routing设置</h5>
-
-<pre><code class="language-JS">&quot;sap.ui5&quot;: {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#e6db74">&#34;sap.ui5&#34;</span><span style="color:#f92672">:</span> {
         ...
-        &quot;routing&quot;: {
-            &quot;config&quot;: {
-                &quot;routerClass&quot;: &quot;sap.m.routing.Router&quot;,
-                &quot;viewType&quot;: &quot;XML&quot;,
-                &quot;viewPath&quot;: &quot;webapp.view&quot;,
-                &quot;controlId&quot;: &quot;app&quot;,
-                &quot;controlAggregation&quot;: &quot;pages&quot;,
-                &quot;bypassed&quot;: {
-                    &quot;target&quot;: &quot;notFound&quot;
+        <span style="color:#e6db74">&#34;routing&#34;</span><span style="color:#f92672">:</span> {
+            <span style="color:#e6db74">&#34;config&#34;</span><span style="color:#f92672">:</span> {
+                <span style="color:#e6db74">&#34;routerClass&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;sap.m.routing.Router&#34;</span>,
+                <span style="color:#e6db74">&#34;viewType&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;XML&#34;</span>,
+                <span style="color:#e6db74">&#34;viewPath&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;webapp.view&#34;</span>,
+                <span style="color:#e6db74">&#34;controlId&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;app&#34;</span>,
+                <span style="color:#e6db74">&#34;controlAggregation&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;pages&#34;</span>,
+                <span style="color:#e6db74">&#34;bypassed&#34;</span><span style="color:#f92672">:</span> {
+                    <span style="color:#e6db74">&#34;target&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;notFound&#34;</span>
                 }
             },
-            &quot;routes&quot;: [{
-                &quot;pattern&quot;: &quot;&quot;,
-                &quot;name&quot;: &quot;master&quot;,
-                &quot;target&quot;: &quot;master&quot;
+            <span style="color:#e6db74">&#34;routes&#34;</span><span style="color:#f92672">:</span> [{
+                <span style="color:#e6db74">&#34;pattern&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+                <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>,
+                <span style="color:#e6db74">&#34;target&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
             },
             {
-                &quot;pattern&quot;: &quot;detail/{supplierPath}&quot;,
-                &quot;name&quot;: &quot;detail&quot;,
-                &quot;target&quot;: &quot;detail&quot;
+                <span style="color:#e6db74">&#34;pattern&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;detail/{supplierPath}&#34;</span>,
+                <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;detail&#34;</span>,
+                <span style="color:#e6db74">&#34;target&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;detail&#34;</span>
             }],
-            &quot;targets&quot;: {
-                &quot;master&quot;: {
-                    &quot;viewName&quot;: &quot;Master&quot;,
-                    &quot;viewLevel&quot;: 1
+            <span style="color:#e6db74">&#34;targets&#34;</span><span style="color:#f92672">:</span> {
+                <span style="color:#e6db74">&#34;master&#34;</span><span style="color:#f92672">:</span> {
+                    <span style="color:#e6db74">&#34;viewName&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Master&#34;</span>,
+                    <span style="color:#e6db74">&#34;viewLevel&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>
                 },
-                &quot;detail&quot;: {
-                    &quot;viewName&quot;: &quot;Detail&quot;,
-                    &quot;viewLevel&quot;: 2
+                <span style="color:#e6db74">&#34;detail&#34;</span><span style="color:#f92672">:</span> {
+                    <span style="color:#e6db74">&#34;viewName&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Detail&#34;</span>,
+                    <span style="color:#e6db74">&#34;viewLevel&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>
                 },
-                &quot;notFound&quot;: {
-                    &quot;viewName&quot;: &quot;NotFound&quot;,
-                    &quot;viewId&quot;: &quot;notFound&quot;
+                <span style="color:#e6db74">&#34;notFound&#34;</span><span style="color:#f92672">:</span> {
+                    <span style="color:#e6db74">&#34;viewName&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;NotFound&#34;</span>,
+                    <span style="color:#e6db74">&#34;viewId&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;notFound&#34;</span>
                 }
             }
         }
 }
-</code></pre>
-
-<h4 id="多语言">多语言</h4>
-
+</code></pre></div><h4 id="多语言">多语言</h4>
 <p>在 SAPUI5 中，通过两种方法来实现多语言.</p>
-
-<p>​   (1) SAPUI5 提供 Resource Model，Resource Model 读取资源包 (Resource Bundle) 并与 View 中的控件绑定。</p>
-
-<p>​   (2) 使用 jQuery.sap.resources 相关的 API 读取资源包。两种方法都需要资源包文件并且在配置中设置。</p>
-
+<p>​	(1) SAPUI5 提供 Resource Model，Resource Model 读取资源包 (Resource Bundle) 并与 View 中的控件绑定。</p>
+<p>​	(2) 使用 jQuery.sap.resources 相关的 API 读取资源包。两种方法都需要资源包文件并且在配置中设置。</p>
 <h5 id="语言代码">语言代码</h5>
-
-<p>​   OpenUI5 对页面的显示，有一个 <strong>当前语言( Current Language )</strong> 的概念，按照当前语言，读取相应的资源包文件，按当前语言显示。OpenUI5 按照如下顺序顺序(从高到低)，如果都没有找到，最后读取通用设置（比如 i18n.properties)。</p>
-
-<p>​   <code>sap.ui.getCore().getConfiguration().getLanguage()</code> 获得当前语言。</p>
-
+<p>​	OpenUI5 对页面的显示，有一个 <strong>当前语言( Current Language )</strong> 的概念，按照当前语言，读取相应的资源包文件，按当前语言显示。OpenUI5 按照如下顺序顺序(从高到低)，如果都没有找到，最后读取通用设置（比如 i18n.properties)。</p>
+<p>​	<code>sap.ui.getCore().getConfiguration().getLanguage()</code> 获得当前语言。</p>
 <blockquote>
-<p>1) URL中的 locale 参数（即在 url 后面加上 <code>?sap-ui-language=en</code> )</p>
-
-<p>2) 应用程序代码的 locale 设置，sap.ui.getCore().getConfiguration().applySettings({ language: &lsquo;de&rsquo;});</p>
-
-<p>3) Android 平台的用户代理字符串设置</p>
-
-<p>4) 浏览器的一般语言设置，可以用 window.navigator.language 查看</p>
-
-<p>5) 浏览器中用户语言配置。这个与浏览器相关，比如 IE 通过 window.navigator.userLanguage 查看。</p>
-
-<p>6) 浏览器语言配置。这个业余浏览器相关，比如 IE 通过 window.navigator.browserLanguage 查看</p>
-
-<p>7) OpenUI5中硬编码，默认为 en</p>
+<ol>
+<li>
+<p>URL中的 locale 参数（即在 url 后面加上 <code>?sap-ui-language=en</code> )</p>
+</li>
+<li>
+<p>应用程序代码的 locale 设置，sap.ui.getCore().getConfiguration().applySettings({ language: &lsquo;de&rsquo;});</p>
+</li>
+<li>
+<p>Android 平台的用户代理字符串设置</p>
+</li>
+<li>
+<p>浏览器的一般语言设置，可以用 window.navigator.language 查看</p>
+</li>
+<li>
+<p>浏览器中用户语言配置。这个与浏览器相关，比如 IE 通过 window.navigator.userLanguage 查看。</p>
+</li>
+<li>
+<p>浏览器语言配置。这个业余浏览器相关，比如 IE 通过 window.navigator.browserLanguage 查看</p>
+</li>
+<li>
+<p>OpenUI5中硬编码，默认为 en</p>
+</li>
+</ol>
 </blockquote>
-
 <h5 id="资源包文件-1">资源包文件</h5>
-
 <ol>
 <li>Java的属性文件，文件的扩展名总是.properties。文件中包含于语言相关的文本。</li>
 <li>文件名包括固定部分和语言相关部分。那么 i18n.properties 是默认的文件，i18n_zh_CN.properties 是中文简体的资源文件。</li>
 <li>资源包文件为扁平结构，不能嵌套。每一行要么是 key-value键值对 ，要么是 # 开头的注释。也可以可以空行。</li>
 <li>如果 Properties 文件的文本为 Unicode 字符，文件使用16进制的编码来存储，而不是明文。</li>
 </ol>
-
 <h5 id="resource-model">Resource Model</h5>
-
-<p>​   使用 Resource Model 绑定数据需要三步：</p>
-
-<p>​   1) 添加资源包文件，将不同的语言放在不同的资源包文件中。<code>i18n.properties,i18n_zh_CN.properties</code></p>
-
-<p>​   2) 在 Component.js 文件中，创建 Resource model 的实例 。</p>
-
-<p>​   3) 在 View 中参照 Resource Model 中定义的 key。 <code>title=&quot;{i18n&gt;masterTitle}&quot;</code></p>
-
-<p>​    url 后面添加<code>?sap-ui-language=XXX</code>，实现语言的切换。</p>
-
-<h5 id="jquery-sap-resources">jQuery.sap.resources</h5>
-
-<p>​   在代码中直接使用资源包的文本。</p>
-
-<pre><code class="language-JS">var sLocale = sap.ui.getCore().getConfiguration().getLanguage();//获取当前语言
-var oBd = jQuery.sap.resources({
-    url: &quot;i18n/i18n.properties&quot;,
-    locale: sLocale
-})                                       //根据指定的 URL 和 Locale，创建一个新的资源包实例
-var sMeg = oBd.getText(&quot;key&quot;,[sLocale]); //根据资源包文件的 key，获取与语言相关的 value。
-
-</code></pre>
-
-<h2 id="layout设置">Layout设置</h2>
-
+<p>​	使用 Resource Model 绑定数据需要三步：</p>
+<p>​	1) 添加资源包文件，将不同的语言放在不同的资源包文件中。<code>i18n.properties,i18n_zh_CN.properties</code></p>
+<p>​	2) 在 Component.js 文件中，创建 Resource model 的实例 。</p>
+<p>​	3) 在 View 中参照 Resource Model 中定义的 key。 <code> title=&quot;{i18n&gt;masterTitle}&quot;</code></p>
+<p>​	 url 后面添加<code>?sap-ui-language=XXX</code>，实现语言的切换。</p>
+<h5 id="jquerysapresources">jQuery.sap.resources</h5>
+<p>​	在代码中直接使用资源包的文本。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sLocale</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">getCore</span>().<span style="color:#a6e22e">getConfiguration</span>().<span style="color:#a6e22e">getLanguage</span>();<span style="color:#75715e">//获取当前语言
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oBd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jQuery</span>.<span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">resources</span>({
+	<span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;i18n/i18n.properties&#34;</span>,
+	<span style="color:#a6e22e">locale</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">sLocale</span>
+})               						 <span style="color:#75715e">//根据指定的 URL 和 Locale，创建一个新的资源包实例
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sMeg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">oBd</span>.<span style="color:#a6e22e">getText</span>(<span style="color:#e6db74">&#34;key&#34;</span>,[<span style="color:#a6e22e">sLocale</span>]); <span style="color:#75715e">//根据资源包文件的 key，获取与语言相关的 value。
+</span><span style="color:#75715e"></span>
+</code></pre></div><h2 id="layout设置">Layout设置</h2>
 <h3 id="多页面显示和跳转">多页面显示和跳转</h3>
-
-<p>​   sap.m.App : 是一个全局对象，可以通过 app.to(sPageId) 跳转到另一个页面。</p>
-
-<p>​       to(sPageId, sTransitionName<em>?</em>, oData<em>?</em>, oTransitionParameters<em>?</em>): [sap.m.NavContainer]</p>
-
-<p>​   app.back()则跳回到刚才的page：</p>
-
-<p>​       back(oBackData<em>?</em>, oTransitionParameters<em>?</em>): [sap.m.NavContainer]</p>
-
-<p>​   <code>sap.m.Page</code>中，<code>showNavButton</code>设置为<code>true</code>，就会出现Navigation按钮，点击按钮的event hander通过Controller中<code>onNavPress</code>函数来实现。</p>
-
-<pre><code class="language-js">    var oDetailPage = new sap.m.Page({
-        showNavButton: true,
-        navButtonPress: [oController.onNavPress, oController],
-        title: &quot;供应商明细&quot;,
-        content: [oObjectHeader]
+<p>​	sap.m.App : 是一个全局对象，可以通过 app.to(sPageId) 跳转到另一个页面。</p>
+<p>​		to(sPageId, sTransitionName*?*, oData*?*, oTransitionParameters*?*): [sap.m.NavContainer]</p>
+<p>​	app.back()则跳回到刚才的page：</p>
+<p>​		back(oBackData*?*, oTransitionParameters*?*): [sap.m.NavContainer]</p>
+<p>​	<code>sap.m.Page</code>中，<code>showNavButton</code>设置为<code>true</code>，就会出现Navigation按钮，点击按钮的event hander通过Controller中<code>onNavPress</code>函数来实现。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oDetailPage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Page</span>({
+        <span style="color:#a6e22e">showNavButton</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+        <span style="color:#a6e22e">navButtonPress</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">oController</span>.<span style="color:#a6e22e">onNavPress</span>, <span style="color:#a6e22e">oController</span>],
+        <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;供应商明细&#34;</span>,
+        <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">oObjectHeader</span>]
     });
-</code></pre>
-
-<p>​   <code>sap.m.ColumnListItem</code>的type必须为Navigation，否则不能实现跳转。<code>sap.m.ColumnListItem</code>的press属性设置为一个数组，这种方法能够保证在Controller中，this表示Controller本身，而不是某个控件。</p>
-
+</code></pre></div><p>​	<code>sap.m.ColumnListItem</code>的type必须为Navigation，否则不能实现跳转。<code>sap.m.ColumnListItem</code>的press属性设置为一个数组，这种方法能够保证在Controller中，this表示Controller本身，而不是某个控件。</p>
 <h3 id="布局类型">布局类型</h3>
-
-<p>​   sap.ui.layout.HorizontalLayout() : 水平布局</p>
-
-<p>​   sap.ui.layout.VerticalLayout() : 垂直布局</p>
-
-<p>​   sap.ui.layout.Grid() : 表格式布局</p>
-
+<p>​	sap.ui.layout.HorizontalLayout() : 水平布局</p>
+<p>​	sap.ui.layout.VerticalLayout() : 垂直布局</p>
+<p>​	sap.ui.layout.Grid() : 表格式布局</p>
 <h4 id="grid-layout">Grid Layout</h4>
-
-<p>​   Grid Layout 控件负责将页面进行表格式布局，将页面分为 12 列，子控件从左至右排列。每个控件并不是占一列，OpenUI5 根据屏幕的大小，将屏幕分为 4 种，分别是<code>XL: extra large 、 L: large、M: medium、S: small</code>。XL的如 PC 机的大桌面，L的如 PC 的桌面，M的比如平板，S的比如手机。默认情况下，每个控件在 XL 桌面上占 3 列，在 L 桌面上占 3 列，在 M 桌面上占 6 列，在 S 桌面上占 12 列。OpenUI5 用一个字符串表示为<code>XL3 L3 M6 S12</code>，通过 default Span 属性来设置。</p>
-
+<p>​	Grid Layout 控件负责将页面进行表格式布局，将页面分为 12 列，子控件从左至右排列。每个控件并不是占一列，OpenUI5 根据屏幕的大小，将屏幕分为 4 种，分别是<code>XL: extra large 、 L: large、M: medium、S: small </code>。XL的如 PC 机的大桌面，L的如 PC 的桌面，M的比如平板，S的比如手机。默认情况下，每个控件在 XL 桌面上占 3 列，在 L 桌面上占 3 列，在 M 桌面上占 6 列，在 S 桌面上占 12 列。OpenUI5 用一个字符串表示为<code> XL3 L3 M6 S12</code>，通过 default Span 属性来设置。</p>
 <p>​    当屏幕的尺寸变更的时候，OpenUI5 检测到尺寸的变化，根据上面的 4 个分类对控件的位置进行调整，从而实现所谓的自适应。</p>
-
 <p>​    Grid layout 控件宽度 (Width)，可以基于像素，或者基于页面宽度的相对比例。控件之间的间距可以通过 vSpacing 和 hSpacing 属性进行设置。</p>
-
-<p><code>sap.ui.layout</code> : 该function可以对Layout页面布局进行设置。</p>
-
-<p>​       <code>new sap.ui.layout.Grid({ content: [ a1,b1,c1,d1] }).placeAt(&quot;content&quot;);</code></p>
-
+<p><code> sap.ui.layout</code> : 该function可以对Layout页面布局进行设置。</p>
+<p>​    	<code>new sap.ui.layout.Grid({ content: [ a1,b1,c1,d1] }).placeAt(&quot;content&quot;);</code></p>
 <p>​    将各个空间放到Layout.Grid中，然后将该Grid放到页面指定位置上。</p>
-
 <h3 id="layoutdata-属性">LayoutData 属性</h3>
-
-<p>​      <code>sap.ui.core.Element</code> 类定义了<code>layoutData</code> 属性、<code>getLayoutData()</code> 方法和<code>setLayoutData()</code> 方法。控件都是 <code>sap.ui.core.Element</code> 类的间接子类，从而控件都可以利用这些属性和方法设定这个控件在页面中如何定位。<code>setLayoutData()</code> 方法的参数是<code>sap.ui.core.LayoutData</code> 对象。 Grid 布局时<code>layoutData</code> 我们可以用<code>sap.ui.core.LayoutData</code> 类的子类 <code>sap.ui.layout.GridData</code>。</p>
-
-<pre><code class="language-JSP">var oLabel2 = new sap.m.Label({
+<p>​      <code>sap.ui.core.Element</code> 类定义了<code> layoutData</code> 属性、<code>getLayoutData()</code> 方法和<code> setLayoutData()</code> 方法。控件都是 <code>sap.ui.core.Element</code> 类的间接子类，从而控件都可以利用这些属性和方法设定这个控件在页面中如何定位。<code>setLayoutData()</code> 方法的参数是<code> sap.ui.core.LayoutData</code> 对象。 Grid 布局时<code>layoutData</code> 我们可以用<code>sap.ui.core.LayoutData</code> 类的子类 <code>sap.ui.layout.GridData</code>。</p>
+<pre><code class="language-JSP" data-lang="JSP">var oLabel2 = new sap.m.Label({
    text : &quot;XXXXXXXXXXXXXXXXXXX&quot;,
    layoutData : new sap.ui.layout.GridData({
      span : &quot;XL12 L12 M12 S12&quot;       //通过该设置让该元素独占屏幕元素的一整行
    })
 });
-</code></pre>
-
-<h4 id="margin-classes">Margin Classes</h4>
-
-<p>​   在class属性中设置了四种标准的大小: tiny-8px、small-16px、medium-32px、large-48px， Begin is left and End is right。</p>
-
+</code></pre><h4 id="margin-classes">Margin Classes</h4>
+<p>​	在class属性中设置了四种标准的大小: tiny-8px、small-16px、medium-32px、large-48px， Begin is left and End is right。</p>
 <p>在 div 的 class 属性中添加对应的属性值来解决边距问题。</p>
-
 <ol>
-<li><p>Full Margins : all around control</p>
-
+<li>
+<p>Full Margins : all around control</p>
 <ul>
-<li><p>sapUiTinyMargin</p></li>
-
-<li><p>sapUiSmallMargin</p></li>
-
-<li><p>sapUiMediumMargin</p></li>
-
-<li><p>sapUiLargeMargin</p></li>
-</ul></li>
-
-<li><p>Single-sided margins : class中只能设定一个边框距离</p>
-
+<li>
+<p>sapUiTinyMargin</p>
+</li>
+<li>
+<p>sapUiSmallMargin</p>
+</li>
+<li>
+<p>sapUiMediumMargin</p>
+</li>
+<li>
+<p>sapUiLargeMargin</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Single-sided margins : class中只能设定一个边框距离</p>
 <ul>
-<li><p>sapUixxxxMarginTop</p></li>
-
-<li><p>sapUixxxxMarginBottom</p></li>
-
-<li><p>sapUixxxxMarginBegin</p></li>
-
-<li><p>sapUixxxxMarginEnd</p></li>
-</ul></li>
-
-<li><p>Two-Sided Margins : 两个方向</p>
-
+<li>
+<p>sapUixxxxMarginTop</p>
+</li>
+<li>
+<p>sapUixxxxMarginBottom</p>
+</li>
+<li>
+<p>sapUixxxxMarginBegin</p>
+</li>
+<li>
+<p>sapUixxxxMarginEnd</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Two-Sided Margins : 两个方向</p>
 <ul>
-<li><p>sapUiTinyMarginBeginEnd</p></li>
-
-<li><p>sapUiTinyMarginTopBottom</p></li>
-</ul></li>
-
-<li><p>Responsive Margins : margins depending on the screen width</p></li>
-</ol>
-
+<li>
+<p>sapUiTinyMarginBeginEnd</p>
+</li>
+<li>
+<p>sapUiTinyMarginTopBottom</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Responsive Margins : margins depending on the screen width</p>
 <p>sapUiResponsiveMargin</p>
-
 <blockquote>
-<p><Panel headerText="{i18n>helloPanelTitle}&rdquo;
-      class=&ldquo;sapUiResponsiveMargin&rdquo;
-      width=&ldquo;auto&rdquo;&gt;
-</Panel></p>
-
-<p><body class="sapUiBody sapUiResponsiveMargin" role="application"></p>
-
-<p>​      <div id="content"></div></p>
-
-<p></body></p>
+<p><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>​		<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 </blockquote>
-
-<ol>
-<li>100%宽度控制</li>
-</ol>
-
+</li>
+<li>
+<p>100%宽度控制</p>
 <p>如果控件包含有<code>width</code>属性，设置该属性为<code>width=auto</code>.如果没有该属性，可以添加 sapUiForceWidthAuto属性到控件的class.</p>
-
-<ol>
-<li><p>移除Margins</p>
-
+</li>
+<li>
+<p>移除Margins</p>
 <ul>
 <li>sapUiNoMarginTop</li>
 <li>sapUiNoMarginBottom</li>
 <li>sapUiNoMarginBegin</li>
-<li>sapUiNoMarginEnd
-<br /></li>
-</ul></li>
+<li>sapUiNoMarginEnd</li>
+</ul>
+</li>
 </ol>
-
 <h4 id="自定义css和主题颜色">自定义CSS和主题颜色</h4>
-
-<p>​   不要在自定义CSS中指定颜色，而是使用标准的主题依赖类。</p>
-
+<p>​	不要在自定义CSS中指定颜色，而是使用标准的主题依赖类。</p>
 <h3 id="对象组件显示">对象组件显示</h3>
-
 <ol>
-<li>组件</li>
-</ol>
-
+<li>
+<p>组件</p>
 <blockquote>
-<p><code>sap.m.ObjectIdentifier:</code> 用于需要对操作对象进行明确区分的时候，使用这个组件进行显示。强调的是标识。                title属性是主要标识，text属性是补充，如果titleActive为true，则标题用颜色标识.</p>
-
+<p><code>sap.m.ObjectIdentifier:</code> 用于需要对操作对象进行明确区分的时候，使用这个组件进行显示。强调的是标识。				title属性是主要标识，text属性是补充，如果titleActive为true，则标题用颜色标识.</p>
 <p><code>sap.m.ObjectNumber:</code> 显示数字,能根据不同的状态提供颜色区分。有四种state: Warning, Error, Success,Default.</p>
-
 <p><code>sap.m.ObjectMarker:</code> 以图标的方式显示预定义的几种类型，可以绑定press事件。包括 [Flagged、Favorite、Draft</p>
-
 <p>、Locked、LockedBy、Unsaved、UnsavedBy].</p>
-
 <p><code>sap.m.ObjectAttribute:</code> 显示对象，并提供普通和active两种状态，active状态可与事件绑定。</p>
-
 <p><code>sap.m.ObjectStatus:</code> 显示对象的文本，并且根据状态不同，文本以不同的颜色区分。</p>
-
 <p><code>sap.m.ObjectHeader:</code> 显示对象，包括标识和附加的信息，图标等。</p>
 </blockquote>
-
-<h2 id="dialogs-and-fragments">Dialogs and Fragments</h2>
-
-<h3 id="fragments">Fragments</h3>
-
-<ol>
-<li><p>片段是一个轻量级的Ui部分，它只是一组重用控件的容器。包含一到多个控件，不需要控制器。</p></li>
-
-<li><p>定义并调用已存在的 Fragments : &ldquo;sap/ui/core/Fragment&rdquo;</p></li>
+</li>
 </ol>
-
-<p>1) 定义xxx.fragment.xml</p>
-
-<pre><code class="language-xml">   &lt;core:FragmentDefinition xmlns=&quot;sap.m&quot; xmlns:core=&quot;sap.ui.core&quot;&gt;
-    &lt;Dialog id=&quot;helloDialog&quot; title=&quot;Hello {/recipient/name}&quot;&gt;
-        &lt;content&gt;
-            &lt;core:Icon src=&quot;sap-icon://hello-world&quot; size=&quot;80px&quot; class=&quot;sapUiMediumMargin&quot;&gt;                   &lt;/core:Icon&gt;
-        &lt;/content&gt;
-        &lt;beginButton&gt;
-            &lt;Button text=&quot;{i18n&gt;dialogCloseButtonText}&quot; press=&quot;.onCloseDialog&quot;&gt;&lt;/Button&gt;
-        &lt;/beginButton&gt;
-    &lt;/Dialog&gt;
-   &lt;/core:FragmentDefinition&gt;
-</code></pre>
-
-<pre><code class="language-js">   // create dialog lazily
-   if (!this.byId(&quot;helloDialog&quot;)) {  //如果id为helloDialog的Dialog不存在
-    // load asynchronous XML fragment
-    Fragment.load({
-        id: oView.getId(),
-        name: &quot;sap.ui.demo.walkthrough.view.HelloDialog&quot;,
-             controller:this    //函数的回调
-    }).then(function (oDialog) {
-        // connect dialog to the root view of this component (models, lifecycle)
-        oView.addDependent(oDialog);
-        oDialog.open();
-    });
-   } else {
-    this.byId(&quot;helloDialog&quot;).open();
-   },
+<h2 id="dialogs-and-fragments">Dialogs and Fragments</h2>
+<h3 id="fragments">Fragments</h3>
+<ol>
+<li>
+<p>片段是一个轻量级的Ui部分，它只是一组重用控件的容器。包含一到多个控件，不需要控制器。</p>
+</li>
+<li>
+<p>定义并调用已存在的 Fragments : &ldquo;sap/ui/core/Fragment&rdquo;</p>
+<ol>
+<li>定义xxx.fragment.xml</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;core:FragmentDefinition</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;sap.m&#34;</span> <span style="color:#a6e22e">xmlns:core=</span><span style="color:#e6db74">&#34;sap.ui.core&#34;</span><span style="color:#f92672">&gt;</span>
+ <span style="color:#f92672">&lt;Dialog</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;helloDialog&#34;</span> <span style="color:#a6e22e">title=</span><span style="color:#e6db74">&#34;Hello {/recipient/name}&#34;</span><span style="color:#f92672">&gt;</span>
+     <span style="color:#f92672">&lt;content&gt;</span>
+         <span style="color:#f92672">&lt;core:Icon</span> <span style="color:#a6e22e">src=</span><span style="color:#e6db74">&#34;sap-icon://hello-world&#34;</span> <span style="color:#a6e22e">size=</span><span style="color:#e6db74">&#34;80px&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;sapUiMediumMargin&#34;</span><span style="color:#f92672">&gt;</span>					 <span style="color:#f92672">&lt;/core:Icon&gt;</span>
+     <span style="color:#f92672">&lt;/content&gt;</span>
+     <span style="color:#f92672">&lt;beginButton&gt;</span>
+         <span style="color:#f92672">&lt;Button</span> <span style="color:#a6e22e">text=</span><span style="color:#e6db74">&#34;{i18n&gt;dialogCloseButtonText}&#34;</span> <span style="color:#a6e22e">press=</span><span style="color:#e6db74">&#34;.onCloseDialog&#34;</span><span style="color:#f92672">&gt;&lt;/Button&gt;</span>
+     <span style="color:#f92672">&lt;/beginButton&gt;</span>
+ <span style="color:#f92672">&lt;/Dialog&gt;</span>
+<span style="color:#f92672">&lt;/core:FragmentDefinition&gt;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// create dialog lazily
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">byId</span>(<span style="color:#e6db74">&#34;helloDialog&#34;</span>)) {  <span style="color:#75715e">//如果id为helloDialog的Dialog不存在
+</span><span style="color:#75715e"></span> <span style="color:#75715e">// load asynchronous XML fragment
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">Fragment</span>.<span style="color:#a6e22e">load</span>({
+     <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">oView</span>.<span style="color:#a6e22e">getId</span>(),
+     <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;sap.ui.demo.walkthrough.view.HelloDialog&#34;</span>,
+          <span style="color:#a6e22e">controller</span><span style="color:#f92672">:</span><span style="color:#66d9ef">this</span>    <span style="color:#75715e">//函数的回调
+</span><span style="color:#75715e"></span> }).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">oDialog</span>) {
+     <span style="color:#75715e">// connect dialog to the root view of this component (models, lifecycle)
+</span><span style="color:#75715e"></span>     <span style="color:#a6e22e">oView</span>.<span style="color:#a6e22e">addDependent</span>(<span style="color:#a6e22e">oDialog</span>);
+     <span style="color:#a6e22e">oDialog</span>.<span style="color:#a6e22e">open</span>();
+ });
+} <span style="color:#66d9ef">else</span> {
+ <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">byId</span>(<span style="color:#e6db74">&#34;helloDialog&#34;</span>).<span style="color:#a6e22e">open</span>();
+},
       
-   onCloseDialog:function(){
-       this.byId(&quot;helloDialog&quot;).close();
-   }
+<span style="color:#a6e22e">onCloseDialog</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">byId</span>(<span style="color:#e6db74">&#34;helloDialog&#34;</span>).<span style="color:#a6e22e">close</span>();
+}
    
-</code></pre>
-
-<ul>
+</code></pre></div><ul>
 <li>始终使用addDependent方法将对话框连接到视图的生命周期管理和数据绑定，即使它未添加到其UI树中。</li>
 </ul>
-
-<ol>
-<li><p>如果片段中的对话框尚不存在，则通过使用以下方法调用sap.ui.xmlfragment方法来实例化片段</p></li>
-
-<li><p>回调open方法</p></li>
+</li>
+<li>
+<p>如果片段中的对话框尚不存在，则通过使用以下方法调用sap.ui.xmlfragment方法来实例化片段</p>
+</li>
+<li>
+<p>回调open方法</p>
+</li>
 </ol>
-
 <h3 id="dialog">Dialog</h3>
-
 <ol>
-<li><p>不属于特定视图，不能将其定义为视图，这意味着必须在控制器代码中的某处实例化对话框。</p></li>
-
-<li><p>重用</p></li>
-</ol>
-
-<p>1) 定义单独的控制来实现Dialog的创建 HelloDialog.js</p>
-
-<pre><code class="language-JS">   sap.ui.define([
-        &quot;sap/ui/base/ManagedObject&quot;, //实现该类
-        &quot;sap/ui/core/Fragment&quot;
-    ],
-    function (ManagedObject, Fragment) {
-        &quot;use strict&quot;;
-   
-    return ManagedObject.extend(&quot;SAPUI5.Walkthrough.controller.HelloDialog&quot;, {
-        constructor: function (oView) { //oView参数用于关联当前视图到对话框.
-            this._oView = oView;
-        },
-   
-        exit: function () {
-            delete this._oView();
-        },
-   
-        open: function () {
-            var oView = this._oView;
-   
-            //create dialog lazily
-            if (!oView.byId(&quot;helloDialog&quot;)) {
-                var oFragmentController = {
-                    onCloseDialog: function () {
-                        oView.byId(&quot;helloDialog&quot;).close();
-                    }
-                };
-                //load asynchronous XML fragment
-                Fragment.load({
-                    id: oView.getId(),
-                    name: &quot;SAPUI5.Walkthrough.view.HelloDialog&quot;,
-                    controller: oFragmentController
-                }).then(function (oDialog) {
-                    //connect dialog to the root view of this component (models,lifecycle)
-                    oView.addDependent(oDialog);
-                    oDialog.open();
-                });
-            } else {
-                oView.byId(&quot;helloDialog&quot;).open();
-            }
-        }
-    });
-   });
-</code></pre>
-
-<p>2) 在Component.js文件中声明该控件为私有属性,并封装其方法</p>
-
-<pre><code class="language-JS">   sap.ui.define([
-    &quot;sap/ui/core/UIComponent&quot;,
-    &quot;sap/ui/Device&quot;,
-    &quot;SAPUI5/Walkthrough/model/models&quot;,
-    &quot;sap/ui/model/json/JSONModel&quot;,
-    &quot;./controller/HelloDialog&quot;
-   ], function (UIComponent, Device, models,JSONModel,HelloDialog) {
-    &quot;use strict&quot;;
-   
-    return UIComponent.extend(&quot;SAPUI5.Walkthrough.Component&quot;, {
-   
-        metadata: {
-            manifest: &quot;json&quot;
-        },
-   
-        /**
-         * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-         * @public
-         * @override
-         */
-        init: function () {
-            // call the base component's init function
-            UIComponent.prototype.init.apply(this, arguments);
-   
-            // enable routing
-            this.getRouter().initialize();
-   
-            // set the device model
-            this.setModel(models.createDeviceModel(), &quot;device&quot;);
-   
-            //set dialog
-            this._helloDialog = new HelloDialog(this.getRootControl());
-        },
-        
-        exit:function(){
-            this._helloDialog.destory();
-            delete this._helloDialog;
-        },
-        
-        openHelloDialog:function(){
-            this._helloDialog.open();
-        }
-    });
-   });
-</code></pre>
-
+<li>
+<p>不属于特定视图，不能将其定义为视图，这意味着必须在控制器代码中的某处实例化对话框。</p>
+</li>
+<li>
+<p>重用</p>
 <ol>
-<li>在按钮事件中通过<code>this.getOwnerComponent().openHelloDialog()</code>调用</li>
+<li>定义单独的控制来实现Dialog的创建 HelloDialog.js</li>
 </ol>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">define</span>([
+     <span style="color:#e6db74">&#34;sap/ui/base/ManagedObject&#34;</span>, <span style="color:#75715e">//实现该类
+</span><span style="color:#75715e"></span>     <span style="color:#e6db74">&#34;sap/ui/core/Fragment&#34;</span>
+ ],
+ <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">ManagedObject</span>, <span style="color:#a6e22e">Fragment</span>) {
+     <span style="color:#e6db74">&#34;use strict&#34;</span>;
+   
+ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ManagedObject</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#e6db74">&#34;SAPUI5.Walkthrough.controller.HelloDialog&#34;</span>, {
+     <span style="color:#a6e22e">constructor</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">oView</span>) { <span style="color:#75715e">//oView参数用于关联当前视图到对话框.
+</span><span style="color:#75715e"></span>         <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_oView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">oView</span>;
+     },
+   
+     <span style="color:#a6e22e">exit</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+         <span style="color:#66d9ef">delete</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_oView</span>();
+     },
+   
+     <span style="color:#a6e22e">open</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+         <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oView</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_oView</span>;
+   
+         <span style="color:#75715e">//create dialog lazily
+</span><span style="color:#75715e"></span>         <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">oView</span>.<span style="color:#a6e22e">byId</span>(<span style="color:#e6db74">&#34;helloDialog&#34;</span>)) {
+             <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oFragmentController</span> <span style="color:#f92672">=</span> {
+                 <span style="color:#a6e22e">onCloseDialog</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+                     <span style="color:#a6e22e">oView</span>.<span style="color:#a6e22e">byId</span>(<span style="color:#e6db74">&#34;helloDialog&#34;</span>).<span style="color:#a6e22e">close</span>();
+                 }
+             };
+             <span style="color:#75715e">//load asynchronous XML fragment
+</span><span style="color:#75715e"></span>             <span style="color:#a6e22e">Fragment</span>.<span style="color:#a6e22e">load</span>({
+                 <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">oView</span>.<span style="color:#a6e22e">getId</span>(),
+                 <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;SAPUI5.Walkthrough.view.HelloDialog&#34;</span>,
+                 <span style="color:#a6e22e">controller</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">oFragmentController</span>
+             }).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">oDialog</span>) {
+                 <span style="color:#75715e">//connect dialog to the root view of this component (models,lifecycle)
+</span><span style="color:#75715e"></span>                 <span style="color:#a6e22e">oView</span>.<span style="color:#a6e22e">addDependent</span>(<span style="color:#a6e22e">oDialog</span>);
+                 <span style="color:#a6e22e">oDialog</span>.<span style="color:#a6e22e">open</span>();
+             });
+         } <span style="color:#66d9ef">else</span> {
+             <span style="color:#a6e22e">oView</span>.<span style="color:#a6e22e">byId</span>(<span style="color:#e6db74">&#34;helloDialog&#34;</span>).<span style="color:#a6e22e">open</span>();
+         }
+     }
+ });
+});
+</code></pre></div><ol start="2">
+<li>在Component.js文件中声明该控件为私有属性,并封装其方法</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">define</span>([
+ <span style="color:#e6db74">&#34;sap/ui/core/UIComponent&#34;</span>,
+ <span style="color:#e6db74">&#34;sap/ui/Device&#34;</span>,
+ <span style="color:#e6db74">&#34;SAPUI5/Walkthrough/model/models&#34;</span>,
+ <span style="color:#e6db74">&#34;sap/ui/model/json/JSONModel&#34;</span>,
+ <span style="color:#e6db74">&#34;./controller/HelloDialog&#34;</span>
+], <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">UIComponent</span>, <span style="color:#a6e22e">Device</span>, <span style="color:#a6e22e">models</span>,<span style="color:#a6e22e">JSONModel</span>,<span style="color:#a6e22e">HelloDialog</span>) {
+ <span style="color:#e6db74">&#34;use strict&#34;</span>;
+   
+ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">UIComponent</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#e6db74">&#34;SAPUI5.Walkthrough.Component&#34;</span>, {
+   
+     <span style="color:#a6e22e">metadata</span><span style="color:#f92672">:</span> {
+         <span style="color:#a6e22e">manifest</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;json&#34;</span>
+     },
+   
+     <span style="color:#75715e">/**
+</span><span style="color:#75715e">      * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
+</span><span style="color:#75715e">      * @public
+</span><span style="color:#75715e">      * @override
+</span><span style="color:#75715e">      */</span>
+     <span style="color:#a6e22e">init</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+         <span style="color:#75715e">// call the base component&#39;s init function
+</span><span style="color:#75715e"></span>         <span style="color:#a6e22e">UIComponent</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">init</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">arguments</span>);
+   
+         <span style="color:#75715e">// enable routing
+</span><span style="color:#75715e"></span>         <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getRouter</span>().<span style="color:#a6e22e">initialize</span>();
+   
+         <span style="color:#75715e">// set the device model
+</span><span style="color:#75715e"></span>         <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setModel</span>(<span style="color:#a6e22e">models</span>.<span style="color:#a6e22e">createDeviceModel</span>(), <span style="color:#e6db74">&#34;device&#34;</span>);
+   
+         <span style="color:#75715e">//set dialog
+</span><span style="color:#75715e"></span>         <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_helloDialog</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HelloDialog</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getRootControl</span>());
+     },
+   		
+     <span style="color:#a6e22e">exit</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){
+         <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_helloDialog</span>.<span style="color:#a6e22e">destory</span>();
+         <span style="color:#66d9ef">delete</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_helloDialog</span>;
+     },
+   		
+     <span style="color:#a6e22e">openHelloDialog</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){
+         <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_helloDialog</span>.<span style="color:#a6e22e">open</span>();
+     }
+ });
+});
+</code></pre></div></li>
+<li>
+<p>在按钮事件中通过<code>this.getOwnerComponent().openHelloDialog()</code>调用</p>
 <p>onOpenDialog方法现在通过调用辅助方法getOwnerComponent来访问其组件。当调用重用对象的open方法时，我们传入当前视图以将其连接到对话框。</p>
-
-<ol>
-<li>Attention</li>
-</ol>
-
+</li>
+<li>
+<p>Attention</p>
 <p>将跨多个控制器使用的所有资产放在单独的模块中</p>
-
-<h2 id="icons">Icons</h2>
-
-<p>sap.ui.core.Icon</p>
-
-<h2 id="数据类型和操作">数据类型和操作</h2>
-
-<h3 id="基本数据类型">基本数据类型</h3>
-
-<blockquote>
-<p>​ sap.ui.model.type.Integer(oFormatOptions?, oConstraints?):支持minimum,maximum</p>
-
-<p>​ sap.ui.model.type.Float(oFormatOptions?, oConstraints?):<code>decimalSeparator</code>定义小数位的分隔符</p>
-
-<p>​ sap.ui.model.type.String(&hellip;&hellip;&hellip;)</p>
-
-<p>​ sap.ui.model.type.Boolean</p>
-
-<p>​ sap.ui.model.type.Date : ui5支持原数据为JavaScript和原数据为String的日期数据进行格式输出</p>
-
-<p>​ sap.ui.model.type.Time : Time也支持原数据为Time类型或者字符串类型</p>
-
-<p>​ sap.ui.model.type.DateTime</p>
-</blockquote>
-
-<h3 id="属性设置">属性设置</h3>
-
-<ol>
-<li>尽可能使用数据类型而不是自定义格式化程序。</li>
+</li>
 </ol>
-
-<pre><code class="language-JS">   number=&quot;{
-    parts: [{path: 'invoice&gt;ExtendedPrice'}, {path: 'view&gt;/currency'}],
-    type: 'sap.ui.model.type.Currency',
-    formatOptions: {
-        showMeasure: false
-    }
-   }&quot;
-</code></pre>
-
-<ul>
+<h2 id="icons">Icons</h2>
+<p>sap.ui.core.Icon</p>
+<h2 id="数据类型和操作">数据类型和操作</h2>
+<h3 id="基本数据类型">基本数据类型</h3>
+<blockquote>
+<p>​	sap.ui.model.type.Integer(oFormatOptions?, oConstraints?):支持minimum,maximum</p>
+<p>​	sap.ui.model.type.Float(oFormatOptions?, oConstraints?):<code>decimalSeparator</code>定义小数位的分隔符</p>
+<p>​	sap.ui.model.type.String(&hellip;&hellip;&hellip;)</p>
+<p>​	sap.ui.model.type.Boolean</p>
+<p>​	sap.ui.model.type.Date : ui5支持原数据为JavaScript和原数据为String的日期数据进行格式输出</p>
+<p>​	sap.ui.model.type.Time : Time也支持原数据为Time类型或者字符串类型</p>
+<p>​	sap.ui.model.type.DateTime</p>
+</blockquote>
+<h3 id="属性设置">属性设置</h3>
+<ol>
+<li>
+<p>尽可能使用数据类型而不是自定义格式化程序。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">number</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{
+</span><span style="color:#e6db74"> parts: [{path: &#39;invoice&gt;ExtendedPrice&#39;}, {path: &#39;view&gt;/currency&#39;}],
+</span><span style="color:#e6db74"> type: &#39;sap.ui.model.type.Currency&#39;,
+</span><span style="color:#e6db74"> formatOptions: {
+</span><span style="color:#e6db74">     showMeasure: false
+</span><span style="color:#e6db74"> }
+</span><span style="color:#e6db74">}&#34;</span>
+</code></pre></div><ul>
 <li>计算字段绑定(parts)：它允许将来自不同模型的多个属性绑定到控件的单个属性。</li>
 <li>控件的属性是数字，从两个不同模型检索的绑定属性（“部件”）invoice&gt; ExtendedPrice和view&gt; / currency。</li>
 </ul>
-
-<ol>
-<li>Expression Binding 仅使用表达式绑定进行简单的计算。</li>
-</ol>
-
+</li>
+<li>
+<p>Expression Binding 仅使用表达式绑定进行简单的计算。</p>
 <p><code>numberState=&quot;{= ${invoice&gt;ExtendedPrice} &gt; 50 ? 'Error' : 'Success' }</code></p>
-
+</li>
+</ol>
 <h3 id="数据校验">数据校验</h3>
-
 <ol>
-<li>基本使用</li>
-</ol>
-
-<p>​    sap.ui.core.message.MessageManager();</p>
-
-<p>​    registerObject(oObject,bHandelValidation) : 第一个参数是ManagedObject对象的实例，第二个参数是boolean类型变量，为true时执行数据校验。</p>
-
-<p>​    attachValidationError(this,function(){}) : 控件都有该方法，用于校验失败时的处理。</p>
-
-<p>​    attachValidationSuccess(this,function(){}) : 用于校验成功时的处理。</p>
-
+<li>
+<p>基本使用</p>
+<p>​	sap.ui.core.message.MessageManager();</p>
+<p>​	registerObject(oObject,bHandelValidation) : 第一个参数是ManagedObject对象的实例，第二个参数是boolean类型变量，为true时执行数据校验。</p>
+<p>​	attachValidationError(this,function(){}) : 控件都有该方法，用于校验失败时的处理。</p>
+<p>​	attachValidationSuccess(this,function(){}) : 用于校验成功时的处理。</p>
 <p>ValueState 种类:setValueState()</p>
-
-<p>​    sap.ui.core.ValueState.Error</p>
-
-<p>​    sap.ui.core.ValueState.None</p>
-
-<p>​    sap.ui.core.ValueState.Success</p>
-
-<p>​    sap.ui.core.ValueState.Warning</p>
-
-<ol>
-<li>集中处理数据校验:</li>
-</ol>
-
+<p>​	sap.ui.core.ValueState.Error</p>
+<p>​	sap.ui.core.ValueState.None</p>
+<p>​	sap.ui.core.ValueState.Success</p>
+<p>​	sap.ui.core.ValueState.Warning</p>
+</li>
+<li>
+<p>集中处理数据校验:</p>
 <p>sap.ui.core.Core也可添加attachValidationError().</p>
-
-<ol>
-<li>自定义数据类型校验:</li>
-</ol>
-
+</li>
+<li>
+<p>自定义数据类型校验:</p>
 <p>sap.ui.model.SimpleType.extend()自定义数据类型，可以使用formatValue(),parseValue(),validateValue()实现自定义的校验规则和提示消息。</p>
-
 <p>抛出异常信息：throw new sap.ui.model.ValidationException(&ldquo;Message&rdquo;);</p>
-
 <p>截取异常消息，使用该类型的控件通过<code>oEvent.getParameter(&quot;message&quot;)</code>获取该错误消息。</p>
-
+</li>
+</ol>
 <h3 id="formart设置">Formart设置</h3>
-
 <ol>
-<li>在Constructor或绑定方法中定义formatter (绑定单个控件)</li>
-</ol>
-
+<li>
+<p>在Constructor或绑定方法中定义formatter (绑定单个控件)</p>
 <p>var oText = new sap.m.Text({
-        text:{ formatter:function(sValue){
-                        return sValue &amp;&amp; sValue.toUpperCase();
-                }
-        }
-     });</p>
-
-<ol>
-<li>在Controller中定义formatter (更灵活，可重复调用)</li>
-</ol>
-
-<p><Text text="{path: '/productname', formatter: '.toUpper'}"/></p>
-
-<p>其中<code>.toUpper</code> 前面的<code>.</code>表示当前Controller方法。</p>
-
-<ol>
-<li>在专门模块中定义formatter</li>
-</ol>
-
+text:{ formatter:function(sValue){
+return sValue &amp;&amp; sValue.toUpperCase();
+}
+}
+});</p>
+</li>
+<li>
+<p>在Controller中定义formatter (更灵活，可重复调用)</p>
+<!-- raw HTML omitted -->
+<p>其中<code> .toUpper</code> 前面的<code>.</code>表示当前Controller方法。</p>
+</li>
+<li>
+<p>在专门模块中定义formatter</p>
 <p>单独定义formatter在Controller中引入该文件。并在view中调用。</p>
-
-<ol>
-<li>自定义数据类型中设置formatter</li>
+</li>
+<li>
+<p>自定义数据类型中设置formatter</p>
+</li>
 </ol>
-
 <h3 id="搜索与过滤">搜索与过滤</h3>
-
 <ol>
-<li>添加搜索框并绑定事件 <code>sap.m.SearchField</code></li>
-</ol>
-
-<pre><code class="language-xml">   &lt;List id=&quot;invoiceList&quot; items=&quot;{invoice&gt;/Invoices}&quot;&gt;
-   &lt;headerToolbar&gt;
-      &lt;Toolbar&gt;
-         &lt;Title text=&quot;{i18n&gt;invoiceListTitle}&quot;/&gt;
-         &lt;ToolbarSpacer/&gt;
-         &lt;SearchField width=&quot;50%&quot; search=&quot;.onFilterInvoices&quot;/&gt;
-      &lt;/Toolbar&gt;
-   &lt;/headerToolbar&gt;
-      &lt;items&gt;
-        &lt;ObjectListItem&gt;
-            ,,,,,,
-        &lt;/ObjectListItem&gt; 
-      &lt;/items&gt;
-   &lt;/List&gt;
-</code></pre>
-
-<ol>
-<li>事件定义并实现过滤</li>
-</ol>
-
+<li>
+<p>添加搜索框并绑定事件 <code>sap.m.SearchField</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;List</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;invoiceList&#34;</span> <span style="color:#a6e22e">items=</span><span style="color:#e6db74">&#34;{invoice&gt;/Invoices}&#34;</span><span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;headerToolbar&gt;</span>
+   <span style="color:#f92672">&lt;Toolbar&gt;</span>
+      <span style="color:#f92672">&lt;Title</span> <span style="color:#a6e22e">text=</span><span style="color:#e6db74">&#34;{i18n&gt;invoiceListTitle}&#34;</span><span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;ToolbarSpacer/&gt;</span>
+      <span style="color:#f92672">&lt;SearchField</span> <span style="color:#a6e22e">width=</span><span style="color:#e6db74">&#34;50%&#34;</span> <span style="color:#a6e22e">search=</span><span style="color:#e6db74">&#34;.onFilterInvoices&#34;</span><span style="color:#f92672">/&gt;</span>
+   <span style="color:#f92672">&lt;/Toolbar&gt;</span>
+<span style="color:#f92672">&lt;/headerToolbar&gt;</span>
+   <span style="color:#f92672">&lt;items&gt;</span>
+     <span style="color:#f92672">&lt;ObjectListItem&gt;</span>
+         ,,,,,,
+     <span style="color:#f92672">&lt;/ObjectListItem&gt;</span> 
+   <span style="color:#f92672">&lt;/items&gt;</span>
+<span style="color:#f92672">&lt;/List&gt;</span>
+</code></pre></div></li>
+<li>
+<p>事件定义并实现过滤</p>
 <p>filter对象将保留我们对filter操作的配置。<strong>new sap.ui.model.Filter(vFilterInfo, vOperator?, vValue1?, vValue2?)</strong></p>
-
 <p>FilterOperator是我们需要的帮助器类型，以指定过滤器，范围。</p>
-
-<pre><code class="language-JS">   new Filter({
-         path: &quot;Price&quot;,
-         operator: FilterOperator.BT,
-         value1: 11.0,
-         value2: 23.0
-       });
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Filter</span>({
+      <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Price&#34;</span>,
+      <span style="color:#a6e22e">operator</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FilterOperator</span>.<span style="color:#a6e22e">BT</span>,
+      <span style="color:#a6e22e">value1</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">11.0</span>,
+      <span style="color:#a6e22e">value2</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">23.0</span>
+    });
        
-   new Filter({
-       filters: [
-         ...
-         new Filter({
-           path: 'Quantity',
-           operator: FilterOperator.LT,
-           value1: 20
-         }),
-         new Filter({
-           path: 'Price',
-           operator: FilterOperator.GT,
-           value1: 14.0
-         })
-         ...
-       ],
-       and: true|false
-     })
-</code></pre>
-
-<pre><code class="language-js">   onFilterInvoices : function (oEvent) {
-    // build filter array
-    var aFilter = [];
-    var sQuery = oEvent.getParameter(&quot;query&quot;); //&quot;query&quot; 获取搜索字段
-    if (sQuery) {
-        aFilter.push(new Filter(&quot;ProductName&quot;, FilterOperator.Contains, sQuery)); //添加过滤条件
-    }
+<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Filter</span>({
+    <span style="color:#a6e22e">filters</span><span style="color:#f92672">:</span> [
+      ...
+      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Filter</span>({
+        <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Quantity&#39;</span>,
+        <span style="color:#a6e22e">operator</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FilterOperator</span>.<span style="color:#a6e22e">LT</span>,
+        <span style="color:#a6e22e">value1</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>
+      }),
+      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Filter</span>({
+        <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Price&#39;</span>,
+        <span style="color:#a6e22e">operator</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FilterOperator</span>.<span style="color:#a6e22e">GT</span>,
+        <span style="color:#a6e22e">value1</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">14.0</span>
+      })
+      ...
+    ],
+    <span style="color:#a6e22e">and</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">|</span><span style="color:#66d9ef">false</span>
+  })
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">onFilterInvoices</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">oEvent</span>) {
+ <span style="color:#75715e">// build filter array
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">aFilter</span> <span style="color:#f92672">=</span> [];
+ <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sQuery</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">oEvent</span>.<span style="color:#a6e22e">getParameter</span>(<span style="color:#e6db74">&#34;query&#34;</span>); <span style="color:#75715e">//&#34;query&#34; 获取搜索字段
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">sQuery</span>) {
+     <span style="color:#a6e22e">aFilter</span>.<span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Filter</span>(<span style="color:#e6db74">&#34;ProductName&#34;</span>, <span style="color:#a6e22e">FilterOperator</span>.<span style="color:#a6e22e">Contains</span>, <span style="color:#a6e22e">sQuery</span>)); <span style="color:#75715e">//添加过滤条件
+</span><span style="color:#75715e"></span> }
    
-    // filter binding
-    var oList = this.byId(&quot;invoiceList&quot;);     //获取List对象
-    var oBinding = oList.getBinding(&quot;items&quot;); //获取绑定的items
-    oBinding.filter(aFilter);              //根据过滤条件过滤items数据
-   }
-</code></pre>
-
-<h3 id="排序与分组">排序与分组</h3>
-
-<p>​       <code>new sap.ui.model.Sorter(sPath, bDescending?, vGroup?, fnComparator?)</code></p>
-
-<ol>
-<li>items=&ldquo;{path:&lsquo;invoice&gt;/Invoices&rsquo; sorter:{path:&lsquo;ProductName&rsquo;}}&rdquo;  //默认是升序ascending,可以添加属性descending : true.</li>
-<li>items=&ldquo;{path:&lsquo;invoice&gt;/Invoices&rsquo; sorter:{path:&lsquo;ProductName&rsquo;,group:true}}&rdquo;</li>
+ <span style="color:#75715e">// filter binding
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oList</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">byId</span>(<span style="color:#e6db74">&#34;invoiceList&#34;</span>);     <span style="color:#75715e">//获取List对象
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oBinding</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">oList</span>.<span style="color:#a6e22e">getBinding</span>(<span style="color:#e6db74">&#34;items&#34;</span>); <span style="color:#75715e">//获取绑定的items
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">oBinding</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">aFilter</span>);			   <span style="color:#75715e">//根据过滤条件过滤items数据
+</span><span style="color:#75715e"></span>}
+</code></pre></div></li>
 </ol>
-
+<h3 id="排序与分组">排序与分组</h3>
+<p>​		<code>new sap.ui.model.Sorter(sPath, bDescending?, vGroup?, fnComparator?)</code></p>
+<ol>
+<li>items=&rdquo;{path:&lsquo;invoice&gt;/Invoices&rsquo; sorter:{path:&lsquo;ProductName&rsquo;}}&rdquo;  //默认是升序ascending,可以添加属性descending : true.</li>
+<li>items=&rdquo;{path:&lsquo;invoice&gt;/Invoices&rsquo; sorter:{path:&lsquo;ProductName&rsquo;,group:true}}&rdquo;</li>
+</ol>
 <h3 id="私有函数和变量">私有函数和变量</h3>
-
 <ul>
 <li>私有函数和变量应始终以下划线开头。</li>
 </ul>
-
 <h2 id="消息设置">消息设置</h2>
-
-<h3 id="sap-m-messagebox">sap.m.MessageBox</h3>
-
+<h3 id="sapmmessagebox">sap.m.MessageBox</h3>
 <p>​    SAPUI5 提供的对话框，可以显示信息、警告、错误等等。MessageBox 类是静态类，在使用之前必须执行 <code>jQuery.sap.require(&quot;sap.m.MessageBox&quot;)</code> 语句 SAPUI5 包含 jQuery 包，<code>jQuery.sap.require(vModuleName)</code> 方法的作用是加载指定的模块并且执行，这样 MessageBox 的 show() 方法才能运行。</p>
-
 <blockquote>
-<p><code>sap.m.MessageBox.alert(vMessage, mOptions*?*)</code>对话框显示消息，有一个OK按钮（“确定”），没有图标</p>
-
+<p><code>sap.m.MessageBox.alert(vMessage, mOptions*?*) </code>对话框显示消息，有一个OK按钮（“确定”），没有图标</p>
 <p><code>sap.m.MessageBox.confirm(vMessage, mOptions*?*)</code> 确认对话框，询问是否确定，有一个OK按钮和Cancel按钮，一个问号的图标。</p>
-
 <p><code>sap.m.MessageBox.error(vMessage, mOptions*?*)</code> 显示错误对话框，带有错误图标和关闭按钮Displays an error dialog with the given message, an ERROR icon, a CLOSE button。</p>
-
 <p><code>sap.m.MessageBox.information(vMessage, mOptions*?*)</code> 消息对话框，带有INFO图标和OK按钮。</p>
-
 <p><code>sap.m.MessageBox.show(vMessage, mOptions*?*)</code> 显示对话框，类型为sap.m.DialogType.Message，图标和按钮由开发人员自行定义，相对灵活一些。</p>
-
 <p><code>sap.m.MessageBox.success(vMessage, mOptions*?*)</code> 显示成功对话框，带有SUCCESS图标和OK按钮。</p>
-
 <p><code>sap.m.MessageBox.warning(vMessage, mOptions*?*)</code> 显示警告消息，带有WARNING图标和OK按钮。</p>
-
 <p><code>sap.m.MessageToast.show()</code>对用户操作提供一种简单的反馈，并且经过一段时间后自动消失，除非用户将鼠标放在消息上面。</p>
 </blockquote>
-
 <h2 id="模块化">模块化</h2>
-
 <ol>
-<li>如何加载模块</li>
-</ol>
-
+<li>
+<p>如何加载模块</p>
 <blockquote>
-<p><code>jQuery.sap.declare(sModuleName,bCreateNamespace)</code>申明一个模块，以确保模块存在。这个语句必须出现在 模块代码（也就是代码文件)的第一句。</p>
-
+<p><code>jQuery.sap.declare(sModuleName,bCreateNamespace)</code>申明一个模块，以确保模块存在。这个语句必须出现在	模块代码（也就是代码文件)的第一句。</p>
 <p><code>jQuery.sap.require(vModuleName)</code>确保当前代码继续之前，所指定的模块被加载和执行。如果所需要的模块没有被加载，将会被同步加载和执行，如果已经加载，就忽略。</p>
-
 <p><code>sap.ui.define(sModuleName,aDependencies,vFactory,bExport)</code>定义module，异步加载依赖模块,sap.ui.define()定义的模块具有全局命名空间。2:定义依赖 3:继承工厂函数。</p>
-
 <p><code>sap.ui.require()</code>异步加载依赖的模块，不具有全局命名空间。</p>
 </blockquote>
-
-<ol>
-<li>使用模块方法实现Controller</li>
-</ol>
-
-<pre><code class="language-JS">   sap.ui.define(
-    [&quot;Dependencies1&quot;,&quot;Dependencies2&quot;],
-    function(Controller){
-    &quot;use strict&quot;;
-        return Controller.extend(&quot;ControllerName&quot;,{
-            onInit:function(){},
-                  onBeforeRendering:function(){},
-                  onAfterRendering:function(){},
-                  onExit:function(){}
-        });
-    }
-   );
-</code></pre>
-
-<ul>
+</li>
+<li>
+<p>使用模块方法实现Controller</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">define</span>(
+ [<span style="color:#e6db74">&#34;Dependencies1&#34;</span>,<span style="color:#e6db74">&#34;Dependencies2&#34;</span>],
+ <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">Controller</span>){
+ <span style="color:#e6db74">&#34;use strict&#34;</span>;
+     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Controller</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#e6db74">&#34;ControllerName&#34;</span>,{
+         <span style="color:#a6e22e">onInit</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
+               <span style="color:#a6e22e">onBeforeRendering</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
+               <span style="color:#a6e22e">onAfterRendering</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
+               <span style="color:#a6e22e">onExit</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){}
+     });
+ }
+);
+</code></pre></div><ul>
 <li>参数1 : 不定义，便于对模块进行访问</li>
 <li>参数2 : 指定依赖的模块，可指定多个</li>
 <li>参数3 : 定义工厂函数，实现Controller功能</li>
 </ul>
-
+</li>
+</ol>
 <h2 id="model-binding">Model Binding</h2>
-
 <h3 id="单数据绑定">单数据绑定</h3>
-
 <ol>
-<li>使用数据绑定前，需要先实例化Model.构造函数获取实例的URL或则数据本身作为第一个参数。</li>
-</ol>
-
+<li>
+<p>使用数据绑定前，需要先实例化Model.构造函数获取实例的URL或则数据本身作为第一个参数。</p>
 <p>​    JSON-Model:</p>
-
 <p>​        <code>var oModel = new sap.ui.model.json.JSONModel(dataUrlOrData);</code></p>
-
 <p>​    XML-Model:</p>
-
 <p>​        <code>var oModel = new sap.ui.model.xml.XMLModel(dataUrlOrData);</code></p>
-
 <p>​    OData-Model:</p>
-
 <p>​        <code>var oModel = new sap.ui.model.odata.ODataModel(dataUrl[,userJSON,user,pass]);</code></p>
-
-<ol>
-<li>给Model设置值</li>
-</ol>
-
+</li>
+<li>
+<p>给Model设置值</p>
 <p>oModel.setData(data);  绑定定义的数据</p>
-
 <p>oModel.loadData(&ldquo;models/suppliers.json&rdquo;); 从文件中读取数据绑定</p>
-
-<ol>
-<li><p>将Model分配给Core或则其他的控制器（setModel）方法。</p>
-
+</li>
+<li>
+<p>将Model分配给Core或则其他的控制器（setModel）方法。</p>
 <ul>
 <li>Global model:</li>
-</ul></li>
-</ol>
-
-<p>​        <code>sap.ui.getCore().setModel(oModel)</code> : 这样oModel对整个应用程序可见</p>
-
+</ul>
+<p>​        <code>sap.ui.getCore().setModel(oModel) </code> : 这样oModel对整个应用程序可见</p>
 <ul>
 <li>Bind a model to a view</li>
 </ul>
-
 <p>​       <code>var oView = sap.ui.view({type:sap.ui.core.mvc.ViewType.JS,viewName:&quot;text.view&quot;})</code></p>
-
-<p>​     <code>oView.setModel(oModel);</code></p>
-
+<p>​	 <code>oView.setModel(oModel);</code></p>
 <ul>
 <li>Bind a model to a specific control</li>
 </ul>
-
 <p>​        <code>var oTable = sap.ui.getCore().byId(&quot;table&quot;);</code></p>
-
 <p>​        <code>oTable.setModel(oModel);</code></p>
-
-<ol>
-<li>Model属性绑定方法（{ } curly braces，bindProperty()）</li>
-</ol>
-
+</li>
+<li>
+<p>Model属性绑定方法（{ } curly braces，bindProperty()）</p>
 <p>​    控件的大多数属性都可以绑定到模型属性。</p>
-
 <ul>
 <li>bindProperty  method: [extend : sap.ui.base.ManagedObject]</li>
 </ul>
-
 <p>​        <code>oControl.bindProperty(&quot;sName&quot;,&quot;oBindingInfo&quot;);</code></p>
-
-<p>​            oBindingInfo attributes : path、model、formatter等</p>
-
-<p>​                path : 指定绑定的数据路径</p>
-
-<p>​                model : sap.ui.model.BindingMode.OneWay、sap.ui.model.BindingMode.TwoWay</p>
-
-<p>​                formatter :</p>
-
+<p>​			oBindingInfo attributes : path、model、formatter等</p>
+<p>​				path : 指定绑定的数据路径</p>
+<p>​				model : sap.ui.model.BindingMode.OneWay、sap.ui.model.BindingMode.TwoWay</p>
+<p>​				formatter :</p>
 <ul>
-<li>花括号:{ }
-<br /></li>
+<li>花括号:{ }</li>
 </ul>
-
 <p>​        <code>var oControl = new sap.ui.commons.TextView({controlProperty:&quot;{/modelProperty}&quot;});</code></p>
-
 <ul>
-<li>alternatively：
-<br /></li>
+<li>alternatively：</li>
 </ul>
-
 <p>​        <code>var oControl = new sap.ui.commons.TextView({controlProperty:{path:&quot;/modelProperty&quot;}});</code></p>
-
-<ol>
-<li><p>Model属性的获取。</p>
-
+</li>
+<li>
+<p>Model属性的获取。</p>
 <ul>
-<li>oModel.getProperty(&ldquo;/sName&rdquo;);    根据JSON数据属性名获取对应的值</li>
-</ul></li>
+<li>oModel.getProperty(&quot;/sName&rdquo;);    根据JSON数据属性名获取对应的值</li>
+</ul>
+</li>
 </ol>
-
 <h3 id="多数据绑定">多数据绑定</h3>
-
 <p>​    用于绑定集合数据，如绑定多行数据到一个表格中。使用模板:所有行都用同样的方法显示数据。</p>
-
 <ul>
 <li>使用模板:所有行都用同样的方法显示数据</li>
 </ul>
-
-<pre><code class="language-JS">var oItemTemplate = new sap.ui.core.ListItem({text:&quot;{aggrProperty}&quot;});
-var oComboBox = new sap.ui.commons.ComboBox({
-  items:{path:&quot;/modelAggregation&quot;, template: oItemTemplate}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oItemTemplate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">ListItem</span>({<span style="color:#a6e22e">text</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;{aggrProperty}&#34;</span>});
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oComboBox</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">commons</span>.<span style="color:#a6e22e">ComboBox</span>({
+  <span style="color:#a6e22e">items</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;/modelAggregation&#34;</span>, <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">oItemTemplate</span>}
 });
-</code></pre>
-
-<ul>
+</code></pre></div><ul>
 <li>bindAggregation():</li>
 </ul>
-
 <p>​        <code>oComboBox.bindAggregation(&quot;items&quot;,&quot;/modelAggregation&quot;,oItemTemplate);</code></p>
-
 <ul>
-<li>工厂函数实现聚合绑定</li>
-</ul>
-
-<p>oTable.bindAggregation(&ldquo;items&rdquo;,&ldquo;/modelData&rdquo;,function(sId,oContext){</p>
-
-<p>​ return oColumnListItem; //通过工厂函数，定义数据并返回</p>
-
+<li>
+<p>工厂函数实现聚合绑定</p>
+<p>oTable.bindAggregation(&ldquo;items&rdquo;,&quot;/modelData&rdquo;,function(sId,oContext){</p>
+<p>​	return oColumnListItem;	//通过工厂函数，定义数据并返回</p>
 <p>});</p>
-
+</li>
+</ul>
 <h3 id="元素绑定">元素绑定</h3>
-
-<p>​   元素绑定指根据上下文(binding context)使用相对绑定的方式绑定到model数据的某一具体对象。尤其适用于<strong>主从数据显示(master-detail data)</strong>的情况。</p>
-
-<p>​   sap.m.List(sId?, mSettings?) : List控件适用于显示行项目，所有类型都可以。</p>
-
-<p>​   sap.m.ObjectListItem(sId?, mSettings?) : 适用于显示行项目的信息，主要使用<strong>title</strong>属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。</p>
-
-<p>​   sap.m.Panel().bindElement({path:sPath}) : 将显示的明细与Model绑定。</p>
-
+<p>​	元素绑定指根据上下文(binding context)使用相对绑定的方式绑定到model数据的某一具体对象。尤其适用于**主从数据显示(master-detail data)**的情况。</p>
+<p>​	sap.m.List(sId?, mSettings?) : List控件适用于显示行项目，所有类型都可以。</p>
+<p>​	sap.m.ObjectListItem(sId?, mSettings?) : 适用于显示行项目的信息，主要使用<strong>title</strong>属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。</p>
+<p>​	sap.m.Panel().bindElement({path:sPath}) : 将显示的明细与Model绑定。</p>
 <ol>
 <li>左边是一个List控件，右边在Panel中放置几个控件组合。当选择左边某个产品的时候，右边相应显示该产品的信息。</li>
 </ol>
-
 <p><code>oEvent.getSource().getBindingContext()</code>获取绑定的项，再使用<code>getPath()</code>方法得到path路径，然后设置右边的detailPanel与这个路径绑定。</p>
-
-<ol>
-<li>Model 中detail包含多条数据的情况，点击 一个header,显示多个行项目，可以通过<code>sap.ui.model.Filter()</code>的方法实现。</li>
-</ol>
-
+<ol start="2">
+<li>
+<p>Model 中detail包含多条数据的情况，点击 一个header,显示多个行项目，可以通过<code>sap.ui.model.Filter()</code>的方法实现。</p>
 <p>绑定点击事件,<code>oSupTable.attachRowSelectionChange(fuction(oEvent()))</code>。</p>
-
 <p>通过<code>var oRowContext = oEvent.getParameter(&quot;rowContext&quot;)</code>获取行的上下文。如果选中第一行，rowContext就是constructor {oModel: 指定Model, sPath: &ldquo;数据第一行地址&rdquo;}。</p>
-
 <p>然后通过<code>var sSelectedId = oModel.getProperty(&quot;id&quot;, oRowContext)</code>;就能获取到所选择行的id数据。</p>
-
 <p>通过 <code>var oBinding = oPrdTable.getBinding()</code>;获取对应详细数据的绑定。</p>
-
 <p>定义过滤规则，var oF = new sap.ui.model.Filter({path:&ldquo;key index&rdquo;,oprator: new sap.ui.model.FilterOperator.BT,value1:value&hellip;})。</p>
-
 <p>使用过滤规则，oBinding.filter(oF);</p>
-
+</li>
+</ol>
 <h3 id="绝对绑定和相对绑定">绝对绑定和相对绑定</h3>
-
 <ol>
-<li>绝对绑定</li>
-</ol>
-
+<li>
+<p>绝对绑定</p>
 <p>将value属性绑定到json model根目录下对应的字段title/attr。</p>
-
-<ol>
-<li>相对绑定</li>
-</ol>
-
+</li>
+<li>
+<p>相对绑定</p>
 <p><strong>相对绑定尤其适用于布局(layout)控件或者容器控件</strong></p>
-
 <p>当父控件的绑定路径设置后，子控件可以基于这个路径使用相对路径。</p>
-
+</li>
+</ol>
 <h2 id="routing导航">Routing导航</h2>
-
-<p>​   Openui5 的 routing 基于模式 ( pattern )，使用 <code>#</code> 符号表示不同的路径 ( route )，导航通过路径的改变来实现。</p>
-
+<p>​	Openui5 的 routing 基于模式 ( pattern )，使用 <code>#</code> 符号表示不同的路径 ( route )，导航通过路径的改变来实现。</p>
 <h3 id="pattern-表达式">Pattern 表达式</h3>
-
 <p>Openui5 一共有 5 种 pattern表达式:</p>
-
 <ol>
-<li><p><strong>硬编码模式</strong> : 页面之间根据模式导航，没有参数传递，比如 product/settings 表示导航到产品配置。</p></li>
-
-<li><p><strong>路径含有必输参数模式</strong> : 模式中 大括号({}) 包含的部分表示参数必须输入。比如 product/{id} 表示导航到产品某一 id，比如 product/5 表示 id 为 5 的产品，id 为必输。</p></li>
-
-<li><p><strong>路径含有可选参数模式</strong> : 模式中 冒号 包含的部分为必输参数。比如 product/{id}/detail/:detailId:，detailId 为可选参数。product/5/detail 以及 product/3/detail/2 都能与此模式匹配。</p></li>
-
-<li><p><strong>路径含有查询参数模式</strong> : 查询参数 ( query parameter ) 在问号之后。比如 product{?query}，query 这个参数为必输项。product:?query: 中的 query 这个参数为可选参数。</p></li>
-
-<li><p>**通配参数模式 **: 以星号结尾的参数是通配参数，通配参数将根据模式尽可能匹配。</p></li>
+<li>
+<p><strong>硬编码模式</strong> : 页面之间根据模式导航，没有参数传递，比如 product/settings 表示导航到产品配置。</p>
+</li>
+<li>
+<p><strong>路径含有必输参数模式</strong> : 模式中 大括号({}) 包含的部分表示参数必须输入。比如 product/{id} 表示导航到产品某一 id，比如 product/5 表示 id 为 5 的产品，id 为必输。</p>
+</li>
+<li>
+<p><strong>路径含有可选参数模式</strong> : 模式中 冒号 包含的部分为必输参数。比如 product/{id}/detail/:detailId:，detailId 为可选参数。product/5/detail 以及 product/3/detail/2 都能与此模式匹配。</p>
+</li>
+<li>
+<p><strong>路径含有查询参数模式</strong> : 查询参数 ( query parameter ) 在问号之后。比如 product{?query}，query 这个参数为必输项。product:?query: 中的 query 这个参数为可选参数。</p>
+</li>
+<li>
+<p>**通配参数模式 **: 以星号结尾的参数是通配参数，通配参数将根据模式尽可能匹配。</p>
+</li>
 </ol>
-
 <h3 id="导航调用">导航调用</h3>
-
 <ol>
-<li>父导航</li>
-</ol>
-
-<p>1) 跳转到Detail view子导航</p>
-
-<p>2) 向Detail view传递一个参数，参数为当前点击的路径，Detail获取该路径完成数据绑定</p>
-
-<ul>
-<li><p>var oRouter = UIComponent.getRouterFor(this);获取当前的router</p></li>
-
-<li><p>var oItem = oEvent.getSource();获取点击所在的行</p></li>
-
-<li><p>oItem.getBindingContext().getPath();获取点击的路径，String类型（/Sup/0）路径传到Detail</p></li>
-
-<li><p>oRouter.navTo(&ldquo;detail&rdquo;,{supplierPath:encodeURIComponent(sPath)});方法不能包含<code>/</code>所以使用 <code>encodeURIComponent()</code> 函数编码，在Detail controller 中用<code>decodeURIComponent()</code>函数解码。</p></li>
-</ul>
-
+<li>
+<p>父导航</p>
 <ol>
-<li>子导航</li>
+<li>
+<p>跳转到Detail view子导航</p>
+</li>
+<li>
+<p>向Detail view传递一个参数，参数为当前点击的路径，Detail获取该路径完成数据绑定</p>
+</li>
 </ol>
-
-<p>1) 获取 Master view 传递的路径，根据此路径完成 element binding。比如当 Master view 传过来 <code>/Suppliers/0</code>，则与第一条数据绑定;</p>
-
-<p>2) 根据页面之间的关系，当点击 <strong>返回</strong> 按钮时，返回到上一个页面。</p>
-
 <ul>
-<li><p><code>var oRouter = UIComponent.getRouterFor(this);</code>获取当前Router</p></li>
-
-<li><p><code>oRouter.getRoute(&quot;detail&quot;).attachPatternMatched(this._onObjectMatched, this);</code>，当模式匹配时，附加事件处理器为 <code>_onObjectMatched</code>。然后在 <code>_onObjectMatched</code> 中获取 Master view 传递的路径并绑定数据。</p>
-
-<pre><code class="language-JS"> _onObjectMatched: function (oEvent) {           
-     var sPath = decodeURIComponent(
-             oEvent.getParameter(&quot;arguments&quot;).supplierPath);
-     this.getView().bindElement({path: sPath});
- }   
-</code></pre>
-
-<ul>
-<li>当用户点击导航按钮，判断是否有上一个路径 ( previous hash )，如果有就返回上一个路径，否则跳转到 Master view:</li>
+<li>
+<p>var oRouter = UIComponent.getRouterFor(this);获取当前的router</p>
+</li>
+<li>
+<p>var oItem = oEvent.getSource();获取点击所在的行</p>
+</li>
+<li>
+<p>oItem.getBindingContext().getPath();获取点击的路径，String类型（/Sup/0）路径传到Detail</p>
+</li>
+<li>
+<p>oRouter.navTo(&ldquo;detail&rdquo;,{supplierPath:encodeURIComponent(sPath)});方法不能包含<code>/</code>所以使用 <code>encodeURIComponent()</code> 函数编码，在Detail controller 中用<code>decodeURIComponent()</code>函数解码。</p>
+</li>
 </ul>
-
-<pre><code class="language-JS"> onNavPress: function() {
-     var oHistory = History.getInstance();
-     var sPreviousHash = oHistory.getPreviousHash();
+</li>
+<li>
+<p>子导航</p>
+<ol>
+<li>
+<p>获取 Master view 传递的路径，根据此路径完成 element binding。比如当 Master view 传过来 <code>/Suppliers/0</code>，则与第一条数据绑定;</p>
+</li>
+<li>
+<p>根据页面之间的关系，当点击 <strong>返回</strong> 按钮时，返回到上一个页面。</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><code>var oRouter = UIComponent.getRouterFor(this);</code>获取当前Router</p>
+</li>
+<li>
+<p><code>oRouter.getRoute(&quot;detail&quot;).attachPatternMatched(this._onObjectMatched, this);</code>，当模式匹配时，附加事件处理器为 <code>_onObjectMatched</code>。然后在 <code>_onObjectMatched</code> 中获取 Master view 传递的路径并绑定数据。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">_onObjectMatched</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">oEvent</span>) {           
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sPath</span> <span style="color:#f92672">=</span> decodeURIComponent(
+            <span style="color:#a6e22e">oEvent</span>.<span style="color:#a6e22e">getParameter</span>(<span style="color:#e6db74">&#34;arguments&#34;</span>).<span style="color:#a6e22e">supplierPath</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getView</span>().<span style="color:#a6e22e">bindElement</span>({<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">sPath</span>});
+}   
+</code></pre></div></li>
+<li>
+<p>当用户点击导航按钮，判断是否有上一个路径 ( previous hash )，如果有就返回上一个路径，否则跳转到 Master view:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">onNavPress</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oHistory</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">History</span>.<span style="color:#a6e22e">getInstance</span>();
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sPreviousHash</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">oHistory</span>.<span style="color:#a6e22e">getPreviousHash</span>();
          
-     if (sPreviousHash != undefined){
-         window.history.go(-1);
-     }else{
-         var oRouter = UIComponent.getRouterFor(this);
-         oRouter.navTo(&quot;master&quot;,{}, true);
-     }
- }
-</code></pre></li>
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">sPreviousHash</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span>){
+        window.<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">go</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+    }<span style="color:#66d9ef">else</span>{
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oRouter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">UIComponent</span>.<span style="color:#a6e22e">getRouterFor</span>(<span style="color:#66d9ef">this</span>);
+        <span style="color:#a6e22e">oRouter</span>.<span style="color:#a6e22e">navTo</span>(<span style="color:#e6db74">&#34;master&#34;</span>,{}, <span style="color:#66d9ef">true</span>);
+    }
+}
+</code></pre></div></li>
 </ul>
-
-<h2 id="mock-server">mock server</h2>
-
-<p>​   在开发过程中，通过使用模拟服务器的方法方便测试，SAPUI5将模拟服务器称为mock server.mock server的基本功能是模拟oData数据的提供者，截获应用程序对服务器端的http或https请求，并传回模拟请求的回应，可以降低与真实后端的耦合。</p>
-
-<h1 id="系统配置和功能块">系统配置和功能块</h1>
-
-<h2 id="sap-netweaver-gateway">SAP NetWeaver Gateway</h2>
-
-<ol>
-<li>SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。</li>
+</li>
 </ol>
-
+<h2 id="mock-server">mock server</h2>
+<p>​	在开发过程中，通过使用模拟服务器的方法方便测试，SAPUI5将模拟服务器称为mock server.mock server的基本功能是模拟oData数据的提供者，截获应用程序对服务器端的http或https请求，并传回模拟请求的回应，可以降低与真实后端的耦合。</p>
+<h1 id="系统配置和功能块">系统配置和功能块</h1>
+<h2 id="sap-netweaver-gateway">SAP NetWeaver Gateway</h2>
+<ol>
+<li>
+<p>SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。</p>
 <blockquote>
 <p>任何SAP业务套件都是无中断的</p>
-
 <p>易于开发简单的API,不需要任何工具知识</p>
-
 <p>基于REST,oData。允许使用功能任何编程语言或模型连接到SAP应用程序</p>
 </blockquote>
-
+</li>
+<li>
+<p>将SAP NetWeaver Gateway 连接到 SAP Business Suite</p>
 <ol>
-<li>将SAP NetWeaver Gateway 连接到 SAP Business Suite</li>
+<li>将后端服务器配置为信任系统 : SM59</li>
 </ol>
-
-<p>1) 将后端服务器配置为信任系统 : SM59</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/SAPUI5/1559703243928.png" alt="1559703243928" class="lazyload"><figcaption class="image-caption">1559703243928</figcaption></figure></p>
-
-<p>​                <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/SAPUI5/1559712968906.png" alt="1559712968906" class="lazyload"><figcaption class="image-caption">1559712968906</figcaption></figure></p>
-
-<p>2) SMT1</p>
-
-<p>​                <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/SAPUI5/1559713194355.png" alt="1559713194355" class="lazyload"><figcaption class="image-caption">1559713194355</figcaption></figure></p>
-
+<p><img src="/images/SAPUI5/1559703243928.png" alt="1559703243928"></p>
+<p>​          		<img src="/images/SAPUI5/1559712968906.png" alt="1559712968906"></p>
+<ol start="2">
+<li>SMT1</li>
+</ol>
+<p>​             	<img src="/images/SAPUI5/1559713194355.png" alt="1559713194355"></p>
+</li>
+<li>
+<p>SAP NetWeaver Gateway部署选项</p>
 <ol>
-<li>SAP NetWeaver Gateway部署选项</li>
+<li>中央枢纽部署 : 后端系统的开发</li>
 </ol>
-
-<p>1) 中央枢纽部署 : 后端系统的开发</p>
-
-<p>​    在此类部署选项中，中央 UI 附加组件，特定于产品的 UI 附加组件和 SAP NetWeaver 网关包含在 ABAP 前端服务器中。后端服务器包含业务逻辑和后端数据。开发在 ABAP 后端系统中进行。</p>
-
+<p>​	在此类部署选项中，中央 UI 附加组件，特定于产品的 UI 附加组件和 SAP NetWeaver 网关包含在 ABAP 前端服务器中。后端服务器包含业务逻辑和后端数据。开发在 ABAP 后端系统中进行。</p>
 <ul>
-<li><p>它需要单独的 SAP NetWeaver Gateway 系统</p></li>
-
-<li><p>它允许在没有后端开发授权的情况下更改 UI。</p></li>
-
-<li><p>它为所有 UI 问题提供单点维护。</p></li>
-
-<li><p>它为 Fiori Apps 的主题和品牌提供了中心位置。</p></li>
-
-<li><p>它提供对后端系统的单点访问。</p></li>
-
-<li><p>由于无法直接访问后端系统，因此增强了安全性。</p></li>
-
-<li><p>直接本地访问元数据（DDIC）和业务数据以及轻松重用数据。</p></li>
+<li>
+<p>它需要单独的 SAP NetWeaver Gateway 系统</p>
+</li>
+<li>
+<p>它允许在没有后端开发授权的情况下更改 UI。</p>
+</li>
+<li>
+<p>它为所有 UI 问题提供单点维护。</p>
+</li>
+<li>
+<p>它为 Fiori Apps 的主题和品牌提供了中心位置。</p>
+</li>
+<li>
+<p>它提供对后端系统的单点访问。</p>
+</li>
+<li>
+<p>由于无法直接访问后端系统，因此增强了安全性。</p>
+</li>
+<li>
+<p>直接本地访问元数据（DDIC）和业务数据以及轻松重用数据。</p>
+</li>
 </ul>
-
-<p>2) 中央集线器的部署</p>
-
-<p>​    如果必须在后端系统上执行开发，或者在 7.40 之前的版本中执行开发，则使用此选项。如果不允许在<strong>后端</strong>部署 Add-On <strong>IW_BEP</strong>。在这种情况下，开发人员仅限于可通过后端 RFC 访问的接口。</p>
-
-<p>​    开发在 Gateway 集线器系统中进行，并且不触及 Business Suite 后端系统。</p>
-
+<ol start="2">
+<li>中央集线器的部署</li>
+</ol>
+<p>​	如果必须在后端系统上执行开发，或者在 7.40 之前的版本中执行开发，则使用此选项。如果不允许在<strong>后端</strong>部署 Add-On <strong>IW_BEP</strong>。在这种情况下，开发人员仅限于可通过后端 RFC 访问的接口。</p>
+<p>​	开发在 Gateway 集线器系统中进行，并且不触及 Business Suite 后端系统。</p>
 <ul>
-<li>无法直接访问<strong>元数据（DDIC）</strong>和业务数据。因此，数据的重用是有限的。</li>
+<li>无法直接访问**元数据（DDIC）**和业务数据。因此，数据的重用是有限的。</li>
 <li>无法远程使用 GENIL 对象。</li>
 <li>在此配置中，访问仅限于远程启用的接口，如 RFC 模块，BAPI 等。</li>
 </ul>
-
-<h2 id="odata-开放数据协议">oData(开放数据协议)</h2>
-
+</li>
+</ol>
+<h2 id="odata开放数据协议">oData(开放数据协议)</h2>
 <ol>
-<li><p>概述: OData 用于定义构建和使用 RESTful API 所需的最佳实践</p>
-
+<li>
+<p>概述: OData 用于定义构建和使用 RESTful API 所需的最佳实践</p>
 <ul>
 <li>OData 提供扩展功能，以满足 RESTful API 的任何自定义需求。</li>
 <li>REST 代表 Representational State Transfer。</li>
 <li>它依赖于无状态，客户端 - 服务器，可缓存的通信协议。几乎在所有情况下，都使用 HTTP 协议。</li>
 <li>REST 被定义为用于设计网络应用程序的体系结构样式。</li>
 <li>OData 可帮助您在构建 RESTful API 时专注于业务逻辑，而无需担心定义请求和响应头，状态代码，HTTP 方法，URL 约定，媒体类型，有效负载格式和查询选项等的方法。</li>
-</ul></li>
-
-<li><p>oData服务生命周期</p></li>
-</ol>
-
+</ul>
+</li>
+<li>
+<p>oData服务生命周期</p>
 <p>OData 服务生命周期包括 OData 服务的范围。</p>
-
 <ul>
 <li>激活 OData 服务。</li>
 <li>维护 OData 服务。</li>
 <li>维护模型和服务，直至清理元数据缓存。</li>
 <li>RESTful 应用程序使用 HTTP 请求发布数据以创建或更新，读取数据和删除数据。REST 对所有四个 CRUD（创建 / 读取 / 更新 / 删除）操作使用 HTTP。</li>
-<li>REST 是 RPC（远程过程调用）和 Web 服务等机制的轻量级替代方法。
-<br /></li>
+<li>REST 是 RPC（远程过程调用）和 Web 服务等机制的轻量级替代方法。</li>
 </ul>
-
-<ol>
-<li>oData设置</li>
-</ol>
-
+</li>
+<li>
+<p>oData设置</p>
 <p>在manifest.json中配置服务器：</p>
-
-<pre><code class="language-js">   &quot;sap.app&quot;: {
-    ...
-    &quot;ach&quot;: &quot;CA-UI5-DOC&quot;,
-    &quot;dataSources&quot;: {
-      &quot;invoiceRemote&quot;: {
-        &quot;uri&quot;: &quot;https://services.odata.org/V2/Northwind/Northwind.svc/&quot;,
-        &quot;type&quot;: &quot;OData&quot;,
-        &quot;settings&quot;: {
-          &quot;odataVersion&quot;: &quot;2.0&quot;
-        }
-      }
-    }
-    &quot;sap.ui5&quot;: {
-    ...
-    &quot;models&quot;: {
-      ...
-      &quot;invoice&quot;: {
-        &quot;dataSource&quot;: &quot;invoiceRemote&quot;
-      }
-    }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#34;sap.app&#34;</span><span style="color:#f92672">:</span> {
+ ...
+ <span style="color:#e6db74">&#34;ach&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CA-UI5-DOC&#34;</span>,
+ <span style="color:#e6db74">&#34;dataSources&#34;</span><span style="color:#f92672">:</span> {
+   <span style="color:#e6db74">&#34;invoiceRemote&#34;</span><span style="color:#f92672">:</span> {
+     <span style="color:#e6db74">&#34;uri&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://services.odata.org/V2/Northwind/Northwind.svc/&#34;</span>,
+     <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;OData&#34;</span>,
+     <span style="color:#e6db74">&#34;settings&#34;</span><span style="color:#f92672">:</span> {
+       <span style="color:#e6db74">&#34;odataVersion&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2.0&#34;</span>
+     }
+   }
+ }
+ <span style="color:#e6db74">&#34;sap.ui5&#34;</span><span style="color:#f92672">:</span> {
+ ...
+ <span style="color:#e6db74">&#34;models&#34;</span><span style="color:#f92672">:</span> {
+   ...
+   <span style="color:#e6db74">&#34;invoice&#34;</span><span style="color:#f92672">:</span> {
+     <span style="color:#e6db74">&#34;dataSource&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;invoiceRemote&#34;</span>
+   }
+ }
+</code></pre></div></li>
+</ol>
 <h2 id="sap-fiori-launchpad">SAP Fiori Launchpad</h2>
-
 <ol>
-<li><p>关于 SAP Fiori Launchpad 的要点如下。</p>
-
+<li>
+<p>关于 SAP Fiori Launchpad 的要点如下。</p>
 <ul>
-<li><p>基于 Web 的入口点，可跨平台和设备使用 SAP Business 应用程序。</p></li>
-
-<li><p>作为 I HTML 客户端的开箱即用思想提供。</p></li>
-
-<li><p>使用主题，搜索集成，自定义等功能为最终用户提供高生产率。</p></li>
-
-<li><p>为使用多种设备类型的最终用户提供单一入口点。</p></li>
-</ul></li>
+<li>
+<p>基于 Web 的入口点，可跨平台和设备使用 SAP Business 应用程序。</p>
+</li>
+<li>
+<p>作为 I HTML 客户端的开箱即用思想提供。</p>
+</li>
+<li>
+<p>使用主题，搜索集成，自定义等功能为最终用户提供高生产率。</p>
+</li>
+<li>
+<p>为使用多种设备类型的最终用户提供单一入口点。</p>
+</li>
+</ul>
+</li>
 </ol>
 
     </div>
@@ -1917,7 +1579,7 @@ var oComboBox = new sap.ui.commons.ComboBox({
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>14701</span>
+                   <span>14494</span>
             </p>
             
             <p class="copyright-item">
@@ -1960,7 +1622,7 @@ var oComboBox = new sap.ui.commons.ComboBox({
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-04-16 00:00:00 \x2b0000 UTC',
+        id: '2019-04-16 00:00:00 \u002b0000 UTC',
         title: ' SAPUI5 ',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
