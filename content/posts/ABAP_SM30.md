@@ -84,6 +84,10 @@ Recording rountine:
 
 ![TCode分配](/images/ABAP/SM305.png)
 
+#### 查找SM30表维护对应的Tcode
+
+​	通过SE16/SE16n输入表TSTCP,然后在**Parameters**中输入'* Tablename *' ,点击执行，将查找出表维护对应的Tcode.
+
 #### 对维护表进行增强操作
 
 可以通过增强的方式对维护表中的已知字段进行操作，比如每次修改后自动记录修改时间和修改人信息。

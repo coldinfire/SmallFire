@@ -1074,12 +1074,12 @@
     </item>
     
     <item>
-      <title>常用Tcode</title>
+      <title>开发 常用Tcode汇总</title>
       <link>https://coldinfire.github.io/2018/ABAP_Tcode/</link>
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Tcode/</guid>
-      <description>TCode SPRO : 显示后勤 ST05 : Trace Sql 路径跟踪 ST22：ABAP Runtime Error SE19 : BADI修改和创建 SE24 : 创建、修改、查询类的开发工具 SE21 : 创建、修改、查询包的开发工具 ST22</description>
+      <description>ABAP TCode 事务码 功能 事务码 功能 SPRO 显示后勤 SE18 BADI Builder ST05/SE30 系统跟踪/系统性能详细跟踪 SE19 BADI Implement ST22 查看日志信息 SE24 创建、修改、查询类对象 SM12 编辑锁定解除 SE21 创建、修改、</description>
     </item>
     
     <item>

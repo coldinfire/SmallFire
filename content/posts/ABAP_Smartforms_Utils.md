@@ -30,17 +30,53 @@ tags:
 
 #### Page Break in a smartforms
 
- Page break based on a field value,Compare the field value and if the value chnaged then do a page break.
+根据字段值进行分页，比较该字段值，如果该值被更改，则进行分页。
 
-- Create a Page with a Main Window to display the item deatils as Table in the smartform.
+- 创建一个带有主窗口的页面，将项目详细信息显示为smartform中的Table。
+- 在主窗口内创建一个循环，循环内部表数据。
+- 在循环中创建一个命令，在命令的条件选项卡中检查字段值。
+- 选中复选框（转到新页面），然后提供要显示的下一页。
+- 在命令下创建文本以显示数据。
+- 根据在命令条件选项卡中给出的条件，分页符将自动被触发，所需的数据将流到下一页。
 
-- Create a Loop inside the Main window, to loop the internal tables with data.
+#### Smartforms 连续打印
 
-- Create a Command in the loop, in the condition tab of the command check the field value.
+调用 smartforms 时直接打印，不出现打印预览窗口
 
-- Select the checkbox (Go to New Page) and give the next page which you want to display.
+```JS
+DATA: fm_name TYPE rs38l_fnam.
+DATA: ls_control_param TYPE ssfctrlop .
+DATA: ls_composer_param TYPE ssfcompop .
+	
+  ls_control_param-langu = sy-langu.
+  ls_control_param-no_open = 'X'.
+  ls_control_param-no_close = 'X'.
+  ls_control_param-no_dialog = 'X'.  " Not show dialog
 
-- Create a text under the command to display data.
-
-  Based on the condition you have given in the condition tab of the command, a page break will automatically get triggered and the needed data will get flowed to the next page.
+  ls_composer_param-tddest = 'LP01'. " Printer
+  ls_composer_param-tdimmed = 'X'.   " Print Immediately (Print Parameters)
+  ls_composer_param-tddelete = 'X'.  " Delete After Printing (Print Parameters)
+   
+   * 根据 SmartForm 名称获得 Form 的 Function Name
+  CALL FUNCTION 'SSF_FUNCTION_MODULE_NAME'
+    EXPORTING
+      formname = 'FORM_NAME'
+    IMPORTING
+       fm_name = fm_name
+    EXCEPTIONS
+       no_form = 1
+       no_function_module = 2
+      OTHERS = 3 .
+      
+  CALL FUNCTION fm_name
+    EXPORTING
+      control_parameters = ls_control_param
+      output_options     = ls_composer_param
+    EXCEPTIONS
+      formatting_error   = 1
+      internal_error     = 2
+      send_error         = 3
+      user_canceled      = 4
+      OTHERS             = 5.
+```
 
