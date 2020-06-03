@@ -167,6 +167,8 @@ TYPES:  END OF str_pidoc.
 
 - DELETE ADJACENT DUPLICATES FROM itab.：删除重复数据，执行此条件前必须先排序。
 
+  - 删除重复数据，保留第一条。
+
 
 **MODIFY:(修改内表数据)**
     
@@ -185,7 +187,7 @@ TYPES:  END OF str_pidoc.
 
 
 - LOOP AT ITAB [INTO WA] WHERE cond.：按具体字段条件读取内表。
-- LOOP AT ITAB [ASSIGNING wa ] WHERE cond.：分配给字段符号。
+- LOOP AT ITAB [ASSIGNING wa ] WHERE cond.：分配给字段符号。
 
 **AT...ENDAT（设置内表循环触发条件）**
 
@@ -210,6 +212,8 @@ TYPES:  END OF str_pidoc.
 
 - READ TABLE itab [INTO wa] WITH [TABLE] KEY k1=v1...kn=vn [BINARY SEARCH].
 
+  - **二分法搜出来的数据是第一条符合条件的数据，必须先按关键字段排序**
+
 
 - READ TABLE itab [INTO wa] INDEX i.
 
@@ -223,8 +227,14 @@ TYPES:  END OF str_pidoc.
 **DESCRIBE（获取内表具体属性）**
 
 - DESCRIBE TABLE itab LINES n：获取内表当前总行数，n为整型(i)。
-
 - n = lines (itab). 
+
+**SORT（内表排序操作）**
+
+- SORT itab ASCENDING|DESCENDING BY field1 field2 field3.
+  - 指示符在 BY 在前面，表示后面的字段都用这个升降序，作用范围是后面 BY 所有的字段
+- SORT itab BY field1 field2 field3 ASCENDING|DESCENDING.
+  - 指示符在 BY 的后面，则只是对这个指示符前面的字段起作用，其他的字段还是默认的方式排序
 
 
 

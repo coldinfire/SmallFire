@@ -103,7 +103,7 @@ MODIFY <dbtab> FROM <wa>.
 MODIFY <dbtab> FROM TABLE <itab>.
   ```
 
-  
+
 
 ------
 

@@ -71,8 +71,8 @@ tags:
   MODE:显示模式
   UPDATE:更新模式
   MESSAGE:用于存放消息
-  ```
-  
+```
+
   
 
 **MODE:**
@@ -169,8 +169,13 @@ perform close_dataset using dataset.
 
 #### 有两个固定表
 
-*       Batch inputdata of single transaction：输入数据表`data: BDC_DATA like bdcdata occurs 0 with header line.`
-*       Messages of call transaction：返回信息`data: MESSAGE like bdcmsgcoll occurs 0 with header line.`
+Batch inputdata of single transaction：输入数据表
+
+- `data: BDC_DATA like bdcdata occurs 0 with header line.`
+
+Messages of call transaction：返回信息
+
+- `data: MESSAGE like bdcmsgcoll occurs 0 with header line.`
 
 #### 两个固定Form
 

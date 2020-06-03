@@ -142,6 +142,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2020/SAP_ME2N_ME2M/</loc>
+      
+      <lastmod>2020-04-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
       <lastmod>2020-03-20T00:00:00+00:00</lastmod>
@@ -2368,9 +2382,23 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV4.1/</loc>
+      
+      <lastmod>2018-06-29T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_ALV4/</loc>
       
-      <lastmod>2018-06-28T00:00:00+00:00</lastmod>
+      <lastmod>2018-06-25T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
