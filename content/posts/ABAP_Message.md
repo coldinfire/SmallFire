@@ -28,6 +28,18 @@ MESSAGE E001(ZTEST).
 
 ​	ZTEST:自定义的消息类
 
+**获取标准错误信息**
+
+```javascript
+DATA msgtext TYPE string.
+CALL BAPI .... 
+IF sy-subrc <> 0.
+  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+          INTO msgtext
+          WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+ENDIF. 
+```
+
 **MESSAGE显示:**
 
 ```JS
