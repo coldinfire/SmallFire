@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 06 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SAP DBCO连接测试</title>
+      <link>https://coldinfire.github.io/2020/SAPDBCO_Connect/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPDBCO_Connect/</guid>
+      <description>TCode: DBCO查看数据库连接信息 测试连通性 使用程序：ADBC_TEST_CONNECTION 输入Database connection name,进行连接测试</description>
+    </item>
     
     <item>
       <title>Transfer Order(L_TO_CREATE_SINGLE)</title>

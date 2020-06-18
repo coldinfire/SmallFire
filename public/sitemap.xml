@@ -30,6 +30,104 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
+      
+      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/SAPDBCO_Connect/</loc>
+      
+      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/utils/</loc>
+      
+      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/categories/business/</loc>
       
       <lastmod>2020-05-06T00:00:00+00:00</lastmod>
@@ -44,63 +142,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/</loc>
-      
-      <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/tags/MM/</loc>
-      
-      <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
       
       <lastmod>2020-05-06T00:00:00+00:00</lastmod>
       
@@ -145,20 +187,6 @@
       <loc>https://coldinfire.github.io/2020/SAP_ME2N_ME2M/</loc>
       
       <lastmod>2020-04-16T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
-      
-      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1879,20 +1907,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2018/SAPAuthorization_details/</loc>
-      
-      <lastmod>2018-09-23T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/utils/</loc>
       
       <lastmod>2018-09-23T00:00:00+00:00</lastmod>
       
