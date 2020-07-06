@@ -17,7 +17,25 @@
       <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/SAPDBCO_Connect/</guid>
-      <description>TCode: DBCO查看数据库连接信息 测试连通性 使用程序：ADBC_TEST_CONNECTION 输入Database connection name,进行连接测试</description>
+      <description>TCode: DBCO查看数据库连接信息 测试连通性 使用程序：ADBC_TEST_CONNECTION / 参考 ADBC* 输入Database connection name,进行连接测试</description>
+    </item>
+    
+    <item>
+      <title>SAP 库存查看</title>
+      <link>https://coldinfire.github.io/2020/SAPStock/</link>
+      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPStock/</guid>
+      <description>显示物料的库存 MMBE:查看物料的所有库存信息。 Stock Tcodes Desc 中文描述 MB51 Material Doc. List 物料凭证清单 MB52 List of Warehouse Stocks on Hand 现有仓库库存清单 MB53 Display Plant Stock Availability 显示工厂库存可用性</description>
+    </item>
+    
+    <item>
+      <title>SAP 移动类型详解</title>
+      <link>https://coldinfire.github.io/2020/SAPGoodMovementTypes/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPGoodMovementTypes/</guid>
+      <description>SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型。 移动类型参考字段MSEG-BWART，移动类型参考表T156，文本表是T156T. SAP MM</description>
     </item>
     
     <item>
