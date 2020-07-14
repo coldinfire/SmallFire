@@ -21,12 +21,30 @@
     </item>
     
     <item>
+      <title>SAP Cost Center</title>
+      <link>https://coldinfire.github.io/2020/SAPCostCenter/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPCostCenter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>OLE下载数据到EXCEL模板及速度优化</title>
       <link>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</guid>
       <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 **问题描述:**当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要</description>
+    </item>
+    
+    <item>
+      <title>移动品均价和标准价</title>
+      <link>https://coldinfire.github.io/2020/MMStandardPrice/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MMStandardPrice/</guid>
+      <description>引用链接：移动平均价和标准价 移动平均价和标准价的概念 标准价： ​ 以一个标准的价格表示一个物料在一段时间内的价值，简称S。来源于实际成本估算。用</description>
     </item>
     
     <item>

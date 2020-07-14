@@ -174,8 +174,7 @@ ObjectListItem适用于显示行项目的信息，主要使用title属性进行�
    >
    > ​	`sap.ui.core.VerticalAlign.Middle: `居中对齐
    >
-> ​	`sap.ui.core.VerticalAlign.Top:`顶部对齐
-   >
+   >  `sap.ui.core.VerticalAlign.Top:`顶部对齐
 
    `cells: `行包含的cells，每一个cell都是`sap.ui.core.Control`对象，从而开发人员可以根据需要选择合适的控件，灵活度很高。
 
@@ -211,13 +210,13 @@ ObjectListItem适用于显示行项目的信息，主要使用title属性进行�
 
 ```JS
 <script id="sap-ui-bootstrap"
-		src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
-		data-sap-ui-theme="sap_belize"
-		data-sap-ui-libs="sap.m"
-		data-sap-ui-compatVersion="edge"
-		data-sap-ui-preload="async"
-		data-sap-ui-bindingSyntax = "complex"
-		data-sap-ui-resourceroots = '{"sFileSourceName":"oURL"}'>
+	src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+	data-sap-ui-theme="sap_belize"
+	data-sap-ui-libs="sap.m"
+	data-sap-ui-compatVersion="edge"
+	data-sap-ui-preload="async"
+	data-sap-ui-bindingSyntax = "complex"
+	data-sap-ui-resourceroots = '{"sFileSourceName":"oURL"}'>
 </script>
 ```
 
@@ -432,7 +431,7 @@ sap.ui.define(
 
    变更位置后需要修改系统自动生成的文件名称。
 
-Component
+#### Component
 
 Component.js通过调用manifest.json的配置信息，完成初始化调用。
 
@@ -680,9 +679,8 @@ var sLocale = sap.ui.getCore().getConfiguration().getLanguage();//获取当前�
 var oBd = jQuery.sap.resources({
 	url: "i18n/i18n.properties",
 	locale: sLocale
-})               						 //根据指定的 URL 和 Locale，创建一个新的资源包实例
-var sMeg = oBd.getText("key",[sLocale]); //根据资源包文件的 key，获取与语言相关的 value。
-
+})               //根据指定的 URL 和 Locale，创建一个新的资源包实例
+var sMeg = oBd.getText("key",[sLocale]); //根据资源包文件的 key，获取与语言相关的 value
 ```
 
 
@@ -693,23 +691,23 @@ var sMeg = oBd.getText("key",[sLocale]); //根据资源包文件的 key，获取
 
 ​	sap.m.App : 是一个全局对象，可以通过 app.to(sPageId) 跳转到另一个页面。
 
-​		to(sPageId, sTransitionName*?*, oData*?*, oTransitionParameters*?*): [sap.m.NavContainer]
+​		to(sPageId, sTransitionName *?* , oData *?* , oTransitionParameters *?* ): [sap.m.NavContainer]
 
 ​	app.back()则跳回到刚才的page：
 
-​		back(oBackData*?*, oTransitionParameters*?*): [sap.m.NavContainer]
+​		back(oBackData *?* , oTransitionParameters *?* ): [sap.m.NavContainer]
 
 ​	`sap.m.Page`中，`showNavButton`设置为`true`，就会出现Navigation按钮，点击按钮的event hander通过Controller中`onNavPress`函数来实现。
 
 ```js
-	var oDetailPage = new sap.m.Page({
-        showNavButton: true,
-        navButtonPress: [oController.onNavPress, oController],
-        title: "供应商明细",
-        content: [oObjectHeader]
-    });
+var oDetailPage = new sap.m.Page({
+  showNavButton: true,
+  navButtonPress: [oController.onNavPress, oController],
+  title: "供应商明细",
+  content: [oObjectHeader]
+});
 ```
-​	`sap.m.ColumnListItem`的type必须为Navigation，否则不能实现跳转。`sap.m.ColumnListItem`的press属性设置为一个数组，这种方法能够保证在Controller中，this表示Controller本身，而不是某个控件。
+`sap.m.ColumnListItem`的type必须为Navigation，否则不能实现跳转。`sap.m.ColumnListItem`的press属性设置为一个数组，这种方法能够保证在Controller中，this表示Controller本身，而不是某个控件。
 
 ### 布局类型
 
@@ -782,16 +780,17 @@ var oLabel2 = new sap.m.Label({
 
    sapUiResponsiveMargin
 
-   > <Panel headerText="{i18n>helloPanelTitle}"
-   > 	   class="sapUiResponsiveMargin"
-   > 	   width="auto">
-   > </Panel>
-   >
-   > <body class="sapUiBody sapUiResponsiveMargin" role="application">
-   >
-   > ​		<div id="content"></div>
-   >
-   > </body>
+   ```js
+   <Panel headerText="{i18n>helloPanelTitle}"
+   	   class="sapUiResponsiveMargin"
+   	   width="auto">
+   </Panel>
+   <body class="sapUiBody sapUiResponsiveMargin" role="application">
+   	<div id="content"></div>
+   </body>
+   ```
+
+   
 
 5. 100%宽度控制
 
@@ -843,7 +842,7 @@ var oLabel2 = new sap.m.Label({
    <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
    	<Dialog id="helloDialog" title="Hello {/recipient/name}">
    		<content>
-   			<core:Icon src="sap-icon://hello-world" size="80px" class="sapUiMediumMargin">					 </core:Icon>
+   			<core:Icon src="sap-icon://hello-world" size="80px" class="sapUiMediumMargin"></core:Icon>
    		</content>
    		<beginButton>
    			<Button text="{i18n>dialogCloseButtonText}" press=".onCloseDialog"></Button>
@@ -955,7 +954,8 @@ var oLabel2 = new sap.m.Label({
    		},
    
    		/**
-   		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
+   		 * The component is initialized by UI5 automatically during the startup of 
+   		 the app and calls the init method once.
    		 * @public
    		 * @override
    		 */
@@ -1457,15 +1457,20 @@ Openui5 一共有 5 种 pattern表达式:
 
 ## SAP NetWeaver Gateway
 
-1. SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。
+1. SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。可以将SAP Gateway理解为是SAP将OData技术产品化的方式。
 
-   > 任何SAP业务套件都是无中断的
-   >
-   > 易于开发简单的API,不需要任何工具知识
-   >
-   > 基于REST,oData。允许使用功能任何编程语言或模型连接到SAP应用程序
+   SAP Gateway提供了以下的能力：
 
-   
+   - 支持任何设备，任何平台
+   - 支持多个对象的聚合数据访问
+   - 支持基于客户端应用程序的数据筛选
+   - 生成结构
+   - CRUD（Create, Read, Update, Delete）操作
+   - 易于开发简单的API,不需要任何工具知识
+   - 不需要SAP知识
+   - 支持快速建立原型
+   - 基于REST,OData。允许使用功能任何编程语言或模型连接到SAP应用程序
+   - 开发者可以基于现有的SAP BW query，BAPI，RFC，Web Dynpro屏幕，创建新的SAP Gateway对象
 
 2. 将SAP NetWeaver Gateway 连接到 SAP Business Suite
 
@@ -1473,11 +1478,11 @@ Openui5 一共有 5 种 pattern表达式:
 
    ![1559703243928](/images/SAPUI5/1559703243928.png)
 
-   ​          		![1559712968906](/images/SAPUI5/1559712968906.png)    
+     ![1559712968906](/images/SAPUI5/1559712968906.png)    
 
    2) SMT1
 
-   ​             	![1559713194355](/images/SAPUI5/1559713194355.png)
+     ![1559713194355](/images/SAPUI5/1559713194355.png)
 
 3. SAP NetWeaver Gateway部署选项
 
@@ -1513,6 +1518,7 @@ Openui5 一共有 5 种 pattern表达式:
    - 它依赖于无状态，客户端 - 服务器，可缓存的通信协议。几乎在所有情况下，都使用 HTTP 协议。
    - REST 被定义为用于设计网络应用程序的体系结构样式。
    - OData 可帮助您在构建 RESTful API 时专注于业务逻辑，而无需担心定义请求和响应头，状态代码，HTTP 方法，URL 约定，媒体类型，有效负载格式和查询选项等的方法。
+   - 用OData就是帮助你将焦点汇聚在业务逻辑的呈现上，而不用费心去考虑前台的展现层和后台业务逻辑层如何交互的细节。
 
 2. oData服务生命周期
 

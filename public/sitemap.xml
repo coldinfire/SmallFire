@@ -30,9 +30,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
       
-      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+      <lastmod>2020-07-05T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -46,7 +46,21 @@
     <url>
       <loc>https://coldinfire.github.io/categories/</loc>
       
-      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+      <lastmod>2020-07-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/FICO/</loc>
+      
+      <lastmod>2020-07-05T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -59,6 +73,76 @@
   
     <url>
       <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2020-07-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/FITables/</loc>
+      
+      <lastmod>2020-07-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2020-07-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2020-07-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/FIGLAccount/</loc>
+      
+      <lastmod>2020-07-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
       <lastmod>2020-06-18T00:00:00+00:00</lastmod>
       
@@ -86,34 +170,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
-      
-      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/tags/utils/</loc>
       
       <lastmod>2020-06-18T00:00:00+00:00</lastmod>
@@ -128,9 +184,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
+      <loc>https://coldinfire.github.io/2020/WMTable/</loc>
       
-      <lastmod>2020-05-24T00:00:00+00:00</lastmod>
+      <lastmod>2020-05-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/WM/</loc>
+      
+      <lastmod>2020-05-28T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -226,6 +296,34 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2020/SAPCostCenter/</loc>
+      
+      <lastmod>2020-04-03T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/SAPbusiness/</loc>
+      
+      <lastmod>2020-04-03T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/tags/abaputils/</loc>
       
       <lastmod>2020-03-20T00:00:00+00:00</lastmod>
@@ -257,6 +355,20 @@
       <loc>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</loc>
       
       <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/MMStandardPrice/</loc>
+      
+      <lastmod>2020-03-08T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -313,20 +425,6 @@
       <loc>https://coldinfire.github.io/2020/SAP_PR/</loc>
       
       <lastmod>2020-02-28T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/FICO/</loc>
-      
-      <lastmod>2020-02-24T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -562,9 +660,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/SAP_PO_BAPI/</loc>
+      <loc>https://coldinfire.github.io/2019/MMOutsourcing_Business/</loc>
       
-      <lastmod>2019-09-07T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-14T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -576,9 +674,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/SAPbusiness/</loc>
+      <loc>https://coldinfire.github.io/2019/MMPO_Enhance/</loc>
       
-      <lastmod>2019-09-03T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAP_PO_BAPI/</loc>
+      
+      <lastmod>2019-09-07T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -688,7 +800,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</loc>
+      <loc>https://coldinfire.github.io/2019/MMGoodsMVT_BAPI/</loc>
       
       <lastmod>2019-07-04T00:00:00+00:00</lastmod>
       

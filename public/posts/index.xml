@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SAP FI tables</title>
+      <link>https://coldinfire.github.io/2020/FITables/</link>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/FITables/</guid>
+      <description>SAP FI 表：主数据 总帐科目的 SAP 表 总账科目主记录包含总账确定科目功能所需的数据。 总帐科目主记录控制会计交易到总帐科目的过帐以及过帐数据的处理。 G/L ACCOUNTS</description>
+    </item>
+    
+    <item>
+      <title>G/L Account 主要Tcode和tables</title>
+      <link>https://coldinfire.github.io/2020/FIGLAccount/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/FIGLAccount/</guid>
+      <description>什么是G/L Account 首先，总账科目代表总账。 总帐会计的中心任务是提供外部会计和科目的全面情况。 在与公司所有其他业务领域完全集成的软件系统中记录所有</description>
+    </item>
     
     <item>
       <title>SAP DBCO连接测试</title>
@@ -18,6 +36,15 @@
       
       <guid>https://coldinfire.github.io/2020/SAPDBCO_Connect/</guid>
       <description>TCode: DBCO查看数据库连接信息 测试连通性 使用程序：ADBC_TEST_CONNECTION / 参考 ADBC* 输入Database connection name,进行连接测试</description>
+    </item>
+    
+    <item>
+      <title>SAP WM 常用表</title>
+      <link>https://coldinfire.github.io/2020/WMTable/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/WMTable/</guid>
+      <description>WM 常用Table的功能划分： Transfer requirement Transfer order Inventory Documents Storage Locations Storage Stocks SAP WM Tables for Transfer requirement 主要用于使用仓库管理系统（WMS）计划货物移动。 通过区分货物移动的计划和执行，您</description>
     </item>
     
     <item>
@@ -66,12 +93,30 @@
     </item>
     
     <item>
+      <title>SAP Cost Center</title>
+      <link>https://coldinfire.github.io/2020/SAPCostCenter/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPCostCenter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>OLE下载数据到EXCEL模板及速度优化</title>
       <link>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</guid>
       <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 **问题描述:**当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要</description>
+    </item>
+    
+    <item>
+      <title>移动品均价和标准价</title>
+      <link>https://coldinfire.github.io/2020/MMStandardPrice/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MMStandardPrice/</guid>
+      <description>引用链接：移动平均价和标准价 移动平均价和标准价的概念 标准价： ​ 以一个标准的价格表示一个物料在一段时间内的价值，简称S。来源于实际成本估算。用</description>
     </item>
     
     <item>
@@ -219,6 +264,24 @@
     </item>
     
     <item>
+      <title>MM 委外业务(外发加工)</title>
+      <link>https://coldinfire.github.io/2019/MMOutsourcing_Business/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMOutsourcing_Business/</guid>
+      <description>委外加工是指由本公司提供材料（可能是部分）给外包商进行加工，完工后收回成品并向委外加工商支付加工费的业务方式； 步骤： 1.创建为外加工订单： 订</description>
+    </item>
+    
+    <item>
+      <title>PO 增强</title>
+      <link>https://coldinfire.github.io/2019/MMPO_Enhance/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MMPO_Enhance/</guid>
+      <description>创建采购订单(Purchase Order)时可以通过增强做一些控制。 BADI:ME_PROCESS_PO_CUST process_header： 对PO抬头数据进行检查 process_i</description>
+    </item>
+    
+    <item>
       <title>生产订单标准BAPI</title>
       <link>https://coldinfire.github.io/2019/SAP_PO_BAPI/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
@@ -283,10 +346,10 @@
     
     <item>
       <title> BAPI_GOODSMVT_CREATE Demo </title>
-      <link>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</link>
+      <link>https://coldinfire.github.io/2019/MMGoodsMVT_BAPI/</link>
       <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</guid>
+      <guid>https://coldinfire.github.io/2019/MMGoodsMVT_BAPI/</guid>
       <description>Inventory Management使用的BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证</description>
     </item>
     
