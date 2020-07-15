@@ -187,6 +187,10 @@ CALL FUNCTION 'BAPI_GOODSMVT_CREATE' DESTINATION 'NONE'
       destination = 'NONE'.
 ```
 
+#### BAPI_GOODSMVT_CANCEL 冲销物料凭证
+
+
+
 **参考**
 
 - [Goods Movements with BAPI](https://wiki.scn.sap.com/wiki/display/ERPSCM/Goods+Movements+with+BAPI)

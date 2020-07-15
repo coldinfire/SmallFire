@@ -1,6 +1,6 @@
 ---
 title: " Fiori简介 "
-date: 2019-04-22
+date: 2019-04-16
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -12,7 +12,10 @@ tags:
 
 ---
 
-## 框架设计 ##
+### 框架设计 ###
+
+![SAP Fiori架构概览](/images/HANA/Fiori1.png)
+
    SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。
 
   - 基于角色 - SAP已经分解了各种SAP事务并将其更改为漂亮的用户交互式应用程序，这些应用程序仅向用户显示最相关的信息。
@@ -25,9 +28,22 @@ tags:
 
   - 令人愉快 - SAP Fiori旨在与ECC 6.0协同工作，使用户可以轻松地在现有SAP系统上进行部署。
 
+### Fiori Launch Pad
 
+![Fiori Launch Pad](/images/HANA/FioriLaunchPad.png)
 
-SAP Fiori应用程序分为三类。它们的功能和基础设施要求非常突出。
+关于 SAP Fiori Launchpad 的要点如下。
+
+- 基于 Web 的入口点，可跨平台和设备使用 SAP Business 应用程序。
+- 作为HTML 客户端的开箱即用思想提供。
+- 使用主题，搜索集成，自定义等功能为最终用户提供高生产率。
+- 为使用多种设备类型的最终用户提供单一入口点。
+
+### SAP Fiori应用程序分类。
+
+![Fiori App Type](/images/HANA/FioriAppType.png)
+
+它们的功能和基础设施要求非常突出。
 
    - 交易应用
    - 实况报道
@@ -54,18 +70,22 @@ SAP Fiori应用程序分为三类。它们的功能和基础设施要求非常�
 
    -  提供有关业务操作的基于角色的实时信息。分析应用程序将SAP HANA的强大功能与SAP业务套件相集成。它从前端Web浏览器中的大量数据中提供实时信息。
 
-### 学习SAP Fiori的先决条件： ###
 
-   ● ABAP程序和对象
 
-   ● HTML5
+### Fiori采用的技术汇总
 
-   ● JavaScript
+![Fiori Tech](/images/HANA/FioriTech.png)
 
-   ● SAP UI5
+学习SAP Fiori的需要了解的技术
 
-   ● ERP实施经验
+-  ABAP程序和对象
 
-   ● OData和SAP NetWeaver网关
 
-   ● SAP HANA
+- HTML5
+
+
+- JavaScript
+- SAP UI5
+- ERP实施经验
+- OData和SAP NetWeaver网关
+- SAP HANA

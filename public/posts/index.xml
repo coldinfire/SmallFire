@@ -30,12 +30,39 @@
     </item>
     
     <item>
+      <title>SAP Fiori简单了解(一)</title>
+      <link>https://coldinfire.github.io/2020/SAPFiori/</link>
+      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPFiori/</guid>
+      <description>Fiori框架 Fiori Launch Pad Fiori App 类型 Fiori采用的技术汇总</description>
+    </item>
+    
+    <item>
       <title>SAP DBCO连接测试</title>
       <link>https://coldinfire.github.io/2020/SAPDBCO_Connect/</link>
       <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/SAPDBCO_Connect/</guid>
       <description>TCode: DBCO查看数据库连接信息 测试连通性 使用程序：ADBC_TEST_CONNECTION / 参考 ADBC* 输入Database connection name,进行连接测试</description>
+    </item>
+    
+    <item>
+      <title>使用BAPI创建Purchase Order</title>
+      <link>https://coldinfire.github.io/2020/MMPurchaseOrder_BAPI/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MMPurchaseOrder_BAPI/</guid>
+      <description>根据PR创建PO： LOOP AT PRITEM. IF SY-TABIX = 1. LS_POHEADER-DOC_TYPE = &amp;#39;ZSTL&amp;#39;. CONCATENATE &amp;#39;000000&amp;#39; PRITEM-PLANT INTO LS_POHEADER-VENDOR. IF LS_WERKS = &amp;#39;1020&amp;#39;. LS_POHEADER-PURCH_ORG = &amp;#39;1022&amp;#39;.&amp;#34;pritem-purch_org. ELSEIF LS_WERKS = &amp;#39;1040&amp;#39;. LS_POHEADER-PURCH_ORG = &amp;#39;1042&amp;#39;. ENDIF. LS_POHEADER-COMP_CODE = &amp;#39;1000&amp;#39;. LS_POHEADER-PUR_GROUP = PRITEM-PUR_GROUP. LS_POHEADER-DOC_DATE = SY-DATUM. ENDIF. LT_POITEM-PO_ITEM = PRITEM-PREQ_ITEM. LT_POITEM-MATERIAL = PRITEM-MATERIAL. LT_POITEM-PLANT = &amp;#39;1000&amp;#39;. LT_POITEM-VEND_MAT = PRITEM-VEND_MAT. LT_POITEM-QUANTITY = PRITEM-QUANTITY. LT_POITEM-PO_UNIT = PRITEM-UNIT. IF PRITEM-CURRENCY &amp;lt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>使用BAPI创建Purchase Request</title>
+      <link>https://coldinfire.github.io/2020/MMPurchaseRequest_BAPI/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MMPurchaseRequest_BAPI/</guid>
+      <description>Purchase Request 内容： PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期 ​ PR Item : 物料编号、短文本、发货日期、采购订单数量、采购订单价格、分类 ​ BAPI: B</description>
     </item>
     
     <item>
@@ -193,10 +220,10 @@
     
     <item>
       <title> CS12 ALV的增强 </title>
-      <link>https://coldinfire.github.io/2019/BOM_Enhance/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/BOM_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</guid>
       <description>Tcode：CS12的执行程序查看 可以看到，最终执行的程序是RCS12001，因此可以在该程序中查找增强。 执行的程序： RCS11001 Display BOM Level by Level RCS12001 Display Multilevel BOM RCS13001</description>
     </item>
     
@@ -373,19 +400,19 @@
     
     <item>
       <title>BAPI使用</title>
-      <link>https://coldinfire.github.io/2019/BAPI/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_BAPI/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/BAPI/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_BAPI/</guid>
       <description>BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的RFC函数。 BAPI函数及函数参数参考的结构类型</description>
     </item>
     
     <item>
       <title> ABAP学习网站记录 </title>
-      <link>https://coldinfire.github.io/2019/ABAPWebSite/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAPWebSite/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</guid>
       <description>http://www.saptechnical.com/index.htm：需要检索关键信息 https://sapcodes.com/：包含</description>
     </item>
     
@@ -534,6 +561,15 @@
     </item>
     
     <item>
+      <title>BOM了解</title>
+      <link>https://coldinfire.github.io/2019/SAP_BOM/</link>
+      <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_BOM/</guid>
+      <description>BOM定义 ​ BOM:物料清单，是部件完整、正式的结构化清单，组成一个产品或装配。包括每个部件的项目号、损耗、数量和计量单位。</description>
+    </item>
+    
+    <item>
       <title> 发送带文本的Email </title>
       <link>https://coldinfire.github.io/2019/ABAP_EmailText/</link>
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
@@ -552,57 +588,138 @@
     </item>
     
     <item>
-      <title> SAP HANA</title>
-      <link>https://coldinfire.github.io/2019/SAP_HANA_APP1/</link>
-      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_HANA_APP1/</guid>
-      <description>组成结构 ​ Presentation Layer ：SAPGUI -&amp;gt; Browser(BSP/Webdynpro) -&amp;gt; SAP Fiori (UX) -&amp;gt; Web application ​ Application layer : NW Foundation (NW7.4-&amp;gt;NW7.53) ​ DB layer : HANA DB* (Code-to-data) ​ OData : CDS(Extract the data) - EclipseADT CDS Create @OData.publish: ture (Generate OData) Creates an ICF : /n/iwfnd/maint_service Fiori - WebIDE</description>
-    </item>
-    
-    <item>
       <title>SAP MM01 屏幕增强</title>
       <link>https://coldinfire.github.io/2019/MMMasterData_enhance1/</link>
-      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MMMasterData_enhance1/</guid>
       <description>https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/ ​ MM01中的Screen完全是通过一个个的subscreen，像一个个的component组合而成的。在原有的subscreen不在cu</description>
     </item>
     
     <item>
-      <title>BOM了解</title>
-      <link>https://coldinfire.github.io/2019/SAP_BOM/</link>
-      <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_BOM/</guid>
-      <description>BOM定义 ​ BOM:物料清单，是部件完整、正式的结构化清单，组成一个产品或装配。包括每个部件的项目号、损耗、数量和计量单位。</description>
-    </item>
-    
-    <item>
-      <title> Fiori简介 </title>
-      <link>https://coldinfire.github.io/2019/FioriOverview/</link>
-      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/FioriOverview/</guid>
-      <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
-    </item>
-    
-    <item>
-      <title> SAP HANA</title>
+      <title> SAP HANA 知识链接</title>
       <link>https://coldinfire.github.io/2019/SAPHANA1/</link>
-      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPHANA1/</guid>
       <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana HANA主要组成成分 客户端：HANA Studio(In-memory studio) 内存内数据库：HANA Database 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices 三种复制数据方法</description>
     </item>
     
     <item>
-      <title> SAPUI5 </title>
+      <title> SAP HANA 结构分析</title>
+      <link>https://coldinfire.github.io/2019/SAPHANA_APP1/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPHANA_APP1/</guid>
+      <description>组成结构 ​ Presentation Layer ：SAPGUI -&amp;gt; Browser(BSP/Webdynpro) -&amp;gt; SAP Fiori (UX) -&amp;gt; Web application ​ Application layer : NW Foundation (NW7.4-&amp;gt;NW7.53) ​ DB layer : HANA DB* (Code-to-data) ​ OData : CDS(Extract the data) - EclipseADT CDS Create @OData.publish: ture (Generate OData) Creates an ICF : /n/iwfnd/maint_service Fiori - WebIDE</description>
+    </item>
+    
+    <item>
+      <title> SAP NetWeaver Gateway  </title>
+      <link>https://coldinfire.github.io/2019/SAPNetWeaverGateway/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPNetWeaverGateway/</guid>
+      <description>SAP NetWeaver Gateway SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。可以将SAP Gateway理解为是SAP将ODat</description>
+    </item>
+    
+    <item>
+      <title> SAP OData  </title>
+      <link>https://coldinfire.github.io/2019/SAPOData/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPOData/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 Message  </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_Message/</link>
+      <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5_Message/</guid>
+      <description>消息设置 sap.m.MessageBox ​ SAPUI5 提供的对话框，可以显示信息、警告、错误等等。MessageBox 类是静态类，在使用之前必须执行 jQuery.sap.require(&amp;quot;sap.m.MessageBox&amp;quot;) 语句 SAPUI5 包含 jQuery 包，jQuery.</description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 Mock Server  </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_MockServer/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5_MockServer/</guid>
+      <description>mock server ​ 在开发过程中，通过使用模拟服务器的方法方便测试，SAPUI5将模拟服务器称为mock server.mock server的基本功能是模拟oData数据的提供</description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 Routing导航  </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_Routing/</link>
+      <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5_Routing/</guid>
+      <description>Routing导航 ​ Openui5 的 routing 基于模式 ( pattern )，使用 # 符号表示不同的路径 ( route )，导航通过路径的改变来实现。 Pattern 表达式 Openui5 一共有 5 种 pattern表达式</description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 数据绑定  </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_DataBinding/</link>
+      <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5_DataBinding/</guid>
+      <description>Model Binding 单数据绑定 使用数据绑定前，需要先实例化Model.构造函数获取实例的URL或则数据本身作为第一个参数。 ​ JSON-Model: ​ var oModel = new sap.ui.model.json.JSONModel(dataUrlOrData); ​ XML-Model: ​ var oModel = new sap.ui.model.xml.XMLModel(dataUrlOrData); ​</description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 模块化  </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_Module/</link>
+      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5_Module/</guid>
+      <description>模块化 如何加载模块 jQuery.sap.declare(sModuleName,bCreateNamespace)申明一个模块，以确保模块存</description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 数据类型和操作  </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_DataOption/</link>
+      <pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5_DataOption/</guid>
+      <description>数据类型和操作 基本数据类型 ​ sap.ui.model.type.Integer(oFormatOptions?, oConstraints?):支持minimum,maximum ​ sap.ui.model.type.Float(oFormatOptions?, oConstraints?):decima</description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 Dialog and Fragment  </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_DialogAndFragment/</link>
+      <pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5_DialogAndFragment/</guid>
+      <description>Dialogs and Fragments Fragments 片段是一个轻量级的Ui部分，它只是一组重用控件的容器。包含一到多个控件，不需要控制器。 定义并调用已存在的 Fragments : &amp;ldquo;sap/ui/core/Fragment&amp;rdquo; 定义xxx.fragm</description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 Layout  </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_Layout/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPUI5_Layout/</guid>
+      <description>Layout设置 多页面显示和跳转 ​ sap.m.App : 是一个全局对象，可以通过 app.to(sPageId) 跳转到另一个页面。 ​ to(sPageId, sTransitionName ? , oData ? , oTransitionParameters ? ): [sap.m.NavContainer] ​ app.back()则跳回到刚才</description>
+    </item>
+    
+    <item>
+      <title> SAPUI5 概述 </title>
       <link>https://coldinfire.github.io/2019/SAPUI5/</link>
-      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
-      <description>概述 MVC模式 ​ MVC是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。 ​ M : Model</description>
+      <description>SAPUI5概述 SAPUI5:一套基于HTML5,CSS3,JavaScript的开发框架 SAPUI5包括内容 重构的JavaScript语法</description>
+    </item>
+    
+    <item>
+      <title> Fiori简介 </title>
+      <link>https://coldinfire.github.io/2019/SAPFioriOverview/</link>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPFioriOverview/</guid>
+      <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
     </item>
     
     <item>
@@ -859,19 +976,19 @@
     
     <item>
       <title>BOM展开</title>
-      <link>https://coldinfire.github.io/2018/BOM_USE/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_BOM_USE/</link>
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/BOM_USE/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_BOM_USE/</guid>
       <description>SAP BOM读取逻辑 相关表 MAST：Material BOM STKO : BOM Header STPO : BOM Positions (detail) MAPL : Assignment fo Task Lists to Materials PLKO : Routing Group Header PLSO : Routing Group Sequence PLPO : Routing Group Operations AFKO : Production Order Header AFPO : Production Order Position (details) 可用</description>
     </item>
     
     <item>
       <title>ABAP 工作流</title>
-      <link>https://coldinfire.github.io/2018/ABAPWorkFlow/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_WorkFlow/</link>
       <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAPWorkFlow/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_WorkFlow/</guid>
       <description>SAP工作流介绍 工作流是一个基于某组程序规则所采用的路径。是自动运作的任务的进程中，参与的人、文件、信息或任务，以及各个要素间的传递按照规程</description>
     </item>
     
@@ -994,10 +1111,10 @@
     
     <item>
       <title>BDC屏幕录制</title>
-      <link>https://coldinfire.github.io/2018/BDC/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_BDC/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/BDC/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_BDC/</guid>
       <description>定义BDC (Batch Data Communication) BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输. 使用步骤： 把外部的数据源(Txt,Exc</description>
     </item>
     
@@ -1178,7 +1295,7 @@
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Tcode/</guid>
-      <description>ABAP TCode 事务码 功能 事务码 功能 SPRO 显示后勤 SE18 BADI Builder ST05/SE30 系统跟踪/系统性能详细跟踪 SE19 BADI Implement ST22 查看日志信息 SE24 创建、修改、查询类对象 SM12 编辑锁定解除 SE21 创建、修改、</description>
+      <description>ABAP 常用 TCode TCode Description TCode Description SPRO 显示后勤 SE18 BADI Builder ST05/SE30 系统跟踪/系统性能详细跟踪 SE19 BADI Implement ST22 查看日志信息 SE24 创建、修改、查询类对象 SM12 编辑锁定解除 SE21 创建、修改、查询包的</description>
     </item>
     
     <item>

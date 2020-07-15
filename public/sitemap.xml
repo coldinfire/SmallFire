@@ -142,6 +142,48 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/Fiori/</loc>
+      
+      <lastmod>2020-06-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/Sap-Fiori/</loc>
+      
+      <lastmod>2020-06-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/SAPFiori/</loc>
+      
+      <lastmod>2020-06-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
       <lastmod>2020-06-18T00:00:00+00:00</lastmod>
@@ -184,6 +226,48 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/MM/</loc>
+      
+      <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/MMPurchaseOrder_BAPI/</loc>
+      
+      <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/MMPurchaseRequest_BAPI/</loc>
+      
+      <lastmod>2020-06-04T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2020/WMTable/</loc>
       
       <lastmod>2020-05-28T00:00:00+00:00</lastmod>
@@ -201,20 +285,6 @@
       <loc>https://coldinfire.github.io/tags/WM/</loc>
       
       <lastmod>2020-05-28T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/MM/</loc>
-      
-      <lastmod>2020-05-24T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -506,7 +576,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/BOM_Enhance/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</loc>
       
       <lastmod>2019-11-19T00:00:00+00:00</lastmod>
       
@@ -842,7 +912,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/BAPI/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_BAPI/</loc>
       
       <lastmod>2019-06-16T00:00:00+00:00</lastmod>
       
@@ -856,7 +926,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAPWebSite/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</loc>
       
       <lastmod>2019-06-13T00:00:00+00:00</lastmod>
       
@@ -1122,6 +1192,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/SAP_BOM/</loc>
+      
+      <lastmod>2019-05-25T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_EmailText/</loc>
       
       <lastmod>2019-05-22T00:00:00+00:00</lastmod>
@@ -1150,7 +1234,35 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/SAP_HANA_APP1/</loc>
+      <loc>https://coldinfire.github.io/2019/MMMasterData_enhance1/</loc>
+      
+      <lastmod>2019-05-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPHANA1/</loc>
+      
+      <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPHANA_APP1/</loc>
       
       <lastmod>2019-05-12T00:00:00+00:00</lastmod>
       
@@ -1178,51 +1290,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/Sap-Fiori/</loc>
+      <loc>https://coldinfire.github.io/2019/SAPNetWeaverGateway/</loc>
       
-      <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2019/MMMasterData_enhance1/</loc>
-      
-      <lastmod>2019-05-08T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2019/SAP_BOM/</loc>
-      
-      <lastmod>2019-04-25T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2019/FioriOverview/</loc>
-      
-      <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1236,6 +1306,90 @@
     <url>
       <loc>https://coldinfire.github.io/tags/sapui5/</loc>
       
+      <lastmod>2019-05-09T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPOData/</loc>
+      
+      <lastmod>2019-05-03T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPUI5_Message/</loc>
+      
+      <lastmod>2019-04-27T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPUI5_MockServer/</loc>
+      
+      <lastmod>2019-04-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPUI5_Routing/</loc>
+      
+      <lastmod>2019-04-24T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPUI5_DataBinding/</loc>
+      
+      <lastmod>2019-04-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPUI5_Module/</loc>
+      
       <lastmod>2019-04-22T00:00:00+00:00</lastmod>
       
       
@@ -1248,9 +1402,37 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/SAPHANA1/</loc>
+      <loc>https://coldinfire.github.io/2019/SAPUI5_DataOption/</loc>
       
-      <lastmod>2019-04-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-04-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPUI5_DialogAndFragment/</loc>
+      
+      <lastmod>2019-04-20T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPUI5_Layout/</loc>
+      
+      <lastmod>2019-04-19T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1263,6 +1445,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/2019/SAPUI5/</loc>
+      
+      <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SAPFioriOverview/</loc>
       
       <lastmod>2019-04-16T00:00:00+00:00</lastmod>
       
@@ -1766,7 +1962,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/BOM_USE/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_BOM_USE/</loc>
       
       <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       
@@ -1780,7 +1976,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAPWorkFlow/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_WorkFlow/</loc>
       
       <lastmod>2018-11-24T00:00:00+00:00</lastmod>
       
@@ -2032,7 +2228,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/BDC/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_BDC/</loc>
       
       <lastmod>2018-09-26T00:00:00+00:00</lastmod>
       

@@ -1,7 +1,7 @@
 ---
 
-title: " SAPUI5 "
-date: 2019-04-16
+title: " SAPUI5 概述 "
+date: 2019-04-17
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -13,7 +13,47 @@ tags:
 
 ---
 
-## 概述
+### SAPUI5概述
+
+SAPUI5:一套基于HTML5,CSS3,JavaScript的开发框架
+
+#### SAPUI5包括内容
+
+- 重构的JavaScript语法规范，帮助用户使用一致的、规范的语法使用JavaScript
+- 帮助用户构建大型应用的框架，包括MVC、数据绑定、路由控制、缓存、组件化、模块化
+- 丰富的基于桌面和移动端的基础UI控件
+- SAP在开发Fiori App过程中积累的可复用的高度封装的UI控件
+- 便于页面排版的布局控件
+- 创建自定义控件和整合第三方控件的组件
+- 基于LESS框架和主题设计器的CSS架构
+
+#### SAP核心优势
+
+- 基于Web端开发的一站式解决方案
+- 快速开发，相对高效运行
+- 作为SAP未来标准产品使用的UI技术，已经经过大量实践验证，稳定可靠
+- 具有大量的参考示例程序，可以快速的编写与SAP标准风格类似的应用程序
+- 具有编写大型应用程序所需要的框架和技术
+- 能够完美的整合第三方的JavaScript库
+
+#### 开发工具：WebIDE
+
+优势和功能
+
+- 基于云端，注册就可以使用
+
+- 具有强大的代码生成
+
+- 具有所见即所得的视图编辑功能
+
+- 具有预先定义的样例程序
+
+#### SAP支持的控件
+
+- 桌面控件库
+- UX3控件库
+- 表格控件库
+- 移动端控件库
 
 ### MVC模式
 
@@ -174,7 +214,7 @@ ObjectListItem适用于显示行项目的信息，主要使用title属性进行�
    >
    > ​	`sap.ui.core.VerticalAlign.Middle: `居中对齐
    >
-   >  `sap.ui.core.VerticalAlign.Top:`顶部对齐
+   >  `sap.ui.core.VerticalAlign.Top:`顶部对齐
 
    `cells: `行包含的cells，每一个cell都是`sap.ui.core.Control`对象，从而开发人员可以根据需要选择合适的控件，灵活度很高。
 
@@ -623,7 +663,7 @@ sap.ui.define([
 
 
 
-#### 多语言
+### 多语言
 
 在 SAPUI5 中，通过两种方法来实现多语言.
 
@@ -631,7 +671,7 @@ sap.ui.define([
 
 ​	(2) 使用 jQuery.sap.resources 相关的 API 读取资源包。两种方法都需要资源包文件并且在配置中设置。
 
-##### 语言代码
+#### 语言代码
 
 ​	OpenUI5 对页面的显示，有一个 **当前语言( Current Language )** 的概念，按照当前语言，读取相应的资源包文件，按当前语言显示。OpenUI5 按照如下顺序顺序(从高到低)，如果都没有找到，最后读取通用设置（比如 i18n.properties)。
 
@@ -651,14 +691,14 @@ sap.ui.define([
 >
 > 7) OpenUI5中硬编码，默认为 en
 
-##### 资源包文件
+#### 资源包文件
 
 1. Java的属性文件，文件的扩展名总是.properties。文件中包含于语言相关的文本。
 2. 文件名包括固定部分和语言相关部分。那么 i18n.properties 是默认的文件，i18n_zh_CN.properties 是中文简体的资源文件。
 3. 资源包文件为扁平结构，不能嵌套。每一行要么是 key-value键值对 ，要么是 # 开头的注释。也可以可以空行。
 4. 如果 Properties 文件的文本为 Unicode 字符，文件使用16进制的编码来存储，而不是明文。
 
-##### Resource Model 
+#### Resource Model 
 
 ​	使用 Resource Model 绑定数据需要三步： 
 
@@ -670,7 +710,7 @@ sap.ui.define([
 
 ​	 url 后面添加`?sap-ui-language=XXX`，实现语言的切换。
 
-##### jQuery.sap.resources
+#### jQuery.sap.resources
 
 ​	在代码中直接使用资源包的文本。
 
@@ -682,889 +722,3 @@ var oBd = jQuery.sap.resources({
 })               //根据指定的 URL 和 Locale，创建一个新的资源包实例
 var sMeg = oBd.getText("key",[sLocale]); //根据资源包文件的 key，获取与语言相关的 value
 ```
-
-
-
-## Layout设置
-
-### 多页面显示和跳转
-
-​	sap.m.App : 是一个全局对象，可以通过 app.to(sPageId) 跳转到另一个页面。
-
-​		to(sPageId, sTransitionName *?* , oData *?* , oTransitionParameters *?* ): [sap.m.NavContainer]
-
-​	app.back()则跳回到刚才的page：
-
-​		back(oBackData *?* , oTransitionParameters *?* ): [sap.m.NavContainer]
-
-​	`sap.m.Page`中，`showNavButton`设置为`true`，就会出现Navigation按钮，点击按钮的event hander通过Controller中`onNavPress`函数来实现。
-
-```js
-var oDetailPage = new sap.m.Page({
-  showNavButton: true,
-  navButtonPress: [oController.onNavPress, oController],
-  title: "供应商明细",
-  content: [oObjectHeader]
-});
-```
-`sap.m.ColumnListItem`的type必须为Navigation，否则不能实现跳转。`sap.m.ColumnListItem`的press属性设置为一个数组，这种方法能够保证在Controller中，this表示Controller本身，而不是某个控件。
-
-### 布局类型
-
-​	sap.ui.layout.HorizontalLayout() : 水平布局
-
-​	sap.ui.layout.VerticalLayout() : 垂直布局
-
-​	sap.ui.layout.Grid() : 表格式布局
-
-#### Grid Layout
-
-​	Grid Layout 控件负责将页面进行表格式布局，将页面分为 12 列，子控件从左至右排列。每个控件并不是占一列，OpenUI5 根据屏幕的大小，将屏幕分为 4 种，分别是`XL: extra large 、 L: large、M: medium、S: small `。XL的如 PC 机的大桌面，L的如 PC 的桌面，M的比如平板，S的比如手机。默认情况下，每个控件在 XL 桌面上占 3 列，在 L 桌面上占 3 列，在 M 桌面上占 6 列，在 S 桌面上占 12 列。OpenUI5 用一个字符串表示为` XL3 L3 M6 S12`，通过 default Span 属性来设置。
-
-​    当屏幕的尺寸变更的时候，OpenUI5 检测到尺寸的变化，根据上面的 4 个分类对控件的位置进行调整，从而实现所谓的自适应。
-
-​    Grid layout 控件宽度 (Width)，可以基于像素，或者基于页面宽度的相对比例。控件之间的间距可以通过 vSpacing 和 hSpacing 属性进行设置。
-
-   ` sap.ui.layout` : 该function可以对Layout页面布局进行设置。
-
-​    	`new sap.ui.layout.Grid({ content: [ a1,b1,c1,d1] }).placeAt("content");`
-
-​    将各个空间放到Layout.Grid中，然后将该Grid放到页面指定位置上。
-
-### LayoutData 属性 
-
-​      `sap.ui.core.Element` 类定义了` layoutData` 属性、`getLayoutData()` 方法和` setLayoutData()` 方法。控件都是 `sap.ui.core.Element` 类的间接子类，从而控件都可以利用这些属性和方法设定这个控件在页面中如何定位。`setLayoutData()` 方法的参数是` sap.ui.core.LayoutData` 对象。 Grid 布局时`layoutData` 我们可以用`sap.ui.core.LayoutData` 类的子类 `sap.ui.layout.GridData`。
-
-```JSP
-var oLabel2 = new sap.m.Label({
-   text : "XXXXXXXXXXXXXXXXXXX",
-   layoutData : new sap.ui.layout.GridData({
-     span : "XL12 L12 M12 S12"       //通过该设置让该元素独占屏幕元素的一整行
-   })
-});
-```
-
-####   Margin Classes
-
-​	在class属性中设置了四种标准的大小: tiny-8px、small-16px、medium-32px、large-48px， Begin is left and End is right。
-
-   在 div 的 class 属性中添加对应的属性值来解决边距问题。
-
-1. Full Margins : all around control
-
-   - sapUiTinyMargin
-
-   - sapUiSmallMargin
-
-   - sapUiMediumMargin
-
-   - sapUiLargeMargin
-
-2. Single-sided margins : class中只能设定一个边框距离
-
-   - sapUixxxxMarginTop
-
-   - sapUixxxxMarginBottom
-
-   - sapUixxxxMarginBegin
-
-   - sapUixxxxMarginEnd
-
-3. Two-Sided Margins : 两个方向
-
-   - sapUiTinyMarginBeginEnd
-
-   - sapUiTinyMarginTopBottom
-
-4. Responsive Margins : margins depending on the screen width 
-
-   sapUiResponsiveMargin
-
-   ```js
-   <Panel headerText="{i18n>helloPanelTitle}"
-   	   class="sapUiResponsiveMargin"
-   	   width="auto">
-   </Panel>
-   <body class="sapUiBody sapUiResponsiveMargin" role="application">
-   	<div id="content"></div>
-   </body>
-   ```
-
-   
-
-5. 100%宽度控制
-
-   如果控件包含有`width`属性，设置该属性为`width=auto`.如果没有该属性，可以添加 sapUiForceWidthAuto属性到控件的class.
-
-6. 移除Margins
-
-   - sapUiNoMarginTop
-   - sapUiNoMarginBottom
-   - sapUiNoMarginBegin
-   - sapUiNoMarginEnd
-   
-
-#### 自定义CSS和主题颜色
-
-​	不要在自定义CSS中指定颜色，而是使用标准的主题依赖类。
-
-### 对象组件显示
-
-1. 组件
-
-   > `sap.m.ObjectIdentifier:` 用于需要对操作对象进行明确区分的时候，使用这个组件进行显示。强调的是标识。				title属性是主要标识，text属性是补充，如果titleActive为true，则标题用颜色标识.
-   >
-   > `sap.m.ObjectNumber:` 显示数字,能根据不同的状态提供颜色区分。有四种state: Warning, Error, Success,Default.
-   >
-   > `sap.m.ObjectMarker:` 以图标的方式显示预定义的几种类型，可以绑定press事件。包括 [Flagged、Favorite、Draft
-   >
-   > 、Locked、LockedBy、Unsaved、UnsavedBy].
-   >
-   > `sap.m.ObjectAttribute:` 显示对象，并提供普通和active两种状态，active状态可与事件绑定。
-   >
-   > `sap.m.ObjectStatus:` 显示对象的文本，并且根据状态不同，文本以不同的颜色区分。
-   >
-   > `sap.m.ObjectHeader:` 显示对象，包括标识和附加的信息，图标等。
-
-
-
-## Dialogs and Fragments
-
-### Fragments
-
-1. 片段是一个轻量级的Ui部分，它只是一组重用控件的容器。包含一到多个控件，不需要控制器。
-
-2. 定义并调用已存在的 Fragments : "sap/ui/core/Fragment"
-
-   1) 定义xxx.fragment.xml
-
-   ```xml
-   <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-   	<Dialog id="helloDialog" title="Hello {/recipient/name}">
-   		<content>
-   			<core:Icon src="sap-icon://hello-world" size="80px" class="sapUiMediumMargin"></core:Icon>
-   		</content>
-   		<beginButton>
-   			<Button text="{i18n>dialogCloseButtonText}" press=".onCloseDialog"></Button>
-   		</beginButton>
-   	</Dialog>
-   </core:FragmentDefinition>
-   ```
-
-   
-
-   ```js
-   // create dialog lazily
-   if (!this.byId("helloDialog")) {  //如果id为helloDialog的Dialog不存在
-   	// load asynchronous XML fragment
-   	Fragment.load({
-   		id: oView.getId(),
-   		name: "sap.ui.demo.walkthrough.view.HelloDialog",
-             controller:this    //函数的回调
-   	}).then(function (oDialog) {
-   		// connect dialog to the root view of this component (models, lifecycle)
-   		oView.addDependent(oDialog);
-   		oDialog.open();
-   	});
-   } else {
-   	this.byId("helloDialog").open();
-   },
-      
-   onCloseDialog:function(){
-       this.byId("helloDialog").close();
-   }
-   
-   ```
-
-   - 始终使用addDependent方法将对话框连接到视图的生命周期管理和数据绑定，即使它未添加到其UI树中。
-
-3. 如果片段中的对话框尚不存在，则通过使用以下方法调用sap.ui.xmlfragment方法来实例化片段
-
-4. 回调open方法
-
-### Dialog
-
-1. 不属于特定视图，不能将其定义为视图，这意味着必须在控制器代码中的某处实例化对话框。
-
-2. 重用
-
-   1) 定义单独的控制来实现Dialog的创建 HelloDialog.js
-
-   ```JS
-   sap.ui.define([
-   		"sap/ui/base/ManagedObject", //实现该类
-   		"sap/ui/core/Fragment"
-   	],
-   	function (ManagedObject, Fragment) {
-   		"use strict";
-   
-   	return ManagedObject.extend("SAPUI5.Walkthrough.controller.HelloDialog", {
-   		constructor: function (oView) { //oView参数用于关联当前视图到对话框.
-   			this._oView = oView;
-   		},
-   
-   		exit: function () {
-   			delete this._oView();
-   		},
-   
-   		open: function () {
-   			var oView = this._oView;
-   
-   			//create dialog lazily
-   			if (!oView.byId("helloDialog")) {
-   				var oFragmentController = {
-   					onCloseDialog: function () {
-   						oView.byId("helloDialog").close();
-   					}
-   				};
-   				//load asynchronous XML fragment
-   				Fragment.load({
-   					id: oView.getId(),
-   					name: "SAPUI5.Walkthrough.view.HelloDialog",
-   					controller: oFragmentController
-   				}).then(function (oDialog) {
-   					//connect dialog to the root view of this component (models,lifecycle)
-   					oView.addDependent(oDialog);
-   					oDialog.open();
-   				});
-   			} else {
-   				oView.byId("helloDialog").open();
-   			}
-   		}
-   	});
-   });
-   ```
-
-   2) 在Component.js文件中声明该控件为私有属性,并封装其方法
-
-   ```JS
-   sap.ui.define([
-   	"sap/ui/core/UIComponent",
-   	"sap/ui/Device",
-   	"SAPUI5/Walkthrough/model/models",
-   	"sap/ui/model/json/JSONModel",
-   	"./controller/HelloDialog"
-   ], function (UIComponent, Device, models,JSONModel,HelloDialog) {
-   	"use strict";
-   
-   	return UIComponent.extend("SAPUI5.Walkthrough.Component", {
-   
-   		metadata: {
-   			manifest: "json"
-   		},
-   
-   		/**
-   		 * The component is initialized by UI5 automatically during the startup of 
-   		 the app and calls the init method once.
-   		 * @public
-   		 * @override
-   		 */
-   		init: function () {
-   			// call the base component's init function
-   			UIComponent.prototype.init.apply(this, arguments);
-   
-   			// enable routing
-   			this.getRouter().initialize();
-   
-   			// set the device model
-   			this.setModel(models.createDeviceModel(), "device");
-   
-   			//set dialog
-   			this._helloDialog = new HelloDialog(this.getRootControl());
-   		},
-   		
-   		exit:function(){
-   			this._helloDialog.destory();
-   			delete this._helloDialog;
-   		},
-   		
-   		openHelloDialog:function(){
-   			this._helloDialog.open();
-   		}
-   	});
-   });
-   ```
-
-3. 在按钮事件中通过`this.getOwnerComponent().openHelloDialog()`调用
-
-   onOpenDialog方法现在通过调用辅助方法getOwnerComponent来访问其组件。当调用重用对象的open方法时，我们传入当前视图以将其连接到对话框。
-
-4. Attention
-
-   将跨多个控制器使用的所有资产放在单独的模块中
-
-## Icons
-
-sap.ui.core.Icon
-
-
-
-## 数据类型和操作
-
-### 基本数据类型
-
-> ​	sap.ui.model.type.Integer(oFormatOptions?, oConstraints?):支持minimum,maximum
->
-> ​	sap.ui.model.type.Float(oFormatOptions?, oConstraints?):`decimalSeparator`定义小数位的分隔符
->
-> ​	sap.ui.model.type.String(.........)
->
-> ​	sap.ui.model.type.Boolean
->
-> ​	sap.ui.model.type.Date : ui5支持原数据为JavaScript和原数据为String的日期数据进行格式输出
->
-> ​	sap.ui.model.type.Time : Time也支持原数据为Time类型或者字符串类型
->
-> ​	sap.ui.model.type.DateTime
-
-
-
-### 属性设置
-
-1. 尽可能使用数据类型而不是自定义格式化程序。
-
-   ```JS
-   number="{
-   	parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
-   	type: 'sap.ui.model.type.Currency',
-   	formatOptions: {
-   		showMeasure: false
-   	}
-   }"
-   ```
-
-   - 计算字段绑定(parts)：它允许将来自不同模型的多个属性绑定到控件的单个属性。
-   - 控件的属性是数字，从两个不同模型检索的绑定属性（“部件”）invoice> ExtendedPrice和view> / currency。
-
-2. Expression Binding 仅使用表达式绑定进行简单的计算。
-
-   `numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }`
-
-### 数据校验
-
-1. 基本使用
-
-   ​	sap.ui.core.message.MessageManager();
-
-   ​	registerObject(oObject,bHandelValidation) : 第一个参数是ManagedObject对象的实例，第二个参数是boolean类型变量，为true时执行数据校验。
-
-   ​	attachValidationError(this,function(){}) : 控件都有该方法，用于校验失败时的处理。
-
-   ​	attachValidationSuccess(this,function(){}) : 用于校验成功时的处理。
-
-   ValueState 种类:setValueState()
-
-   ​	sap.ui.core.ValueState.Error
-
-   ​	sap.ui.core.ValueState.None
-
-   ​	sap.ui.core.ValueState.Success
-
-   ​	sap.ui.core.ValueState.Warning	
-
-2. 集中处理数据校验:
-
-   sap.ui.core.Core也可添加attachValidationError().
-
-3. 自定义数据类型校验:
-
-   sap.ui.model.SimpleType.extend()自定义数据类型，可以使用formatValue(),parseValue(),validateValue()实现自定义的校验规则和提示消息。
-
-   抛出异常信息：throw new sap.ui.model.ValidationException("Message");
-
-   截取异常消息，使用该类型的控件通过`oEvent.getParameter("message")`获取该错误消息。
-
-   
-
-### Formart设置
-
-1. 在Constructor或绑定方法中定义formatter (绑定单个控件)
-
-   var oText = new sap.m.Text({
-   		text:{ formatter:function(sValue){
-   						return sValue && sValue.toUpperCase();
-   				}
-   		}
-     });
-
-2. 在Controller中定义formatter (更灵活，可重复调用)
-
-   <Text text="{path: '/productname', formatter: '.toUpper'}"/>
-
-   其中` .toUpper` 前面的`.`表示当前Controller方法。
-
-3. 在专门模块中定义formatter
-
-   单独定义formatter在Controller中引入该文件。并在view中调用。
-
-4. 自定义数据类型中设置formatter
-
-### 搜索与过滤
-
-1. 添加搜索框并绑定事件 `sap.m.SearchField`
-
-   ```xml
-   <List id="invoiceList" items="{invoice>/Invoices}">
-   <headerToolbar>
-      <Toolbar>
-         <Title text="{i18n>invoiceListTitle}"/>
-         <ToolbarSpacer/>
-         <SearchField width="50%" search=".onFilterInvoices"/>
-      </Toolbar>
-   </headerToolbar>
-      <items>
-      	<ObjectListItem>
-        	,,,,,,
-        </ObjectListItem> 
-      </items>
-   </List>
-   ```
-
-2. 事件定义并实现过滤
-
-   filter对象将保留我们对filter操作的配置。**new sap.ui.model.Filter(vFilterInfo, vOperator?, vValue1?, vValue2?)**
-
-   FilterOperator是我们需要的帮助器类型，以指定过滤器，范围。
-
-   ```JS
-   new Filter({
-         path: "Price",
-         operator: FilterOperator.BT,
-         value1: 11.0,
-         value2: 23.0
-       });
-       
-   new Filter({
-       filters: [
-         ...
-         new Filter({
-           path: 'Quantity',
-           operator: FilterOperator.LT,
-           value1: 20
-         }),
-         new Filter({
-           path: 'Price',
-           operator: FilterOperator.GT,
-           value1: 14.0
-         })
-         ...
-       ],
-       and: true|false
-     })
-   ```
-
-   
-
-   ```js
-   onFilterInvoices : function (oEvent) {
-   	// build filter array
-   	var aFilter = [];
-   	var sQuery = oEvent.getParameter("query"); //"query" 获取搜索字段
-   	if (sQuery) {
-   		aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery)); //添加过滤条件
-   	}
-   
-   	// filter binding
-   	var oList = this.byId("invoiceList");     //获取List对象
-   	var oBinding = oList.getBinding("items"); //获取绑定的items
-   	oBinding.filter(aFilter);			   //根据过滤条件过滤items数据
-   }
-   ```
-
-### 排序与分组
-
-​		`new sap.ui.model.Sorter(sPath, bDescending?, vGroup?, fnComparator?)`
-
-1. items="{path:'invoice>/Invoices' sorter:{path:'ProductName'}}"  //默认是升序ascending,可以添加属性descending : true.
-2. items="{path:'invoice>/Invoices' sorter:{path:'ProductName',group:true}}"
-
-### 私有函数和变量
-
-- 私有函数和变量应始终以下划线开头。
-
-
-## 消息设置
-
-### sap.m.MessageBox
-
-​    SAPUI5 提供的对话框，可以显示信息、警告、错误等等。MessageBox 类是静态类，在使用之前必须执行 `jQuery.sap.require("sap.m.MessageBox")` 语句 SAPUI5 包含 jQuery 包，`jQuery.sap.require(vModuleName)` 方法的作用是加载指定的模块并且执行，这样 MessageBox 的 show() 方法才能运行。
-
-> `sap.m.MessageBox.alert(vMessage, mOptions*?*) `对话框显示消息，有一个OK按钮（“确定”），没有图标
->
-> `sap.m.MessageBox.confirm(vMessage, mOptions*?*)` 确认对话框，询问是否确定，有一个OK按钮和Cancel按钮，一个问号的图标。
->
-> `sap.m.MessageBox.error(vMessage, mOptions*?*)` 显示错误对话框，带有错误图标和关闭按钮Displays an error dialog with the given message, an ERROR icon, a CLOSE button。
->
-> `sap.m.MessageBox.information(vMessage, mOptions*?*)` 消息对话框，带有INFO图标和OK按钮。
->
-> `sap.m.MessageBox.show(vMessage, mOptions*?*)` 显示对话框，类型为sap.m.DialogType.Message，图标和按钮由开发人员自行定义，相对灵活一些。
->
-> `sap.m.MessageBox.success(vMessage, mOptions*?*)` 显示成功对话框，带有SUCCESS图标和OK按钮。
->
-> `sap.m.MessageBox.warning(vMessage, mOptions*?*)` 显示警告消息，带有WARNING图标和OK按钮。
->
-> `sap.m.MessageToast.show()`对用户操作提供一种简单的反馈，并且经过一段时间后自动消失，除非用户将鼠标放在消息上面。
-
-
-
-## 模块化
-
-1. 如何加载模块
-
-   > `jQuery.sap.declare(sModuleName,bCreateNamespace)`申明一个模块，以确保模块存在。这个语句必须出现在	模块代码（也就是代码文件)的第一句。
-   >
-   > `jQuery.sap.require(vModuleName)`确保当前代码继续之前，所指定的模块被加载和执行。如果所需要的模块没有被加载，将会被同步加载和执行，如果已经加载，就忽略。
-   >
-   > `sap.ui.define(sModuleName,aDependencies,vFactory,bExport)`定义module，异步加载依赖模块,sap.ui.define()定义的模块具有全局命名空间。2:定义依赖 3:继承工厂函数。
-   >
-   > `sap.ui.require()`异步加载依赖的模块，不具有全局命名空间。
-
-2. 使用模块方法实现Controller
-
-   ```JS
-   sap.ui.define(
-   	["Dependencies1","Dependencies2"],
-   	function(Controller){
-   	"use strict";
-   		return Controller.extend("ControllerName",{
-   			onInit:function(){},
-                  onBeforeRendering:function(){},
-                  onAfterRendering:function(){},
-                  onExit:function(){}
-   		});
-   	}
-   );
-   ```
-
-   - 参数1 : 不定义，便于对模块进行访问
-   - 参数2 : 指定依赖的模块，可指定多个
-   - 参数3 : 定义工厂函数，实现Controller功能
-
-## Model Binding
-
-### 单数据绑定
-
-1. 使用数据绑定前，需要先实例化Model.构造函数获取实例的URL或则数据本身作为第一个参数。
-
-   ​    JSON-Model:
-
-   ​        `var oModel = new sap.ui.model.json.JSONModel(dataUrlOrData);`
-
-   ​    XML-Model:
-
-   ​        `var oModel = new sap.ui.model.xml.XMLModel(dataUrlOrData);`
-
-   ​    OData-Model:
-
-   ​        `var oModel = new sap.ui.model.odata.ODataModel(dataUrl[,userJSON,user,pass]);`
-
-2. 给Model设置值
-
-   oModel.setData(data);  绑定定义的数据
-
-   oModel.loadData("models/suppliers.json"); 从文件中读取数据绑定
-
-3. 将Model分配给Core或则其他的控制器（setModel）方法。
-
-   - Global model:
-
-   ​        `sap.ui.getCore().setModel(oModel) ` : 这样oModel对整个应用程序可见
-
-   - Bind a model to a view
-
-   ​       `var oView = sap.ui.view({type:sap.ui.core.mvc.ViewType.JS,viewName:"text.view"})`          
-
-   ​	 `oView.setModel(oModel);`
-
-   - Bind a model to a specific control
-
-   ​        `var oTable = sap.ui.getCore().byId("table");`
-
-   ​        `oTable.setModel(oModel);`
-
-4. Model属性绑定方法（{ } curly braces，bindProperty()）
-
-   ​    控件的大多数属性都可以绑定到模型属性。
-
-   - bindProperty  method: [extend : sap.ui.base.ManagedObject]
-
-   ​        `oControl.bindProperty("sName","oBindingInfo");`
-
-   ​			oBindingInfo attributes : path、model、formatter等
-
-   ​				path : 指定绑定的数据路径
-
-   ​				model : sap.ui.model.BindingMode.OneWay、sap.ui.model.BindingMode.TwoWay
-
-   ​				formatter : 
-   
-   - 花括号:{ }
-   
-   ​        `var oControl = new sap.ui.commons.TextView({controlProperty:"{/modelProperty}"});`
-   
-   - alternatively：
-   
-   ​        `var oControl = new sap.ui.commons.TextView({controlProperty:{path:"/modelProperty"}});`
-   
-5. Model属性的获取。
-
-   - oModel.getProperty("/sName");    根据JSON数据属性名获取对应的值
-
-### 多数据绑定 
-
-​    用于绑定集合数据，如绑定多行数据到一个表格中。使用模板:所有行都用同样的方法显示数据。
-
-- 使用模板:所有行都用同样的方法显示数据
-
-```JS
-var oItemTemplate = new sap.ui.core.ListItem({text:"{aggrProperty}"});
-var oComboBox = new sap.ui.commons.ComboBox({
-  items:{path:"/modelAggregation", template: oItemTemplate}
-});
-```
-
-- bindAggregation():
-
-​        `oComboBox.bindAggregation("items","/modelAggregation",oItemTemplate);`
-
-- 工厂函数实现聚合绑定
-
-  oTable.bindAggregation("items","/modelData",function(sId,oContext){
-
-  ​	return oColumnListItem;	//通过工厂函数，定义数据并返回
-
-  });
-
-### 元素绑定
-
-​	元素绑定指根据上下文(binding context)使用相对绑定的方式绑定到model数据的某一具体对象。尤其适用于**主从数据显示(master-detail data)**的情况。
-
-​	sap.m.List(sId?, mSettings?) : List控件适用于显示行项目，所有类型都可以。
-
-​	sap.m.ObjectListItem(sId?, mSettings?) : 适用于显示行项目的信息，主要使用**title**属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。
-
-​	sap.m.Panel().bindElement({path:sPath}) : 将显示的明细与Model绑定。
-
-1. 左边是一个List控件，右边在Panel中放置几个控件组合。当选择左边某个产品的时候，右边相应显示该产品的信息。
-
-  `oEvent.getSource().getBindingContext()`获取绑定的项，再使用`getPath()`方法得到path路径，然后设置右边的detailPanel与这个路径绑定。
-
-2. Model 中detail包含多条数据的情况，点击 一个header,显示多个行项目，可以通过`sap.ui.model.Filter()`的方法实现。
-
-   绑定点击事件,`oSupTable.attachRowSelectionChange(fuction(oEvent()))`。
-
-   通过`var oRowContext = oEvent.getParameter("rowContext")`获取行的上下文。如果选中第一行，rowContext就是constructor {oModel: 指定Model, sPath: "数据第一行地址"}。
-
-   然后通过`var sSelectedId = oModel.getProperty("id", oRowContext)`;就能获取到所选择行的id数据。
-
-   通过 `var oBinding = oPrdTable.getBinding()`;获取对应详细数据的绑定。
-
-   定义过滤规则，var oF = new sap.ui.model.Filter({path:"key index",oprator: new sap.ui.model.FilterOperator.BT,value1:value...})。
-
-   使用过滤规则，oBinding.filter(oF);
-
-### 绝对绑定和相对绑定
-
-1. 绝对绑定
-
-   将value属性绑定到json model根目录下对应的字段title/attr。
-
-2. 相对绑定
-
-   **相对绑定尤其适用于布局(layout)控件或者容器控件**
-
-   当父控件的绑定路径设置后，子控件可以基于这个路径使用相对路径。
-
-## Routing导航
-
-​	Openui5 的 routing 基于模式 ( pattern )，使用 `#` 符号表示不同的路径 ( route )，导航通过路径的改变来实现。
-
-### Pattern 表达式
-
-Openui5 一共有 5 种 pattern表达式:
-
-1. **硬编码模式** : 页面之间根据模式导航，没有参数传递，比如 product/settings 表示导航到产品配置。
-
-2. **路径含有必输参数模式** : 模式中 大括号({}) 包含的部分表示参数必须输入。比如 product/{id} 表示导航到产品某一 id，比如 product/5 表示 id 为 5 的产品，id 为必输。
-
-3. **路径含有可选参数模式** : 模式中 冒号 包含的部分为必输参数。比如 product/{id}/detail/:detailId:，detailId 为可选参数。product/5/detail 以及 product/3/detail/2 都能与此模式匹配。
-
-4. **路径含有查询参数模式** : 查询参数 ( query parameter ) 在问号之后。比如 product{?query}，query 这个参数为必输项。product:?query: 中的 query 这个参数为可选参数。
-
-5. **通配参数模式 **: 以星号结尾的参数是通配参数，通配参数将根据模式尽可能匹配。
-
-### 导航调用
-
-1. 父导航
-
-   1) 跳转到Detail view子导航
-
-   2) 向Detail view传递一个参数，参数为当前点击的路径，Detail获取该路径完成数据绑定
-
-   - var oRouter = UIComponent.getRouterFor(this);获取当前的router
-
-   - var oItem = oEvent.getSource();获取点击所在的行
-
-   - oItem.getBindingContext().getPath();获取点击的路径，String类型（/Sup/0）路径传到Detail
-
-   - oRouter.navTo("detail",{supplierPath:encodeURIComponent(sPath)});方法不能包含`/`所以使用 `encodeURIComponent()` 函数编码，在Detail controller 中用`decodeURIComponent()`函数解码。
-
-2. 子导航
-
-   1) 获取 Master view 传递的路径，根据此路径完成 element binding。比如当 Master view 传过来 `/Suppliers/0`，则与第一条数据绑定;
-
-   2) 根据页面之间的关系，当点击 **返回** 按钮时，返回到上一个页面。
-
-   - `var oRouter = UIComponent.getRouterFor(this);`获取当前Router
-
-   - `oRouter.getRoute("detail").attachPatternMatched(this._onObjectMatched, this);`，当模式匹配时，附加事件处理器为 `_onObjectMatched`。然后在 `_onObjectMatched` 中获取 Master view 传递的路径并绑定数据。
-
-     ```JS
-     _onObjectMatched: function (oEvent) {           
-         var sPath = decodeURIComponent(
-                 oEvent.getParameter("arguments").supplierPath);
-         this.getView().bindElement({path: sPath});
-     }   
-     ```
-
-   - 当用户点击导航按钮，判断是否有上一个路径 ( previous hash )，如果有就返回上一个路径，否则跳转到 Master view:
-
-     ```JS
-     onNavPress: function() {
-         var oHistory = History.getInstance();
-         var sPreviousHash = oHistory.getPreviousHash();
-         
-         if (sPreviousHash != undefined){
-             window.history.go(-1);
-         }else{
-             var oRouter = UIComponent.getRouterFor(this);
-             oRouter.navTo("master",{}, true);
-         }
-     }
-     ```
-
-
-
-## mock server
-
-​	在开发过程中，通过使用模拟服务器的方法方便测试，SAPUI5将模拟服务器称为mock server.mock server的基本功能是模拟oData数据的提供者，截获应用程序对服务器端的http或https请求，并传回模拟请求的回应，可以降低与真实后端的耦合。
-
-
-
-
-
-# 系统配置和功能块
-
-## SAP NetWeaver Gateway
-
-1. SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。可以将SAP Gateway理解为是SAP将OData技术产品化的方式。
-
-   SAP Gateway提供了以下的能力：
-
-   - 支持任何设备，任何平台
-   - 支持多个对象的聚合数据访问
-   - 支持基于客户端应用程序的数据筛选
-   - 生成结构
-   - CRUD（Create, Read, Update, Delete）操作
-   - 易于开发简单的API,不需要任何工具知识
-   - 不需要SAP知识
-   - 支持快速建立原型
-   - 基于REST,OData。允许使用功能任何编程语言或模型连接到SAP应用程序
-   - 开发者可以基于现有的SAP BW query，BAPI，RFC，Web Dynpro屏幕，创建新的SAP Gateway对象
-
-2. 将SAP NetWeaver Gateway 连接到 SAP Business Suite
-
-   1) 将后端服务器配置为信任系统 : SM59
-
-   ![1559703243928](/images/SAPUI5/1559703243928.png)
-
-     ![1559712968906](/images/SAPUI5/1559712968906.png)    
-
-   2) SMT1
-
-     ![1559713194355](/images/SAPUI5/1559713194355.png)
-
-3. SAP NetWeaver Gateway部署选项
-
-   1) 中央枢纽部署 : 后端系统的开发
-
-   ​	在此类部署选项中，中央 UI 附加组件，特定于产品的 UI 附加组件和 SAP NetWeaver 网关包含在 ABAP 前端服务器中。后端服务器包含业务逻辑和后端数据。开发在 ABAP 后端系统中进行。
-
-   - 它需要单独的 SAP NetWeaver Gateway 系统
-
-   - 它允许在没有后端开发授权的情况下更改 UI。
-   - 它为所有 UI 问题提供单点维护。
-   - 它为 Fiori Apps 的主题和品牌提供了中心位置。
-   - 它提供对后端系统的单点访问。
-   - 由于无法直接访问后端系统，因此增强了安全性。
-   - 直接本地访问元数据（DDIC）和业务数据以及轻松重用数据。
-
-   2) 中央集线器的部署
-
-   ​	如果必须在后端系统上执行开发，或者在 7.40 之前的版本中执行开发，则使用此选项。如果不允许在**后端**部署 Add-On **IW_BEP**。在这种情况下，开发人员仅限于可通过后端 RFC 访问的接口。
-
-   ​	开发在 Gateway 集线器系统中进行，并且不触及 Business Suite 后端系统。
-
-   - 无法直接访问**元数据（DDIC）**和业务数据。因此，数据的重用是有限的。
-   - 无法远程使用 GENIL 对象。
-   - 在此配置中，访问仅限于远程启用的接口，如 RFC 模块，BAPI 等。
-
-## oData(开放数据协议)
-
-1. 概述: OData 用于定义构建和使用 RESTful API 所需的最佳实践
-
-   - OData 提供扩展功能，以满足 RESTful API 的任何自定义需求。
-   - REST 代表 Representational State Transfer。
-   - 它依赖于无状态，客户端 - 服务器，可缓存的通信协议。几乎在所有情况下，都使用 HTTP 协议。
-   - REST 被定义为用于设计网络应用程序的体系结构样式。
-   - OData 可帮助您在构建 RESTful API 时专注于业务逻辑，而无需担心定义请求和响应头，状态代码，HTTP 方法，URL 约定，媒体类型，有效负载格式和查询选项等的方法。
-   - 用OData就是帮助你将焦点汇聚在业务逻辑的呈现上，而不用费心去考虑前台的展现层和后台业务逻辑层如何交互的细节。
-
-2. oData服务生命周期
-
-   OData 服务生命周期包括 OData 服务的范围。
-
-   - 激活 OData 服务。
-   - 维护 OData 服务。
-   - 维护模型和服务，直至清理元数据缓存。
-   - RESTful 应用程序使用 HTTP 请求发布数据以创建或更新，读取数据和删除数据。REST 对所有四个 CRUD（创建 / 读取 / 更新 / 删除）操作使用 HTTP。
-   - REST 是 RPC（远程过程调用）和 Web 服务等机制的轻量级替代方法。
-   
-3. oData设置
-
-   在manifest.json中配置服务器：
-
-   ```js
-   "sap.app": {
-   	...
-   	"ach": "CA-UI5-DOC",
-   	"dataSources": {
-   	  "invoiceRemote": {
-   		"uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
-   		"type": "OData",
-   		"settings": {
-   		  "odataVersion": "2.0"
-   		}
-   	  }
-   	}
-    "sap.ui5": {
-   	...
-   	"models": {
-   	  ...
-   	  "invoice": {
-   		"dataSource": "invoiceRemote"
-   	  }
-   	}
-   ```
-
-## SAP Fiori Launchpad 
-
-1. 关于 SAP Fiori Launchpad 的要点如下。
-
-   - 基于 Web 的入口点，可跨平台和设备使用 SAP Business 应用程序。
-
-   - 作为 I HTML 客户端的开箱即用思想提供。
-
-   - 使用主题，搜索集成，自定义等功能为最终用户提供高生产率。
-
-   - 为使用多种设备类型的最终用户提供单一入口点。
