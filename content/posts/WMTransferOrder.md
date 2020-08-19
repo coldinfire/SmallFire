@@ -18,7 +18,19 @@ tags:
 
 LT01:Create Transfer Order
 
-LT
+LT03:Create Transfer Order for Delivery Note
+
+LT06:Create Transfer Order for Material Document
+
+LT1A:Change Transfer Order
+
+LT11:Confirm Transfer Order Item
+
+LT12:Confirm Transfer Order
+
+LT15:Cancelling transfer order
+
+LT21:Display Transfer Order
 
 #### BAPI's List
 
@@ -33,5 +45,7 @@ LT
 
 
 
+相关链接：
 
+- [Cteater Transfer Order Single](https://coldinfire.github.io/2020/WMTO_1/)
 

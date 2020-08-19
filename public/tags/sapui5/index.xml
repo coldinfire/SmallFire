@@ -17,7 +17,7 @@
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPNetWeaverGateway/</guid>
-      <description>SAP NetWeaver Gateway SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。可以将SAP Gateway理解为是SAP将ODat</description>
+      <description>SAP NetWeaver Gateway SAP NetWeaver 概述 SAP Gateway 框架 SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。可以将SAP Gateway理解为是</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPOData/</guid>
-      <description></description>
+      <description>OData(开放数据协议) 概述 概述: OData 用于定义构建和使用 RESTful API 所需的最佳实践 OData 提供扩展功能，以满足 RESTful API 的任何自定义需求。 REST 代表 Representational State Transf</description>
     </item>
     
     <item>
@@ -112,10 +112,10 @@
     
     <item>
       <title> Fiori简介 </title>
-      <link>https://coldinfire.github.io/2019/SAPFioriOverview/</link>
+      <link>https://coldinfire.github.io/2019/SAPFiori_AllOverview/</link>
       <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPFioriOverview/</guid>
+      <guid>https://coldinfire.github.io/2019/SAPFiori_AllOverview/</guid>
       <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
     </item>
     

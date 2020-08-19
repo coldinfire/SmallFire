@@ -32,7 +32,7 @@ tags:
 
 ![Fiori Launch Pad](/images/HANA/FioriLaunchPad.png)
 
-关于 SAP Fiori Launchpad 的要点如下。
+关于 SAP Fiori Launch Pad 的要点如下:
 
 - 基于 Web 的入口点，可跨平台和设备使用 SAP Business 应用程序。
 - 作为HTML 客户端的开箱即用思想提供。
@@ -70,7 +70,14 @@ tags:
 
    -  提供有关业务操作的基于角色的实时信息。分析应用程序将SAP HANA的强大功能与SAP业务套件相集成。它从前端Web浏览器中的大量数据中提供实时信息。
 
+#### Fiori事务程序：组成部分
 
+- 前台程序：SAPUI5程序，可使用**SE80**在BSP Application中找到
+
+- 后台服务：使用SAP Gateway创建的OData服务，使用**SEGW**找到
+- LPD对象：通过**LPD_CUST** 进入，该配置信息将Fiori程序从ABAP系统开放给Fiori Launch Pad
+- 技术目录：预先在Fiori Launch Pad 中配置好的运行此程序的Catalog
+- 技术角色：预先配置的具有该App菜单的角色
 
 ### Fiori采用的技术汇总
 

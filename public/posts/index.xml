@@ -30,15 +30,6 @@
     </item>
     
     <item>
-      <title>SAP Fiori简单了解(一)</title>
-      <link>https://coldinfire.github.io/2020/SAPFiori/</link>
-      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2020/SAPFiori/</guid>
-      <description>Fiori框架 Fiori Launch Pad Fiori App 类型 Fiori采用的技术汇总</description>
-    </item>
-    
-    <item>
       <title>SAP DBCO连接测试</title>
       <link>https://coldinfire.github.io/2020/SAPDBCO_Connect/</link>
       <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
@@ -107,7 +98,7 @@
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/WMTransferOrder/</guid>
-      <description>Transfer Order 启用WM管理后，在BIN位间进行转移，通过Transfer Order 方式进行。 LT01:Create Transfer Order LT BAPI&amp;rsquo;s List L_TO_CREATE_SINGLE : Create a transfer order with one item L_TO_CREATE_MULTIPLE : Create a transfer order with two or more items L_TO_CREATE_MOVE_SU : Create a transfer order to</description>
+      <description>Transfer Order 启用WM管理后，在BIN位间进行转移，通过Transfer Order 方式进行。 LT01:Create Transfer Order LT03:Create Transfer Order for Delivery Note LT06:Create Transfer Order for Material Document LT1A:Change Transfer Order LT11:Confirm Transfer Order Item LT12:Confirm Transfer Order LT15:Cancelling transfer order LT21:Display Transfer Order BAPI&amp;rsquo;s List</description>
     </item>
     
     <item>
@@ -130,11 +121,11 @@
     
     <item>
       <title>OLE下载数据到EXCEL模板及速度优化</title>
-      <link>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_OLEtoExcel/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</guid>
-      <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 **问题描述:**当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要</description>
+      <guid>https://coldinfire.github.io/2020/ABAP_OLEtoExcel/</guid>
+      <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员</description>
     </item>
     
     <item>
@@ -611,7 +602,7 @@
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPHANA_APP1/</guid>
-      <description>组成结构 ​ Presentation Layer ：SAPGUI -&amp;gt; Browser(BSP/Webdynpro) -&amp;gt; SAP Fiori (UX) -&amp;gt; Web application ​ Application layer : NW Foundation (NW7.4-&amp;gt;NW7.53) ​ DB layer : HANA DB* (Code-to-data) ​ OData : CDS(Extract the data) - EclipseADT CDS Create @OData.publish: ture (Generate OData) Creates an ICF : /n/iwfnd/maint_service Fiori - WebIDE</description>
+      <description>组成结构 Presentation Layer :SAPGUI -&amp;gt; Browser(BSP/Webdynpro) -&amp;gt; SAP Fiori (UX) -&amp;gt; Web application Application layer : NW Foundation (NW7.4-&amp;gt;NW7.53) DB layer : HANA DB* (Code-to-data) OData : HANA XS OData服务，通过声明式的代码，将HANA表或信息模型开放成OData实体</description>
     </item>
     
     <item>
@@ -620,7 +611,7 @@
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPNetWeaverGateway/</guid>
-      <description>SAP NetWeaver Gateway SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。可以将SAP Gateway理解为是SAP将ODat</description>
+      <description>SAP NetWeaver Gateway SAP NetWeaver 概述 SAP Gateway 框架 SAP NetWeaver Gateway 是一种技术，它提供了一种基于市场标准将设备，环境和平台连接到 SAP 软件的简单方法。可以将SAP Gateway理解为是</description>
     </item>
     
     <item>
@@ -629,7 +620,7 @@
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPOData/</guid>
-      <description></description>
+      <description>OData(开放数据协议) 概述 概述: OData 用于定义构建和使用 RESTful API 所需的最佳实践 OData 提供扩展功能，以满足 RESTful API 的任何自定义需求。 REST 代表 Representational State Transf</description>
     </item>
     
     <item>
@@ -715,11 +706,20 @@
     
     <item>
       <title> Fiori简介 </title>
-      <link>https://coldinfire.github.io/2019/SAPFioriOverview/</link>
+      <link>https://coldinfire.github.io/2019/SAPFiori_AllOverview/</link>
       <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPFioriOverview/</guid>
+      <guid>https://coldinfire.github.io/2019/SAPFiori_AllOverview/</guid>
       <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
+    </item>
+    
+    <item>
+      <title>SAP Fiori Launch Pad</title>
+      <link>https://coldinfire.github.io/2019/SAPFiori_LaunchPad/</link>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPFiori_LaunchPad/</guid>
+      <description>Fiori Launch Pad SAP Fiori Launch Pad 包含内容: 应用以磁贴形式展示在首页 首页磁贴包括静态磁贴、动态磁贴、新闻磁贴 Tile Catalog：用户可以运行的所有程序的集合 Tile Gr</description>
     </item>
     
     <item>
@@ -1461,12 +1461,12 @@
     </item>
     
     <item>
-      <title> SAP流水号 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_SerialNumber/</link>
+      <title> SAP Number Range Object </title>
+      <link>https://coldinfire.github.io/2018/ABAP_NumberRange/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_SerialNumber/</guid>
-      <description>TCode SNRO OYSM 读取函数 NUMBER_GET_NEXT 相关表 NRIV TNRO 函数组 SNR0 Online maint. of number ranges &amp;amp; groups SNR1 Interface for number ranges and groups SNR2 Maintenance of number range objects SNR3 Number range checks, assignment &amp;amp; info SNR4 Number ranges utility 使用 如有跳号现象，可以禁用对象的 Buffer 试试 5NZ</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_NumberRange/</guid>
+      <description>TCode SNRO : (SAP Number Range Object) OYSM 创建Number Range ​ 1. 输入Tcode:SNRO 点击Create ​ ​ 2. 输入描述，数字长队对应的Domain和Warning 百分</description>
     </item>
     
     <item>

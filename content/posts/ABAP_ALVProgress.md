@@ -13,7 +13,7 @@ tags:
 
 
 
-为了提升用户体验添加进度条功能。
+为了更加清晰的了解到程序执行进度，可以在程序中添加显示进度条功能。
 
 ```JS
 DATA:BEGIN OF gt_result OCCURS 0,
@@ -52,7 +52,8 @@ DATA: l_perc      TYPE int4,
     l_perc_stxt = ''.
     l_perc = l_perc_i * 100 / l_perc_cnt.
     l_sperc = l_perc.
-    CONCATENATE 'Processing: '  l_sperc '% …… ' lt_result-matnr '@ plant:' lt_result-werks INTO l_perc_stxt.
+    CONCATENATE 'Processing: '  l_sperc '% …… ' lt_result-matnr '@ plant:' lt_result-werks
+		INTO l_perc_stxt.
     CALL FUNCTION 'SAPGUI_PROGRESS_INDICATOR'
       EXPORTING
         percentage = l_perc

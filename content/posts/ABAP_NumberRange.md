@@ -1,6 +1,6 @@
 ---
 
-title: " SAP流水号 "
+title: " SAP Number Range Object "
 date: 2018-06-17
 draft: false
 author: Small Fire
@@ -17,27 +17,73 @@ tags:
 
 ### TCode
 
- - SNRO
+ - SNRO : (**S**AP **N**umber **R**ange **O**bject)
  - OYSM
 
-读取函数
+#### 创建Number Range
+
+​	1. 输入Tcode:SNRO 点击Create 
+
+​	![Create](/images/ABAP/ABAP_NumberRange.png)
+
+​	2. 输入描述，数字长队对应的Domain和Warning 百分比，保存
+
+​	![Create and save](/images/ABAP/ABAP_NumberRange2.png)
+
+​	3. 点击Number ranges，弹出显示，修改，创建intervals界面
+
+​	![Maintain Number Range Intevals](/images/ABAP/ABAP_NumberRange3.png)
+
+​	4. 点击Insert Interval 维护值并保存，完成创建和激活
+
+​	![Maintain Number Range Intevals](/images/ABAP/ABAP_NumberRange4.png)
+
+#### 读取函数
 
 - NUMBER_GET_NEXT
 
+  ```JS
+  REPORT zsnro_test.
+  DATA: NUMBER TYPE I.
+  CALL FUNCTION 'NUMBER_GET_NEXT'
+  EXPORTING
+     nr_range_nr = '01'
+     object = 'ZTEST_SNRO'
+  IMPORTING  
+    NUMBER = NUMBER
+  EXCEPTIONS
+    INTERVAL_NOT_FOUND = 1
+    NUMBER_RANGE_NOT_INTERN = 2
+    OBJECT_NOT_FOUND = 3
+    QUANTITY_IS_0 = 4
+    QUANTITY_IS_NOT_1 = 5
+    INTERVAL_OVERFLOW = 6
+    BUFFER_OVERFLOW = 7
+    OTHERS = 8
+  .
+  IF sy-subrc <> 0.
+    MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
+       WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
+  ENDIF.
+  
+  Write :/ 'Next available number is: ', Number. 
+  ```
+
+  
+
 相关表
 
-- NRIV
+- NRIV、TNRO
 
-- TNRO
 
 函数组
 
-- SNR0  Online maint. of number ranges & groups
+- SNR0:  Online maint. of number ranges & groups
 
-- SNR1  Interface for number ranges and groups
-- SNR2  Maintenance of number range objects
-- SNR3  Number range checks, assignment & info
-- SNR4  Number ranges utility
+- SNR1:  Interface for number ranges and groups
+- SNR2:  Maintenance of number range objects
+- SNR3:  Number range checks, assignment & info
+- SNR4:  Number ranges utility
 
 ### 使用
 

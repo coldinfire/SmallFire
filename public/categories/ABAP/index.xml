@@ -31,11 +31,11 @@
     
     <item>
       <title>OLE下载数据到EXCEL模板及速度优化</title>
-      <link>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_OLEtoExcel/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_OLEtoECS/</guid>
-      <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 **问题描述:**当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要</description>
+      <guid>https://coldinfire.github.io/2020/ABAP_OLEtoExcel/</guid>
+      <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员</description>
     </item>
     
     <item>
@@ -939,12 +939,12 @@
     </item>
     
     <item>
-      <title> SAP流水号 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_SerialNumber/</link>
+      <title> SAP Number Range Object </title>
+      <link>https://coldinfire.github.io/2018/ABAP_NumberRange/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_SerialNumber/</guid>
-      <description>TCode SNRO OYSM 读取函数 NUMBER_GET_NEXT 相关表 NRIV TNRO 函数组 SNR0 Online maint. of number ranges &amp;amp; groups SNR1 Interface for number ranges and groups SNR2 Maintenance of number range objects SNR3 Number range checks, assignment &amp;amp; info SNR4 Number ranges utility 使用 如有跳号现象，可以禁用对象的 Buffer 试试 5NZ</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_NumberRange/</guid>
+      <description>TCode SNRO : (SAP Number Range Object) OYSM 创建Number Range ​ 1. 输入Tcode:SNRO 点击Create ​ ​ 2. 输入描述，数字长队对应的Domain和Warning 百分</description>
     </item>
     
     <item>

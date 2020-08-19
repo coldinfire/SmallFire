@@ -15,9 +15,12 @@ tags:
 
 
 
-引用链接：[https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q](https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q)
+引用链接：
 
-​						[https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA](https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA)
+- [https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q](https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q)
+
+- [https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA](https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA)
+
 
 ### 固定资产 BAPI_ACC_DOCUMENT_POST 凭证创建
 
