@@ -31,21 +31,19 @@ tags:
 - **PBO**
 
   ```JS
-  CALL CUSTOMER-SUBSCREEN 〈area〉 INCLUDING 〈x-function-pool〉												  〈screen_number〉.
-    " Transporting data to subscreen
+  CALL CUSTOMER-SUBSCREEN <area> INCLUDING <x-function-pool> <screen_number>.
+    "Transporting data to subscreen"
     MODULE ...
       CALL CUSTOMER-FUNCTION 'xxx'
         EXPORTING
           i_vars = gl_field.
   ```
 
-  
-
 - **PAI**
 
   ```JS
-  CALL CUSTOMER-SUBSCREEN 〈area〉 .
-    "Transporting data from subscreen
+  CALL CUSTOMER-SUBSCREEN <area> .
+    "Transporting data from subscreen"
     MODULE...
        CALL CUSTOMER-FUNCTION 'xxx'
          IMPORTING

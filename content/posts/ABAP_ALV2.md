@@ -71,8 +71,8 @@ SELECTION-SCREEN END OF LINE. 将所生成的屏幕元素控制在一行.
 
 ```JS
 SELECTION-SCREEN BEGIN OF LINE.
-  SELECTION-SCREEN COMMENT n(m) TEXT-001 FOR FIELD S_name."文档信息
-  SELECTION-OPTION: S_name FOR itab-field.     "设定类型
+  SELECTION-SCREEN COMMENT n(m) TEXT-001 FOR FIELD S_name. 文档信息
+  SELECTION-OPTION: S_name FOR itab-field. 设定类型
   SELECTION-OPTION <seltab> FOR <f> 
     NO INTERVALS : 删除HIGH值
 	NO-EXTENSION : 限制选择为单行，不会出现多条按钮
@@ -80,18 +80,16 @@ SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN END OF LINE.
 ```
 
-
-
 ### PARAMETERS 单值输入
 
   PARAMETERS 参照数据字典具体字段或者自定义数据类型创建单值文本输入域以及单选/复选框等：
 
 ```JS
-PARAMETERS: <P_1> LIKE <field>    "文本域
-            TYPE AS CHECKBOX.       "复选框
-            RADIOBUTTON GROUP GRP1, "单选域 
-            P2 RADIOBUTTON GROUP GRP1 DEFAULT 'X',  "默认选中 ”X“
-            P3 RADIOBUTTON GROUP GRP1. "GRP1单选组
+PARAMETERS: <P_1> LIKE <field>      "文本域"
+            TYPE AS CHECKBOX.       "复选框"
+            RADIOBUTTON GROUP GRP1, "单选域"
+            P2 RADIOBUTTON GROUP GRP1 DEFAULT 'X',  "默认选中X"
+            P3 RADIOBUTTON GROUP GRP1. "GRP1单选组"
 ```
 
   默认值：
@@ -156,15 +154,15 @@ FORM SETLIST.
   MYVALUE-KEY = 'FRENCH'. MYVALUE-TEXT = '法国'.   
   APPEND MYVALUE.
   IF INIT IS INITIAL.
-    CALL FUNCTION 'VRM_SET_VALUES' "调用函数对下拉框对象传递数据
+    CALL FUNCTION 'VRM_SET_VALUES' "调用函数对下拉框对象传递数据"
       EXPORTING
-        ID = 'P_LANG' "下拉框对象名
-        VALUES = MYVALUE[]  "下拉框中加载的数据
+        ID = 'P_LANG'       "下拉框对象名"
+        VALUES = MYVALUE[]  "下拉框中加载的数据"
       EXCEPTIONS
         ID_ILLEGAL_NAME = 1
         OTHERS = 2.
   ENDIF.
- INIT = 'X'. "记录初始化状态
+ INIT = 'X'. "记录初始化状态"
 ENDFORM.
 ```
 
@@ -279,18 +277,18 @@ ACTIVE：控制屏幕的可见性 1:可见  2:不可见
 ​	**实例：**  
 
 ```JS
-TABLES SSCRFIELDS."引用词典对象
-  INCLUDE:<icon>.  "按钮中加入图标必须调用该类型库,图标请参考T-CODE：ICON
+TABLES SSCRFIELDS. "引用词典对象"
+  INCLUDE:<icon>.  "按钮中加入图标必须调用该类型库,图标请参考T-CODE：ICON"
   SELECTION-SCREEN PUSHBUTTON /1(20) PUBU1 USER-COMMAND ABCD.
-  SELECTION-SCREEN SKIP."换行
-  SELECTION-SCREEN PUSHBUTTON /10(25) PUBU2 USER-COMMAND ABCE. "位置从10开始
+  SELECTION-SCREEN SKIP."换行"
+  SELECTION-SCREEN PUSHBUTTON /10(25) PUBU2 USER-COMMAND ABCE. "位置从10开始"
   AT SELECTION-SCREEN OUTPUT.
-    MOVE 'CALL NEXT SCREEN' TO PUBU1. "给PUBU1按钮赋值描述
-    WRITE ICON_OKAY AS ICON TO PUBU2. "给PUBU2按钮添加图标，并且在给按钮赋值之前，否则将会把文字替换。
-    CONCATENATE PUBU2 'My Second Button' INTO PUBU2 SEPARATED BY SPACE. "给第二个按钮添加赋值描述
+    MOVE 'CALL NEXT SCREEN' TO PUBU1. "给PUBU1按钮赋值描述"
+    WRITE ICON_OKAY AS ICON TO PUBU2. "给PUBU2按钮添加图标，并且在给按钮赋值之前，否则将会把文字替换。"
+    CONCATENATE PUBU2 'My Second Button' INTO PUBU2 SEPARATED BY SPACE. "给第二个按钮添加赋值描述"
   AT SELECTION-SCREEN.
    IF SSCRFIELDS-UCOMM = 'ABCD'.
-       PERFORM xxxx.  "调用子程序
+       PERFORM xxxx.  "调用子程序"
    ENDIF.
 ```
 
@@ -305,17 +303,17 @@ TABLES SSCRFIELDS."引用词典对象
 ​     
 
 ```jsp
-TYPE-POOLS ICON. "Program Icon Library
+TYPE-POOLS ICON. "Program Icon Library"
   TABLES SSCRFIELDS.
-  DATA functxt TYPE SMP_DYNTXT. "SMP_DYNTXT(菜单制作器:动态文本的程序接口)
+  DATA functxt TYPE SMP_DYNTXT. "SMP_DYNTXT(菜单制作器:动态文本的程序接口)"
   PARAMETERS: p_carrid TYPE s_carr_id,
               p_cityfr TYPE s_from_cit.
   SELECTION-SCREEN: FUNCTION KEY 1,
                     FUNCTION KEY 2.
-  INITIALIZATION. "屏幕初始化
-    functxt-icon_id   = icon_ws_plane.  "文本字段中的图标（替换显示，别名） 
-    functxt-quickinfo = 'Preselected Carrier'.  "菜单制作器：信息文本 (4.0)，滑鼠移去过去显示的信息TIP
-    functxt-icon_text = 'LH'.  "菜单制作器：图标文本 (4.0)，菜单名称
+  INITIALIZATION. "屏幕初始化"
+    functxt-icon_id   = icon_ws_plane.  "文本字段中的图标（替换显示，别名）"
+    functxt-quickinfo = 'Preselected Carrier'.  "菜单制作器：信息文本 (4.0)，滑鼠移去过去显示的信息TIP"
+    functxt-icon_text = 'LH'.  "菜单制作器：图标文本 (4.0)，菜单名称"
     sscrfields-functxt_01 = functxt.
     functxt-icon_text = 'UA'.
     sscrfields-functxt_02 = functxt.
@@ -357,7 +355,7 @@ SELECT-OPTIONS: S_MATNR FOR MARA-MATNR  MODIF ID PR2 ,
                 S_ZMC FOR ZPP_MOLDMACTON-Z_MC MODIF ID PR2,
                 S_ZTONS FOR ZPP_MOLDMACTON-ZTONS MODIF ID PR2 ,
                 S_WSHOP FOR ZPP_MOLDMACTON-ZWKSHOP MODIF ID PR2,
-                S_SDATE FOR ZPP_MOLDSCHE-SDATE MODIF ID PR2 NO-EXTENSION NO INTERVALS DEFAULT SY-DATUM,
+                S_SDATE FOR ZPP_MOLDSCHE-SDATE MODIF ID PR2 NO-EXTENSION NO INTERVALS,
                 S_SDAT2 FOR ZPP_MOLDSCHE-SDATE MODIF ID PR2 DEFAULT SY-DATUM.
 SELECTION-SCREEN END OF BLOCK BLK3.
 

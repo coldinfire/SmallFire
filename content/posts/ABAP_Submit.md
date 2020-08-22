@@ -74,7 +74,7 @@ SUBMIT ztest_submit1
 DATA: lt_seltab  TYPE TABLE OF rsparams,
       ls_seltab  LIKE LINE OF lt_seltab.
 LOOP AT s2_matnr.
-  ls_seltab-selname = 'S1_MATNR'.  " Report1中的屏幕字段名
+  ls_seltab-selname = 'S1_MATNR'.  " Report1中的屏幕字段名 "
   ls_seltab-KIND    = 'S'.
   ls_seltab-SIGN    = s2_matnr-SIGN.
   ls_seltab-OPTION  = s2_matnr-OPTION.
@@ -98,7 +98,7 @@ ENDLOOP.
 
 ```JS
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
- "‘TEST’ 是report:ztest_submit1中保存的变式名称 
+ " TEST 是report:ztest_submit1中保存的变式名称 "
  SUBMIT ztest_submit1
     USING SELECTION-SET 'TEST'
     AND RETURN.
@@ -107,12 +107,13 @@ ENDLOOP.
 
 #### 调用程序，显示选择屏幕界面
 
+被调报表程序的选择屏幕会显示。如果此选择打开，并且还使用了其他参数选项来传输值时，这些值也会显示在屏幕中相应的
+输入框中，并且用户可以进一步修改这些值。
+
 ```JS
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
 SUBMIT ztest_submit1 VIA SELECTION-SCREEN AND RETURN.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
-被调报表程序的选择屏幕会显示。如果此选择打开，并且还使用了其他参数选项来传输值时，这些值也会显示在屏幕中相应的
-输入框中，并且用户可以进一步修改这些值。
 ```
 
 #### 传递ALV内表数据到被调用的程序
@@ -128,14 +129,12 @@ SUBMIT ztest_submit1 VIA SELECTION-SCREEN AND RETURN.
    ```JS
    FIELD-SYMBOLS: <lt_data> TYPE STANDARD TABLE.
    FIELD-SYMBOLS: <fs>.
-   
    DATA: lr_data TYPE REF TO data.
    DATA: lr_data_descr  TYPE REF TO cl_abap_datadescr.
-   """code start
+   "code start"
    cl_salv_bs_runtime_info=>set( EXPORTING  display   = abap_false
                                             metadata  = abap_false
                                             data      = abap_true ).
-   
    SUBMIT z_report
      EXPORTING LIST TO MEMORY AND RETURN
       WITH p_user   EQ i_usnam
@@ -145,11 +144,10 @@ SUBMIT ztest_submit1 VIA SELECTION-SCREEN AND RETURN.
       WITH s_level  IN it_level
       WITH s_prodat IN it_project_creat_date
       WITH s_erdat  IN it_wbs_creat_date.
-   
    TRY.
       cl_salv_bs_runtime_info=>get_data_ref(
           IMPORTING r_data_descr      = lr_data_descr
-                          ).
+       ).
       CHECK lr_data_descr  IS NOT INITIAL.
       CREATE DATA lr_data  TYPE HANDLE lr_data_descr.
       ASSIGN lr_data->* TO <lt_data>.
@@ -157,7 +155,6 @@ SUBMIT ztest_submit1 VIA SELECTION-SCREEN AND RETURN.
          IMPORTING
            t_data       =      <lt_data>
            ).
-   
       IF <lt_data> IS ASSIGNED.
         LOOP AT <lt_data> ASSIGNING <fs>.
           MOVE-CORRESPONDING <fs> TO result_data.
@@ -165,11 +162,10 @@ SUBMIT ztest_submit1 VIA SELECTION-SCREEN AND RETURN.
           CLEAR: result_data.
         ENDLOOP.
       ENDIF.
-   
     CATCH cx_salv_bs_sc_runtime_info...
       MESSAGE 'Error when call function get data' TYPE 'E'.
    ENDTRY.
    ```
-
+   
    
 

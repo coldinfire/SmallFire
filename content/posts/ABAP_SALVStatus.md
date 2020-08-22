@@ -34,8 +34,8 @@ tags:
     DATA: lo_functions TYPE REF TO cl_salv_functions_list.
     lo_functions = co_alv->get_functions( ).
     lo_functions->set_default( abap_true ).
-    "lo_functions->set_all( abap_true ).
-  ENDMETHOD.                    "set_pf_status
+    "lo_functions->set_all( abap_true )."
+  ENDMETHOD.     "set_pf_status"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
 
@@ -62,9 +62,9 @@ tags:
       pfstatus      =  'SALV_STANDARD'
       report        =  'SALV_DEMO_TABLE_SELECTIONS'
       set_functions = co_alv->c_functions_all). "显示所有通用的预设按钮
-	"set_functions = co_alv->c_functions_default)."显示基本默认选择性的预设按钮
-    "set_functions = co_alv->c_functions_none). "所有预设按钮都不显示
-  ENDMETHOD.                    "set_pf_status
+    "set_functions = co_alv->c_functions_default). "显示基本默认选择性的预设按钮
+    "set_functions = co_alv->c_functions_none). "所有预设按钮都不显示"
+  ENDMETHOD.                    "set_pf_status"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
 
@@ -87,8 +87,7 @@ tags:
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
   METHOD set_pf_status.
-   
-  ENDMETHOD.                    "set_pf_status
+  ENDMETHOD.                    "set_pf_status"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
 

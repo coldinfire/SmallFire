@@ -39,7 +39,7 @@ tags:
 
 ​	Screen Flow Logic定义了在screen上的各种事件，而Dynpro定义了这个Screen和各种事件。而 ABAP MODULE POOL会处理这些event, 在每次事件时调用一个ABAP program。
 
-语法：
+#### 语法：
 
 - Module  ...  END MODULE 
 
@@ -56,13 +56,14 @@ tags:
 - `set cursor field <f> [offset <o>]  `
 - MODULE EXIT AT EXIT-COMMAND.
 
-Static Attributes：
+#### Static Attributes：
 
-```JS
-Screen-name，screen-group1，screen-group2, screen-group3, screen-group4
-screen-length,Screen-input，screen-output，screen-required，screen-intensified
-screen-invisible，screen-active
-```
+| screen-name   | screen-length      | screen-invisible |
+| ------------- | ------------------ | ---------------- |
+| screen-group1 | screen-input       | screen-active    |
+| screen-group2 | screen-output      |                  |
+| screen-group3 | screen-required    |                  |
+| screen-group4 | screen-intensified |                  |
 
 ### 字段检查与逻辑流的控制：
 
@@ -82,8 +83,6 @@ screen-invisible，screen-active
   ENDCHAIN.
   表示FLD1,FLD2,FLD3,FLD4有MDL1与MDL2检查
   ```
-
-  
 
 - 不是初始值检查：
   `FIELD <FLD1> MODLE <MDL1> ON INPUT.`

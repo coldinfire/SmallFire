@@ -22,7 +22,7 @@ tags:
         CHANGING
           co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
-*
+
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
     CALL METHOD set_layout
       CHANGING
@@ -34,17 +34,16 @@ tags:
     DATA: lo_layout  TYPE REF TO cl_salv_layout,
           lf_variant TYPE slis_vari,
           ls_key    TYPE salv_s_layout_key.
-*   get layout object
+*Get layout object
     lo_layout = co_alv->get_layout( ).
-*   set Layout save restriction
-*   1. Set Layout Key .. Unique key identifies the Differenet ALVs
+*Set Layout save restriction
+* 1. Set Layout Key .. Unique key identifies the Differenet ALVs
     ls_key-report = sy-repid.
     lo_layout->set_key( ls_key ).
-*   2. Remove Save layout the restriction.
+* 2. Remove Save layout the restriction.
     lo_layout->set_save_restriction( if_salv_c_layout=>restrict_none ).
-
     lf_variant = 'DEFAULT'.
     lo_layout->set_initial_layout( lf_variant ).
-  ENDMETHOD.                    "set_layout
+  ENDMETHOD.                    "set_layout"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```

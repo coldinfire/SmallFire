@@ -107,12 +107,12 @@ MMBE:查看物料的所有库存信息。
 
 #### SAP Stocks Document Tables
 
-| Table | Desc                                                         | Key Fields            |
-| ----- | ------------------------------------------------------------ | --------------------- |
-| MKPF  | Header: Material Document                                    | MBLNR & MJAHR         |
-| MSEG  | Material Document – segments/ lines                          | MBLNR & MJAHR & ZEILE |
-| BSIM  | Index for material to the FI-documents                       | MATNR & BWKEY…        |
-| CKMI1 | Material ledger index& used to document changes in MBEW for each movement KALNR (物料分类帐索引，用于记录每个移动 KALNR 的 MBEW 变化) | MBEW-KALN1            |
+| Table | Desc                                                | Key Fields            |
+| ----- | --------------------------------------------------- | --------------------- |
+| MKPF  | Header: Material Document                           | MBLNR & MJAHR         |
+| MSEG  | Material Document – segments/ lines                 | MBLNR & MJAHR & ZEILE |
+| BSIM  | Index for material to the FI-documents              | MATNR & BWKEY…        |
+| CKMI1 | 物料分类帐索引，用于记录每个移动 KALNR 的 MBEW 变化 | MBEW-KALN1            |
 
 #### SAP Stock Movement BAPI
 

@@ -27,61 +27,58 @@ tags:
 ​	<2> `ASSIGN structure TO <fs>`:将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
   `ASSIGN <Val> TO <fs>`: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。
 
-UNASSIGN: 该语句是初始化`<FS>`字段符号，执行后字段符号将不再引用内存区域，`<fs> is assigned`返回假。
+**UNASSIGN:**  该语句是初始化`<FS>`字段符号，执行后字段符号将不再引用内存区域，`<fs> is assigned`返回假。
 
-CLEAR: 与UNASSIGN不同的是，只有一个作用就是初始化它所指向的内存区域，而不是解除分配。
+**CLEAR:** 与UNASSIGN不同的是，只有一个作用就是初始化它所指向的内存区域，而不是解除分配。
 
-**循环：**LOOP内表INTO Structure和 LOOP内表ASSIGNING Structure的比较
+**循环：** LOOP内表INTO Structure和 LOOP内表ASSIGNING Structure的比较
 
 ​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
 MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程。修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。
 
-**读表：**将内表数据的行记录分配到FS，修改FS的值也就是相当于直接修改内表里的数据。
+**读表：** 将内表数据的行记录分配到FS，修改FS的值也就是相当于直接修改内表里的数据。
 
 #### 使用：
 
 - APPEND & INSERT
 
   ```JS
-  "Append line
+  "Append line"
   APPEND INITIAL LINE TO t_mara ASSIGNING <fs_mara>.
   <fs_mara>-matnr = 'sapclub'.
-  
-  "Insert table
+  "Insert table"
   INSERT INITIAL LINE INTO t_mara ASSIGNING <fs_mara> INDEX 2.
   <fs_mara>-matnr = 'ABCDEF'.
   ```
-
+  
 - LOOP & READ
 
   ```JS
-  "Read table
+  "Read table"
   READ TABLE t_mara ASSIGNING <fs_mara> WITH KEY matnr = 'sapclub'.
   IF sy-subrc EQ 0.
     WRITE:/ <fs_mara>-matnr.
   ENDIF.
-  
-  "Loop
+  "Loop"
   LOOP AT t_mara ASSIGNING <fs_mara>.
     WRITE:/ <fs_mara>-matnr.
   ENDLOOP.
   ```
-
+  
 - MODIFY
 
   ```JS
-  "READ and MODIFY
+  "READ and MODIFY"
   READ TABLE t_mara ASSIGNING <fs_mara> WITH KEY matnr = 'matnr'
   IF sy-subrc EQ 0.
     <fs_mara>-ersda = sy-datum.
   ENDIF.
-  
-  "LOOP and MODIFY
+  "LOOP and MODIFY"
   LOOP AT t_mara ASSIGNING <fs_mara>.
-  <fs_mara>-ersda = sy-datum + 1.
+    <fs_mara>-ersda = sy-datum + 1.
   ENDLOOP.
   ```
-
+  
 - 直接复制内表数据
 
   ```JS
@@ -133,8 +130,8 @@ TYPES: BEGIN OF t_date,
     month(2) TYPE n,
     day(2) TYPE n,
   END OF t_date.
-FIELD-SYMBOLS <fs> TYPE t_date.  "将<fs>定义成了具体限定类型
-ASSIGN sy-datum TO <fs> CASTING. "后面没有指定具体类型，所以使用定义时的类型进行隐式转换
+FIELD-SYMBOLS <fs> TYPE t_date.  "将<fs>定义成了具体限定类型"
+ASSIGN sy-datum TO <fs> CASTING. "后面没有指定具体类型，所以使用定义时的类型进行隐式转换"
 ```
 
 ASSIGN显示强转
@@ -142,7 +139,7 @@ ASSIGN显示强转
 ```JS
   DATA txt(8) TYPE c VALUE '19980606'.
   FIELD-SYMBOLS <fs>.
-  ASSIGN txt TO <fs> CASTING TYPE d."由于定义时未指定具体的类型，所以这里需要显示强转
+  ASSIGN txt TO <fs> CASTING TYPE d."由于定义时未指定具体的类型，所以这里需要显示强转"
 ```
 
 **动态引用：**通过循环赋值给定义的字段符号，对其进行修改，等于直接修改原内表。

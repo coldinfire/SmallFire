@@ -37,27 +37,26 @@ DATA: lt_ekko TYPE TABLE OF ekko,
       ls_ekpo TYPE ekpo,
       lt_output TYPE TABLE OF ty_output,
       ls_output TYPE ty_output.
-"Global Data Definitions for ALV
-"$. Region ALV_Data
+"Global Data Definitions for ALV"
+"$. Region ALV_Data"
 *DATA g_CONTAINER TYPE REF TO CL_GUI_CONTAINER.
 *DATA g_splitter TYPE REF TO cl_gui_splitter_container.
-DATA container TYPE REF TO cl_gui_custom_container .  "-- Custom container instance reference
-DATA grid        TYPE REF TO cl_gui_alv_grid .        "-- ALV Grid instance reference
-DATA lt_fieldcat TYPE lvc_t_fcat.  "-- Field catalog table
+DATA container TYPE REF TO cl_gui_custom_container .  "-- Custom container instance reference"
+DATA grid        TYPE REF TO cl_gui_alv_grid .        "-- ALV Grid instance reference"
+DATA lt_fieldcat TYPE lvc_t_fcat.  "-- Field catalog table"
 DATA lw_fieldcat TYPE lvc_s_fcat.
-DATA lw_layout   TYPE lvc_s_layo .  "-- Layout structure
-DATA lt_exclude  TYPE ui_functions. "-- Button Exclude
-DATA lt_variant  TYPE disvariant.   "-- Variant
-DATA lt_sort     TYPE lvc_t_sort.   "-- Sotrt table
-DATA lt_filt     TYPE lvc_t_filt.   "-- Filter table
-"$. Endregion ALV_Data
+DATA lw_layout   TYPE lvc_s_layo .  "-- Layout structure"
+DATA lt_exclude  TYPE ui_functions. "-- Button Exclude"
+DATA lt_variant  TYPE disvariant.   "-- Variant"
+DATA lt_sort     TYPE lvc_t_sort.   "-- Sotrt table"
+DATA lt_filt     TYPE lvc_t_filt.   "-- Filter table"
+"$. Endregion ALV_Data"
 START-OF-SELECTION.
   PERFORM get_data.
   IF lt_output IS NOT INITIAL.
     CALL SCREEN 100.
   ENDIF.
-
- *&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
 *&      Form  GET_DATA
 *&---------------------------------------------------------------------*
 *       text
@@ -74,7 +73,6 @@ FORM get_data .
        FOR ALL ENTRIES IN lt_ekko
        WHERE ebeln = lt_ekko-ebeln.
   ENDIF.
-
   LOOP AT lt_ekpo INTO ls_ekpo.
     ls_output-ebeln = ls_ekpo-ebeln.
     ls_output-ebelp = ls_ekpo-ebelp.
@@ -91,8 +89,7 @@ FORM get_data .
     APPEND ls_output TO lt_output.
     CLEAR ls_output.
   ENDLOOP.
-ENDFORM.                    " GET_DATA
-
+ENDFORM.                    " GET_DATA "
 *&---------------------------------------------------------------------*
 *&      Module  STATUS_0100  OUTPUT
 *&---------------------------------------------------------------------*
@@ -101,11 +98,8 @@ ENDFORM.                    " GET_DATA
 MODULE status_0100 OUTPUT.
   SET PF-STATUS 'PF_1000'.
   SET TITLEBAR 'TIT_100'.
-
   PERFORM prepare_field_catalog CHANGING lt_fieldcat.
-
   PERFORM prepare_layout CHANGING lw_layout.
-
   IF grid IS INITIAL .
 *----Creating custom container instance
     CREATE OBJECT container
@@ -119,11 +113,9 @@ MODULE status_0100 OUTPUT.
         lifetime_dynpro_dynpro_link = 5
         OTHERS                      = 6.
     IF sy-subrc <> 0.
-      "Exception handling
       MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
             WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
-
 *----creating alv grid instance
     CREATE OBJECT grid
       EXPORTING
@@ -135,7 +127,6 @@ MODULE status_0100 OUTPUT.
         error_dp_create   = 4
         OTHERS            = 5.
     IF sy-subrc <> 0.
-      "Exception handling
       MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
      WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
@@ -147,7 +138,8 @@ MODULE status_0100 OUTPUT.
 *      i_buffer_active               =
 *      i_bypassing_buffer            =
 *      i_consistency_check           =
-*      i_structure_name              =      "Name of the DDIC structure, the catalog is generated automatically (Have priority)
+*      i_structure_name              =      
+          "Name of the DDIC structure, the catalog is generated automatically (Have priority)"
 *      is_variant                    =
         i_save                        = 'X'
         i_default                     = 'X'
@@ -183,12 +175,9 @@ MODULE status_0100 OUTPUT.
       finished = 1
       OTHERS = 2 .
     IF sy-subrc <> 0.
-      "-Exception handling
     ENDIF.
   ENDIF.
-
-
-ENDMODULE.                 " STATUS_0100  OUTPUT
+ENDMODULE.                 " STATUS_0100  OUTPUT "
 *&---------------------------------------------------------------------*
 *&      Module  USER_COMMAND_0100  INPUT
 *&---------------------------------------------------------------------*
@@ -199,7 +188,7 @@ MODULE user_command_0100 INPUT.
     WHEN 'BACK' OR 'UP' OR 'CANCEL'.
       LEAVE PROGRAM.
   ENDCASE.
-ENDMODULE.                 " USER_COMMAND_0100  INPUT
+ENDMODULE.                 " USER_COMMAND_0100  INPUT "
 
 *&---------------------------------------------------------------------*
 *&      Form  prepare_field_catalog
@@ -211,7 +200,6 @@ ENDMODULE.                 " USER_COMMAND_0100  INPUT
 FORM prepare_field_catalog  CHANGING pt_fieldcat TYPE lvc_t_fcat.
   DATA ls_fcat TYPE lvc_s_fcat .
   CLEAR ls_fcat .
-
   ls_fcat-fieldname = 'EBELN'.
   ls_fcat-seltext = 'Purchase Order'.
   ls_fcat-col_pos = 1.
@@ -274,10 +262,7 @@ FORM prepare_field_catalog  CHANGING pt_fieldcat TYPE lvc_t_fcat.
   ls_fcat-outputlen = 18.
   APPEND ls_fcat TO pt_fieldcat.
   CLEAR ls_fcat.
-
-ENDFORM.                    " PREPARE_FIELD_CATALOG
-
-
+ENDFORM.                    " PREPARE_FIELD_CATALOG "
 *&---------------------------------------------------------------------*
 *&      Form  PREPARE_LAYOUT
 *&---------------------------------------------------------------------*
@@ -291,7 +276,6 @@ FORM prepare_layout  CHANGING ps_layout TYPE lvc_s_layo.
   ps_layout-grid_title = 'Material Document List' .
   ps_layout-smalltitle = 'X' .
 *  ps_layout-info_fname  = 'ROWCOLOR'.
-ENDFORM.                    " PREPARE_LAYOUT
-
+ENDFORM.                    " PREPARE_LAYOUT "
 ```
 

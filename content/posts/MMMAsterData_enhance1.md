@@ -13,7 +13,7 @@ tags:
 
 ---
 
-[https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/](https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/)
+Reference: [https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/](https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/)
 
 
 
@@ -38,9 +38,9 @@ tags:
 - 1.SPRO > 后勤-常规 >物料主数据 >配置物料主记录>创建定制子屏幕程序(ZMMARC:**SAPL**ZMMARC) 
   - OMT3C：Create Function Group
 
-​		![Configure Path](/images/MM/MM_Enhance4.png)
+![Configure Path](/images/MM/MM_Enhance4.png)
 
-​		![Create FM Group](/images/MM/MM_Enhance5.png)
+![Create FM Group](/images/MM/MM_Enhance5.png)
 
 - 2.SE80查看Function group `MGD1`选择需要增强字段的子屏幕
 
@@ -72,7 +72,7 @@ tags:
 
     ![Subscreens](/images/MM/MM_Enhance12.png)
 
-- 单击 “ *添加新条目”*按钮，并将程序名称替换为自定义的程序名（Function Group 的主程序），然后将自己的屏幕编号（2497）填入到Subscreen Number中,保存
+- 单击 **“ 添加新条目”** 按钮，并将程序名称替换为自定义的程序名（Function Group 的主程序），然后将自己的屏幕编号（2497）填入到Subscreen Number中,保存
 
   ![Subscreens](/images/MM/MM_Enhance13.png)
 
@@ -85,8 +85,8 @@ tags:
 ​	如果仅需要在 SAVE 操作期间进行一些错误检查，则可以将代码括在诸如
 
 ```JS
-1. IF sy-ucomm = 'BU' OR SY-UCOMM = 'YES'. "此代码仅在 SAVE 期间执行
-2.   " 代码逻辑
+1. IF sy-ucomm = 'BU' OR SY-UCOMM = 'YES'. "此代码仅在 SAVE 期间执行"
+2.   " 代码逻辑 "
 3. ENDIF。
 ```
 

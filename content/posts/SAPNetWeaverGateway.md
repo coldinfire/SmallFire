@@ -35,19 +35,17 @@ SAP Gateway提供了以下的能力：
 - 基于REST,OData。允许使用功能任何编程语言或模型连接到SAP应用程序
 - 开发者可以基于现有的SAP BW query，BAPI，RFC，Web Dynpro屏幕，创建新的SAP Gateway对象
 
-
-
 ### 将SAP NetWeaver Gateway 连接到 SAP Business Suite
 
 1) 将后端服务器配置为信任系统 : SM59
 
 ![1559703243928](/images/SAPUI5/1559703243928.png)
 
-  ![1559712968906](/images/SAPUI5/1559712968906.png)    
+![1559712968906](/images/SAPUI5/1559712968906.png)    
 
 2) SMT1
 
-  ![1559713194355](/images/SAPUI5/1559713194355.png)
+![1559713194355](/images/SAPUI5/1559713194355.png)
 
 ### SAP NetWeaver Gateway部署选项
 
@@ -69,7 +67,7 @@ SAP Gateway提供了以下的能力：
 
 ​	开发在 Gateway 集线器系统中进行，并且不触及 Business Suite 后端系统。
 
-- 无法直接访问**元数据（DDIC）**和业务数据。因此，数据的重用是有限的。
+- 无法直接访问 **元数据（DDIC）** 和业务数据。因此，数据的重用是有限的。
 - 无法远程使用 GENIL 对象。
 - 在此配置中，访问仅限于远程启用的接口，如 RFC 模块，BAPI 等。
 

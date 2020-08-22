@@ -41,7 +41,7 @@ CLASS lcl_report DEFINITION.
            END   OF ty_vbak.
     TYPES: ty_t_vbak TYPE STANDARD TABLE OF ty_vbak.
     DATA: t_vbak TYPE STANDARD TABLE OF ty_vbak.
-*   ALV reference
+*ALV reference
     DATA: o_alv TYPE REF TO cl_salv_table.
     METHODS:
       get_data,
@@ -59,7 +59,7 @@ CLASS lcl_report DEFINITION.
           co_alv  TYPE REF TO cl_salv_table
           ct_vbak TYPE ty_t_vbak.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
-ENDCLASS.                    "lcl_report DEFINITION
+ENDCLASS.                    "lcl_report DEFINITION"
 
 START-OF-SELECTION.
   DATA: lo_report TYPE REF TO lcl_report.
@@ -72,12 +72,12 @@ START-OF-SELECTION.
 *----------------------------------------------------------------------*
 CLASS lcl_report IMPLEMENTATION.
   METHOD get_data.
-*   data selection
+*Data selection
     SELECT vbeln erdat auart kunnr
            INTO  CORRESPONDING FIELDS OF TABLE t_vbak
            FROM  vbak
            UP TO 20 ROWS.
-  ENDMETHOD.                    "get_data
+  ENDMETHOD.                    "get_data"
   METHOD generate_output.
     DATA: lx_msg TYPE REF TO cx_salv_msg.
     TRY.
@@ -88,26 +88,26 @@ CLASS lcl_report IMPLEMENTATION.
             t_table      = t_vbak ).
       CATCH cx_salv_msg INTO lx_msg.
     ENDTRY.
-*   Set default PF status
+*Set default PF status
     CALL METHOD set_pf_status
       CHANGING
         co_alv = o_alv.
-*   Set the colors to ALV display
+*Set the colors to ALV display
     CALL METHOD set_colors
       CHANGING
         co_alv  = o_alv
         ct_vbak = t_vbak.
-  ENDMETHOD.                    "generate_output
+  ENDMETHOD.                    "generate_output"
   METHOD set_pf_status.
     DATA: lo_functions TYPE REF TO cl_salv_functions_list.
     lo_functions = co_alv->get_functions( ).
     lo_functions->set_default( abap_true ).
-  ENDMETHOD.                    "set_pf_status
+  ENDMETHOD.                    "set_pf_status"
   METHOD set_colors.
-*.....Color for COLUMN.....
+*Color for COLUMN
     DATA: lo_cols_tab TYPE REF TO cl_salv_columns_table,
           lo_col_tab  TYPE REF TO cl_salv_column_table.
-    DATA: ls_color TYPE lvc_s_colo.    " Colors strucutre
+    DATA: ls_color TYPE lvc_s_colo.    "Colors strucutre"
     lo_cols_tab = co_alv->get_columns( ).
     INCLUDE <color>.
     TRY.
@@ -116,7 +116,7 @@ CLASS lcl_report IMPLEMENTATION.
         lo_col_tab->set_color( ls_color ).
       CATCH cx_salv_not_found.
     ENDTRY.
-*.......Color for Specific Cell & Rows.................
+*Color for Specific Cell & Rows
     DATA: lt_s_color TYPE lvc_t_scol,
           ls_s_color TYPE lvc_s_scol,
           la_vbak    LIKE LINE OF ct_vbak,
@@ -124,7 +124,7 @@ CLASS lcl_report IMPLEMENTATION.
     LOOP AT ct_vbak INTO la_vbak.
       l_count = l_count + 1.
       CASE l_count.
-*       Apply RED color to the AUART Cell of the 3rd Row
+*Apply RED color to the AUART Cell of the 3rd Row
         WHEN 3.
           ls_s_color-fname     = 'AUART'.
           ls_s_color-color-col = col_negative.
@@ -132,8 +132,7 @@ CLASS lcl_report IMPLEMENTATION.
           ls_s_color-color-inv = 0.
           APPEND ls_s_color TO lt_s_color.
           CLEAR  ls_s_color.
-*       Apply GREEN color to the entire row 5
-*        For entire row, we don't pass the Fieldname
+*Apply GREEN color to the entire row 5 For entire row, we don noSt pass the Fieldname
         WHEN 5.
           ls_s_color-color-col = col_positive.
           ls_s_color-color-int = 0.
@@ -141,22 +140,19 @@ CLASS lcl_report IMPLEMENTATION.
           APPEND ls_s_color TO lt_s_color.
           CLEAR  ls_s_color.
       ENDCASE.
-*     Modify that data back to the output table
+*Modify that data back to the output table
       la_vbak-t_color = lt_s_color.
       MODIFY ct_vbak FROM la_vbak.
       CLEAR  la_vbak.
       CLEAR  lt_s_color.
     ENDLOOP.
-*   We will set this COLOR table field name of the internal table to
-*   COLUMNS tab reference for the specific colors
+*We will set this COLOR table field name of the internal table to 
+*COLUMNS tab reference for the specific colors
     TRY.
         lo_cols_tab->set_color_column( 'T_COLOR' ).
-      CATCH cx_salv_data_error.                         "#EC NO_HANDLER
+      CATCH cx_salv_data_error.                         "#EC NO_HANDLER"
     ENDTRY.
-  ENDMETHOD.                    "set_colors
-*
-*
-*
+  ENDMETHOD.                    "set_colors"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
-ENDCLASS.                    "lcl_report IMPLEMENTATION
+ENDCLASS.                    "lcl_report IMPLEMENTATION"
 ```

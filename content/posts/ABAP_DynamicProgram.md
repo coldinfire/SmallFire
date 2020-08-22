@@ -15,7 +15,7 @@ tags:
 
 
 
-利用Field Symbols和数据参考的实例：
+### 利用Field Symbols和数据参考的实例：
 
 ```JS
 *&--------------------------------------------------------------------
@@ -31,18 +31,18 @@ FIELD-SYMBOLS: <struc> TYPE ANY,
 PARAMETERS: p_table(20) DEFAULT 'LFA1' OBLIGATORY,
             p_rows   TYPE i OBLIGATORY.
 TRY .
-    "Dynamic create Table & Structure
+    "Dynamic create Table & Structure "
     CREATE DATA tab_reference TYPE STANDARD TABLE OF (p_table)
            WITH NON-UNIQUE DEFAULT KEY.
     ASSIGN tab_reference->* TO <itab>.
     
     CREATE DATA struc_reference TYPE (p_table).
     ASSIGN struc_reference->* TO <struc>.
-    "Get data from table
+    "Get data from table"
     SELECT * FROM (p_table) INTO TABLE <itab> UP TO p_rows ROWS .
-    "Get structure desc by struc
+    "Get structure desc by struc"
     descr ?=  cl_abap_typedescr=>describe_by_data( <struc> ).
-    "Data processing logic
+    "Data processing logic"
     LOOP AT <itab> INTO <struc>.
       DO 20 TIMES.
         ASSIGN COMPONENT sy-index OF STRUCTURE <struc> TO <field>.

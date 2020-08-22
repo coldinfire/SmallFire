@@ -45,7 +45,7 @@ DATA: l_perc      TYPE int4,
 
   l_perc = 0.
   l_perc_i = 0.
-  l_perc_cnt = LINES( lt_result ).  "DESCRIBE TABLE itab LINES n
+  l_perc_cnt = LINES( lt_result ).  "DESCRIBE TABLE itab LINES n "
 
   LOOP AT  lt_result.
     l_perc_i = l_perc_i + 1.

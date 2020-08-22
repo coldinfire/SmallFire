@@ -23,7 +23,7 @@ Openui5 一共有 5 种 pattern表达式:
 2. **路径含有必输参数模式** : 模式中 大括号({}) 包含的部分表示参数必须输入。比如 product/{id} 表示导航到产品某一 id，比如 product/5 表示 id 为 5 的产品，id 为必输。
 3. **路径含有可选参数模式** : 模式中 冒号 包含的部分为必输参数。比如 product/{id}/detail/:detailId:，detailId 为可选参数。product/5/detail 以及 product/3/detail/2 都能与此模式匹配。
 4. **路径含有查询参数模式** : 查询参数 ( query parameter ) 在问号之后。比如 product{?query}，query 这个参数为必输项。product:?query: 中的 query 这个参数为可选参数。
-5. **通配参数模式 **: 以星号结尾的参数是通配参数，通配参数将根据模式尽可能匹配。
+5. **通配参数模式**  :以星号结尾的参数是通配参数，通配参数将根据模式尽可能匹配。
 
 ### 导航调用
 

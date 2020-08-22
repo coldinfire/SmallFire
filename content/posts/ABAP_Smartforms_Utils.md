@@ -48,16 +48,14 @@ DATA: fm_name TYPE rs38l_fnam.
 DATA: ls_control_param TYPE ssfctrlop .
 DATA: ls_composer_param TYPE ssfcompop .
 	
-  ls_control_param-langu = sy-langu.
-  ls_control_param-no_open = 'X'.
-  ls_control_param-no_close = 'X'.
-  ls_control_param-no_dialog = 'X'.  " Not show dialog
-
-  ls_composer_param-tddest = 'LP01'. " Printer
-  ls_composer_param-tdimmed = 'X'.   " Print Immediately (Print Parameters)
-  ls_composer_param-tddelete = 'X'.  " Delete After Printing (Print Parameters)
-   
-   * 根据 SmartForm 名称获得 Form 的 Function Name
+ls_control_param-langu = sy-langu.
+ls_control_param-no_open = 'X'.
+ls_control_param-no_close = 'X'.
+ls_control_param-no_dialog = 'X'.  " Not show dialog "
+ls_composer_param-tddest = 'LP01'. " Printer "
+ls_composer_param-tdimmed = 'X'.   " Print Immediately (Print Parameters) "
+ls_composer_param-tddelete = 'X'.  " Delete After Printing (Print Parameters) "   
+* 根据 SmartForm 名称获得 Form 的 Function Name
   CALL FUNCTION 'SSF_FUNCTION_MODULE_NAME'
     EXPORTING
       formname = 'FORM_NAME'
@@ -67,7 +65,6 @@ DATA: ls_composer_param TYPE ssfcompop .
        no_form = 1
        no_function_module = 2
       OTHERS = 3 .
-      
   CALL FUNCTION fm_name
     EXPORTING
       control_parameters = ls_control_param

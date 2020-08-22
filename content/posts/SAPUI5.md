@@ -316,38 +316,31 @@ sap.ui.jsview("ui5mvc.main", {
 	},
 	createContent : function(oController) {
 		var oShell = new sap.ui.ux3.Shell();// Create Shell
-
 		oShell.addWorksetItem(new sap.ui.ux3.NavigationItem({
 			key : "btn",
 			text : "Button"
 		}));// Add Navigation item
-
 		oShell.addWorksetItem(new sap.ui.ux3.NavigationItem({
 			key : "tf",
 			text : "Textfield"
 		}));
-
 		oShell.addWorksetItem(new sap.ui.ux3.NavigationItem({
 			key : "xml",
 			text : "XMLView"
 		}));
-
 		var mContent = {}; // map holding shell content
 		mContent.btn = new sap.ui.commons.Button({
 			text : "Hello World"
 		});
-
 		mContent.tf = new sap.ui.commons.TextField();
 		oShell.attachWorksetItemSelected(function(evt) {
 			var key = evt.getParameter("key");
 			oShell.setContent(mContent[key]);
 		});// Add WorksetItem Selected event
-
 		mContent.xml = sap.ui.view({
 			viewName : "ui5mvc.XML",
 			type : sap.ui.core.mvc.ViewType.XML
 		});
-	
 		oShell.setContent(mContent.btn);//initial content
 		return oShell;
 	}
@@ -366,7 +359,7 @@ sap.ui.jsview("ui5mvc.main", {
 	mlns:html="http://www.w3.org/1999/xhtml">
 	<html:h1>My first XML-Header</html:h1>
 	<Panel>
-		<Button press=".sayHello" text="Say Hello"></Button>
+          <Button press=".sayHello" text="Say Hello"></Button>
 	</Panel>
 </core:View>
 ```
@@ -389,51 +382,46 @@ xmlView 聚合绑定
 
 #### Controller		
 
-1. 系统生成的文件
+1、系统生成的文件
 
 ```javascript
 sap.ui.controller("ui5mvc.XML", {
 // onInit: function() {
 //		
 // },
-
 // onBeforeRendering: function() {
 //
 // },
-
 // onAfterRendering: function() {
 //
 // },
-
 // onExit: function() {
 //
 // }
-
-sayHello : function() {
-	sap.ui.commons.MessageBox.show("Hello World");
-}
+  sayHello : function() {
+    sap.ui.commons.MessageBox.show("Hello World");
+  }
 });
 ```
-2. 通过模块定义
+2、通过模块定义
 
 ```JS
-sap.ui.define(
-	["Dependencies1","Dependencies2","formatter"],
-	function(Controller,formatter){
-	"use strict";
-		return Controller.extend("ControllerName",{
-            formatter:formatter,
-            
-			onInit:function(){},
-               onBeforeRendering:function(){},
-               onAfterRendering:function(){},
-               onExit:function(){}
-		});
-	}
+sap.ui.define( 
+  ["Dependencies1","Dependencies2","formatter"],
+  function(Controller,formatter){
+    "use strict";
+    return Controller.extend("ControllerName",{
+      formatter:formatter,
+      onInit:function(){},
+      onBeforeRendering:function(){},
+      onAfterRendering:function(){},
+      onExit:function(){}
+    });
+  }
 );
 ```
 
-1. 生命周期：
+3、生命周期：
 
 ​			Start  -->  视图和控制器被实例化  -->  控制器被加载(存在控制器) -->  onInit  -->  onBeforeRendering  --> 
 
@@ -446,7 +434,7 @@ sap.ui.define(
 - onAfterRendering : 当视图被渲染时调用;是HTML的一部分。用于执行HTML的后续操作，SAPUI5控制在渲染后访问此钩子。
 - onBeforeRendering : 在控制器视图重新呈现之前调用，不在第一次呈现之前调用。用于在其中调用第一个渲染前的钩子。
 
-2. 控制器只是将加载的格式化程序函数存储在本地属性格式化程序中，以便能够在视图中访问它们。
+4、控制器只是将加载的格式化程序函数存储在本地属性格式化程序中，以便能够在视图中访问它们。
 
 #### Model
 
@@ -476,29 +464,23 @@ sap.ui.define(
 Component.js通过调用manifest.json的配置信息，完成初始化调用。
 
 ```JS
-sap.ui.define([
-        "sap/ui/core/UIComponent",
-        "sap/ui/model/resource/ResourceModel",
-        "sap/ui/model/json/JSONModel"
-        
-    ], function (UIComponent, ResourceModel, JSONModel) {
+sap.ui.define(
+  ["sap/ui/core/UIComponent","sap/ui/model/resource/ResourceModel","sap/ui/model/json/JSONModel"],
+  function (UIComponent, ResourceModel, JSONModel) {
     "use strict";
-
     return UIComponent.extend("webapp.Component", {
-		//metadata
-        metadata: {
-            manifest: "json"
-         },
-
-        init : function () {
-            // call the base component's init function
-            UIComponent.prototype.init.apply(this, arguments);
-
-            // create the views based on the url/hash
-            this.getRouter().initialize();
-        }
+      //metadata
+      metadata: {
+        manifest: "json"
+      },
+      init : function () {
+        // call the base component's init function
+        UIComponent.prototype.init.apply(this, arguments);
+        // create the views based on the url/hash
+        this.getRouter().initialize();
+      }
     });
-});
+  });
 ```
 
 #### Application Descriptor
@@ -572,26 +554,28 @@ sap.ui.define([
 
    ```JS
    "sap.app": {
-       ...
-       "dataSources": {
-           "mainService": {
-               "uri": "./service/data.json",
-               "type": "JSON"
-           }
+     ...
+     "dataSources": {
+       "mainService": {
+         "uri": "./service/data.json",
+         "type": "JSON"
        }
+     }
+   }
    ```
 
 2. sap.ui5的`models`没有指定名称的 model，当 view 中数据绑定时，没有给出前缀的时候，就参照到这个 model。使用sap.app中设置的dataSource.
 
    ```JS
    "sap.ui5": {
-           ...
-           "models": {
-               "": {
-                   "dataSource": "mainService"
-                },
-           ...
-           }
+     ...
+     "models": {
+       "": {
+         "dataSource": "mainService"
+       },
+     ...
+     }
+   }
    ```
 
 ##### Root View

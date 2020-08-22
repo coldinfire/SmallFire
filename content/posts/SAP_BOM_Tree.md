@@ -15,9 +15,7 @@ tags:
 
 
 
-### 代码
-
-
+### 实例代码
 
 ```JS
 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo.
@@ -25,17 +23,14 @@ TABLES: stpox.
 INCLUDE <icon>.
 CLASS: cl_gui_column_tree DEFINITION LOAD,
        cl_gui_cfw DEFINITION LOAD .
-
 DATA: tree1  TYPE REF TO cl_gui_alv_tree ,
       mr_toolbar TYPE REF TO cl_gui_toolbar .
-
 DATA: gs_stpox       TYPE stpox,
       gt_stpox       TYPE stpox OCCURS 0,
       gt_fieldcatalog  TYPE lvc_t_fcat,
       gt_item_layout   TYPE lvc_t_laci,
       gs_item_layout   TYPE lvc_s_laci,
       okcode           LIKE sy-ucomm .
-
 TYPES: BEGIN OF gs_f.
         INCLUDE STRUCTURE stpox.
 TYPES: node_key      TYPE lvc_nkey,
@@ -59,11 +54,11 @@ START-OF-SELECTION.
 FORM getdata.
   CALL FUNCTION 'CS_BOM_EXPL_MAT_V2'
     EXPORTING
-      capid                 = 'CAD1'      " p_capid
+      capid                 = 'CAD1'     "p_capid"
       datuv                 = sy-datum
-      mehrs                 = 'X'         "p_mehrs
-      stlal                 = '01'     " 可选 BOM
-      stlan                 = '2'      "BOM 用途
+      mehrs                 = 'X'        "p_mehrs"
+      stlal                 = '01'       "可选 BOM"
+      stlan                 = '2'        "BOM 用途"
       mtnrv                 = P_MATNR
       werks                 = P_WERKS
       emeng                 = 1
@@ -103,13 +98,11 @@ FORM getdata.
     WHEN 9 .
       MESSAGE e899(fi) WITH 'OTHERS Error'.
   ENDCASE.
-
   LOOP AT gt_stpox INTO gs_stpox.
     MOVE-CORRESPONDING gs_stpox TO gs_xstpox .
     APPEND gs_xstpox TO gt_xstpox.
   ENDLOOP.
-
-ENDFORM.                    "getdata
+ENDFORM.                    "getdata"
 *----------------------------------------------------------------------*
 *  MODULE status_9000 OUTPUT
 *----------------------------------------------------------------------*
@@ -120,7 +113,7 @@ MODULE status_9000 OUTPUT.
     PERFORM init_tree.
   ENDIF.
   CALL METHOD cl_gui_cfw=>flush.
-ENDMODULE.                 " PBO_9000  OUTPUT
+ENDMODULE.                 " PBO_9000  OUTPUT "
 *----------------------------------------------------------------------*
 *  MODULE user_command_9000 INPUT
 *----------------------------------------------------------------------*
@@ -129,21 +122,17 @@ MODULE user_command_9000 INPUT.
     WHEN 'EXIT' OR 'BACK' OR 'CANC'.
       CALL METHOD tree1->free.
       LEAVE PROGRAM .
-
     WHEN OTHERS.
       CALL METHOD cl_gui_cfw=>dispatch.
   ENDCASE.
-
   CLEAR okcode.
   CALL METHOD cl_gui_cfw=>flush.
-ENDMODULE.                 " okcode  INPUT
-
+ENDMODULE.                 " okcode  INPUT "
 *&---------------------------------------------------------------------*
 *&      Form  init_tree
 *&---------------------------------------------------------------------*
 FORM init_tree .
   PERFORM build_fieldcatalog.
-
 * IF sy-batch IS INITIAL.
 * CREATE OBJECT l_custom_container
 * EXPORTING
@@ -158,7 +147,6 @@ FORM init_tree .
 * MESSAGE e000 WITH ' 创建容器：TREE1 错误 '.
 * ENDIF.
 * ENDIF.
-
   CREATE OBJECT tree1
     EXPORTING
 *     parent                      = l_custom_container
@@ -178,13 +166,10 @@ FORM init_tree .
   IF sy-subrc <> 0.
     MESSAGE e000 WITH ' 创建 TREE 错误 '.
   ENDIF.
-
   DATA l_hierarchy_header TYPE treev_hhdr.
   PERFORM build_hierarchy_header CHANGING l_hierarchy_header.
-
   DATA: ls_variant TYPE disvariant.
   ls_variant-report = sy-repid.
-
   CALL METHOD tree1->set_table_for_first_display
     EXPORTING
       is_hierarchy_header = l_hierarchy_header
@@ -192,18 +177,15 @@ FORM init_tree .
       i_save              = 'A'
       is_variant          = ls_variant
     CHANGING
-      it_outtab           = gt_stpox "table must be emty !!
+      it_outtab           = gt_stpox        "table must be emty !!"
       it_fieldcatalog     = gt_fieldcatalog.
-
   DATA: l1 TYPE lvc_nkey ,l2 TYPE lvc_nkey ,l3 TYPE lvc_nkey ,l4 TYPE lvc_nkey ,
         l5 TYPE lvc_nkey ,l6 TYPE lvc_nkey ,l7 TYPE lvc_nkey ,l8 TYPE lvc_nkey ,
         l_key TYPE lvc_nkey,
         l_last_key TYPE lvc_nkey  ,
         added .
   LOOP AT gt_xstpox INTO gs_xstpox .
-
     MOVE-CORRESPONDING gs_xstpox TO gs_stpox.
-
     CASE gs_stpox-stufe .
       WHEN '1'.
         l_key = ''.
@@ -218,11 +200,9 @@ FORM init_tree .
       WHEN '6'.
         l_key = l5.
     ENDCASE.
-
     PERFORM add_complete_line USING  gs_stpox l_key
                             CHANGING l_last_key.
     gs_xstpox-node_key = l_last_key.
-
     CASE gs_stpox-stufe .
       WHEN '1'.
         l1 = l_last_key.
@@ -237,14 +217,11 @@ FORM init_tree .
       WHEN '6'.
         l6 = l_last_key.
     ENDCASE.
-
     MODIFY gt_xstpox FROM gs_xstpox .
   ENDLOOP.
-
   CALL METHOD tree1->update_calculations.
   CALL METHOD tree1->frontend_update.
-ENDFORM.                    " init_tree
-
+ENDFORM.                    " init_tree "
 *&---------------------------------------------------------------------*
 *&      Form  build_fieldcatalog
 *&---------------------------------------------------------------------*
@@ -270,42 +247,35 @@ FORM build_fieldcatalog.
 * ENDCASE.
   MODIFY gt_fieldcatalog FROM ls_fieldcatalog.
   ENDLOOP.
-  ENDFORM.                               " build_fieldcatalog
-
+  ENDFORM.                               " build_fieldcatalog "
 *&---------------------------------------------------------------------*
 *&      Form  build_hierarchy_header
 *&---------------------------------------------------------------------*
-FORM build_hierarchy_header CHANGING
-                               p_hierarchy_header TYPE treev_hhdr.
-*
+FORM build_hierarchy_header CHANGING p_hierarchy_header TYPE treev_hhdr.
   p_hierarchy_header-heading = 'BOM 层次 '.
   p_hierarchy_header-tooltip = 'ToolTip'.
   p_hierarchy_header-width = 30.
   p_hierarchy_header-width_pix = ''.
-*
-ENDFORM.                               " build_hierarchy_header
-
+ENDFORM.                               " build_hierarchy_header "
 *&---------------------------------------------------------------------*
 *&      Form  add_complete_line
 *&---------------------------------------------------------------------*
 FORM add_complete_line USING  ps_stpox TYPE stpox
-                               p_relat_key TYPE lvc_nkey
-                     CHANGING  p_node_key TYPE lvc_nkey.
+                              p_relat_key TYPE lvc_nkey
+                     CHANGING p_node_key TYPE lvc_nkey.
   DATA: l_node_text TYPE lvc_value.
-* set item-layout
+*Set item-layout
   DATA: lt_item_layout TYPE lvc_t_layi,
         ls_item_layout TYPE lvc_s_layi.
   DATA: stufe_num(2) TYPE n.
-
   ls_item_layout-fieldname = tree1->c_hierarchy_column_name.
   ls_item_layout-class     = cl_gui_column_tree=>item_class_text.
 * ls_item_layout-editable  = 'X'.
-* ls_item_layout-chosen    = 'X'.  " 设置为选中状态
+* ls_item_layout-chosen    = 'X'.  "设置为选中状态"
   APPEND ls_item_layout TO lt_item_layout.
 * l_node_text =  ps_stpox-ojtxp.
   stufe_num = ps_stpox-stufe.
   CONCATENATE stufe_num ',' ps_stpox-ojtxp INTO l_node_text.
-
   CALL METHOD tree1->add_node
     EXPORTING
       i_relat_node_key = p_relat_key
@@ -315,6 +285,6 @@ FORM add_complete_line USING  ps_stpox TYPE stpox
       it_item_layout   = lt_item_layout
     IMPORTING
       e_new_node_key   = p_node_key.
-ENDFORM.                               " add_complete_line
+ENDFORM.                               " add_complete_line "
 ```
 

@@ -33,18 +33,18 @@ tags:
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
   METHOD set_sorts.
     DATA: lo_sort TYPE REF TO cl_salv_sorts.
-*   get Sort object
+*Get Sort object
     lo_sort = co_alv->get_sorts( ).
-*   Set the SORT on the AUART with Subtotal
+*Set the SORT on the AUART with Subtotal
     TRY.
         CALL METHOD lo_sort->add_sort
           EXPORTING
             columnname = 'AUART'
             subtotal   = if_salv_c_bool_sap=>true.
-      CATCH cx_salv_not_found .                         "#EC NO_HANDLER
-      CATCH cx_salv_existing .                          "#EC NO_HANDLER
-      CATCH cx_salv_data_error .                        "#EC NO_HANDLER
+      CATCH cx_salv_not_found .                         "#EC NO_HANDLER"
+      CATCH cx_salv_existing .                          "#EC NO_HANDLER"
+      CATCH cx_salv_data_error .                        "#EC NO_HANDLER"
     ENDTRY.
-  ENDMETHOD.                    "set_sorts
+  ENDMETHOD.                    "set_sorts"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```

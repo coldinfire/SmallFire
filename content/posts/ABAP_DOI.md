@@ -80,12 +80,12 @@ DATA: cl_bds_instance   TYPE REF TO cl_bds_document_set,
       wa_doc_uris       LIKE LINE OF gt_doc_uris.
 DATA: g_app      TYPE vrm_id,
       gt_applist TYPE vrm_values,
-      g_excel    TYPE text80 VALUE 'Excel.Sheet',       "EXCEL的表单
+      g_excel    TYPE text80 VALUE 'Excel.Sheet',       "EXCEL的表单"
       g_docu_type TYPE text80,
       g_url(256)  TYPE c,
       g_has_activex TYPE c,
-      g_col TYPE i,         "字段所在的列数
-      g_row TYPE i.         "字段所在的行数
+      g_col TYPE i,         "字段所在的列数"
+      g_row TYPE i.         "字段所在的行数"
 ```
 以下三个值为Tcode:OAOR里面新建模板文件的参数
 
@@ -147,7 +147,7 @@ CALL METHOD cl_control->get_document_proxy
  wa_doc_signature-prop_name = 'DESCRIPTION'.
  wa_doc_signature-prop_value = 'PP_REPORT'.
 APPEND wa_doc_signature TO gt_doc_signature.
-"===== Create_excel_document
+*===== Create_excel_document
 call method gr_control->get_document_proxy
   exporting
     document_type  = 'Excel.Sheet'
@@ -187,10 +187,10 @@ call method cl_bds_document_set=>get_with_url
  free gr_bds_documents.
  read table gt_bds_uris into gs_bds_url index 1.
  g_url = gs_bds_url-uri.
-   <cl_bds_document_set> 的静态方法get_with_url获取excel template的url。数据存放在内表中，
-读取后放在global变量g_template_url里面。
+"<cl_bds_document_set> 的静态方法get_with_url获取excel template的url。"
+"数据存放在内表中，读取后放在global变量g_template_url里面。"
 
-"Open the excel
+"Open the excel"
 call method gr_control->get_document_proxy
    exporting
      document_type      = 'Excel.Sheet'
@@ -242,12 +242,6 @@ CALL method spreadsheet->delete_sheet
      error    = error
      retcode  = retcode.
 ```
----------------------
-
-作者：SAPmatinal
-
-来源：CSDN
-
 原文：https://blog.csdn.net/SAPmatinal/article/details/52776862
 
 ### 数据写入Excel: ###
@@ -263,16 +257,14 @@ CALL method gr_spreadsheet->insert_range_dim
     left    = 1
     rows    = line_count
     columns  = 4.
-
-* set_range_data 方法，写入数据到range，写入的时候，ranges参数设定range的名称和大小, contents参数
-设定写入的内容。
+* set_range_data 方法，写入数据到range，写入的时候，ranges参数设定range的名称和大小, 
+* contents参数设定写入的内容。
 CALL methodgr_spreadsheet->set_ranges_data
  exporting
     ranges=gt_ranges
     contents=gt_contents
     no_flush= 'X'.
-
-Ex:*界定ranges范围
+*界定ranges范围
 CALL METHOD R_HANDLE_EXCEL->INSERT_RANGE_DIM
   EXPORTING
       NAME= 'title'
@@ -297,7 +289,6 @@ LOOP AT IT_FIELDCATINTO LWA_FIELDCAT.
   WA_CONTENTS-VALUE = LWA_FIELDCAT-SELTEXT_L.
   APPEND WA_CONTENTSTO IT_CONTENTS.
 ENDLOOP.
-
 * Set data
 CALL METHOD R_HANDLE_EXCEL->SET_RANGES_DATA
   EXPORTING
@@ -392,8 +383,7 @@ form write_single_cell using p_row p_col p_value.
       contents = lt_contents
       no_flush = 'X'.
 endform.   
-
-循环写入：
+* 循环写入：
 loop at gt_spfli into gs_spfli.
    row_index = sy-tabix + 1.
    perform write_single_cell using row_index 1 gs_spfli-carrid.
@@ -442,9 +432,9 @@ CALL METHODC_OI_ERRORS=>RAISE_MESSAGE
   第二种方法是区分不同的错误，给用户一个更明确的提示：
 ```JS
 IF ret_code EQ c_oi_errors=>ret_ok.
-  " Document opened successfully
+  " Document opened successfully"
 ELSEIF ret_code EQ c_oi_errors=> ret_document_already_open.
-  " Special error handling, e.g. dialog box.
+  " Special error handling, e.g. dialog box."
 ELSE.
   CALL METHOD c_oi_errors=>raise_message
      EXPORTING type = 'E'.

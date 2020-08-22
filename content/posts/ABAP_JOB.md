@@ -43,8 +43,6 @@ tags:
 
 ### 强制结束后台作业（ SM37 SM35 SM50)
 
-解决方法：
-
 第一步：SM50
 
 ​	找到Ty. 列为 BGD 的(Background)，然后再找到你刚运行的那个后台 Job 的行，选中；然后在菜单点击：Process---Cancel with core. 即可。

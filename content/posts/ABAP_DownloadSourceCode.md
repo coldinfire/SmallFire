@@ -24,39 +24,38 @@ tags:
 *@ Created by Xavery Hsueh on 2011-03-01
 *@ Lasted Edited date:
 *@---------------------------------------------------------------------*
-"REPORT XXX NO STANDARD PAGE HEADING.
-
-***********************************************************************@
+"REPORT XXX NO STANDARD PAGE HEADING."
+***********************************************************************
 ** 声明数据库表
-***********************************************************************@
+***********************************************************************
 TABLES:rs38m,
 trdir. 
-"***********************************************************************@
-"** 内表结构类型的定义
-"***********************************************************************@
+***********************************************************************
+** 内表结构类型的定义
+***********************************************************************
 DATA BEGIN OF dynpfields OCCURS 1.
 INCLUDE STRUCTURE dynpread.
 DATA END OF dynpfields.
 
 TYPES:BEGIN OF typ_result,
-box TYPE c,
-tabix TYPE sytabix, "顺序号
-name TYPE char40, "程序名称
-cnam TYPE cnam, "创建人员
-unam TYPE unam, "最后修改人
-code(72) TYPE c, "程序描述
+  box TYPE c,
+  tabix TYPE sytabix, "顺序号"
+  name TYPE char40, "程序名称"
+  cnam TYPE cnam,   "创建人员"
+  unam TYPE unam,   "最后修改人"
+  code(72) TYPE c,  "程序描述"
 END OF typ_result.
-***********************************************************************@
+***********************************************************************
 ** 变量与内表的定义
-***********************************************************************@
+***********************************************************************
 DATA:gt_report TYPE TABLE OF tdline WITH HEADER LINE.
 DATA:gt_result TYPE TABLE OF typ_result WITH HEADER LINE.
 DATA:gt_trdir TYPE TABLE OF trdir WITH HEADER LINE.
 DATA:gt_btab TYPE TABLE OF textpool WITH HEADER LINE.
 
-DATA:g_filenm TYPE rlgrap-filename. "文件名称
-RANGES r_prog FOR rs38m-programm. "程序名称
-*@------------------ ALV 相关的变量 -----------------------------------*
+DATA:g_filenm TYPE rlgrap-filename. "文件名称"
+RANGES r_prog FOR rs38m-programm. "程序名称"
+*------------------ ALV 相关的变量 -----------------------------------*
 TYPE-POOLS:slis.
 DATA: g_repid LIKE sy-repid,
 wa_print TYPE slis_print_alv,
@@ -68,9 +67,9 @@ gt_fieldcat TYPE slis_t_fieldcat_alv WITH HEADER LINE,
 wa_fieldcat LIKE LINE OF gt_fieldcat,
 g_save TYPE c,
 g_pos TYPE i.
-***********************************************************************@
+***********************************************************************
 ** 宏定义
-***********************************************************************@
+***********************************************************************
 DEFINE mcr_field.
 clear wa_fieldcat.
 g_pos = g_pos + 1 .
@@ -78,15 +77,15 @@ wa_fieldcat-col_pos = g_pos.
 wa_fieldcat-fieldname = &1.
 wa_fieldcat-tabname = 'I_RESULT'.
 
-" wa_fieldcat-no_out = 'X'. "field no display, choose from layout
-  wa_fieldcat-key = ' '. "SUBTOTAL KEY
+" wa_fieldcat-no_out = 'X'. ""field no display, choose from layout"
+  wa_fieldcat-key = ' '. "SUBTOTAL KEY"
   wa_fieldcat-seltext_l = &2.
   wa_fieldcat-outputlen = &3.
   append wa_fieldcat to gt_fieldcat.
   END-OF-DEFINITION.
-*@---------------------------------------------------------------------*
-*@ MACRO MCR_RANGE 初始化选择条件
-*@---------------------------------------------------------------------*
+*---------------------------------------------------------------------*
+* MACRO MCR_RANGE 初始化选择条件
+*---------------------------------------------------------------------*
 * &1 RANGE 变量
 * &2 操作符
 * &3 LOW
@@ -100,14 +99,14 @@ wa_fieldcat-tabname = 'I_RESULT'.
   &1-high = &4.
   append &1.
   END-OF-DEFINITION.
-***********************************************************************@
+***********************************************************************
 ** 屏幕定义
-***********************************************************************@
-  SELECTION-SCREEN BEGIN OF BLOCK xavery WITH FRAME TITLE text_001.
-  SELECTION-SCREEN BEGIN OF LINE.
-  SELECTION-SCREEN COMMENT 1(15) text_002 FOR FIELD p_prog.
-  PARAMETERS:p_prog TYPE rs38m-programm MEMORY ID rid.
-  SELECTION-SCREEN END OF LINE.
+***********************************************************************
+SELECTION-SCREEN BEGIN OF BLOCK xavery WITH FRAME TITLE text_001.
+SELECTION-SCREEN BEGIN OF LINE.
+SELECTION-SCREEN COMMENT 1(15) text_002 FOR FIELD p_prog.
+PARAMETERS:p_prog TYPE rs38m-programm MEMORY ID rid.
+SELECTION-SCREEN END OF LINE.
 
 SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN COMMENT 1(15) text_003 FOR FIELD p_cnam.
@@ -119,9 +118,9 @@ SELECTION-SCREEN COMMENT 1(15) text_004 FOR FIELD p_filenm.
 PARAMETERS:p_filenm TYPE rlgrap-filename.
 SELECTION-SCREEN END OF LINE.
 SELECTION-SCREEN END OF BLOCK xavery.
-***********************************************************************@
-** 执行程序事件
-***********************************************************************@
+***********************************************************************
+** 执行程序事件 
+***********************************************************************
 INITIALIZATION.
 PERFORM f_init_condition.
 
@@ -135,24 +134,24 @@ PERFORM sub_process_report.
 END-OF-SELECTION.
 PERFORM sub_init_layout.
 PERFORM sub_create_fieldcat.
-PERFORM sub_display_as_alv. "以ALV的方式输出结果表
-*@---------------------------------------------------------------------*
-*@ Form F_INIT_CONDITION
-*@---------------------------------------------------------------------*
+PERFORM sub_display_as_alv. "以ALV的方式输出结果表"
+*---------------------------------------------------------------------*
+* Form F_INIT_CONDITION
+*---------------------------------------------------------------------*
 * 初始化选择条件
-*----------------------------------------------------------------------*
+*---------------------------------------------------------------------*
   FORM f_init_condition .
   text_001 = '查询条件'.
   text_002 = '程序名称'.
   text_003 = '程序创建人'.
   text_004 = '下载文件名称'.
-" 选择屏幕初始值
+" 选择屏幕初始值 "
   p_prog = 'Z*'.
-  p_filenm = 'C:\ABAP\'.
-  ENDFORM. " F_INIT_CONDITION
-*&---------------------------------------------------------------------*
-*& Form SUB_GET_PROGRAM
-*&---------------------------------------------------------------------*
+  p_filenm = 'C:\ABAP\'. 
+  ENDFORM. " F_INIT_CONDITION "
+*---------------------------------------------------------------------*
+* Form SUB_GET_PROGRAM
+*---------------------------------------------------------------------*
 * text
 *----------------------------------------------------------------------*
   FORM sub_get_program .
@@ -171,7 +170,7 @@ PERFORM sub_display_as_alv. "以ALV的方式输出结果表
   READ TABLE dynpfields INDEX 1.
   p_prog = dynpfields-fieldvalue.
   PERFORM program_directory USING p_prog 'X'.
-  ENDFORM. " SUB_GET_PROGRAM
+  ENDFORM. " SUB_GET_PROGRAM "
 
 *---------------------------------------------------------------------*
 * FORM PROGRAM_DIRECTORY *
@@ -216,7 +215,7 @@ PERFORM sub_display_as_alv. "以ALV的方式输出结果表
   ENDIF.
   GET PARAMETER ID 'RID' FIELD p_prog.
   ENDIF.
-  ENDFORM. "program_directory
+  ENDFORM. "program_directory"
 *&---------------------------------------------------------------------*
 *& Form SUB_QUERY_REPORT
 *&---------------------------------------------------------------------*
@@ -229,7 +228,7 @@ PERFORM sub_display_as_alv. "以ALV的方式输出结果表
   WHERE name IN r_prog AND
   cnam EQ p_cnam AND
   subc NE 'X'.
-  ENDFORM. " SUB_QUERY_REPORT
+  ENDFORM. " SUB_QUERY_REPORT "
 *&---------------------------------------------------------------------*
 *& Form SUB_DOWNLOAD_REPORT
 *&---------------------------------------------------------------------*
@@ -276,7 +275,7 @@ PERFORM sub_display_as_alv. "以ALV的方式输出结果表
 IF sy-subrc = 0.
 MESSAGE l_message TYPE 'S'.
 ENDIF.
-ENDFORM. " SUB_DOWNLOAD_REPORT
+ENDFORM. " SUB_DOWNLOAD_REPORT "
 *&---------------------------------------------------------------------*
 *& Form SUB_PROCESS_REPORT
 *&---------------------------------------------------------------------*
@@ -299,7 +298,6 @@ ENDFORM. " SUB_DOWNLOAD_REPORT
   ENDIF.
   APPEND gt_result.
   ENDLOOP.
-" 清空内表
   FREE gt_trdir.
   ENDFORM. " SUB_PROCESS_REPORT
 *&---------------------------------------------------------------------*
@@ -314,7 +312,7 @@ ENDFORM. " SUB_DOWNLOAD_REPORT
   mcr_field 'CNAM' '程序创建人' '20'.
   mcr_field 'UNAM' '最后修改人' '20'.
   mcr_field 'CODE' '程序描述' '30'.
-  ENDFORM. " SUB_CREATE_FIELDCAT
+  ENDFORM. " SUB_CREATE_FIELDCAT "
 *&---------------------------------------------------------------------*
 *& Form SUB_INIT_LAYOUT
 *&---------------------------------------------------------------------*
@@ -325,7 +323,7 @@ ENDFORM. " SUB_DOWNLOAD_REPORT
   wa_layout-window_titlebar = '开发程序名称清单'.
   wa_layout-colwidth_optimize = 'X'.
   wa_layout-box_fieldname = 'BOX'.
-  ENDFORM. " SUB_INIT_LAYOUT
+  ENDFORM. " SUB_INIT_LAYOUT "
 *&---------------------------------------------------------------------*
 *& Form SUB_DISPLAY_AS_ALV
 *&---------------------------------------------------------------------*
@@ -348,7 +346,7 @@ ENDFORM. " SUB_DOWNLOAD_REPORT
   EXCEPTIONS
   program_error = 1
   OTHERS = 2.
-  ENDFORM. " SUB_DISPLAY_AS_ALV
+  ENDFORM. " SUB_DISPLAY_AS_ALV "
 *@--------------------------------------------------------------------*
 *@ Form sub_user_command
 *@--------------------------------------------------------------------*
@@ -394,6 +392,6 @@ ENDCASE.
 * 下载程序
   PERFORM sub_download_report USING g_filenm.
   ENDLOOP.
-  ENDFORM. " SUB_UCOMM_DOWN
+  ENDFORM. " SUB_UCOMM_DOWN "
 ```
 

@@ -22,22 +22,22 @@ tags:
 ```JS
 CALL FUNCTION 'L_TO_CREATE_SINGLE'
   exporting
-	i_lgnum = wh_number  "Warehouse number
-	i_bwlvs = '999'      "MvT999
-	i_matnr = lqua-matnr "Material no.
-	i_werks = lqua-werks "Plant
-	i_lgort = lqua-lgort "Storage location
-	i_anfme = lqua-verme "Requested Qty
-	i_altme = lqua-meins "Unit of measure
-	i_letyp = ltap-letyp "SU Type
-	i_vlpla = lqua-lgpla "Source storage bin
-	i_vlqnr = lqua-lqnum "Quant
-	i_vltyp = lqua-lgtyp "Source storage type
-	i_nlpla = ltap-nlpla "Destination storage bin
-	i_nltyp = v_nltyp    "Destination storage type
-	i_squit = squit      " 
+	i_lgnum = wh_number  "Warehouse number"
+	i_bwlvs = '999'      "MvT999"
+	i_matnr = lqua-matnr "Material no."
+	i_werks = lqua-werks "Plant"
+	i_lgort = lqua-lgort "Storage location"
+	i_anfme = lqua-verme "Requested Qty"
+	i_altme = lqua-meins "Unit of measure"
+	i_letyp = ltap-letyp "SU Type"
+	i_vlpla = lqua-lgpla "Source storage bin"
+	i_vlqnr = lqua-lqnum "Quant"
+	i_vltyp = lqua-lgtyp "Source storage type"
+	i_nlpla = ltap-nlpla "Destination storage bin"
+	i_nltyp = v_nltyp    "Destination storage type"
+	i_squit = squit      
   importing
-	e_tanum = l_tanum    "Transfer Order
+	e_tanum = l_tanum    "Transfer Order"
 	e_ltap  = l_ltap     
   exceptions
 	no_to_created = 1

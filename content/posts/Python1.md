@@ -194,13 +194,13 @@ pickle : Pickle Module
 ----------
 ```JS
 1. 原理：
-	For调用了var = iter(str)，next(var),当next()没有元素时，raise a StopIteration
+  For调用了var = iter(str)，next(var),当next()没有元素时，raise a StopIteration
 2. 集合数据类型：list、tuple、dict、set、str等
-generator:sum(i*i for i in range(10))
-包括生成器和带yield的generator function
-		def reverse(data):
-		    for index in range(len(data)-1, -1, -1):
-		        yield data[index]
+  generator:sum(i*i for i in range(10))
+  包括生成器和带yield的generator 
+    function def reverse(data):
+      for index in range(len(data)-1, -1, -1):
+        yield data[index]
 ```
 # 模块(Mod)
 ----------
@@ -208,61 +208,64 @@ generator:sum(i*i for i in range(10))
 导入整个模块：import modname.   from modname import *.
 导入模块部分：from modname import name1[, name2[, ... nameN]].
 OS Interface:
-	os:getcwd()  chdir()  system() open()
-	shutil:copyfile('source','aim')     move('source','aim')
+  os:getcwd()  chdir()  system() open()
+  shutil:copyfile('source','aim')     move('source','aim')
 File Wildcards: 
-	glob:glob.glog('*.py')
+  glob:glob.glog('*.py')
 Output Formatting:
-	reprlib: reprlib.repr(set('adfasfsadfsfsfsfs'))
-	pprint: pprint.pprint((source,width = vaule))
-	textwrap:格式化输出段落适应屏幕宽度  textwrap.fill(source,width=value)
-	locale:culture specific data formats	
-			x = 1234567.8
-			locale.format_string("%s%.*f", (conv['currency_symbol'],conv['frac_digits'], x), grouping=True)
-			'$1,234,567.80'
+  reprlib: reprlib.repr(set('adfasfsadfsfsfsfs'))
+  pprint: pprint.pprint((source,width = vaule))
+  textwrap:格式化输出段落适应屏幕宽度  textwrap.fill(source,width=value)
+  locale:culture specific data formats	
+      x = 1234567.8
+      locale.format_string("%s%.*f", (conv['currency_symbol'],conv['frac_digits'], x), grouping=True)
+      '$1,234,567.80'
 Command Line Arg:	
-	sys: sys. args  sys.stdin sys.stdout, sys.stderr.write('Error msg') , sys.exit()
-	getopt:
-	argparse:
+  sys: sys. args  sys.stdin sys.stdout, sys.stderr.write('Error msg') , sys.exit()
+  getopt:
+  argparse:
 String Pattern Matching:
-	re:re.fundall(), re.sub  etc.
+  re:re.fundall(), re.sub  etc.
 Templating:
-	string(Template):t = Template('${village}folk send $$10 to $cause.')
-						 t.substitute(village='Nottingham', cause='the ditch fund')
-						>>>'Nottinghamfolk send $10 to the ditch fund.'
+  string(Template):t = Template('${village}folk send $$10 to $cause.')
+      t.substitute(village='Nottingham', cause='the ditch fund')
+      >>>'Nottinghamfolk send $10 to the ditch fund.'
 Mathematics:
-	math:math.cos(),math.log() etc.
-	random:random.choice([]),random.sample(range(100),10) etc,
-	statistics:(mean,median,variance)etc.
+  math:math.cos(),math.log() etc.
+  random:random.choice([]),random.sample(range(100),10) etc,
+  statistics:(mean,median,variance)etc.
 Internet Access:
-	urllim.request(retrieving data from URLs):
-	smtplib(sending mail): server = smtplib.SMTP('xxx')   server.sendmail('from_email','to_email')  server.quit()
+  urllim.request(retrieving data from URLs):
+  smtplib(sending mail): server = smtplib.SMTP('xxx') 
+  server.sendmail('from_email','to_email')
+  server.quit()
 Dates and Times:
-	datetime(date) :  date.today()  
+  datetime(date) :  date.today()  
 Data Compression: (zlib,gzip,bz2,lzma,zipfile,tarfile)
-	zlib:zlib.compress('source')   zlib.decompress('zlib_source')
+  zlib:zlib.compress('source')   zlib.decompress('zlib_source')
 Quality Control:
-	doctest: doctest.testmod()
-	unittest: unittest.TestCase   assertRaises():   unittest.amin()
+  doctest: doctest.testmod()
+  unittest: unittest.TestCase   assertRaises():   unittest.amin()
 Multi-threading:;
-	threading: threading.Thread
+  threading: threading.Thread
 Logging: 
-	logging: sys.stderr(file)   logging.debug()  logging.info()  logging.warning()  logging.error() logging.critical()
+  logging: sys.stderr(file)   logging.debug()  
+  logging.info()  logging.warning()  logging.error() logging.critical()
 Weak References:
-	wearkref: 
+  wearkref: 
 Tools For Lists:
-	array: a = array('H',[1213,1414,4124])   sum(a)-只计算list中的内容，对a的操作只对list有效
-	collections(deque):
-	bisect:manipulation sorder lists  bisect.insort(aim,source)
-	heapq:use for repeatedly access the smallest element do not run a full list sort(堆排序)
-			heapify(list)   heappush(list,value)   [headppop(list) for i in range(x)]   
+  array: a = array('H',[1213,1414,4124])   sum(a)-只计算list中的内容，对a的操作只对list有效
+  collections(deque):
+  bisect:manipulation sorder lists  bisect.insort(aim,source)
+  heapq:use for repeatedly access the smallest element do not run a full list sort(堆排序)
+    heapify(list)   heappush(list,value)   [headppop(list) for i in range(x)]   
 Decimal Floating Point Ath:(精准计算)
-	decimal:  
-		help for(1)	financial applications and other uses which require exact decimal representation,
-				(2)	control over precision,
-				(3)	control over rounding to meet legal or regulatory requirements,
-				(4)	tracking of significant decimal places, or
-				(5)	applications where the user expects the results to match calculations done by hand
+  decimal:  
+    help for 1> financial applications and other uses which require exact decimal representation
+             2> control over precision
+             3> control over rounding to meet legal or regulatory requirements
+             4>	tracking of significant decimal places, or
+             5> applications where the user expects the results to match calculations done by hand
 ```
 
 # 包管理(pip)
@@ -316,29 +319,23 @@ Virtual environments:
 	class Error(Exception):
 	    """Base class for exceptions in this module."""
 	    pass
-	
 	class InputError(Error):
 	    """Exception raised for errors in the input.
-	
 	    Attributes:
 	        expression -- input expression in which the error occurred
 	        message -- explanation of the error
 	    """
-	
 	    def __init__(self, expression, message):
 	        self.expression = expression
 	        self.message = message
-	
 	class TransitionError(Error):
 	    """Raised when an operation attempts a state transition that's not
 	    allowed.
-	
 	    Attributes:
 	        previous -- state at beginning of transition
 	        next -- attempted new state
 	        message -- explanation of why the specific transition is not allowed
 	    """
-	
 	    def __init__(self, previous, next, message):
 	        self.previous = previous
 	        self.next = next
@@ -351,7 +348,6 @@ Virtual environments:
 	类帮助信息：ClassName._doc_查看
 	class_suite：有数据属性，类成员，方法组成
 	self：代表类的实例，当前对象的地址，而非类，self.class则指向类
-
 	class ClassName:
 	   """所有员工的基类"""  #类文档字符串
 	   empCount = 0    #数据属性
@@ -359,13 +355,10 @@ Virtual environments:
 	      self.name = name
 	      self.salary = salary
 	      Employee.empCount += 1
-	   
 	   def displayCount(self):
 	     print "Total Employee %d" % Employee.empCount
-	 
 	   def displayEmployee(self):
 	      print "Name : ", self.name,  ", Salary: ", self.salary
-
 2. 添加，删除，修改，访问类的属性
 	demo.attr = value1：添加属性
 	demo.attr = value2：修改属性
@@ -389,33 +382,28 @@ Virtual environments:
 	__getattr__(self,attr1,attr2):
 		setattr(self,attr1,attr2)   
 	object.__getattriabute__()
-	get(self,实例,所有者)    set()  delete()  set_name()
-	
+	get(self,实例,所有者)  set()  delete()  set_name()
 	slots():为此变量分配字符串，可迭代，阻止每个实例自动创建__dict__和__weakref__
-	
 6. 类的继承
 	(1) 语法：class 派生类名(basic1,basic2)：...
 	      调用：__init_subclass__
 	(2)Python内置的@property装饰器就是负责把一个方法变成属性调用
-	(3)mixln:主线都是单一继承下来的，例如，Ostrich继承自Bird。但是，如果需要“混入”额外的功能，通过多重继承就可以实现，比如，让Ostrich除了继承自Bird外，再同时继承Runnable
+	(3)mixln:主线都是单一继承下来的，例如，Ostrich继承自Bird。但是，如果需要“混入”额外的功能，
+             通过多重继承就可以实现，比如，让Ostrich除了继承自Bird外，再同时继承Runnable
 7. 元类
 	class OrderedClass(type):
-	
 	    @classmethod
 	    def __prepare__(metacls, name, bases, **kwds):
 	        return collections.OrderedDict()
-	
 	    def __new__(cls, name, bases, namespace, **kwds):
 	        result = type.__new__(cls, name, bases, dict(namespace))
 	        result.members = tuple(namespace)
 	        return result
-	
 	class A(metaclass=OrderedClass):
 	    def one(self): pass
 	    def two(self): pass
 	    def three(self): pass
 	    def four(self): pass
-	
 	>>> A.members
 	('__module__', 'one', 'two', 'three', 'four')
 ```
@@ -436,9 +424,9 @@ Virtual environments:
 	 A|B：可以匹配A或B
 	 ^:表示行的开头，^\d表示必须以数字开头。
 	 $表示行的结束，\d$表示必须以数字结束。
-	 [0-9a-zA-Z\_]：可以匹配一个数字、字母或者下划线；
-	 [0-9a-zA-Z\_]+：可以匹配至少由一个数字、字母或者下划线组成的字符串，比如'a100'，'0_Z'，'Py3000'等等；
-	 [a-zA-Z\_][0-9a-zA-Z\_]*：可以匹配由字母或下划线开头，后接任意个由一个数字、字母或者下划线组成的字符串，也就是Python合法的变量；
+	 [0-9a-zA-Z\_]：可以匹配一个数字、字母或者下划线
+	 [0-9a-zA-Z\_]+：可以匹配至少由一个数字、字母或者下划线组成的字符串，比如'a100'，'0_Z'，'Py3000'等等
+	 [a-zA-Z\_][0-9a-zA-Z\_]*：可以匹配由字母或下划线开头，后接任意个由一个数字、字母或者下划线组成的字符串
 	 [a-zA-Z\_][0-9a-zA-Z\_]{0, 19}：更精确地限制了变量的长度是1-20个字符（前面1个字符+后面最多19个字符）
 2. match()方法判断是否匹配，如果匹配成功，返回一个Match对象，否则返回None
 	print(re.match(r'^\d{3}\-\d{3,8}$', '010-12345'))

@@ -37,18 +37,18 @@ DATA:PREQ_NO      TYPE  BAPIMEREQHEADER-PREQ_NO,
      PRITEM   TYPE TABLE OF BAPIMEREQITEMIMP WITH HEADER LINE,
      PRITEMX  TYPE TABLE OF BAPIMEREQITEMX WITH HEADER LINE.
 DATA:LV_POS TYPE I.
-" Fill Header
+" Fill Header "
 PRHEADER-PR_TYPE = 'NB'.
 PRHEADERX-PR_TYPE = 'X'.
-" Fill Item
-PRITEM-PREQ_ITEM = LV_POS. " Item Number of Purchase Requisition
-PRITEM-PUR_GROUP = '011'.  " Purchasing Group
+" Fill Item "
+PRITEM-PREQ_ITEM = LV_POS. " Item Number of Purchase Requisition "
+PRITEM-PUR_GROUP = '011'.  " Purchasing Group "
 PRITEM-MATERIAL = LV_MATNR.
 PRITEM-PLANT    = LV_PLANT.
 PRITEM-STORE_LOC = LV_LGORT. 
 PRITEM-QUANTITY = LV_MENGE.
 PRITEM-UNIT     = LV_MEINS.
-PRITEM-DELIV_DATE = SY_DATUM. "Delivery Date of Goods
+PRITEM-DELIV_DATE = SY_DATUM. "Delivery Date of Goods"
 APPEND PRITEM.
 
 PRITEMX-PREQ_ITEM = LV_POS.
@@ -93,56 +93,55 @@ ENDIF.
 ```JS
 FORM create_pr_batch .
   DATA: BEGIN OF gt_data1 OCCURS 0,
-    bsart   TYPE string, "凭证类型
-    bnfpo   TYPE string, "项目
-*   KNTTP   TYPE STRING, "科目分配类别
-    matnr   TYPE string, "商品代码
-*   TXZ01   TYPE STRING, "短文本
-    menge   TYPE string, "数量
-    meins   TYPE string, "单位
-    eeind   TYPE string, "交货日期
-*   MATKL   TYPE STRING, "物料组
-    werks   TYPE string, "工厂
-    ekgrp   TYPE string, "采购组
-    afnam   TYPE string, "申请者
-    bednr   TYPE string, "需求跟踪号
-    sakto   TYPE string, "总帐科目
-    kostl   TYPE string, "成本中心
-    anln1   TYPE string, "资产
-    aufnr   TYPE string, "订单
-    preis   TYPE string, "评估价格
-    waers   TYPE string, "币种
-    peinh   TYPE string, "价格单位
-    dispo   TYPE string, "MRP控制者
-    str1    TYPE string, "行项目文本-传送文本
-    str2    TYPE string, "行项目文本-预算年度
-    str3    TYPE string, "行项目文本-资产类别
+    bsart   TYPE string, "凭证类型"
+    bnfpo   TYPE string, "项目"
+*   KNTTP   TYPE STRING, "科目分配类别"
+    matnr   TYPE string, "商品代码"
+*   TXZ01   TYPE STRING, "短文本"
+    menge   TYPE string, "数量"
+    meins   TYPE string, "单位"
+    eeind   TYPE string, "交货日期"
+*   MATKL   TYPE STRING, "物料组"
+    werks   TYPE string, "工厂"
+    ekgrp   TYPE string, "采购组"
+    afnam   TYPE string, "申请者"
+    bednr   TYPE string, "需求跟踪号"
+    sakto   TYPE string, "总帐科目"
+    kostl   TYPE string, "成本中心"
+    anln1   TYPE string, "资产"
+    aufnr   TYPE string, "订单"
+    waers   TYPE string, "币种"
+    peinh   TYPE string, "价格单位"
+    dispo   TYPE string, "MRP控制者"
+    str1    TYPE string, "行项目文本-传送文本"
+    str2    TYPE string, "行项目文本-预算年度"
+    str3    TYPE string, "行项目文本-资产类别"
   END OF gt_data1.
   DATA: BEGIN OF gt_data OCCURS 0,
-    bednr   TYPE string, "需求跟踪号
-    bsart   TYPE string, "凭证类型
-    bnfpo   TYPE string, "项目
-*   KNTTP   TYPE STRING, "科目分配类别
-    matnr   TYPE string, "商品代码
-*   TXZ01   TYPE STRING, "短文本
-    menge   TYPE string, "数量
-    meins   TYPE string, "单位
-    eeind   TYPE string, "交货日期
-*   MATKL   TYPE STRING, "物料组
-    werks   TYPE string, "工厂
-    ekgrp   TYPE string, "采购组
-    afnam   TYPE string, "申请者
-    sakto   TYPE string, "总帐科目
-    kostl   TYPE string, "成本中心
-    anln1   TYPE string, "资产
-    aufnr   TYPE string, "订单
-    preis   TYPE string, "评估价格
-    waers   TYPE string, "币种
-    peinh   TYPE string, "价格单位
-    dispo   TYPE string, "MRP控制者
-    str1    TYPE string, "行项目文本-传送文本
-    str2    TYPE string, "行项目文本-预算年度
-    str3    TYPE string, "行项目文本-资产类别
+    bednr   TYPE string, "需求跟踪号"
+    bsart   TYPE string, "凭证类型"
+    bnfpo   TYPE string, "项目"
+*   KNTTP   TYPE STRING, "科目分配类别"
+    matnr   TYPE string, "商品代码"
+*   TXZ01   TYPE STRING, "短文本"
+    menge   TYPE string, "数量"
+    meins   TYPE string, "单位"
+    eeind   TYPE string, "交货日期"
+*   MATKL   TYPE STRING, "物料组"
+    werks   TYPE string, "工厂"
+    ekgrp   TYPE string, "采购组"
+    afnam   TYPE string, "申请者"
+    sakto   TYPE string, "总帐科目"
+    kostl   TYPE string, "成本中心"
+    anln1   TYPE string, "资产"
+    aufnr   TYPE string, "订单"
+    preis   TYPE string, "评估价格"
+    waers   TYPE string, "币种"
+    peinh   TYPE string, "价格单位"
+    dispo   TYPE string, "MRP控制者"
+    str1    TYPE string, "行项目文本-传送文本"
+    str2    TYPE string, "行项目文本-预算年度"
+    str3    TYPE string, "行项目文本-资产类别"
   END OF gt_data.
   "=============== Upload File ==============="
   LOOP AT gt_data.
@@ -157,46 +156,46 @@ FORM create_pr_batch .
         input  = gt_data-matnr
       IMPORTING
         output = matnr.
-    pr_item-doc_type          = gt_data-bsart.     "凭证类型
-    pr_item-preq_item         = bnfpo.             "项目
-*   PR_ITEM-ACCTASSCAT        = GT_DATA-KNTTP.     "科目分配类别
-    pr_item-material          = matnr.             "商品代码
-*   PR_ITEM-SHORT_TEXT        = GT_DATA-TXZ01.     "短文本
-    pr_item-quantity          = gt_data-menge.     "数量
-    pr_item-unit              = gt_data-meins.     "单位
-    pr_item-deliv_date        = gt_data-eeind.     "交货日期
-*    PR_ITEM-MAT_GRP          = GT_DATA-MATKL.     "物料组
-    pr_item-plant             = gt_data-werks.     "工厂
-    pr_item-pur_group         = gt_data-ekgrp.     "采购组
-    pr_item-preq_name         = gt_data-afnam.     "申请者
-    pr_item-trackingno        = gt_data-bednr.     "需求跟踪号
-    pr_item-c_amt_bapi        = gt_data-preis.     "评估价格
-    pr_item-currency          = gt_data-waers.     "货币码
-    pr_item-price_unit        = gt_data-peinh.     "价格单位
-    pr_item-mrp_contr         = gt_data-dispo.     "MRP控制者
+    pr_item-doc_type          = gt_data-bsart.     "凭证类型"
+    pr_item-preq_item         = bnfpo.             "项目"
+*   PR_ITEM-ACCTASSCAT        = GT_DATA-KNTTP.     "科目分配类别"
+    pr_item-material          = matnr.             "商品代码"
+*   PR_ITEM-SHORT_TEXT        = GT_DATA-TXZ01.     "短文本"
+    pr_item-quantity          = gt_data-menge.     "数量"
+    pr_item-unit              = gt_data-meins.     "单位"
+    pr_item-deliv_date        = gt_data-eeind.     "交货日期"
+*    PR_ITEM-MAT_GRP          = GT_DATA-MATKL.     "物料组"
+    pr_item-plant             = gt_data-werks.     "工厂"
+    pr_item-pur_group         = gt_data-ekgrp.     "采购组"
+    pr_item-preq_name         = gt_data-afnam.     "申请者"
+    pr_item-trackingno        = gt_data-bednr.     "需求跟踪号"
+    pr_item-c_amt_bapi        = gt_data-preis.     "评估价格"
+    pr_item-currency          = gt_data-waers.     "货币码"
+    pr_item-price_unit        = gt_data-peinh.     "价格单位"
+    pr_item-mrp_contr         = gt_data-dispo.     "MRP控制者"
     APPEND pr_item.
     CLEAR pr_item.
-    pr_account-preq_item = bnfpo.        "项目
-    pr_account-g_l_acct = gt_data-sakto. "总帐科目
-    pr_account-cost_ctr = gt_data-kostl. "成本中心
-    pr_account-asset_no = gt_data-anln1. "资产
-    pr_account-order_no = gt_data-aufnr. "订单
+    pr_account-preq_item = bnfpo.        "项目"
+    pr_account-g_l_acct = gt_data-sakto. "总帐科目"
+    pr_account-cost_ctr = gt_data-kostl. "成本中心"
+    pr_account-asset_no = gt_data-anln1. "资产"
+    pr_account-order_no = gt_data-aufnr. "订单"
     pr_account-co_area = 'BELL'.
     APPEND pr_account.
     CLEAR pr_account.
-    pr_item_id-preq_item = bnfpo."项目
+    pr_item_id-preq_item = bnfpo.
     pr_item_id-text_id = 'B03'.
-    pr_item_id-text_line = gt_data-str1."行项目文本-传送文本
+    pr_item_id-text_line = gt_data-str1."行项目文本-传送文本"
     APPEND pr_item_id.
     CLEAR pr_item_id.
-    pr_item_id-preq_item = bnfpo."项目
+    pr_item_id-preq_item = bnfpo.
     pr_item_id-text_id = 'B07'.
-    pr_item_id-text_line = gt_data-str2."行项目文本-预算年度
+    pr_item_id-text_line = gt_data-str2."行项目文本-预算年度"
     APPEND pr_item_id.
     CLEAR pr_item_id.
-    pr_item_id-preq_item = bnfpo."项目
+    pr_item_id-preq_item = bnfpo.
     pr_item_id-text_id = 'B08'.
-    pr_item_id-text_line = gt_data-str3."行项目文本-资产类别
+    pr_item_id-text_line = gt_data-str3."行项目文本-资产类别"
     APPEND  pr_item_id.
     CLEAR  pr_item_id.
     AT END OF bednr.
@@ -213,7 +212,6 @@ FORM create_pr_batch .
         requisition_item_text                = pr_item_id
 	"   REQUISITION_LIMITS                   =
 	"   REQUISITION_CONTRACT_LIMITS          =
-	
 	"   REQUISITION_SERVICES                 =
 	"   REQUISITION_SRV_ACCASS_VALUES        =
         return                               = pr_return

@@ -23,8 +23,6 @@ tags:
 
 - 布局：GET_FRONTEND_LAYOUT，SET_FRONTEND_LAYOUT
 
-
-
 ## 字段下拉
 
 使用内表存放句柄和对应的值，表类型："LVC_T_DROP"

@@ -51,7 +51,6 @@ SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN COMMENT 2(15) text1 .
 PARAMETERS: p_bwart(4) MATCHCODE OBJECT z_min_z21.
 SELECTION-SCREEN END OF LINE.
-
 INITIALIZATION.
   text1 = 'Reason Code'.
 ```
@@ -62,16 +61,15 @@ INITIALIZATION.
 
 ```JS
 FUNCTION Z_REASON_CODE_MIN_Z21.
-*"----------------------------------------------------------------------
-*"*"Local Interface:
-*"  TABLES
-*"      SHLP_TAB TYPE  SHLP_DESCT
-*"      RECORD_TAB STRUCTURE  SEAHLPRES
-*"  CHANGING
-*"     VALUE(SHLP) TYPE  SHLP_DESCR
-*"     VALUE(CALLCONTROL) LIKE  DDSHF4CTRL STRUCTURE  DDSHF4CTRL
-*"----------------------------------------------------------------------
-
+*----------------------------------------------------------------------
+*Local Interface:
+*  TABLES
+*      SHLP_TAB TYPE  SHLP_DESCT
+*      RECORD_TAB STRUCTURE  SEAHLPRES
+*  CHANGING
+*     VALUE(SHLP) TYPE  SHLP_DESCR
+*     VALUE(CALLCONTROL) LIKE  DDSHF4CTRL STRUCTURE  DDSHF4CTRL
+*----------------------------------------------------------------------
 DATA: it_ddshselopt TYPE TABLE OF ddshselopt WITH HEADER LINE,
       it_ddshfprops TYPE TABLE OF ddshfprop WITH HEADER LINE,
       BEGIN OF it_shlpfld OCCURS 0,
@@ -84,17 +82,17 @@ DATA: it_ddshselopt TYPE TABLE OF ddshselopt WITH HEADER LINE,
         low    TYPE rsdsselop_,
         high   TYPE rsdsselop_,
         END OF rang_template,
-      " 用于存储从选择屏幕上传进的屏幕字段的选择条件值
+      " 用于存储从选择屏幕上传进的屏幕字段的选择条件值 "
       ranges_bwart   LIKE TABLE OF rang_template WITH HEADER LINE,
       ranges_grund   LIKE TABLE OF rang_template WITH HEADER LINE,
       ranges_grtxt   LIKE TABLE OF rang_template WITH HEADER LINE.
-" 此内表用于存储命中清单数据 . 注：字段的名称一定要与搜索参数名一样，但顺序可以不同，
-  DATA:BEGIN OF l_it_t157d OCCURS 0,
+" 此内表用于存储命中清单数据. 注：字段的名称一定要与搜索参数名一样，但顺序可以不同 "
+DATA:BEGIN OF l_it_t157d OCCURS 0,
        bwart TYPE bwart,
        grund TYPE mb_grbew,
        grtxt TYPE grtxt,
-       END OF l_it_t157d ,
-       l_it_tmp LIKE TABLE OF l_it_t157d WITH HEADER LINE.
+      END OF l_it_t157d ,
+      l_it_tmp LIKE TABLE OF l_it_t157d WITH HEADER LINE.
   FIELD-SYMBOLS <wa> like  l_it_t157d.
 
   it_ddshfprops[] = shlp-fieldprop.
@@ -103,29 +101,24 @@ DATA: it_ddshselopt TYPE TABLE OF ddshselopt WITH HEADER LINE,
     it_shlpfld-fieldname = it_ddshfprops-fieldname.
     APPEND it_shlpfld.
   ENDLOOP.
-
-  "DISP ： 在命中清单显示之前调用 ，表示数据已经查出，下一步就该显示了。
+  "DISP ： 在命中清单显示之前调用 ，表示数据已经查出，下一步就该显示了。"
   CHECK callcontrol-step = 'DISP'. 
-  
-  " shlp-selopt 存储的是经过映射转换后选择屏幕上字段的值，而不是直接为
-  " 选择屏幕字段名，而是转映射为 Help 参数名后再存储到 selopt 内表中，
-  " 屏幕字段到 Help 参数映射是通过 shlp-interface 来映射的
+  " shlp-selopt 存储的是经过映射转换后选择屏幕上字段的值，而不是直接为选择屏幕字段名，而是转映射为 Help 参数 "
+  " 名后再存储到 selopt 内表中，屏幕字段到 Help 参数映射是通过 shlp-interface 来映射的。"
   it_ddshselopt[] = shlp-selopt.
   LOOP AT it_ddshselopt WHERE shlpfield = 'BWART'.
     MOVE-CORRESPONDING it_ddshselopt TO ranges_bwart.
     APPEND ranges_bwart.
   ENDLOOP.
-
   LOOP AT it_ddshselopt WHERE shlpfield = 'GRUND'.
     MOVE-CORRESPONDING it_ddshselopt TO ranges_grund.
     APPEND ranges_grund.
   ENDLOOP.
-
   LOOP AT it_ddshselopt WHERE shlpfield = 'GRTXT2'.
     MOVE-CORRESPONDING it_ddshselopt TO ranges_grtxt.
     APPEND ranges_grtxt.
   ENDLOOP.
-  " 根据屏幕上传进的条件查询数据
+  " 根据屏幕上传进的条件查询数据 "
   SELECT bwart grund  INTO CORRESPONDING FIELDS OF TABLE l_it_t157d
     FROM t157d
    WHERE bwart IN ranges_bwart
@@ -147,15 +140,15 @@ DATA: it_ddshselopt TYPE TABLE OF ddshselopt WITH HEADER LINE,
   ENDLOOP.
 
   callcontrol-maxexceed = ''.
-  " 该函数的作用是将内表 lt_tab 中的数据转换成 record_tab ，即将某内表中的数据显示在命中清单中
+  " 该函数的作用是将内表 lt_tab 中的数据转换成 record_tab ，即将某内表中的数据显示在命中清单中 "
   LOOP AT it_shlpfld.
     CALL FUNCTION 'F4UT_PARAMETER_RESULTS_PUT'
       EXPORTING
         parameter   = it_shlpfld-parameter
         fieldname   = it_shlpfld-fieldname
       TABLES
-        shlp_tab    = shlp_tab   " Reference to field of Seatinfo
-        record_tab  = record_tab " 结果集
+        shlp_tab    = shlp_tab   " Reference to field of Seatinfo "
+        record_tab  = record_tab " 结果集 "
         source_tab  = l_it_t157d
       CHANGING
         shlp        = shlp
@@ -177,22 +170,21 @@ parameters: p_bname LIKE usr02-bname,
     p_class LIKE usr02-class.
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_bname.
 	PERFORM frm_valuereq_bwart.
+
 FORM frm_valuereq_bwart.
-  " 需要显示的结果集
-  DATA: BEGIN OF t_data OCCURS 1,
+" 需要显示的结果集 "
+DATA: BEGIN OF t_data OCCURS 1,
     data(20),
-  END OF t_data.
-  " 字段
-  DATA: lwa_dfies TYPE dfies,
+END OF t_data.
+" 字段 "
+DATA: lwa_dfies TYPE dfies,
       h_field_wa LIKE dfies,
       h_field_tab LIKE dfies occurs 0 with header line,
       h_dselc LIKE dselc occurs 0 with header line.
-
-  SELECT * FROM usr02.
-    t_data = usr02-bname. APPEND t_data.
-    t_data = usr02-class. APPEND t_data.
-  ENDSELECT.
-
+SELECT * FROM usr02.
+  t_data = usr02-bname. APPEND t_data.
+  t_data = usr02-class. APPEND t_data.
+ENDSELECT.
 PERFORM f_fieldinfo_get USING 'USR02' 'BNAME' CHANGING h_field_wa.
 APPEND h_field_wa TO h_field_tab.
 PERFORM f_fieldinfo_get USING 'USR02' 'CLASS' CHANGING h_field_wa.
@@ -204,7 +196,6 @@ APPEND h_dselc.
 h_dselc-fldname = 'CLASS'.
 h_dselc-dyfldname = 'P_CLASS'.
 APPEND h_dselc.
-
 CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
   EXPORTING
     retfield = 'P_BWART'
@@ -224,7 +215,6 @@ ENDFORM.
 
 FORM f_fieldinfo_get USING fu_tabname fu_fieldname
                      CHANGING fwa_field_tab.
-
 CALL FUNCTION 'DDIF_FIELDINFO_GET'
   EXPORTING
     TABNAME = fu_tabname
@@ -248,12 +238,12 @@ ENDFORM.
 
 ### 搜索帮助优先级
 
-先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST
+- 先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST
 
-再 PARAMETERS/ SELECT-OPTIONS MATCHCODE OBJECT XXXX
+- 再 PARAMETERS/ SELECT-OPTIONS MATCHCODE OBJECT XXXX
 
-先  Check Table、再表（或 结构 ）字段是否绑定了 **搜索帮助**
+- 先  Check Table、再表（或 结构 ）字段是否绑定了 **搜索帮助**
 
-先 Data element 是否绑定了帮助 ，再Domain是否存在Fixed values
+- 先 Data element 是否绑定了帮助 ，再Domain是否存在Fixed values
 
-最后才是DATS、TIMS
+- 最后才是DATS、TIMS.

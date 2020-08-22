@@ -68,72 +68,62 @@ tags:
 
 4. 创建SET_DATA 和 GET_DATA方法
 
-   SET_DATA:
+   1. **SET_DATA**
 
-   ```JS
-   DATA: my_handle TYPE REF TO zcl_mem_area.
-   DATA: my_root   TYPE REF TO zcl_root_test.
+      ```js
+      DATA: my_handle TYPE REF TO zcl_mem_area.
+      DATA: my_root   TYPE REF TO zcl_root_test.
+      TRY .
+          CALL METHOD zcl_mem_area=>attach_for_write
+            EXPORTING
+              inst_name   = cl_shm_area=>default_instance
+              attach_mode = cl_shm_area=>attach_mode_default
+              wait_time   = 0
+            RECEIVING
+              handle      = my_handle.
+          CREATE OBJECT my_root AREA HANDLE my_handle.
+          CALL METHOD my_root->set_data
+            EXPORTING
+              name  = 'name_test'
+              value = 'value_test'.
+          CALL METHOD my_handle->detach_commit.
+        CATCH cx_shm_exclusive_lock_active .
+        CATCH cx_shm_version_limit_exceeded .
+        CATCH cx_shm_change_lock_active .
+        CATCH cx_shm_parameter_error .
+        CATCH cx_shm_pending_lock_removed .
+      ENDTRY.
+      ```
    
-   TRY .
+   2. **GET_DATA**
    
-       CALL METHOD zcl_mem_area=>attach_for_write
-         EXPORTING
-           inst_name   = cl_shm_area=>default_instance
-           attach_mode = cl_shm_area=>attach_mode_default
-           wait_time   = 0
-         RECEIVING
-           handle      = my_handle.
+      ```JS
+      DATA: my_handle TYPE REF TO zcl_mem_area.
+      DATA: my_root   TYPE REF TO zcl_area_root.
    
-       CREATE OBJECT my_root AREA HANDLE my_handle.
-       CALL METHOD my_root->set_data
-         EXPORTING
-           name  = 'name_test'
-           value = 'value_test'.
-   
-       CALL METHOD my_handle->detach_commit.
-   
-     CATCH cx_shm_exclusive_lock_active .
-     CATCH cx_shm_version_limit_exceeded .
-     CATCH cx_shm_change_lock_active .
-     CATCH cx_shm_parameter_error .
-     CATCH cx_shm_pending_lock_removed .
-   
-   ENDTRY.
-   ```
-
-   GET_DATA:
-
-   ```JS
-   DATA: my_handle TYPE REF TO zcl_mem_area.
-   DATA: my_root   TYPE REF TO zcl_area_root.
-   
-   TRY .
-   
+      TRY .
        CALL METHOD zcl_mem_area=>attach_for_read
-         EXPORTING
-           inst_name = zcl_mem_area=>attach_for_write
-         RECEIVING
-           handle    = my_handle.
+            EXPORTING
+              inst_name = zcl_mem_area=>attach_for_write
+            RECEIVING
+              handle    = my_handle.
+          CREATE OBJECT my_root AREA HANDLE my_handle.
+          CALL METHOD my_root->get_data
+            IMPORTING
+              name  = lv_name
+              value = lv_value.
+          CALL METHOD my_handle->detach_commit.
+         CATCH cx_shm_inconsistent .
+         CATCH cx_shm_no_active_version .
+         CATCH cx_shm_read_lock_active .
+         CATCH cx_shm_exclusive_lock_active .
+         CATCH cx_shm_parameter_error .
+         CATCH cx_shm_change_lock_active .
+      ENDTRY.
+      ```
    
-       CREATE OBJECT my_root AREA HANDLE my_handle.
+      
    
-       CALL METHOD my_root->get_data
-         IMPORTING
-           name  = lv_name
-           value = lv_value.
-   
-       CALL METHOD my_handle->detach_commit.
-   
-      CATCH cx_shm_inconsistent .
-      CATCH cx_shm_no_active_version .
-      CATCH cx_shm_read_lock_active .
-      CATCH cx_shm_exclusive_lock_active .
-      CATCH cx_shm_parameter_error .
-      CATCH cx_shm_change_lock_active .
-   
-   ENDTRY.
-   ```
-
 5. 使用该类进行传递Memory Id
 
    

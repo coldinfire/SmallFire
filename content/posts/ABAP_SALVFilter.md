@@ -22,9 +22,9 @@ tags:
         CHANGING
           co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
-*
+
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
-*   Set Filters
+*Set Filters
     CALL METHOD set_filters
       CHANGING
         co_alv = o_alv.
@@ -34,10 +34,8 @@ tags:
  METHOD set_filters.
     DATA: lo_filters TYPE REF TO cl_salv_filters.
     lo_filters = co_alv->get_filters( ).
-*
-*   Set the filter for the column ERDAT
-*     the filter criteria works exactly same as any
-*     RANGE or SELECT-OPTIONS works.
+*Set the filter for the column ERDAT the filter criteria works exactly same as any
+*RANGE or SELECT-OPTIONS works.
     TRY.
         CALL METHOD lo_filters->add_filter
           EXPORTING
@@ -47,10 +45,10 @@ tags:
             low        = '20091214'
 *           high       =
             .
-      CATCH cx_salv_not_found .                         "#EC NO_HANDLER
-      CATCH cx_salv_data_error .                        "#EC NO_HANDLER
-      CATCH cx_salv_existing .                          "#EC NO_HANDLER
+      CATCH cx_salv_not_found .                         "#EC NO_HANDLER"
+      CATCH cx_salv_data_error .                        "#EC NO_HANDLER"
+      CATCH cx_salv_existing .                          "#EC NO_HANDLER"
     ENDTRY.
-  ENDMETHOD.                    "set_filters
+  ENDMETHOD.                    "set_filters"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```

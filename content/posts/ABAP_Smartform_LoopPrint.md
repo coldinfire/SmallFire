@@ -22,7 +22,7 @@ tags:
 FORM sub_data_print .
   SORT itab_total BY matkl budat zcdnr.
   SORT s_fenlei BY low.
-  "ALV Data 
+  "ALV Data" 
   DATA: fm_name TYPE rs38l_fnam.
   DATA: ls_control_param TYPE ssfctrlop .
   DATA: ls_composer_param TYPE ssfcompop .
@@ -99,7 +99,6 @@ FORM sub_data_print .
 * 删除内存数据
     DELETE FROM DATABASE indx(hk) ID mid.
   ENDLOOP.
-
   CALL FUNCTION 'SSF_CLOSE'
     IMPORTING
       job_output_info  = i_job_output_info
@@ -112,6 +111,5 @@ FORM sub_data_print .
     MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
     WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   ENDIF.
-
 ENDFORM.                    " SUB_DATA_PRINT
 ```

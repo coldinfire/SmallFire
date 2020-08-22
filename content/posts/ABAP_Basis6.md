@@ -37,7 +37,7 @@ DATA: l_sql_error TYPE REF TO cx_sy_native_sql_error,
 ...
  内表数据准备
 ...
-"连接数据库
+"连接数据库"
 TRY. 
  EXEC SQL. 
   CONNECT TO 'DBNAME'/ CONNECT TO :p_dbname
@@ -54,7 +54,7 @@ IF sy-subrc <> 0.
  WRITE: /1 ‘连接到数据库失败:’, l_error_text.
  STOP. 
 ENDIF.
-"执行SQL
+"执行SQL"
 TRY. 
  LOOP AT gt_room INTO gs_room. 
   EXEC SQL. 
@@ -65,7 +65,7 @@ TRY.
 CATCH cx_sy_native_sql_error INTO l_sql_error. 
  error_text = l_sql_error->get_text( ). 
 ENDTRY. 
-"异常处理
+"异常处理"
 IF l_error_text IS INITIAL.
  EXEC SQL.
   commit.
@@ -76,7 +76,7 @@ ELSE.
   rollback 
  ENDEXEC.  
 ENDIF.
-"断开连接
+"断开连接"
 EXEC SQL. 
  DISCONNECT :p_dbname 
 ENDEXEC.
@@ -88,14 +88,14 @@ ENDEXEC.
 DATA : arg1 TYPE string VALUE '800' .
 TABLES : t001 .
 EXEC SQL .
-  OPEN c1 FOR  " 打开游标
+  OPEN c1 FOR  " 打开游标"
   SELECT MANDT , BUKRS 
-	FROM T001  " 远程数据库表 
+	FROM T001      " 远程数据库表 "
     WHERE MANDT = :arg1 AND BUKRS >= 'ZA01'
 ENDEXEC .
 DO .
   EXEC SQL .
-    FETCH NEXT c1 INTO :t001-mandt, :t001-bukrs "读取游标
+    FETCH NEXT c1 INTO :t001-mandt, :t001-bukrs  "读取游标"
   ENDEXEC .
   IF sy - subrc <> 0 .
     EXIT .
@@ -104,7 +104,7 @@ DO .
   ENDIF .
 ENDDO .
 EXEC SQL .
-  CLOSE c1 "关闭游标
+  CLOSE c1 "关闭游标"
 ENDEXEC .
 ```
 

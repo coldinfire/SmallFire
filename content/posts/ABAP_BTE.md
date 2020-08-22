@@ -14,13 +14,11 @@ tags:
 
 ### BTE概念
 
-​	BTE(**Business Transaction Events**)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,
-
-可由 SAP，第三方供应商（合作伙伴）和客户使用。SAP程序通过调用`OPEN_FI_PERFORM_<Number>`或`OUTBOUNT_CALL_<Number>`函数来调用BTE.
+​	BTE(**Business Transaction Events**)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。SAP程序通过调用`OPEN_FI_PERFORM_<Number>`或`OUTBOUNT_CALL_<Number>`函数来调用BTE.
 
 以下是两种可用于实现BTE的类型：P/S 为检查用的 BTE，Processes 是修改用的
 
-​	![BTE Type](/images/ABAP/BTE5.png)
+![BTE Type](/images/ABAP/BTE5.png)
 
 ​	这些接口通知外部软件某些事件已在 SAP 标准应用程序中发生，并向其提供产生的数据。外部软件不会向 SAP Standard System 返回任何数据。它们不会以任何方式影响标准 R / 3 程序。
 
@@ -58,7 +56,7 @@ Tcode：FIBF
 
 ​	将光标放在已识别的 BTE 进程号上，单击示例功能模块，然后将其复制到 ZFM* 中并编写自己的功能。
 
-​	![FM Tempate](/images/ABAP/BTE9.png)
+![FM Tempate](/images/ABAP/BTE9.png)
 
 ![FM Tempate Implement](/images/ABAP/BTE10.png)
 
@@ -66,7 +64,7 @@ Tcode：FIBF
 
 ​	通过FIBF创建和配置完成的内容需要传输到其他系统，需要选中对应的Item，并执行下图步骤。可以将配置内容包含在TR中进行传输。
 
-​	![Transfer](/images/ABAP/BTE11.png)
+![Transfer](/images/ABAP/BTE11.png)
 
 ###   BTE 有用的Tcode 
 

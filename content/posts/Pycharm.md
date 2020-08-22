@@ -1,6 +1,6 @@
 ---
 
-title: " Pycharm "
+title: " Pycharm 使用 "
 date: 2019-01-03
 draft: false
 author: Small Fire
@@ -12,10 +12,6 @@ tags:
   - python
 
 ---
-
-# Paycharm
-
-------
 
 ## 常用快捷键
 

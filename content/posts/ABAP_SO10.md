@@ -13,13 +13,11 @@ tags:
 
 通过 Tcode SO10 可以创建标准文本：
 
-​	![SO10](/images/ABAP/SO10.png)
-
-​	
+![SO10](/images/ABAP/SO10.png)
 
 通过占位符替换长文本：
 
-​	![SO10 Symbol](/images/ABAP/SO10_1.png)
+![SO10 Symbol](/images/ABAP/SO10_1.png)
 
 ```js
 DATA lv_name TYPE thead-tdname.
@@ -27,7 +25,7 @@ DATA lv_langu LIKE sy-langu VALUE 'EN'.
 DATA lt_line TYPE STANDARD TABLE OF tline WITH HEADER LINE.
 DATA lv_count TYPE i.
 lv_name = 'Z_TEST'.
-"read text from SO10
+" Read text from SO10 "
   CALL FUNCTION 'READ_TEXT'
   EXPORTING
     client                  = sy-mandt
@@ -47,16 +45,16 @@ lv_name = 'Z_TEST'.
     wrong_access_to_archive = 7
     OTHERS                  = 8.
   IF sy-subrc EQ 0 .
-"initialize the text symbols
+" Initialize the text symbols "
   CALL FUNCTION 'INIT_TEXTSYMBOL'.
-"set dynamic text symbol
+" Set dynamic text symbol "
   CALL FUNCTION 'SET_TEXTSYMBOL'
     EXPORTING
       name    = '&l_aa&'
       value   = '输入需要替换的内容'
       replace = 'X'.
   DESCRIBE TABLE lt_line LINES lv_count.
-"replace all text symbol in your long text
+" Replace all text symbol in your long text "
   CALL FUNCTION 'REPLACE_TEXTSYMBOL'
     EXPORTING
       endline   = lv_count

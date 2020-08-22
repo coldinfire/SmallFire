@@ -22,10 +22,10 @@ tags:
 
   ```js
   TYPES: BEGIN OF str_name.
-  	aufnr  TYPE afko-aufnr,    " Order Number
-     dauat  TYPE afpo-dauat,    " Order Type
+    aufnr  TYPE afko-aufnr,    " Order Number
+    dauat  TYPE afpo-dauat,    " Order Type
    END OF str_name.
-  "TYPE定义的只是一个类型，不可以在程序中直接使用，必须用DATA赋值
+  " TYPE定义的只是一个类型，不可以在程序中直接使用，必须用DATA赋值
   DATA: lt_table TYPE TABLE OF str_name,
         ls_table TYPE str_name.
   ```
@@ -33,9 +33,9 @@ tags:
 - 直接定义：直接使用Data声明一个结构体，可以在后续程序中直接使用该工作区。
 
   ```JS
-  DATA: BEGIN OF <str>   
-  	aufnr TYPE afko-aufnr,    " Order Number
-     dauat TYPE afpo-dauat,    " Order Type 
+  DATA: BEGIN OF <str>,   
+    aufnr TYPE afko-aufnr,    " Order Number "
+    dauat TYPE afpo-dauat,    " Order Type "
   END OF <str>.
   ```
 
@@ -65,18 +65,18 @@ DATA: BEGIN OF zpidoc_structure OCCURS 0,
 结构对象复用：
 DATA: BEGIN OF gt_result OCCURS 0,
         endcount TYPE zz_final_count,
-        enddiffs TYPE zz_final_diffs." 直接定义组件字段，但前面语句后面使用逗号
-        INCLUDE STRUCTURE zpidoc_structure." 直接将结构对象包括进来,也可以是已经定义的Structure
-        INCLUDE TYPE pi_type." 直接将结构类型包括进来
-        DATA:comm LIKE zpidoc_structure." 直接参照
+        enddiffs TYPE zz_final_diffs. " 直接定义组件字段，但前面语句后面使用逗号 "
+        INCLUDE STRUCTURE zpidoc_structure." 直接将结构对象包括进来,也可以是已经定义的Structure "
+        INCLUDE TYPE pi_type. " 直接将结构类型包括进来 "
+        DATA:comm LIKE zpidoc_structure. " 直接参照 "
 DATA: END OF gt_result.
        
 类型复用：
 TYPES: BEGIN OF str_pidoc,
     endcount TYPE zz_final_count,
-    enddiffs TYPE zz_final_diffs. "直接定义字段，但是保留前面的逗号
-    INCLUDE STRUCTURE zpidoc_structure. "直接将结构对象包括进来
-	INCLUDE TYPE  pi_type.    "直接将结构类型包括进来
+    enddiffs TYPE zz_final_diffs. "直接定义字段，但是保留前面的逗号"
+    INCLUDE STRUCTURE zpidoc_structure. "直接将结构对象包括进来"
+    INCLUDE TYPE  pi_type.    "直接将结构类型包括进来"
     TYPES: uname type c,
            ustatus type c.
 TYPES:  END OF str_pidoc.
@@ -157,6 +157,7 @@ TYPES:  END OF str_pidoc.
 
 
 - DELETE TABLE itab [FROM wa].：参照其它内表值删除。
+- DELETE itab [FROM n1] [TO n2] [WHERE condition]. : 根据条件删除多条数据
 
 
 - DELETE itab INDEX idx.：根据索引删除具体行数据。
@@ -176,7 +177,7 @@ TYPES:  END OF str_pidoc.
 ​	按内表位置或者具体内表字段值相等条件修改内表数据。
 ​    
 
-- MODIFY itab [FROM wa] [INDEX idx] [TRANSPORTING f1...fn] WHERE cond.
+- MODIFY itab [FROM wa] [INDEX idx] [TRANSPORTING f1...fn] WHERE condition.
 
 
  **LOOP....ENDLOOP：（循环读取内表数据)**
@@ -193,17 +194,21 @@ TYPES:  END OF str_pidoc.
 
 ​    该语法为事件控制函数，应用于LOOP循环语句中，用于获取内表的数据变化事件。
 
-- AT NEW f.：当某个字段数据与上一行数据值不同时触发该事件。
+​	Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 working area。
+
+- AT NEW field.：当某个字段数据与上一行数据值不同时触发该事件。
+  - 当 field 字段或者 field 字段左边的字段内容发生变化时该事件后面的语句都会执行
+  - field 必须是内表的第一个字段
+  - 内表中 field 之后的字段的值都会变成 " * "
 
 
-- AT END OF f.：当内表中某个字段当前行值与下一行值不同时触发该事件。
+- AT END OF field：当内表中某个字段当前行值与下一行值不同时触发该事件。
 
 
 - AT FIRST.：当执行内表第一行时触发该事件。
 
 
 - AT LAST.：当执行内表最后一行时触发该事件。
-
 
 **READ:(读取)**
 

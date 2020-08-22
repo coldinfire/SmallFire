@@ -39,35 +39,35 @@ tags:
 
 ### 读取逻辑 ###
 ```JS
-1.查找Material,Plant,Material Desc          Table:MARA,MARC,MAKT
+1.查找Material,Plant,Material Desc [Table:MARA,MARC,MAKT]
    MARA-MATNR    
    MARC-WERKS   
-   MARA-MTART（Material type）
+   MARA-MTART (Material type)
    Note: Proceeding to Step 2 or 3 or 4 depends on the input radio button for 
        Production or Engineering or ALL BOM option.
-2. Search for BOM – Engineering.            Table:MAST
-   Material (MAST-MATNR) = Materials selected above and
-   Plant (MAST–WERKS) = As in input and
-   BOM usage (MAST-STLAN) = 2 (Engineering usage).
+2. Search for BOM – Engineering   [Table:MAST]
+   Material (MAST-MATNR) = Materials selected above
+   AND Plant (MAST–WERKS) = As in input 
+   AND BOM usage (MAST-STLAN) = 2 (Engineering usage).
   ● Read BOM Header and Item
-      Read BOM Header from table  【STKO】。
+      Read BOM Header from table  [STKO]。
           BOM Number (STKO-STLNR) = BOM number got in previous step and
           BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
-      Read BOM Item details from  【STOP】.
+      Read BOM Item details from  [STOP].
           BOM number (STOP-STLNR) = STKO-STNLR.
       Read BOM text from table  STZU.
-3. Search BOM – Production.      Table:MAST
+3. Search BOM – Production.       [Table:MAST]
     Material (MAST-MATNR) = Materials selected above and
     Plant (MAST–WERKS) = As in input and
     BOM usage (MAST-STLAN) = 1 (Production usage).
   ● Read BOM Header and Item
-      Read BOM Header from table    【STKO】。
+      Read BOM Header from table  [STKO]。
           BOM Number (STKO-STLNR) = BOM number got in previous step and
           BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
-      Read BOM Item details from    【STOP】.
+      Read BOM Item details from  [STOP].
           BOM number (STOP-STLNR) = STKO-STNLR.
       Read BOM text from table STZU.
-  ● Search for Resource / Production Version (Production BOM’s only)    【MKAL】
+  ● Search for Resource / Production Version (Production BOM’s only)   [MKAL]
        Material number (MKAL–MATNR) = Material number from above selection (MAST) 
        And Plant (MKAL–WERKS) = Plant from above selection (MAST)
        And Alternative BOM (MKAL-STLAL) = Alternative BOM from above selection (MAST) 
@@ -78,16 +78,15 @@ Note:
   2. Sort the output on Plant, Usage and then on Material.
   3. If multiple plants then the report will be displayed Plant wise.
         • Header to be displayed for Production / Engineering BOM option.
-  4. Material BOM Comparison.           【MAST 】
+  4. Material BOM Comparison.  [MAST]
         Material (MAST-MATNR) = Materials selected above and
         Plant (MAST–WERKS) = As in input.
     ● Read BOM Header and Item
-  	Read BOM Header from table 【STKO】。
+  	Read BOM Header from table [STKO]。
     	  BOM Number (STKO-STLNR) = BOM number got in previous step and
     	  BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
-  	Read BOM Item details from 【STOP】.
+  	Read BOM Item details from [STOP].
           BOM number (STOP-STLNR) = STKO-STNLR.
-
 ```
 
 ## BOM逆向和正向查询 ##
@@ -97,20 +96,20 @@ Note:
 ```JS
 CALL FUNCTION 'CS_BOM_EXPL_MAT_V2'
   EXPORTING
-     capid = pm_capid      “BOM应用程序，应用程序一般为PP01
-     datuv = pm_datuv     “有效开始日通常为系统的当前日期
-     emeng = menge		  “需求数量
-     mtnrv = pm_mtnrv    “物料专用号，要展开BOM的物料
-     mehrs = 'X'              “ x表示多层展开﹐space表示只展开第一层
-     werks = pm_werks    “工厂
-     stlan = xxx          “BOM用途
-     stlal = xxxx		  “BOM可选
+     capid = pm_capid     "BOM应用程序，应用程序一般为PP01"
+     datuv = pm_datuv     "有效开始日通常为系统的当前日期"
+     emeng = menge        "需求数量"
+     mtnrv = pm_mtnrv     "物料专用号，要展开BOM的物料"
+     mehrs = 'X'          "x表示多层展开﹐space表示只展开第一层"
+     werks = pm_werks     "工厂"
+     stlan = xxx          "BOM用途"
+     stlal = xxxx         "BOM可选"
    IMPORTING
-     topmat = selpool      “抬头明细
+     topmat = selpool     "抬头明细"
      dstst = dstst_flg
     TABLES
-      stb = stb                “展开的BOM存放在该内表
-      matcat = matcat     “下面含有元件的物料存放在该内表
+      stb = stb           "展开的BOM存放在该内表"
+      matcat = matcat     "下面含有元件的物料存放在该内表"
 ```
 
 ### 逆查BOM(CS15)
@@ -126,35 +125,34 @@ DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
   CLEAR:IT_WULTB,IT_WULTB[].
   CALL  FUNCTION  'CS_WHERE_USED_MAT'
     EXPORTING
-      DATUB              = SY-DATUM    "有效日期至
-      DATUV              = SY-DATUM		"有效日期从
-      MATNR              = P_C_MATNR	"物料号
-*     POSTP               = ' '
-*     RETCODE_ONLY        = ' '
-*     STLAN               = ' '			"BOM用途
-      MCLMT              = '00000000'
-      WERKS              = S2_WERKS
+      DATUB        = SY-DATUM    "有效日期至"
+      DATUV        = SY-DATUM    "有效日期从"
+      MATNR        = P_C_MATNR   "物料号"
+*     POSTP        = ' '
+*     RETCODE_ONLY = ' '
+*     STLAN        = ' '         "BOM用途
+      MCLMT        = '00000000'
+      WERKS        = S2_WERKS
 *    IMPORTING
-*    TOPMAT              =
+*    TOPMAT        =
     TABLES
-       WULTB           = IT_WULTB   "反查出的子件上层物料明细，包含上层编码、
-       		"上层编码描述、上层需求数量（默认是 BOM抬头基本数量）、子件需求数量等。
-       EQUICAT         = IT_EQUICAT
-       KNDCAT          = IT_KNDCAT
-       MATCAT          = IT_MATCAT	"反查出的子件上层物料明细（按物料号汇总后的结果）
-       STDCAT          = IT_STDCAT
-       TPLCAT          = IT_TPLCAT
+       WULTB       = IT_WULTB    "反查出的子件上层物料明细，包含上层编码、
+                                 "上层编码描述、上层需求数量（默认是 BOM抬头基本数量）、子件需求数量等。
+       EQUICAT     = IT_EQUICAT
+       KNDCAT      = IT_KNDCAT
+       MATCAT      = IT_MATCAT   "反查出的子件上层物料明细（按物料号汇总后的结果）
+       STDCAT      = IT_STDCAT
+       TPLCAT      = IT_TPLCAT
     EXCEPTIONS
-       CALL_INVALID        = 1
-       MATERIAL_NOT_FOUND          = 2
-       NO_WHERE_USED_REC_FOUND     = 3
+       CALL_INVALID               = 1
+       MATERIAL_NOT_FOUND         = 2
+       NO_WHERE_USED_REC_FOUND    = 3
        NO_WHERE_USED_REC_SELECTED = 4
-       NO_WHERE_USED_REC_VALID     = 5
-       OTHERS              = 6.
-
+       NO_WHERE_USED_REC_VALID    = 5
+       OTHERS                     = 6.
 ```
 
-** T-Code：CS02，确保递归BOM的比例在0.95左右。即：产品A，其BOM中的A的消耗量应该小于0.95. **
+**T-Code：CS02** :确保递归BOM的比例在0.95左右。即：产品A，其BOM中的A的消耗量应该小于0.95. 
 
 ### 批量删除BOM分配
 
@@ -163,7 +161,7 @@ CALL FUNCTION 'CSAP_MAT_BOM_ALLOC_DELETE'
   EXPORTING
     MATERIAL                 = ITAB-MATNR
     PLANT                    = ITAB-WERKS
-    BOM_USAGE                = '1'  "（BOM 用途）
+    BOM_USAGE                = '1'  "BOM 用途"
     ALTERNATIVE              =
     FL_NO_CHANGE_DOC         = ' '
     FL_COMMIT_AND_WAIT       = ' '
@@ -174,8 +172,7 @@ CALL FUNCTION 'CSAP_MAT_BOM_ALLOC_DELETE'
     T_PLANT                  =
   EXCEPTIONS
     ERROR                    = 1
-    OTHERS                   = 2
-         .
+    OTHERS                   = 2.
 IF FLG_WARNING = 'X'.
   WRITE :/ ITAB-WERKS,ITAB-MATNR , '删除成功'.
 ELSE.

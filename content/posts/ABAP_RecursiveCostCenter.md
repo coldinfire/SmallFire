@@ -52,7 +52,7 @@ ENDFORM.                    "frm_get_kostl
 调用：
 
 ```JS
-"数据结构定义
+"数据结构定义"
 DATA: BEGIN OF I_TREE OCCURS 0,
       SETNAME LIKE SETNODE-SETNAME,
 	  END OF I_TREE.
@@ -60,10 +60,11 @@ DATA: BEGIN OF I_KOSTL OCCURS 0,
       VALFROM LIKE SETLEAF-VALFROM,
       END OF I_KOSTL.
 DATA: I_SETHEADER LIKE I_TREE OCCURS 0 WITH HEADER LINE. 
-
 PERFORM FRM_GET_KOSTL USING I_SETHEADER.
 ```
 
 
 
-针对 SAP 中 SET（集）的操作，有好多函数，如 G_SET_GET_ALL_VALUES：Read All Values in a Set Hierarchy
+针对 SAP 中 SET（集）的操作，有好多函数
+
+- G_SET_GET_ALL_VALUES：Read All Values in a Set Hierarchy

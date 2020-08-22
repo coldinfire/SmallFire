@@ -26,7 +26,6 @@ REUSE_ALV_GRID_DISPLAY:
 	DATA: gt_fieldcat TYPE slis_t_fieldcat_alv,
 	 	  wa_fieldcat TYPE slis_fieldcat_alv,
 	 	  gt_layout   TYPE slis_layout_alv.
-	 	  
 REUSE_ALV_GRID_DISPLAY_LVC:
 	DATA: gt_fieldcat TYPE lvc_t_fcat,
 	 	  wa_fieldcat TYPE lvc_s_fcat,
@@ -104,22 +103,20 @@ END-OF-DEFINITION.
 TYPE-POOLS: SLIS.
 DATA:gt_fieldcat TYPE TABLE OF LVC_S_FCAT,
      gs_fieldcat TYPE LVC_S_FCAT.
-
 CALL function 'LVC_FIELDCATALOG_MERGE'
  exporting
-  "I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE
-  I_structure_name       = 'ZALV_FEED' "ALV需要显示的字段结构
+  "I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE"
+  I_structure_name       = 'ZALV_FEED'  "ALV需要显示的字段结构"
   I_CLIENT_NEVER_DISPLAY = 'X'
-  "I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER
-  "I_INTERNAL_TABNAME     = I_INTERNAL_TABNAME
+  "I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER"
+  "I_INTERNAL_TABNAME     = I_INTERNAL_TABNAME"
  changing
-      ct_fieldcat         = gt_fieldcat  "对应ALV显示的字段结构
+      ct_fieldcat         = gt_fieldcat  "对应ALV显示的字段结构"
  exceptions
   inconsistent_interface = 1
   program_error          = 2
   others                 = 3.
-
-若对gt_fieldcat中某些字段有特殊设置，可LOOP内表按照要求更改参数值，Modify此内表。
+*若对gt_fieldcat中某些字段有特殊设置，可LOOP内表按照要求更改参数值，Modify此内表。
  LOOP AT gt_fieldcat INTO gs_fieldcat.
     CASE gs_fieldcat-fieldname.
       WHEN 'MATNR'.
@@ -226,13 +223,13 @@ GUI TITLE设置：
 form frm_set_status using excluding .
   form frm_set_status using extab type slis_t_extab.
   data: ls_slis_extab type slis_extab.
-  "排除按钮不显示
+  "排除按钮不显示"
   ls_slis_extab-fcode = '&ABC'.
   APPEND ls_slis_extab TO extab.
   ......
-  SET TITLEBAR 'TITLE' WITH text-t01. "输入标题栏名称
-  SET PF-STATUS <STATUS_NAME> EXCLUDING extab. "输入自定义按钮工具的名称,并排除指定按钮
-endform.                    "frm_set_status
+  SET TITLEBAR 'TITLE' WITH text-t01.          "输入标题栏名称"
+  SET PF-STATUS <STATUS_NAME> EXCLUDING extab. "输入自定义按钮工具的名称,并排除指定按钮"
+endform.                    "frm_set_status"
 ```
 
 **按钮处理** 
@@ -242,15 +239,12 @@ Form frm_set_command using p_ucomm type sy-ucomm
                            i_selfield type slis_selfield.
   data:ls_stable type lvc_s_stbl.
   data:lr_grid type ref to cl_gui_alv_grid.
-
   call function 'GET_GLOBALS_FROM_SLVC_FULLSCR'
     importing
       e_grid = lr_grid.
   call method lr_grid->check_changed_data.
-
  CALL METHOD LR_GRID->REFRESH_TABLE_DISPLAY.
-  i_selfield-refresh = 'X'.  "自动刷新
-
+  i_selfield-refresh = 'X'.  "自动刷新"
   case p_ucomm.
     when 'ZPRT'.
       read table gt_disp into gs_disp with key check_box = 'X'.
@@ -260,21 +254,19 @@ Form frm_set_command using p_ucomm type sy-ucomm
         message e398(00) display like 'E'.
         return.
       endif.
-    when '&IC1'. "对操作代码进行相应处理
+    when '&IC1'. "对操作代码进行相应处理"
 	  IF i_selfield-fieldname EQ 'FieldName' AND i_selfield-value NE space.
       	DATA: ls_upload LIKE LINE OF gt_upload.
  		READ TABLE gt_upload INTO ls_upload INDEX rs_selfield-tabindex.
   		CHECK sy-subrc EQ 0 AND ls_upload-aufnr NE space.
-        "传入输入参数值并调用其他TCode
+        "传入输入参数值并调用其他TCode"
  	    SET PARAMETER ID 'ANR' FIELD ls_upload-aufnr.
-  	    CALL TRANSACTION 'CO03' AND SKIP FIRST SCREEN."跳过第一屏屏幕
+  	    CALL TRANSACTION 'CO03' AND SKIP FIRST SCREEN. "跳过第一屏屏幕"
       ENDIF.
   endcase.
  call method lr_grid->refresh_table_display.
 endform.
 ```
-
-
 
 **自定义按钮**
 
