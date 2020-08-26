@@ -21,6 +21,33 @@
     </item>
     
     <item>
+      <title> SAP Adobe Form Demo </title>
+      <link>https://coldinfire.github.io/2020/ABAP_SFP_Demo/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Demo/</guid>
+      <description>Adobe Form调用 画好了对应的Form格式与数据绑定，就可以在Report程序中通过具体代码进行调用了。 SFPOUTPUTPARAMS 参数介绍 nodialog: 是否弹出打印对话框 noprint: 不打印，</description>
+    </item>
+    
+    <item>
+      <title> SAP Adobe Form </title>
+      <link>https://coldinfire.github.io/2020/ABAP_SFP/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_SFP/</guid>
+      <description>Adobe Form 介绍 SAP中关于Form的设计有三种工具：Script Form，Smart Form和Adobe Form. 要在SAP系统中展示Adobe Form需</description>
+    </item>
+    
+    <item>
+      <title> 透明表删除Key值后激活 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_Table_Adjust/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_Table_Adjust/</guid>
+      <description>​ 当业务场景发生变化，或则其它原因需要变更透明表的Key值时，保存和激活时会报错，需要使用SE14进行处理。 勾选Direct,Save Dat</description>
+    </item>
+    
+    <item>
       <title>SAP Cost Center</title>
       <link>https://coldinfire.github.io/2020/SAPCostCenter/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
@@ -39,7 +66,7 @@
     </item>
     
     <item>
-      <title>移动品均价和标准价</title>
+      <title>移动平均价和标准价</title>
       <link>https://coldinfire.github.io/2020/MMStandardPrice/</link>
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
       
@@ -62,7 +89,7 @@
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_ALVProgress/</guid>
-      <description>为了提升用户体验添加进度条功能。 DATA:BEGIN OF gt_result OCCURS 0, sel(1), matnr TYPE mara-matnr, zz_edi_grp TYPE mara-zz_edi_grp, werks TYPE mseg-werks, eknam TYPE eknam, maktx TYPE maktx, num TYPE sy-tabix, row TYPE sy-tabix, icon TYPE icon-id, mess TYPE string, flag(1), END OF gt_result. DATA:lt_result LIKE STANDARD TABLE OF gt_result WITH HEADER LINE. DATA: l_perc TYPE int4, l_perc_cnt TYPE int4, l_perc_i</description>
+      <description>为了更加清晰的了解到程序执行进度，可以在程序中添加显示进度条功能。 DATA:BEGIN OF gt_result OCCURS 0, sel(1), matnr TYPE mara-matnr, zz_edi_grp TYPE mara-zz_edi_grp, werks TYPE mseg-werks, eknam TYPE eknam, maktx TYPE maktx, num TYPE sy-tabix, row TYPE sy-tabix, icon TYPE icon-id, mess TYPE string, flag(1), END OF gt_result.</description>
     </item>
     
     <item>
@@ -71,7 +98,7 @@
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_BTE/</guid>
-      <description>BTE概念 ​ BTE(Business Transaction Events)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块, 可由 SAP，第三方供应商（合作伙伴）和客户使用。</description>
+      <description>BTE概念 ​ BTE(Business Transaction Events)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。</description>
     </item>
     
     <item>
@@ -107,7 +134,7 @@
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SO10/</guid>
-      <description>通过 Tcode SO10 可以创建标准文本： ​ ​ 通过占位符替换长文本： ​ DATA lv_name TYPE thead-tdname. DATA lv_langu LIKE sy-langu VALUE &amp;#39;EN&amp;#39;. DATA lt_line TYPE STANDARD TABLE OF tline WITH HEADER LINE. DATA lv_count TYPE i. lv_name = &amp;#39;Z_TEST&amp;#39;. &amp;#34;read text from SO10 CALL FUNCTION &amp;#39;READ_TEXT&amp;#39; EXPORTING client = sy-mandt id = &amp;#39;ST&amp;#39; language =</description>
+      <description>通过 Tcode SO10 可以创建标准文本： 通过占位符替换长文本： DATA lv_name TYPE thead-tdname. DATA lv_langu LIKE sy-langu VALUE &amp;#39;EN&amp;#39;. DATA lt_line TYPE STANDARD TABLE OF tline WITH HEADER LINE. DATA lv_count TYPE i. lv_name = &amp;#39;Z_TEST&amp;#39;. &amp;#34; Read text from SO10 &amp;#34; CALL FUNCTION &amp;#39;READ_TEXT&amp;#39; EXPORTING client = sy-mandt id = &amp;#39;ST&amp;#39; language = lv_langu</description>
     </item>
     
     <item>
@@ -121,10 +148,10 @@
     
     <item>
       <title> ABAP Dynnamic Programer</title>
-      <link>https://coldinfire.github.io/2019/ABAP_DynamicPrgrm/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_DynamicProgram/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_DynamicPrgrm/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_DynamicProgram/</guid>
       <description>利用Field Symbols和数据参考的实例： *&amp;amp;-------------------------------------------------------------------- *&amp;amp; Report ZZSM_TEST_DYN *&amp;amp;-------------------------------------------------------------------- REPORT zzsm_test_dyn. DATA: tab_reference TYPE REF TO data, struc_reference TYPE REF TO data. DATA: descr TYPE REF TO cl_abap_structdescr. FIELD-SYMBOLS: &amp;lt;struc&amp;gt; TYPE ANY, &amp;lt;field&amp;gt; TYPE ANY, &amp;lt;itab&amp;gt; TYPE ANY TABLE. PARAMETERS: p_table(20) DEFAULT &amp;#39;LFA1&amp;#39; OBLIGATORY, p_rows TYPE i OBLIGATORY. TRY . &amp;#34;Dynamic</description>
     </item>
     
@@ -161,7 +188,7 @@
       <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_ALV_SQVI/</guid>
-      <description>SAP提供的SQVI功能，用以快速自定义一个自己需要的报表。 创建，并选择数据源为：表连接，然后插入需要查数的表，接着将表的主键进行连接 完成所</description>
+      <description>SAP提供的SQVI功能，用以快速自定义一个自己需要的报表。 创建，并选择数据源为：表连接 插入需要查数的表 接着将表的主键进行连接 点击返回按钮，</description>
     </item>
     
     <item>
@@ -242,7 +269,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVDisplaySet/</guid>
-      <description>Display设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_display_setting CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_display_setting CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_display_setting. DATA: lo_display TYPE REF TO cl_salv_display_settings. * get display object lo_display = co_alv-&amp;gt;get_display_settings( ). * set ZEBRA pattern lo_display-&amp;gt;set_striped_pattern( &amp;#39;X&amp;#39; ). * Title to ALV lo_display-&amp;gt;set_list_header( &amp;#39;ALV</description>
+      <description>Display设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_display_setting CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_display_setting CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_display_setting. DATA: lo_display TYPE REF TO cl_salv_display_settings. *Get display object lo_display = co_alv-&amp;gt;get_display_settings( ). *Set ZEBRA pattern lo_display-&amp;gt;set_striped_pattern( &amp;#39;X&amp;#39; ). *Title to ALV lo_display-&amp;gt;set_list_header( &amp;#39;ALV Test for Display</description>
     </item>
     
     <item>
@@ -251,7 +278,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVEvent/</guid>
-      <description>Event 处理 CLASS lcl_event_handler DEFINITION. PUBLIC SECTION. METHODS: on_link_click FOR EVENT link_click OF cl_salv_events_table IMPORTING row column. ENDCLASS. &amp;#34;lcl_event_handler DEFINITION *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD generate_output. DATA: lx_msg TYPE REF TO cx_salv_msg. TRY. cl_salv_table=&amp;gt;factory( IMPORTING r_salv_table = o_alv CHANGING t_table = t_vbak ). CATCH cx_salv_msg INTO lx_msg. ENDTRY. * Get the event object DATA: lo_events TYPE REF TO cl_salv_events_table. lo_events = o_alv-&amp;gt;get_event( ). * Instantiate the event handler object DATA:</description>
+      <description>Event 处理 CLASS lcl_event_handler DEFINITION. PUBLIC SECTION. METHODS: on_link_click FOR EVENT link_click OF cl_salv_events_table IMPORTING row column. ENDCLASS. &amp;#34;lcl_event_handler DEFINITION&amp;#34; *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD generate_output. DATA: lx_msg TYPE REF TO cx_salv_msg. TRY. cl_salv_table=&amp;gt;factory( IMPORTING r_salv_table = o_alv CHANGING t_table = t_vbak ). CATCH cx_salv_msg INTO lx_msg. ENDTRY. *Get the event object DATA: lo_events TYPE REF TO cl_salv_events_table. lo_events = o_alv-&amp;gt;get_event( ). *Instantiate the event handler object DATA: lo_event_handler TYPE</description>
     </item>
     
     <item>
@@ -260,7 +287,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVColumnSet/</guid>
-      <description>Fieldcat设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. * Set the various column properties METHODS: set_columns CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* * Setting up the Columns CALL METHOD me-&amp;gt;set_columns CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_columns. *...Get all the Columns DATA: lo_cols TYPE REF TO cl_salv_columns. lo_cols = o_alv-&amp;gt;get_columns( ). *</description>
+      <description>Fieldcat设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. *Set the various column properties METHODS: set_columns CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Setting up the Columns CALL METHOD me-&amp;gt;set_columns CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_columns. *Get all the Columns DATA: lo_cols TYPE REF TO cl_salv_columns. lo_cols = o_alv-&amp;gt;get_columns( ). *set the Column</description>
     </item>
     
     <item>
@@ -269,7 +296,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVFilter/</guid>
-      <description>过滤设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_filters CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* * *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* * Set Filters CALL METHOD set_filters CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_filters. DATA: lo_filters TYPE REF TO cl_salv_filters. lo_filters = co_alv-&amp;gt;get_filters( ). * * Set the filter for the column ERDAT * the filter criteria works exactly same as any</description>
+      <description>过滤设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_filters CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Set Filters CALL METHOD set_filters CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_filters. DATA: lo_filters TYPE REF TO cl_salv_filters. lo_filters = co_alv-&amp;gt;get_filters( ). *Set the filter for the column ERDAT the filter criteria works exactly same as any *RANGE or SELECT-OPTIONS works. TRY.</description>
     </item>
     
     <item>
@@ -278,7 +305,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVLayout/</guid>
-      <description>Layout设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_layout CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* * *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_layout CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_layout. DATA: lo_layout TYPE REF TO cl_salv_layout, lf_variant TYPE slis_vari, ls_key TYPE salv_s_layout_key. * get layout object lo_layout = co_alv-&amp;gt;get_layout( ). * set Layout save restriction * 1.</description>
+      <description>Layout设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_layout CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_layout CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_layout. DATA: lo_layout TYPE REF TO cl_salv_layout, lf_variant TYPE slis_vari, ls_key TYPE salv_s_layout_key. *Get layout object lo_layout = co_alv-&amp;gt;get_layout( ). *Set Layout save restriction * 1. Set Layout Key</description>
     </item>
     
     <item>
@@ -287,7 +314,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVSorts/</guid>
-      <description>Sorts设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_sorts CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* * Set SORT CALL METHOD set_sorts CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_sorts. DATA: lo_sort TYPE REF TO cl_salv_sorts. * get Sort object lo_sort = co_alv-&amp;gt;get_sorts( ). * Set the SORT on the AUART with Subtotal TRY. CALL METHOD</description>
+      <description>Sorts设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_sorts CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* * Set SORT CALL METHOD set_sorts CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_sorts. DATA: lo_sort TYPE REF TO cl_salv_sorts. *Get Sort object lo_sort = co_alv-&amp;gt;get_sorts( ). *Set the SORT on the AUART with Subtotal TRY. CALL METHOD lo_sort-&amp;gt;add_sort EXPORTING</description>
     </item>
     
     <item>
@@ -296,7 +323,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVStatus/</guid>
-      <description>设置Status *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_pf_status CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_pf_status CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_pf_status. DATA: lo_functions TYPE REF TO cl_salv_functions_list. lo_functions = co_alv-&amp;gt;get_functions( ). lo_functions-&amp;gt;set_default( abap_true ). &amp;#34;lo_functions-&amp;gt;set_all( abap_true ). ENDMETHOD. &amp;#34;set_pf_status *$*$*.....CODE_ADD_3 - End....................................3..*$*$* 自定义Stat</description>
+      <description>设置Status *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_pf_status CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_pf_status CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_pf_status. DATA: lo_functions TYPE REF TO cl_salv_functions_list. lo_functions = co_alv-&amp;gt;get_functions( ). lo_functions-&amp;gt;set_default( abap_true ). &amp;#34;lo_functions-&amp;gt;set_all( abap_true ).&amp;#34; ENDMETHOD. &amp;#34;set_pf_status&amp;#34; *$*$*.....CODE_ADD_3 - End....................................3..*$*$* 自定义Stat</description>
     </item>
     
     <item>
@@ -305,7 +332,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVIConsTooltips/</guid>
-      <description>图标设置 为了能够在 SALV 上添加 ICON 和工具提示，需要： **列值作为 ICON 值–**在输出表中，需要添加 ICON 作为值。这样就可以将 ICON_GREEN_LIGHT 用作交通绿灯 **将 SALV 的 ICON 列设</description>
+      <description>图标设置 为了能够在 SALV 上添加 ICON 和工具提示，需要： 列值作为 ICON 值– 在输出表中，需要添加 ICON 作为值。这样就可以将 ICON_GREEN_LIGHT 用作交通绿灯 将 SALV 的 ICON 列设置为 ICON – 从 SALV</description>
     </item>
     
     <item>
@@ -314,7 +341,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVColumnSum/</guid>
-      <description>Apply Aggregations *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_aggregations CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* * *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_aggregations CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_aggregations. DATA: lo_aggrs TYPE REF TO cl_salv_aggregations. lo_aggrs = co_alv-&amp;gt;get_aggregations( ). * Add TOTAL for COLUMN NETWR TRY. CALL METHOD lo_aggrs-&amp;gt;add_aggregation EXPORTING columnname = &amp;#39;NETWR&amp;#39; aggregation = if_salv_c_aggregation=&amp;gt;total. CATCH cx_salv_data_error . &amp;#34;#EC NO_HANDLER CATCH</description>
+      <description>Apply Aggregations *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_aggregations CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_aggregations CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_aggregations. DATA: lo_aggrs TYPE REF TO cl_salv_aggregations. lo_aggrs = co_alv-&amp;gt;get_aggregations( ). *Add TOTAL for COLUMN NETWR TRY. CALL METHOD lo_aggrs-&amp;gt;add_aggregation EXPORTING columnname = &amp;#39;NETWR&amp;#39; aggregation = if_salv_c_aggregation=&amp;gt;total. CATCH cx_salv_data_error . &amp;#34;#EC NO_HANDLER&amp;#34; CATCH cx_salv_not_found .</description>
     </item>
     
     <item>
@@ -323,7 +350,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVPageTopEnd/</guid>
-      <description>添加页头(Top of page)和页脚(End of page) *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. * Set Top of page METHODS: set_top_of_page CHANGING co_alv TYPE REF TO cl_salv_table. * Set End of page METHODS: set_end_of_page CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* * Calling the top of page method CALL METHOD me-&amp;gt;set_top_of_page</description>
+      <description>添加页头(Top of page)和页脚(End of page) *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. *Set Top of page METHODS: set_top_of_page CHANGING co_alv TYPE REF TO cl_salv_table. *Set End of page METHODS: set_end_of_page CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Calling the top of page method CALL METHOD me-&amp;gt;set_top_of_page CHANGING co_alv =</description>
     </item>
     
     <item>
@@ -341,7 +368,7 @@
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV/</guid>
-      <description>引用自：https://www.cnblogs.com/jiangzhengjun/p/4291387.html 简介 ​ SALV 可以像使用函数方式生</description>
+      <description>引用自：https://www.cnblogs.com/jiangzhengjun/p/4291387.html 简介 SALV 可以像使用函数方式生成</description>
     </item>
     
     <item>
@@ -368,7 +395,7 @@
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_EmailText/</guid>
-      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z14841_TEST010 *&amp;amp;---------------------------------------------------------------------* REPORT z14841_test010. TYPES: BEGIN OF stru_master, kunnr TYPE kunnr, &amp;#34; 客户编号 1 bukrs TYPE bukrs, &amp;#34; 公司代码 pro_mill TYPE werks_d, &amp;#34; 工厂 *quota TYPE zcdfquota, &amp;#34; 额度 *account TYPE char10, &amp;#34; 帐期 *zdays TYPE zcdfdays, &amp;#34; 天数 *valid_beg TYPE zcdfdatum1, &amp;#34; 有效起始日期 *valid_end TYPE</description>
+      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z14841_TEST010 *&amp;amp;---------------------------------------------------------------------* REPORT z14841_test010. TYPES: BEGIN OF stru_master, kunnr TYPE kunnr, &amp;#34; 客户编号 1&amp;#34; bukrs TYPE bukrs, &amp;#34; 公司代码&amp;#34; pro_mill TYPE werks_d, &amp;#34; 工厂&amp;#34; *quota TYPE zcdfquota, &amp;#34; 额度&amp;#34; *account TYPE char10, &amp;#34; 帐期&amp;#3</description>
     </item>
     
     <item>
@@ -377,7 +404,7 @@
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_EmailExcel/</guid>
-      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z7258_MAIL_EXCEL * *&amp;amp; * *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Example of sending external email via SAPCONNECT * *&amp;amp; * *&amp;amp;---------------------------------------------------------------------* REPORT z7258_mail_excel . TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT &amp;#39;jszjghw@163.com&amp;#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN</description>
+      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z7258_MAIL_EXCEL * *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Example of sending external email via SAPCONNECT * *&amp;amp;---------------------------------------------------------------------* REPORT z7258_mail_excel . TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT &amp;#39;jszjghw@163.com&amp;#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN OF t_charekpo, ebeln(10) TYPE</description>
     </item>
     
     <item>
@@ -395,7 +422,7 @@
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_DownloadSourceCode/</guid>
-      <description>程序：转自 http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html *@---------------------------------------------------------------------* *@ Report ZZXUE01 下载程序代码 *@ T-code *@---------------------------------------------------------------------* *@ Created by Xavery Hsueh on 2011-03-01 *@ Lasted Edited date: *@---------------------------------------------------------------------* &amp;#34;REPORT XXX NO STANDARD PAGE HEADING. ***********************************************************************@ ** 声明数据库表 ***********************************************************************@ TABLES:rs38m, trdir. &amp;#34;***********************************************************************@ &amp;#34;** 内表结构类型的定义 &amp;#34;***********************************************************************@ DATA BEGIN OF dynpfields OCCURS 1. INCLUDE STRUCTURE dynpread. DATA</description>
+      <description>程序：转自 http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html *@---------------------------------------------------------------------* *@ Report ZZXUE01 下载程序代码 *@ T-code *@---------------------------------------------------------------------* *@ Created by Xavery Hsueh on 2011-03-01 *@ Lasted Edited date: *@---------------------------------------------------------------------* &amp;#34;REPORT XXX NO STANDARD PAGE HEADING.&amp;#34; *********************************************************************** ** 声明数据库表 *********************************************************************** TABLES:rs38m, trdir. *********************************************************************** ** 内表结构类型的定义 *********************************************************************** DATA BEGIN OF dynpfields OCCURS 1. INCLUDE STRUCTURE dynpread. DATA</description>
     </item>
     
     <item>
@@ -404,7 +431,7 @@
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SendEmail/</guid>
-      <description>TRY. &amp;#34; 创建发送请求 l_send_request = cl_bcs=&amp;gt;create_persistent( ). &amp;#34; 设定发送内容 l_document = cl_document_bcs=&amp;gt;create_document( i_type = &amp;#39;RAW&amp;#39; i_text = i_content[] I_IMPORTANCE = &amp;#39;1&amp;#39; i_subject = l_subject ). &amp;#34; 增加发送内容到发送请求 CALL METHOD l_send_request-&amp;gt;set_document( l_document ). &amp;#34; 取得发送者（取得发件人，前提是这个</description>
+      <description>SAP 发送邮件程序代码 TRY. &amp;#34; 创建发送请求 &amp;#34; l_send_request = cl_bcs=&amp;gt;create_persistent( ). &amp;#34; 设定发送内容 &amp;#34; l_document = cl_document_bcs=&amp;gt;create_document( i_type = &amp;#39;RAW&amp;#39; i_text = i_content[] I_IMPORTANCE = &amp;#39;1&amp;#39; i_subject = l_subject ). &amp;#34; 增加发送内容到发送请求 &amp;#34; CALL METHOD l_send_request-&amp;gt;set_document( l_document ). &amp;#34; 取得发送者</description>
     </item>
     
     <item>
@@ -454,11 +481,11 @@
     
     <item>
       <title>Smartforms打印成PDF</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_PDF/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</guid>
-      <description>1.程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义 DATA: lv_form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name lv_fm_name type rs38l_fnam, &amp;#34;Function Name ls_control type ssfctrlop, &amp;#34;Control structure ls_option type ssfcompop, &amp;#34;Smart Composer (transfer) options ls_ssfcrescl type ssfcrescl. &amp;#34;Return value at end of</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartfomrs_PDF/</guid>
+      <description>1.程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义&amp;#34; DATA: lv_form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name&amp;#34; lv_fm_name type rs38l_fnam, &amp;#34;Function Name&amp;#34; ls_control type ssfctrlop, &amp;#34;Control structure&amp;#34; ls_option type ssfcompop, &amp;#34;Smart Composer (transfer) options&amp;#34; ls_ssfcrescl type ssfcrescl.</description>
     </item>
     
     <item>
@@ -494,7 +521,7 @@
       <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAP_BOM_Tree/</guid>
-      <description>代码 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo. TABLES: stpox. INCLUDE &amp;lt;icon&amp;gt;. CLASS: cl_gui_column_tree DEFINITION LOAD, cl_gui_cfw DEFINITION LOAD . DATA: tree1 TYPE REF TO cl_gui_alv_tree , mr_toolbar TYPE REF TO cl_gui_toolbar . DATA: gs_stpox TYPE stpox, gt_stpox TYPE stpox OCCURS 0, gt_fieldcatalog TYPE lvc_t_fcat, gt_item_layout TYPE lvc_t_laci, gs_item_layout TYPE lvc_s_laci, okcode LIKE sy-ucomm . TYPES: BEGIN OF gs_f. INCLUDE STRUCTURE stpox. TYPES: node_key TYPE lvc_nkey, END OF gs_f. DATA: gs_xstpox TYPE</description>
+      <description>实例代码 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo. TABLES: stpox. INCLUDE &amp;lt;icon&amp;gt;. CLASS: cl_gui_column_tree DEFINITION LOAD, cl_gui_cfw DEFINITION LOAD . DATA: tree1 TYPE REF TO cl_gui_alv_tree , mr_toolbar TYPE REF TO cl_gui_toolbar . DATA: gs_stpox TYPE stpox, gt_stpox TYPE stpox OCCURS 0, gt_fieldcatalog TYPE lvc_t_fcat, gt_item_layout TYPE lvc_t_laci, gs_item_layout TYPE lvc_s_laci, okcode LIKE sy-ucomm . TYPES: BEGIN OF gs_f. INCLUDE STRUCTURE stpox. TYPES: node_key TYPE lvc_nkey, END OF gs_f. DATA:</description>
     </item>
     
     <item>
@@ -521,7 +548,7 @@
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</guid>
-      <description>method ONACTIONPRINT . DATA lo_api_controller TYPE REF TO if_wd_controller. DATA lo_message_manager TYPE REF TO if_wd_message_manager. DATA: LT_EKPO TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO TYPE ZEKPO_asn, LT_EKPO_SUM TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM TYPE ZEKPO_asn, LT_EKPO_SUM_TMP TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM_TMP TYPE ZEKPO_asn. DATA lo_lips TYPE REF TO if_wd_context_node. data: lt_lips TYPE TABLE OF ZSLIPSASN, ls_lips TYPE ZSLIPSASN, lt_lips_tmp TYPE TABLE OF ZSLIPSASN, ls_lips_tmp TYPE ZSLIPSASN. data: l_index TYPE sy-tabix,</description>
+      <description>METHOD ONACTIONPRINT . DATA lo_api_controller TYPE REF TO if_wd_controller. DATA lo_message_manager TYPE REF TO if_wd_message_manager. DATA: LT_EKPO TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO TYPE ZEKPO_asn, LT_EKPO_SUM TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM TYPE ZEKPO_asn, LT_EKPO_SUM_TMP TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM_TMP TYPE ZEKPO_asn. DATA lo_lips TYPE REF TO if_wd_context_node. data: lt_lips TYPE TABLE OF ZSLIPSASN, ls_lips TYPE ZSLIPSASN, lt_lips_tmp TYPE TABLE OF ZSLIPSASN, ls_lips_tmp TYPE ZSLIPSASN. data: l_index TYPE sy-tabix,</description>
     </item>
     
     <item>
@@ -530,7 +557,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</guid>
-      <description>ALV_VIEW: WDDOINIT method WDDOINIT . *1.数据定义 *========================================================= DATA: lo_alv_usage TYPE REF TO if_wd_component_usage, &amp;#34;①重要的下面要用 lo_if_controller TYPE REF TO iwci_salv_wd_table, &amp;#34;②重要的下面要用 lo_config TYPE REF TO cl_salv_wd_config_table, &amp;#34;③重要的下面要用 lo_column_settings TYPE</description>
+      <description>ALV_VIEW: WDDOINIT method WDDOINIT . *1.数据定义 *========================================================= DATA: lo_alv_usage TYPE REF TO if_wd_component_usage, &amp;#34;①重要的下面要用&amp;#34; lo_if_controller TYPE REF TO iwci_salv_wd_table, &amp;#34;②重要的下面要用&amp;#34; lo_config TYPE REF TO cl_sal</description>
     </item>
     
     <item>
@@ -539,7 +566,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P2/</guid>
-      <description>Component Controller: DATA_LOAD method DATA_LOAD . &amp;#34; ALV 输出的结构定义 DATA: lt_ZALV_ZPEFF_TOTAL TYPE TABLE OF ZALV_ZPEFF_TOTAL, ls_ZALV_ZPEFF_TOTAL TYPE ZALV_ZPEFF_TOTAL, lt_ZALV_PROD_EFF TYPE TABLE OF ZALV_PROD_EFF, ls_ZALV_PROD_EFF TYPE ZALV_PROD_EFF, lo_node TYPE REF TO if_wd_context_node. &amp;#34; 选择屏幕数据的单属性定义 DATA: lo_nd_zoption TYPE REF TO if_wd_context_node, lo_el_zoption TYPE REF TO if_wd_context_element, ls_zoption TYPE wd_this-&amp;gt;element_zoption, lv_p_total TYPE wd_this-&amp;gt;element_zoption-p_total, lv_p_detail TYPE wd_this-&amp;gt;element_zoption-p_detail.</description>
+      <description>Component Controller: DATA_LOAD method DATA_LOAD . &amp;#34; ALV 输出的结构定义 &amp;#34; DATA: lt_ZALV_ZPEFF_TOTAL TYPE TABLE OF ZALV_ZPEFF_TOTAL, ls_ZALV_ZPEFF_TOTAL TYPE ZALV_ZPEFF_TOTAL, lt_ZALV_PROD_EFF TYPE TABLE OF ZALV_PROD_EFF, ls_ZALV_PROD_EFF TYPE ZALV_PROD_EFF, lo_node TYPE REF TO if_wd_context_node. &amp;#34; 选择屏幕数据的单属性定义 &amp;#34; DATA: lo_nd_zoption TYPE REF TO if_wd_context_node, lo_el_zoption TYPE REF TO if_wd_context_element, ls_zoption TYPE wd_this-&amp;gt;element_zoption, lv_p_total TYPE wd_this-&amp;gt;element_zoption-p_total, lv_p_detail</description>
     </item>
     
     <item>
@@ -548,7 +575,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P3/</guid>
-      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, &amp;#34; Selection screen field ref type element id TYPE string, &amp;#34; selection screen field name END OF soption. DATA: l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO cl_salv_wd_column, l_it_field</description>
+      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, &amp;#34; Selection screen field ref type element &amp;#34; id TYPE string, &amp;#34; selection screen field name &amp;#34; END OF soption. DATA: l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO</description>
     </item>
     
     <item>
@@ -706,11 +733,11 @@
     
     <item>
       <title> List ALV Demo </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALVTemp/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_LISTALV_DEMO/</link>
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALVTemp/</guid>
-      <description>*&amp;amp;--------------------------------------- *&amp;amp; Report ZWR_PI_LOG *&amp;amp;---------------------------------------- REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;#34;ALV Data DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, lw_layout TYPE lvc_s_layo. &amp;#34;Select screen SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS: p_chk2 RADIOBUTTON GROUP zr01. &amp;#34; USER-COMMAND</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_LISTALV_DEMO/</guid>
+      <description>程序实例 *&amp;amp;--------------------------------------- *&amp;amp; Report ZWR_PI_LOG *&amp;amp;---------------------------------------- REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;#34;ALV Data&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, lw_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS: p_chk2 RADIOBUTTON</description>
     </item>
     
     <item>
@@ -804,12 +831,21 @@
     </item>
     
     <item>
+      <title>Smartforms分页打印</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartform_page/</link>
+      <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartform_page/</guid>
+      <description>Smartform分页打印</description>
+    </item>
+    
+    <item>
       <title>Smartforms调用模板</title>
       <link>https://coldinfire.github.io/2018/ABAP_SmartfomrsToPDF/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SmartfomrsToPDF/</guid>
-      <description>程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义 DATA: lv_form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name lv_fm_name type rs38l_fnam, &amp;#34;Function Name ls_control type ssfctrlop, &amp;#34;Control structure ls_option type ssfcompop, &amp;#34;Smart Composer (transfer) options ls_ssfcrescl type ssfcrescl. &amp;#34;Return value at end of form printing</description>
+      <description>程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义&amp;#34; DATA: lv_form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name&amp;#34; lv_fm_name type rs38l_fnam, &amp;#34;Function Name&amp;#34; ls_control type ssfctrlop, &amp;#34;Control structure&amp;#34; ls_option type ssfcompop, &amp;#34;Smart Composer (transfer) options&amp;#34; ls_ssfcrescl type ssfcrescl. &amp;#34;Return value</description>
     </item>
     
     <item>
@@ -836,7 +872,7 @@
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_CHECKBOX/</guid>
-      <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT添加并定义CheckBox &amp;#34;$. Region ALV_Data TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &amp;#39;CHECKBOX&amp;#39;. alv_fieldcat-scrtext_m = &amp;#39;Choose&amp;#39;. alv_fieldcat-checkbox =</description>
+      <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT添加并定义CheckBox &amp;#34;$. Region ALV_Data&amp;#34; TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &amp;#39;CHECKBOX&amp;#39;. alv_fieldcat-scrtext_m = &amp;#39;Choose&amp;#39;. alv_fieldcat-checkbox =</description>
     </item>
     
     <item>
@@ -1079,7 +1115,7 @@
       <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis2/</guid>
-      <description>Table:透明表(Transparent table)、簇表 (Cluster table)、 池表(Pool table) ​ **透明表：**和数据库具有相同结构的表存储结</description>
+      <description>Table:透明表(Transparent table)、簇表 (Cluster table)、 池表(Pool table) ​ 透明表： 和数据库具有相同结构的表存储结构。数据</description>
     </item>
     
     <item>

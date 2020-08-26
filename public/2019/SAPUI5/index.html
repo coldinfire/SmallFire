@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "sapui5",
-  "wordcount":  6840 ,
+  "wordcount":  6847 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/SAPUI5\/",
   "datePublished": "2019-04-17T00:00:00\u002b00:00",
   "dateModified": "2019-04-17T00:00:00\u002b00:00",
@@ -402,38 +402,31 @@
 	},
 	<span style="color:#a6e22e">createContent</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">oController</span>) {
 		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">oShell</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">Shell</span>();<span style="color:#75715e">// Create Shell
-</span><span style="color:#75715e"></span>
-		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">addWorksetItem</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">NavigationItem</span>({
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">addWorksetItem</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">NavigationItem</span>({
 			<span style="color:#a6e22e">key</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;btn&#34;</span>,
 			<span style="color:#a6e22e">text</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Button&#34;</span>
 		}));<span style="color:#75715e">// Add Navigation item
-</span><span style="color:#75715e"></span>
-		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">addWorksetItem</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">NavigationItem</span>({
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">addWorksetItem</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">NavigationItem</span>({
 			<span style="color:#a6e22e">key</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;tf&#34;</span>,
 			<span style="color:#a6e22e">text</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Textfield&#34;</span>
 		}));
-
 		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">addWorksetItem</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">ux3</span>.<span style="color:#a6e22e">NavigationItem</span>({
 			<span style="color:#a6e22e">key</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;xml&#34;</span>,
 			<span style="color:#a6e22e">text</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;XMLView&#34;</span>
 		}));
-
 		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mContent</span> <span style="color:#f92672">=</span> {}; <span style="color:#75715e">// map holding shell content
 </span><span style="color:#75715e"></span>		<span style="color:#a6e22e">mContent</span>.<span style="color:#a6e22e">btn</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">commons</span>.<span style="color:#a6e22e">Button</span>({
 			<span style="color:#a6e22e">text</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello World&#34;</span>
 		});
-
 		<span style="color:#a6e22e">mContent</span>.<span style="color:#a6e22e">tf</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">commons</span>.<span style="color:#a6e22e">TextField</span>();
 		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">attachWorksetItemSelected</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">evt</span>) {
 			<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">evt</span>.<span style="color:#a6e22e">getParameter</span>(<span style="color:#e6db74">&#34;key&#34;</span>);
 			<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">setContent</span>(<span style="color:#a6e22e">mContent</span>[<span style="color:#a6e22e">key</span>]);
 		});<span style="color:#75715e">// Add WorksetItem Selected event
-</span><span style="color:#75715e"></span>
-		<span style="color:#a6e22e">mContent</span>.<span style="color:#a6e22e">xml</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">view</span>({
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">mContent</span>.<span style="color:#a6e22e">xml</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">view</span>({
 			<span style="color:#a6e22e">viewName</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ui5mvc.XML&#34;</span>,
 			<span style="color:#a6e22e">type</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">mvc</span>.<span style="color:#a6e22e">ViewType</span>.<span style="color:#a6e22e">XML</span>
 		});
-	
 		<span style="color:#a6e22e">oShell</span>.<span style="color:#a6e22e">setContent</span>(<span style="color:#a6e22e">mContent</span>.<span style="color:#a6e22e">btn</span>);<span style="color:#75715e">//initial content
 </span><span style="color:#75715e"></span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">oShell</span>;
 	}
@@ -448,7 +441,7 @@
 	<span style="color:#a6e22e">mlns:html=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xhtml&#34;</span><span style="color:#f92672">&gt;</span>
 	<span style="color:#f92672">&lt;html:h1&gt;</span>My first XML-Header<span style="color:#f92672">&lt;/html:h1&gt;</span>
 	<span style="color:#f92672">&lt;Panel&gt;</span>
-		<span style="color:#f92672">&lt;Button</span> <span style="color:#a6e22e">press=</span><span style="color:#e6db74">&#34;.sayHello&#34;</span> <span style="color:#a6e22e">text=</span><span style="color:#e6db74">&#34;Say Hello&#34;</span><span style="color:#f92672">&gt;&lt;/Button&gt;</span>
+          <span style="color:#f92672">&lt;Button</span> <span style="color:#a6e22e">press=</span><span style="color:#e6db74">&#34;.sayHello&#34;</span> <span style="color:#a6e22e">text=</span><span style="color:#e6db74">&#34;Say Hello&#34;</span><span style="color:#f92672">&gt;&lt;/Button&gt;</span>
 	<span style="color:#f92672">&lt;/Panel&gt;</span>
 <span style="color:#f92672">&lt;/core:View&gt;</span>
 </code></pre></div><p>​		空的的namespace设定 : xmlns = &ldquo;sap.m&rdquo;.</p>
@@ -465,50 +458,39 @@
 <p>​	1）xmlview中对需要动态显示的部分不作声明</p>
 <p>​	2）在controller中定义factory function，实现控件的绑定和动态加载。</p>
 <h4 id="controller">Controller</h4>
-<ol>
-<li>系统生成的文件</li>
-</ol>
+<p>1、系统生成的文件</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">controller</span>(<span style="color:#e6db74">&#34;ui5mvc.XML&#34;</span>, {
 <span style="color:#75715e">// onInit: function() {
 </span><span style="color:#75715e">//		
 </span><span style="color:#75715e">// },
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">// onBeforeRendering: function() {
+</span><span style="color:#75715e">// onBeforeRendering: function() {
 </span><span style="color:#75715e">//
 </span><span style="color:#75715e">// },
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">// onAfterRendering: function() {
+</span><span style="color:#75715e">// onAfterRendering: function() {
 </span><span style="color:#75715e">//
 </span><span style="color:#75715e">// },
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">// onExit: function() {
+</span><span style="color:#75715e">// onExit: function() {
 </span><span style="color:#75715e">//
 </span><span style="color:#75715e">// }
-</span><span style="color:#75715e"></span>
-<span style="color:#a6e22e">sayHello</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
-	<span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">commons</span>.<span style="color:#a6e22e">MessageBox</span>.<span style="color:#a6e22e">show</span>(<span style="color:#e6db74">&#34;Hello World&#34;</span>);
-}
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">sayHello</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">commons</span>.<span style="color:#a6e22e">MessageBox</span>.<span style="color:#a6e22e">show</span>(<span style="color:#e6db74">&#34;Hello World&#34;</span>);
+  }
 });
-</code></pre></div><ol start="2">
-<li>通过模块定义</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">define</span>(
-	[<span style="color:#e6db74">&#34;Dependencies1&#34;</span>,<span style="color:#e6db74">&#34;Dependencies2&#34;</span>,<span style="color:#e6db74">&#34;formatter&#34;</span>],
-	<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">Controller</span>,<span style="color:#a6e22e">formatter</span>){
-	<span style="color:#e6db74">&#34;use strict&#34;</span>;
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Controller</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#e6db74">&#34;ControllerName&#34;</span>,{
-            <span style="color:#a6e22e">formatter</span><span style="color:#f92672">:</span><span style="color:#a6e22e">formatter</span>,
-            
-			<span style="color:#a6e22e">onInit</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
-               <span style="color:#a6e22e">onBeforeRendering</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
-               <span style="color:#a6e22e">onAfterRendering</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
-               <span style="color:#a6e22e">onExit</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){}
-		});
-	}
+</code></pre></div><p>2、通过模块定义</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">define</span>( 
+  [<span style="color:#e6db74">&#34;Dependencies1&#34;</span>,<span style="color:#e6db74">&#34;Dependencies2&#34;</span>,<span style="color:#e6db74">&#34;formatter&#34;</span>],
+  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">Controller</span>,<span style="color:#a6e22e">formatter</span>){
+    <span style="color:#e6db74">&#34;use strict&#34;</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Controller</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#e6db74">&#34;ControllerName&#34;</span>,{
+      <span style="color:#a6e22e">formatter</span><span style="color:#f92672">:</span><span style="color:#a6e22e">formatter</span>,
+      <span style="color:#a6e22e">onInit</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
+      <span style="color:#a6e22e">onBeforeRendering</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
+      <span style="color:#a6e22e">onAfterRendering</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){},
+      <span style="color:#a6e22e">onExit</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(){}
+    });
+  }
 );
-</code></pre></div><ol>
-<li>生命周期：</li>
-</ol>
+</code></pre></div><p>3、生命周期：</p>
 <p>​			Start  &ndash;&gt;  视图和控制器被实例化  &ndash;&gt;  控制器被加载(存在控制器) &ndash;&gt;  onInit  &ndash;&gt;  onBeforeRendering  &ndash;&gt;</p>
 <p>​		视图被渲染  &ndash;&gt;  onAfterRendering  &ndash;&gt;  onExit  &ndash;&gt;  END(视图和控制器被销毁)</p>
 <ul>
@@ -525,9 +507,7 @@
 <p>onBeforeRendering : 在控制器视图重新呈现之前调用，不在第一次呈现之前调用。用于在其中调用第一个渲染前的钩子。</p>
 </li>
 </ul>
-<ol start="2">
-<li>控制器只是将加载的格式化程序函数存储在本地属性格式化程序中，以便能够在视图中访问它们。</li>
-</ol>
+<p>4、控制器只是将加载的格式化程序函数存储在本地属性格式化程序中，以便能够在视图中访问它们。</p>
 <h4 id="model">Model</h4>
 <p>应用程序数据</p>
 <ul>
@@ -552,29 +532,23 @@
 </ul>
 <h4 id="component">Component</h4>
 <p>Component.js通过调用manifest.json的配置信息，完成初始化调用。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">define</span>([
-        <span style="color:#e6db74">&#34;sap/ui/core/UIComponent&#34;</span>,
-        <span style="color:#e6db74">&#34;sap/ui/model/resource/ResourceModel&#34;</span>,
-        <span style="color:#e6db74">&#34;sap/ui/model/json/JSONModel&#34;</span>
-        
-    ], <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">UIComponent</span>, <span style="color:#a6e22e">ResourceModel</span>, <span style="color:#a6e22e">JSONModel</span>) {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">sap</span>.<span style="color:#a6e22e">ui</span>.<span style="color:#a6e22e">define</span>(
+  [<span style="color:#e6db74">&#34;sap/ui/core/UIComponent&#34;</span>,<span style="color:#e6db74">&#34;sap/ui/model/resource/ResourceModel&#34;</span>,<span style="color:#e6db74">&#34;sap/ui/model/json/JSONModel&#34;</span>],
+  <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">UIComponent</span>, <span style="color:#a6e22e">ResourceModel</span>, <span style="color:#a6e22e">JSONModel</span>) {
     <span style="color:#e6db74">&#34;use strict&#34;</span>;
-
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">UIComponent</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#e6db74">&#34;webapp.Component&#34;</span>, {
-		<span style="color:#75715e">//metadata
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">metadata</span><span style="color:#f92672">:</span> {
-            <span style="color:#a6e22e">manifest</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;json&#34;</span>
-         },
-
-        <span style="color:#a6e22e">init</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-            <span style="color:#75715e">// call the base component&#39;s init function
-</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">UIComponent</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">init</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">arguments</span>);
-
-            <span style="color:#75715e">// create the views based on the url/hash
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getRouter</span>().<span style="color:#a6e22e">initialize</span>();
-        }
+      <span style="color:#75715e">//metadata
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">metadata</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">manifest</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;json&#34;</span>
+      },
+      <span style="color:#a6e22e">init</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+        <span style="color:#75715e">// call the base component&#39;s init function
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">UIComponent</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">init</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">arguments</span>);
+        <span style="color:#75715e">// create the views based on the url/hash
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getRouter</span>().<span style="color:#a6e22e">initialize</span>();
+      }
     });
-});
+  });
 </code></pre></div><h4 id="application-descriptor">Application Descriptor</h4>
 <p>​	manifest.json配置应用程序的相关信息。被称为Application Descriptor。</p>
 <ol>
@@ -657,24 +631,26 @@
 <li>
 <p>sap.app设置资源包文件的路径和文件名。使用的相对于 <code>manifest.json</code> 文件的相对路径。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#e6db74">&#34;sap.app&#34;</span><span style="color:#f92672">:</span> {
-    ...
-    <span style="color:#e6db74">&#34;dataSources&#34;</span><span style="color:#f92672">:</span> {
-        <span style="color:#e6db74">&#34;mainService&#34;</span><span style="color:#f92672">:</span> {
-            <span style="color:#e6db74">&#34;uri&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;./service/data.json&#34;</span>,
-            <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;JSON&#34;</span>
-        }
+  ...
+  <span style="color:#e6db74">&#34;dataSources&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;mainService&#34;</span><span style="color:#f92672">:</span> {
+      <span style="color:#e6db74">&#34;uri&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;./service/data.json&#34;</span>,
+      <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;JSON&#34;</span>
     }
+  }
+}
 </code></pre></div></li>
 <li>
 <p>sap.ui5的<code>models</code>没有指定名称的 model，当 view 中数据绑定时，没有给出前缀的时候，就参照到这个 model。使用sap.app中设置的dataSource.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#e6db74">&#34;sap.ui5&#34;</span><span style="color:#f92672">:</span> {
-        ...
-        <span style="color:#e6db74">&#34;models&#34;</span><span style="color:#f92672">:</span> {
-            <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">:</span> {
-                <span style="color:#e6db74">&#34;dataSource&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;mainService&#34;</span>
-             },
-        ...
-        }
+  ...
+  <span style="color:#e6db74">&#34;models&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">:</span> {
+      <span style="color:#e6db74">&#34;dataSource&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;mainService&#34;</span>
+    },
+  ...
+  }
+}
 </code></pre></div></li>
 </ol>
 <h5 id="root-view">Root View</h5>
@@ -799,7 +775,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>6840</span>
+                   <span>6847</span>
             </p>
             
             <p class="copyright-item">

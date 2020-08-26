@@ -312,7 +312,63 @@
     <url>
       <loc>https://coldinfire.github.io/2020/SAP_ME2N_ME2M/</loc>
       
-      <lastmod>2020-04-16T00:00:00+00:00</lastmod>
+      <lastmod>2020-04-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/ABAP_SFP_Demo/</loc>
+      
+      <lastmod>2020-04-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/abaputils/</loc>
+      
+      <lastmod>2020-04-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/ABAP_SFP/</loc>
+      
+      <lastmod>2020-04-09T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/ABAP_Table_Adjust/</loc>
+      
+      <lastmod>2020-04-05T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -341,20 +397,6 @@
       <loc>https://coldinfire.github.io/tags/SAPbusiness/</loc>
       
       <lastmod>2020-04-03T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/abaputils/</loc>
-      
-      <lastmod>2020-03-20T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -492,7 +534,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/SAP_INCOMINGINVOICE_CREATE/</loc>
+      <loc>https://coldinfire.github.io/2020/SAP_MIRO_INCOMINGINVOICE_CREATE/</loc>
       
       <lastmod>2020-02-18T00:00:00+00:00</lastmod>
       
@@ -632,7 +674,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_DynamicPrgrm/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_DynamicProgram/</loc>
       
       <lastmod>2019-09-25T00:00:00+00:00</lastmod>
       
@@ -1948,7 +1990,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Smartfomrs_TMP/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Smartfomrs_PDF/</loc>
       
       <lastmod>2018-12-05T00:00:00+00:00</lastmod>
       
@@ -2438,7 +2480,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALVTemp/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_LISTALV_DEMO/</loc>
       
       <lastmod>2018-08-24T00:00:00+00:00</lastmod>
       
@@ -2581,6 +2623,20 @@
       <loc>https://coldinfire.github.io/2018/ABAP_Smartform_LoopPrint/</loc>
       
       <lastmod>2018-07-31T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Smartform_page/</loc>
+      
+      <lastmod>2018-07-29T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
