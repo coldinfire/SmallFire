@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WebDynpro</title>
+      <link>https://coldinfire.github.io/tags/WebDynpro/</link>
+      <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/WebDynpro/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>FICO</title>
@@ -224,15 +233,6 @@
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/Excel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WebDynpro</title>
-      <link>https://coldinfire.github.io/tags/WebDynpro/</link>
-      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/WebDynpro/</guid>
       <description></description>
     </item>
     

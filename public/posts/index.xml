@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> WebDynpro configuring Runtime Enviroment </title>
+      <link>https://coldinfire.github.io/2020/SAPWebDynproRuntimeEnv/</link>
+      <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPWebDynproRuntimeEnv/</guid>
+      <description>Remove User settings option ABAP Enviroment Method 1 Modify the WebDynpro Application and add the Parameter: ​ WDDISABLEUSERPERSONALIZATION = X. Method 2 Alternatively you can call the webdynpro application WD_GLOBAL_SETTING in SE80 and globally disable all user personalization for all applications. This avoids endusers from calling helpdesk because &amp;ldquo;fields are gone&amp;rdquo; etc. pretty well. JAVA Enviroment Procedure A number of settings allow you to influence the behavior of the Web</description>
+    </item>
     
     <item>
       <title>SAP FI tables</title>
@@ -153,6 +162,15 @@
       
       <guid>https://coldinfire.github.io/2020/ABAP_OLEtoExcel/</guid>
       <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员</description>
+    </item>
+    
+    <item>
+      <title>SAP Authorization table</title>
+      <link>https://coldinfire.github.io/2020/SAPAuthorizationTable/</link>
+      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPAuthorizationTable/</guid>
+      <description>相关权限分配的Table Table Desc Table Decs AGR_1016 活动组参数文件名称 AGR_FLAGS 角色属性 AGR_1016B 活动组参数文件名称 AGR_FLAGSB 角色属性 AGR_1250 活动组的权限数据 AGR_HIER 菜单结构信息表 AGR_1251 活动组的权限</description>
     </item>
     
     <item>
@@ -1061,7 +1079,7 @@
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</guid>
-      <description>METHOD ONACTIONPRINT . DATA lo_api_controller TYPE REF TO if_wd_controller. DATA lo_message_manager TYPE REF TO if_wd_message_manager. DATA: LT_EKPO TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO TYPE ZEKPO_asn, LT_EKPO_SUM TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM TYPE ZEKPO_asn, LT_EKPO_SUM_TMP TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM_TMP TYPE ZEKPO_asn. DATA lo_lips TYPE REF TO if_wd_context_node. data: lt_lips TYPE TABLE OF ZSLIPSASN, ls_lips TYPE ZSLIPSASN, lt_lips_tmp TYPE TABLE OF ZSLIPSASN, ls_lips_tmp TYPE ZSLIPSASN. data: l_index TYPE sy-tabix,</description>
+      <description>程序实例 METHOD ONACTIONPRINT . DATA lo_api_controller TYPE REF TO if_wd_controller. DATA lo_message_manager TYPE REF TO if_wd_message_manager. DATA: LT_EKPO TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO TYPE ZEKPO_asn, LT_EKPO_SUM TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM TYPE ZEKPO_asn, LT_EKPO_SUM_TMP TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM_TMP TYPE ZEKPO_asn. DATA lo_lips TYPE REF TO if_wd_context_node. data: lt_lips TYPE TABLE OF ZSLIPSASN, ls_lips TYPE ZSLIPSASN, lt_lips_tmp TYPE TABLE OF ZSLIPSASN, ls_lips_tmp TYPE ZSLIPSASN.</description>
     </item>
     
     <item>
@@ -1101,7 +1119,7 @@
     </item>
     
     <item>
-      <title> WebDynpro </title>
+      <title> WebDynpro for JAVA </title>
       <link>https://coldinfire.github.io/2018/SAPWebDynproJAVA/</link>
       <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
       

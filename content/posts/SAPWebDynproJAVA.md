@@ -1,6 +1,6 @@
 ---
 
-title: " WebDynpro "
+title: " WebDynpro for JAVA "
 date: 2018-10-16
 draft: false
 author: Small Fire
@@ -14,8 +14,6 @@ tags:
 ---
 
 ## 简介
-
-------
 
 `Web Dynpro` 在业务应用程序的主要结构和视觉设计部分的方式，在很大程度上是独立于实现语言.
 
@@ -64,8 +62,6 @@ tags:
 
 ## MVC
 
-------
-
 - Model：模型对象封装的界面一些后端系统。它的目的是充当分离从数据和功能在远程系统中找到的网页Dynpro应用程序的代理。封装访问业务数据和功能，驻留在远程后端系统。换句话说，在Web Dynpro应用程序不必与后端系统交互所需的特定通信技术。模型将接口封装到位于后端系统中的业务流程的某个步骤。这可以是BAPI调用，也可以是Web服务调用或Enterprise Java Bean。模型始终被视为数据生成器。接收一些数据也是为了完成业务流程的下一步。model会返回一些指示成功或失败的数据。
 - View：视图用于定义业务数据的客户机中性可视化。
 - Controller：在原来的MVC范例，控制器负责管理的视图（一个或多个）和模型（一个或多个）的相互作用，格式化将被显示在视图中的模型数据，并计算该视图（or views）中接下来的显示。所有的View中的Controller可以和Component Controller进行数据映射，从而达到View之间共享传递数据的功能。
@@ -74,8 +70,6 @@ tags:
 
 ## 无视图的 Web Dynpro
 
-------
-
 - Controllers having no visual interface：
 
 ![图6：Web Dynpro no visual interface](/images/webdynpro/webDyn6.png)
@@ -83,8 +77,6 @@ tags:
 ![图7：Dynpro no visual interface](/images/webdynpro/webDyn7.png)
 
 ## 有视图的 Web Dynpro
-
-------
 
 - 视图控制器
   - 视图控制器是不负责业务数据的产生，视图控制器一直被认为是数据的消费者。
@@ -110,8 +102,6 @@ tags:
 ![图9：Web Dynpro having visual interface](/images/webdynpro/webDyn9.png)
 
 ## Context
-
-------
 
 ​	(1)上下文中保存的数据仅存在于控制器的生命周期中。 控制器实例终止后，其上下文中保存的所有数据都将丢失。
 
@@ -140,8 +130,6 @@ tags:
 ​	(8) context是一个包含node和attribute的结构。每一个context都有一个默认的root node，一个node连同其子元素被合称为一个element。
 
 ## 构建上下文
-
-------
 
 ​	(1) 节点基数
 
@@ -177,8 +165,6 @@ tags:
 
 ## UI Element
 
-------
-
 ​	(1) 所有的UI元素有一个属性集，其中有许多可以接受硬编码值。然而，当在屏幕上要显示的数据在视图控制器的上下文中被保持，
 
 ​	(2) 简单的声明性关系可以适当UI元素属性和保持所需要的数据视图控制器的上下文中的属性之间进行。
@@ -207,8 +193,6 @@ tags:
 
 ## Windows
 
-------
-
 ​	(1) 窗口定义了两件事：
 
 - 可以为组件的一个特定可视界面显示的所有可能视图的超集
@@ -228,8 +212,6 @@ tags:
 ​	(5) 简单窗口中，任何时候都只能看到其中一个视图。
 
 ## 插件和导航链接
-
-------
 
 ​	**在每个视图中定义导航插头，并将它们与一个导航链路链接在一起。导航插头有两种：入站和出站**
 
@@ -294,8 +276,6 @@ tags:
 
 ## 显示数据
 
-------
-
 ​	(1) 表格显示的数据是从已知的作为上下文视图控制器的数据存储区域获得的。视图控制器反过来，从组件控制器的上下文获取数据。
 
 ​	(2) 填充组件控制器需要写入代码控制（Context mapping relationship<上下文映射关系>, Data Binding relationship<视图控制器与显示界面进行绑定>）
@@ -323,8 +303,6 @@ tags:
 ![图11：UI元素](/images/webdynpro/webDyn11.png)
 
 ## Others
-
-------
 
 ​	(1)可以使用提供的工具生成大部分Web Dynpro应用程序，而无需创建自己的源代码。这适用于本申请的以下部分：
 
