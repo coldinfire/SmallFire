@@ -21,12 +21,12 @@
     </item>
     
     <item>
-      <title>  将开发好的Web Dynpro在Portal上配置Role  </title>
-      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_Role/</link>
-      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      <title> Web Dynpro在Portal上传输 </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_Transfer/</link>
+      <pubDate>Sun, 04 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_Role/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_Transfer/</guid>
+      <description>当在Portal测试环境测试通过后，需要将其从测试环境搬到正式环境. Download from QAS system Open Transport package export Editor 选择System Administration,然后选择</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_PortalConfig/</guid>
-      <description></description>
+      <description>Web dynpro create role 在浏览器中登陆Portal，选择Content Administration页签，然后选择Portal Content 下面需要使用的文件夹。 选择文件</description>
     </item>
     
     <item>

@@ -354,12 +354,12 @@
     </item>
     
     <item>
-      <title>获取工单的Work Center</title>
-      <link>https://coldinfire.github.io/2019/SAP_WorkCenter/</link>
+      <title>Long Texts</title>
+      <link>https://coldinfire.github.io/2019/SAP_LongTexts/</link>
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAP_WorkCenter/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2019/SAP_LongTexts/</guid>
+      <description>介绍 长文本是用于在 SAP 系统中包含长文本的容器，通常将它们附加到业务对象上，用户可以输入自由注释。 长文本只能通过与其相连的业务对象的维护事务来维</description>
     </item>
     
     <item>
@@ -1056,12 +1056,12 @@
     </item>
     
     <item>
-      <title>  将开发好的Web Dynpro在Portal上配置Role  </title>
-      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_Role/</link>
-      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      <title> Web Dynpro在Portal上传输 </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_Transfer/</link>
+      <pubDate>Sun, 04 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_Role/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_Transfer/</guid>
+      <description>当在Portal测试环境测试通过后，需要将其从测试环境搬到正式环境. Download from QAS system Open Transport package export Editor 选择System Administration,然后选择</description>
     </item>
     
     <item>
@@ -1070,7 +1070,7 @@
       <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_PortalConfig/</guid>
-      <description></description>
+      <description>Web dynpro create role 在浏览器中登陆Portal，选择Content Administration页签，然后选择Portal Content 下面需要使用的文件夹。 选择文件</description>
     </item>
     
     <item>
