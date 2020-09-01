@@ -849,20 +849,20 @@
     </item>
     
     <item>
-      <title>Smartforms分页打印</title>
+      <title>Smartforms 分页打印</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartform_page/</link>
       <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartform_page/</guid>
-      <description>Smartform分页打印</description>
+      <description>Smartform中的table节点插入分页 Command Node 在smartforms的loop节点中可以插入一个command node用来强制分页，那么如</description>
     </item>
     
     <item>
       <title>Smartforms调用模板</title>
-      <link>https://coldinfire.github.io/2018/ABAP_SmartfomrsToPDF/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_SmartfomrsDemo/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_SmartfomrsToPDF/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_SmartfomrsDemo/</guid>
       <description>程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义&amp;#34; DATA: lv_form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name&amp;#34; lv_fm_name type rs38l_fnam, &amp;#34;Function Name&amp;#34; ls_control type ssfctrlop, &amp;#34;Control structure&amp;#34; ls_option type ssfcompop, &amp;#34;Smart Composer (transfer) options&amp;#34; ls_ssfcrescl type ssfcrescl. &amp;#34;Return value</description>
     </item>
     
@@ -872,7 +872,7 @@
       <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</guid>
-      <description>Table和template区别： 1、table 行为动态，数据输出时会根据列宽自动换行，可以固定列宽， 但是默认情况下控制不了行高，如果要想 template</description>
+      <description>中文乱码问题 如果预览时中文正常，打印出来是乱码的情况，可以尝试在中文环境下重新维护并激活。再次打印应该可以解决。如果还有问题，则检查语言包是</description>
     </item>
     
     <item>
@@ -881,7 +881,7 @@
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
-      <description>查找Smartforms TCode：NACE可以查找 (例如。采购订单，销售订单等) NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序</description>
+      <description>查找Smartforms TCode： NACE 可以查找 (例如。采购订单，销售订单等) NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加</description>
     </item>
     
     <item>

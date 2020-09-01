@@ -66,6 +66,8 @@ tags:
 
 ### View的处理
 
+每个视图都有一个控制器负责根据用户的交互来执执行作。
+
 #### INPUT_VIEW处理
 
 首先进到INPUT_VIEW中的Context页签中,然后将右边的Node拖到左边,如下图：

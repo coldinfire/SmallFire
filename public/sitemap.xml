@@ -130,7 +130,49 @@
     <url>
       <loc>https://coldinfire.github.io/categories/business/</loc>
       
-      <lastmod>2020-07-05T00:00:00+00:00</lastmod>
+      <lastmod>2020-08-06T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/MM/</loc>
+      
+      <lastmod>2020-08-06T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/MM_Material_Savedata/</loc>
+      
+      <lastmod>2020-08-06T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/FI_DocumentPost/</loc>
+      
+      <lastmod>2020-08-02T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -144,6 +186,20 @@
     <url>
       <loc>https://coldinfire.github.io/tags/FICO/</loc>
       
+      <lastmod>2020-08-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/FI_Tables/</loc>
+      
       <lastmod>2020-07-05T00:00:00+00:00</lastmod>
       
       
@@ -156,21 +212,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/FITables/</loc>
-      
-      <lastmod>2020-07-05T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2020/FIGLAccount/</loc>
+      <loc>https://coldinfire.github.io/2020/FI_GLAccount/</loc>
       
       <lastmod>2020-07-02T00:00:00+00:00</lastmod>
       
@@ -201,20 +243,6 @@
       <loc>https://coldinfire.github.io/tags/utils/</loc>
       
       <lastmod>2020-06-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/MM/</loc>
-      
-      <lastmod>2020-06-16T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -2676,7 +2704,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_SmartfomrsToPDF/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_SmartfomrsDemo/</loc>
       
       <lastmod>2018-07-28T00:00:00+00:00</lastmod>
       

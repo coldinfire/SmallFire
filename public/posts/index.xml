@@ -21,20 +21,38 @@
     </item>
     
     <item>
+      <title>批量创建/修改物料主数据</title>
+      <link>https://coldinfire.github.io/2020/MM_Material_Savedata/</link>
+      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_Material_Savedata/</guid>
+      <description>程序实例 REPORT ZUPDATE_MATNR. data: headdata type bapimathead, &amp;quot; 表头数据 &amp;quot; clientdata type bapi_mara, &amp;quot; 基本数据 &amp;quot; clientdatax type bapi_marax. &amp;quot; 变更数据标识 &amp;quot; data: materialdescription type table of bapi_makt with header line. data: unitsofmeasure type table of bapi_marm with header line. data: unitsofmeasurex type table of bapi_marmx with header line. data: pr_unit type meins, &amp;quot; 基本</description>
+    </item>
+    
+    <item>
+      <title> SAP FI 会计凭证过账 </title>
+      <link>https://coldinfire.github.io/2020/FI_DocumentPost/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/FI_DocumentPost/</guid>
+      <description>BAPI_ACC_DOCUMENT_POST 该过账 BAPI 需要和模拟过账的 BAPI BAPI_ACC_DOCUMENT_CHECK 搭配使用，这样先执行模拟过账，成功了再执行真正的过账，这样就不会因为执行失败产生废弃的凭证，还要再进行冲销，造</description>
+    </item>
+    
+    <item>
       <title>SAP FI tables</title>
-      <link>https://coldinfire.github.io/2020/FITables/</link>
+      <link>https://coldinfire.github.io/2020/FI_Tables/</link>
       <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/FITables/</guid>
+      <guid>https://coldinfire.github.io/2020/FI_Tables/</guid>
       <description>SAP FI 表：主数据 总帐科目的 SAP 表 总账科目主记录包含总账确定科目功能所需的数据。 总帐科目主记录控制会计交易到总帐科目的过帐以及过帐数据的处理。 G/L ACCOUNTS</description>
     </item>
     
     <item>
       <title>G/L Account 主要Tcode和tables</title>
-      <link>https://coldinfire.github.io/2020/FIGLAccount/</link>
+      <link>https://coldinfire.github.io/2020/FI_GLAccount/</link>
       <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/FIGLAccount/</guid>
+      <guid>https://coldinfire.github.io/2020/FI_GLAccount/</guid>
       <description>什么是G/L Account 首先，总账科目代表总账。 总帐会计的中心任务是提供外部会计和科目的全面情况。 在与公司所有其他业务领域完全集成的软件系统中记录所有</description>
     </item>
     
@@ -1371,20 +1389,20 @@
     </item>
     
     <item>
-      <title>Smartforms分页打印</title>
+      <title>Smartforms 分页打印</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartform_page/</link>
       <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartform_page/</guid>
-      <description>Smartform分页打印</description>
+      <description>Smartform中的table节点插入分页 Command Node 在smartforms的loop节点中可以插入一个command node用来强制分页，那么如</description>
     </item>
     
     <item>
       <title>Smartforms调用模板</title>
-      <link>https://coldinfire.github.io/2018/ABAP_SmartfomrsToPDF/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_SmartfomrsDemo/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_SmartfomrsToPDF/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_SmartfomrsDemo/</guid>
       <description>程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义&amp;#34; DATA: lv_form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name&amp;#34; lv_fm_name type rs38l_fnam, &amp;#34;Function Name&amp;#34; ls_control type ssfctrlop, &amp;#34;Control structure&amp;#34; ls_option type ssfcompop, &amp;#34;Smart Composer (transfer) options&amp;#34; ls_ssfcrescl type ssfcrescl. &amp;#34;Return value</description>
     </item>
     
@@ -1394,7 +1412,7 @@
       <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</guid>
-      <description>Table和template区别： 1、table 行为动态，数据输出时会根据列宽自动换行，可以固定列宽， 但是默认情况下控制不了行高，如果要想 template</description>
+      <description>中文乱码问题 如果预览时中文正常，打印出来是乱码的情况，可以尝试在中文环境下重新维护并激活。再次打印应该可以解决。如果还有问题，则检查语言包是</description>
     </item>
     
     <item>
@@ -1403,7 +1421,7 @@
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
-      <description>查找Smartforms TCode：NACE可以查找 (例如。采购订单，销售订单等) NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序</description>
+      <description>查找Smartforms TCode： NACE 可以查找 (例如。采购订单，销售订单等) NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加</description>
     </item>
     
     <item>
