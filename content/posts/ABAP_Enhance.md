@@ -12,94 +12,137 @@ tags:
 
 ---
 
-## 基本概念
-- User Exits(第一代增强)：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。
-  用户出口通常用于SD模块，SAP在销售，运输，计费领域提供许多退出。
-  - SD出口文档：IMG->Sales and Distribution -> System Modifications -> User Exitrs.
-- Customer Exits(第二代增强)：使用:SE38找到程序所属的包，使用SMOD导航到Utilities->Find，输入包名，然后执行即可
+### 基本概念
 
-  - FM Exits：在FM中include 保留的 Z 程序来提供功能扩展点
-  - Menu Exits：在GUI status中预留+Fcode menu item, 在程序中预留对应的Handling FM Exits
-  - Screen Exits：在Screen 中预留 Subscreen, 在程序中预留transport data to subscreen & return/retrieve data from subscreen的 FM Exits
-- Enhancement & Enhancement Project：
-  - Enhancement：把系统程序中的相关Customer Exits收集起来成为一个Enhancement，一般情况是按功能和类型来收集的, 
-        比方说几个相关的FM eixts组成一个enhancemnet，或就一个 screen 或 menu exits 形成一个enhancement。
-  -  查看/修改 Enhancement的t-code为：SMOD
-  - Enhancement Project：在使用Enhacement时，要先建立一个Enhancement Project，可以将多个Enhancement assign给一个enhancement project去管理，对应t-code：CMOD。
-- BADI (Business Add-in,第三代增强)：通过面向对象的方式来提供扩展点，它支持Customer Exits所有的enhancement 类型，
-  因目前Class中不能包含subscreen所以在用BADI enhance screen时比用Customer Exits要复杂些。
-  非Multiple Case的BADI同时只能有一个Active Implementation，即要Active新生成的需先inactive旧的。
-  若是Multiple Case的BADI则可同时有多个Active Implementation，且所有的Implementation在没有Filter的情况下
-  都会被遍历执行。
-- Other
-  - User Exits与Customer Exits的区别在于User Exits的使用需要Access Key但Customer Exits不要。
-  - FM exits在关联的Function Group中的命名规则为：EXIT_programname_xxx.
-  - Customer exits的调用方式为：
-    - FM Exits: CALL CUSTOMER-FUNCTION 'xxx' EXPORTING ... IMPORTING ...
-    - Subscreen: Call CUSTOMER-SUBSCREEN INCLUDING
-- VOFM 
-  Display:Requirements & Formulas => Formulas => Condition value 可定义增强公式
+SAP 增强已经发展过几代了，可参考 SAP 标准教材 BC425 和 BC427。
+
+SAP 增强从用途来说分
+
+- 数据元素增强
+- 菜单增强
+- 屏幕增强
+- 功能增强
+
+SAP 增强从实现方式来说分
+
+- 第一代增强（User Exits）
+- 第二代增强（SMOD、CMOD）
+- 第三代增强（BADI）
+- 第四代增强（BTE）
+
+其他相关增强
+
 - BTE：财务模块常用的替代和验证
+- VOFM 
+  销售模块常用的例程等
+  - Display:Requirements & Formulas => Formulas => Condition value 可定义增强公式
 
-## How to find user exits?
+实现某个用途采用何种实现方式，四代增强可能都不是万能的，具体采用哪种方式实现，需要考虑实际情况（可能四种方式都能实现某个增强），以及程序员个人喜好选择合适的增强方式。
 
-1. Using t-code: `SE93` and specify the transaction code.
-      From here go to the main program and click on the `FIND`button
-   `Specify USEREXIT` and select `find in main program` radio button and click search... 
-      if any user exit is used, it will list all the places as in SAP if any user exit is used, 
-    a comment is been written above the user exit.
+### 具体分类
 
-2. How to find customer exits?
+#### User Exits(第一代增强)
 
-  - <1>通过一些专门的程序，如:[利用t-code查找增强出口的程序工具](https://www.591sap.com/thread-87-1-1.html)
+是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的逻辑。这类增强都需要修改 sap 的标准代码。User Exits通常用于SD模块，SAP在销售，运输，计费领域提供许多退出。
 
-  - <2>Search string “call customer” in the main program source code;
+- SD出口文档：IMG->Sales and Distribution -> System Modifications -> User Exitrs.
+- 这种源代码增强和屏幕增强的说明可以从事务码 spro 后台配置中相关模块的路径里面找到。
+- 同时使用的针对数据表的增强是 append structure，可以在事务码 se11 中打开透明表，为数据表追加新的字段。
 
-  - <3>SE80 -> Repository Infomation System -> Enhancements -> Customer Exits -> Input search condition -> Execute
+#### Customer Exits(第二代增强) 
 
-  - <4>SE11 -> Database table: MODSAPVIEW -> Display Contents -> Input "*program name*" into Enhancement field ->
-     Execute -> 得到的SAP extension name 即为 Customer Exits Enhancement Name.
+使用Tcode:SE38找到程序所属的包，使用`SMOD`导航到`Utilities -> Find`，输入包名，然后执行即可
 
-3. How to find BADIs?
+- FM Exits：在FM中include 保留的 Z 程序来提供功能扩展点
+- Menu Exits：在GUI status中预留+Fcode menu item, 在程序中预留对应的Handling FM Exits
+- Screen Exits：在Screen 中预留 Subscreen, 在程序中预留transport data to subscreen & return/retrieve data from subscreen的 FM Exits
 
-    - <1> 通过一些专门的程序，如:[一个功能非常全面的增强出口查找工具](https://www.591sap.com/thread-86-1-1.html)
+Enhancement & Enhancement Project：
+- Enhancement：把系统程序中的相关Customer Exits收集起来成为一个Enhancement，一般情况是按功能和类型来收集的,比方说几个相关的FM eixts组成一个enhancemnet，或者一个 screen 或 menu exits 形成一个enhancement。查看/修改 Enhancement的t-code为：`SMOD`
+- Enhancement Project：在使用Enhacement时，要先建立一个Enhancement Project，可以将多个Enhancement assign给一个enhancement project去管理，对应t-code：`CMOD`。
 
-    -  <2> SE38 -> 事物代码对应得程序名 -> 在程序内搜索 CL_EXITHANDLER
+#### BADI (Business Add-in,第三代增强)
 
+通过面向对象的方式来提供扩展点，它支持Customer Exits所有的enhancement 类型，
+因目前Class中不能包含subscreen所以在用BADI enhance screen时比用Customer Exits要复杂些。
+非Multiple Case的BADI同时只能有一个Active Implementation，即要Active新生成的需先inactive旧的。
+若是Multiple Case的BADI则可同时有多个Active Implementation，且所有的Implementation在没有Filter的情况下
+都会被遍历执行。
 
-    - <3> SE24 -> CL_EXITHANDLER -> 在GET_INSTANCE中打断点，然后运行相应的事务码找到对应的BADI
-    
-    - <4> SE80 -> Repository Infomation System -> Enhancements -> Business Add-ins
-    
-    - <5> Search string “type ref to” in the main program source code, then check if there is BAdI used in the program
-    
-    - <6> 它的调用方式是call method(instance),可以通过exit_handler关键词来查找
-    
-    - <7> ST05选择"table buffer trace"而不是常用的"SQL trace",然后查找 (SXS_INTER,SXC_EXIT,SXC_CLASS,SXC_ATTR)找到BADI
+#### Others
 
-4. Customer Exits and BADI implementation.
+- User Exits与Customer Exits的区别在于User Exits的使用需要Access Key但Customer Exits不要。
+- FM exits在关联的Function Group中的命名规则为：EXIT_programname_xxx.
+- Customer exits的调用方式为：
+  - FM Exits: CALL CUSTOMER-FUNCTION 'xxx' EXPORTING ... IMPORTING ...
+  - Subscreen: Call CUSTOMER-SUBSCREEN INCLUDING
 
-     - <1> Customer Exits: SMOD, CMOD
+### 怎么查找增强
 
-     - <2> BADI: SE18, SE19.
+#### 查找User Exit
 
-5. Find a BADI in one minute
+Using t-code: `SE93` and specify the transaction code.
+From here go to the main program and click on the `FIND`button
+`Specify USEREXIT` and select `Find in main program` radio button and click search.
 
-     - <1>Go to TCode SE24 and enterG CL_EXITHANDLER as object type.
+- if any user exit is used, it will list all the places as in SAP.
 
-     - <2>In 'Display' mode, go to 'Methods' tab.
+- if any user exit is used, 
+   a comment is been written above the user exit.
 
-     - <3>Double click the method 'Get Instance' to display it source code.
+#### 查找Customer Exits
 
-     - <4>Set a breakpoint on 'CALL METHOD cl_exithandler=>get_class_name_by_interface'.
+1. 通过一些专门的程序，如:[利用t-code查找增强出口的程序工具](https://www.591sap.com/thread-87-1-1.html)
 
-     - <5>Then run your transaction.
+2. Search string `call custome` in the main program source code;
 
-     - <6>The screen will stop at this method.
+3. SE80 -> Repository Infomation System -> Enhancements -> Customer Exits -> Input search condition -> Execute
 
-     - <7>Check the value of parameter 'EXIT_NAME'. It will show you the BADI for that transaction.
+4. SE11 -> Database table: MODSAPVIEW -> Display Contents -> Input "*program name*" into Enhancement field ->
+   Execute : 得到的SAP extension name 即为 Customer Exits Enhancement Name.
+5. 首先使用SE93根据事物码找到对应程序名，然后 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “PROG”、OBJ_NAME = 程序名）找对应开发类，如果找不到对应开发类，通过 SE38 查看程序，在菜单"转到 - 属性"中找开发类。然后再用 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “SMOD”、DEVCLASS = 开发类）就可找到此程序可用的增强点（并非万能）。然后根据增强点从表 MODSAP 中就可以看到此增强具备哪些功能【屏幕增强（S）、菜单增强（C）、功能增强（E）、表增强（T）】
 
-查找的功能程序：
+#### 查找BADI
+
+1. 通过一些专门的程序，如:[一个功能非常全面的增强出口查找工具](https://www.591sap.com/thread-86-1-1.html)
+
+2. SE38 -> 事物代码对应的程序名 -> 在程序内搜索关键字 `CL_EXITHANDLER`
+
+3. SE80 -> Repository Infomation System -> Enhancements -> Business Add-ins
+
+4. Search string “type ref to” in the main program source code, then check if there is BAdI used in the program
+
+5. 它的调用方式是call method (instance),可以通过exit_handler关键词来查找
+
+6. ST05选择"table buffer trace"而不是常用的"SQL trace",然后查找 (SXS_INTER,SXC_EXIT,SXC_CLASS,SXC_ATTR)找到BADI
+
+7. Find a BADI in one minute
+
+   ```JS
+   <1>Go to TCode SE24 and enter G CL_EXITHANDLER as object type.
+   <2>In 'Display' mode, go to 'Methods' tab.
+   <3>Double click the method 'Get_Instance' to display it source code.
+   <4>Set a breakpoint on 'CALL METHOD cl_exithandler=>get_class_name_by_interface'.
+   <5>Then run your transaction.
+   <6>The screen will stop at this method.
+   <7>Check the value of parameter 'EXIT_NAME'.It will show you the BADI for that transaction.
+   ```
+
+   
+
+### Customer Exits and BADI implementation.
+
+####  Customer Exits: SMOD, CMOD
+
+#### BADI: SE18, SE19.
+
+可以使用 SE18 查看BADI，可以看到BADI 对应的接口，接口中定义的方法及参数传递。
+
+然后 SE19  Implementation 该 BADI。
+
+注：接口编码 BADI 加前缀 `IF_CL_`，客户类编码 `ZCL_IM_`
+
+### 查找的功能程序：
 
 - [利用 t-code 查找增强出口的程序工具](https://coldinfire.github.io/2018/ABAPEnhance1/)
 

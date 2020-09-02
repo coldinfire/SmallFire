@@ -110,6 +110,24 @@ CALL FUNCTION 'CS_BOM_EXPL_MAT_V2'
     TABLES
       stb = stb           "展开的BOM存放在该内表"
       matcat = matcat     "下面含有元件的物料存放在该内表"
+
+"获取物料BOM清单 Items"
+call function 'CSAP_MAT_BOM_ITEM_SELECT'
+  exporting
+    i_stpo                     = ls_i_stpo
+    material                   = lv_i_matnr
+    plant                      = lv_i_plant
+    bom_usage                  = lv_i_usage
+    alternative                = lv_i_alter
+    fl_material_check          = lc_check
+    fl_foreign_key_check       = lc_check
+    valid_from                 = lv_i_datuv
+    valid_to                   = lv_i_datub
+  tables
+    t_stpo                     = lt_e_stpo
+  exceptions
+    error                      =
+    others                     =   .
 ```
 
 ### 逆查BOM(CS15)

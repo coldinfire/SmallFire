@@ -72,7 +72,7 @@ Reference: [https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-m
 
     ![Subscreens](/images/MM/MM_Enhance12.png)
 
-- 单击 **“ 添加新条目”** 按钮，并将程序名称替换为自定义的程序名（Function Group 的主程序），然后将自己的屏幕编号（2497）填入到Subscreen Number中,保存
+- 单击 **“ 添加新条目”** 按钮，并将程序名称替换为自定义的程序名（Function Group 的主程序），然后将自己的屏幕编号（2497）填入到Subscreen Number中,保存
 
   ![Subscreens](/images/MM/MM_Enhance13.png)
 

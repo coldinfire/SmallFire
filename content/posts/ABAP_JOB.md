@@ -31,11 +31,11 @@ tags:
 
 - 第二种：SM36定义作业名
 
-  - 点击‘Start condition’选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.
+  - 点击`Start condition`选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.
 
     ![Start Condition](/images/ABAP/JOB4.png)
 
-  - 再点击‘Step’，填写abap程序‘NAME’和‘Variant’后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。
+  - 再点击`Step`，填写abap程序NAME和Variant后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。
 
     ![Step](/images/ABAP/JOB5.png)
 
@@ -45,7 +45,7 @@ tags:
 
 第一步：SM50
 
-​	找到Ty. 列为 BGD 的(Background)，然后再找到你刚运行的那个后台 Job 的行，选中；然后在菜单点击：Process---Cancel with core. 即可。
+找到Ty. 列为 BGD 的(Background)，然后再找到你刚运行的那个后台 Job 的行，选中；然后在菜单点击：Process---Cancel with core 即可。
 
 第二步：SM37 查看 Background Job，应该为 “取消” 状态。
 
@@ -53,12 +53,12 @@ tags:
 
 ### 如何查看一个后台job对应哪些程序?
 
-​	sm36-->点击“job selection”-->运行结果双击选择job-->回到第一个界面，点击“步骤”按钮，转到步骤清单总览，里面就可以看到程序名称了已取消，完成的job是不能修改的其它状态的都可以改，在sm37里，选择相应的job，菜单里有个更改项
-sm37就是sm36里job selection的链接。
+SM36 -> 点击job selection -> 运行结果双击选择job -> 回到第一个界面，点击"Step"按钮，转到步骤清单总览，里面就可以看到程序名称了已取消，完成的job是不能修改的其它状态的都可以改，在SM37里，选择相应的job，菜单里有个更改项
+SM37就是SM36里job selection的链接。
 
 ### 调试后台Job
 
-​	事务码：sm37，选中要调试的 job，输入事务码 JDBG，回车，进入调试界面，根据需要打断点等就行了。
+事务码：SM37，选中要调试的 job，输入事务码 JDBG，回车，进入调试界面，根据需要打断点等就行了。
 
 - ​	后台JOB状态类型：
   - Scheduled：job 创建了但是还没有 release，这种状态的 job 是不会执行的
@@ -69,4 +69,4 @@ sm37就是sm36里job selection的链接。
 
 ### 批量删除后台作业
 
-- RSBTCDEL2 : 根据条件输入后台Job名或则根据用户天数，Commit尽可能大一点，Test Run勾上会显示满足条件的Job名字
+SE38执行 **RSBTCDEL2**  根据条件输入后台Job名或则根据用户天数，Commit尽可能大一点，Test Run勾上会显示满足条件的Job名字.

@@ -67,19 +67,19 @@
     
     <item>
       <title>使用BAPI创建Purchase Order</title>
-      <link>https://coldinfire.github.io/2020/MMPurchaseOrder_BAPI/</link>
+      <link>https://coldinfire.github.io/2020/MM_PurchaseOrder_BAPI/</link>
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MMPurchaseOrder_BAPI/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_PurchaseOrder_BAPI/</guid>
       <description>根据PR创建PO： LOOP AT PRITEM. IF SY-TABIX = 1. LS_POHEADER-DOC_TYPE = &amp;#39;ZSTL&amp;#39;. CONCATENATE &amp;#39;000000&amp;#39; PRITEM-PLANT INTO LS_POHEADER-VENDOR. IF LS_WERKS = &amp;#39;1020&amp;#39;. LS_POHEADER-PURCH_ORG = &amp;#39;1022&amp;#39;. &amp;#34;pritem-purch_org&amp;#34; ELSEIF LS_WERKS = &amp;#39;1040&amp;#39;. LS_POHEADER-PURCH_ORG = &amp;#39;1042&amp;#39;. ENDIF. LS_POHEADER-COMP_CODE = &amp;#39;1000&amp;#39;. LS_POHEADER-PUR_GROUP = PRITEM-PUR_GROUP. LS_POHEADER-DOC_DATE = SY-DATUM. ENDIF. LT_POITEM-PO_ITEM = PRITEM-PREQ_ITEM. LT_POITEM-MATERIAL = PRITEM-MATERIAL. LT_POITEM-PLANT = &amp;#39;1000&amp;#39;. LT_POITEM-VEND_MAT = PRITEM-VEND_MAT. LT_POITEM-QUANTITY = PRITEM-QUANTITY. LT_POITEM-PO_UNIT = PRITEM-UNIT. IF PRITEM-CURRENCY</description>
     </item>
     
     <item>
       <title>使用BAPI创建Purchase Request</title>
-      <link>https://coldinfire.github.io/2020/MMPurchaseRequest_BAPI/</link>
+      <link>https://coldinfire.github.io/2020/MM_PurchaseRequest_BAPI/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MMPurchaseRequest_BAPI/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_PurchaseRequest_BAPI/</guid>
       <description>Purchase Request 内容： PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期 ​ PR Item : 物料编号、短文本、发货日期、采购订单数量、采购订单价格、分类 ​ BAPI: B</description>
     </item>
     
@@ -269,7 +269,7 @@
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_BTE/</guid>
-      <description>BTE概念 ​ BTE(Business Transaction Events)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。</description>
+      <description>BTE概念 BTE(Business Transaction Events)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。S</description>
     </item>
     
     <item>
@@ -346,19 +346,19 @@
     
     <item>
       <title>MM 委外业务(外发加工)</title>
-      <link>https://coldinfire.github.io/2019/MMOutsourcing_Business/</link>
+      <link>https://coldinfire.github.io/2019/MM_Outsourcing_Business/</link>
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMOutsourcing_Business/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Outsourcing_Business/</guid>
       <description>委外加工是指由本公司提供材料（可能是部分）给外包商进行加工，完工后收回成品并向委外加工商支付加工费的业务方式； 步骤： 1.创建为外加工订单： 订</description>
     </item>
     
     <item>
       <title>PO 增强</title>
-      <link>https://coldinfire.github.io/2019/MMPO_Enhance/</link>
+      <link>https://coldinfire.github.io/2019/MM_PO_Enhance/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMPO_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_PO_Enhance/</guid>
       <description>创建采购订单(Purchase Order)时可以通过增强做一些控制。 BADI:ME_PROCESS_PO_CUST PROCESS_HEADER： 对PO抬头数据进行检查 PROCESS_I</description>
     </item>
     
@@ -427,10 +427,10 @@
     
     <item>
       <title> BAPI_GOODSMVT_CREATE Demo </title>
-      <link>https://coldinfire.github.io/2019/MMGoodsMVT_BAPI/</link>
+      <link>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</link>
       <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMGoodsMVT_BAPI/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</guid>
       <description>Inventory Management使用的BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证</description>
     </item>
     
@@ -606,12 +606,12 @@
     </item>
     
     <item>
-      <title>Work Center 了解</title>
-      <link>https://coldinfire.github.io/2019/MMWorkCenter/</link>
+      <title>SAP 进销存难点分析及对策</title>
+      <link>https://coldinfire.github.io/2019/MM_Invoicing/</link>
       <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMWorkCenter/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2019/MM_Invoicing/</guid>
+      <description>引用链接：https://blog.csdn.net/wbin9752/article/details/8608765#comments_2</description>
     </item>
     
     <item>
@@ -643,10 +643,10 @@
     
     <item>
       <title>SAP MM01 屏幕增强</title>
-      <link>https://coldinfire.github.io/2019/MMMasterData_enhance1/</link>
+      <link>https://coldinfire.github.io/2019/MM_MasterData_enhance1/</link>
       <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMMasterData_enhance1/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_MasterData_enhance1/</guid>
       <description>Reference: https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/ ​ MM01中的Screen完全是通过一个个的subscreen，像一个个的component组合而成的。在原有的subscreen不在c</description>
     </item>
     
@@ -877,10 +877,10 @@
     
     <item>
       <title>物料主数据增强自定义字段</title>
-      <link>https://coldinfire.github.io/2019/MMMasterData_enhance2/</link>
+      <link>https://coldinfire.github.io/2019/MM_MasterData_enhance2/</link>
       <pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMMasterData_enhance2/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_MasterData_enhance2/</guid>
       <description>正常情况下通过FM Exits来增强一个屏幕的步骤： Find relevant enhancement thru program name. T-code: CMOD, create an enhancement project, then assign the enhancement to the enhancement project Create a subscreen in corresponding X function group Implement the FM exits for transporting data to subscreen and retrieving data from subscreen. Active the enhancement</description>
     </item>
     
@@ -931,10 +931,10 @@
     
     <item>
       <title>MM常用TCode</title>
-      <link>https://coldinfire.github.io/2019/MMTcode/</link>
+      <link>https://coldinfire.github.io/2019/MM_Tcode/</link>
       <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMTcode/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Tcode/</guid>
       <description>MM 常用Tcode： Table Desc Table Desc MM01/02/03/04/06 物料：创建/修改/显示/显示修改/删除标记 MK01/02/03/05/06 供应商：创建/修改/显示/冻结/删除标记 ME01/02/0M 货源清单：创建/查看/物料</description>
     </item>
     
@@ -949,10 +949,10 @@
     
     <item>
       <title>MM 常用表</title>
-      <link>https://coldinfire.github.io/2019/MMTable/</link>
+      <link>https://coldinfire.github.io/2019/MM_Table/</link>
       <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMTable/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Table/</guid>
       <description>MM 常用透明表： Table Desc Table Desc Table Desc MARA 物料主数据 MARC 物料工厂(在途库存) MSKA 销售订单库存 MAKT 物料描述 MARD 物料库存(当前库存) T001L 工厂库位关系 MARM 物料的计量单位 MARDH 历</description>
     </item>
     
@@ -1241,7 +1241,7 @@
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Enhance/</guid>
-      <description>基本概念 User Exits(第一代增强)：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的</description>
+      <description>基本概念 SAP 增强已经发展过几代了，可参考 SAP 标准教材 BC425 和 BC427。 SAP 增强从用途来说分 数据元素增强 菜单增强 屏幕增强 功能增强 SAP 增强从实现方式来说分</description>
     </item>
     
     <item>
@@ -1619,7 +1619,7 @@
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis7/</guid>
-      <description>数据库 不要使用 SELECT * &amp;hellip;，选择需要的字段, SELECT * 既浪费CPU，还需占用大量的ABAP内存 不要使用SELECT DISTINCT .，会绕过缓存，可使用</description>
+      <description>性能分析工具 ST05：性能分析，追踪 SQL，分析哪条 SQL Statement 语句，最耗时间 STAD：得到某个程序或事务运行时的总体分析数据，系统时间，CPU 时间</description>
     </item>
     
     <item>

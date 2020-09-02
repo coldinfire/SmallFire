@@ -116,7 +116,7 @@
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_BTE/</guid>
-      <description>BTE概念 ​ BTE(Business Transaction Events)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。</description>
+      <description>BTE概念 BTE(Business Transaction Events)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。S</description>
     </item>
     
     <item>
@@ -390,12 +390,12 @@
     </item>
     
     <item>
-      <title>Work Center 了解</title>
-      <link>https://coldinfire.github.io/2019/MMWorkCenter/</link>
+      <title>SAP 进销存难点分析及对策</title>
+      <link>https://coldinfire.github.io/2019/MM_Invoicing/</link>
       <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMWorkCenter/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2019/MM_Invoicing/</guid>
+      <description>引用链接：https://blog.csdn.net/wbin9752/article/details/8608765#comments_2</description>
     </item>
     
     <item>
@@ -701,7 +701,7 @@
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Enhance/</guid>
-      <description>基本概念 User Exits(第一代增强)：是系统中预留的一些空的Form/Subroutine，获得Access key后可以在Form中写入自己的</description>
+      <description>基本概念 SAP 增强已经发展过几代了，可参考 SAP 标准教材 BC425 和 BC427。 SAP 增强从用途来说分 数据元素增强 菜单增强 屏幕增强 功能增强 SAP 增强从实现方式来说分</description>
     </item>
     
     <item>
@@ -1079,7 +1079,7 @@
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis7/</guid>
-      <description>数据库 不要使用 SELECT * &amp;hellip;，选择需要的字段, SELECT * 既浪费CPU，还需占用大量的ABAP内存 不要使用SELECT DISTINCT .，会绕过缓存，可使用</description>
+      <description>性能分析工具 ST05：性能分析，追踪 SQL，分析哪条 SQL Statement 语句，最耗时间 STAD：得到某个程序或事务运行时的总体分析数据，系统时间，CPU 时间</description>
     </item>
     
     <item>
