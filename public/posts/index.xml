@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LSMW批处理使用方法</title>
+      <link>https://coldinfire.github.io/2020/SAP_LSMW/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_LSMW/</guid>
+      <description>参考链接：https://fenginfo.com/1821.html 总述 在 SAP 系统中，批处理操作有多种方法。如果是对一个事物码（TCODE）</description>
+    </item>
     
     <item>
       <title> WebDynpro configuring Runtime Enviroment </title>

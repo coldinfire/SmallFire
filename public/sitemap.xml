@@ -30,23 +30,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/SAPWebDynproRuntimeEnv/</loc>
-      
-      <lastmod>2020-08-16T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
-      <lastmod>2020-08-16T00:00:00+00:00</lastmod>
+      <lastmod>2020-09-02T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -60,7 +46,21 @@
     <url>
       <loc>https://coldinfire.github.io/categories/</loc>
       
-      <lastmod>2020-08-16T00:00:00+00:00</lastmod>
+      <lastmod>2020-09-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/SAP_LSMW/</loc>
+      
+      <lastmod>2020-09-02T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -74,7 +74,21 @@
     <url>
       <loc>https://coldinfire.github.io/posts/</loc>
       
-      <lastmod>2020-08-16T00:00:00+00:00</lastmod>
+      <lastmod>2020-09-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/SAPbusiness/</loc>
+      
+      <lastmod>2020-09-02T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -88,7 +102,7 @@
     <url>
       <loc>https://coldinfire.github.io/</loc>
       
-      <lastmod>2020-08-16T00:00:00+00:00</lastmod>
+      <lastmod>2020-09-02T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -101,6 +115,34 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2020-09-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/utils/</loc>
+      
+      <lastmod>2020-09-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/SAPWebDynproRuntimeEnv/</loc>
       
       <lastmod>2020-08-16T00:00:00+00:00</lastmod>
       
@@ -227,20 +269,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2020/SAPDBCO_Connect/</loc>
-      
-      <lastmod>2020-06-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/utils/</loc>
       
       <lastmod>2020-06-18T00:00:00+00:00</lastmod>
       
@@ -437,20 +465,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2020/SAPCostCenter/</loc>
-      
-      <lastmod>2020-04-03T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/SAPbusiness/</loc>
       
       <lastmod>2020-04-03T00:00:00+00:00</lastmod>
       
