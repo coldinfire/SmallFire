@@ -17,7 +17,7 @@ Q：当进行移库操作时，同一个程序中执行多次移库动作会产�
 
 A：需要每次进行移库前刷新数据：
 
-- "调用BAPI进行移库操作
+- 调用BAPI进行移库操作
       
 
   - CALL FUNCTION 'HU_PACKING_REFRESH'.
@@ -25,8 +25,6 @@ A：需要每次进行移库前刷新数据：
   - CALL FUNCTION 'SERIAL_INTTAB_REFRESH'.
     
   - CALL FUNCTION 'V51G_REFRESH'.
-
--  
 
   ```JS
   CALL FUNCTION 'HU_CREATE_GOODS_MOVEMENT'
@@ -41,5 +39,6 @@ A：需要每次进行移库前刷新数据：
       ET_MESSAGES    = ET_MESSAGES[]
       ES_EMKPF       = ES_EMKPF.
   ```
-
+  
+  
   
