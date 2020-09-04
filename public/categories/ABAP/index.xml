@@ -6,10 +6,19 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LSMW操作步骤详解</title>
+      <link>https://coldinfire.github.io/2020/SAP_LSMW_Details/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_LSMW_Details/</guid>
+      <description>Step1:数据准备 数据准备一般使用 Excel 整理数据，并转换成标准文本。我们以创建物料主数据（事物代码 MM01）的基本视图为例。 物料主数据的基本视</description>
+    </item>
     
     <item>
       <title>LSMW批处理使用方法</title>
