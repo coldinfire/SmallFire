@@ -112,19 +112,19 @@
     
     <item>
       <title>SAP 库存查看</title>
-      <link>https://coldinfire.github.io/2020/SAPStock/</link>
+      <link>https://coldinfire.github.io/2020/MM_Stock/</link>
       <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAPStock/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_Stock/</guid>
       <description>显示物料的库存 MMBE:查看物料的所有库存信息。 Stock Tcodes Desc 中文描述 MB51 Material Doc. List 物料凭证清单 MB52 List of Warehouse Stocks on Hand 现有仓库库存清单 MB53 Display Plant Stock Availability 显示工厂库存可用性</description>
     </item>
     
     <item>
       <title>SAP 移动类型详解</title>
-      <link>https://coldinfire.github.io/2020/SAPGoodMovementTypes/</link>
+      <link>https://coldinfire.github.io/2020/MM_GoodMovementTypes/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAPGoodMovementTypes/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_GoodMovementTypes/</guid>
       <description>SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型。 移动类型参考字段MSEG-BWART，移动类型参考表T156，文本表是T156T. SAP MM</description>
     </item>
     
@@ -148,10 +148,10 @@
     
     <item>
       <title>ME2N/ME2M报表增加显示字段</title>
-      <link>https://coldinfire.github.io/2020/SAP_ME2N_ME2M/</link>
+      <link>https://coldinfire.github.io/2020/MM_ME2N_ME2M/</link>
       <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAP_ME2N_ME2M/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_ME2N_ME2M/</guid>
       <description>原文地址：http://blog.csdn.net/zhongguomao/article/details/52514197 在 ME2N/ME2M/ME2W/ME3M 里加 EKKO/EKPO 中没显</description>
     </item>
     
@@ -211,10 +211,10 @@
     
     <item>
       <title>移动平均价和标准价</title>
-      <link>https://coldinfire.github.io/2020/MMStandardPrice/</link>
+      <link>https://coldinfire.github.io/2020/MM_StandardPrice/</link>
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MMStandardPrice/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_StandardPrice/</guid>
       <description>引用链接：移动平均价和标准价 移动平均价和标准价的概念 标准价： ​ 以一个标准的价格表示一个物料在一段时间内的价值，简称S。来源于实际成本估算。用</description>
     </item>
     
@@ -256,28 +256,28 @@
     
     <item>
       <title>创建固定资产凭证 BAPI_ACC_DOCUMENT_POST</title>
-      <link>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_POST/</link>
+      <link>https://coldinfire.github.io/2020/FI_ACC_DOCUMENT_POST/</link>
       <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_POST/</guid>
+      <guid>https://coldinfire.github.io/2020/FI_ACC_DOCUMENT_POST/</guid>
       <description>引用链接： https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA 固定资产 BAPI_ACC_DOCUMENT_POST 凭证创建 TCode : F-02 (固定资产) 增强创建 和其他常规标准增强一样：创建自定义结构 ZLM_ENHANCE_ACC_DOC (ACC_DOCUMENT) SE19创建增强实例:ACC_DOCUM</description>
     </item>
     
     <item>
       <title>MIRO根据退货PO创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE</title>
-      <link>https://coldinfire.github.io/2020/SAP_MIRO_INCOMINGINVOICE_CREATE/</link>
+      <link>https://coldinfire.github.io/2020/MM_MIRO_INCOMINGINVOICE_CREATE/</link>
       <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAP_MIRO_INCOMINGINVOICE_CREATE/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_MIRO_INCOMINGINVOICE_CREATE/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw MIRO根据退货PO创建贷项凭证</description>
     </item>
     
     <item>
       <title>MIRO根据物料创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE</title>
-      <link>https://coldinfire.github.io/2020/SAP_MIRO_Matnr/</link>
+      <link>https://coldinfire.github.io/2020/FI_MIRO_Matnr/</link>
       <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAP_MIRO_Matnr/</guid>
+      <guid>https://coldinfire.github.io/2020/FI_MIRO_Matnr/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw MIRO根据物料创建贷项凭证: BAPI_INCOMINGINVOICE_CREATE</description>
     </item>
     
@@ -391,10 +391,10 @@
     
     <item>
       <title>Long Texts</title>
-      <link>https://coldinfire.github.io/2019/SAP_LongTexts/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_LongTexts/</link>
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAP_LongTexts/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_LongTexts/</guid>
       <description>介绍 长文本是用于在 SAP 系统中包含长文本的容器，通常将它们附加到业务对象上，用户可以输入自由注释。 长文本只能通过与其相连的业务对象的维护事务来维</description>
     </item>
     
@@ -490,10 +490,10 @@
     
     <item>
       <title> SD Function module</title>
-      <link>https://coldinfire.github.io/2019/SAPSDFunction/</link>
+      <link>https://coldinfire.github.io/2019/SD_FunctionSum/</link>
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPSDFunction/</guid>
+      <guid>https://coldinfire.github.io/2019/SD_FunctionSum/</guid>
       <description>Function Modules RV_ORDER_FLOW_INFORMATION - Reads sales document flow of sales document after delivery and billing Don&amp;rsquo;t forget also check direct reference documents for the both starting document # and preceding/following document types that you are searching for (For example, if you search delivery for the given SO, check also LIPS-VGBEL and LIPS-VGPOS, if it&amp;rsquo;s possible with regard to performance). SD_SALES_DOCUMENT_READ - Reads sales document header and business data: tables VBAK,</description>
     </item>
     
@@ -805,11 +805,11 @@
     
     <item>
       <title>移库产生的报错</title>
-      <link>https://coldinfire.github.io/2019/SAPQ1/</link>
+      <link>https://coldinfire.github.io/2019/WM_Q1/</link>
       <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPQ1/</guid>
-      <description>Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU XXXXXX(Error BS001 when posting goods movment)? A：需要每次进行移库前刷新数据： &amp;ldquo;调</description>
+      <guid>https://coldinfire.github.io/2019/WM_Q1/</guid>
+      <description>Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU XXXXXX(Error BS001 when posting goods movment)? A：需要每次进行移库前刷新数据： 调用BAPI进行</description>
     </item>
     
     <item>
@@ -841,19 +841,19 @@
     
     <item>
       <title>STO详解</title>
-      <link>https://coldinfire.github.io/2019/MMSTO/</link>
+      <link>https://coldinfire.github.io/2019/MM_STO/</link>
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMSTO/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_STO/</guid>
       <description>一、工厂间转储 （1）MB1B 移动类型 301 工厂到工厂（一步）转账 -&amp;gt; 简单明了一步转储；过账后会产生 GR，MITA 增加了，MIZH 减少了， MB03：</description>
     </item>
     
     <item>
       <title>库存管理</title>
-      <link>https://coldinfire.github.io/2019/MMInventoryManagement/</link>
+      <link>https://coldinfire.github.io/2019/MM_InventoryManagement/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMInventoryManagement/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_InventoryManagement/</guid>
       <description>一、基本介绍 1.库存类型 ​ 可用库存：可通过BAPI_MATERIAL_AVAILABILITY来获取 ​ 当前库存：一般保存在MARD-LABS</description>
     </item>
     
@@ -1318,10 +1318,10 @@
     
     <item>
       <title> VOFM使用 (例程开发) </title>
-      <link>https://coldinfire.github.io/2018/SAPVOFM/</link>
+      <link>https://coldinfire.github.io/2018/SAP_VOFM/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPVOFM/</guid>
+      <guid>https://coldinfire.github.io/2018/SAP_VOFM/</guid>
       <description>​ SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以通过Ba</description>
     </item>
     
