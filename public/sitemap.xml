@@ -254,6 +254,34 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference/</loc>
+      
+      <lastmod>2020-07-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/abapbasis/</loc>
+      
+      <lastmod>2020-07-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2020/FI_Tables/</loc>
       
       <lastmod>2020-07-05T00:00:00+00:00</lastmod>
@@ -1951,20 +1979,6 @@
       <loc>https://coldinfire.github.io/tags/DOI/</loc>
       
       <lastmod>2019-02-22T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/abapbasis/</loc>
-      
-      <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

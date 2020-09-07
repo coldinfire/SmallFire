@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>ABAP 7.40 Quick Reference</title>
+      <link>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference/</link>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference/</guid>
+      <description>Inline Declarations 注意@DATA(TAB)语句的强大，有了它，我们在访问数据库的时候，直接写SELECT就好了，不需要构建各式各样的內表和表类型了。注意在</description>
+    </item>
+    
+    <item>
       <title>SAP DBCO连接测试</title>
       <link>https://coldinfire.github.io/2020/SAPDBCO_Connect/</link>
       <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
@@ -1016,7 +1025,7 @@
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_NumberRange/</guid>
-      <description>TCode SNRO : (SAP Number Range Object) OYSM 创建Number Range ​ 1. 输入Tcode:SNRO 点击Create ​ ​ 2. 输入描述，数字长队对应的Domain和Warning 百分</description>
+      <description>操作说明 在 SAP 系统中，各类主数据及单据都需要使用编号进行唯一性标识，以此形成后台有着大量编号范围维护的配置操作，种类繁多。 编号范围维护分为两部</description>
     </item>
     
     <item>
