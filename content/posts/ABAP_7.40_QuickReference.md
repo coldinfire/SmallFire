@@ -111,9 +111,11 @@ WRITE: / ls_structure-my_f1, ls_structure-my_f2.
 
 ### Table Expressions
 
-If a table line is not found, the exception CX_SY_ITAB_LINE_NOT_FOUND is raised. No sy-subrc.
+`itab [ ... ]`相当于`READ TABLE itab...`。
 
-Use itab [ table_line = … ] for untyped tables.
+如果对应没找到，会抛出 CX_SY_ITAB_LINE_NOT_FOUND 异常，系统变量 SY-SUBRC 不会记录成功与否。
+
+可使用 line_exists(itab[...]) 。
 
 #### Read table index
 
@@ -182,13 +184,13 @@ DATA(idx) = line_index( itab[ ... ] ).
 
 CONV dtype|# ( ... )
 
-`dtype` : Type you want to convert to (explicit)
+`dtype` : Type you want to convert to (explicit) 
 
 `#` : Compiler must use the context to decide the type to convert to (implicit)
 
 #### Example
 
-Method cl_abap_codepage=>convert_to expects a string.
+Method "cl_abap_codepage=>convert_to" expects a string.
 
 Before 7.40
 
@@ -215,9 +217,9 @@ DATA(xstr) = cl_abap_codepage=>convert_to( source = CONV #( text ) ).
 
 `Variables`: VALUE dtype|# (  ).
 
-`Structures`: VALUE dtype|# ( [BASE doby] compl = a1 comp2 = a2 ... )
+`Structures`: VALUE dtype|# ( [BASE dobj] compl = a1 comp2 = a2 ... )
 
-`Tables`: VALUE dtype|# ( [BASE itab] ( line1-com1 = dobj1 ) ( line2... ) ... ) ...
+`Tables`: VALUE dtype|# ( [BASE itab] ( line1-com1 = dobj1 ) ( line2... ) ... ) ...)
 
 #### Example for structures
 
@@ -247,6 +249,10 @@ struct_nest = VALUE t_struct(coln1 = 1
 TYPES t_itab TYPE TABLE OF i WITH EMPTY KEY.
 DATA itab TYPE t_itab.
 itab = VALUE #( ( 1 ) ( 2 ) ( 3 ) ).
+// 覆盖
+itab = VALUE #( ( 4 ) ( 5 ) ( 6 ) ).
+// 追加
+itab = VALUE #( BASE itab ( 1 ) ( 2 ) ( 3 ) ).
 // Structured line type (RANGES table):
 DATA itab TYPE RANGE OF i.
 itab = VALUE #( sign = 'I'  
@@ -436,7 +442,7 @@ DATA(text) = NEW class( )->meth(
 ).
 ```
 
-### Corresponding Operator
+### Move Corresponding Operator
 
 #### Definition
 
@@ -446,8 +452,15 @@ DATA(text) = NEW class( )->meth(
 
 ```html
 // With 7.40
-TYPES: BEGIN OF line1, col1 TYPE i, col2 TYPE i, END OF line1.
-TYPES: BEGIN OF line2, col1 TYPE i, col2 TYPE i, col3 TYPE i, END OF line2.
+TYPES: BEGIN OF line1,
+  col1 TYPE i, 
+  col2 TYPE i,
+END OF line1.
+TYPES: BEGIN OF line2, 
+  col1 TYPE i, 
+  col2 TYPE i, 
+  col3 TYPE i, 
+END OF line2.
 DATA(ls_line1) = VALUE line1( col1 = 1 col2 = 2 ).
 WRITE: / ‘ls_line1 =’ ,15 ls_line1–col1, ls_line1–col2.
 DATA(ls_line2) = VALUE line2( col1 = 4 col2 = 5 col3 = 6 ).
