@@ -44,7 +44,7 @@
       <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference/</guid>
-      <description>Inline Declarations 注意@DATA(TAB)语句的强大，有了它，我们在访问数据库的时候，直接写SELECT就好了，不需要构建各式各样的內表和表类型了。注意在</description>
+      <description>Inline Declarations 注意@DATA(ITAB)语句的强大，有了它，我们在访问数据库的时候，直接写SELECT就好了，不需要构建各式各样的內表和表类型了。注意</description>
     </item>
     
     <item>
@@ -255,9 +255,54 @@
     </item>
     
     <item>
+      <title> 维护成本控制凭证的编号范围 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_NumberRangeType4/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_NumberRangeType4/</guid>
+      <description>介绍 此项配置是在后台为指定的成本控制范围（Controlling Area）维护编号范围，用于成本控制中的各类凭证。这是一种组织机构分组类的编</description>
+    </item>
+    
+    <item>
+      <title> 维护会计凭证号范围 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_NumberRangeType3/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_NumberRangeType3/</guid>
+      <description>简介 在一个公司代码（Company Code）生成一张会计凭证（Accounting Document）之前，必须在对凭证类型设置一个号码范围。</description>
+    </item>
+    
+    <item>
+      <title> 维护物料主数据的编号范围 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_NumberRangeType2/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_NumberRangeType2/</guid>
+      <description>简介 此项操作是在 SAP 系统后台，为需要使用的物料类型设定编号范围。它的操作是针对整个 Client 的。首先维护不重复的号码组，每组可包含内部段和外部段（两者</description>
+    </item>
+    
+    <item>
+      <title> 维护客户号码范围 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_NumberRangeType1/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_NumberRangeType1/</guid>
+      <description>简介 定义并分配客户主数据的号码范围，分为两个步骤，两步操作的对象都针对整个 Client。 定义号码范围（Define Number Ranges for Customer Master） 分配</description>
+    </item>
+    
+    <item>
+      <title> SAP Number Range Object </title>
+      <link>https://coldinfire.github.io/2019/ABAP_NumberRange/</link>
+      <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_NumberRange/</guid>
+      <description>操作说明 在 SAP 系统中，各类主数据及单据都需要使用编号进行唯一性标识，以此形成后台有着大量编号范围维护的配置操作，种类繁多。 编号范围维护分为两部</description>
+    </item>
+    
+    <item>
       <title>SAP 异常处理</title>
       <link>https://coldinfire.github.io/2019/ABAP_TryCatch/</link>
-      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_TryCatch/</guid>
       <description>SAP 异常处理 异常是在程序执行期间出现的问题。 当异常发生时，程序的正常流程中断，程序应用程序异常终止，这是不推荐的，因此这些异常将被处理。 异常处</description>
@@ -1017,15 +1062,6 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV1/</guid>
       <description>报表格式 程序说明：包括程序名称，实现的业务功能等信息 数据定义 Include内容 定义选择屏幕 执行程序业务代码 创建TCode：SE93 执行程序的</description>
-    </item>
-    
-    <item>
-      <title> SAP Number Range Object </title>
-      <link>https://coldinfire.github.io/2018/ABAP_NumberRange/</link>
-      <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_NumberRange/</guid>
-      <description>操作说明 在 SAP 系统中，各类主数据及单据都需要使用编号进行唯一性标识，以此形成后台有着大量编号范围维护的配置操作，种类繁多。 编号范围维护分为两部</description>
     </item>
     
     <item>

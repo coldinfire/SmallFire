@@ -982,9 +982,79 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_NumberRangeType4/</loc>
+      
+      <lastmod>2019-07-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_NumberRangeType3/</loc>
+      
+      <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_NumberRangeType2/</loc>
+      
+      <lastmod>2019-07-17T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_NumberRangeType1/</loc>
+      
+      <lastmod>2019-07-15T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_NumberRange/</loc>
+      
+      <lastmod>2019-07-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_TryCatch/</loc>
       
-      <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -2945,20 +3015,6 @@
       <loc>https://coldinfire.github.io/2018/ABAP_ALV1/</loc>
       
       <lastmod>2018-06-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_NumberRange/</loc>
-      
-      <lastmod>2018-06-17T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

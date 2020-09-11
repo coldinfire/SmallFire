@@ -1,7 +1,7 @@
 ---
 
 title: " SAP Number Range Object "
-date: 2018-06-17
+date: 2019-07-13
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -60,6 +60,8 @@ SNRO/SNUM : (**S**AP **N**umber **R**ange **O**bject)
 此类型的号码定义是相同的，但分配的操作并不一样，有些是在数据对象的属性定义处分配，例如销售订单。
 
 此类的编号范围对象隶属于 Client，在 client 下号码段不可重复，可供一个或多个类型下的多个对象使用。例如销售凭证、外向交货单、内向交货单等共用一个编号范围对象。
+
+具体操作参见《[维护客户号码范围](https://fenginfo.com/414.html)》。
 
 #### 类型2
 
