@@ -1,5 +1,5 @@
 ---
-title: "Excle操作"
+title: "Excel操作"
 date: 2018-11-13
 draft: false
 author: Small Fire
@@ -11,83 +11,32 @@ tags:
   - Excel
   - abaputils
 
-
 ---
 
-## 使用 BAPI ##
-```JS
-1. 内表数据下载到文件:
-  CALL FUNCTION 'DOWNLOAD'：提示保存
-  CALL FUNCTION 'WS_DOWNLOAD'：不提示直接保存
-  CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'：提示保存
-2. 文件数据读取到内表
-  CALL FUNCTION 'UPLOAD'：提示读入内表
-  CALL FUNCTION 'WS_UPLOAD'：不提示直接读入内表
-```
-## 上传和下载模板
-上传模板：文档是通过SMW0上传的。SMW0:Binary data => Package => create object name and description
+## SAP Excel模板操作
+**上传模板**：文档是通过**SMW0**上传的。
 
-下载模板：调用METHOD 下载通过SMWO上传的服务器模板文件到本地
+- 选择模板类型
 
-- 弹出下载框函数
+  ![SMW0](/images/ABAP/ABAP_SMW0_1.png)
 
-```JS
-DATA: lv_filename   TYPE string,
-      lv_path       TYPE string,
-      lv_fullpath   TYPE string,
-FORM frm_file_save_dialog  USING    pv_value
-                           CHANGING pv_filename
-                                    pv_path
-                                    pv_fullpath.
-  CALL METHOD cl_gui_frontend_services=>file_save_dialog
-    EXPORTING
-      default_file_name= pv_value
-      default_extension= 'XLSX'
-    CHANGING
-      filename = pv_filename
-      path = pv_path
-      fullpath = pv_fullpath
-    EXCEPTIONS
-      cntl_error   = 1
-      error_no_gui = 2
-      not_supported_by_gui = 3
-      OTHERS   = 4.
-ENDFORM.     " FRM_FILE_SAVE_DIALOG "
-```
-- 选择合适的文件夹后保存
+- 根据Package和Name查找模板
 
-```JS
-FORM frm_download_files  USING pv_fullpath .
-  DATA:lw_key TYPE wwwdatatab,
-       lv_rc  TYPE sy-subrc.
-  DATA: lv_destination LIKE  rlgrap-filename .
-  DATA: lw_application TYPE ole2_object,
-        lw_workbook    TYPE ole2_object,
-        lw_sheet       TYPE ole2_object.
-  lv_destination = pv_fullpath .
-  SELECT SINGLE relid objid INTO CORRESPONDING FIELDS OF lw_key
-    FROM wwwdata
-    WHERE srtf2 EQ 0
-    AND relid EQ 'MI'
-    AND objid EQ 'OBJID'.      "SY-CPROG.上传的文件对象名"
-  IF sy-subrc NE 0.
-    MESSAGE text-m03 TYPE 'E'. "Template is not exist"
-    RETURN.
-  ENDIF.
-  CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'
-    EXPORTING
-      key         = lw_key
-      destination = lv_destination
-    IMPORTING
-      rc          = lv_rc.
-  IF lv_rc <> 0.
-    MESSAGE text-m05 TYPE 'E'. "Error occurs when download"
-    RETURN.
-  ENDIF.
-ENDFORM.                    " FRM_DOWNLOAD_FILES"
-```
-### 操作 ###
-  `CL_GUI_FRONTEND_SERVICES`：该类提供了大量对操作系统文件的操作，如拷贝、列出文件名、打开文件等。
+  ![SMW0](/images/ABAP/ABAP_SMW0_2.png)
+
+- 编辑模板
+
+  ![SMW0](/images/ABAP/ABAP_SMW0_3.png)
+
+- 创建模板，维护名称和描述后从本地选择文件上传
+
+  ![SMW0](/images/ABAP/ABAP_SMW0_4.png)
+
+**下载模板**：调用METHOD 下载服务器上的模板文件到本地
+
+### 使用类操作文件
+
+`CL_GUI_FRONTEND_SERVICES`：该类提供了大量对操作系统文件的操作，如拷贝、列出文件名、打开文件、下载文件等。
 
 `FILE_OPEN_DIALOG`：静态方法打开文件
 
@@ -95,36 +44,225 @@ ENDFORM.                    " FRM_DOWNLOAD_FILES"
 
 `GUI_DOWNLOAD`：下载文本
 
-- 打开选择上传文件对话框
+### 使用BAPI操作文件
 
-```JS
-CALL METHOD CL_GUI_FRONTEND_SERVICES=>FILE_OPEN_DIALOG  
-  EXPORTING
-    WINDOW_TITLE = '选择上传文件'
-    FILE_FILTER = 'All Files (*.*)|*.*|NotePad Files(*.txt)|*.txt|Excel Files(*.xls)
-                   |*.xls|Word files(*.doc)|*.doc' 
-    DEFAULT_EXTENSION = '*.txt'
-    DEFAULT_FilENAME = '1.txt'  "默认打开的文件
-    "INITIAL_DIRECTORY = 'C:/'  "初始化的目录
-    "MULTISELECTION = 'X'       "是否可以同时打开多个文件"
-    CHANGING
-    FILE_TABLE = LV_FILETABLE   "你打开文件名的列表"
-    RC = LV_RC .                "返回打开文件的数量
+```html
+1. 内表数据下载到文件:
+  CALL FUNCTION 'DOWNLOAD'：提示保存
+  CALL FUNCTION 'WS_DOWNLOAD'：不提示直接保存
+  CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'：提示保存
+2. 文件数据读取到内表
+  CALL FUNCTION 'UPLOAD'：提示读入内表
+  CALL FUNCTION 'WS_UPLOAD'：不提示直接读入内表
+3. 判断文件是否存在
+  CALL FUNCTION 'WS_QUERY':
 ```
+
+### 下载模板
+
+```html
+FORM frm_download_file .
+  DATA: ls_filekey  TYPE wwwdatatab,
+        lt_mime     TYPE STANDARD TABLE OF w3mime,
+        lt_param    TYPE STANDARD TABLE OF wwwparams,
+        ls_param    TYPE wwwparams,
+        lv_filesize TYPE i,
+        lv_code     TYPE i.
+  DATA: lv_filefilter       TYPE string,
+        lv_default_filename TYPE string,
+        lv_filename         TYPE string,
+        lv_path             TYPE string,
+        lv_fullpath         TYPE string,
+        lv_user_action      TYPE i.
+
+  ls_filekey-relid = 'MI'.
+  ls_filekey-objid = 'ZTEST_TEMPLATE'.
+  CALL FUNCTION 'WWWDATA_IMPORT'   " 判断是否存在该模板 "
+    EXPORTING
+      key               = ls_filekey
+    TABLES
+      mime              = lt_mime
+    EXCEPTIONS
+      wrong_object_type = 1
+      import_error      = 2
+      OTHERS            = 3.
+  IF sy-subrc <> 0.
+    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    LEAVE SCREEN.
+  ENDIF.
+
+  SELECT * FROM wwwparams
+    INTO CORRESPONDING FIELDS OF TABLE lt_param
+    WHERE relid = ls_filekey-relid
+    AND objid = ls_filekey-objid.
+
+  READ TABLE lt_param INTO ls_param WITH KEY name = 'filesize'.
+  IF sy-subrc EQ 0.
+    lv_filesize = ls_param-value.
+  ENDIF.
+  " 弹出下载框函数 "
+  CALL METHOD cl_gui_frontend_services=>file_save_dialog
+    EXPORTING
+      default_file_name    = 'Z_Template'
+      default_extension    = 'XLSX'
+    CHANGING
+      filename             = lv_filename
+      path                 = lv_path
+      fullpath             = lv_fullpath
+      user_action          = lv_user_action
+    EXCEPTIONS
+      cntl_error           = 1
+      error_no_gui         = 2
+      not_supported_by_gui = 3
+	  invalid_default_file_name = 4
+      OTHERS               = 5.     
+  IF sy-subrc <> 0.
+*   Implement suitable error handling here
+  ENDIF.
+
+  IF lv_user_action EQ cl_gui_frontend_services=>action_ok.
+    " 保存文件到选择路径 "
+    CALL METHOD cl_gui_frontend_services=>gui_download
+      EXPORTING
+        bin_filesize = lv_filesize
+        filename     = lv_fullpath
+        filetype     = 'BIN'
+      CHANGING
+        data_tab     = lt_mime.
+    IF sy-subrc <> 0.
+*     Implement suitable error handling here
+    ENDIF.
+
+  ENDIF.
+```
+
+- 选择合适的文件夹后保存的BAPI方法
+
+  ```html
+  FORM frm_download_files  USING pv_fullpath .
+    DATA:lw_key TYPE wwwdatatab,
+         lv_rc  TYPE sy-subrc.
+    DATA: lv_destination LIKE  rlgrap-filename .
+    DATA: lw_application TYPE ole2_object,
+          lw_workbook    TYPE ole2_object,
+          lw_sheet       TYPE ole2_object.
+    
+    SELECT SINGLE relid objid INTO CORRESPONDING FIELDS OF lw_key
+      FROM wwwdata
+      WHERE srtf2 EQ 0
+      AND relid EQ 'MI'
+      AND objid EQ 'OBJID'.      "SY-CPROG.上传的文件对象名"
+    IF sy-subrc NE 0.
+      MESSAGE 'Template is not exist' TYPE 'E'.
+      RETURN.
+    ENDIF.
+    lv_destination = pv_fullpath .
+    CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'
+      EXPORTING
+        key         = lw_key
+        destination = lv_destination
+      IMPORTING
+        rc          = lv_rc.
+    IF lv_rc <> 0.
+      MESSAGE 'Error occurs when download' TYPE 'E'. 
+      RETURN.
+    ENDIF.
+  ENDFORM.                    " FRM_DOWNLOAD_FILES"
+  ```
+
+### 上传文件并转换为内表
+
+- #### GUI输入框选择文件
+
+  ```HTML
+  TABLES: sscrfields.
+  TYPE-POOLS: slis.
+  
+  SELECTION-SCREEN BEGIN OF BLOCK file_name WITH FRAME TITLE text-000.
+  SELECTION-SCREEN BEGIN OF LINE.
+  SELECTION-SCREEN COMMENT 1(31) text-001 FOR FIELD p_file.
+  PARAMETERS: p_file LIKE rlgrap-filename .
+  SELECTION-SCREEN END OF LINE.
+  SELECTION-SCREEN END OF BLOCK file_name.
+  
+  AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_file.
+      PERFORM frm_get_filename CHANGING p_file.
+  
+  " Method 1 "
+  FORM frm_get_filename  CHANGING cv_file.
+    CALL FUNCTION 'KD_GET_FILENAME_ON_F4'
+      CHANGING
+        file_name = cv_file.
+    IF sy-subrc <> 0.
+      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+      WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+      EXIT.
+    ENDIF.
+  ENDFORM.              
+  
+  " Method 2 "
+  FORM frm_get_filename  CHANGING cv_file.
+    DATA: lt_file TYPE filetable,
+          lv_rc   TYPE i.
+    CALL METHOD CL_GUI_FRONTEND_SERVICES=>FILE_OPEN_DIALOG  
+      EXPORTING
+        window_title            = '选择上传文件'
+        default_extension       = '*.XLS'
+        file_filter             = 'All Files (*.*)|*.*|NotePad Files(*.txt)|*.txt
+                                  |Excel Files(*.xls)|*.xls|Word files(*.doc)|*.doc'
+        "INITIAL_DIRECTORY = 'C:/'  "初始化的目录"
+        "MULTISELECTION = 'X'       "是否可以同时打开多个文件"
+      CHANGING
+        file_table              = lt_file  "你打开文件名的列表"
+        rc                      = lv_rc    "返回打开文件的数量"
+      EXCEPTIONS
+        file_open_dialog_failed = 1
+        cntl_error              = 2
+        error_no_gui            = 3
+        not_supported_by_gui    = 4
+        OTHERS                  = 5.
+  
+    IF sy-subrc EQ 0 AND lv_rc EQ 1.
+      READ TABLE lt_file INDEX 1 INTO cv_file.
+    ENDIF.
+  ENDFORM.                    " FRM_GET_FILENAME "
+  ```
+
+- #### 判断文件是否存在
+
+  ```html
+  DATA l_file_exist TYPE c.
+  CLEAR l_file_exist.
+  CALL FUNCTION 'WS_QUERY'
+    EXPORTING
+      filename = p_file
+      query    = 'FE'
+    IMPORTING
+      return   = l_file_exist.
+  IF sy-subrc <> 0.
+    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  ENDIF.
+  IF l_file_exist <> 1 OR l_file_exist IS INITIAL.
+    MESSAGE 'File not found' TYPE 'E'.
+  ENDIF.        
+  ```
+
 - 调用METHOD 读取文件内容到内表
 
-```JS    　　
-CALL FUNCTION 'GUI_UPLOAD'
-   EXPORTING
-    FILENAME            = LV_FILENAME  "要读取的文件"
-    FILETYPE            = 'ASC'
-    HAS_FIELD_SEPARATOR = CL_ABAP_CHAR_UTILITIES=>HORIZONTAL_TAB "字段间按TAB键分隔开來"
-  TABLES
-    DATA_TAB            = TXT_READ_DATA  "写入相应的內表中"
-    EXCEPTIONS
-    FILE_OPEN_ERROR     = 1
-    FILE_READ_ERROR     = 2
-```
+  ```html
+  CALL FUNCTION 'GUI_UPLOAD'
+     EXPORTING
+      FILENAME            = LV_FILENAME  "要读取的文件"
+      FILETYPE            = 'ASC'
+      HAS_FIELD_SEPARATOR = CL_ABAP_CHAR_UTILITIES=>HORIZONTAL_TAB "字段间按TAB键分隔开來"
+    TABLES
+      DATA_TAB            = TXT_READ_DATA  "写入相应的內表中"
+      EXCEPTIONS
+      FILE_OPEN_ERROR     = 1
+      FILE_READ_ERROR     = 2
+  ```
 
 ### 获取Excel数据
 
@@ -241,7 +379,7 @@ IF sy-subrc <> 0.
 ENDIF.  
 ```
 
-### [实例](https://github.com/coldinfire/ERP/wiki/%E6%96%87%E6%A1%A3%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD#%E4%B8%89%E5%AE%9E%E4%BE%8B)
+## [实例](https://github.com/coldinfire/ERP/wiki/%E6%96%87%E6%A1%A3%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD#%E4%B8%89%E5%AE%9E%E4%BE%8B)
 
 ```JS
 SELECTION-SCREEN:PUSHBUTTON /2(30) button1 USER-COMMAND but1."30是按钮长度"

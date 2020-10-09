@@ -968,6 +968,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/MM_BAPI_LIST/</loc>
+      
+      <lastmod>2019-08-04T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_RecursiveCostCenter/</loc>
       
       <lastmod>2019-08-01T00:00:00+00:00</lastmod>
@@ -2228,6 +2242,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/SAP_ProOrder_Enhance/</loc>
+      
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/tags/Excel/</loc>
       
       <lastmod>2018-11-13T00:00:00+00:00</lastmod>
@@ -2412,7 +2440,7 @@
     <url>
       <loc>https://coldinfire.github.io/2018/ABAP_SM30/</loc>
       
-      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

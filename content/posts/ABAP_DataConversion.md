@@ -18,29 +18,42 @@ tags:
 
 ​	通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).
 
+- 去除前导0：`SHIFT ITAB-FIELD LEFT DELETING LEADING '0'.`
+
 ```JS
 ** 添加前导零 **
-CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
-  EXPORTING
-    input  = p_in  
-  IMPORTING
-    output = p_out. 
+DEFINE conversion_input.
+  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+    EXPORTING
+      input  = &1  
+    IMPORTING
+      output = &1. 
+END-OF-DEFINITION.
       
 ** 去除前导零 ** 
-CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-  EXPORTING
-    input  = p_in     
-  IMPORTING
-    output = p_out.  
-    
-去除前导0：SHIFT ITAB-FIELD LEFT DELETING LEADING '0'.
+DEFINE conversion_output.
+  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+    EXPORTING
+      input  = &1
+    IMPORTING
+      output = &1.  
+END-OF-DEFINITION.
 ```
 
-#### 显示内容
+#### 日期转换
 
-​	基本数据类型是QUAN,其小数位由字段关联的度量衡单位决定。
-
-​    ALV显示时，如果是金额或数量时，需通过Fieldcat设置cfieldname、ctabname等才会正确显示。
+```html
+DEFINE date_conversion.
+  call function 'CONVERT_DATE_TO_EXTERNAL'
+    exporting
+      date_internal            = &1
+    importing
+      date_external            = &2
+    exceptions
+      date_internal_is_invalid = 1
+      others                   = 2.
+END-OF-DEFINITION.
+```
 
 #### 单位换算
 

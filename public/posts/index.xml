@@ -435,6 +435,15 @@
     </item>
     
     <item>
+      <title> MM BAPI List </title>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_LIST/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_LIST/</guid>
+      <description>采购申请增强 BADI ME_PROCESS_REQ_CUST 采购订单增强 BADI ME_GUI_PO_CUST ME_PROCESS_PO_CUST https://coldinfire.github.io/2019/MM_PO_Enhance/ 物料凭证增强 BADI MB_DOCUMENT_BADI User Exit MBCF0002 ：实现功能 当参照预留过帐时，检查填入数量是否小于预留数量 移动类型是 *** 的时候，查看 RSNUM</description>
+    </item>
+    
+    <item>
       <title>递归遍历成本中心组</title>
       <link>https://coldinfire.github.io/2019/ABAP_RecursiveCostCenter/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
@@ -1128,12 +1137,21 @@
     </item>
     
     <item>
-      <title>Excle操作</title>
+      <title>Product Order的增强</title>
+      <link>https://coldinfire.github.io/2018/SAP_ProOrder_Enhance/</link>
+      <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAP_ProOrder_Enhance/</guid>
+      <description>生产订单的增强 如果SAP系统的标准功能不能满足业务需求，用户出口或 BADI 可能会有所帮助。 Customer Exit SMOD:SAP增强管理 CMOD:SAP增强编辑器维</description>
+    </item>
+    
+    <item>
+      <title>Excel操作</title>
       <link>https://coldinfire.github.io/2018/ABAP_Excel/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Excel/</guid>
-      <description>使用 BAPI 1. 内表数据下载到文件: CALL FUNCTION &amp;#39;DOWNLOAD&amp;#39;：提示保存 CALL FUNCTION &amp;#39;WS_DOWNLOAD&amp;#39;：不提示直接保存</description>
+      <description>SAP Excel模板操作 上传模板：文档是通过SMW0上传的。 选择模板类型 根据Package和Name查找模板 编辑模板 创建模板，维护名称和描述后从</description>
     </item>
     
     <item>
@@ -1238,7 +1256,7 @@
     <item>
       <title> SM30表维护 </title>
       <link>https://coldinfire.github.io/2018/ABAP_SM30/</link>
-      <pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SM30/</guid>
       <description>表维护创建 创建自定义表 需要设置为 Display/Maintenance Allowed.允许修改，才可以在SM30中进行数据维护。否则会产生以下异常： 创建表维护 权限组：控制访问权</description>

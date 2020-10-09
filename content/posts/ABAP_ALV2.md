@@ -243,7 +243,7 @@ HIGH: 范围较大值
 ...ON EXIT-COMMAND：用于"BACK","CANCEL","EXIT"等事件。
 ```
 
-**设置屏幕选择框不可输入**
+**设置屏幕选择框不可输入和必输控制**
 
 ```JS
 AT SELECTION-SCREEN OUTPUT.
@@ -252,9 +252,14 @@ AT SELECTION-SCREEN OUTPUT.
 	  screen-input = 0.
 	  MODIFY SCREEN.
 	ENDIF.
+    IF screen-name = 'X_NORM' OR screen-name = 'X_PARK'.
+      screen-required = 2.
+      MODIFY SCREEN.
+    ENDIF.
+    ...
   ENDLOOP.
       
-REQUIRED：控制比属性，使用后会忽略OBLIGATORY.0:不必输 1:必输，系统自动校验 2:不必输，但是会提示必输标志
+REQUIRED：控制必输属性，使用后会忽略OBLIGATORY.0:不必输 1:必输，系统自动校验 2:不必输，但是会提示必输标志
 INPUT：控制屏幕元素的可输入性
 ACTIVE：控制屏幕的可见性 1:可见  2:不可见
 ```
@@ -278,54 +283,51 @@ ACTIVE：控制屏幕的可见性 1:可见  2:不可见
 
 ```JS
 TABLES SSCRFIELDS. "引用词典对象"
-  INCLUDE:<icon>.  "按钮中加入图标必须调用该类型库,图标请参考T-CODE：ICON"
-  SELECTION-SCREEN PUSHBUTTON /1(20) PUBU1 USER-COMMAND ABCD.
-  SELECTION-SCREEN SKIP."换行"
-  SELECTION-SCREEN PUSHBUTTON /10(25) PUBU2 USER-COMMAND ABCE. "位置从10开始"
-  AT SELECTION-SCREEN OUTPUT.
-    MOVE 'CALL NEXT SCREEN' TO PUBU1. "给PUBU1按钮赋值描述"
-    WRITE ICON_OKAY AS ICON TO PUBU2. "给PUBU2按钮添加图标，并且在给按钮赋值之前，否则将会把文字替换。"
-    CONCATENATE PUBU2 'My Second Button' INTO PUBU2 SEPARATED BY SPACE. "给第二个按钮添加赋值描述"
-  AT SELECTION-SCREEN.
-   IF SSCRFIELDS-UCOMM = 'ABCD'.
-       PERFORM xxxx.  "调用子程序"
-   ENDIF.
+INCLUDE:<icon>.  "按钮中加入图标必须调用该类型库,图标请参考T-CODE：ICON"
+SELECTION-SCREEN PUSHBUTTON /1(20) PUBU1 USER-COMMAND ABCD.
+SELECTION-SCREEN SKIP."换行"
+SELECTION-SCREEN PUSHBUTTON /10(25) PUBU2 USER-COMMAND ABCE. "位置从10开始"
+AT SELECTION-SCREEN OUTPUT.
+  MOVE 'CALL NEXT SCREEN' TO PUBU1. "给PUBU1按钮赋值描述"
+  WRITE ICON_OKAY AS ICON TO PUBU2. "给PUBU2按钮添加图标，并且在给按钮赋值之前，否则将会把文字替换。"
+  CONCATENATE PUBU2 'My Second Button' INTO PUBU2 SEPARATED BY SPACE. "给第二个按钮添加赋值描述"
+AT SELECTION-SCREEN.
+ IF SSCRFIELDS-UCOMM = 'ABCD'.
+   PERFORM xxxx.  "调用子程序"
+ ENDIF.
 ```
 
 ###  在工具栏上新增一个功能按钮
 
-​    `SELECTION-SCREEN FUNCTION KEY n.
-`
+ `SELECTION-SCREEN FUNCTION KEY n.`
 
-​      该按钮的定义保存在系统结构体SSCRFIELDS中，n为一个整数序数最大至5。当n等于1时，其按钮描述保存在字段SSCRFIELDS-FUNCTXT_01中，其按钮对象命名为"FC01",保存在字段SSCRFIELDS-UCOMM中。
+该按钮的定义保存在系统结构体SSCRFIELDS中，n为一个整数序数最大至5。当n等于1时，其按钮描述保存在字段SSCRFIELDS-FUNCTXT_01中，其按钮对象命名为"FC01",保存在字段SSCRFIELDS-UCOMM中。
 
-​	**实例：**
-​     
+**实例：**
 
-```jsp
+```html
+TABLES SSCRFIELDS. "引用词典对象"
 TYPE-POOLS ICON. "Program Icon Library"
-  TABLES SSCRFIELDS.
-  DATA functxt TYPE SMP_DYNTXT. "SMP_DYNTXT(菜单制作器:动态文本的程序接口)"
-  PARAMETERS: p_carrid TYPE s_carr_id,
-              p_cityfr TYPE s_from_cit.
-  SELECTION-SCREEN: FUNCTION KEY 1,
-                    FUNCTION KEY 2.
-  INITIALIZATION. "屏幕初始化"
-    functxt-icon_id   = icon_ws_plane.  "文本字段中的图标（替换显示，别名）"
-    functxt-quickinfo = 'Preselected Carrier'.  "菜单制作器：信息文本 (4.0)，滑鼠移去过去显示的信息TIP"
-    functxt-icon_text = 'LH'.  "菜单制作器：图标文本 (4.0)，菜单名称"
-    sscrfields-functxt_01 = functxt.
-    functxt-icon_text = 'UA'.
-    sscrfields-functxt_02 = functxt.
-  AT SELECTION-SCREEN.
-    CASE SSCRFIELDS-UCOMM.
-       WHEN 'FC01'.
-         p_carrid = 'LH'.
-         p_cityfr = 'Frankfurt'.
-       WHEN 'FC02'.
-         p_carrid = 'UA'.
-         p_cityfr = 'Chicago'.
-    ENDCASE.
+DATA functxt TYPE SMP_DYNTXT. "SMP_DYNTXT(菜单制作器:动态文本的程序接口)"
+PARAMETERS: p_carrid TYPE s_carr_id,
+            p_cityfr TYPE s_from_cit.
+SELECTION-SCREEN: FUNCTION KEY 1,FUNCTION KEY 2.
+INITIALIZATION. "屏幕初始化"
+  functxt-icon_id   = '@49@'.  "文本字段中的图标（替换显示，别名）"
+  functxt-quickinfo = 'Download Template'. "菜单制作器：信息文本 (4.0)，滑鼠移去过去显示的信息TIP"
+  functxt-icon_text ='Download Template'.  "菜单制作器：图标文本 (4.0)，菜单名称"
+  sscrfields-functxt_01 = functxt.
+  functxt-icon_text = 'UA'.
+  sscrfields-functxt_02 = functxt.
+AT SELECTION-SCREEN.
+  CASE SSCRFIELDS-UCOMM.
+    WHEN 'FC01'.
+      p_carrid = 'LH'.
+      p_cityfr = 'Frankfurt'.
+    WHEN 'FC02'.
+      p_carrid = 'UA'.
+      p_cityfr = 'Chicago'.
+  ENDCASE.
 ```
 
 
