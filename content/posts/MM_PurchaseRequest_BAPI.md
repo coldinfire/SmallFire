@@ -13,13 +13,11 @@ tags:
 
 
 
-Purchase Request 内容：
+#### Purchase Request 内容：
 
 - PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期
-  ​    
-
+  
 - PR Item : 物料编号、短文本、发货日期、采购订单数量、采购订单价格、分类
-  ​    
 
 BAPI: 
 

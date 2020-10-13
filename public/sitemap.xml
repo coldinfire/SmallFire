@@ -282,6 +282,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2020/MM_IM_Print/</loc>
+      
+      <lastmod>2020-07-09T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2020/FI_Tables/</loc>
       
       <lastmod>2020-07-05T00:00:00+00:00</lastmod>
@@ -408,7 +422,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/WMTO_1/</loc>
+      <loc>https://coldinfire.github.io/2020/WM_TransferOrder_BAPI/</loc>
       
       <lastmod>2020-05-06T00:00:00+00:00</lastmod>
       
@@ -422,7 +436,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/WMTransferOrder/</loc>
+      <loc>https://coldinfire.github.io/2020/WM_TransferOrder/</loc>
       
       <lastmod>2020-05-06T00:00:00+00:00</lastmod>
       
@@ -506,7 +520,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/SAPCostCenter/</loc>
+      <loc>https://coldinfire.github.io/2020/MM_CostCenter/</loc>
       
       <lastmod>2020-04-03T00:00:00+00:00</lastmod>
       
@@ -618,7 +632,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/SAP_PR/</loc>
+      <loc>https://coldinfire.github.io/2020/MM_PurchaseRequest_BAPI2/</loc>
       
       <lastmod>2020-02-28T00:00:00+00:00</lastmod>
       
@@ -870,7 +884,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MM_PO_Enhance/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_PurchaseOrder_Enhance/</loc>
       
       <lastmod>2019-09-11T00:00:00+00:00</lastmod>
       
@@ -884,7 +898,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/SAP_PO_BAPI/</loc>
+      <loc>https://coldinfire.github.io/2019/SAP_PRODORD_BAPI/</loc>
       
       <lastmod>2019-09-07T00:00:00+00:00</lastmod>
       
@@ -926,7 +940,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/SAP_PO/</loc>
+      <loc>https://coldinfire.github.io/2019/SAP_PRODORD/</loc>
       
       <lastmod>2019-08-25T00:00:00+00:00</lastmod>
       
