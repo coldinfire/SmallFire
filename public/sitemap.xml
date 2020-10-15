@@ -156,6 +156,34 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2020/PP_CO11N_Exit/</loc>
+      
+      <lastmod>2020-08-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
+      
+      <lastmod>2020-08-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2020/SAPWebDynproRuntimeEnv/</loc>
       
       <lastmod>2020-08-16T00:00:00+00:00</lastmod>
@@ -184,9 +212,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
+      <loc>https://coldinfire.github.io/2020/MM_MIGO_Exits/</loc>
       
-      <lastmod>2020-08-06T00:00:00+00:00</lastmod>
+      <lastmod>2020-08-13T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -200,7 +228,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/MM/</loc>
       
-      <lastmod>2020-08-06T00:00:00+00:00</lastmod>
+      <lastmod>2020-08-13T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -411,6 +439,20 @@
       <loc>https://coldinfire.github.io/2020/MM_GoodMovementTypes/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/MM_MIGO_Print/</loc>
+      
+      <lastmod>2020-05-18T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

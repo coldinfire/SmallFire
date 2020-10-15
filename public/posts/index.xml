@@ -30,12 +30,30 @@
     </item>
     
     <item>
+      <title> User Exit for CO11N </title>
+      <link>https://coldinfire.github.io/2020/PP_CO11N_Exit/</link>
+      <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/PP_CO11N_Exit/</guid>
+      <description>User Exits for CO11N User Exits Desc CONF0001 Enhancements in order confirmation CONFPI01 Process order conf.: Calculate cust.specific default values CONFPI02 Process order confirmation: Customer spec. input checks 1 CONFPI03 Process order conf.: Cust. spec. check after op. selection CONFPI04 Process order conf.: Customer specific input checks 2 CONFPI05 Process order conf.: Cust. spec. enhancements when saving CONFPI06 Process order confirmation: Actual data transfer CONFPM01 PM/SM order conf.: Determine cust.</description>
+    </item>
+    
+    <item>
       <title> WebDynpro configuring Runtime Enviroment </title>
       <link>https://coldinfire.github.io/2020/SAPWebDynproRuntimeEnv/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/SAPWebDynproRuntimeEnv/</guid>
       <description>Remove User settings option ABAP Enviroment Method 1 Modify the WebDynpro Application and add the Parameter: ​ WDDISABLEUSERPERSONALIZATION = X. Method 2 Alternatively you can call the webdynpro application WD_GLOBAL_SETTING in SE80 and globally disable all user personalization for all applications. This avoids endusers from calling helpdesk because &amp;ldquo;fields are gone&amp;rdquo; etc. pretty well. JAVA Enviroment Procedure A number of settings allow you to influence the behavior of the Web</description>
+    </item>
+    
+    <item>
+      <title> User Exit for MIGO </title>
+      <link>https://coldinfire.github.io/2020/MM_MIGO_Exits/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_MIGO_Exits/</guid>
+      <description>Transaction Code – MIGO Goods movement Exit Name Description MB_CF001 Customer Function Exit in the Case of Updating a Mat. Doc. MBCF0002 Customer function exit: Segment text in material doc. item MBCF0003 Maintenance of batch master data for goods movements MBCF0004 Maintenance of batch specifications for goods movements MBCF0005 Material document item for goods receipt/issue slip MBCF0006 Customer function for WBS element MBCF0007 Customer function exit: Updating a reservation MBCF0009</description>
     </item>
     
     <item>
@@ -144,6 +162,15 @@
       
       <guid>https://coldinfire.github.io/2020/MM_GoodMovementTypes/</guid>
       <description>SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型。 移动类型参考字段MSEG-BWART，移动类型参考表T156，文本表是T156T. SAP MM</description>
+    </item>
+    
+    <item>
+      <title>MIGO 收货后自动打印功能</title>
+      <link>https://coldinfire.github.io/2020/MM_MIGO_Print/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_MIGO_Print/</guid>
+      <description>MIGO 简介 内向交货的收货流程是供应链的重要组成部分。此过程包括创建采购订单后的步骤：通知，收货，随后的货物下达以及所订购货物的收货过帐。 根据未清</description>
     </item>
     
     <item>
@@ -1061,7 +1088,7 @@
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_Memory/</guid>
-      <description>SAP memory和ABAP memory 使用的语句不同 SAP memory使用SET/GET parameters SPA：SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD p_matnr. GPA：GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD p_matnr. ABAP Memory使用</description>
+      <description>SAP memory和ABAP memory 使用的语句不同 SAP memory使用SET/GET parameters SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. ABAP Memory使用EXPORT 和IMPOR</description>
     </item>
     
     <item>

@@ -539,7 +539,7 @@
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_Memory/</guid>
-      <description>SAP memory和ABAP memory 使用的语句不同 SAP memory使用SET/GET parameters SPA：SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD p_matnr. GPA：GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD p_matnr. ABAP Memory使用</description>
+      <description>SAP memory和ABAP memory 使用的语句不同 SAP memory使用SET/GET parameters SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. ABAP Memory使用EXPORT 和IMPOR</description>
     </item>
     
     <item>

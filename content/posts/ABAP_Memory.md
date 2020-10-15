@@ -17,14 +17,14 @@ tags:
 
     SAP memory使用SET/GET parameters
 
-      - SPA：SET PARAMETER ID 'MAT' FIELD p_matnr.
+      - SET PARAMETER ID 'MAT' FIELD var_matnr.
 
-      - GPA：GET PARAMETER ID 'MAT' FIELD p_matnr.
+      - GET PARAMETER ID 'MAT' FIELD var_matnr.
 
     ABAP Memory使用EXPORT 和IMPORT
 
-    - EXPORT **{ABAP_VAR}** TO MEMORY ID **'{memory_id}'.**
-    - IMPORT **{ABAP_VAR}**  FROM MEMORY ID **'{memory_id}'.**
+    - EXPORT p_matnr = var_matnr TO MEMORY ID **'memory_id'.**
+    - IMPORT p_matnr = var_matnr FROM MEMORY ID **'memory_id'.**
     
      FREE MEMORY ID 'ZTESTMAT'. => 清空指定的ABAP memory
     
