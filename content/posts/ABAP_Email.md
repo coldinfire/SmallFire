@@ -116,6 +116,7 @@ Nodes—Display或者双击上图SMTP后弹出对话框，维护 以下信息勾
 CLASS
 
 - CL_BCS
+- CL_DOCUMENT_BCS
 
 Function Module
 
