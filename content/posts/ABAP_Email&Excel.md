@@ -12,7 +12,7 @@ tags:
 
 ---
 
-程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html
+### 程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html
 
 
 
@@ -24,7 +24,7 @@ tags:
 *&---------------------------------------------------------------------*
 REPORT z7258_mail_excel .
 TABLES: ekko.
-PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT 'jszjghw@163.com'.
+PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT 'coldfire@163.com'.
 TYPES: BEGIN OF t_ekpo,
     ebeln TYPE ekpo-ebeln,
     ebelp TYPE ekpo-ebelp,

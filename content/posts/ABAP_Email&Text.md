@@ -14,7 +14,7 @@ tags:
 
 
 
-程序：转自 [http://blog.chinaunix.net/uid-20591812-id-1918813.html](http://blog.chinaunix.net/uid-20591812-id-1918813.html)
+### 程序：转自 [http://blog.chinaunix.net/uid-20591812-id-1918813.html](http://blog.chinaunix.net/uid-20591812-id-1918813.html)
 
 
 
@@ -89,7 +89,7 @@ object_hd_change-objlen = count * length. " 文档内容的大小 "
 APPEND object_hd_change.
 
 * 接收者
-receivers-recextnam = ['coldinfire@163.com'](mailto:'coldinfire@163.com').
+receivers-recextnam = ['coldfire@163.com'](mailto:'coldfire@163.com').
 receivers-recesc = 'U'.   " 地址类型， U: 互联网地址 "
 APPEND receivers.         " 收件人地址 "
 

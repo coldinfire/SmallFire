@@ -40,3 +40,8 @@ tags:
 | CONFPS04  | PS confirmation: Customer specific input checks 2            |
 | CONFPS05  | PS confirmation: Customer specific enhancements when saving  |
 
+### BAPI for CO11N
+
+#### WORKORDER_CONFIRM 
+
+#### WORKORDER_GOODSMVT

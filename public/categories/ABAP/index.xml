@@ -494,7 +494,7 @@
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_EmailExcel/</guid>
-      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z7258_MAIL_EXCEL * *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Example of sending external email via SAPCONNECT * *&amp;amp;---------------------------------------------------------------------* REPORT z7258_mail_excel . TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT &amp;#39;jszjghw@163.com&amp;#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN OF t_charekpo, ebeln(10) TYPE</description>
+      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z7258_MAIL_EXCEL * *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Example of sending external email via SAPCONNECT * *&amp;amp;---------------------------------------------------------------------* REPORT z7258_mail_excel . TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT &amp;#39;coldfire@163.com&amp;#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN OF t_charekpo, ebeln(10) TYPE</description>
     </item>
     
     <item>
@@ -516,12 +516,12 @@
     </item>
     
     <item>
-      <title> SAP发送邮件 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SendEmail/</link>
+      <title> SAP发送Email </title>
+      <link>https://coldinfire.github.io/2019/ABAP_Email/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SendEmail/</guid>
-      <description>SAP 发送邮件程序代码 TRY. &amp;#34; 创建发送请求 &amp;#34; l_send_request = cl_bcs=&amp;gt;create_persistent( ). &amp;#34; 设定发送内容 &amp;#34; l_document = cl_document_bcs=&amp;gt;create_document( i_type = &amp;#39;RAW&amp;#39; i_text = i_content[] I_IMPORTANCE = &amp;#39;1&amp;#39; i_subject = l_subject ). &amp;#34; 增加发送内容到发送请求 &amp;#34; CALL METHOD l_send_request-&amp;gt;set_document( l_document ). &amp;#34; 取得发送者</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_Email/</guid>
+      <description>SAP 发送邮件 邮件功能可以配置参数，使用系统标准的邮件工作台收发邮件，还可以调用邮件API接口函数收发邮件。 Tcode RZ10：设置Profile参数 1</description>
     </item>
     
     <item>
