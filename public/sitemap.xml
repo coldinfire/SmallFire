@@ -2256,6 +2256,48 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/Excel/</loc>
+      
+      <lastmod>2018-12-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_EXCEL_CLASS/</loc>
+      
+      <lastmod>2018-12-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_EXCEL_BAPI/</loc>
+      
+      <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_BOM_USE/</loc>
       
       <lastmod>2018-11-25T00:00:00+00:00</lastmod>
@@ -2301,20 +2343,6 @@
       <loc>https://coldinfire.github.io/2018/SAP_ProOrder_Enhance/</loc>
       
       <lastmod>2018-11-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/Excel/</loc>
-      
-      <lastmod>2018-11-13T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

@@ -55,9 +55,19 @@ SPRO路径：
 
 Tcode：MN21/MN22/MN23
 
-为了维护输出条件类型以良好地接收采购订单，我们可以根据所需的输出将条件类型维护为 WE01，WE02 和 WE03。例如，如果需要有个人有效收据单，则应选择 “个人收据” 的 “ WE01” 选项。同样，如果要求集体打印支票，则应选择条件类型为 “WE03”。
+为了维护采购订单类型的收货对应的输出条件类型，我们可以根据所需的输出将条件类型维护为 WE01，WE02 和 WE03。例如，如果需要有个人有效收据单，则应选择 “个人收据” 的 “ WE01” 选项。同样，如果要求合并打印支票，则应选择条件类型为 “WE03”。
 
-为了理解，我们在本文中使用了集体版本：WE03 来配置输出类型条件。使用 t 代码执行：MN22（更改输出条件类型）或 SPRO 路径：
+为了理解，我们在本文中使用了合并打印：WE03 来配置输出类型条件。使用 t 代码执行：MN22（更改输出条件类型）或 SPRO 路径：
+
+输入输出类型条件 WE03 : GR Note Vers.3
+
+在下个窗口，输入对应的参数并执行
+
+- Transaction/Event Type：Select the option of “WE”- Good receipt for purchase order
+- Version for printing GR/GI slip：Select the option of Print Version: 3- Collective Version
+- Printing of document item：Select the Print Item option of Material Document printout: 1
+
+在新窗口选择Condition Recs输入一行数据
 
 
 

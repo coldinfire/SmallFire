@@ -1,5 +1,5 @@
 ---
-title: "Excel操作"
+title: "SAP Excel 上传和下载"
 date: 2018-11-13
 draft: false
 author: Small Fire
@@ -32,30 +32,31 @@ tags:
 
   ![SMW0](/images/ABAP/ABAP_SMW0_4.png)
 
-**下载模板**：调用METHOD 下载服务器上的模板文件到本地
+**下载模板**：调用METHOD / BAPI下载服务器上的模板文件到本地
 
 ### 使用类操作文件
 
-`CL_GUI_FRONTEND_SERVICES`：该类提供了大量对操作系统文件的操作，如拷贝、列出文件名、打开文件、下载文件等。
+**CL_GUI_FRONTEND_SERVICES**：该类提供了大量对操作系统文件的操作，如拷贝、列出文件名、打开文件、下载文件等。
 
-`FILE_OPEN_DIALOG`：静态方法打开文件
+- FILE_OPEN_DIALOG：显示文件打开对话框
 
- `UI_UPLOAD`：将文本文件读取到内表
-
-`GUI_DOWNLOAD`：下载文本
+- FILE_SAVE_DIALOG：显示文件保存对话框
+- GUI_DOWNLOAD：下载文本文件到本地PC
+-  GUI_UPLOAD：从本地文本文件读取数据
 
 ### 使用BAPI操作文件
 
 ```html
-1. 内表数据下载到文件:
+1. 判断文件是否存在
+  CALL FUNCTION 'WS_QUERY'：本地文件是否存在
+  CALL FUNCTION 'WWWDATA_IMPORT'：判断服务器是否存在该模板
+2. 内表数据下载到文件:
   CALL FUNCTION 'DOWNLOAD'：提示保存
   CALL FUNCTION 'WS_DOWNLOAD'：不提示直接保存
   CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'：提示保存
-2. 文件数据读取到内表
+3. 文件数据读取到内表
   CALL FUNCTION 'UPLOAD'：提示读入内表
   CALL FUNCTION 'WS_UPLOAD'：不提示直接读入内表
-3. 判断文件是否存在
-  CALL FUNCTION 'WS_QUERY':
 ```
 
 ### 下载模板
@@ -77,7 +78,8 @@ FORM frm_download_file .
 
   ls_filekey-relid = 'MI'.
   ls_filekey-objid = 'ZTEST_TEMPLATE'.
-  CALL FUNCTION 'WWWDATA_IMPORT'   " 判断是否存在该模板 "
+  " 判断是否存在该模板 "
+  CALL FUNCTION 'WWWDATA_IMPORT'   
     EXPORTING
       key               = ls_filekey
     TABLES
@@ -101,7 +103,7 @@ FORM frm_download_file .
   IF sy-subrc EQ 0.
     lv_filesize = ls_param-value.
   ENDIF.
-  " 弹出下载框函数 "
+  " 弹出下载框函数，确定下载路径 "
   CALL METHOD cl_gui_frontend_services=>file_save_dialog
     EXPORTING
       default_file_name    = 'Z_Template'
@@ -120,9 +122,8 @@ FORM frm_download_file .
   IF sy-subrc <> 0.
 *   Implement suitable error handling here
   ENDIF.
-
+  " 保存文件到选择的下载路径 "
   IF lv_user_action EQ cl_gui_frontend_services=>action_ok.
-    " 保存文件到选择路径 "
     CALL METHOD cl_gui_frontend_services=>gui_download
       EXPORTING
         bin_filesize = lv_filesize
@@ -133,21 +134,27 @@ FORM frm_download_file .
     IF sy-subrc <> 0.
 *     Implement suitable error handling here
     ENDIF.
-
   ENDIF.
 ```
 
 - 选择合适的文件夹后保存的BAPI方法
 
   ```html
-  FORM frm_download_files  USING pv_fullpath .
-    DATA:lw_key TYPE wwwdatatab,
-         lv_rc  TYPE sy-subrc.
+  FORM frm_download_files .
+    DATA: lw_key TYPE wwwdatatab,
+          lv_rc  TYPE sy-subrc.
+    DATA: lv_filefilter       TYPE string,
+          lv_default_filename TYPE string,
+          lv_filename         TYPE string,
+          lv_path             TYPE string,
+          lv_fullpath         TYPE string,
+          lv_user_action      TYPE i.
+  
     DATA: lv_destination LIKE  rlgrap-filename .
     DATA: lw_application TYPE ole2_object,
           lw_workbook    TYPE ole2_object,
           lw_sheet       TYPE ole2_object.
-    
+    " 判断服务器模板是否存在 "
     SELECT SINGLE relid objid INTO CORRESPONDING FIELDS OF lw_key
       FROM wwwdata
       WHERE srtf2 EQ 0
@@ -157,13 +164,34 @@ FORM frm_download_file .
       MESSAGE 'Template is not exist' TYPE 'E'.
       RETURN.
     ENDIF.
-    lv_destination = pv_fullpath .
+    " 弹出下载框函数，确定下载路径 "
+    CALL METHOD cl_gui_frontend_services=>file_save_dialog
+      EXPORTING
+        default_file_name    = 'Z_Template'
+        default_extension    = 'XLSX'
+      CHANGING
+        filename             = lv_filename
+        path                 = lv_path
+        fullpath             = lv_fullpath
+        user_action          = lv_user_action
+      EXCEPTIONS
+        cntl_error           = 1
+        error_no_gui         = 2
+        not_supported_by_gui = 3
+  	  invalid_default_file_name = 4
+        OTHERS               = 5.     
+    IF sy-subrc <> 0.
+  *   Implement suitable error handling here
+    ENDIF.
+  
+    lv_destination = lv_fullpath .
+    
     CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'
       EXPORTING
         key         = lw_key
         destination = lv_destination
       IMPORTING
-        rc          = lv_rc.
+        rc          = s.
     IF lv_rc <> 0.
       MESSAGE 'Error occurs when download' TYPE 'E'. 
       RETURN.
@@ -190,7 +218,7 @@ FORM frm_download_file .
       PERFORM frm_get_filename CHANGING p_file.
   
   " Method 1 "
-  FORM frm_get_filename  CHANGING cv_file.
+  FORM frm_get_filename CHANGING cv_file.
     CALL FUNCTION 'KD_GET_FILENAME_ON_F4'
       CHANGING
         file_name = cv_file.
@@ -227,9 +255,31 @@ FORM frm_download_file .
       READ TABLE lt_file INDEX 1 INTO cv_file.
     ENDIF.
   ENDFORM.                    " FRM_GET_FILENAME "
+  
+  " METHOD 3 "
+  FORM frm_get_filename CHANGING cv_file.
+    CALL FUNCTION 'WS_FILENAME_GET'
+     EXPORTING
+       mask                   = ',*.xlsx,*.XLSX,*.xls,*.XLS.'
+       mode                   = 'O'
+       title                  = 'Please check the input file local path'
+     IMPORTING
+       filename               = cv_file
+  *     RC                     =
+     EXCEPTIONS
+       inv_winsys             = 1
+       no_batch               = 2
+       selection_cancel       = 3
+       selection_error        = 4
+       OTHERS                 = 5.
+    IF sy-subrc <> 0.
+  *    MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
+  *      WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
+    ENDIF.
+  ENDFORM. 
   ```
 
-- #### 判断文件是否存在
+- #### 判断本地文件是否存在
 
   ```html
   DATA l_file_exist TYPE c.
@@ -379,7 +429,12 @@ IF sy-subrc <> 0.
 ENDIF.  
 ```
 
-## [实例](https://github.com/coldinfire/ERP/wiki/%E6%96%87%E6%A1%A3%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD#%E4%B8%89%E5%AE%9E%E4%BE%8B)
+
+
+###  程序实例
+
+- [通过调用BAPI实现]()
+- [通过CLASS实现]()
 
 ```JS
 SELECTION-SCREEN:PUSHBUTTON /2(30) button1 USER-COMMAND but1."30是按钮长度"
