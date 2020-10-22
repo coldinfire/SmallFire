@@ -12,8 +12,6 @@ tags:
   - abaputils
 ---
 
-
-
 ### SAP Excel 操作实现 (BAPI)
 
 ```html
@@ -24,7 +22,7 @@ REPORT  zexcel_bapi.
 TABLES: sscrfields,rlgrap.
 TYPE-POOLS: slis.
 " TEXT-000 : Select file to upload "
-" TEXT-000 : Select file "
+" TEXT-001 : Select file "
 SELECTION-SCREEN BEGIN OF BLOCK file_name WITH FRAME TITLE text-000.
 SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN COMMENT 1(31) text-001 FOR FIELD p_file.

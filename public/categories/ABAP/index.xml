@@ -579,12 +579,12 @@
     </item>
     
     <item>
-      <title>SAP Excel 操作实例(CLASSSAP Excel 操作实现 (BAPI))</title>
+      <title>SAP Excel 操作实例(CLASS)</title>
       <link>https://coldinfire.github.io/2018/ABAP_EXCEL_CLASS/</link>
       <pubDate>Sun, 02 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_EXCEL_CLASS/</guid>
-      <description>SAP Excel 操作实现 (CLASS)</description>
+      <description>SAP Excel 操作实现 (CLASS) *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZEXCEL_CLASS_DEMO *&amp;amp;---------------------------------------------------------------------* REPORT zexcel_class_demo. TABLES: sscrfields,rlgrap. TYPE-POOLS: slis. &amp;#34; TEXT-000 : Select file to upload &amp;#34; &amp;#34; TEXT-001 : Select file &amp;#34; SELECTION-SCREEN BEGIN OF BLOCK file_name WITH FRAME TITLE text-000. SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN COMMENT 1(31) text-001 FOR FIELD p_file. PARAMETERS: p_file LIKE rlgrap-filename . SELECTION-SCREEN END OF LINE. SELECTION-SCREEN END OF BLOCK file_name. SELECTION-SCREEN FUNCTION KEY 1.</description>
     </item>
     
     <item>
@@ -593,7 +593,7 @@
       <pubDate>Wed, 28 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_EXCEL_BAPI/</guid>
-      <description>SAP Excel 操作实现 (BAPI) *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZEXCEL_BAPI *&amp;amp;---------------------------------------------------------------------* REPORT zexcel_bapi. TABLES: sscrfields,rlgrap. TYPE-POOLS: slis. &amp;#34; TEXT-000 : Select file to upload &amp;#34; &amp;#34; TEXT-000 : Select file &amp;#34; SELECTION-SCREEN BEGIN OF BLOCK file_name WITH FRAME TITLE text-000. SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN COMMENT 1(31) text-001 FOR FIELD p_file. PARAMETERS: p_file LIKE rlgrap-filename . SELECTION-SCREEN END OF LINE. SELECTION-SCREEN END OF BLOCK file_name. SELECTION-SCREEN FUNCTION KEY 1.</description>
+      <description>SAP Excel 操作实现 (BAPI) *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZEXCEL_BAPI *&amp;amp;---------------------------------------------------------------------* REPORT zexcel_bapi. TABLES: sscrfields,rlgrap. TYPE-POOLS: slis. &amp;#34; TEXT-000 : Select file to upload &amp;#34; &amp;#34; TEXT-001 : Select file &amp;#34; SELECTION-SCREEN BEGIN OF BLOCK file_name WITH FRAME TITLE text-000. SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN COMMENT 1(31) text-001 FOR FIELD p_file. PARAMETERS: p_file LIKE rlgrap-filename . SELECTION-SCREEN END OF LINE. SELECTION-SCREEN END OF BLOCK file_name. SELECTION-SCREEN FUNCTION KEY 1.</description>
     </item>
     
     <item>
