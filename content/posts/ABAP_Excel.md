@@ -270,7 +270,7 @@ ENDIF.
 
 ###  程序实例
 
-- [通过调用BAPI实现]()
-- [通过CLASS实现]()
+- [通过调用BAPI实现](https://coldinfire.github.io/2018/ABAP_EXCEL_BAPI/)
+- [通过CLASS实现](https://coldinfire.github.io/2018/ABAP_EXCEL_CLASS/)
 
 
