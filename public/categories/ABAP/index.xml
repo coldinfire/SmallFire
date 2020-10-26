@@ -6,10 +6,19 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> SAP Report 选择和显示栏位配置 </title>
+      <link>https://coldinfire.github.io/2020/SAP_Report_config/</link>
+      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_Report_config/</guid>
+      <description>SAP 的一些 Report 的选择和显示栏位是可配置的。 MB51 是比较常见的查询物料凭证的报表，在该报表中，如下图所示，默认可以根据物料号码、工厂、移动类型等信息进</description>
+    </item>
     
     <item>
       <title>LSMW操作步骤详解</title>

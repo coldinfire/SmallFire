@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>utils</title>
+      <link>https://coldinfire.github.io/tags/utils/</link>
+      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/utils/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SAPbusiness</title>
@@ -17,15 +26,6 @@
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/SAPbusiness/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utils</title>
-      <link>https://coldinfire.github.io/tags/utils/</link>
-      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/utils/</guid>
       <description></description>
     </item>
     
