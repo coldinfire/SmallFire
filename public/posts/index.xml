@@ -1151,7 +1151,7 @@
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Submit/</guid>
-      <description>ABAP 代码中通过Submit实现程序的调用以及调用时数据参数的传递. 将要被调用的Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line TYPE i. lv_line =</description>
+      <description>ABAP 代码中通过Submit实现程序的调用以及调用时数据参数的传递. 程序准备 将要被调用的Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line</description>
     </item>
     
     <item>
