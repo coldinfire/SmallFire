@@ -28,7 +28,7 @@ MESSAGE E001(ZTEST).
 
 ​	ZTEST:自定义的消息类
 
-**获取标准错误信息**
+#### 获取标准错误信息
 
 ```javascript
 DATA msgtext TYPE string.
@@ -40,7 +40,7 @@ IF sy-subrc <> 0.
 ENDIF. 
 ```
 
-**MESSAGE显示:**
+#### MESSAGE显示
 
 ```JS
 EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
@@ -50,7 +50,76 @@ EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
    	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
 ```
 
-**获取消息内容的BAPI:**
+#### 用函数方式返回消息显示
+
+- MESSAGES_INITIALIZE:Message init
+
+- MESSAGE_STORE:Store message
+- MESSAGES_GIVE:Message show
+- MESSAGES_SHOW
+
+```html
+DATA: lt_mesg TYPE TABLE OF mesg WITH HEADER LINE.
+LOOP AT message.
+  lt_mesg-zeile = message-row.
+  lt_mesg-msgty = message-type.
+  lt_mesg-text = message-message.
+  lt_mesg-arbgb = message-id.
+  lt_mesg-txtnr = message-number.
+  lt_mesg-msgv1 = message-message_v1.
+  lt_mesg-msgv2 = message-message_v2.
+  lt_mesg-msgv3 = message-message_v3.
+  lt_mesg-msgv4 = message-message_v4.
+  APPEND lt_mesg.
+  CLEAR lt_mesg.
+ENDLOOP.
+**--messages init
+CALL FUNCTION 'MESSAGES_INITIALIZE'
+  EXPORTING
+    collect_and_send = ''.
+**--message store
+LOOP AT lt_mesg.
+  CALL FUNCTION 'MESSAGE_STORE'
+    EXPORTING
+      arbgb                  = lt_mesg-arbgb
+*     EXCEPTION_IF_NOT_ACTIVE       = 'X'
+      msgty                  = lt_mesg-msgty
+      msgv1                  = lt_mesg-msgv1
+      msgv2                  = lt_mesg-msgv2
+      msgv3                  = lt_mesg-msgv3
+      msgv4                  = lt_mesg-msgv4
+      txtnr                  = lt_mesg-txtnr
+      zeile                  = lt_mesg-zeile
+*   IMPORTING
+*     ACT_SEVERITY           =
+*     MAX_SEVERITY           =
+    EXCEPTIONS
+      message_type_not_valid = 1
+      not_active             = 2
+      OTHERS                 = 3.
+  IF sy-subrc <> 0.
+* Implement suitable error handling here
+    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+            WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  ENDIF.
+ENDLOOP.
+**--message show
+REFRESH: lt_mesg.
+CALL FUNCTION 'MESSAGES_GIVE'
+  TABLES
+    t_mesg = lt_mesg.
+CALL FUNCTION 'MESSAGES_SHOW'
+  EXPORTING
+    show_linno         = ''
+    i_use_grid         = ''
+    i_amodal_window    = ''
+  EXCEPTIONS
+    inconsistent_range = 1
+    no_messages        = 2
+    OTHERS             = 3.
+```
+
+#### 获取消息内容的BAPI
 
 ```JS
 DATA l_msgid     TYPE bapiret2-id.
