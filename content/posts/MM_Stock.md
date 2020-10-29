@@ -119,3 +119,4 @@ MMBE:查看物料的所有库存信息。
 - Create:  [BAPI_GOODSMVT_CREATE](https://sap4tech.net/sap-good-movement-bapi/)
 - Cancel: [BAPI_GOODSMVT_CANCEL](https://sap4tech.net/sap-good-movement-bapi/)
 - Get Details: **BAPI_GOODSMVT_GETDETAIL** / **BAPI_GOODSMVT_GETITEMS** 
+

@@ -12,11 +12,11 @@ tags:
  
 ---
 
-
+#### 例程介绍
 
 ​	SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以通过Basis申请得到，创建后例程会被包含在一个 REQUEST 下。写好代码以后，在 SPRO 里面的“条件计算方案”将你写的代码编号配置进去，就可以影响到这个定价了。
 
-​      ![](/images/ABAP/VOFM.png)
+​      ![VOFM](/images/ABAP/VOFM.png)
 
 **例程工作原理**：
 

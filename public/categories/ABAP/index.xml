@@ -6,10 +6,19 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> SAP配置RFC连接-SM59 </title>
+      <link>https://coldinfire.github.io/2020/SAP_RFC_Connect/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_RFC_Connect/</guid>
+      <description>Step1:Procedure to steup an RFC connection 使用Tcode:SM59配置RFC connection 在SM59中，可以浏览已经创建的RFC连接。 创建新的RFC Destination RFC Destination – Name of Destination (could be Target System ID or anything relevant) Connection Type</description>
+    </item>
     
     <item>
       <title> SAP Report 选择和显示栏位配置 </title>
@@ -863,7 +872,7 @@
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAP_VOFM/</guid>
-      <description>​ SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以通过Ba</description>
+      <description>例程介绍 ​ SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以</description>
     </item>
     
     <item>

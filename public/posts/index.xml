@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> SAP配置RFC连接-SM59 </title>
+      <link>https://coldinfire.github.io/2020/SAP_RFC_Connect/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_RFC_Connect/</guid>
+      <description>Step1:Procedure to steup an RFC connection 使用Tcode:SM59配置RFC connection 在SM59中，可以浏览已经创建的RFC连接。 创建新的RFC Destination RFC Destination – Name of Destination (could be Target System ID or anything relevant) Connection Type</description>
+    </item>
     
     <item>
       <title> SAP Report 选择和显示栏位配置 </title>
@@ -63,6 +72,15 @@
       
       <guid>https://coldinfire.github.io/2020/MM_MIGO_Exits/</guid>
       <description>MIGO 简介 内向交货的收货流程是供应链的重要组成部分。此过程包括创建采购订单后的步骤：通知，收货，随后的货物下达以及所订购货物的收货过帐。 根据未清</description>
+    </item>
+    
+    <item>
+      <title> MM BAPI List </title>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_LIST/</link>
+      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_LIST/</guid>
+      <description>MM BAPI LIST 1、BAPI_MATERIAL_SAVEDATA 创建物料主数据 2、 BAPI_OBJCL_CREATE 分类视图的创建 3、 BAPI_OBJCL_GETCLASSES 分类视图得到详细信息 4、 BAPI_MATERIAL_SAVEREPLICA 物料视图的扩充 5、 BAPI_GOODSMVT_CREATE</description>
     </item>
     
     <item>
@@ -148,10 +166,10 @@
     
     <item>
       <title>SAP WM 常用表</title>
-      <link>https://coldinfire.github.io/2020/WMTable/</link>
+      <link>https://coldinfire.github.io/2020/WM_Table/</link>
       <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/WMTable/</guid>
+      <guid>https://coldinfire.github.io/2020/WM_Table/</guid>
       <description>WM 常用Table的功能划分： Transfer requirement Transfer order Inventory Documents Storage Locations Storage Stocks SAP WM Tables for Transfer requirement 主要用于使用仓库管理系统（WMS）计划货物移动。 通过区分货物移动的计划和执行，您</description>
     </item>
     
@@ -480,12 +498,12 @@
     </item>
     
     <item>
-      <title> MM BAPI List </title>
-      <link>https://coldinfire.github.io/2019/MM_BAPI_LIST/</link>
+      <title> MM Enhance List </title>
+      <link>https://coldinfire.github.io/2019/MM_Enhance_LIST/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_BAPI_LIST/</guid>
-      <description>采购申请增强 BADI ME_PROCESS_REQ_CUST 采购订单增强 BADI ME_GUI_PO_CUST ME_PROCESS_PO_CUST https://coldinfire.github.io/2019/MM_PO_Enhance/ 物料凭证增强 BADI MB_DOCUMENT_BADI User Exit MBCF0002 ：实现功能 当参照预留过帐时，检查填入数量是否小于预留数量 移动类型是 *** 的时候，查看 RSNUM</description>
+      <guid>https://coldinfire.github.io/2019/MM_Enhance_LIST/</guid>
+      <description>采购申请增强 BADI ME_PROCESS_REQ_CUST 采购订单增强 BADI ME_GUI_PO_CUST ME_PROCESS_PO_CUST MM_PO_Enhance 物料凭证增强 BADI MB_DOCUMENT_BADI User Exit MBCF0002 ：实现功能 当参照预留过帐时，检查填入数量是否小于预留数量 移动类型是 *** 的时候，查看 RSNUM</description>
     </item>
     
     <item>
@@ -1457,7 +1475,7 @@
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAP_VOFM/</guid>
-      <description>​ SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以通过Ba</description>
+      <description>例程介绍 ​ SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以</description>
     </item>
     
     <item>
