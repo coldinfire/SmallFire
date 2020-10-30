@@ -12,7 +12,14 @@ tags:
 
 ---
 
-本文主要记录一些收集来的BAPI,在SE38环境下的程序名输入栏输入'DEMO*'后按F4，你可以查到SAP所有的DEMO示例程序，会学到很多ABAP功能的实现方法,输入'BCALV*'后按F4，你可以查到很多ALV示例程序 。
+### 本文主要记录一些收集来的BAPI
+
+在SE38环境下的程序名输入栏
+
+- 输入'DEMO'后按F4，你可以查到SAP所有的DEMO示例程序，会学到很多ABAP功能的实现方法
+
+- 输入'BCALV'后按F4，你可以查到很多ALV示例程序 。
+
 ## 函数名 描述 
 ```JS
 • CONVERSION_EXIT_ALPHA_INPUT     数字串前补0
@@ -60,15 +67,6 @@ tags:
 ```JS
 • BAPI_TRANSACTION_COMMIT             COMMIT WORK AND WAIT.
 • BAPI_TRANSACTION_ROLLBACK           ROLLBACK WORK.
-• BAPI_MATERIAL_SAVEDATA              创建及更改物料主数据
-• BAPI_GOODSMVT_CREATE                物料移动（创建物料凭证 ）
-• BAPI_MATERIAL_AVAILABILITY          可用库存  
-• BAPI_PR_CREATE                      创建PR （采购申请）
-• BAPI_PO_CREATE1                     创建PO（采购单）
-• BAPI_SALESORDER_CREATEFROMDAT2      创建销售订单 
-• BAPI_OUTB_DELIVERY_CREATE_SLS       根据销售订单创建交货单
-• BAPI_BILLINGDOC_CREATEMULTIPLE      创建发票
-• BAPI_ACC_DOCUMENT_POST              创建会计凭证
 • SD_VBAP_READ_WITH_VBELN   根据销售订单读取表vbap中的信息
 • EDIT_LINES                把READ_TEXT返回的LINES中的行按照TDFORMAT=“*”重新组织
 • DY_GET_FOCUS              获得屏幕焦点 

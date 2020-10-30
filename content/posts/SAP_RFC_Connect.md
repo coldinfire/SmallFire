@@ -1,6 +1,6 @@
 ---
 title: " SAP配置RFC连接-SM59 "
-date: 2020-10-13
+date: 2020-07-26
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -10,6 +10,10 @@ categories:
 tags: 
   - utils
 ---
+
+[原文链接](https://www.guru99.com/how-to-configure-and-test-rfc.html)
+
+## SAP配置RFC连接-SM59
 
 ### Step1:Procedure to steup an RFC connection
 

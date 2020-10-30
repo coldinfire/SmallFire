@@ -26,7 +26,7 @@ SAP 增强从用途来说分
 SAP 增强从实现方式来说分
 
 - 第一代增强（User Exits）
-- 第二代增强（SMOD、CMOD）
+- 第二代增强（Customer Exits：SMOD、CMOD）
 - 第三代增强（BADI）
 - 第四代增强（BTE）
 
@@ -47,7 +47,7 @@ SAP 增强从实现方式来说分
 
 - SD出口文档：IMG->Sales and Distribution -> System Modifications -> User Exitrs.
 - 这种源代码增强和屏幕增强的说明可以从事务码 spro 后台配置中相关模块的路径里面找到。
-- 同时使用的针对数据表的增强是 append structure，可以在事务码 se11 中打开透明表，为数据表追加新的字段。
+- 同时使用的针对数据表的增强是 Append structure，可以在事务码 se11 中打开透明表，为数据表追加新的字段。
 
 #### Customer Exits(第二代增强) 
 
@@ -72,7 +72,7 @@ Enhancement & Enhancement Project：
 #### Others
 
 - User Exits与Customer Exits的区别在于User Exits的使用需要Access Key但Customer Exits不要。
-- FM exits在关联的Function Group中的命名规则为：EXIT_programname_xxx.
+- FM exits在关联的Function Group中的命名规则为：EXIT_PROGRAMNAME_XXX.
 - Customer exits的调用方式为：
   - FM Exits: CALL CUSTOMER-FUNCTION 'xxx' EXPORTING ... IMPORTING ...
   - Subscreen: Call CUSTOMER-SUBSCREEN INCLUDING
@@ -81,45 +81,41 @@ Enhancement & Enhancement Project：
 
 #### 查找User Exit
 
-Using t-code: `SE93` and specify the transaction code.
-From here go to the main program and click on the `FIND`button
-`Specify USEREXIT` and select `Find in main program` radio button and click search.
+使用 T-code: **SE93** 输入指定的T-code -> 从这里转到主程序，然后单击“查找”按钮.
 
-- if any user exit is used, it will list all the places as in SAP.
+在查找内容中输入 **Specify USEREXIT** 并选择“在主程序中查找”单选按钮，然后单击“搜索”。
 
-- if any user exit is used, 
-   a comment is been written above the user exit.
+- 如果使用了用户出口，将会显示出出口在SAP中的所有位置
+- 如果使用了用户出口，则会在用户出口上方有一个注释
 
 #### 查找Customer Exits
 
 1. 通过一些专门的程序，如:[利用t-code查找增强出口的程序工具](https://www.591sap.com/thread-87-1-1.html)
-
-2. Search string `call custome` in the main program source code;
-
-3. SE80 -> Repository Infomation System -> Enhancements -> Customer Exits -> Input search condition -> Execute
-
-4. SE11 -> Database table: MODSAPVIEW -> Display Contents -> Input "*program name*" into Enhancement field ->
-   Execute : 得到的SAP extension name 即为 Customer Exits Enhancement Name.
-5. 首先使用SE93根据事物码找到对应程序名，然后 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “PROG”、OBJ_NAME = 程序名）找对应开发类，如果找不到对应开发类，通过 SE38 查看程序，在菜单"转到 - 属性"中找开发类。然后再用 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “SMOD”、DEVCLASS = 开发类）就可找到此程序可用的增强点（并非万能）。然后根据增强点从表 MODSAP 中就可以看到此增强具备哪些功能【屏幕增强（S）、菜单增强（C）、功能增强（E）、表增强（T）】
+2. 在主程序中查找 **call customer**
+3. SE80 -> Repository Infomation Sysrtem -> Enhancements -> Customer Exits -> Input search condition -> Execute
+4. SE11 -> 查看表**MODSAPVIEW** -> 在MEMBER(Enhancement)中输入程序名  -> Execute : 得到的SAP extension name 即为 Customer Exits Enhancement Name.
+5. 首先使用SE93根据事物码找到对应程序名，然后 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “PROG”、OBJ_NAME = 程序名）找对应开发类，如果找不到对应开发类，通过 SE38 查看程序，在菜单"转到 - 属性"中找开发类。然后再用 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “SMOD”、DEVCLASS = 开发类）就可找到此程序可用的增强点（并非万能）。然后根据增强点从表 **MODSAP** 中就可以看到此增强具备哪些功能【屏幕增强（S）、菜单增强（C）、功能增强（E）、表增强（T）】
 
 #### 查找BADI
 
 1. 通过一些专门的程序，如:[一个功能非常全面的增强出口查找工具](https://www.591sap.com/thread-86-1-1.html)
 
-2. SE38 -> 事物代码对应的程序名 -> 在程序内搜索关键字 `CL_EXITHANDLER`
+2. SE38 -> Tcode对应的程序名 -> 在程序内搜索关键字 **CL_EXITHANDLER** 
 
-3. SE80 -> Repository Infomation System -> Enhancements -> Business Add-ins
+3. SE80 -> Repository Infomation System -> Enhancements -> Business Add-ins -> Implementations查找
 
-4. Search string “type ref to” in the main program source code, then check if there is BAdI used in the program
+   ![SE80](/images/SAPUtils/SAP_ENHANCE_1.png)
 
-5. 它的调用方式是call method (instance),可以通过exit_handler关键词来查找
+4. 在主程序源代码中搜索字符串 **TYPE REF TO**，然后检查程序中是否使用了BADI
 
-6. ST05选择"table buffer trace"而不是常用的"SQL trace",然后查找 (SXS_INTER,SXC_EXIT,SXC_CLASS,SXC_ATTR)找到BADI
+5. 它的调用方式是call method (instance),可以通过 **EXIT_HANDLER** 关键词来查找
 
-7. Find a BADI in one minute
+6. ST05选择"TABLE BUFFER TRACE"而不是常用的"SQL trace",然后查找 (SXS_INTER,SXC_EXIT,SXC_CLASS,SXC_ATTR)找到BADI
+
+7. 通过 **CL_EXITHANDLER -> GET_INSTANCE** Debug程序查找调用的BADI
 
    ```JS
-   <1>Go to TCode SE24 and enter G CL_EXITHANDLER as object type.
+   <1>Go to TCode SE24 and enter CL_EXITHANDLER as object type.
    <2>In 'Display' mode, go to 'Methods' tab.
    <3>Double click the method 'Get_Instance' to display it source code.
    <4>Set a breakpoint on 'CALL METHOD cl_exithandler=>get_class_name_by_interface'.
@@ -128,17 +124,18 @@ From here go to the main program and click on the `FIND`button
    <7>Check the value of parameter 'EXIT_NAME'.It will show you the BADI for that transaction.
    ```
 
-   
 
 ### Customer Exits and BADI implementation.
 
 ####  Customer Exits: SMOD, CMOD
 
-#### BADI: SE18, SE19.
+#### BADI: SE18, SE19,SE24.
 
 可以使用 SE18 查看BADI，可以看到BADI 对应的接口，接口中定义的方法及参数传递。
 
-然后 SE19  Implementation 该 BADI。
+然后SE19  Implementation 该 BADI。
+
+使用SE24 查看CLASS Interface。
 
 注：接口编码 BADI 加前缀 `IF_CL_`，客户类编码 `ZCL_IM_`
 

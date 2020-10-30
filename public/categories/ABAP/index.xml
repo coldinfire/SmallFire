@@ -6,19 +6,10 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title> SAP配置RFC连接-SM59 </title>
-      <link>https://coldinfire.github.io/2020/SAP_RFC_Connect/</link>
-      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2020/SAP_RFC_Connect/</guid>
-      <description>Step1:Procedure to steup an RFC connection 使用Tcode:SM59配置RFC connection 在SM59中，可以浏览已经创建的RFC连接。 创建新的RFC Destination RFC Destination – Name of Destination (could be Target System ID or anything relevant) Connection Type</description>
-    </item>
     
     <item>
       <title> SAP Report 选择和显示栏位配置 </title>
@@ -54,6 +45,15 @@
       
       <guid>https://coldinfire.github.io/2020/SAPWebDynproRuntimeEnv/</guid>
       <description>Remove User settings option ABAP Enviroment Method 1 Modify the WebDynpro Application and add the Parameter: ​ WDDISABLEUSERPERSONALIZATION = X. Method 2 Alternatively you can call the webdynpro application WD_GLOBAL_SETTING in SE80 and globally disable all user personalization for all applications. This avoids endusers from calling helpdesk because &amp;ldquo;fields are gone&amp;rdquo; etc. pretty well. JAVA Enviroment Procedure A number of settings allow you to influence the behavior of the Web</description>
+    </item>
+    
+    <item>
+      <title> SAP配置RFC连接-SM59 </title>
+      <link>https://coldinfire.github.io/2020/SAP_RFC_Connect/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_RFC_Connect/</guid>
+      <description>原文链接 SAP配置RFC连接-SM59 Step1:Procedure to steup an RFC connection 使用Tcode:SM59配置RFC connection 在SM59中，可以浏览已经创建的RFC连接。 创建新的R</description>
     </item>
     
     <item>
