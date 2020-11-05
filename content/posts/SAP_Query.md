@@ -17,9 +17,9 @@ ABAP Query用于创建 SAP 系统中尚不存在的Report。 它是为几乎不�
 
 SQ03、SQ02、SQ01，这三个事务码是按从大到小的顺序依次操作的：
 
-- SQ03创建User Group，为特定Query限制用户组以及授权
+- SQ03创建User Group，为特定Query限制用户组以及用户权限控制
 - SQ02创建Infoset，可以关联表、确认字段，可以在SQ02的附加中直接定义附加字段或写代码
-- SQ01创建Query，可以确认字段分类勾选（屏幕条件与清单选项），完成后可以分配事务码大家共用
+- SQ01创建Query，可以确认字段分类勾选（屏幕条件与Report字段列表），完成后可以分配T-code大家共用
 
 #### ABAP Query由四部分组成：
 
@@ -75,7 +75,7 @@ Data Fields包含选择的表的所有字段信息，Field Group包含了报表�
 
 ![Filed Group](/images/SAPUtils/SAP_Query_6.png)
 
-将Data Fields的字段拖到相关的Field Group中以显示在Report中。
+将Data Fields的字段拖到相关的Field Group中以在后续Report设计中使用。
 
 ![Filed Group](/images/SAPUtils/SAP_Query_7.png)
 
@@ -133,9 +133,9 @@ Data Fields包含选择的表的所有字段信息，Field Group包含了报表�
 
 选择Query Area。
 
-- Standard Area – 特定Client的Query，不会创建工作台请求，可使用RSAQR3TR进行传输
+- Standard Area – 特定Client的Query，在其他Client看不到。不会创建工作台请求，可使用RSAQR3TR进行传输
 
-- Global Area – Queries 是跨Client的
+- Global Area – Queries 是跨Client的，但是只能在开发Client进行编辑
 
 ![SQ01](/images/SAPUtils/SAP_Query_13.png)
 
@@ -181,15 +181,21 @@ Data Fields包含选择的表的所有字段信息，Field Group包含了报表�
 
 回到SQ01界面，点击执行按钮，执行Query。
 
-![InfoSet Query](/images/SAPUtils/SAP_Query_20.png)
+![Query](/images/SAPUtils/SAP_Query_20.png)
 
 Report 选择界面，输入查询条件并点击执行按钮。
 
-![InfoSet Query](/images/SAPUtils/SAP_Query_21.png)
+![Query](/images/SAPUtils/SAP_Query_21.png)
 
 显示执行结果Report。
 
-![InfoSet Query](/images/SAPUtils/SAP_Query_22.png)
+![Query](/images/SAPUtils/SAP_Query_22.png)
+
+### Step5:生成程序
+
+点击Query->More functions->Generate program生成程序。
+
+![Query Menu](/images/SAPUtils/SAP_Query_41.png)
 
 ### Translation / Query Component
 
@@ -203,29 +209,100 @@ Report 选择界面，输入查询条件并点击执行按钮。
 
 创建步骤：
 
-- SE93 输入需要创建的T-Code名称，并输入描述
+SE93 输入需要创建的T-Code名称，并输入描述；在 Start Object 页签中选择第二个选项 “Program and selection screen(report transaction)” 。
 
-- 在 Start Object 页签中选择第二个选项 “Program and selection screen(report transaction)” 
+![SE93](/images/SAPUtils/SAP_Query_32.png)
 
-- 输入 Query 的程序名，勾选 GUI support 页卡的 “SAP GUI for windows” 后保存即可
+输入 Query 的程序名，勾选 GUI support 页卡的 “SAP GUI for windows” 后保存即可。
+
+![SE93](/images/SAPUtils/SAP_Query_35.png)
 
 通过程序名创建事务代码，是一种十分方便的方式，但它存在一定的风险，因为在不同的 System 中，两个不同的 Query 的程序名有可能相同，那么程序在系统中传输的时候，有可能产生错误。
 
 ### 使用参数创建 TCode
+
+SE93 输入需要创建的T-Code名称，并输入描述；在 Start Object 页签中选择第5个选项 “Transaction with Parameters(parameter transaction)” 。
+
+![SE93](/images/SAPUtils/SAP_Query_36.png)
+
+在 Default Values for 页签下，Transaction 字段填入 “START_REPORT”，并勾选 “Skip Initial Screen”。
+
+![SE93](/images/SAPUtils/SAP_Query_37.png)
 
 使用此种方法创建 Query 的 T-Code，需要填入Query所属的UserGroup 以及QueryName 等 3 个字段，以及对应关系。
 
 - D_SREPOVARI-REPORTTYPE：AQ
 - D_SREPOVARI-REPORT：UserGroup + 空格 （ UserGroup 与空格相加应为 12 位 ） + G（ G 应为第13位，代表 Global Area ）
 - D_SREPOVARI-EXTDREPORT：QueryName
+- 如有必要，也可以为事务代码指定变式：D_SREPOVARI-VARIANT。
 
-如有必要，也可以为事务代码指定变式：D_SREPOVARI-VARIANT。
+![SE93](/images/SAPUtils/SAP_Query_38.png)
 
-在 Default Values for 页签下，Transaction 字段填入 “START_REPORT”，并勾选 “Skip Initial Screen”。
+![SE93](/images/SAPUtils/SAP_Query_39.png)
 
 ## Query 传输
 
-调用程序： **RSAQR3TR** 执行Query的传输。
+### Step1:传SQ03的配置到包
+
+选择要传的User Group:"ZTEST_QUERY"，点击 User group->Change Package。
+
+![SQ03](/images/SAPUtils/SAP_Query_27.png)
+
+选择自己需要保持的Package。
+
+![SQ03](/images/SAPUtils/SAP_Query_28.png)
+
+创建一个新的请求号，填写请求号描述，点击保存。
+
+![SQ03](/images/SAPUtils/SAP_Query_29.png)
+
+### Step2:传SQ02的配置到包
+
+选择要传的InfoSet:"ZVENDOR_DATA"，点击Infoset->More functions->Change Package。
+
+![SQ02](/images/SAPUtils/SAP_Query_30.png)
+
+然后选择上一步创建或则选择的请求号，保存。
+
+### Step3:传SQ01的配置到包
+
+选择要传的Query:"ZVENDOR"，点击Query->More functions->Change Package。
+
+![SQ01](/images/SAPUtils/SAP_Query_31.png)
+
+然后选择上一步创建或则选择的请求号，保存。
+
+### Step4:传SE93创建的T-code的配置到包
+
+选择要传的T-code:"ZQUERY_V"，点击Goto->Object directory entry。
+
+![SQ01](/images/SAPUtils/SAP_Query_34.png)
+
+进入界面后，点击修改按钮，并维护需要配置的包。
+
+### Step5:传输请求SE09
+
+通过T-code：SE09查到已创建的请求号。
+
+![SQ01](/images/SAPUtils/SAP_Query_33.png)
+
+展开折叠，查看验证是否所传信息完整无误。如果没有问题，可以进行传输。
+
+### Step6:正式系统调试
+
+传输完成后，在正式系统配置新的事务码。
+
+传输完成后，在正式系统配置新的事务码。
+
+- 正式系统重新配置SQ03，分配用户；
+
+- 正式系统运行SQ02，SQ01，执行测试，生成程序。
+
+- 运行T-code测试Query。
+
+![SQ01](/images/SAPUtils/SAP_Query_40.png)
+
+**调用程序： RSAQR3TR 执行Query的传输。**
 
 ## SAP Query – Info Set – (LDB)逻辑数据库
 
