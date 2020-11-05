@@ -170,7 +170,7 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_PurchaseOrder_BAPI/</guid>
-      <description>根据PR创建PO： LOOP AT PRITEM. IF SY-TABIX = 1. LS_POHEADER-DOC_TYPE = &amp;#39;ZSTL&amp;#39;. CONCATENATE &amp;#39;000000&amp;#39; PRITEM-PLANT INTO LS_POHEADER-VENDOR. IF LS_WERKS = &amp;#39;1020&amp;#39;. LS_POHEADER-PURCH_ORG = &amp;#39;1022&amp;#39;. &amp;#34;pritem-purch_org&amp;#34; ELSEIF LS_WERKS = &amp;#39;1040&amp;#39;. LS_POHEADER-PURCH_ORG = &amp;#39;1042&amp;#39;. ENDIF. LS_POHEADER-COMP_CODE = &amp;#39;1000&amp;#39;. LS_POHEADER-PUR_GROUP = PRITEM-PUR_GROUP. LS_POHEADER-DOC_DATE = SY-DATUM. ENDIF. LT_POITEM-PO_ITEM = PRITEM-PREQ_ITEM. LT_POITEM-MATERIAL = PRITEM-MATERIAL. LT_POITEM-PLANT = &amp;#39;1000&amp;#39;. LT_POITEM-VEND_MAT = PRITEM-VEND_MAT. LT_POITEM-QUANTITY = PRITEM-QUANTITY. LT_POITEM-PO_UNIT = PRITEM-UNIT. IF PRITEM-CURRENCY</description>
+      <description>通过BAPI创建PO FUNCTION zrfc_mm001. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local interface: *&amp;#34; IMPORTING *&amp;#34; VALUE(CALLNO) TYPE ZCALLNO *&amp;#34; VALUE(DOC_TYPE) LIKE BAPIMEPOHEADER-DOC_TYPE DEFAULT &amp;#39;ZIPR&amp;#39; *&amp;#34; VALUE(PURCH_ORG) LIKE BAPIMEPOHEADER-PURCH_ORG DEFAULT &amp;#39;POIC&amp;#39; *&amp;#34; VALUE(PUR_GROUP) LIKE BAPIMEPOHEADER-PUR_GROUP *&amp;#34; VALUE(VENDOR) LIKE BAPIMEPOHEADER-VENDOR *&amp;#34; VALUE(COMP_CODE) LIKE BAPIMEPOHEADER-COMP_CODE DEFAULT &amp;#39;GF50&amp;#39; *&amp;#34; VALUE(DZTERM) TYPE DZTERM DEFAULT &amp;#39;0001&amp;#39; *&amp;#34; EXPORTING *&amp;#34; VALUE(PO_NUMBER) LIKE BAPIMEPOHEADER-PO_NUMBER *&amp;#34; VALUE(FLAG) LIKE BAPIRET2-TYPE *&amp;#34; VALUE(MESSAGE) LIKE BAPIRET2-MESSAGE *&amp;#34; TABLES *&amp;#34;</description>
     </item>
     
     <item>
@@ -279,6 +279,15 @@
       
       <guid>https://coldinfire.github.io/2020/MM_CostCenter/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title> SAP source scan ABAP Report 工具 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_Code_Search/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_Code_Search/</guid>
+      <description>SAP提供两个代码扫描工具。 使用场景 如果您不知道某功能模块的名称，并且需要查找使用RFC的位置，则可以使用诸如CALL FUNCTION或DE</description>
     </item>
     
     <item>

@@ -120,6 +120,15 @@
     </item>
     
     <item>
+      <title> SAP source scan ABAP Report 工具 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_Code_Search/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_Code_Search/</guid>
+      <description>SAP提供两个代码扫描工具。 使用场景 如果您不知道某功能模块的名称，并且需要查找使用RFC的位置，则可以使用诸如CALL FUNCTION或DE</description>
+    </item>
+    
+    <item>
       <title>OLE下载数据到EXCEL模板及速度优化</title>
       <link>https://coldinfire.github.io/2020/ABAP_OLEtoExcel/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
