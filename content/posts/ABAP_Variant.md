@@ -9,8 +9,6 @@ categories:
 
 tags: 
   - abaputils
-  - abapbasis
-
 ---
 
 ### STVARV使用

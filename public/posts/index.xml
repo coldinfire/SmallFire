@@ -98,7 +98,7 @@
       <pubDate>Sun, 26 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/SAP_RFC_Connect/</guid>
-      <description>原文链接 SAP配置RFC连接-SM59 Step1:Procedure to steup an RFC connection 使用Tcode:SM59配置RFC connection 在SM59中，可以浏览已经创建的RFC连接。 创建新的R</description>
+      <description>原文链接 SAP配置RFC连接-SM59 SAP配置的RFC Connection都保存在表RFCDES中 Step1:Procedure to steup an RFC connection 使用Tcode:SM59配置</description>
     </item>
     
     <item>
@@ -144,6 +144,15 @@
       
       <guid>https://coldinfire.github.io/2020/FI_GLAccount/</guid>
       <description>什么是G/L Account 首先，总账科目代表总账。 总帐会计的中心任务是提供外部会计和科目的全面情况。 在与公司所有其他业务领域完全集成的软件系统中记录所有</description>
+    </item>
+    
+    <item>
+      <title>SAP Query Tutorial</title>
+      <link>https://coldinfire.github.io/2020/SAP_Query/</link>
+      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_Query/</guid>
+      <description>SAP Query Tutorial in SAP: SQ01, SQ02, SQ03 ABAP Query用于创建 SAP 系统中尚不存在的Report。 它是为几乎不了解 ABAP 编程的用户而设计的。 ABAP Query 为用户提供了广泛的方式来定义报</description>
     </item>
     
     <item>
@@ -485,7 +494,7 @@
       <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_ALV_SQVI/</guid>
-      <description>SAP提供的SQVI功能，用以快速自定义一个自己需要的报表。 创建，并选择数据源为：表连接 插入需要查数的表 接着将表的主键进行连接 点击返回按钮，</description>
+      <description>SAP提供的SQVI功能，用以快速自定义一个自己需要的报表 通过该方式创建的报表，只能在SQVI下查，谁的用户创建的就只能谁看，其他用户无法共</description>
     </item>
     
     <item>
@@ -1137,6 +1146,15 @@
     </item>
     
     <item>
+      <title>SAP Webservice 使用</title>
+      <link>https://coldinfire.github.io/2019/ABAP_Webservice/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_Webservice/</guid>
+      <description>SAP Webservice SAP 调用 Webservice a. 获取 webservice wsdl, b. 生成 webservice c.LPCONFIG 创建 Logical Port, 保存并激活 d. 编写 webserive 程序，CALL 方法调用 webservice， e. 测试程序； SAP 发布 Webservice 供其他系统调用 a. 服</description>
+    </item>
+    
+    <item>
       <title>STVARV使用详情</title>
       <link>https://coldinfire.github.io/2019/ABAP_Variant/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
@@ -1335,12 +1353,12 @@
     </item>
     
     <item>
-      <title>RFC外部调用</title>
+      <title> RFC 介绍 </title>
       <link>https://coldinfire.github.io/2018/ABAP_RFC/</link>
       <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_RFC/</guid>
-      <description>RFC 什么是 RFC ​ RFC 是 SAP 系统和其他（SAP 或非 SAP）系统间的一个重要而常用的双向接口技术，也被视为 SAP 与外部通信的基本协议。简单地说，RFC 过程就</description>
+      <description>RFC : SAP Hlep Portal 链接 什么是 RFC RFC 是 SAP 系统和其他（SAP 或非 SAP）系统间的一个重要而常用的双向接口技术，也被视为 SAP 与外部通信的基本协议。简单地说，R</description>
     </item>
     
     <item>

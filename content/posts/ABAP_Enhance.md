@@ -57,6 +57,18 @@ SAP 增强从实现方式来说分
 - Menu Exits：在GUI status中预留+Fcode menu item, 在程序中预留对应的Handling FM Exits
 - Screen Exits：在Screen 中预留 Subscreen, 在程序中预留transport data to subscreen & return/retrieve data from subscreen的 FM Exits
 
+查找增强点相关函数
+
+- DYNP_VALUES_READ
+
+- MODX_ALL_ACTIVE_MENUENTRIES：(菜单增强)
+
+- MODX_FUNCTION_ACTIVE_CHECK：(出口函数增强)
+
+- MODX_MENUENTRY_ACTIVE_CHECK：(菜单增强)
+
+- MODX_SUBSCREEN_ACTIVE_CHECK：(屏幕增强)  
+
 Enhancement & Enhancement Project：
 - Enhancement：把系统程序中的相关Customer Exits收集起来成为一个Enhancement，一般情况是按功能和类型来收集的,比方说几个相关的FM eixts组成一个enhancemnet，或者一个 screen 或 menu exits 形成一个enhancement。查看/修改 Enhancement的t-code为：`SMOD`
 - Enhancement Project：在使用Enhacement时，要先建立一个Enhancement Project，可以将多个Enhancement assign给一个enhancement project去管理，对应t-code：`CMOD`。
@@ -65,9 +77,35 @@ Enhancement & Enhancement Project：
 
 通过面向对象的方式来提供扩展点，它支持Customer Exits所有的enhancement 类型，
 因目前Class中不能包含subscreen所以在用BADI enhance screen时比用Customer Exits要复杂些。
-非Multiple Case的BADI同时只能有一个Active Implementation，即要Active新生成的需先inactive旧的。
-若是Multiple Case的BADI则可同时有多个Active Implementation，且所有的Implementation在没有Filter的情况下
-都会被遍历执行。
+
+SAP BADI 的使用分类：
+
+- 非Multiple Case的BADI同时只能有一个Active Implementation，即要Active新生成的需先inactive旧的。
+- Multiple Case的BADI则可同时有多个Active Implementation，且所有的Implementation在没有Filter的情况下都会被遍历执行。
+
+在某些情况下，出于业务需求，可能存在多个开发内容需要放置在这种BADI的实施中。因为只有一个实施类可用，就可能会导致不同开发人员的代码发生碰撞，造成一些不好的结果。这时会自然地产生为这种BADI创造多个实施、并让它们依次执行的需求。
+
+读取BADI接口对应的自定义实施类: **cl_sic_configuration**
+
+```HTML
+REPORT ZGET_BADI_IMPL_LIST.
+DATA: lt_classes TYPE STANDARD TABLE OF sic_s_class_descr.
+DATA: ls_class   LIKE LINE OF lt_classes.
+TRY.
+  lt_classes = cl_sic_configuration=>get_classes_for_interface( 'IF_EX_N1_CANCEL' ).
+  CATCH cx_class_not_existent .
+ENDTRY.
+LOOP AT lt_classes INTO ls_class.
+  WRITE: ls_class-clsname, / .
+ENDLOOP.
+```
+
+解决方法：
+
+1. 为我们想要增强的类创建一个基本BADI实施，在该实施类中使用cl_sic_configuration获取BADI对应的所有自定义实施类的列表。
+2. 过滤掉系统类、以及基本实施类本身。为剩余的自定义实施类创建实例、并调用相关方法。
+3. 基本BADI实施需要设置为活动状态。
+4. 创建的其它BADI是非活动状态。
 
 #### Others
 
@@ -91,7 +129,7 @@ Enhancement & Enhancement Project：
 #### 查找Customer Exits
 
 1. 通过一些专门的程序，如:[利用t-code查找增强出口的程序工具](https://www.591sap.com/thread-87-1-1.html)
-2. 在主程序中查找 **call customer**
+2. 使用函数 MODX_FUNCTION_ACTIVE_CHECK,代码最后添加断点，执行需要增强的TCODE，如果有增强，就会自动跳入DEBUG界面。在DEBUG界面，查看f_tab字段，这里面所显示的Smod就是关于这个TCODE所有的增强项目的列表。这些增强都是属于EXIT_XXXXXX_XXX这种形式。查阅 MODSAP表，确定增强属于哪个SMOD.
 3. SE80 -> Repository Infomation Sysrtem -> Enhancements -> Customer Exits -> Input search condition -> Execute
 4. SE11 -> 查看表**MODSAPVIEW** -> 在MEMBER(Enhancement)中输入程序名  -> Execute : 得到的SAP extension name 即为 Customer Exits Enhancement Name.
 5. 首先使用SE93根据事物码找到对应程序名，然后 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “PROG”、OBJ_NAME = 程序名）找对应开发类，如果找不到对应开发类，通过 SE38 查看程序，在菜单"转到 - 属性"中找开发类。然后再用 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “SMOD”、DEVCLASS = 开发类）就可找到此程序可用的增强点（并非万能）。然后根据增强点从表 **MODSAP** 中就可以看到此增强具备哪些功能【屏幕增强（S）、菜单增强（C）、功能增强（E）、表增强（T）】

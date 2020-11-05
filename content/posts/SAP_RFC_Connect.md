@@ -15,6 +15,8 @@ tags:
 
 ## SAP配置RFC连接-SM59
 
+SAP配置的RFC Connection都保存在表**RFCDES**中
+
 ### Step1:Procedure to steup an RFC connection
 
 使用**Tcode:SM59**配置RFC connection
@@ -31,7 +33,7 @@ tags:
 - **Connection Type** – here we choose one of the types (as explained previously) of RFC connections as per requirements.
 - **Description** – This is a short informative description, probably to explain the purpose of connection.
 
-**Technical Settings tab**
+**Technical Settings Tab**
 
 ![SM59](/images/SAPUtils/SAP_RFC_CONNECTION_3.png)
 
@@ -65,7 +67,7 @@ Following are the advantages for using trusted channels:
 - Prevents the mishandling of logon data because of the time-out mechanism.
 - User-specific logon details of the calling/trusted system is checked.
 
-*The RFC users must have the required authorizations in the trusting system (authorization object **S_RFCACL**).*Trusted connections are mostly used to connect SAP Solution Manager Systems with other SAP systems (satellites)
+The RFC users must have the required authorizations in the trusting system (authorization object **S_RFCACL**).Trusted connections are mostly used to connect SAP Solution Manager Systems with other SAP systems (satellites)
 
 ### Step 3: Testing the RFC Connection
 
