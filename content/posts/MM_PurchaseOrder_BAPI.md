@@ -17,7 +17,7 @@ tags:
 ### 通过BAPI创建PO
 
 ```html
-FUNCTION zrfc_mm001.
+FUNCTION zcreate_po.
 *"----------------------------------------------------------------------
 *"*"Local interface:
 *"  IMPORTING
@@ -35,11 +35,11 @@ FUNCTION zrfc_mm001.
 *"  TABLES
 *"      POITEM STRUCTURE  ZPOITEM
 *"----------------------------------------------------------------------
-DATA: lv_currency TYPE bapimepoheader-currency VALUE 'RMB',        "货币码
+DATA: lv_currency TYPE bapimepoheader-currency VALUE 'RMB',        "货币码"
       ls_poitem   TYPE zpoitem,
       lv_message  TYPE bapiret2-message,
-      lv_po_item  TYPE bapimepoitem-po_item,                       "行项目号
-      lv_pckg_no  TYPE bapimepoitem-pckg_no.                       "PCKG_NO
+      lv_po_item  TYPE bapimepoitem-po_item,                       "行项目号"
+      lv_pckg_no  TYPE bapimepoitem-pckg_no.                       "PCKG_NO"
 DATA: quantity(18),
       net_price(37),
       limit(27),
@@ -52,60 +52,61 @@ CLEAR:gs_poheader,    gs_poheaderx,  gv_po_number,  gt_return,      gs_return,  
       gs_poschedulex, gt_poaccount,  gs_poaccount,  gt_poaccountx,  gs_poaccountx, gt_polimits,
       gs_polimits.
 *数据检查.
-      PERFORM frm_check_data USING doc_type purch_org pur_group vendor comp_code poitem[]
-                             CHANGING flag message.
+PERFORM frm_check_data USING doc_type purch_org pur_group vendor comp_code poitem[]
+                       CHANGING flag message.
 *补齐前导零
 CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
   EXPORTING
-    input         = vendor
+    input    = vendor
  IMPORTING
-   output         = l_lifnr.
+   output    = l_lifnr.
 *抬头数据
-      gs_poheader-doc_type   = doc_type.                "采购凭证类型
-      gs_poheader-purch_org  = purch_org.               "采购组织
-      gs_poheader-pur_group  = pur_group.               "采购组
-      gs_poheader-vendor     = l_lifnr.                 "供应商帐户号
-      gs_poheader-comp_code  = comp_code.               "公司代码
-      gs_poheader-currency   = lv_currency.             "货币码
-      gs_poheader-pmnttrms   = dzterm.                  "付款条件
-      gs_poheaderx-doc_type  = g_flag.
-      gs_poheaderx-purch_org = g_flag.
-      gs_poheaderx-pur_group = g_flag.
-      gs_poheaderx-vendor    = g_flag.
-      gs_poheaderx-comp_code = g_flag.
-      gs_poheaderx-currency  = g_flag.
-      gs_poheaderx-pmnttrms  = g_flag.
-    SELECT * INTO TABLE  lt_eskl FROM eskl  UP TO 500 ROWS
-      WHERE loekz = '' .
-  LOOP AT poitem INTO ls_poitem.
+gs_poheader-doc_type   = doc_type.      "采购凭证类型
+gs_poheader-purch_org  = purch_org.     "采购组织
+gs_poheader-pur_group  = pur_group.     "采购组
+gs_poheader-vendor     = l_lifnr.       "供应商帐户号
+gs_poheader-comp_code  = comp_code.     "公司代码
+gs_poheader-currency   = lv_currency.   "货币码
+gs_poheader-pmnttrms   = dzterm.        "付款条件
+"抬头数据标识"
+gs_poheaderx-doc_type  = g_flag.
+gs_poheaderx-purch_org = g_flag.
+gs_poheaderx-pur_group = g_flag.
+gs_poheaderx-vendor    = g_flag.
+gs_poheaderx-comp_code = g_flag.
+gs_poheaderx-currency  = g_flag.
+gs_poheaderx-pmnttrms  = g_flag.
+SELECT * INTO TABLE  lt_eskl FROM eskl UP TO 500 ROWS
+    WHERE loekz = '' .
+LOOP AT poitem INTO ls_poitem.
 *行项目
-     READ TABLE lt_eskl INDEX sy-tabix.
-     lv_pckg_no = lt_eskl-packno.
-     lv_po_item = lv_po_item + 10.
-     PERFORM frm_poitem USING ls_poitem lv_po_item lv_pckg_no.
+   READ TABLE lt_eskl INDEX sy-tabix.
+   lv_pckg_no = lt_eskl-packno.
+   lv_po_item = lv_po_item + 10.
+   PERFORM frm_poitem USING ls_poitem lv_po_item lv_pckg_no.
 *计划行
-     PERFORM frm_poschedule USING ls_poitem lv_po_item.
+   PERFORM frm_poschedule USING ls_poitem lv_po_item.
 *账户分配
-     PERFORM frm_poaccount USING ls_poitem lv_po_item.
+   PERFORM frm_poaccount USING ls_poitem lv_po_item.
 *服务限制
-     PERFORM frm_polimits USING ls_poitem lv_po_item lv_pckg_no.
-  ENDLOOP.
+   PERFORM frm_polimits USING ls_poitem lv_po_item lv_pckg_no.
+ENDLOOP.
 *创建采购订单
-     CALL FUNCTION 'BAPI_PO_CREATE1'
-       EXPORTING
-         poheader                    = gs_poheader
-         poheaderx                   = gs_poheaderx
-      IMPORTING
-        exppurchaseorder             = gv_po_number
-      TABLES
-        return                       = gt_return
-        poitem                       = gt_poitem
-        poitemx                      = gt_poitemx
-        poschedule                   = gt_poschedule
-        poschedulex                  = gt_poschedulex
-        poaccount                    = gt_poaccount
-        poaccountx                   = gt_poaccountx
-        polimits                     = gt_polimits.
+CALL FUNCTION 'BAPI_PO_CREATE1'
+  EXPORTING
+    poheader             = gs_poheader
+    poheaderx            = gs_poheaderx
+  IMPORTING
+    exppurchaseorder     = gv_po_number
+  TABLES
+    return               = gt_return
+    poitem               = gt_poitem
+    poitemx              = gt_poitemx
+    poschedule           = gt_poschedule
+    poschedulex          = gt_poschedulex
+    poaccount            = gt_poaccount
+    poaccountx           = gt_poaccountx
+    polimits             = gt_polimits.
   READ TABLE gt_return INTO gs_return WITH KEY type = 'E'.
   IF sy-subrc NE 0.
     po_number = gv_po_number.
@@ -128,48 +129,12 @@ CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
     SHIFT message LEFT DELETING LEADING  '｜'.
     flag = 'E'.
   ENDIF.
-*记录日志
-  CLEAR:gt_log,gs_log,ls_poitem.
-  LOOP AT poitem INTO ls_poitem.
-    lv_datano     = lv_datano + 1.
-    gs_log-datano = lv_datano.
-    gs_log-name   = 'ZRFC_MM001'.
-    gs_log-cdate  = sy-datum.
-    GET TIME.
-    gs_log-ctime  = sy-uzeit.
-    gs_log-callno = callno.
-    gs_log-flag   = flag.
-    gs_log-log    = message.
-    quantity  = ls_poitem-quantity.
-    net_price = ls_poitem-net_price.
-    limit     = ls_poitem-limit.
-    exp_value = ls_poitem-exp_value.
-    CONCATENATE doc_type  purch_org  pur_group  vendor  comp_code dzterm
-    ls_poitem-po_item ls_poitem-acctasscat ls_poitem-item_cat ls_poitem-short_text quantity
-    ls_poitem-po_unit ls_poitem-orderpr_un ls_poitem-matl_group ls_poitem-plant ls_poitem-tax_code
-    net_price ls_poitem-del_datcat_ext ls_poitem-delivery_date ls_poitem-gl_account ls_poitem-co_area
-    ls_poitem-costcenter ls_poitem-asset_no ls_poitem-wbs_element limit exp_value
-    ls_poitem-afnam po_number INTO gs_log-content SEPARATED BY '|'.
-
-    CONDENSE gs_log-content NO-GAPS.
-    gs_log-length = STRLEN( gs_log-content ).
-    APPEND gs_log TO gt_log.
-    CLEAR: ls_poitem,quantity,net_price,limit,exp_value.
-  ENDLOOP.
-  IF gt_log IS NOT INITIAL.
-    INSERT zrfc_mm01in_log FROM TABLE gt_log.
-    IF sy-subrc = 0.
-      COMMIT WORK.
-    ENDIF.
-  ENDIF.
 ENDFUNCTION.
 ```
 
-
-
 ### 根据PR创建PO
 
-```JS
+```html
 LOOP AT PRITEM.
    IF SY-TABIX = 1.
      LS_POHEADER-DOC_TYPE   = 'ZSTL'.
@@ -363,5 +328,76 @@ CALL FUNCTION 'BAPI_PO_CREATE1'
     FREE pr_item_id.
     FREE pr_return.
   ENDLOOP.
+```
+
+### 删除PO
+
+```html
+FUNCTION zchange_po.
+*"----------------------------------------------------------------------
+*"*"Local interface:
+*"  IMPORTING
+*"     VALUE(CALLNO) TYPE  ZCALLNO
+*"     VALUE(PO_NUMBER) LIKE  BAPIMEPOHEADER-PO_NUMBER
+*"  EXPORTING
+*"     VALUE(FLAG) LIKE  BAPIRET2-TYPE
+*"     VALUE(MESSAGE) LIKE  BAPIRET2-MESSAGE
+*"  TABLES
+*"      ZPOITEM STRUCTURE  ZPOITEM01
+*"----------------------------------------------------------------------
+DATA: ls_zpoitem TYPE zpoitem01,
+      lv_message TYPE bapiret2-message,
+      lv_datano  TYPE zdatano.
+DATA: gv_po_number LIKE  bapimepoheader-po_number,              
+      gt_return    LIKE  TABLE OF bapiret2,                
+      gs_return    LIKE  LINE  OF gt_return,
+      gt_poitem    LIKE  TABLE OF bapimepoitem,   
+      gs_poitem    LIKE  LINE  OF gt_poitem,
+      gt_poitemx   LIKE  TABLE OF bapimepoitemx,
+      gs_poitemx   LIKE  LINE  OF gt_poitemx.
+CLEAR:gv_po_number,gs_poitemx,gs_poitem,gs_return,gt_poitemx,gt_poitem,gt_return.
+"准备BAPI数据"
+gv_po_number = po_number.
+LOOP AT zpoitem INTO ls_zpoitem.
+  gs_poitem-po_item    = ls_zpoitem-po_item.
+  gs_poitem-delete_ind = ls_zpoitem-delete_ind.
+  APPEND gs_poitem TO gt_poitem.
+  gs_poitemx-po_item    = ls_zpoitem-po_item.
+  gs_poitemx-po_itemx   = g_flag.
+  gs_poitemx-delete_ind = g_flag.
+  APPEND gs_poitemx TO gt_poitemx.
+  CLEAR:gs_poitemx,gs_poitem.
+ENDLOOP.
+"执行BAPI BAPI_PO_CHANGE"
+CALL FUNCTION 'BAPI_PO_CHANGE'
+  EXPORTING
+    purchaseorder  = gv_po_number
+  TABLES
+    return         = gt_return
+    poitem         = gt_poitem
+    poitemx        = gt_poitemx.
+"判断执行结果，并记录错误信息"
+READ TABLE gt_return INTO gs_return WITH KEY type = 'E'.
+IF sy-subrc NE 0.
+  flag = 'S'.
+  CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+    EXPORTING
+      wait = 'X'.
+  CONCATENATE 'PO：'gv_po_number '处理完成' INTO message .
+ELSE.
+  CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'.
+  LOOP AT gt_return INTO gs_return WHERE type CA 'AEX'.
+    MESSAGE ID     gs_return-id
+            TYPE   gs_return-type
+            NUMBER gs_return-number
+            WITH   gs_return-message_v1 gs_return-message_v2
+                   gs_return-message_v3 gs_return-message_v4
+            INTO lv_message.
+    CONCATENATE message lv_message INTO message SEPARATED BY '｜'.
+  ENDLOOP.
+  SHIFT message LEFT DELETING LEADING  '｜'.
+  flag = 'E'.
+ENDIF.
+ENDFUNCTION.
 ```
 
