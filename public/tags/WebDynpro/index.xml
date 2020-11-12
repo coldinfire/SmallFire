@@ -48,6 +48,15 @@
     </item>
     
     <item>
+      <title> Web Dynpro ABAP的View Details </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</guid>
+      <description>界面元素 下面列表是一些常用的UI ELEMENT,在普通的WDA开发中会经常用到。 Element Desc Element Desc BUTTON 按钮 GROUP 分组工具，无工具功能 CAPTION 标题 IMAGE 图片（需要将图片</description>
+    </item>
+    
+    <item>
       <title> Web Dynpro ABAP Program:ALV_VIEW-WDDOINIT </title>
       <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/</link>
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>

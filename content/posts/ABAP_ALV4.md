@@ -82,7 +82,6 @@ qtabname   type slis_tabname	  (数量字段所参照的货币单位表名)
 **自定义FIELDCAT字段结构：**
 
 ​	定义宏来设置FIELDAT属性 &1 &2 &3分别为参数
-​    
 
 ```JS
 DATA: lt_alv_fieldcat TYPE SLIS_T_FIELDCAT_ALV WITH HEADER LINE. 

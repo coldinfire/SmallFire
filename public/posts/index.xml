@@ -170,7 +170,7 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_PurchaseOrder_BAPI/</guid>
-      <description>通过BAPI创建PO FUNCTION zrfc_mm001. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local interface: *&amp;#34; IMPORTING *&amp;#34; VALUE(CALLNO) TYPE ZCALLNO *&amp;#34; VALUE(DOC_TYPE) LIKE BAPIMEPOHEADER-DOC_TYPE DEFAULT &amp;#39;ZIPR&amp;#39; *&amp;#34; VALUE(PURCH_ORG) LIKE BAPIMEPOHEADER-PURCH_ORG DEFAULT &amp;#39;POIC&amp;#39; *&amp;#34; VALUE(PUR_GROUP) LIKE BAPIMEPOHEADER-PUR_GROUP *&amp;#34; VALUE(VENDOR) LIKE BAPIMEPOHEADER-VENDOR *&amp;#34; VALUE(COMP_CODE) LIKE BAPIMEPOHEADER-COMP_CODE DEFAULT &amp;#39;GF50&amp;#39; *&amp;#34; VALUE(DZTERM) TYPE DZTERM DEFAULT &amp;#39;0001&amp;#39; *&amp;#34; EXPORTING *&amp;#34; VALUE(PO_NUMBER) LIKE BAPIMEPOHEADER-PO_NUMBER *&amp;#34; VALUE(FLAG) LIKE BAPIRET2-TYPE *&amp;#34; VALUE(MESSAGE) LIKE BAPIRET2-MESSAGE *&amp;#34; TABLES *&amp;#34;</description>
+      <description>通过BAPI创建PO FUNCTION zcreate_po. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local interface: *&amp;#34; IMPORTING *&amp;#34; VALUE(CALLNO) TYPE ZCALLNO *&amp;#34; VALUE(DOC_TYPE) LIKE BAPIMEPOHEADER-DOC_TYPE DEFAULT &amp;#39;ZIPR&amp;#39; *&amp;#34; VALUE(PURCH_ORG) LIKE BAPIMEPOHEADER-PURCH_ORG DEFAULT &amp;#39;POIC&amp;#39; *&amp;#34; VALUE(PUR_GROUP) LIKE BAPIMEPOHEADER-PUR_GROUP *&amp;#34; VALUE(VENDOR) LIKE BAPIMEPOHEADER-VENDOR *&amp;#34; VALUE(COMP_CODE) LIKE BAPIMEPOHEADER-COMP_CODE DEFAULT &amp;#39;GF50&amp;#39; *&amp;#34; VALUE(DZTERM) TYPE DZTERM DEFAULT &amp;#39;0001&amp;#39; *&amp;#34; EXPORTING *&amp;#34; VALUE(PO_NUMBER) LIKE BAPIMEPOHEADER-PO_NUMBER *&amp;#34; VALUE(FLAG) LIKE BAPIRET2-TYPE *&amp;#34; VALUE(MESSAGE) LIKE BAPIRET2-MESSAGE *&amp;#34; TABLES *&amp;#34;</description>
     </item>
     
     <item>
@@ -1305,6 +1305,15 @@
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</guid>
       <description>程序实例 METHOD ONACTIONPRINT . DATA lo_api_controller TYPE REF TO if_wd_controller. DATA lo_message_manager TYPE REF TO if_wd_message_manager. DATA: LT_EKPO TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO TYPE ZEKPO_asn, LT_EKPO_SUM TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM TYPE ZEKPO_asn, LT_EKPO_SUM_TMP TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM_TMP TYPE ZEKPO_asn. DATA lo_lips TYPE REF TO if_wd_context_node. data: lt_lips TYPE TABLE OF ZSLIPSASN, ls_lips TYPE ZSLIPSASN, lt_lips_tmp TYPE TABLE OF ZSLIPSASN, ls_lips_tmp TYPE ZSLIPSASN.</description>
+    </item>
+    
+    <item>
+      <title> Web Dynpro ABAP的View Details </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</guid>
+      <description>界面元素 下面列表是一些常用的UI ELEMENT,在普通的WDA开发中会经常用到。 Element Desc Element Desc BUTTON 按钮 GROUP 分组工具，无工具功能 CAPTION 标题 IMAGE 图片（需要将图片</description>
     </item>
     
     <item>

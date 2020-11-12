@@ -37,7 +37,9 @@ tags:
 
 切换页签到Context(还是COMPONENTCONTROLLER),创建Nodes
 
-进到创建Nodes的界面,输入Node Name, Dictionary structure,然后Cardinality改成0..n，然然后点击Add attribute from structure来选择需要的字段
+Context：节点。视图使用的表，结构，全部放在这里。一般0-1/1-1/0-n三种。前两种相当于工作区，结构，后一种是内表。1-1时需要勾选Initialization Lead Selection
+
+进到创建Nodes的界面,输入Node Name,Dictionary structure,然后Cardinality改成0..n，然然后点击Add attribute from structure来选择需要的字段
 
 ![Create node](/images/webdynproABAP/4.1.png)
 

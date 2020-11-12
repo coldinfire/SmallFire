@@ -129,7 +129,7 @@ ENDLOOP.
 #### 查找Customer Exits
 
 1. 通过一些专门的程序，如:[利用t-code查找增强出口的程序工具](https://www.591sap.com/thread-87-1-1.html)
-2. 使用函数 MODX_FUNCTION_ACTIVE_CHECK,代码最后添加断点，执行需要增强的TCODE，如果有增强，就会自动跳入DEBUG界面。在DEBUG界面，查看f_tab字段，这里面所显示的Smod就是关于这个TCODE所有的增强项目的列表。这些增强都是属于EXIT_XXXXXX_XXX这种形式。查阅 MODSAP表，确定增强属于哪个SMOD.
+2. 使用函数 MODX_FUNCTION_ACTIVE_CHECK,代码最后添加断点，执行需要增强的TCODE，如果有增强，就会自动跳入DEBUG界面。在DEBUG界面，查看f_tab字段，这里面所显示的SMOD就是关于这个TCODE所有的增强项目的列表。这些增强都是属于EXIT_XXXXXX_XXX这种形式。查阅 MODSAP表，确定增强属于哪个SMOD.
 3. SE80 -> Repository Infomation Sysrtem -> Enhancements -> Customer Exits -> Input search condition -> Execute
 4. SE11 -> 查看表**MODSAPVIEW** -> 在MEMBER(Enhancement)中输入程序名  -> Execute : 得到的SAP extension name 即为 Customer Exits Enhancement Name.
 5. 首先使用SE93根据事物码找到对应程序名，然后 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “PROG”、OBJ_NAME = 程序名）找对应开发类，如果找不到对应开发类，通过 SE38 查看程序，在菜单"转到 - 属性"中找开发类。然后再用 SE11 查询数据表 TADIR（限定 PGMID=“R3TR”、 OBJECT= “SMOD”、DEVCLASS = 开发类）就可找到此程序可用的增强点（并非万能）。然后根据增强点从表 **MODSAP** 中就可以看到此增强具备哪些功能【屏幕增强（S）、菜单增强（C）、功能增强（E）、表增强（T）】
