@@ -1718,7 +1718,7 @@
       <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV4/</guid>
-      <description>ALV常使用的FM &amp;lt;1&amp;gt; LVC_FIELDCATALOG_MERGE：根据内表结构返回FIELDCAT字段结构信息. &amp;lt;2&amp;gt; REUSE_ALV_GRI</description>
+      <description>ALV相关的FM &amp;lt;1&amp;gt; REUSE_ALV_FIELDCATALOG_MERGE：根据内表结构自动生成FIELDCAT字段结构信息。 &amp;lt;2&amp;gt; REUSE_</description>
     </item>
     
     <item>
