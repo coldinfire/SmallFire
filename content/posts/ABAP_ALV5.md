@@ -34,9 +34,7 @@ FORM user_command USING ucomm LIKE sy-ucommselfield selfield TYPE slis_selfield.
 ENDFORM. 
 ```
 
-
-
-## 自定义按钮使用后刷新ALV
+## 按钮使用后刷新ALV
 
 ```jS
 form frm_user_command using r_ucomm     like sy-ucomm
@@ -48,6 +46,53 @@ form frm_user_command using r_ucomm     like sy-ucomm
  endcase.
    rs_selfield-refresh = 'X'.
 endform.                    "frm_user_command
+```
+
+## 稳定刷新
+
+### OO ALV
+
+如果使用 "REFRESH_TABLE_DISPLAY" 刷新 ALV 后，记录会跳到第一行，以下代码可以使记录仍然定位在当前行 
+
+```html
+DATA ls_stable TYPE lvc_s_stbl.
+  ls_stable-row = 'X'.
+  ls_stable-col = 'X'.
+CALL METHOD gr_alvgrid->refresh_table_display
+  EXPORTING
+    is_stable = ls_stable
+  EXCEPTIONS
+    finished = 1
+    OTHERS = 2.
+IF sy-subrc <> 0.
+ENDIF.
+```
+
+### Function ALV
+
+使用类似的方法，但是要先把当前 ALV 网格 “对象化”。
+
+**注意：** FUNCTION ALV 中一般是在 frm_user_command 中加上 rs_selfield-refresh = 'X'. 来刷新 ALV 的，所以当使用稳定刷新以后，不能再用该语句了。
+
+```html
+DATA l_guid TYPE REF TO cl_gui_alv_grid.
+"把当前网格赋给对象 l_guid"
+CALL FUNCTION 'GET_GLOBALS_FROM_SLVC_FULLSCR'
+  IMPORTING
+    e_grid = l_guid.
+" 调用 CHECK_CHANGED_DATA 可以使被修改的数据自动更新到内表中去 "
+CALL METHOD l_guid->check_changed_data.
+" 稳定刷新
+DATA stbl TYPE lvc_s_stbl.
+stbl-row = 'X'." 基于行的稳定刷新
+stbl-col = 'X'." 基于列稳定刷新
+CALL METHOD l_guid->refresh_table_display
+  EXPORTING
+    is_stable      = stbl
+    i_soft_refresh = 'X'
+  EXCEPTIONS
+    finished       = 1
+    others         = 2.
 ```
 
 ## Search help 的创建
