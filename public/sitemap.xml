@@ -2508,9 +2508,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</loc>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_OVS/</loc>
       
-      <lastmod>2018-10-25T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-27T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -2522,9 +2522,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</loc>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</loc>
       
-      <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -2581,6 +2581,34 @@
       <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP/</loc>
       
       <lastmod>2018-10-20T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</loc>
+      
+      <lastmod>2018-10-19T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_Structure/</loc>
+      
+      <lastmod>2018-10-18T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

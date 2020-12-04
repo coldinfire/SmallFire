@@ -42,13 +42,13 @@ method WDDOINIT .
 *2.实例化alv 组件
 *=========================================================
 " Instantiate the ALV Component 实例化ALV 组件"
-  lo_alv_usage = wd_this->wd_cpuse_alv( ). "①重要的将引用的ALV 组件实例（ALV_OUTPUT）复制给参数"
+  lo_alv_usage = wd_this->wd_cpuse_alv( ). "①重要的将引用的ALV组件实例（ALV_OUTPUT）复制给参数"
   IF lo_alv_usage->has_active_component( ) IS INITIAL.
     lo_alv_usage->create_component( ).
   ENDIF.
 " Get reference to model 获取参考模型"
-  lo_if_controller = wd_this->wd_cpifc_alv( ). "②重要的将引用的ALV 组件实例（ALV_OUTPUT）复制给参数"
-  lo_config = lo_if_controller->get_model( ). "③重要的获取控制器的GET_MODEL 方法，实现定制"
+  lo_if_controller = wd_this->wd_cpifc_alv( ). "②重要的将引用的ALV组件实例（ALV_OUTPUT）复制给参数"
+  lo_config = lo_if_controller->get_model( ). "③重要的获取控制器的GET_MODEL方法，实现定制"
 " Set the UI elements.设置UI 元素"
   lo_column_settings ?= lo_config.
   lt_columns = lo_column_settings->get_columns( ).
@@ -60,7 +60,17 @@ method WDDOINIT .
   lo_salv_settings ?= lo_config.
 *Set read_only
   lo_salv_settings->set_read_only( abap_false ).
-" lo_salv_settings->set_read_only( abap_true ). " 
+  lo_salv_settings->SET_VISIBLE_ROW_COUNT( '10' )."设置可见行"
+  lo_salv_settings->SET_ROW_SELECTABLE( ABAP_TRUE )."设置行选择"
+  lo_salv_settings->SET_WIDTH( '50%' )."设置ALV宽度"
+  lo_salv_settings->SET_EDIT_MODE( IF_SALV_WD_C_TABLE_SETTINGS=>EDIT_MODE )."设置编辑模式"
+*  lo_salv_settings->SET_EDIT_MODE( IF_SALV_WD_C_TABLE_SETTINGS=>EDIT_MODE_STANDARD )."设置不可编辑模式"
+  lo_salv_settings->SET_READ_ONLY( ABAP_FALSE )."设置ALV整体不可编辑"
+  lo_salv_settings->SET_SCROLLABLE_COL_COUNT( '10' )."设置滚动条"
+  lo_salv_settings->SET_ENABLED( ABAP_TRUE ) ."可处理的"
+  lo_salv_settings->SET_EMPTY_TABLE_TEXT( 'Empty' ) ."设置空表时显示的文本"
+  lo_salv_settings->SET_FIXED_TABLE_LAYOUT( ABAP_FALSE ).  "使列宽可自动调节"
+  lo_salv_settings->SET_DISPLAY_EMPTY_ROWS( ABAP_FALSE ).  "不展示空表"
 *4.ALV Table 设置是否可以导出
 *=========================================================
   lo_config->if_salv_wd_std_functions~set_export_allowed( abap_true ) ."设置是否可以导出"

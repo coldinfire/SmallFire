@@ -1,6 +1,6 @@
 ---
 title: " Web Dynpro ABAP Program:ALV_VIEW-Function "
-date: 2018-10-25
+date: 2018-10-21
 draft: false
 author: Small Fire
 isCJKLanguage: true

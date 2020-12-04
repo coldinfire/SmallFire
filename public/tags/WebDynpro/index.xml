@@ -39,21 +39,21 @@
     </item>
     
     <item>
-      <title> Web Dynpro ABAP Program:ALV_VIEW-Function </title>
-      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</link>
-      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      <title> Web Dynpro ABAP - OVS搜索帮助 </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_OVS/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</guid>
-      <description>程序实例 METHOD ONACTIONPRINT . DATA lo_api_controller TYPE REF TO if_wd_controller. DATA lo_message_manager TYPE REF TO if_wd_message_manager. DATA: LT_EKPO TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO TYPE ZEKPO_asn, LT_EKPO_SUM TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM TYPE ZEKPO_asn, LT_EKPO_SUM_TMP TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM_TMP TYPE ZEKPO_asn. DATA lo_lips TYPE REF TO if_wd_context_node. data: lt_lips TYPE TABLE OF ZSLIPSASN, ls_lips TYPE ZSLIPSASN, lt_lips_tmp TYPE TABLE OF ZSLIPSASN, ls_lips_tmp TYPE ZSLIPSASN.</description>
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_OVS/</guid>
+      <description>普通字段 普通字段，表字段的搜索帮助（在创建节点的时候指定搜索帮助OVS，或者后面加上去） Step1 ：创建WDA程序，双击程序组件，在Used Comp</description>
     </item>
     
     <item>
-      <title> Web Dynpro ABAP的View Details </title>
-      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</link>
-      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      <title> Web Dynpro ABAP Program:ALV_VIEW-Function </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</guid>
-      <description>界面元素 下面列表是一些常用的UI ELEMENT,在普通的WDA开发中会经常用到。 Element Desc Element Desc BUTTON 按钮 GROUP 分组工具，无工具功能 CAPTION 标题 IMAGE 图片（需要将图片</description>
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/</guid>
+      <description>程序实例 METHOD ONACTIONPRINT . DATA lo_api_controller TYPE REF TO if_wd_controller. DATA lo_message_manager TYPE REF TO if_wd_message_manager. DATA: LT_EKPO TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO TYPE ZEKPO_asn, LT_EKPO_SUM TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM TYPE ZEKPO_asn, LT_EKPO_SUM_TMP TYPE STANDARD TABLE OF ZEKPO_asn, LS_EKPO_SUM_TMP TYPE ZEKPO_asn. DATA lo_lips TYPE REF TO if_wd_context_node. data: lt_lips TYPE TABLE OF ZSLIPSASN, ls_lips TYPE ZSLIPSASN, lt_lips_tmp TYPE TABLE OF ZSLIPSASN, ls_lips_tmp TYPE ZSLIPSASN.</description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_P3/</guid>
-      <description>Component Controller: WDDOINIT method WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, &amp;#34; Selection screen field ref type element &amp;#34; id TYPE string, &amp;#34; selection screen field name &amp;#34; END OF soption. DATA: l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_it_range_table TYPE REF TO data, l_read_only TYPE abap_bool, l_soption_cmp_usage TYPE REF TO if_wd_component_usage, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO</description>
+      <description>Component Controller: WDDOINIT METHOD WDDOINIT . TYPES:BEGIN OF soption, typename TYPE string, &amp;#34; Selection screen field ref type element &amp;#34; id TYPE string, &amp;#34; selection screen field name &amp;#34; END OF soption. DATA: l_alv_cmp_usage TYPE REF TO if_wd_component_usage, l_alvctrl TYPE REF TO iwci_salv_wd_table, l_alvmodel TYPE REF TO cl_salv_wd_config_table, l_read_only TYPE abap_bool, l_alvcolset TYPE REF TO if_salv_wd_column_settings, l_column TYPE REF TO cl_salv_wd_column, l_it_field TYPE TABLE OF dfies, l_wa_field TYPE dfies, l_fieldname</description>
     </item>
     
     <item>
@@ -90,6 +90,24 @@
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP/</guid>
       <description>准备数据 ​ SAP Web Dynpro 一般都是采用调用ERP接口方式获取业务数据，因此输入，输出参数等结构都需要和ERP系统中接口的内容保持一致。在ERP系统中找</description>
+    </item>
+    
+    <item>
+      <title> Web Dynpro ABAP - View Details </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</guid>
+      <description>视图的整体介绍 Properties ：VIEW的属性，一般引入一些系统控件如alv，select-option等 Layout ：视图布局，显示的样式，选择字段的排版 Inbound Plugs ：转</description>
+    </item>
+    
+    <item>
+      <title> Web Dynpro ABAP - Structure </title>
+      <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_Structure/</link>
+      <pubDate>Thu, 18 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_Structure/</guid>
+      <description>一般的程序框架 Component Controller 组件控制器是定义全局的组建，与视图相似，组件控制器是一个程序对外的部分，是整个程序最开始执行的环节 ，也是控制多个视图间数据</description>
     </item>
     
     <item>
