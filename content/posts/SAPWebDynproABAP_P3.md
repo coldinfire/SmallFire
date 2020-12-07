@@ -40,10 +40,11 @@ DATA: l_soption_cmp_usage TYPE REF TO if_wd_component_usage,
 " Select Screen option node setting "
 DATA: lo_nd_zoption TYPE REF TO if_wd_context_node,
       lo_el_zoption TYPE REF TO if_wd_context_element.
-DATA: ls_zoption    TYPE wd_this->element_zoption ,
-      lv_p_total  TYPE wd_this->element_zoption-p_total,
-      lv_p_detail  TYPE wd_this->element_zoption-p_detail.
-DATA: l_abap_bool        TYPE abap_bool.
+DATA: lt_zoption TYPE wd_this->elements_zoption,
+      ls_zoption TYPE wd_this->element_zoption,
+      lv_p_total TYPE wd_this->element_zoption-p_total,
+      lv_p_detail TYPE wd_this->element_zoption-p_detail.
+DATA: l_abap_bool TYPE abap_bool.
   " Create the alv component usage "
   l_alv_cmp_usage = wd_this->wd_cpuse_alv( ).
   IF l_alv_cmp_usage->has_active_component( ) IS INITIAL.
@@ -51,17 +52,32 @@ DATA: l_abap_bool        TYPE abap_bool.
   ENDIF.
   " Get the alv usage "
   l_alvctrl = wd_this->wd_cpifc_alv( ).
-  " Get Option field "
+ 
+  " Get Option Node Field "
   lo_nd_zoption = wd_context->get_child_node( name = wd_this->wdctx_zoption ).
+  " Get Option Element "
   lo_el_zoption = lo_nd_zoption->get_element( ).
-  " 选择界面复选框设置默认值 "
+  " Set Attribute status "
   IF lo_el_zoption IS NOT INITIAL.
+    " Set attribute "
     lo_el_zoption->set_attribute(
       EXPORTING
         name =  `P_DETAIL`
         value = 'X' ).
+    " Get attribute "
+    lo_el_zoption->get_attribute(
+      EXPORTING
+        name =  `P_TOTAL`
+      IMPORTING
+        value = lv_p_total ).
   ENDIF.
-  
+  " Get all declared attributes "
+  lo_el_zoption->get_static_attributes(
+      IMPORTING
+        STATIC_ATTRIBUTES = ls_zoption ).
+  lo_el_zoption->GET_STATIC_ATTRIBUTES_TABLE(
+      IMPORTING
+        NEW_ITEMS = lt_zoption ).
   " Create the select options component usage " 
   l_soption_cmp_usage = wd_this->wd_cpuse_select_options( ).
   IF l_soption_cmp_usage->has_active_component( ) IS INITIAL.

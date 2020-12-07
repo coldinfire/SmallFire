@@ -99,7 +99,7 @@ Context：节点。视图使用的表，结构，全部放在这里。一般0-1/
 
 ![Input View Layout Button](/images/webdynproABAP/17.png)
 
-然后双击EXCUTE,写入逻辑,当点击按钮时，跳入到ALV_VIEW视图。
+然后双击EXCUTE,写入逻辑,当点击按钮时，跳入到ALV_VIEW视图:fire_'Outbound Plugs name'_plg( )。
 
 ```JS
 DATA lo_componentcontroller TYPE REF TO ig_componentcontroller .
@@ -155,8 +155,10 @@ Controller中的上下文中;
 然后Inbound Plugs和Outbound
 Plugs分别维护 
 
-- FROM_INPUT_VIEW : Handle From_input_view
-- TO_INPUT_VIEW : Handle To_input_view
+- 在Inbound Plugs维护Plug
+  Name : FROM_INPUT_VIEW
+- 在Outbound Plugs维护Plug
+  Name : TO_INPUT_VIEW
 
 然后切换到页签Layout,新建一个返回按钮,BACK,然后双击BACK,写入返回逻辑。
 
@@ -178,6 +180,8 @@ Plugs分别维护
 - [ALV_VIEW: Print_Function](https://coldinfire.github.io/2018/SAPWebDynproABAP_P4/)
 
 ### Windows 处理
+
+windows 只是一种容器，在一个 component 内一个 window 可以包含任意多个 view.
 
 打开Windows并双击视图,然后将ALV_VIEW拖到ZWDA_DEMO下面，如图：
 

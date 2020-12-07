@@ -53,11 +53,11 @@ Step3：在视图的WDDOINIT方法中，初始化SELECT OPTIONS。
 
 在视图的Attributes页签中，添加组件对象
 
-- HANDLE  Ref To IF_WD_SELECT_OPTIONS.
+- HANDLE  Ref To IF_WD_SELECT_OPTIONS
 
 使用初始化代码
 
-- [WDDOINIT 初始化代码](https://coldinfire.github.io/2018/SAPWebDynproABAP_P3/)
+- [INPUT_VIEW : WDDOINIT 初始化代码](https://coldinfire.github.io/2018/SAPWebDynproABAP_P3/)
 
 Step4：在视图的Layout中添加ViewContainerUIElement容器，该容器用来盛放Select-options的内容；在Window中将SELECT-OPTION组件嵌套视图中。
 
@@ -89,12 +89,18 @@ Step2：将组件加入使用的视图中。
 
 Step3：初始化ALV。
 
-- [ALV_VIEW: WDDOINIT](https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/)
+在视图的Attributes页签中，添加组件对象
+
+- R_TABLE  Ref To CL_SALV_WD_CONFIG_TABLE
+
+使用初始化代码
+
+- [ALV_VIEW : WDDOINIT](https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/)
 
 
 Step4：数据绑定。
 
-
+​	
 
 Step5：ALV控制器创建，并在窗口中添加，在视图的Layout中添加ViewContainerUIElement容器，该容器用来盛放ALV的结果。
 
@@ -135,4 +141,42 @@ Step5：ALV控制器创建，并在窗口中添加，在视图的Layout中添加
 | value         | 绑定的VALUE                      | colSpan    | 字段占列数，比如文本框，我们可以设置占5格等（前提是容器TRAY,CONTAINER的COL设置的够） |
 | visible       | 可见性，控制字段，组件等是否可见 | hAlign     | 格式                                                         |
 
- 
+###  View Controller 中的 HOOK 方法
+
+HOOK 方法是 Web dynpro 编程中的标准 SAP 方法，由 SAP 自动创建，以控制 Web dynpro 应用程序的执行流程。
+
+![Web Dynpro Hook Method](/images/webdynproABAP/Portal31.png)
+
+#### WDDOINIT：
+
+用于初始化逻辑的方法，这是在显示视图之前显示的第一个方法。此方法用于初始化变量，默认数据等。
+
+#### WDMODIFYVIEW：
+
+此方法用于根据用户操作动态修改视图，该方法用于动态编程。
+
+#### WDDOBEFOREACTION：
+
+此方法用于验证用户输入。
+
+#### WDDOAFTERACTION：
+
+方法用于所有方法或事件处理程序方法中的所有通用逻辑。
+
+#### WDEXIT：
+
+此方法用于清除 / 刷新节点，属性等。
+
+### View Plugs
+
+作为实时业务应用程序的一部分，我们需要从一个屏幕导航到另一个屏幕，为此，有一个 Web dynpro ABAP Plugs的概念。Plugs是用于从一个视图导航到另一个视图的概念。Web dynpro ABAP 中提供两种Plugs。
+
+| Outbound Plugs                                               | Inbound Plugs                                               |
+| ------------------------------------------------------------ | ----------------------------------------------------------- |
+| 该plug用于退出视图                                           | 该plug用于进入视图                                          |
+| 每个Outbound plug都必须链接到Inbound plug                    | 每个Inbound plug都必须链接到Outbound plug                   |
+| 对于每个Outbound plug，将创建一个名为FIRE_XX_plg的方法       | 对于每个Inbound plug，将使用名称HANDLE_创建事件处理程序方法 |
+| 只需触发出界插件方法即可导航。例如：wd_this-> FIRE_XX_plg( ). | 每当我们进入视图时，此Plug事件处理程序方法将自动触发        |
+
+每个Outbound Plug都可以将参数发送到Inbound Plug，Outbound Plug只能发送参数而不能接收参数，要添加或查看参数，请在视图中转到 “Outbound Plug” 选项卡，然后双击任何Outbound Plug，可以在屏幕底部看到参数。
+
