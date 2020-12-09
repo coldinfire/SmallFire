@@ -11,7 +11,7 @@ tags:
   - WebDynpro
 ---
 
-### 程序实例
+### ALV_VIEW Action Function:程序实例
 
 ```JS
 METHOD ONACTIONPRINT .

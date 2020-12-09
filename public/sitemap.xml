@@ -2480,7 +2480,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_Transfer/</loc>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_ClintTransfer/</loc>
       
       <lastmod>2018-11-04T00:00:00+00:00</lastmod>
       
@@ -2508,9 +2508,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_OVS/</loc>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_SearchOVS/</loc>
       
       <lastmod>2018-10-27T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_TriggerEvents/</loc>
+      
+      <lastmod>2018-10-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -2578,7 +2592,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP/</loc>
+      <loc>https://coldinfire.github.io/2018/SAPWebDynproABAP_Demo/</loc>
       
       <lastmod>2018-10-20T00:00:00+00:00</lastmod>
       

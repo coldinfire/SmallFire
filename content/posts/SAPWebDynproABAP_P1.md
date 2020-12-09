@@ -14,91 +14,101 @@ tags:
 ## ALV_VIEW: WDDOINIT
 
 ```JS
-method WDDOINIT .
+METHOD WDDOINIT .
 *1.数据定义
 *=========================================================
- DATA:
-    lo_alv_usage       TYPE REF TO if_wd_component_usage,  "①重要的下面要用"
-    lo_if_controller   TYPE REF TO iwci_salv_wd_table,     "②重要的下面要用"
-    lo_config          TYPE REF TO cl_salv_wd_config_table,"③重要的下面要用"
-    lo_column_settings TYPE REF TO if_salv_wd_column_settings,
-    lo_salv_settings   TYPE REF TO if_salv_wd_table_settings,
-    lo_column          TYPE REF TO cl_salv_wd_column,
-    lo_function        TYPE REF TO cl_salv_wd_function,
-    lo_button          TYPE REF TO cl_salv_wd_fe_button,
-    lt_columns         TYPE salv_wd_t_column_ref,
-    ls_column          TYPE salv_wd_s_column_ref,
-    lo_col_header      TYPE REF TO cl_salv_wd_column_header.
-"添加选择Check Box "
- DATA:lo_checkbox      TYPE REF TO cl_salv_wd_uie_checkbox,
-      lo_input_field   TYPE REF TO cl_salv_wd_uie_input_field.
- DATA lo_column_hdr    TYPE REF TO cl_salv_wd_column_header.
- DATA lo_nd_node TYPE REF TO if_wd_context_node.
- lo_nd_node = wd_context->get_child_node( name = wd_this->wdctx_ZALV_ZPEFF_TOTAL ).
-" 通过向导引入控制器中的LT_STUDENT 节点和其对应的SET_DATA 方法，并将节点传入控制器 "
-  DATA lo_interfacecontroller TYPE REF TO iwci_salv_wd_table .
-  lo_interfacecontroller = wd_this->wd_cpifc_alv( ).
-  lo_interfacecontroller->set_data( r_node_data = lo_nd_node ). "上面定义的节点参数"
+ DATA: alv_usage       TYPE REF TO if_wd_component_usage,  "①"
+       alv_controller  TYPE REF TO iwci_salv_wd_table,     "②"
+       alv_config      TYPE REF TO cl_salv_wd_config_table."③"
+ DATA: column_settings TYPE REF TO if_salv_wd_column_settings,
+       table_settings  TYPE REF TO if_salv_wd_table_settings,
+       column_nd       TYPE REF TO cl_salv_wd_column,
+       column_header   TYPE REF TO cl_salv_wd_column_header,
+       function        TYPE REF TO cl_salv_wd_function,
+       button          TYPE REF TO cl_salv_wd_fe_button.
+ DATA: columns  TYPE salv_wd_t_column_ref,
+       column   TYPE salv_wd_s_column_ref,
+       fields   TYPE TABLE OF dfies,
+       field    TYPE dfies.
+" Add Check Box "
+ DATA:checkbox      TYPE REF TO cl_salv_wd_uie_checkbox,
+      input_field   TYPE REF TO cl_salv_wd_uie_input_field.
+ " Get Context note "
+ DATA context_node TYPE REF TO if_wd_context_node.
+ context_node = wd_context->get_child_node( name = wd_this->wdctx_ZALV_ZPEFF_TOTAL ).
 *2.实例化alv 组件
 *=========================================================
-" Instantiate the ALV Component 实例化ALV 组件"
-  lo_alv_usage = wd_this->wd_cpuse_alv( ). "①重要的将引用的ALV组件实例（ALV_OUTPUT）复制给参数"
-  IF lo_alv_usage->has_active_component( ) IS INITIAL.
-    lo_alv_usage->create_component( ).
+" 实例化ALV 组件 "
+  alv_usage = wd_this->wd_cpuse_alv( ). "① 将引用的ALV组件实例(ALV)复制给参数"
+  IF alv_usage->has_active_component( ) IS INITIAL.
+    alv_usage->create_component( ).
   ENDIF.
-" Get reference to model 获取参考模型"
-  lo_if_controller = wd_this->wd_cpifc_alv( ). "②重要的将引用的ALV组件实例（ALV_OUTPUT）复制给参数"
-  lo_config = lo_if_controller->get_model( ). "③重要的获取控制器的GET_MODEL方法，实现定制"
-" Set the UI elements.设置UI 元素"
-  lo_column_settings ?= lo_config.
-  lt_columns = lo_column_settings->get_columns( ).
-" Set colums not display in alv "
-  lo_column = lo_column_settings->get_column( 'BDAUT' ).
-  lo_column->set_visible( cl_wd_uielement=>e_visible-none ).
-*3.ALV Table 设置是否可以输入
+" 通过向导引入控制器中的Context节点和其对应的SET_DATA方法，并将节点传入控制器 "
+  alv_controller = wd_this->wd_cpifc_alv( ). "② 将引用的ALV组件实例（ALV_OUTPUT）复制给参数"
+  alv_controller->set_data( r_node_data = lo_nd_node ). "上面定义的节点参数"  
+" 获取参考模型 "
+  alv_config = alv_controller->get_model( ). "③ 获取控制器的GET_MODEL方法，实现ALV定制"
+  column_settings ?= alv_config.
+  table_settings  ?= alv_config.
+*3.ALV Table Standard Functions Setting
 *=========================================================
-  lo_salv_settings ?= lo_config.
-*Set read_only
-  lo_salv_settings->set_read_only( abap_false ).
-  lo_salv_settings->SET_VISIBLE_ROW_COUNT( '10' )."设置可见行"
-  lo_salv_settings->SET_ROW_SELECTABLE( ABAP_TRUE )."设置行选择"
-  lo_salv_settings->SET_WIDTH( '50%' )."设置ALV宽度"
-  lo_salv_settings->SET_EDIT_MODE( IF_SALV_WD_C_TABLE_SETTINGS=>EDIT_MODE )."设置编辑模式"
-*  lo_salv_settings->SET_EDIT_MODE( IF_SALV_WD_C_TABLE_SETTINGS=>EDIT_MODE_STANDARD )."设置不可编辑模式"
-  lo_salv_settings->SET_READ_ONLY( ABAP_FALSE )."设置ALV整体不可编辑"
-  lo_salv_settings->SET_SCROLLABLE_COL_COUNT( '10' )."设置滚动条"
-  lo_salv_settings->SET_ENABLED( ABAP_TRUE ) ."可处理的"
-  lo_salv_settings->SET_EMPTY_TABLE_TEXT( 'Empty' ) ."设置空表时显示的文本"
-  lo_salv_settings->SET_FIXED_TABLE_LAYOUT( ABAP_FALSE ).  "使列宽可自动调节"
-  lo_salv_settings->SET_DISPLAY_EMPTY_ROWS( ABAP_FALSE ).  "不展示空表"
-*4.ALV Table 设置是否可以导出
+  alv_config->if_salv_wd_std_functions~set_export_allowed( abap_true ) ."设置是否可以导出"
+  alv_config->if_salv_wd_std_functions~set_edit_append_row_allowed( abap_false ). "附加行"
+  alv_config->if_salv_wd_std_functions~set_edit_delete_row_allowed( abap_false ). "删除行"
+  alv_config->if_salv_wd_std_functions~set_edit_insert_row_allowed( abap_false ). "插入行"
+  alv_config->if_salv_wd_std_functions~set_pdf_allowed( abap_false ).             "打印版本"
+  alv_config->if_salv_wd_std_functions~set_count_records_allowed( abap_true ). "Count Records"
+  alv_config->if_salv_wd_std_functions~set_edit_check_available( abap_false ). "控制是否显示检查按钮"
+*4.ALV Table 设置
 *=========================================================
-  lo_config->if_salv_wd_std_functions~set_export_allowed( abap_true ) ."设置是否可以导出"
-  lo_config->if_salv_wd_std_functions~set_edit_append_row_allowed( abap_false ). "附加行"
-  lo_config->if_salv_wd_std_functions~set_edit_delete_row_allowed( abap_false ). "删除行"
-  lo_config->if_salv_wd_std_functions~set_edit_insert_row_allowed( abap_false ). "插入行"
-  lo_config->if_salv_wd_std_functions~set_pdf_allowed( abap_false ). "打印版本"
-  lo_config->if_salv_wd_std_functions~set_edit_check_available( abap_false ). "控制是否显示检查按钮"
-*5.ALV Table 可显示行设置
+  table_settings->SET_READ_ONLY( ABAP_FALSE )."设置ALV整体不可编辑"
+  table_settings->SET_VISIBLE_ROW_COUNT( '50' )."设置可见行"
+  table_settings->SET_FIXED_TABLE_LAYOUT( ABAP_FALSE ).  "使列宽可自动调节"
+  table_settings->SET_ROW_SELECTABLE( ABAP_TRUE )."设置行选择"
+  table_settings->SET_SCROLLABLE_COL_COUNT( '10' )."设置滚动条"
+  " 控制是否有默认的选择黄条 "
+  table_settings->SET_SELECTION_MODE( cl_wd_table=>e_selection_mode-single_no_lead ).
+  table_settings->SET_WIDTH( '80%' )."设置ALV宽度"
+  table_settings->SET_EDIT_MODE( IF_SALV_WD_C_TABLE_SETTINGS=>EDIT_MODE ).  "设置编辑模式"
+  table_settings->SET_EDIT_MODE( IF_SALV_WD_C_TABLE_SETTINGS=>EDIT_MODE_STANDARD )."设置不可编辑模式"
+  table_settings->SET_ENABLED( ABAP_TRUE ) ."可处理的"
+  table_settings->SET_EMPTY_TABLE_TEXT( 'Empty' ) ."设置空表时显示的文本"
+  table_settings->SET_DISPLAY_EMPTY_ROWS( ABAP_FALSE ).  "不展示空表"
+*5.ALV Columns 设置
 *=========================================================
-  lo_config->if_salv_wd_table_settings~set_visible_row_count( '15' ). "显示的行数"
-*6.ALV Table 控制是否有默认的选择黄条，但是能点出黄条
-*=========================================================
-  lo_config->if_salv_wd_table_settings~set_selection_mode( 
-    cl_wd_table=>e_selection_mode-single_no_lead ).
-*7.ALV Table 设置选择按钮和ALV hearder text 设置,ZSELE添加在Context中
-  CREATE OBJECT lo_checkbox
+  columns = column_settings->get_columns(  ).
+  LOOP AT columns INTO column. 
+    column_nd = column-r_column.
+    CASE column-id.
+      WHEN 'WERKS'.
+        column_nd->set_position( 0 ).
+        column_nd->SET_RESIZABLE( abap_true ).
+        column_header = column_nd->get_header(  ) .
+        column_header->set_ddic_binding_field(  ).
+        column_header->set_text('Plant').
+      WHEN 'MEINS'.
+        column_settings->delete_column( column-id ).
+      WHEN 'OTHERS'.
+        " Setting Color field:WDUI_TABLE_CELL_DESIGN (Table Cell Design) "
+        column_nd->set_cell_design_fieldname( 'COLOR' ). 
+    ENDCASE.
+  ENDLOOP.
+  column_settings->delete_column( 'COLOR' ). "Delete column"
+  column_nd = column_settings->get_column( 'BDAUT' ). "Get column"
+  column_nd->set_visible( cl_wd_uielement=>e_visible-none ). " Set colums not display in alv "
+*6.ALV Table设置选择按钮和ALV hearder text 设置,ZSELE添加在Context中
+*==========================================================
+  CREATE OBJECT checkbox
     EXPORTING
       checked_fieldname = 'ZSELE'.
-  lo_column_settings ?= lo_config.
-  lo_column = lo_column_settings->get_column( 'ZSELE' ).
-  CREATE OBJECT lo_input_field
+  column_nd = column_settings->get_column( 'ZSELE' ).
+  CREATE OBJECT input_field
     EXPORTING
       value_fieldname = 'ZSELE'.
-  lo_column->set_cell_editor( lo_input_field ).
-  lo_column->set_cell_editor( lo_checkbox ).
-  lo_column_hdr = lo_column->create_header( ).
-  lo_column_hdr->set_text( 'Selected' ).
+  column_nd->set_cell_editor( input_field ).
+  column_nd->set_cell_editor( checkbox ).
+  column_header = column_nd->create_header( ).
+  column_header->set_text( 'Selected' ).
 endmethod.
 ```
 
