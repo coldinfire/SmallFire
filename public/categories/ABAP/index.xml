@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>函数创建用户并分配权限</title>
+      <link>https://coldinfire.github.io/2020/ABAP_CreateUser/</link>
+      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_CreateUser/</guid>
+      <description>函数创建用户并分配权限 REPORT ZCREATE_USER. DATA:LS_DATA TYPE BAPILOGOND, LS_ADDR TYPE BAPIADDR3, LS_DEFU TYPE BAPIDEFAUL, LS_PWD TYPE BAPIPWD, GT_RETURN TYPE TABLE OF BAPIRET2, GW_RETURN LIKE LINE OF GT_RETURN, GV_DEST TYPE RFCDEST, GT_FILE TYPE TABLE OF BAPIPROF, GW_FILE LIKE LINE OF GT_FILE. CALL FUNCTION &amp;#39;CRM_OFI_GET_RFCDEST&amp;#39; IMPORTING EV_RFCDEST = GV_DEST EXCEPTIONS NO_RFCDEST = 1 MULTIPLE_RFCDEST = 2 OTHERS = 3. IF SY-SUBRC &amp;lt;&amp;gt; 0. ENDIF.</description>
+    </item>
+    
+    <item>
       <title> Web Dynpro ABAP - ALV Image Light </title>
       <link>https://coldinfire.github.io/2020/SAPWebDynproABAP_Light/</link>
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
