@@ -156,6 +156,34 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2020/SAPWebDynproABAP_Light/</loc>
+      
+      <lastmod>2020-09-08T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/WebDynpro/</loc>
+      
+      <lastmod>2020-09-08T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2020/SAP_LSMW_Details/</loc>
       
       <lastmod>2020-09-03T00:00:00+00:00</lastmod>
@@ -198,6 +226,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2020/SAPWebDynproABAP_DropList/</loc>
+      
+      <lastmod>2020-08-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2020/PP_CO11N_Exit/</loc>
       
       <lastmod>2020-08-21T00:00:00+00:00</lastmod>
@@ -227,20 +269,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2020/SAPWebDynproRuntimeEnv/</loc>
-      
-      <lastmod>2020-08-16T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/WebDynpro/</loc>
       
       <lastmod>2020-08-16T00:00:00+00:00</lastmod>
       

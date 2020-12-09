@@ -88,7 +88,17 @@ METHOD WDDOINIT .
         column_header->set_text('Plant').
       WHEN 'MEINS'.
         column_settings->delete_column( column-id ).
-      WHEN 'OTHERS'.
+      WHEN 'STAT'.  "设置文本色: TEXT_BACKG => WDY_UIE_LIBRARY_ENUM_TYPE"
+      	DATA cell_editor TYPE REF TO cl_salv_wd_uie.
+        DATA text_view TYPE REF TO cl_salv_wd_uie_text_view.
+        cell_editor = column_nd->get_cell_editor( ).
+        IF cell_editor->editor = if_salv_wd_c_column_settings=>cell_editor_text_view.
+          text_view ?= cell_editor.
+          text_view->set_semantic_color_fieldname( 'TEXT_BACKG' ).
+        ENDIF.
+      WHEN 'DATE'. "设置列背景色 COL_BACKG => WDY_UIE_LIBRARY_ENUM_TYPE"
+		column_nd->set_cell_design( cl_wd_abstr_master_table_col=>e_cell_design-positive ).
+      WHEN 'OTHERS'. "COLOR:单元格背景色"
         " Setting Color field:WDUI_TABLE_CELL_DESIGN (Table Cell Design) "
         column_nd->set_cell_design_fieldname( 'COLOR' ). 
     ENDCASE.

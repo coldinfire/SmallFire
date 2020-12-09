@@ -6,10 +6,28 @@
     <description>Recent content in WebDynpro on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/WebDynpro/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> Web Dynpro ABAP - ALV Image Light </title>
+      <link>https://coldinfire.github.io/2020/SAPWebDynproABAP_Light/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPWebDynproABAP_Light/</guid>
+      <description>Context Component Controller WDDOINIT METHOD INIT_DATA_NODE . *... Create an instance of ALV component data: l_ref_cmp_usage type ref to if_wd_component_usage. l_ref_cmp_usage = wd_this-&amp;gt;wd_cpuse_my_alv( ). if l_ref_cmp_usage-&amp;gt;has_active_component( ) is initial. l_ref_cmp_usage-&amp;gt;create_component( ). endif. *... Get data node data: lr_node type ref to if_wd_context_node. lr_node = wd_context-&amp;gt;get_child_node( &amp;#39;TEST_DATA&amp;#39; ). *... Invoke a method of the ALV Interfacecontroller data: l_ref_interfacecontroller type ref to iwci_salv_wd_table. l_ref_interfacecontroller = wd_this-&amp;gt;wd_cpifc_my_alv( ). *... Set the data l_ref_interfacecontroller-&amp;gt;set_data(</description>
+    </item>
+    
+    <item>
+      <title> Web Dynpro ABAP - ALV dropdown </title>
+      <link>https://coldinfire.github.io/2020/SAPWebDynproABAP_DropList/</link>
+      <pubDate>Wed, 26 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPWebDynproABAP_DropList/</guid>
+      <description>ALV Dropdown Step1:给ALV结构添加VALUE SET字段。 Attribute Name : TYPE_SET Type : WDR_CONTEXT_ATTR_VALUE_LIST Step2:将TYPE_SET字段设置为值范围 METHOD wddoinit . DATA: lo_node TYPE REF TO if_wd_context_node, lo_elem TYPE REF TO</description>
+    </item>
     
     <item>
       <title> WebDynpro configuring Runtime Enviroment </title>
