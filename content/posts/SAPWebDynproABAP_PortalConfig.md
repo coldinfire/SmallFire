@@ -98,9 +98,13 @@ Content.
 
 ![Create Transport Package](/images/webdynproABAP/Portal14.png)
 
-然后将iView和Role从左边拖进去即可。
+然后将iView和Role从左边拖进去即可.
+
+![Create Transport Package](/images/webdynproABAP/Portal14_1.png)
 
 #### Preview
 
-接下来将Role分配给用户， 用户就可以看到Web Dynpro挂在Portal上了。
+接下来在User Administration Tab将Role分配给用户， 用户就可以看到Web Dynpro挂在Portal上了。
+
+![Create Transport Package](/images/webdynproABAP/Portal14_2.png)
 
