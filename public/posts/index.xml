@@ -2056,29 +2056,38 @@
     
     <item>
       <title>JavaScript学习与总结</title>
-      <link>https://coldinfire.github.io/2017/JS/</link>
+      <link>https://coldinfire.github.io/2017/WEB_JavaScriptBasic/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/JS/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2017/WEB_JavaScriptBasic/</guid>
+      <description>JavaScript 书写规范 文件编码统一为 utf-8, 书写过程过，每行代码结束必须有分号；原则上所有功能均根据 XXX 项目需求原生开发，以避免网上 down 下来的代码造成的代码污染 (</description>
     </item>
     
     <item>
-      <title>CSS背景设置</title>
-      <link>https://coldinfire.github.io/2017/CSSBackgroup/</link>
+      <title>CSS属性</title>
+      <link>https://coldinfire.github.io/2017/WEB_CSSAttributes/</link>
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/CSSBackgroup/</guid>
+      <guid>https://coldinfire.github.io/2017/WEB_CSSAttributes/</guid>
       <description>属性介绍 网页的背景设计： background-color 颜色设置方式 Color name：red，green&amp;hellip; HEX Value：#rrggbb RGB Value：rgb(255</description>
     </item>
     
     <item>
       <title>CSS格式与标准总结</title>
-      <link>https://coldinfire.github.io/2017/CSS/</link>
+      <link>https://coldinfire.github.io/2017/WEB_CSSBasic/</link>
       <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/CSS/</guid>
-      <description>CSS语法 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器单独一行； 一条声明的开大括号前留一</description>
+      <guid>https://coldinfire.github.io/2017/WEB_CSSBasic/</guid>
+      <description>CSS基础知识 编码规则 编码统一为 utf-8； 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器</description>
+    </item>
+    
+    <item>
+      <title>HTML 基础</title>
+      <link>https://coldinfire.github.io/2017/WEB_HTMLBasic/</link>
+      <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_HTMLBasic/</guid>
+      <description>HTML书写规范 文档类型声明及编码：统一为 html5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=”utf-8″ /&amp;gt;, 书写时实现层次分明的缩进； 所有编码均遵循</description>
     </item>
     
   </channel>

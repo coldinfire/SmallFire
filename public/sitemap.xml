@@ -3838,7 +3838,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/JS/</loc>
+      <loc>https://coldinfire.github.io/2017/WEB_JavaScriptBasic/</loc>
       
       <lastmod>2017-09-14T00:00:00+00:00</lastmod>
       
@@ -3894,7 +3894,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/CSSBackgroup/</loc>
+      <loc>https://coldinfire.github.io/2017/WEB_CSSAttributes/</loc>
       
       <lastmod>2017-09-13T00:00:00+00:00</lastmod>
       
@@ -3908,9 +3908,37 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/CSS/</loc>
+      <loc>https://coldinfire.github.io/2017/WEB_CSSBasic/</loc>
       
       <lastmod>2017-09-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/HTML/</loc>
+      
+      <lastmod>2017-09-01T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_HTMLBasic/</loc>
+      
+      <lastmod>2017-09-01T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

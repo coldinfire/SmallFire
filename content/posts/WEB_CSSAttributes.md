@@ -1,5 +1,5 @@
 ---
-title: "CSS背景设置"
+title: "CSS属性"
 date: 2017-09-13
 draft: false
 author: Small Fire
