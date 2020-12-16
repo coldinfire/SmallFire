@@ -2055,6 +2055,24 @@
     </item>
     
     <item>
+      <title>Bootstrap学习与总结</title>
+      <link>https://coldinfire.github.io/2017/WEB_Bootstrap/</link>
+      <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Bootstrap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JQuery 学习与总结</title>
+      <link>https://coldinfire.github.io/2017/WEB_JQuery/</link>
+      <pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_JQuery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>JavaScript学习与总结</title>
       <link>https://coldinfire.github.io/2017/WEB_JavaScriptBasic/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
@@ -2066,28 +2084,37 @@
     <item>
       <title>CSS属性</title>
       <link>https://coldinfire.github.io/2017/WEB_CSSAttributes/</link>
-      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 09 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_CSSAttributes/</guid>
-      <description>属性介绍 网页的背景设计： background-color 颜色设置方式 Color name：red，green&amp;hellip; HEX Value：#rrggbb RGB Value：rgb(255</description>
+      <description>CSS 属性介绍 文字文本属性 文字属性 文字颜色：color: red; 十六进制：#FF0000 | #F00 RGB值：rgb(255,0,0) 颜色名字：red 文字字体</description>
     </item>
     
     <item>
       <title>CSS格式与标准总结</title>
       <link>https://coldinfire.github.io/2017/WEB_CSSBasic/</link>
-      <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_CSSBasic/</guid>
       <description>CSS基础知识 编码规则 编码统一为 utf-8； 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器</description>
     </item>
     
     <item>
-      <title>HTML 基础</title>
+      <title>DOM 知识汇总</title>
+      <link>https://coldinfire.github.io/2017/WEB_DOM/</link>
+      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_DOM/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML 基础知识汇总</title>
       <link>https://coldinfire.github.io/2017/WEB_HTMLBasic/</link>
       <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_HTMLBasic/</guid>
-      <description>HTML书写规范 文档类型声明及编码：统一为 html5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=”utf-8″ /&amp;gt;, 书写时实现层次分明的缩进； 所有编码均遵循</description>
+      <description>HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=”utf-8″ /&amp;gt;, 书写时实现层次分明的缩进</description>
     </item>
     
   </channel>

@@ -3838,9 +3838,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_JavaScriptBasic/</loc>
+      <loc>https://coldinfire.github.io/2017/WEB_Bootstrap/</loc>
       
-      <lastmod>2017-09-14T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3854,7 +3854,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/JS/</loc>
       
-      <lastmod>2017-09-14T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3867,6 +3867,48 @@
   
     <url>
       <loc>https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+      
+      <lastmod>2017-09-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/JQuery/</loc>
+      
+      <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_JQuery/</loc>
+      
+      <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_JavaScriptBasic/</loc>
       
       <lastmod>2017-09-14T00:00:00+00:00</lastmod>
       
@@ -3882,7 +3924,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/CSS/</loc>
       
-      <lastmod>2017-09-13T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3896,7 +3938,7 @@
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_CSSAttributes/</loc>
       
-      <lastmod>2017-09-13T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3910,7 +3952,35 @@
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_CSSBasic/</loc>
       
-      <lastmod>2017-09-12T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/DOM/</loc>
+      
+      <lastmod>2017-09-03T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_DOM/</loc>
+      
+      <lastmod>2017-09-03T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

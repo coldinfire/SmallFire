@@ -6,7 +6,7 @@
     <description>Recent content in CSS on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 09 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coldinfire.github.io/tags/CSS/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,16 +14,16 @@
     <item>
       <title>CSS属性</title>
       <link>https://coldinfire.github.io/2017/WEB_CSSAttributes/</link>
-      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 09 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_CSSAttributes/</guid>
-      <description>属性介绍 网页的背景设计： background-color 颜色设置方式 Color name：red，green&amp;hellip; HEX Value：#rrggbb RGB Value：rgb(255</description>
+      <description>CSS 属性介绍 文字文本属性 文字属性 文字颜色：color: red; 十六进制：#FF0000 | #F00 RGB值：rgb(255,0,0) 颜色名字：red 文字字体</description>
     </item>
     
     <item>
       <title>CSS格式与标准总结</title>
       <link>https://coldinfire.github.io/2017/WEB_CSSBasic/</link>
-      <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_CSSBasic/</guid>
       <description>CSS基础知识 编码规则 编码统一为 utf-8； 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器</description>
