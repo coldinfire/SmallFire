@@ -12,22 +12,24 @@ tags:
 
 ---
 
-
+### 实现ALV单元格不可编辑
 
 如果已经把ALV中的整列设为可编辑，而只想让这个列中的某些单元格不可编辑，可以使用以下这种方法。
 
-- 具体单元格可编辑状态设置的主要思想：首先通过 EIDT 参数设置列为可编辑状态；其次对输出内表进行循环将不需要编辑的行设置为不可编辑状态，如此单元格的可编辑属性设置完毕。
+具体单元格可编辑状态设置的主要思想：
 
-需要告诉 layout 哪个字段是 style 字段。
-`layout-stylefname = ‘CELLSTYLES’.`
+- 首先通过 EIDT 参数设置列为可编辑状态；
+- 其次对输出内表进行循环将不需要编辑的行设置为不可编辑状态，如此单元格的可编辑属性设置完毕。
 
-下面是关于这些功能的一段代码：
+需要告诉 layout 哪个字段是 style 字段：`layout-stylefname = ‘CELLSTYLES’.`
 
-​	必要条件：
+#### 必要条件
 
 1. 在输出内表中增加字段 `FIELD_STYLE TYPE LVC_T_STYL`
 2. 设置 `STYLE_FNAME = 'FIELD_STYLE'`
 3. 把 style table 添加到显示表，并在 layout structure 中说明 style field。在 field catalog 中把相应的 EDIT 设为‘X’。
+
+#### 实例代码
 
 ```JS
 DATA: BEGIN OF ITAB OCCURS 0,

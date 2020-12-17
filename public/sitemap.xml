@@ -1304,7 +1304,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_BAPI/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</loc>
       
       <lastmod>2019-06-16T00:00:00+00:00</lastmod>
       
@@ -3082,7 +3082,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALVEditControl/</loc>
       
       <lastmod>2018-08-03T00:00:00+00:00</lastmod>
       
@@ -3264,7 +3264,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALV5/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</loc>
       
       <lastmod>2018-07-03T00:00:00+00:00</lastmod>
       
@@ -3278,7 +3278,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALV4.1/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</loc>
       
       <lastmod>2018-06-29T00:00:00+00:00</lastmod>
       
@@ -3292,7 +3292,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALV4/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Display/</loc>
       
       <lastmod>2018-06-25T00:00:00+00:00</lastmod>
       
@@ -3306,7 +3306,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALV3/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_InnerTable/</loc>
       
       <lastmod>2018-06-23T00:00:00+00:00</lastmod>
       
@@ -3320,7 +3320,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALV2/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</loc>
       
       <lastmod>2018-06-19T00:00:00+00:00</lastmod>
       
@@ -3334,7 +3334,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALV1/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</loc>
       
       <lastmod>2018-06-18T00:00:00+00:00</lastmod>
       
@@ -3432,7 +3432,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basis9/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ProgramCall/</loc>
       
       <lastmod>2018-06-05T00:00:00+00:00</lastmod>
       
@@ -3446,7 +3446,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basis8/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_-ProgramOpt/</loc>
       
       <lastmod>2018-06-03T00:00:00+00:00</lastmod>
       
@@ -3460,7 +3460,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basis7/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_DatabaseOpt/</loc>
       
       <lastmod>2018-06-01T00:00:00+00:00</lastmod>
       
@@ -3488,7 +3488,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basis6/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_NativeSQL/</loc>
       
       <lastmod>2018-05-26T00:00:00+00:00</lastmod>
       
@@ -3502,7 +3502,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basis5/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_OpenSQL/</loc>
       
       <lastmod>2018-05-24T00:00:00+00:00</lastmod>
       
@@ -3516,7 +3516,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basis4/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_SubRoutines/</loc>
       
       <lastmod>2018-05-20T00:00:00+00:00</lastmod>
       
@@ -3530,7 +3530,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basis3/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_InnerTable/</loc>
       
       <lastmod>2018-05-16T00:00:00+00:00</lastmod>
       
@@ -3544,7 +3544,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basis2/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Table/</loc>
       
       <lastmod>2018-05-14T00:00:00+00:00</lastmod>
       
@@ -3558,7 +3558,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basis1/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Basis/</loc>
       
       <lastmod>2018-05-12T00:00:00+00:00</lastmod>
       

@@ -13,7 +13,7 @@ tags:
 
 
 
-##  ALV相关的FM
+##  ALV Display相关的FM
 
 <1> REUSE_ALV_FIELDCATALOG_MERGE：根据内表结构自动生成FIELDCAT字段结构信息。
 
@@ -40,11 +40,11 @@ REUSE_ALV_GRID_DISPLAY_LVC:
         gt_layout   TYPE lvc_s_layo.
 ```
 
-在ALV开发中有两个重要的对象：**LAYOUT**和**FIELDCAT**。
+在 ALV 开发中有两个重要的对象： **LAYOUT** 和 **FIELDCAT** 。
 
-- **LAYOUT**主要用于设置ALV的输出格式，如输出字段的颜色、表格中的线条等，为ALV输出的可选项。
+- **LAYOUT** 主要用于设置 ALV 的输出格式，如输出字段的颜色、表格中的线条等，为 ALV 输出的可选项。
 
-- **FIELDCAT**主要用于ALV结构定义，包括具体字段的名称、类型、格式等属性，与Layout不一样的是输出格式只针对某个字段。为 ALV 输出的必选项。
+- **FIELDCAT** 主要用于 ALV 结构定义，包括具体字段的名称、类型、格式等属性，与 Layout 不一样的是输出格式只针对某个字段。为 ALV 输出的必选项。
 
 ## Field Catalog 字段
 
@@ -90,9 +90,9 @@ REUSE_ALV_GRID_DISPLAY_LVC:
 | NO_CONVEXT(1)               | 设置转换规则，对应于Domain中的转换规则                | X-不设置，space-设置     |
 | LOWERCASE(1)                | 是否允许小写字母                                      | X-允许，space-不允许     |
 
-#### 自定义FIELDCAT字段结构
+#### Method 1:自定义FIELDCAT字段结构
 
-​	定义宏来设置FIELDAT属性 &1 &2 &3分别为参数
+定义宏来设置FIELDAT属性 &1 &2 &3分别为参数
 
 ```JS
 DATA: slis_alv_fieldcat TYPE SLIS_T_FIELDCAT_ALV WITH HEADER LINE. 
@@ -109,11 +109,18 @@ END-OF-DEFINITION.
 fieldcatset 'CARRID' '航线承运人' SY-TABIX.
 ```
 
-#### 半自动创建：直接参考数据字典中的现有透明表
+#### Method 2:半自动创建,直接参考数据字典中的现有透明表
 
-使用数据字典中的透明表或视图时，需要调用 **REUSE_ALV_FIELDCATALOG_MERGE** 函数来对相应的Fieldcat 进行匹配。
+调用 **REUSE_ALV_FIELDCATALOG_MERGE** 函数来对相应的Fieldcat 进行匹配。
 
-如果使用结构或则内表时，必须保证该结构或内表中的每个字段的定义只能使用LIKE操作符，否则使用TYPE时，该字段在使用 REUSE_ALV_FIELDCATALOG_MERGE函数时将被忽略，不参照字典类型直接定义类型的除外。
+使用数据字典中的透明表或视图时:
+
+- 直接使用，生成和透明表和视图定义字段相同类型的Fieldcat
+
+使用结构或则内表时:
+
+- 必须保证该结构或内表中的每个字段的定义只能使用 LIKE 操作符
+- 使用 TYPE 时，该字段在使用 REUSE_ALV_FIELDCATALOG_MERGE函数时将被忽略，不参照字典类型直接定义类型的除外。
 
 ```JS
 TYPE-POOLS: SLIS.

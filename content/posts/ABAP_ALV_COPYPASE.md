@@ -15,11 +15,9 @@ tags:
 
 引用链接：[ALV复制内容到剪贴板](https://mp.weixin.qq.com/s/h9vRrzQUir8epaypNdcC6w)
 
+### 使用场景
 
-
-用在ALV的USER_COMMAND里面
-复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前
-如果有选中的列，则复制选中的列，如果没有选中的列，复制所有可见的列 
+用在ALV的USER_COMMAND里面；复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前；如果有选中的列，则复制选中的列，如果没有选中的列，复制所有可见的列 。
 
 如果要保存ALV的数据到Excel，可以先复制，然后到Excel粘贴。
 
@@ -33,27 +31,24 @@ FORM user_command USING r_ucomm LIKE sy-ucomm
 ENDFORM. 
 ```
 
-
+### 程序实例
 
 ```JS
 *&--------------------------------------
 *&  用在ALV的USER_COMMAND里面
 *&  复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前
 *&  如果有选中的列，则复制选中的列，如果没有选中的列，复制所有可见的列 
-*&      Form  itabtoclip_alv
+*&  Form  itabtoclip_alv
 *---------------------*
 FORM itabtoclip_alv TABLES itab.
   DATA: fldcat TYPE slis_t_fieldcat_alv WITH HEADER LINE,
         marked TYPE slis_t_fieldcat_alv WITH HEADER LINE,
         entries TYPE slis_t_fieldcat_entries WITH HEADER LINE.
-
   DATA: charc TYPE char256,
         ftype.
-
   DATA: htab TYPE c VALUE cl_abap_char_utilities=>horizontal_tab.
   DATA: lt_clip TYPE TABLE OF char2048 WITH HEADER LINE.
   FIELD-SYMBOLS <fs_fld>.
-
   CALL FUNCTION 'REUSE_ALV_GRID_LAYOUT_INFO_GET'
     IMPORTING
       et_fieldcat         = fldcat[]
@@ -82,7 +77,6 @@ FORM itabtoclip_alv TABLES itab.
     LOOP AT marked.
       ASSIGN COMPONENT marked-filename OF STRUCTURE itab TO <fs_fld>.
       CHECK sy-subrc = 0.
-
       DESCRIBE FIELD <fs_fld> TYPE ftype.
       CASE  ftype.
         WHEN  'I' OR 'P' OR 'F' OR 'a' OR 'e'.

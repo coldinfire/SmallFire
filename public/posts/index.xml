@@ -350,7 +350,7 @@
       <pubDate>Wed, 04 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</guid>
-      <description>引用链接：ALV复制内容到剪贴板 用在ALV的USER_COMMAND里面 复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前</description>
+      <description>引用链接：ALV复制内容到剪贴板 使用场景 用在ALV的USER_COMMAND里面；复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负</description>
     </item>
     
     <item>
@@ -359,7 +359,7 @@
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_ALVProgress/</guid>
-      <description>为了更加清晰的了解到程序执行进度，可以在程序中添加显示进度条功能。 DATA:BEGIN OF gt_result OCCURS 0, sel(1), matnr TYPE mara-matnr, zz_edi_grp TYPE mara-zz_edi_grp, werks TYPE mseg-werks, eknam TYPE eknam, maktx TYPE maktx, num TYPE sy-tabix, row TYPE sy-tabix, icon TYPE icon-id, mess TYPE string, flag(1), END OF gt_result.</description>
+      <description>添加进度条功能 为了更加清晰的了解到程序执行进度，可以在程序中添加显示进度条功能。 DATA:BEGIN OF gt_result OCCURS 0, sel(1), matnr TYPE mara-matnr, zz_edi_grp TYPE mara-zz_edi_grp, werks TYPE mseg-werks, eknam TYPE eknam, maktx TYPE maktx, num TYPE sy-tabix, row TYPE sy-tabix, icon TYPE icon-id,</description>
     </item>
     
     <item>
@@ -652,10 +652,10 @@
     
     <item>
       <title>BAPI使用</title>
-      <link>https://coldinfire.github.io/2019/ABAP_BAPI/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_BAPI/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</guid>
       <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的RFC函数。 BAPI函数及函数参数参考的结</description>
     </item>
     
@@ -1642,11 +1642,11 @@
     
     <item>
       <title>ALV控制单元格不可编辑</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALVEditControl/</link>
       <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALVEditContro/</guid>
-      <description>如果已经把ALV中的整列设为可编辑，而只想让这个列中的某些单元格不可编辑，可以使用以下这种方法。 具体单元格可编辑状态设置的主要思想：首先通过</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALVEditControl/</guid>
+      <description>实现ALV单元格不可编辑 如果已经把ALV中的整列设为可编辑，而只想让这个列中的某些单元格不可编辑，可以使用以下这种方法。 具体单元格可编辑状态</description>
     </item>
     
     <item>
@@ -1759,55 +1759,55 @@
     
     <item>
       <title>报表开发&lt;常用工具&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV5/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</link>
       <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV5/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</guid>
       <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对REUSE_ALV_GRID_DISPLAY函数参</description>
     </item>
     
     <item>
       <title>Field Catalog 字段排坑</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV4.1/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</link>
       <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV4.1/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</guid>
       <description>原文链接：https://blog.csdn.net/zhongguomao/article/details/77774206 对于初写 ALV 的 A</description>
     </item>
     
     <item>
       <title>报表开发&lt;ALV显示设置&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV4/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Display/</link>
       <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV4/</guid>
-      <description>ALV相关的FM &amp;lt;1&amp;gt; REUSE_ALV_FIELDCATALOG_MERGE：根据内表结构自动生成FIELDCAT字段结构信息。 &amp;lt;2&amp;gt; REUSE_</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display/</guid>
+      <description>ALV Display相关的FM &amp;lt;1&amp;gt; REUSE_ALV_FIELDCATALOG_MERGE：根据内表结构自动生成FIELDCAT字段结构信息。 &amp;lt;2&amp;gt; R</description>
     </item>
     
     <item>
       <title>报表开发&lt;内表操作&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV3/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_InnerTable/</link>
       <pubDate>Sat, 23 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV3/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_InnerTable/</guid>
       <description>内表操作 SQL 语句的执行顺序 书写顺序：SELECT [DISTINCT]&amp;ndash;&amp;gt;FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;UNION&amp;ndash;&amp;gt;ORDER BY 其执行顺序为：FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;SELECT&amp;ndash;&amp;gt;DISTINCT&amp;ndash;&amp;gt;UNION-&amp;gt;ORDER</description>
     </item>
     
     <item>
       <title>报表开发&lt;屏幕设置&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV2/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</link>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV2/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</guid>
       <description>选择屏幕 引用链接 触发 ​ 选择屏幕触发的是：AT SELECTION-SCREEN ​ 对话屏幕触发的是：PAI ​ 列表屏幕触发的是：AT USER-COMMAND SELECT-SCREEN SELECT-SCREEN语句用于创建屏</description>
     </item>
     
     <item>
       <title>报表开发&lt;概述&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV1/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV1/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</guid>
       <description>报表格式 程序说明：包括程序名称，实现的业务功能等信息 数据定义 Include内容 定义选择屏幕 执行程序业务代码 创建TCode：SE93 执行程序的</description>
     </item>
     
@@ -1867,28 +1867,28 @@
     
     <item>
       <title>ABAP程序间调用</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis9/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ProgramCall/</link>
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis9/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ProgramCall/</guid>
       <description>同步调用 在一个程序中调用其他ABAP程序。有两种方式 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function]. SUBMIT [program] AND RETURN. CALL TRANSACTION [TCode].</description>
     </item>
     
     <item>
       <title>ABAP 性能优化(程序逻辑)</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis8/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_-ProgramOpt/</link>
       <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis8/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_-ProgramOpt/</guid>
       <description>性能分析工具 ​ SE30(旧)；SAT(新)：运行时间分析工具 ​ ST12: 程序优化 READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查找 在循环（LOOP AT &amp;h</description>
     </item>
     
     <item>
       <title>ABAP 性能优化(数据操作)</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis7/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_DatabaseOpt/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis7/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_DatabaseOpt/</guid>
       <description>性能分析工具 ST05：性能分析，追踪 SQL，分析哪条 SQL Statement 语句，最耗时间 STAD：得到某个程序或事务运行时的总体分析数据，系统时间，CPU 时间</description>
     </item>
     
@@ -1903,55 +1903,55 @@
     
     <item>
       <title>ABAP Native SQL</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis6/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_NativeSQL/</link>
       <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis6/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_NativeSQL/</guid>
       <description>Native SQL ​ EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sq</description>
     </item>
     
     <item>
       <title>ABAP Open SQL</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis5/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_OpenSQL/</link>
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis5/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_OpenSQL/</guid>
       <description>Open SQL ABAP可以通过两种方式与数据库交互 Native SQL:数据库自身的SQL，可以直接访问数据库，不够安全。 Open SQL:集成到ABAP中的标准SQL子</description>
     </item>
     
     <item>
       <title>ABAP Form和Function</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis4/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_SubRoutines/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis4/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_SubRoutines/</guid>
       <description>全局变量，局部变量 ​ 报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subrouti</description>
     </item>
     
     <item>
       <title>ABAP 内表</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis3/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_InnerTable/</link>
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis3/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_InnerTable/</guid>
       <description>内表定义和使用 内表定义 工作区域:工作区域可以存放多个变量数据,相当于一维数组。 通过Type声明自定义工作区：需要使用Data进行赋值 TYPES: BEGIN OF str_name.</description>
     </item>
     
     <item>
       <title>ABAP 数据表</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis2/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Table/</link>
       <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis2/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Table/</guid>
       <description>Table:透明表(Transparent table)、簇表 (Cluster table)、 池表(Pool table) ​ 透明表： 和数据库具有相同结构的表存储结构。数据</description>
     </item>
     
     <item>
       <title>ABAP 数据类型</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis1/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis/</link>
       <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis1/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis/</guid>
       <description>ABAP基本数据类型 基本数据类型 C : Character text D : Date(YYYYMMDD) P : Packed(包类型:1-16) N : Numeric text(不能进行计算) T : Time(HHMMSS) X : 十六进制 I : Interger F :</description>
     </item>
     
