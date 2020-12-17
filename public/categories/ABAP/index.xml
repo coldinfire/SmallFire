@@ -561,6 +561,15 @@
     </item>
     
     <item>
+      <title> SAP开发文档撰写 </title>
+      <link>https://coldinfire.github.io/2019/SAP_TechWord/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_TechWord/</guid>
+      <description>开发文档的目的 开发文档不是蓝图，不是设计文档，它的重点是关于技术的、关于实现的，但也不仅仅是一些伪代码。应当包含 “程序为什么设计”、“主要功</description>
+    </item>
+    
+    <item>
       <title>移库产生的报错</title>
       <link>https://coldinfire.github.io/2019/WM_Q1/</link>
       <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
