@@ -72,17 +72,17 @@ tags:
 
 #### 元素类型
 
-**块状元素** ：每个块级元素都从新的一行开始，并且其后的元素也另起一行；元素的高度、宽度、行高以及顶和底边距都可设置；元素宽度在不设置的情况下和父元素的宽度一致。
+*块状元素* ：每个块级元素都从新的一行开始，并且其后的元素也另起一行；元素的高度、宽度、行高以及顶和底边距都可设置；元素宽度在不设置的情况下和父元素的宽度一致。
 
 - `<div>` `<p>` `<h1>...<h6>`  `<ol>` `<ul>` `<dl>` `<table>` `<form>`  `<address>` `<blockquote>`  
 -  通过代码 `display: block;` 将元素设置为块级元素
 
-**内联元素** ：和其他元素都在一行上；元素的高度、宽度、行高及顶部和底部边距不可设置；元素的宽度就是它包含的文字或图片的宽度，不可改变。
+*内联元素* ：和其他元素都在一行上；元素的高度、宽度、行高及顶部和底部边距不可设置；元素的宽度就是它包含的文字或图片的宽度，不可改变。
 
 - `<a>` `<span>` `<br>` `<em>` `<strong>` `<label>` `<q>` `<var>` `<cite>` `<code>`
 - 通过代码 `display: inline;` 将元素设置为行内元素
 
-**内联块状元素** ：同时具备内联元素、块状元素的特点；和其他元素都在一行上；元素的高度、宽度、行高以及顶和底边距都可设置。
+*内联块状元素* ：同时具备内联元素、块状元素的特点；和其他元素都在一行上；元素的高度、宽度、行高以及顶和底边距都可设置。
 
 - `<img>` `<input>`
 - 通过代码 `display: inline-block;` 将元素设置为内联块状元素
@@ -104,6 +104,13 @@ tags:
 
 #### 链接
 
+```html
+普通的链接：<a href="http://www.example.com/" target="_blank"> 链接文本 </a>
+图像链接： <a href="http://www.example.com/"><img src="URL" alt="image"></a>
+邮件链接： <a href="mailto:webmaster@example.com"> 发送 e-mail</a>
+书签：<a id="tips"> 提示部分 </a> <a href="#tips"> 跳到提示部分 </a>
+```
+
 `target` 属性值
 
 - _self :在原来页面打开链接
@@ -111,18 +118,11 @@ tags:
 - _top :打开时忽略所有的框架
 - _parent :在父窗口中打开
 
-```html
-普通的链接：<a href="http://www.example.com/"> 链接文本 </a>
-图像链接： <a href="http://www.example.com/"><img src="URL" alt="image"></a>
-邮件链接： <a href="mailto:webmaster@example.com"> 发送 e-mail</a>
-书签：<a id="tips"> 提示部分 </a> <a href="#tips"> 跳到提示部分 </a>
-```
-
 #### 列表
 
 - 无序列表：`<ul>...<li></li>...</ul>`
 - 有序列表：`<ol>...<li></li>...</ol>`
-- 自定义列表：`<dl>...<dt>...<dd></dd>...</dt>...</dl>`
+- 定义列表：`<dl>...<dt>...<dd></dd>...</dt>...</dl>`
 
 #### 表格
 
@@ -130,27 +130,40 @@ tags:
 
 - `<table>...</table>`：整个表格以 < table > 标记开始、</table > 标记结束。
 - `<tr>...</tr>`：表格的一行，所以有几对 tr 表格就有几行。
-- `<th>...</th>`：表格的头部的一个单元格，表格表头。
+- `<th>...</th>`：表格的头部的一个单元格，表格表头样式显示。
 - `<td>...</td>`：表格的一个单元格，一行中包含几对 td 说明一行中就有几列。
 - `<caption>...</caption>`：表格的标题行设置
 
-框架使用： `<iframe src="demo_iframe.htm"></iframe>`
+框架使用： `<iframe src="demo_iframe.htm" title="Iframe Example"></iframe>` 可以在一个页面中组织多个 html 文件
 
 #### 表单
 
+*action* 定义在提交表单时执行的动作；向服务器提交表单的通常做法是使用提交按钮。通常，表单会被提交到 web 服务器上的网页。
+
+*method* 定在提交表单时所用的 HTTP 方法(GET 或 POST)
+
+- GET 提交时，表单数据在页面地址栏中是可见的
+
+- POST 的安全性更加，因为在页面地址栏中被提交的数据是不可见的
+
+*name* 如果要正确地被提交，每个输入字段必须设置一个 name 属性。
+
 ```html
 <form action="#" method="post/get">
-  <input type="text" name="email" size="40" maxlength="50">
-  <input type="password">
-  <input type="checkbox" checked="checked">
-  <input type="radio" checked="checked">
-  <input type="submit" value="Send">
+  <input type="text" name="email" size="40" maxlength="50"><br/>
+  <input type="password" name="password"><br/>
+  <input type="checkbox" name="hoppy" checked="checked">
+  <input type="checkbox" name="hoppy">
+  <input type="radio" name="sex" value="male" checked="checked">Male<br/>
+  <input type="radio" name="sex" value="female">Female<br/>
+  <input type="submit" value="Send"><br/>
   <input type="reset">
   <input type="hidden">
-  <select>
-    <option> 苹果 </option>
-    <option selected="selected"> 香蕉 </option>
-    <option> 樱桃 </option>
+  <select name="cars">
+    <option value="volvo" selected="selected">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
   </select>
   <textarea name="comment" rows="60" cols="20"></textarea>
 </form>
@@ -167,7 +180,9 @@ HTML属性应按照特定的顺序排列，以方便代码查阅。
 - `title`, `alt`
 - `role`, `aria-*`
 
-Class能让我们更好地重用组件，所以它打头阵；id则更加特定和专属，应尽量控制其使用（例如：内页书签）。
+class 能让我们更好地重用组件，所以它打头阵；
+
+id 则更加特定和专属，应尽量控制其使用（例如：内页书签）。
 
 #### 属性命名规则
 
@@ -200,11 +215,12 @@ NAME : N_Head_Title --> NAME属性命名遵循首个字母大写&_
   <style> @import url(style.css); </style>
 <!-- JavaScript -->
   <script src="code-guide.js"></script>
+  <noscript>Sorry, your browser does not support JavaScript!</noscript>
 ```
 
 #### 调用优先级
 
-***内联样式和外联样式的优先级和加载顺序有关***
+*内联样式和外联样式的优先级和加载顺序有关*
 
  - Level1：Inline style (Inside an HTML element)
  - Level2：External and internal style sheets (In the head section)
