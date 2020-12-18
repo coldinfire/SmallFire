@@ -22,19 +22,19 @@ tags:
 
 #### Hugo详情
 
-​	Hugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。
+Hugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。
 
-​	官方网址 [https://gohugo.io/](https://gohugo.io/)，关于Hugo的介绍十分详细。
+官方网址 [https://gohugo.io/](https://gohugo.io/)，关于Hugo的介绍十分详细。
 
 #### 安装Hugo
 
-​	去Github选择合适的版本下载[版本库](https://github.com/gohugoio/hugo/releases)，解压，将解压出来的可执行文件(hugo.exe)放到自定义目录;将对应的文件夹路径配置到环境变量中；查看对应的版本确定是否配置正确。
+在Github 仓库中选择合适的版本下载[版本库](https://github.com/gohugoio/hugo/releases)，解压，将解压出来的可执行文件(hugo.exe)放到自定义目录;将对应的文件夹路径配置到环境变量中；查看对应的版本确定是否配置正确。
 
-​	![查看Hugo版本](/images/Blog/20180206105224.png)
+![查看Hugo版本](/images/Blog/20180206105224.png)
 
 **初始化博客目录**
 
-​	选择一个自定义路径来存放博客，在该路径下执行`hugo new site myBlog`;会创建一个名为myBlog的文件夹存放博客内容，该名称可以修改。
+选择一个自定义路径来存放博客，在该路径下执行`hugo new site myBlog`;会创建一个名为myBlog的文件夹存放博客内容，该名称可以修改。
 
 初始化的目录结构：
 
@@ -51,7 +51,7 @@ tags:
 
 **安装主题：**
 
-​	去 [themes.gohugo.io](http://themes.gohugo.io/) 选择喜欢的主题，下载到 themes 目录中，然后在 config.toml 中配置 `theme = "KeepIt"`即可
+在 [themes.gohugo.io](http://themes.gohugo.io/) 选择喜欢的主题，下载到 themes 目录中，然后在 config.toml 中配置 `theme = "KeepIt"`即可
 
 - 在themes目录下执行
   - `git clone https://github.com/Fastbyte01/KeepIt`
@@ -269,7 +269,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 
 ### 部署到Github Pages
 
-​	为了后续通过Travis-CI自动部署，这里需要在Github上创建两个repo，一个是文件repo(自定义名称[blog]),一个是博客展示repo(必须为[username].github.io)。
+为了后续通过Travis-CI自动部署，这里需要在Github上创建两个repo，一个是文件repo(自定义名称[blog]),一个是博客展示repo(必须为[username].github.io)。
 
 **配置Travis：**
 

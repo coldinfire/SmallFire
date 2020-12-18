@@ -17,19 +17,17 @@ tags:
 
 ![git](/images/git/git.jpg)
 
-​	**Workspace：**工作区，实际操作的目录。
+**Workspace：** 工作区，实际操作的目录。
 
-​	**Index / Stage：**暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友好交流。
+**Index / Stage：** 暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友好交流。
 
-​	**Repository：**仓库区（或本地仓库）工作区有一个隐藏目录.git,这个不属于工作区，这是版本库。版本库里面存了很多东西，其中最重要的就是暂存区，还有Git为我们自动创建了第一个分支master,以及指向master的一个指针HEAD。
+**Repository：** 仓库区（或本地仓库）工作区有一个隐藏目录.git,这个不属于工作区，这是版本库。版本库里面存了很多东西，其中最重要的就是暂存区，还有Git为我们自动创建了第一个分支master,以及指向master的一个指针HEAD。
 
-​	**Remote：**远程仓库，github上的仓库或其他服务上的仓库。
+**Remote：** 远程仓库，github上的仓库或其他服务上的仓库。
 
 ## Git远程代码库
 
-------
-
-​	git与github远程代码库，进行操作。
+Git 与 Github 远程代码库，进行操作。
 
 **团队协作：**
 
@@ -41,16 +39,14 @@ tags:
 
 ## Git设置签名
 
-------
+目录位置：.git/config文件
 
-​	目录位置：.git/config文件
-
-​	**仓库级别：**仅在当前本地库范围生效，优先级(就近原则)
+**仓库级别：** 仅在当前本地库范围生效，优先级(就近原则)
 
 - git config user.name [user_name]
 - git config user.email [user_email]
 
-​	**系统级别：**登录当前操作系统的用户范围
+**系统级别：** 登录当前操作系统的用户范围
 
 - git config ***- -global*** user.name [user_name]
 - git config ***- -global*** user.email [user_email]
@@ -60,8 +56,6 @@ tags:
 -  git config -e [- -global]：编辑Git配置文件
 
 ## Git命令
-
-------
 
 ### 常用的Git命令
 
@@ -127,8 +121,6 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 
 ## Head
 
-------
-
 - Head的本质不是指向分支，而是指向commit提交。
 
 - HEAD 通过先指向分支的头指针，再指向提交的意义就是表明当前所处的分支。
@@ -147,19 +139,14 @@ tag        创建、列出、删除或校验一个GPG签名的 tag 对象
 
 ## Cherry-pick
 
-------
-
 - git cherry-pick : 选择将现有的一个或者多个提交的修改引入当前内容
 
 - git merge : 将两个提交历史合并,操作对象是commit history
 
 - git cherry-pick : 将提交对应的内容合并,操作对象是commi、commit代表的是修改
 
-  
 
 ## 版本回退
-
-------
 
 git reset - -hard [hash_version]：回退到对应的版本号,推荐使用
 
@@ -188,56 +175,53 @@ git reset - -hard HEAD~n：回退到第n个版本，使用`~`
 
 永久删除文件找回：可使用版本回退方式找回文件。删除前，文件存在时的状态已经提交到本地库。
 
-
-
 ## 分支
 
-------
+### 主要分支
 
-- 主要分支
-  - master : origin/master 分支上的最新代码永远是版本发布状态
-  - dev : 最新的开发进度,当dev上的代码达到一个稳定的状态，可以发布版本的时候,会以某种特别方式被合并到master分支上,然后标记上对应的版本标签
-  - Feature : 用来做分模块功能开发,模块完成之后,会合并到dev分支,然后删除自己
-  - Release : 用来做版本发布的预发布分支,测试中出现的小问题,在release分支进行修改提交,测试完毕准备发布的时候,代码会合并到master和dev,然后删除自己
-  - Hotfix : 用来做线上的紧急bug修复的分支,当线上某个版本出现了问题,将检出对应版本的代码,创建Hotfix分支,问题修复后,合并回master和dev,然后删除自己
-- 分支操作命令
-  - git branch [-v]：查看所有本地分支，-v 详细信息
-  - git branch -r：列出所有远程分支 :
-  - git branch -a：列出所有分支 
-  - git branch b_name：新建一个分支，但依然停留在当前分支
-  - git branch --track [branch] [re-branch]：新建一个分支，与指定的远程分支建立追踪关系
-  - git checkout b_name：切换分支
-  - git checkout  - ：切换到上一个分支
-  - git checkout –b name：创建+切换分支
-  - git merge  from_b_name：合并指定分支到当前所在分支
-  - git branch –d [b_name]：删除分支
-  - git push origin --delete [b_name] / git branch -dr [remote/branch] ：删除远程分支
+- master : origin/master 分支上的最新代码永远是版本发布状态
+- dev : 最新的开发进度,当dev上的代码达到一个稳定的状态，可以发布版本的时候,会以某种特别方式被合并到master分支上,然后标记上对应的版本标签
+- Feature : 用来做分模块功能开发,模块完成之后,会合并到dev分支,然后删除自己
+- Release : 用来做版本发布的预发布分支,测试中出现的小问题,在release分支进行修改提交,测试完毕准备发布的时候,代码会合并到master和dev,然后删除自己
+- Hotfix : 用来做线上的紧急bug修复的分支,当线上某个版本出现了问题,将检出对应版本的代码,创建Hotfix分支,问题修复后,合并回master和dev,然后删除自己
 
-冲突解决
+### 分支操作命令
 
-------
+- git branch [-v]：查看所有本地分支，-v 详细信息
+- git branch -r：列出所有远程分支 :
+- git branch -a：列出所有分支 
+- git branch b_name：新建一个分支，但依然停留在当前分支
+- git branch --track [branch] [re-branch]：新建一个分支，与指定的远程分支建立追踪关系
+- git checkout b_name：切换分支
+- git checkout  - ：切换到上一个分支
+- git checkout –b name：创建+切换分支
+- git merge  from_b_name：合并指定分支到当前所在分支
+- git branch –d [b_name]：删除分支
+- git push origin --delete [b_name] / git branch -dr [remote/branch] ：删除远程分支
 
-​	Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，其中<<<<<< HEAD是指主分支修改的内容，>>>>>> b_name是指别的分支上修改的内容`resove the problem the you could merge your code.`
+### 冲突解决
 
-​	当解决完冲突后，使用git add file > > git commit -m "Msg" :完成merge.
+Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，其中<<<<<< HEAD是指主分支修改的内容，>>>>>> b_name是指别的分支上修改的内容`resove the problem the you could merge your code.`
 
-**分支管理策略：** 通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息，现在我们来使用带参数 --no-ff 来禁用”Fast forward”模式。
+当解决完冲突后，使用git add file > > git commit -m "Msg" :完成merge.
 
-**分支策略：**首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，
+**分支管理策略：**  通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息，现在我们来使用带参数 --no-ff 来禁用”Fast forward”模式。
+
+**分支策略：** 首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，
 干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来
 
-**Bug分支：**在Git中，分支是很强大的，每个bug都可以通过一个临时分支来修复，修复完成后，合并分支，然后将临时的分支删除掉。
+**Bug分支：** 在Git中，分支是很强大的，每个bug都可以通过一个临时分支来修复，修复完成后，合并分支，然后将临时的分支删除掉。
 
 Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来”，等以后恢复现场后继续工作.比如我现在是在主分支master上来修复的，现在我要在master分支上创建一个临时分支issue-404.修复完成后，切换到master分支上，并完成合并，最后删除issue-404分支。工作区是干净的，那么我们工作现场去哪里呢？我们可以使用命令 git stash list来查看下.
 需要恢复一下，可以使用如下2个方法：
 
-​	1. git stash apply恢复，恢复后，stash内容并不删除，你需要使用命令git stash drop来删除。
+1. git stash apply恢复，恢复后，stash内容并不删除，你需要使用命令git stash drop来删除。
 
-​	2. 另一种方式是使用git stash pop,恢复的同时把stash内容也删除了。
+2. 另一种方式是使用git stash pop,恢复的同时把stash内容也删除了。
 
 ## 标签
 
-------
+### 标签指令
 
 - git tag：列出所有tag 
 
@@ -255,11 +239,9 @@ Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来�
 
 - git checkout -b [branch] [tag]：新建一个分支，指向某个tag
 
-
-
 ## 远程同步
 
-------
+### 远程同步指令
 
 - git remote add [origin] [git_url]：加一个新的远程仓库，并命名origin
 - git remote –v：查看远程库的详细信息 
@@ -274,7 +256,7 @@ Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来�
 - git push [origin] - -force：强行推送当前分支到远程仓库，即使有冲突 
 - git clone [git_url] [loc_url]：克隆远程库到指定文件夹
 
-**免密登录：**只允许配置一个用户
+**免密登录：** 只允许配置一个用户
 
 - ​	`ssh-keygen -t rsa -C [email]：`会在`~`目录下的`.ssh`文件生产两个文件，id_rsa、id_rsa.pub(公钥).
 
@@ -282,35 +264,27 @@ Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来�
 
 ## GitFlow
 
-------
-
 ![Git工作流](/images/git/branch.jpg)
-
-
 
 ## 多人协作工作模式
 
-------
+**一般场景：** 首先，可以试图用`git push origin [branch-name]`推送自己的修改.
 
-**一般场景：**首先，可以试图用`git push origin [branch-name]`推送自己的修改.
-
-- ​    如果推送失败，则因为远程分支比你的本地更新早，需要先用git pull试图合并。
-- ​    如果合并有冲突，则需要解决冲突，并在本地提交。再用git push origin branch-name推送.
+- 如果推送失败，则因为远程分支比你的本地更新早，需要先用git pull试图合并。
+- 如果合并有冲突，则需要解决冲突，并在本地提交。再用git push origin branch-name推送.
 
 **推送分支：**
 
-​	推送分支就是把该分支上所有本地提交到远程库中，推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：
+推送分支就是把该分支上所有本地提交到远程库中，推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：
 
-​	使用命令 `git push origin master`，master分支是主分支，因此要时刻与远程同步。一些修复bug分支不需要推送到远程去，可以先合并到主分支上，然后把主分支master推送到远程去。
+使用命令 `git push origin master`，master分支是主分支，因此要时刻与远程同步。一些修复bug分支不需要推送到远程去，可以先合并到主分支上，然后把主分支master推送到远程去。
 
-**抓取分支：**多人协作时，大家都会往master分支上推送各自的修改。
+**抓取分支：** 多人协作时，大家都会往master分支上推送各自的修改。
 
-​	使用命令创建本地dev分支：`git checkout –b dev origin/dev`，现在可以在dev分支上做开发了，开发完成后把dev分支推送到远程库时。
-   	  如果别人已经向origin/dev分支上推送了提交，而我在我的目录文件下也对同样的文件同个地方作了修改，也试图推送到远程库时,会推送失败，因为他人最新提交的和我试图推送的有冲突。解决的办法也很简单，上面已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后在本地合并，解决冲突，再推送。
+使用命令创建本地dev分支：`git checkout –b dev origin/dev`，现在可以在dev分支上做开发了，开发完成后把dev分支推送到远程库时。
+如果别人已经向origin/dev分支上推送了提交，而我在我的目录文件下也对同样的文件同个地方作了修改，也试图推送到远程库时,会推送失败，因为他人最新提交的和我试图推送的有冲突。解决的办法也很简单，上面已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后在本地合并，解决冲突，再推送。
 
 - 指定本地dev分支与远程origin/dev分支的链接：`git branch --set-upstream-to=origin/dev.`git pull成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的 解决冲突完全一样。解决后，提交，再push到远程库里面去。
-
-
 
 **跨团队合作：**
 
@@ -322,11 +296,7 @@ Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来�
 - 审核通过，merge pull request，将代码合并到该团队的远程仓库
 - 本地团队可将远程仓库代码拉取到本地进行操作
 
-
-
 ## Git Submodule
-
-------
 
 ### Submodule
 
@@ -356,8 +326,6 @@ Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来�
   -  git rm [submodule name]
 
 ## 不同开发平台管理
-
-------
 
 **保持专注性**
 

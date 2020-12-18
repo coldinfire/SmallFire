@@ -1943,7 +1943,7 @@
       <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Table/</guid>
-      <description>Table:透明表(Transparent table)、簇表 (Cluster table)、 池表(Pool table) ​ 透明表： 和数据库具有相同结构的表存储结构。数据</description>
+      <description>Table:透明表(Transparent table)、簇表 (Cluster table)、 池表(Pool table) 透明表： 和数据库具有相同结构的表存储结构。数据库</description>
     </item>
     
     <item>
@@ -1975,11 +1975,11 @@
     
     <item>
       <title>Git学习与总结</title>
-      <link>https://coldinfire.github.io/2018/git/</link>
+      <link>https://coldinfire.github.io/2018/Git/</link>
       <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/git/</guid>
-      <description>Git本地结构 ​ **Workspace：**工作区，实际操作的目录。 ​ **Index / Stage：**暂存区，数据暂时存放的区域，可在工作区和版本库之间</description>
+      <guid>https://coldinfire.github.io/2018/Git/</guid>
+      <description>Git本地结构 Workspace： 工作区，实际操作的目录。 Index / Stage： 暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友好交</description>
     </item>
     
     <item>
@@ -2024,7 +2024,7 @@
       <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxVim/</guid>
-      <description>文件编辑：Vim 命令行模式command mode） 控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者 到</description>
+      <description>文件编辑：Vim 1）.命令行模式command mode） 控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，</description>
     </item>
     
     <item>
@@ -2033,7 +2033,7 @@
       <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxAuth/</guid>
-      <description>用户权限 增删改查用户 增 ：#### useradd username：创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：</description>
+      <description>用户权限 增删改查用户 增 useradd username：创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：修改用户的</description>
     </item>
     
     <item>
@@ -2042,7 +2042,7 @@
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxFile/</guid>
-      <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： d： 目录 -：文件 I：链接文档 b：可随机存储装置 c：串行端口设备 后续文字意义： 1、三个为一组均</description>
+      <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： d：目录 -：文件 I：链接文档 b：可随机存储装置 c：串行端口设备 后续文字意义： 1、三个为一组均</description>
     </item>
     
     <item>

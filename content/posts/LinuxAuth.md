@@ -15,7 +15,7 @@ tags:
 ## 用户权限
 
 ### 增删改查用户
-#### 增 ：####
+#### 增 
    useradd username：创建用户         
    passwd username：设置用户密码 
 
@@ -34,9 +34,9 @@ tags:
  - /home/username：家目录
  - /var/spool/mail : 邮件信息
 
-#### 查 ：####
+#### 查 
  id username : 查看用户的UID，GID，所属组信息。
-#### 改： ####
+#### 改 ####
  usrmod：修改用户信息  
 
    - -u：修改用户的UID    
@@ -46,7 +46,7 @@ tags:
    - -c：修改用户的备注信息  
    - -s：修改所用shell
 
-#### 删： ####
+#### 删 ####
  userdel -r username:删除用户
 
 #### Other： ####
@@ -89,14 +89,13 @@ tags:
 	 -  bash filename
  -  数字表示：R:4，W:2，X:1
 
-### 目录权限             查看（ll -d director_path） ###
+### 目录权限  查看（ll -d director_path） ###
 
  - r：可以ls该目录下的子文件名，子目录名
 
  - w：可以在该目录下创建，删除，重命名
 
  - x：可以cd到该目录下
- - 
 #### 修改文件夹权限 ####
   -  修改文件夹权限：chomd    [chomd  777  direct_name]
   -  修改所属组：

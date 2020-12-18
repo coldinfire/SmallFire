@@ -84,23 +84,24 @@ TYPES:  END OF str_pidoc.
 
 **内表类型：**
 
-​	索引内表：标准内表(Standard table)、排序表(Sorted table)
-​      
+- 索引内表：标准内表(Standard table)、排序表(Sorted table)
 
-​	标准内表：每一行数据都有关键字和系统生成的逻辑索引。
-​     
 
-​	排序表：排序表按照关键字升序排序后再进行存储。
+- 标准内表：每一行数据都有关键字和系统生成的逻辑索引。
 
-​	哈希表：Hashed table，没有索引的表，只能靠关键字进行寻址，用哈希算法管理数据。
+
+- 排序表：排序表按照关键字升序排序后再进行存储。
+
+
+- 哈希表：Hashed table，没有索引的表，只能靠关键字进行寻址，用哈希算法管理数据。
+
 
 **内表定义**:可以参考结构体、其他内表、透明表
-    
 
-​	参考结构：`DATA <table_name> TYPE STANDARD TABLE OF <structure> [WITH HEADER LINE].
+参考结构：`DATA <table_name> TYPE STANDARD TABLE OF <structure> [WITH HEADER LINE].
   `  
 
-​	参考内表：`DATA <table_name> TYPE TABLE OF <内表或透明表> [WITH HEADER LINE].`
+参考内表：`DATA <table_name> TYPE TABLE OF <内表或透明表> [WITH HEADER LINE].`
 
    - with header line,用 itab[] 和 itab 来区分内表和工作区
    - 分别定义内表和工作区
@@ -124,23 +125,18 @@ TYPES:  END OF str_pidoc.
 
 -    `FREE <ITAB>`：清空内表数据存储空间，对HEADER LINE不影响。
 
-
 **APPEND(增加，内表赋值)**
-    
 
 ​	有HEADER LINE内表，数据被赋给内表HEADER LINE后再APPEND到表中最后一行。
-​      
 
 - `APPEND ITAB.
   `    
 
 ​    对于没有HEADER LINE的内表，只能通表外部WORK AREA来传递数据。
-​      
 
 - `APPEND (<work area> into) <ITAB>.`
 
 **INSERT(向内表插入数据)**
-    
 
 - INSERT itab INDEX idx. :若itab有多行数据，将新记录新增到第一行
 
@@ -170,19 +166,15 @@ TYPES:  END OF str_pidoc.
 
   - 删除重复数据，保留第一条。
 
-
 **MODIFY:(修改内表数据)**
-    
 
-​	按内表位置或者具体内表字段值相等条件修改内表数据。
-​    
+按内表位置或者具体内表字段值相等条件修改内表数据。
 
 - MODIFY itab [FROM wa] [INDEX idx] [TRANSPORTING f1...fn] WHERE condition.
 
+**LOOP....ENDLOOP：（循环读取内表数据)**
 
- **LOOP....ENDLOOP：（循环读取内表数据)**
-
-​    循环读取内表数据，在循环中使用系统变量SY-TABIX可获取当前所执行的行数。
+循环读取内表数据，在循环中使用系统变量SY-TABIX可获取当前所执行的行数。
 
 - LOOP AT ITAB [INTO WA] FROM n1 TO n2.：读取内表具体行数间数据。
 
@@ -192,9 +184,9 @@ TYPES:  END OF str_pidoc.
 
 **AT...ENDAT（设置内表循环触发条件）**
 
-​    该语法为事件控制函数，应用于LOOP循环语句中，用于获取内表的数据变化事件。
+该语法为事件控制函数，应用于LOOP循环语句中，用于获取内表的数据变化事件。
 
-​	Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 working area。
+Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 working area。
 
 - AT NEW field.：当某个字段数据与上一行数据值不同时触发该事件。
   - 当 field 字段或者 field 字段左边的字段内容发生变化时该事件后面的语句都会执行
@@ -225,7 +217,7 @@ TYPES:  END OF str_pidoc.
 
 **COLLECT（内表数据分类汇总）**
 
-​    将内表中相同的字段合并，若有类型为`I`的字段，则将其值加总。
+ 将内表中相同的字段合并，若有类型为`I`的字段，则将其值加总。
 
 - COLLECT [wa INTO] itab.
 

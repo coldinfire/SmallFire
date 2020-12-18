@@ -15,21 +15,21 @@ tags:
 ---
 
 ## 文件编辑：Vim ##
- 1) 命令行模式command mode）  
+1）.命令行模式command mode）  
 
-　 控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者     到 last line mode。
+控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者     到 last line mode。
 
-2) 插入模式（Insert mode）  i，a，o
+2）.插入模式（Insert mode）  i，a，o
 
-　 只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。
+只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。
 
-3) 底行模式（last line mode）  :wq!(强制保存并退出)
+3）.底行模式（last line mode）  :wq!(强制保存并退出)
 
-　 将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……
+将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……
 
 4）. 移动光标
 
-　 vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、       「k」、「l」，分别控制光标左、下、上、右移一格。
+vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、       「k」、「l」，分别控制光标左、下、上、右移一格。
 
 　「ctrl」+「b」：屏幕往"后"移动一页。
 
@@ -105,7 +105,7 @@ tags:
 
 ### Last line mode下命令简介  ###
 
-   在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command mode」下后，再按「：」冒号即可进入「last line mode」。
+在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command mode」下后，再按「：」冒号即可进入「last line mode」。
 
 A) 列出行号
 

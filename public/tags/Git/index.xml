@@ -13,11 +13,11 @@
     
     <item>
       <title>Git学习与总结</title>
-      <link>https://coldinfire.github.io/2018/git/</link>
+      <link>https://coldinfire.github.io/2018/Git/</link>
       <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/git/</guid>
-      <description>Git本地结构 ​ **Workspace：**工作区，实际操作的目录。 ​ **Index / Stage：**暂存区，数据暂时存放的区域，可在工作区和版本库之间</description>
+      <guid>https://coldinfire.github.io/2018/Git/</guid>
+      <description>Git本地结构 Workspace： 工作区，实际操作的目录。 Index / Stage： 暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友好交</description>
     </item>
     
   </channel>
