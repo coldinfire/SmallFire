@@ -115,9 +115,7 @@ tags:
 
 #### 背景属性简写
 
-```CSS
-body {background:#ffffff url('img.png') no-repeat fixed right top;}
-```
+`body {background:#ffffff url('img.png') no-repeat fixed right top;}`
 
 可以将上述属性统一设置，不必单独设置，属性值的顺序为：
 
