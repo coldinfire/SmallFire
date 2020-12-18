@@ -71,7 +71,7 @@
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/LinuxFile/</guid>
-      <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： 后续文字意义： &amp;lt;1&amp;gt;.三个为一组均为[rwx]组合(r:read w:write x:execute) u=第一组(</description>
+      <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： d： 目录 -：文件 I：链接文档 b：可随机存储装置 c：串行端口设备 后续文字意义： 1、三个为一组均</description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@
       <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/HTTP/</guid>
-      <description>引言 ​ HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展</description>
+      <description>引言 HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，</description>
     </item>
     
   </channel>
