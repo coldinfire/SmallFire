@@ -12,49 +12,78 @@ tags:
 
 ---
 
-### Native SQL
+## Native SQL
 
-​	EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。
+EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。
 
-**连接其他的数据库**：TCode:DBCO
+**连接其他的数据库**：TCode : DBCO
 
-​	添加新的连接：`MSSQL_SERVER=IP adress MSSQL_DBNAME=dbname OBJECT_SOURCE=dbname`
+存储数据表：DBCON
+
+添加新的连接：`MSSQL_SERVER=IP adress MSSQL_DBNAME=dbname OBJECT_SOURCE=dbname`
 
 注意事项：
 
-​	Native SQL 语句不能有结尾符号;
+- Native SQL 语句不能有结尾符号
 
-​	EXEC SQL ...... ENDEXEC间不能有注释;
 
-​	参数占位符是冒号：;
+- EXEC SQL ... ENDEXEC间不能有注释
 
-**程序调用**：
 
-```json
-DATA: p_dbname(10) VALUE 'DBNAME',
-DATA: l_sql_error TYPE REF TO cx_sy_native_sql_error, 
+- 参数占位符是冒号`：`
+
+
+### **程序调用**
+
+#### 连接DB
+
+```html
+DATA: CON_NAME LIKE DBCON-CON_NAME VALUE 'DBNAME',
+DATA: sql_error TYPE REF TO cx_sy_native_sql_error, 
       error_text TYPE string.
 ...
  内表数据准备
 ...
-"连接数据库"
+" 连接数据库 "
 TRY. 
- EXEC SQL. 
-  CONNECT TO 'DBNAME'/ CONNECT TO :p_dbname
- ENDEXEC.
- EXEC SQL.
-  SET CONNECTION 'DBNAME'
- ENDEXEC.
-CATCH cx_sy_native_sql_error INTO l_sql_error. 
- CALL METHOD l_sql_error->get_text 
-  RECEIVING 
-   result = l_error_text. 
+  EXEC SQL. 
+    CONNECT TO :CON_NAME
+  ENDEXEC.
+  EXEC SQL.
+    SET CONNECTION 'CON_NAME'
+  ENDEXEC.
+  IF SY-SUBRC NE 0.
+    error_text = 'Open Database Connection Error'.
+    STOP.
+  ENDIF.
 ENDTRY. 
 IF sy-subrc <> 0.
- WRITE: /1 ‘连接到数据库失败:’, l_error_text.
+ error_text = 'Open Database Connection Error'.
  STOP. 
 ENDIF.
+```
+
+#### 查询语句
+
+```html
 "执行SQL"
+TRY.
+  EXEC SQL PERFORMING frm_download_data.
+    SELECT * into :wa_wik_emp FROM wik_emp
+            WHERE pbnr = :PS_ISI-pbnr
+  ENDEXEC.
+  CATCH CX_SY_NATIVE_SQL_ERROR.
+    CLEAR: WA_ISI.
+    WA_ISI-TYPE = 'E'.
+    WA_ISI-MESSAGE = 'Download RQM data Error'.
+    MODIFY PT_ISI FROM WA_ISI INDEX P_INDEX TRANSPORTING TYPE MESSAGE .
+    CLEAR: wa_isi.
+ENDTRY.
+```
+
+#### 插入语句
+
+```html
 TRY. 
  LOOP AT gt_room INTO gs_room. 
   EXEC SQL. 
@@ -65,13 +94,18 @@ TRY.
 CATCH cx_sy_native_sql_error INTO l_sql_error. 
  error_text = l_sql_error->get_text( ). 
 ENDTRY. 
+```
+
+#### 异常处理和连接断开
+
+```html
 "异常处理"
-IF l_error_text IS INITIAL.
+IF error_text IS INITIAL.
  EXEC SQL.
   commit.
  ENDEXEC.
 ELSE.
- CLEAR l_error_text. 
+ CLEAR error_text. 
  EXEC SQL. 
   rollback 
  ENDEXEC.  
@@ -82,7 +116,7 @@ EXEC SQL.
 ENDEXEC.
 ```
 
-游标使用：
+### 游标使用
 
 ```JS
 DATA : arg1 TYPE string VALUE '800' .
@@ -107,8 +141,4 @@ EXEC SQL .
   CLOSE c1 "关闭游标"
 ENDEXEC .
 ```
-
-------
-
-未完待续......[ABAP 语法详解(优化)](https://coldinfire.github.io/2018/ABAP5/)
 

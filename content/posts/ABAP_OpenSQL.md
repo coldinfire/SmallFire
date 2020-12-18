@@ -105,7 +105,3 @@ MODIFY <dbtab> FROM TABLE <itab>.
 
 
 
-------
-
-
-
