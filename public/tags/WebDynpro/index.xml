@@ -6,11 +6,7 @@
     <description>Recent content in WebDynpro on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://coldinfire.github.io/tags/WebDynpro/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/WebDynpro/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title> Web Dynpro ABAP - ALV Image Light </title>
       <link>https://coldinfire.github.io/2020/SAPWebDynproABAP_Light/</link>
