@@ -9,15 +9,16 @@ categories:
 
 tags: 
   - MM
+
 ---
 
 
 
 #### L_TO_CREATE_SINGLE 
 
-​	Create a transfer order with one item.
+Create a transfer order with one item.
 
-​    You can call this FM more than once if you want to transfer more items.
+You can call this FM more than once if you want to transfer more items.
 
 ```JS
 CALL FUNCTION 'L_TO_CREATE_SINGLE'

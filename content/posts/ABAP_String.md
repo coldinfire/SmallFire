@@ -14,18 +14,18 @@ tags:
 
 
 
-​		字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。
+字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。
 
 **1.获取字符串长度**
 
-- `var1  = strlen(str);`将str作为字符数据处理，计算出其字符长度
+`var1  = strlen(str);`将str作为字符数据处理，计算出其字符长度
 
-  ```JS
-  DATA: l_len type i,
-  	    str1(20) VALUE '1234'.
-  	l_len = strlen(str1).
-  WRITE: / len.  
-  ```
+```JS
+DATA: l_len type i,
+	    str1(20) VALUE '1234'.
+	l_len = strlen(str1).
+WRITE: / len.  
+```
 
 **2.拼接字符串**
 
@@ -64,8 +64,6 @@ tags:
 - 将var移动n个位置，
 
 - MODE:LEFT(默认),RIGHT,CIRCULAR
-
-  
 
 - `SHIFT <var> LEFT DELETING LEADING <str>.`
 

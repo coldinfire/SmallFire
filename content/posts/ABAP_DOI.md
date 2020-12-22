@@ -15,15 +15,15 @@ tags:
 
 
 ## 概述 ##
-   DOI（Desktop office Integration）采用OO的思想实现与Office的结合使用。
+DOI（Desktop office Integration）采用OO的思想实现与Office的结合使用。
 
-   可以先上传模板到服务器(OAOR)，然后对模板进行填充。也可以通过代码创建ExceL文档。
+可以先上传模板到服务器(OAOR)，然后对模板进行填充。也可以通过代码创建ExceL文档。
 
-   OAOR：class name, class type，object key。
+OAOR：class name, class type，object key。
 
-   会使用到的对象：TYPE-POOLS:vrm, sbdst, soi.
+会使用到的对象：`TYPE-POOLS:vrm, sbdst, soi.`
 
-   重要对象：
+重要对象：
 
   - container: 存放excel电子表格(spreadsheet)的容器。spreadsheet需要一个容器来存放。
   - container control: 容器中用于创建和管理其他Office集成所需要的对象。container control是一个接口，类型是i_oi_container_control。
@@ -91,9 +91,9 @@ DATA: g_app      TYPE vrm_id,
 
  DATA: g_classname  TYPE sbdst_classname VALUE 'HRFPM_EXCEL_STANDARD',
 
-   g_classtype  TYPE sbdst_classtype VALUE 'OT',
+ g_classtype  TYPE sbdst_classtype VALUE 'OT',
 
-   g_object_key TYPE sbdst_object_key VALUE 'ZTEST'.
+ g_object_key TYPE sbdst_object_key VALUE 'ZTEST'.
 
 ### 开始创建DOI: ###
 ```JS
@@ -162,7 +162,7 @@ call method gr_document->create_document
 ```
 ### 操作模板文档：
 
-  操作excel模板文档，使用cl_bds_document_set类，这个类的get_with_url方法获取文档的url
+操作excel模板文档，使用cl_bds_document_set类，这个类的get_with_url方法获取文档的url
 
 ```JS
 *Business document system
@@ -245,7 +245,7 @@ CALL method spreadsheet->delete_sheet
 原文：https://blog.csdn.net/SAPmatinal/article/details/52776862
 
 ### 数据写入Excel: ###
-   数据写入Excel，可以使用批量的方式或者逐个单元格写入的方式。批量写入的方式效率高，逐个单元格写入的方式比较灵活。将数据写入excel需要使用 i_oi_spreadsheet接口实例的两个方法：
+数据写入Excel，可以使用批量的方式或者逐个单元格写入的方式。批量写入的方式效率高，逐个单元格写入的方式比较灵活。将数据写入excel需要使用 i_oi_spreadsheet接口实例的两个方法：
 
 ```JS
 * insert_range_dim 方法，定义一个范围(range)，设定range的名称、位置和大小。
@@ -344,7 +344,7 @@ endform.
 container control 初始化的时候，设定 parent 为 gr_container
 ```
 ### 2. Excel 单个单元格写入 ###
-   单个单元格写入的方法，同批量写入一样，使用 i_oi_spreadsheet 接口的set_range_dim 方法和 set_range_data方法。区别在于 range 只包含一行一列：
+单个单元格写入的方法，同批量写入一样，使用 i_oi_spreadsheet 接口的set_range_dim 方法和 set_range_data方法。区别在于 range 只包含一行一列：
 
 ```JS
 form write_single_cell using p_row p_col p_value.

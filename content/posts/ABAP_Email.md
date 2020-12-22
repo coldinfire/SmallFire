@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 ##  SAP 发送邮件
 
 邮件功能可以配置参数，使用系统标准的邮件工作台收发邮件，还可以调用邮件API接口函数收发邮件。
@@ -201,8 +199,6 @@ TRY.
   CATCH cx_address_bcs  INTO l_addr_exception.
 ENDTRY.
 ```
-
-
 
 ### 相关链接
 

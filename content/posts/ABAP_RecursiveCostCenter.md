@@ -14,11 +14,11 @@ tags:
 
 #### 成本中心组下嵌套成本中心组
 
-​	成本中心后台数据表是 CSKS，描述表是 CSKT。在表 CSKS 中，主键是 MANDT（客户端）、KOKRS（控制范围）、KOSTL（成本中心）、DATBI（有效截至日期），在一个控制范围下的某个成本中心，会因为时间段的不同，会在表 CSKS 和 CSKT 存储多条记录。
+成本中心后台数据表是 CSKS，描述表是 CSKT。在表 CSKS 中，主键是 MANDT（客户端）、KOKRS（控制范围）、KOSTL（成本中心）、DATBI（有效截至日期），在一个控制范围下的某个成本中心，会因为时间段的不同，会在表 CSKS 和 CSKT 存储多条记录。
 
 ​	![成本中心组](/images/ABAP/utils17.jpg)
 
-​	这是一个树型结构，针对根节点、子节点、叶节点，SAP 有三张表：SETHEADER、SETNODE、SETLEAF。既然是树型结构那用递归遍历是最合适不过了。
+这是一个树型结构，针对根节点、子节点、叶节点，SAP 有三张表：SETHEADER、SETNODE、SETLEAF。既然是树型结构那用递归遍历是最合适不过了。
 
 ```JS
 *&--------------------------------------------------------------------*
@@ -62,8 +62,6 @@ DATA: BEGIN OF I_KOSTL OCCURS 0,
 DATA: I_SETHEADER LIKE I_TREE OCCURS 0 WITH HEADER LINE. 
 PERFORM FRM_GET_KOSTL USING I_SETHEADER.
 ```
-
-
 
 针对 SAP 中 SET（集）的操作，有好多函数
 

@@ -12,13 +12,13 @@ tags:
 
 ---
 
-### 内表定义和使用
+### 内表定义
 
-#### 内表定义
+#### 工作区域
 
-**工作区域**:工作区域可以存放多个变量数据,相当于一维数组。
+工作区域可以存放多个变量数据,相当于一维数组。
 
-- 通过Type声明自定义工作区：需要使用Data进行赋值
+- 通过Type声明自定义工作区：需要使用Data进行初始化赋值
 
   ```js
   TYPES: BEGIN OF str_name.
@@ -50,7 +50,7 @@ tags:
   
   - `INCLUDE { {TYPE struc_type} | {STRUCTURE struc} }
             [AS name [RENAMING WITH SUFFIX suffix]]`.
-  - 该语句只能用在定义结构的 BEGIN OF 与 END OF 之间。作用是将**结构类型** **struc_type** 与**结构变量** **struc** 的所有组件字段拷贝到当前结构定义的指定位置。
+  - 该语句只能用在定义结构的 BEGIN OF 与 END OF 之间。作用是将**结构类型** **structure_type** 与**结构变量structure** 的所有组件字段拷贝到当前结构定义的指定位置。
   
 
 ```JS
@@ -82,7 +82,7 @@ TYPES: BEGIN OF str_pidoc,
 TYPES:  END OF str_pidoc.
 ```
 
-**内表类型：**
+#### 内表类型
 
 - 索引内表：标准内表(Standard table)、排序表(Sorted table)
 
@@ -95,25 +95,24 @@ TYPES:  END OF str_pidoc.
 
 - 哈希表：Hashed table，没有索引的表，只能靠关键字进行寻址，用哈希算法管理数据。
 
+#### 内表定义
 
-**内表定义**:可以参考结构体、其他内表、透明表
+可以参考结构体、其他内表、透明表
 
 参考结构：`DATA <table_name> TYPE STANDARD TABLE OF <structure> [WITH HEADER LINE].
   `  
 
 参考内表：`DATA <table_name> TYPE TABLE OF <内表或透明表> [WITH HEADER LINE].`
 
-   - with header line,用 itab[] 和 itab 来区分内表和工作区
+   - WITH HEADER LINE ,用 itab[] 和 itab 来区分内表和工作区
    - 分别定义内表和工作区
-   - 定义结构时用occur 0直接定义
-        . 
+   - 定义结构时用 OCCUR 0 直接定义
    - LIKE LINE OF后面接一个内表，表示一个data参数具有和内表一样的结构，可当做Work Area使用
    - LIKE TABLE OF后面接一个结构，表示一个data参数是一个内表，这个内表和后面接的结构一样
 
 ### 内表操作
 
-**内表清空：**
-     
+#### 内表清空
 
 - `CLEAR <ITAB>`：仅清空HEADER LINE，对内表数据存储空间不影响。
 
@@ -121,22 +120,20 @@ TYPES:  END OF str_pidoc.
 
 
 -    `REFRESH <itab> FROM TABLE <dbtab>`：清空内表存储空间，填充从数据库表所获数据。
-  ​    
-
+  
 -    `FREE <ITAB>`：清空内表数据存储空间，对HEADER LINE不影响。
 
-**APPEND(增加，内表赋值)**
+#### APPEND(增加，内表赋值)
 
-​	有HEADER LINE内表，数据被赋给内表HEADER LINE后再APPEND到表中最后一行。
+有HEADER LINE内表，数据被赋给内表HEADER LINE后再APPEND到表中最后一行。
 
-- `APPEND ITAB.
-  `    
+- `APPEND ITAB.`    
 
-​    对于没有HEADER LINE的内表，只能通表外部WORK AREA来传递数据。
+对于没有HEADER LINE的内表，只能通表外部WORK AREA来传递数据。
 
 - `APPEND (<work area> into) <ITAB>.`
 
-**INSERT(向内表插入数据)**
+#### INSERT(向内表插入数据)
 
 - INSERT itab INDEX idx. :若itab有多行数据，将新记录新增到第一行
 
@@ -146,8 +143,7 @@ TYPES:  END OF str_pidoc.
 
 - INSERT LINES OF itab1 [FROM idx] [TO idx2] INTO itab2 [INDEX idx3].:将itab1指定范围数据插入到itab2
 
-
-**DELETE(删除数据)**
+#### DELETE(删除数据)
 
 - DELETE TABLE itab WITH TABLE KEY k1=v1...kn=vn.：按具体值删除。
 
@@ -166,13 +162,13 @@ TYPES:  END OF str_pidoc.
 
   - 删除重复数据，保留第一条。
 
-**MODIFY:(修改内表数据)**
+#### MODIFY:(修改内表数据)
 
 按内表位置或者具体内表字段值相等条件修改内表数据。
 
 - MODIFY itab [FROM wa] [INDEX idx] [TRANSPORTING f1...fn] WHERE condition.
 
-**LOOP....ENDLOOP：（循环读取内表数据)**
+#### LOOP....ENDLOOP：（循环读取内表数据)
 
 循环读取内表数据，在循环中使用系统变量SY-TABIX可获取当前所执行的行数。
 
@@ -182,7 +178,7 @@ TYPES:  END OF str_pidoc.
 - LOOP AT ITAB [INTO WA] WHERE cond.：按具体字段条件读取内表。
 - LOOP AT ITAB [ASSIGNING wa ] WHERE cond.：分配给字段符号。
 
-**AT...ENDAT（设置内表循环触发条件）**
+#### AT...ENDAT（设置内表循环触发条件）
 
 该语法为事件控制函数，应用于LOOP循环语句中，用于获取内表的数据变化事件。
 
@@ -202,7 +198,7 @@ Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 wo
 
 - AT LAST.：当执行内表最后一行时触发该事件。
 
-**READ:(读取)**
+#### READ:(读取)
 
 - READ TABLE itab [INTO wa] FROM wa.
 
@@ -214,19 +210,18 @@ Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 wo
 
 - READ TABLE itab [INTO wa] INDEX i.
 
-
-**COLLECT（内表数据分类汇总）**
+#### COLLECT（内表数据分类汇总）
 
  将内表中相同的字段合并，若有类型为`I`的字段，则将其值加总。
 
 - COLLECT [wa INTO] itab.
 
-**DESCRIBE（获取内表具体属性）**
+#### DESCRIBE（获取内表具体属性）
 
 - DESCRIBE TABLE itab LINES n：获取内表当前总行数，n为整型(i)。
 - n = lines (itab). 
 
-**SORT（内表排序操作）**
+#### SORT（内表排序操作）
 
 - SORT itab ASCENDING|DESCENDING BY field1 field2 field3.
   - 指示符在 BY 在前面，表示后面的字段都用这个升降序，作用范围是后面 BY 所有的字段

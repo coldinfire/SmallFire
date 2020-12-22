@@ -1,5 +1,4 @@
 ---
-
 title: " WebDynpro for JAVA "
 date: 2018-10-16
 draft: false

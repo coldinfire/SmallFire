@@ -15,7 +15,7 @@ tags:
 ## 小数后面去除后缀0 ##
 
 ```JS
-form DATA_DELETE_ZERO  using p_field z_result.
+FORM DATA_DELETE_ZERO  using p_field z_result.
    DATA:var1 TYPE p DECIMALS 3,
         var2 TYPE p DECIMALS 2,
         var3 TYPE p DECIMALS 1,
@@ -37,5 +37,5 @@ form DATA_DELETE_ZERO  using p_field z_result.
         ELSE.
           z_result = var1.
         ENDIF.
-endform.
+ENDFORM.
 ```

@@ -28,12 +28,7 @@ tags:
 ```JS
 *&---------------------------------------------------------------------* 
 *& Report ZTABLEFIND 
-*& 
-*&---------------------------------------------------------------------* 
-*& Author: Mao JH 
-*& 
 *&---------------------------------------------------------------------*
-
 REPORT ztablefind. 
 TABLES: dd02t, dd03l, dd02l. 
 DATA: BEGIN OF field1 OCCURS 0. 
@@ -51,28 +46,26 @@ DATA fieldsum TYPE i.
 SELECT * FROM dd03l INTO TABLE field1 WHERE fieldname IN ified. 
 SORT field1 BY tabname. 
 LOOP AT ified.
-
-fieldsum = sy-tabix. 
+  fieldsum = sy-tabix. 
 ENDLOOP. 
 LOOP AT field1. 
-field_sum = field_sum + 1. 
-MOVE-CORRESPONDING field1 TO field2. 
-AT END OF tabname. 
-*field2-tabname = field1-tabname. 
-*move-corresponding field1 to field2. 
-field2-su = field_sum. 
-COLLECT field2. 
-CLEAR field2. 
-CLEAR field_sum. 
-ENDAT. 
+  field_sum = field_sum + 1. 
+  MOVE-CORRESPONDING field1 TO field2. 
+  AT END OF tabname. 
+*   field2-tabname = field1-tabname. 
+*   move-corresponding field1 to field2. 
+    field2-su = field_sum. 
+    COLLECT field2. 
+    CLEAR field2. 
+    CLEAR field_sum. 
+  ENDAT. 
 ENDLOOP. 
 LOOP AT field2 WHERE su = fieldsum. 
-SELECT SINGLE * FROM dd02t WHERE tabname = field2-tabname AND 
-ddlanguage = sy-langu. 
-SELECT SINGLE * FROM dd02l WHERE tabname = field2-tabname AND 
-tabclass IN ittype AND 
-as4local = field2-as4local AND 
-as4vers = field2-as4vers. 
+  SELECT SINGLE * FROM dd02t 
+    WHERE tabname = field2-tabname AND ddlanguage = sy-langu. 
+  SELECT SINGLE * FROM dd02l 
+    WHERE tabname = field2-tabname AND tabclass IN ittype AND 
+    as4local = field2-as4local AND as4vers = field2-as4vers. 
 IF sy-subrc = 0. 
 WRITE: / field2-tabname,dd02l-tabclass,dd02t-ddtext. 
 ENDIF. 

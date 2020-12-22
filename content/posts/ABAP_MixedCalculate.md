@@ -14,7 +14,7 @@ tags:
 
 ### 使用
 
-​	在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。
+在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。
 
 #### 一、调用BAPI：EVAL_FORMULA
 
@@ -107,8 +107,6 @@ ENDLOOP.
 
 *    `SPLIT  WF_STRING  AT SPACE INTO TABLE table_name.`
 
-
-
 #### 二、通过直接调用表达式完成计算
 
 ```js
@@ -140,8 +138,6 @@ RETURN_VALUE = JS_PROCESSOR->EVALUATE( SOURCE ).
 WRITE: RETURN_VALUE.
 ```
 
-
-
 #### 实际使用
 
-​	可以将以上两种方法进行结合，计算出表达式的结果。
+可以将以上两种方法进行结合，计算出表达式的结果。

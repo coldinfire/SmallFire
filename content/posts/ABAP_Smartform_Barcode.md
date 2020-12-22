@@ -18,7 +18,7 @@ tags:
 
 **传统的：将数据发送到打印机上，由打印机将数据转换成 条码图案，然后进行打印。**
 
-​	在 SAP Smartforms 里实现条码打印。在客户机里安装 [www.tec-it.com](http://www.tec-it.com/) 里的插件
+在 SAP Smartforms 里实现条码打印。在客户机里安装 [www.tec-it.com](http://www.tec-it.com/) 里的插件
 
 - 1.定义输出设备，将输出设备分配到设备类型里，T-CODE:SPAD
   - sap 下安装打印机：用 SPAD 来安装打印机，在配置里点输出设备，在输出设备里点创建，输入输出设备名称，如 LP01
@@ -48,21 +48,21 @@ tags:
  （9）Save。
 ```
 
-
-
 ### 设置SmartFom样式（Style）：
 
-  1. SmartForms。
-     - （1）进入SmartForms后选择样式（Style）。
+#### SmartForms。
 
-     - （2）在子元格式下建立一节点。
+- （1）进入SmartForms后选择样式（Style）。
 
-     - （3）在标准设定View：选择刚才设定的条码。
+- （2）在子元格式下建立一节点。
 
-     - （4）字型：选择TWSONG  12pt.
+- （3）在标准设定View：选择刚才设定的条码。
 
-     - （5)  Save.
+- （4）字型：选择TWSONG  12pt.
 
-     - （6）启用。
-  2. 在SmartForm设计时，字体选择为所设置的条码样式即可。
+- （5)  Save.
+
+- （6）启用。
+
+#### 在SmartForm设计时，字体选择为所设置的条码样式即可。
 

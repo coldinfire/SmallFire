@@ -9,6 +9,7 @@ categories:
 
 tags: 
   - SAPbusiness
+
 ---
 
 ## SAP Query Tutorial in SAP: SQ01, SQ02, SQ03

@@ -15,29 +15,29 @@ tags:
 
 ### 定义后台 job
 
-- 第一种：SE38执行可执行程序
+第一种：SE38执行可执行程序
 
-  - 菜单栏‘program’--->'Execute in Background'
+- 菜单栏‘program’--->'Execute in Background'
 
-    ![后台JOB](/images/ABAP/JOB1.png)
+  ![后台JOB](/images/ABAP/JOB1.png)
 
-  - 输入输出设备
+- 输入输出设备
 
-    ![输出设备](/images/ABAP/JOB3.png)
+  ![输出设备](/images/ABAP/JOB3.png)
 
-  - 选择开始时间（立刻执行，或定义日期时间，也可周期执行）后保存。
+- 选择开始时间（立刻执行，或定义日期时间，也可周期执行）后保存。
 
-    ![时间](/images/ABAP/JOB2.png)
+  ![时间](/images/ABAP/JOB2.png)
 
-- 第二种：SM36定义作业名
+第二种：SM36定义作业名
 
-  - 点击`Start condition`选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.
+- 点击`Start condition`选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.
 
-    ![Start Condition](/images/ABAP/JOB4.png)
+  ![Start Condition](/images/ABAP/JOB4.png)
 
-  - 再点击`Step`，填写abap程序NAME和Variant后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。
+- 再点击`Step`，填写abap程序NAME和Variant后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。
 
-    ![Step](/images/ABAP/JOB5.png)
+  ![Step](/images/ABAP/JOB5.png)
 
 [如何在 SAP 中定义 Event 类型的后台 Job](<http://blog.sina.com.cn/s/blog_76c57b480100rumm.html>)
 

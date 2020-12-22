@@ -9,6 +9,7 @@ categories:
 
 tags: 
   - MM
+
 ---
 
 ***引用链接：[Output Determination in Inventory Management (IM)](https://wiki.scn.sap.com/wiki/display/ERPSCM/Output+Determination+in+Inventory+Management+(IM)?original_fqdn=wiki.sdn.sap.com#OutputDeterminationinInventoryManagement%28IM%29-1.Aboutthisdocument)***

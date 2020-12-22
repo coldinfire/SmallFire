@@ -9,6 +9,7 @@ categories:
 
 tags: 
   - WebDynpro
+
 ---
 
 ## ALV_VIEW: WDDOINIT

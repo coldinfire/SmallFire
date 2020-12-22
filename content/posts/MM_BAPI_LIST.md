@@ -10,6 +10,7 @@ categories:
 tags: 
   - MM
   - BAPI
+
 ---
 
 ###  MM BAPI LIST 整理

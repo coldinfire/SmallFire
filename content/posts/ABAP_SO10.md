@@ -9,6 +9,7 @@ categories:
 
 tags: 
   - abaputils
+
 ---
 
 通过 Tcode SO10 可以创建标准文本：

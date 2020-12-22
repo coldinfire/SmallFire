@@ -13,9 +13,9 @@ tags:
 ---
 
 ### 全局变量，局部变量
-​	报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subroutines (FORM子过程)、Function Modules中声明的变量为局部的。
+报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subroutines (FORM子过程)、Function Modules中声明的变量为局部的。
 
-​	其他块里的变量属于全局的（报表事件块、列表事件块、对话module）效果与在程序开头定义的变量一样。
+其他块里的变量属于全局的（报表事件块、列表事件块、对话module）效果与在程序开头定义的变量一样。
 
 ### Form、Function
 
@@ -55,19 +55,19 @@ tags:
 
 #### Function Group （SE37）
 
-  系统会自动创建Main program与相应的include程序。
+系统会自动创建Main program与相应的include程序。
 
-​    `SAPL<fgrp>：`主程序名，将Function Group里的所有的Include文件包括进来，只有Include语句
+`SAPL<fgrp>：`主程序名，将Function Group里的所有的Include文件包括进来，只有Include语句
 
-​	`L<fgrp>TOP：`有FUNCTION-POOL语句，以及所有Function model都可以使用的全局数据定义
+`L<fgrp>TOP：`有FUNCTION-POOL语句，以及所有Function model都可以使用的全局数据定义
 
-​	`L<fgrp>UXX：`只有include语句，为相应具体Function Model所对应的Include文件名：`L<fgrp>U01...`包含了对应的FM代码。
+`L<fgrp>UXX：`只有include语句，为相应具体Function Model所对应的Include文件名：`L<fgrp>U01...`包含了对应的FM代码。
 
-​	`L<fgrp>U01：`01,02编号对应UXX，代表其创建先后的序号。
+`L<fgrp>U01：`01,02编号对应UXX，代表其创建先后的序号。
 
-​	`L<fgrp>FXX：`用来存放一些Form子程序，可以被所有Function Modules所使用。
+`L<fgrp>FXX：`用来存放一些Form子程序，可以被所有Function Modules所使用。
 
-​	`L<fgrp>PAI，L<fgrp>PBO：`PAI,PBO事件。
+`L<fgrp>PAI，L<fgrp>PBO：`PAI,PBO事件。
 
 ### AT...END (SUM)
 

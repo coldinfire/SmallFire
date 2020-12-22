@@ -247,7 +247,7 @@
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/WM_TransferOrder_BAPI/</guid>
-      <description>L_TO_CREATE_SINGLE ​ Create a transfer order with one item. ​ You can call this FM more than once if you want to transfer more items. CALL FUNCTION &amp;#39;L_TO_CREATE_SINGLE&amp;#39; exporting i_lgnum = wh_number &amp;#34;Warehouse number&amp;#34; i_bwlvs = &amp;#39;999&amp;#39; &amp;#34;MvT999&amp;#34; i_matnr = lqua-matnr &amp;#34;Material no.&amp;#34; i_werks = lqua-werks &amp;#34;Plant&amp;#34; i_lgort = lqua-lgort &amp;#34;Storage location&amp;#34; i_anfme = lqua-verme &amp;#34;Requested Qty&amp;#34; i_altme = lqua-meins &amp;#34;Unit of measure&amp;#34; i_letyp = ltap-letyp &amp;#34;SU Type&amp;#34; i_vlpla =</description>
+      <description>L_TO_CREATE_SINGLE Create a transfer order with one item. You can call this FM more than once if you want to transfer more items. CALL FUNCTION &amp;#39;L_TO_CREATE_SINGLE&amp;#39; exporting i_lgnum = wh_number &amp;#34;Warehouse number&amp;#34; i_bwlvs = &amp;#39;999&amp;#39; &amp;#34;MvT999&amp;#34; i_matnr = lqua-matnr &amp;#34;Material no.&amp;#34; i_werks = lqua-werks &amp;#34;Plant&amp;#34; i_lgort = lqua-lgort &amp;#34;Storage location&amp;#34; i_anfme = lqua-verme &amp;#34;Requested Qty&amp;#34; i_altme = lqua-meins &amp;#34;Unit of measure&amp;#34; i_letyp = ltap-letyp &amp;#34;SU Type&amp;#34; i_vlpla = lqua-lgpla &amp;#34;Source</description>
     </item>
     
     <item>
@@ -292,7 +292,7 @@
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_Table_Adjust/</guid>
-      <description>​ 当业务场景发生变化，或则其它原因需要变更透明表的Key值时，保存和激活时会报错，需要使用SE14进行处理。 勾选Direct,Save Dat</description>
+      <description>当业务场景发生变化，或则其它原因需要变更透明表的Key值时，保存和激活时会报错，需要使用SE14进行处理。 勾选Direct,Save Data</description>
     </item>
     
     <item>
@@ -436,7 +436,7 @@
       <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_NumberQAS/</guid>
-      <description>科学计数法转换数字 ​ ABAP 函数 QSS0_FLTP_TO_CHAR_CONVERSION，能将 SAP 系统内的科学计数法显示的数字转换成一般数字。 DATA: l_result TYPE</description>
+      <description>科学计数法转换数字 ABAP 函数 QSS0_FLTP_TO_CHAR_CONVERSION，能将 SAP 系统内的科学计数法显示的数字转换成一般数字。 DATA: l_result TYPE qsollwerte,</description>
     </item>
     
     <item>
@@ -481,7 +481,7 @@
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_String/</guid>
-      <description>​ 字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。 1.获取字符串长度 var1 = str</description>
+      <description>字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。 1.获取字符串长度 var1 = strl</description>
     </item>
     
     <item>
@@ -544,7 +544,7 @@
       <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_MixedCalculate/</guid>
-      <description>使用 ​ 在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。 一、调用BAPI：EVAL_FORMULA TYPES:BEGIN OF TY_VAL, OPERAND TYPE C, VALUE TYPE STRING, END OF TY_VAL. TYPES:BEGIN</description>
+      <description>使用 在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。 一、调用BAPI：EVAL_FORMULA TYPES:BEGIN OF TY_VAL, OPERAND TYPE C, VALUE TYPE STRING, END OF TY_VAL. TYPES:BEGIN OF</description>
     </item>
     
     <item>
@@ -562,7 +562,7 @@
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_RecursiveCostCenter/</guid>
-      <description>成本中心组下嵌套成本中心组 ​ 成本中心后台数据表是 CSKS，描述表是 CSKT。在表 CSKS 中，主键是 MANDT（客户端）、KOKRS（控制范围）、K</description>
+      <description>成本中心组下嵌套成本中心组 成本中心后台数据表是 CSKS，描述表是 CSKT。在表 CSKS 中，主键是 MANDT（客户端）、KOKRS（控制范围）、KO</description>
     </item>
     
     <item>
@@ -679,7 +679,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALVCheckBox/</guid>
-      <description>添加复选框功能 ​ 要获得可选（可编辑）复选框，我们需要从 column 对象中获取特定的列。此后，我们需要使用方法 SET_CELL_TYPE 将单元格类型设置为 IF_SALV_C_CELL_TYPE =&amp;gt; CHECKBOX_</description>
+      <description>添加复选框功能 要获得可选（可编辑）复选框，我们需要从 column 对象中获取特定的列。此后，我们需要使用方法 SET_CELL_TYPE 将单元格类型设置为 IF_SALV_C_CELL_TYPE =&amp;gt; CHECKBOX_H</description>
     </item>
     
     <item>
@@ -823,7 +823,7 @@
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_EmailText/</guid>
-      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z14841_TEST010 *&amp;amp;---------------------------------------------------------------------* REPORT z14841_test010. TYPES: BEGIN OF stru_master, kunnr TYPE kunnr, &amp;#34; 客户编号 1&amp;#34; bukrs TYPE bukrs, &amp;#34; 公司代码&amp;#34; pro_mill TYPE werks_d, &amp;#34; 工厂&amp;#34; *quota TYPE zcdfquota, &amp;#34; 额度&amp;#34; *account TYPE char10, &amp;#34; 帐期&amp;#3</description>
+      <description>转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html 程序实例 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z14841_TEST010 *&amp;amp;---------------------------------------------------------------------* REPORT z14841_test010. TYPES: BEGIN OF stru_master, kunnr TYPE kunnr, &amp;#34; 客户编号 1&amp;#34; bukrs TYPE bukrs, &amp;#34; 公司代码&amp;#34; pro_mill TYPE werks_d, &amp;#34; 工厂&amp;#34; *quota TYPE zcdfquota, &amp;#34; 额度&amp;#34; *account TYPE char10, &amp;#34; 帐期&amp;#</description>
     </item>
     
     <item>
@@ -832,7 +832,7 @@
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_EmailExcel/</guid>
-      <description>程序：转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z7258_MAIL_EXCEL * *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Example of sending external email via SAPCONNECT * *&amp;amp;---------------------------------------------------------------------* REPORT z7258_mail_excel . TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT &amp;#39;coldfire@163.com&amp;#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN OF t_charekpo, ebeln(10) TYPE</description>
+      <description>转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html 程序实例 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z7258_MAIL_EXCEL * *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Example of sending external email via SAPCONNECT * *&amp;amp;---------------------------------------------------------------------* REPORT z7258_mail_excel . TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT &amp;#39;coldfire@163.com&amp;#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN OF t_charekpo, ebeln(10)</description>
     </item>
     
     <item>
@@ -1003,7 +1003,7 @@
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_DownloadSourceCode/</guid>
-      <description>程序：转自 http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html *@---------------------------------------------------------------------* *@ Report ZZXUE01 下载程序代码 *@ T-code *@---------------------------------------------------------------------* *@ Created by Xavery Hsueh on 2011-03-01 *@ Lasted Edited date: *@---------------------------------------------------------------------* &amp;#34;REPORT XXX NO STANDARD PAGE HEADING.&amp;#34; *********************************************************************** ** 声明数据库表 *********************************************************************** TABLES:rs38m, trdir. *********************************************************************** ** 内表结构类型的定义 *********************************************************************** DATA BEGIN OF dynpfields OCCURS 1. INCLUDE STRUCTURE dynpread. DATA</description>
+      <description>转自 http://blog.sina.com.cn/s/blog_4d1570de0100pvhd.html 程序实例 *@---------------------------------------------------------------------* *@ Report ZZXUE01 下载程序代码 *@ T-code *@---------------------------------------------------------------------* *@ Created by Xavery Hsueh on 2011-03-01 *@ Lasted Edited date: *@---------------------------------------------------------------------* &amp;#34;REPORT XXX NO STANDARD PAGE HEADING.&amp;#34; *********************************************************************** ** 声明数据库表 *********************************************************************** TABLES:rs38m, trdir. *********************************************************************** ** 内表结构类型的定义 *********************************************************************** DATA BEGIN OF dynpfields OCCURS 1. INCLUDE STRUCTURE dynpread.</description>
     </item>
     
     <item>
@@ -1201,7 +1201,7 @@
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_Variant/</guid>
-      <description>STVARV使用 ​ 该配置不能跨Client因此需要在每个Client单独配置；使用TCode：stvarv进入配置界面，可以新建、修改、删除</description>
+      <description>STVARV使用 该配置不能跨Client因此需要在每个Client单独配置；使用TCode：stvarv进入配置界面，可以新建、修改、删除记</description>
     </item>
     
     <item>
@@ -1480,7 +1480,7 @@
       <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_FIVoucherReversal/</guid>
-      <description>凭证的更改 1：已经过帐的 TCODE：FB02. ​ 过完帐的允许更改的地方有限，只有凭证抬头文本，参照，分配，文本，原因代码等 2：预制凭证的更改</description>
+      <description>凭证的更改 1：已经过帐的 TCODE：FB02. 过完帐的允许更改的地方有限，只有凭证抬头文本，参照，分配，文本，原因代码等 2：预制凭证的更改.</description>
     </item>
     
     <item>
@@ -1525,7 +1525,7 @@
       <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_TableCopyFields/</guid>
-      <description>​ 有时需要创建一个结构，但是字段和其他表或则结构类似，就可以采用复制的方式快速创建，而不用一个一个字段去输入。 1.SE11选择需要添加字段的</description>
+      <description>有时需要创建一个结构，但是字段和其他表或则结构类似，就可以采用复制的方式快速创建，而不用一个一个字段去输入。 1.SE11选择需要添加字段的表</description>
     </item>
     
     <item>
@@ -1534,7 +1534,7 @@
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</guid>
-      <description>字段符号 定义: FIELD-SYMBOLS: &amp;lt;fs&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs&amp;gt; LIKE LINE OF &amp;lt;t_TABLE&amp;gt; FIELD-SYMBOLS: &amp;lt;fs&amp;gt; type any. ​ &amp;lt;1&amp;gt; FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生F</description>
+      <description>字段符号 定义: FIELD-SYMBOLS: &amp;lt;fs&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs&amp;gt; LIKE LINE OF &amp;lt;t_TABLE&amp;gt;. FIELD-SYMBOLS: &amp;lt;fs&amp;gt; TYPE ANY. &amp;lt;1&amp;gt; FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生FS</description>
     </item>
     
     <item>
@@ -1543,7 +1543,7 @@
       <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_DialogTmp/</guid>
-      <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>
+      <description></description>
     </item>
     
     <item>
@@ -1552,7 +1552,7 @@
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_DialogDetail/</guid>
-      <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>
+      <description></description>
     </item>
     
     <item>
@@ -1561,7 +1561,7 @@
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Dialog/</guid>
-      <description>TCode ​ SE51：屏幕操作器 ​ SE41：菜单编辑器 ABAP与Dialog交互方式 ​ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中</description>
+      <description>TCode SE51：屏幕操作器 SE41：菜单编辑器 ABAP与Dialog交互方式 ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中定义一</description>
     </item>
     
     <item>
@@ -1588,7 +1588,7 @@
       <pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Range/</guid>
-      <description>Range使用 ​ Range Table为SAP R/3系统标准内表的一种，结构与Selection Table一致，由SIGN,OPTION,LOW,HI</description>
+      <description>Range使用 Range Table为SAP R/3系统标准内表的一种，结构与Selection Table一致，由SIGN,OPTION,LOW,HIG</description>
     </item>
     
     <item>
@@ -1597,7 +1597,7 @@
       <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartform_Barcode/</guid>
-      <description>Smartforms 打印条码 传统的：将数据发送到打印机上，由打印机将数据转换成 条码图案，然后进行打印。 ​ 在 SAP Smartforms 里实现条码打印。在客户机里安装 www.tec-it.com 里的插件 1.定义</description>
+      <description>Smartforms 打印条码 传统的：将数据发送到打印机上，由打印机将数据转换成 条码图案，然后进行打印。 在 SAP Smartforms 里实现条码打印。在客户机里安装 www.tec-it.com 里的插件 1.定义输</description>
     </item>
     
     <item>
@@ -1660,7 +1660,7 @@
       <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartform_LoopPrint/</guid>
-      <description>Smartforms循环打印数据 ​ 在smartforms的使用中，偶尔会遇到客户要求按某一条件进行数据的分组打印，并进行页码的统计和区分，这</description>
+      <description>Smartforms循环打印数据 在smartforms的使用中，偶尔会遇到客户要求按某一条件进行数据的分组打印，并进行页码的统计和区分，这里</description>
     </item>
     
     <item>
@@ -1714,7 +1714,7 @@
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV4/</guid>
-      <description>显示后，修改字段目录和布局 ​ 通过方法在第一次显示之后，设置一个新的布局或则字段目录。 方法 字段目录：GET_FRONTEND_FIELDCAT</description>
+      <description>显示后，修改字段目录和布局 通过方法在第一次显示之后，设置一个新的布局或则字段目录。 方法 字段目录：GET_FRONTEND_FIELDCATA</description>
     </item>
     
     <item>
@@ -1723,7 +1723,7 @@
       <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Lock/</guid>
-      <description>一、SAP 为什么要设置锁： 1，保持数据的一致性 ​ 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防</description>
+      <description>一、SAP 为什么要设置锁： 1，保持数据的一致性 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防止</description>
     </item>
     
     <item>
@@ -1732,7 +1732,7 @@
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV2/</guid>
-      <description>类声明和实现 l 类具有属性和方法 l 对象是类的实例 l 对象是通过指针变量来访问的 l 对象有独立的 interface *Class Declarations CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &amp;#39;This is my first ABAP Object.&amp;#39;. ENDCLASS. *Class Implementation</description>
+      <description>类声明和实现 类具有属性和方法 对象是类的实例 对象是通过指针变量来访问的 对象有独立的 interface *Class Declarations CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &amp;#39;This is my first ABAP Object.&amp;#39;. ENDCLASS. *Class Implementation CLASS application IMPLEMENTATION. METHOD</description>
     </item>
     
     <item>
@@ -1750,7 +1750,7 @@
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV1/</guid>
-      <description>OO ALV ​ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作. ​ 使用了 ABAP 的对</description>
+      <description>OO ALV ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作. 使用了 ABAP 的对象以</description>
     </item>
     
     <item>
@@ -1840,7 +1840,7 @@
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_EndZero/</guid>
-      <description>小数后面去除后缀0 form DATA_DELETE_ZERO using p_field z_result. DATA:var1 TYPE p DECIMALS 3, var2 TYPE p DECIMALS 2, var3 TYPE p DECIMALS 1, var4 TYPE i. move p_field to var1. move p_field to var2. move p_field to var3. move p_field to var4. IF var2 = var1. IF var3 = var1. IF var4 = var1. z_result = var4. ELSE. z_result = var3. ENDIF. ELSE. z_result</description>
+      <description>小数后面去除后缀0 FORM DATA_DELETE_ZERO using p_field z_result. DATA:var1 TYPE p DECIMALS 3, var2 TYPE p DECIMALS 2, var3 TYPE p DECIMALS 1, var4 TYPE i. move p_field to var1. move p_field to var2. move p_field to var3. move p_field to var4. IF var2 = var1. IF var3 = var1. IF var4 = var1. z_result = var4. ELSE. z_result = var3. ENDIF. ELSE. z_result</description>
     </item>
     
     <item>
@@ -1894,7 +1894,7 @@
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Message/</guid>
-      <description>MESSAGE ：SE91 消息类的操作 ​ 使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Messag</description>
+      <description>MESSAGE ：SE91 消息类的操作 使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message</description>
     </item>
     
     <item>
@@ -1921,7 +1921,7 @@
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SubRoutines/</guid>
-      <description>全局变量，局部变量 ​ 报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subrouti</description>
+      <description>全局变量，局部变量 报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subroutin</description>
     </item>
     
     <item>
@@ -1930,7 +1930,7 @@
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_InnerTable/</guid>
-      <description>内表定义和使用 内表定义 工作区域:工作区域可以存放多个变量数据,相当于一维数组。 通过Type声明自定义工作区：需要使用Data进行赋值 TYPES: BEGIN OF str_name.</description>
+      <description>内表定义 工作区域 工作区域可以存放多个变量数据,相当于一维数组。 通过Type声明自定义工作区：需要使用Data进行初始化赋值 TYPES: BEGIN OF str_name. aufnr TYPE afko-aufnr, &amp;#34; Order</description>
     </item>
     
     <item>

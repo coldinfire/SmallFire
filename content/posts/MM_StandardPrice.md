@@ -9,6 +9,7 @@ categories:
 
 tags: 
   - SAPbusiness
+
 ---
 
 引用链接：[**移动平均价和标准价**](https://mp.weixin.qq.com/s?__biz=MzI1MDUxMjc0MQ==&mid=2247486851&idx=1&sn=3745a657b8a31ec8bd8b83598db74e85&chksm=e9805989def7d09fe6f057b6d4b1139e9a1e31f623b7012f66568d4d476fcea8b6b6c23307e4&scene=126&sessionid=1593480219&key=0cbf0c27a004d84da57c1b899d43e15abc4ef55c6a4022885611966c16f60c4872334d1b43695d7d9436f070fb7fe0696775c887b1d3e676ee125ca1d5db8c2e8068520882e8a5a2235b6c663f78f74c&ascene=1&uin=OTM0MDM1NTY2&devicetype=Windows+8.1+x64&version=62090070&lang=en&exportkey=AxdvZHCgKaVzLhUhkVngCgQ%3D&pass_ticket=5SnaMqqW%2BkXzDMWpHwYuMh0kLMk9oqxZyQGqx81xLPaxdJ4AVrXnO0jxwqu1575h)

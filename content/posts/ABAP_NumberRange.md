@@ -1,5 +1,4 @@
 ---
-
 title: " SAP Number Range Object "
 date: 2019-07-13
 draft: false
@@ -116,8 +115,6 @@ IF sy-subrc <> 0.
 ENDIF.
 Write :/ 'Next available number is: ', Number. 
 ```
-
-
 
 ### 其他信息
 

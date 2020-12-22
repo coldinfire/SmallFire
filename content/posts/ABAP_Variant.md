@@ -9,15 +9,16 @@ categories:
 
 tags: 
   - abaputils
+
 ---
 
 ### STVARV使用
 
-​	该配置不能跨Client因此需要在每个Client单独配置；使用TCode：stvarv进入配置界面，可以新建、修改、删除记录。![Maintain](/images/ABAP/Stvarv.png)
+该配置不能跨Client因此需要在每个Client单独配置；使用TCode：stvarv进入配置界面，可以新建、修改、删除记录。![Maintain](/images/ABAP/Stvarv.png)
 
 #### 程序内使用
 
-​	程序内只是取出配置的值，该值存储在表TVARVC中。如果有前导零问题，需要调用Function添加前导零。
+程序内只是取出配置的值，该值存储在表TVARVC中。如果有前导零问题，需要调用Function添加前导零。
 
 ```JS
 DATA: LT_TVARVC TYPE TABLE OF TVARVC,

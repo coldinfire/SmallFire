@@ -12,7 +12,7 @@ tags:
 
 ---
 
-## 添加修改人信息 ##
+### 添加修改人信息 ###
 可以根据TCode进行相应的判断：
 
 创建人信息:
@@ -46,7 +46,7 @@ call function 'TERMINAL_ID_GET'
     others               = 3.
 ```
 
-## 修改表维护 ##
+### 修改表维护 ###
 添加修改操作人字段
 
 1. SE11, go to Utilities - Table Maintenance Generator or SE55

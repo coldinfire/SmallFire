@@ -12,20 +12,21 @@ tags:
 
 ---
 
-
-
 ### 字段符号
 
 #### 定义:
 
 - `FIELD-SYMBOLS: <fs> TYPE ANY TABLE.`
-- `FIELD-SYMBOLS: <fs> LIKE LINE OF <t_TABLE>`
-- `FIELD-SYMBOLS: <fs> type any.`
+- `FIELD-SYMBOLS: <fs> LIKE LINE OF <t_TABLE>.`
+- `FIELD-SYMBOLS: <fs> TYPE ANY.`
 
-​    <1> FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。
+<1> FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生FS未分配的运行时错误。如果LOOP内表时ASSIGNING到FS，之后假如有REFRESH内表的操作的话，FS也会再次回到初始未被ASSIGN的状态，这时如果使用FS也会发生FS未分配的RUNTIME ERROR。
 
-​	<2> `ASSIGN structure TO <fs>`:将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
-  `ASSIGN <Val> TO <fs>`: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。
+<2> `ASSIGN structure TO <fs>`:将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域，即该内存区域别名字段符号可以看作仅是已经被解引用的指针，即某个变量的别名。
+
+#### 使用场景
+
+`ASSIGN <Val> TO <fs>`: 将某个内存区域分配给字段符号，这样字段符号就代表了该内存区域。
 
 **UNASSIGN:**  该语句是初始化`<FS>`字段符号，执行后字段符号将不再引用内存区域，`<fs> is assigned`返回假。
 
@@ -33,12 +34,11 @@ tags:
 
 **循环：** LOOP内表INTO Structure和 LOOP内表ASSIGNING Structure的比较
 
-​    LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用
-MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程。修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。
+LOOP内表INTO结构时，系统会把先把当前行的数据复制到结构，如果结构的值改了，还需要使用MODIFY语句把更改后的值传回内表。也就是说，结构是内表里的数据的一个副本，操作这个副本不会影响内表里的数据。为了提高效率，可以使用FS，FS直接指向内表数据，省去了复制数据到结构的过程。修改FS的值也就是相当于直接修改内表里的数据，不需要再使用MODIFY语句。
 
 **读表：** 将内表数据的行记录分配到FS，修改FS的值也就是相当于直接修改内表里的数据。
 
-#### 使用：
+#### 使用实例
 
 - APPEND & INSERT
 

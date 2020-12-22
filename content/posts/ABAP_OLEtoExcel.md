@@ -13,9 +13,9 @@ tags:
 
 ---
 
-
-
 引用链接：[OLE 下载数据到EXCEL模板及速度优化](https://mp.weixin.qq.com/s/9_1gyAgRwgGa09dXID-_LA)
+
+
 
 **问题描述:** 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员自定义下载数据程序。
 

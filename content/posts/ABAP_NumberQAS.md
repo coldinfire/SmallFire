@@ -9,11 +9,12 @@ categories:
 
 tags: 
   - abaputils
+
 ---
 
 #### 科学计数法转换数字
 
-​	ABAP 函数 `QSS0_FLTP_TO_CHAR_CONVERSION`，能将 SAP 系统内的科学计数法显示的数字转换成一般数字。
+ABAP 函数 `QSS0_FLTP_TO_CHAR_CONVERSION`，能将 SAP 系统内的科学计数法显示的数字转换成一般数字。
 
 ```JS
 DATA: l_result TYPE qsollwerte,
@@ -135,8 +136,6 @@ FORM  numtostr CHANGING  p_is_result_amount
   CLEAR: zflag2,zcstr,zcdec,zclen,zctemp,zcstr2,n.
 ENDFORM
 ```
-
-
 
 #### 计算数学表达式的方法
 

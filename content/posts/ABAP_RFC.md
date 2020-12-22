@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
  [RFC : SAP Hlep Portal 链接](https://help.sap.com/viewer/753088fc00704d0a80e7fbd6803c8adb/7.5.10/en-US/485bc57cd004501ee10000000a421937.html)
 
 ### 什么是 RFC

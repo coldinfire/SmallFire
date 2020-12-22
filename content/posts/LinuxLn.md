@@ -1,5 +1,4 @@
 ---
-
 title: " Linux链接和网络管理 "
 date: 2017-10-24 
 draft: false
@@ -19,7 +18,7 @@ tags:
  创建：`ln -s 源路径 目标路径`
 
  特点：删除链接文件，源文件无影响；***删除源文件，链接文件失效***；修改其中一个文件，两个内容都改变；可以跨分区
- 
+
  指向：新创建的软链接指向源文件，源文件删除会失去指向
 
 
@@ -36,7 +35,7 @@ tags:
 查看网卡：ifconfig [net_name]
 
 配置静态IP:
- 
+
  - 找到并修改文件`/etc/sysconfig/network-scripts/ifcfg-xxx` 
 	 - ONBOOT=YES：reboot & service network restart 时被激活
 	 - BOOTPROTO=STATIC

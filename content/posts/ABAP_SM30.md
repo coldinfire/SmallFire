@@ -1,5 +1,4 @@
 ---
-
 title: " SM30表维护 "
 date: 2018-10-09 
 draft: false
@@ -51,7 +50,7 @@ Recording rountine:
 
 #### 修改table control显示控制
 
-​	双击Overview Screen 进入Screen Painter，修改Attributes显示界面的大小。
+双击Overview Screen 进入Screen Painter，修改Attributes显示界面的大小。
 
 ![修改屏幕属性](/images/ABAP/SM3013.png)
 
@@ -69,7 +68,7 @@ Recording rountine:
 
 ### 分配TCode
 
-   通常建立的自定义表不允许用户直接查看，有时可能需要人工维护某些数据。这时候，可以通过SM30建立表维护的方式开放给用户，但是SM30的权限比较大不适宜直接分配；因此需要给对应的表维护另外分配TCode，来控制其权限。
+通常建立的自定义表不允许用户直接查看，有时可能需要人工维护某些数据。这时候，可以通过SM30建立表维护的方式开放给用户，但是SM30的权限比较大不适宜直接分配；因此需要给对应的表维护另外分配TCode，来控制其权限。
 
 #### TCode创建并分配
 
@@ -86,7 +85,7 @@ Recording rountine:
 
 #### 查找SM30表维护对应的Tcode
 
-​	通过SE16/SE16n输入表TSTCP,然后在**Parameters**中输入'* Tablename *' ,点击执行，将查找出表维护对应的Tcode.
+通过SE16/SE16n输入表TSTCP,然后在**Parameters**中输入'* Tablename *' ,点击执行，将查找出表维护对应的Tcode.
 
 #### 对维护表进行增强操作
 

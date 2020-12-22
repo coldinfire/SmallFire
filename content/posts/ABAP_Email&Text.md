@@ -12,11 +12,9 @@ tags:
 
 ---
 
+转自 [http://blog.chinaunix.net/uid-20591812-id-1918813.html](http://blog.chinaunix.net/uid-20591812-id-1918813.html)
 
-
-### 程序：转自 [http://blog.chinaunix.net/uid-20591812-id-1918813.html](http://blog.chinaunix.net/uid-20591812-id-1918813.html)
-
-
+### 程序实例
 
 ```JS
 *&---------------------------------------------------------------------*
