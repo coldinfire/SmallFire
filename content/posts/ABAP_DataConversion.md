@@ -14,29 +14,33 @@ tags:
 
 ### 输入输出转换
 
-​	如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。
+如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。
 
-​	通过转换规则输入输出函数手动转换，转换公式。CONVERSION_EXIT_ALPHA_INPUT/OUTPUT(前面补齐0，去掉前导0).
+通过转换规则输入输出函数手动转换。
+
+#### 去除前导零
 
 - 去除前导0：`SHIFT ITAB-FIELD LEFT DELETING LEADING '0'.`
 
+- ```js
+  DEFINE conversion_output.
+    CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+      EXPORTING
+        input  = &1
+      IMPORTING
+        output = &1.  
+  END-OF-DEFINITION.
+  ```
+
+添加前导零
+
 ```JS
-** 添加前导零 **
 DEFINE conversion_input.
   CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
     EXPORTING
       input  = &1  
     IMPORTING
       output = &1. 
-END-OF-DEFINITION.
-      
-** 去除前导零 ** 
-DEFINE conversion_output.
-  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-    EXPORTING
-      input  = &1
-    IMPORTING
-      output = &1.  
 END-OF-DEFINITION.
 ```
 
@@ -57,7 +61,7 @@ END-OF-DEFINITION.
 
 #### 单位换算
 
-​	UNIT_CONVERSION_SIMPLE
+UNIT_CONVERSION_SIMPLE
 
 ### 货币转换因子
 

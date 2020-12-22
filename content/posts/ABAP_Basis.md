@@ -14,54 +14,67 @@ tags:
 
 ### ABAP基本数据类型
 
-  基本数据类型
+#### 基本数据类型
 
-| C : Character text                 | D : Date(YYYYMMDD)     | P : Packed(包类型:1-16) |
-| :--------------------------------- | :--------------------- | :---------------------- |
-| **N : Numeric text(不能进行计算)** | **T : Time(HHMMSS)**   | **X : 十六进制**        |
-| **I : Interger**                   | **F : Floating point** |                         |
+| Type | Description                | Type | Description    |
+| ---- | -------------------------- | ---- | -------------- |
+| C    | Character text             | D    | Date(YYYYMMDD) |
+| N    | Numeric text(不能进行计算) | T    | Time(HHMMSS)   |
+| I    | Integer                    | F    | Floating point |
+| P    | Packed(包类型:1-16)        | X    | 十六进制       |
 
-   常用系统变量：
+#### 常用系统变量
 
-| SY-UNAME:用户登录名     | SY-DATUM:当前系统日期                 | SY-UZEIT:当前系统时间 |
-| :---------------------- | :-------------------------------- | :--------------------- |
-| **SY-SUBRC:表示系统执行成功与否** | **SY-INDEX:DO-ENDDO 中是有效的** | **SY-TABIX:LOOP索引，Read内表索引** |
-| **SY-DYNNR:屏幕的编号** | **SY-DBCNT:DB操作处理过的表行号** | **SY-HOST:服务器名称** |
-| **SY-CPROG:当前程序名** | **SY-TCODE:当前执行的TCode** | **SY-TMAXL:内表总行数** |
+| Value    | Description            | Value    | Description          |
+| -------- | ---------------------- | -------- | -------------------- |
+| SY-UNAME | 用户登录名             | SY-TCODE | 当前执行的TCode      |
+| SY-SUBRC | 表示系统执行成功与否   | SY-TMAXL | 内表总行数           |
+| SY-CPROG | 当前程序名             | SY-BATCH | 程序是否后台JOB执行  |
+| SY-DATUM | 当前系统日期           | SY-HOST  | 服务器名称           |
+| SY-UZEIT | 当前系统时间           | SY-DYNNR | 屏幕的编号           |
+| SY-INDEX | DO-ENDDO 中是有效的    | SY-DBCNT | DB操作处理过的表行号 |
+| SY-TABIX | LOOP索引，Read内表索引 | SY-MSGV1 | Message Variable     |
+| SY-MSGID | Message Class          | SY-MSGV2 | Message Variable     |
+| SY-MSGTY | Message Type           | SY-MSGV3 | Message Variable     |
+| SY-MSGNO | Message Number         | SY-MSGV4 | Message Variable     |
 
 ### 变量的声明
-- 透明表，数据字典，结构：既是类型又是对象，可用type和like。
 
-- 只能使用LIKE引用另一定义变量的类型，type不可以
+#### 自定义变量类型
+
+`DATA <var>(len) TYPE <type> VALUE <value> [<decimals>]`
+
+#### 参考字段定义变量
+
+`DATA <var1> like <var2>`  & `DATA <var1> TYPE <var2>`
+
+- 透明表、结构、数据字典：既是类型又是对象，可用 type 和 like 。
+- 只能使用 LIKE 引用另一自定义变量的类型，不可以使用 TYPE
+
+#### 继承结构
 
 ```JS
-<1> DATA <var>(len) TYPE <type> VALUE <value> [<decimals>]. <自定义变量类型>
-<2> DATA <var1> like  <var2> . <参考定义变量>
-	   DATA <var1> type <var2>. 
-```
-
-- 继承结构
-
-```JS
-DATA:BEGIN OF STAFFINFO. <此处是.操作符>
+DATA:BEGIN OF STAFFINFO.
     INCLUDE STRUCTURE USER_INFO.
  DATA:BIRTHDAY TYPE D,
     ADDRESS(50) TYPE C,
- END OF STAFFINFO.
+END OF STAFFINFO.
+
+TYPES: BEGIN OF STR_DATA,
+    BIRTHDAY TYPE D.
+    INCLUDE STRUCTURE USER_INFO.
+TYPES: END OF STR_DATA.
 ```
 
 ### 定义常量、宏
 
 **常量定义**
 
-​	  `CONSTANTS <var>(len) TYPE <type> VALUE <value>.`
+ `CONSTANTS <var>(len) TYPE <type> VALUE <value>.`
 
-​	  `CONSTANTS <var>(len) LIKE <var2> VALUE <value>.
-`
+`CONSTANTS <var>(len) LIKE <var2> VALUE <value>.`
 
 **宏定义** 
-
-定义：
 
 ```ABAP
 DEFINE alv_ref1.

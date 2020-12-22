@@ -18,8 +18,6 @@ tags:
 
 对于初写 ALV 的 ABAPer，it_fieldcat 参数经常有一些隐藏的小坑，需要多加注意。
 
-
-
 01、字段名大小写的问题
 
 - SAP 运行时是区分大小写的，也就是说，'a' 和 'A' 在 SAP 运行时是不同的字符，如果在 FIELDCAT 里面使用了小写或者大小写混合的字段名，SAP 就不会认识，导致出错。其实，不仅仅是 FIELDCAT，程序任何地方最好都要注意大小写。
@@ -60,8 +58,6 @@ tags:
 - SAP 开发有句行话：有数值必有单位，有金额必有货币。ALV 显示也是这样，如果不给指定单位或者货币字段，显示的可能就是不正确的。
   - 数值字段：fldct-qfieldname = 'MEINS'.
   -  金额字段：fldct-cfieldname = 'WAERS'. 
-
-
 
 ```JS
 CASE ls_fldct-fieldname.

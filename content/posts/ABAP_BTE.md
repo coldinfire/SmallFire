@@ -31,7 +31,6 @@ BTE(**Business Transaction Events**)：BTE是SAP中可用的增强技术之一�
 ### BTE查找技巧
 
 调用 BTE 的相关函数
-             
 
 - BF_FUNCTIONS_FIND
 - PC_FUNCTION_FIND

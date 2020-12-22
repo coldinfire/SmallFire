@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 #### 定义结构中定义该字段
 
 ```JS
@@ -30,7 +28,6 @@ DATA: END OF gt_print.
 TYPE-POOLS:slis.
 DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE,
       alv_layout   TYPE slis_layout_alv.
-      
 alv_fieldcat-fieldname = 'CHECKBOX'.
 alv_fieldcat-scrtext_m = 'Choose'.
 alv_fieldcat-checkbox  = 'X'.

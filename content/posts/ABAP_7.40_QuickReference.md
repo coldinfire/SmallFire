@@ -9,9 +9,8 @@ categories:
 
 tags: 
   - abapbasis
+
 ---
-
-
 
 ### Inline Declarations
 
@@ -95,8 +94,6 @@ SELECT but000~partner,
   WHERE but000~partner = @gt_partner-partner
   INTO TABLE @DATA(lt_but).
 ```
-
-
 
 #### Select single 
 

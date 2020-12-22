@@ -12,24 +12,21 @@ tags:
 
 ---
 
-
-
 ## 选择屏幕 [引用链接](https://www.cnblogs.com/foxting/archive/2012/07/01/2572243.html)
 
 ### 触发
 
-​	选择屏幕触发的是：AT SELECTION-SCREEN
+选择屏幕触发的是：AT SELECTION-SCREEN
 
-​	对话屏幕触发的是：PAI
+对话屏幕触发的是：PAI
 
-​	列表屏幕触发的是：AT USER-COMMAND
+列表屏幕触发的是：AT USER-COMMAND
 
 ### SELECT-SCREEN 
 
-  SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。
+SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。
 
 **定义屏幕对象：**
-    
 
 ```js
 SELECTION-SCREEN BEGIN OF SCREEN src.
@@ -40,10 +37,9 @@ CALL SCREEN <num> STARTING AT [1 2] ENDING AT [1 2].
 参数可以将所定义屏幕窗体作为一个新的对话框窗体来引用，并指定期创建的具体大小及位置。
 ```
 
-​	**注意：当从一个主屏幕中来调用其程序中的另一窗体时，必须使用CALL SELECTION-SCREEN方法.**
+**注意：当从一个主屏幕中来调用其程序中的另一窗体时，必须使用CALL SELECTION-SCREEN方法.**
 
 **定义屏幕块：**
-    
 
 ```JS
 SELECTION-SCREEN BEGIN OF BLOCK block.
@@ -82,7 +78,7 @@ SELECTION-SCREEN END OF LINE.
 
 ### PARAMETERS 单值输入
 
-  PARAMETERS 参照数据字典具体字段或者自定义数据类型创建单值文本输入域以及单选/复选框等：
+PARAMETERS 参照数据字典具体字段或者自定义数据类型创建单值文本输入域以及单选/复选框等：
 
 ```JS
 PARAMETERS: <P_1> LIKE <field>      "文本域"
@@ -93,7 +89,6 @@ PARAMETERS: <P_1> LIKE <field>      "文本域"
 ```
 
   默认值：
-    
 
 ​    ...`DEFAULT f：`定义默认值。
 
@@ -126,16 +121,16 @@ PARAMETERS: <P_1> LIKE <field>      "文本域"
 
 定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标.
 
-​	PARAMETERS: P_LANG LIKE itab-field AS LISTBOX VISIBLE LENGTH 22 USER-COMMAND onli DEFAULT 'LH'.
+PARAMETERS: P_LANG LIKE itab-field AS LISTBOX VISIBLE LENGTH 22 USER-COMMAND onli DEFAULT 'LH'.
 
 通过函数：VRM_SET_VALUES为下拉框初始化列表项
 
 该变量用于记录下拉列表数值是否初始化，否则每次屏幕初始化都会重新加载重复数据
 
 ```JS
- DATA:INIT.
- AT SELECTION-SCREEN OUTPUT.
- PERFORM SETLIST.
+DATA:INIT.
+AT SELECTION-SCREEN OUTPUT.
+PERFORM SETLIST.
 ```
 
 子程序用于加载下拉框的数据：
@@ -173,7 +168,6 @@ SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过8位�
  ` SELECT-OPTIONS： <S_1> FOR <dbtab-ele>....`   
 
 内表结构：
-    
 
 ```JS
 SIGN：I , E
@@ -183,7 +177,6 @@ HIGH: 范围较大值
 ```
 
   默认值设定：
-    
 
 ​	...`DEFAULT g：`定义单一默认值。
 
@@ -207,30 +200,27 @@ HIGH: 范围较大值
 
 ###  GOTO-->Text Elements   (TCode:SE32)
 
-   前台界面显示的为PARAMETERS和SELECTION-OPTION定义的字段，不便于理解需。提供某一字段的完整名称以方便用户理解。
+前台界面显示的为 PARAMETERS 和 SELECTION-OPTION 定义的字段，不便于理解需。提供某一字段的完整名称以方便用户理解。
 
-​    GOTO -->Translation：可进行多语言显示的维护
+包含字段：
 
-​	包含字段：
-​    
+Selection Texts：定义已存在并且激活的屏幕元素的名称。
 
-​	Selection Texts：定义已存在并且激活的屏幕元素的名称。
-​    
+Text Symbols：实现自定义文本及符号,该文本使用对象为SELECTION-SCREEN，以三位字符表示(TEXT-001)。
 
-​		Text Symbols：实现自定义文本及符号,该文本使用对象为SELECTION-SCREEN，以三位字符表示(TEXT-001)。
-​        
+图标符号:可以在Text Symbols通过@符号来进行引用，如"@01@",可通过程序RSTXICON查看所有的图标
 
-​	   图标符号:可以在Text Symbols通过@符号来进行引用，如"@01@",可通过程序RSTXICON查看所有的图标
+#### GOTO -->Translation：可进行多语言显示的维护
 
 ###  屏幕事件处理
 
-​	INITIALIZATION. "程序初始化事件，該事件在程序屏幕未顯示之前執行。對程序設置值及屏幕元素進行初始化設置
+INITIALIZATION：程序初始化事件，该事件在程序屏幕未显示之前执行。对程序设置值及屏幕元素进行初始化
 
-​    START-OF-SELECTION事件：该事件在单击按钮后触发
+START-OF-SELECTION：该事件在单击按钮后触发
 
-​    END-OF-SELECTION事件：该事件应用于所有数据处理完成，即START-OF-SELECTION相关执行事件执行完成。但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
+END-OF-SELECTION：该事件应用于所有数据处理完成，即START-OF-SELECTION相关执行事件执行完成。但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
 
-​    AT SELECTION-SCREEN：选择屏幕显示之后，用来响应回车，F8，F1，F4等事件。
+AT SELECTION-SCREEN：选择屏幕显示之后，用来响应回车，F8，F1，F4等事件。
 
 ```JS
 ...ON <field>：检查具体输入字段(SELECTION-OPTIONS或PARAMETERS)是否完整或正确。
@@ -258,7 +248,6 @@ AT SELECTION-SCREEN OUTPUT.
     ENDIF.
     ...
   ENDLOOP.
-      
 REQUIRED：控制必输属性，使用后会忽略OBLIGATORY.0:不必输 1:必输，系统自动校验 2:不必输，但是会提示必输标志
 INPUT：控制屏幕元素的可输入性
 ACTIVE：控制屏幕的可见性 1:可见  2:不可见
@@ -269,17 +258,15 @@ ACTIVE：控制屏幕的可见性 1:可见  2:不可见
 `  SELECTION-SCREEN: PUSHBUTTON [/n] <pos(len)> <name> USER-COMMAND <ucom> [MODIF ID <key>].
 `   
 
-​	 [/n] :按钮初始时距离屏幕左边的位置
+`/n` :按钮初始时距离屏幕左边的位置
 
-​	 `<pos(len)>：`PUSHBUTTON按钮在屏幕生成的位置与长度。
-​    
+`<pos(len)>：`PUSHBUTTON按钮在屏幕生成的位置与长度。
 
-​	`<name>：`PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。
-​    
+`<name>：`PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。​    
 
-​    `<ucom>：`必须指定的字符代码，当用户在选择屏幕上触发按钮时，`<ucom>`被输入到词典对象字段：SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。
+`<ucom>：`必须指定的字符代码，当用户在选择屏幕上触发按钮时，`<ucom>`被输入到词典对象字段：SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。
 
-​	**实例：**  
+**Demo**  
 
 ```JS
 TABLES SSCRFIELDS. "引用词典对象"
@@ -299,9 +286,11 @@ AT SELECTION-SCREEN.
 
 ###  在工具栏上新增一个功能按钮
 
- `SELECTION-SCREEN FUNCTION KEY n.`
+`SELECTION-SCREEN FUNCTION KEY n.`
 
-该按钮的定义保存在系统结构体SSCRFIELDS中，n为一个整数序数最大至5。当n等于1时，其按钮描述保存在字段SSCRFIELDS-FUNCTXT_01中，其按钮对象命名为"FC01",保存在字段SSCRFIELDS-UCOMM中。
+该按钮的定义保存在系统结构体SSCRFIELDS中，n为一个整数序数最大至5。
+
+当n等于1时，其按钮描述保存在字段SSCRFIELDS-FUNCTXT_01中，其按钮对象命名为"FC01",保存在字段SSCRFIELDS-UCOMM中。
 
 **实例：**
 
@@ -330,11 +319,9 @@ AT SELECTION-SCREEN.
   ENDCASE.
 ```
 
-
-
 ### 屏幕单选框分组显示界面内容
 
-​	通过Group将GUI需要显示的界面进行分组，并在 `AT SELECTION-SCREEN OUTPUT.`事件中对每一个单选项选择进行判断，并激活对应的界面。
+通过Group将GUI需要显示的界面进行分组，并在 `AT SELECTION-SCREEN OUTPUT.`事件中对每一个单选项选择进行判断，并激活对应的界面。
 
 ```JS
 SELECTION-SCREEN BEGIN OF BLOCK BLK1 WITH FRAME TITLE TEXT-008.

@@ -26,11 +26,13 @@ tags:
 
 3、无论在语法上还是在执行顺序上， UNION 总是排在在 ORDER BY 之前。
 
-### 【清空字段，内表，结构】
+### 清空:字段、内表、结构
 
-​	使用字段，内表，结构前需要清空其内容，以避免在程序内使用时产生数据的混乱。循环结束后，循环开始前需要根据程序需求选择是否需要清空内表内容，对于带有Headline 的内表要注意。
+使用字段，内表，结构前需要清空其内容，以避免在程序内使用时产生数据的混乱。
 
-### 【增删改】
+循环结束后，循环开始前需要根据程序需求选择是否需要清空内表内容，对于带有Headline 的内表要注意。
+
+### 增、删、改
 
 
 ```JS
@@ -68,7 +70,7 @@ tags:
     通过第二索引在无法使用主键时，可以加快大量处理数据的速度。
 ```
 
-### 【查】
+### 查询数据
 
 ```JS
 SELECT SINGLE ... INTO [CORRESPONDING FIELDS OF] <wa> WHERE ...
@@ -83,7 +85,7 @@ FOR ALLENTRIES:
   INNER JOIN、LEFT OUTER JOIN.
 ```
 
-### 【事务处理】
+### 事务处理
 
 ```JS
 "Commit"
@@ -100,7 +102,6 @@ CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'
 COMMIT WORK.          // 异步更新。
 COMMIT WORK AND WAIT. // 同步跟新，执行结果可通过sy-subrc判断是否提交成功。
 ROLLBACK WORK.
-
 ```
 
 ## Focus
