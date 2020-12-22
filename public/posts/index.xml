@@ -1241,6 +1241,15 @@
     </item>
     
     <item>
+      <title> Field Symbols </title>
+      <link>https://coldinfire.github.io/2018/ABAP_FileToFtp/</link>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_FileToFtp/</guid>
+      <description>原文链接：https://sapabap-tutorial.blogspot.com/2016/11/send-pdf-file-to-ft</description>
+    </item>
+    
+    <item>
       <title>日期操作</title>
       <link>https://coldinfire.github.io/2018/ABAP_Date/</link>
       <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
@@ -1255,7 +1264,7 @@
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartfomrs_PDF/</guid>
-      <description>1.程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义&amp;#34; DATA: lv_form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name&amp;#34; lv_fm_name type rs38l_fnam, &amp;#34;Function Name&amp;#34; ls_control type ssfctrlop, &amp;#34;Control structure&amp;#34; ls_option type ssfcompop, &amp;#34;Smart Composer (transfer) options&amp;#34; ls_ssfcrescl type ssfcrescl.</description>
+      <description>1.程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义&amp;#34; DATA: form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name&amp;#34; function_name type rs38l_fnam, &amp;#34;Function Name&amp;#34; control type ssfctrlop, &amp;#34;Control structure&amp;#34; option type ssfcompop, &amp;#34;Smart Composer (transfer) options&amp;#34; result type ssfcrescl.</description>
     </item>
     
     <item>
