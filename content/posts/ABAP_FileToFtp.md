@@ -24,13 +24,13 @@ DATA : BEGIN OF t_vbak OCCURS 0,
          vkorg TYPE vbak-vkorg,
          vkbur TYPE vbak-vkbur,
        END OF t_vbak.
-DATA: fm_name TYPE rs38l_fnam,
-      p_form  TYPE tdsfname VALUE 'ZTEST1'.   "smartforms name
+DATA: function_name TYPE rs38l_fnam,
+      form_name  TYPE tdsfname VALUE 'ZTEST1'.
 DATA: carr_id TYPE sbook-carrid,
       cparam        TYPE ssfctrlop,
       outop         TYPE ssfcompop,
-      tab_otf_data  TYPE ssfcrescl,
-      pdf_tab       LIKE tline OCCURS 0 WITH HEADER LINE,
+      tab_otf_data  TYPE ssfcrescl.
+DATA: pdf_tab       LIKE tline OCCURS 0 WITH HEADER LINE,
       tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE,
       file_size     TYPE i,
       bin_filesize  TYPE i,
@@ -46,14 +46,14 @@ cparam-preview = space.
 cparam-getotf = 'X'.
 CALL FUNCTION 'SSF_FUNCTION_MODULE_NAME'
   EXPORTING
-    formname           = p_form
+    formname           = form_name
   IMPORTING
-    fm_name            = fm_name
+    fm_name            = function_name
   EXCEPTIONS
     no_form            = 1
     no_function_module = 2
     OTHERS             = 3.
-CALL FUNCTION fm_name
+CALL FUNCTION function_name
   EXPORTING
     control_parameters = cparam
     output_options     = outop

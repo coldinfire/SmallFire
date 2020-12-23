@@ -54,7 +54,6 @@ CALL TRANSACTION <TCode> USING <BDCDATA>
                          MODE <CTUMODE>
                          UPDATE <CPUDATE>
                          MESSAGES INTO <MESSTAB>.
-                  
 TCode:相应的事务代码
 BDCDATA:需要的BDC传入数据
 MODE:显示模式
@@ -127,7 +126,6 @@ DATA LS_CTUPARAMS LIKE CTU_PARAMS.   "ctuparams LIKE ctu_params
   LS_CTUPARAMS-DISMODE  = 'N'.
   LS_CTUPARAMS-UPDMODE  = 'S'.
   LS_CTUPARAMS-RACOMMIT = 'X'.
-  
 perform open_group.
 LOOP AT <DYN_TABLE> ASSIGNING <DYN_WA>.
 	CLEAR GT_BDCDATA.
@@ -136,7 +134,6 @@ LOOP AT <DYN_TABLE> ASSIGNING <DYN_WA>.
                                   'BDC_OKCODE'       '/00',
                                   'CAUFVD-AUFNR'     L_AUFNR,
                                   'R62CLORD-FLG_OVIEW' 'X'.
-
     PERFORM FRM_BDC_DYNPRO USING  'SAPLCOKO1'        '0115'.
     PERFORM FRM_BDC_FIELD  USING: 'BDC_OKCODE'       '=BU',
                                   'BDC_CURSOR'       'CAUFVD-GSTRS',
@@ -145,14 +142,11 @@ LOOP AT <DYN_TABLE> ASSIGNING <DYN_WA>.
                                   'CAUFVD-GSTRS'     L_BEGDA_S,
                                   'CAUFVD-GSUZS'     '23:01',
                                   'CAUFVD-TERKZ'     '3' .
-
     CLEAR GT_MSG.
     CALL TRANSACTION 'CO02' USING GT_BDCDATA
                    OPTIONS FROM LS_CTUPARAMS
                    MESSAGES INTO GT_MSG.
-
 ENDLOOP.
-
 perform close_group.
 perform close_dataset using dataset.
 ```
@@ -225,7 +219,7 @@ CLEAR bdcdata[].
   gs_ctu_params-defsize = ''."设置窗口非默认大小
 "调用BDC执行 T-code COOIS 显示订单抬头
 CALL TRANSACTION 'COOIS' USING bdcdata 
- 						 OPTIONS FROM gs_ctu_params
+                         OPTIONS FROM gs_ctu_params
                          MESSAGE INTO MESSTAB.
 ```
 
