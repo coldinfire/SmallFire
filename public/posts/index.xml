@@ -1259,6 +1259,15 @@
     </item>
     
     <item>
+      <title>不同时区日期转换</title>
+      <link>https://coldinfire.github.io/2018/ABAP_TIMEZONE/</link>
+      <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_TIMEZONE/</guid>
+      <description>时区表：TTZZ 获取用户时区 Function：TZON_GET_USER_TIMEZONE 根据时区得到时间戳 FUNCTION：IB_CONV</description>
+    </item>
+    
+    <item>
       <title>Smartforms打印成PDF</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_PDF/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>

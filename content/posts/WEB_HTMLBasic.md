@@ -151,14 +151,14 @@ tags:
 
 ```html
 <form action="#" method="post/get">
-  <input type="text" name="email" size="40" maxlength="50"><br/>
-  <input type="password" name="password"><br/>
+  <input type="text" name="name" size="40" maxlength="50" placeholder="Enter username"><br/>
+  <input type="password" name="password" placeholder="Enter pwd"><br/>
   <input type="checkbox" name="hoppy" checked="checked">
   <input type="checkbox" name="hoppy">
-  <input type="radio" name="sex" value="male" checked="checked">Male<br/>
-  <input type="radio" name="sex" value="female">Female<br/>
-  <input type="submit" value="Send"><br/>
-  <input type="reset">
+  <input type="radio" name="gender" value="male" checked="checked">Male<br/>
+  <input type="radio" name="gender" value="female">Female<br/>
+  <input type="submit" value="send"><br/>
+  <input type="reset" value="reset">
   <input type="hidden">
   <select name="cars">
     <option value="volvo" selected="selected">Volvo</option>
