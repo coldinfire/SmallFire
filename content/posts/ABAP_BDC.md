@@ -157,9 +157,9 @@ perform close_dataset using dataset.
 
 - /1BCDWB/DB 0101 X. 表示数据录入窗口
 
-- BDC_OKCODE = 'SAVE' 表示单击‘保存’按钮
+- BDC_OKCODE  '=BU' 表示单击‘保存’按钮,  '/00' 表示回车
 
-- SPFLI-CARRID NG 表示窗口字段 'SPFLI-CARRID' 值为 'NG'
+- CAUFVD-TERKZ '3' 表示窗口字段 'CAUFVD-TERKZ' 值为 '3'
 
 #### 两个固定表
 

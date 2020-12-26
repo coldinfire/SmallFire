@@ -131,41 +131,68 @@ visibility 还可能取值为 collapse 。当设置元素 **visibility: collapse
 
 盒模型的组成
 
-- 自身内容：width、height
-- 边框：border
-  - border: 2px solid #ff0000;
-  - border-width: 2px;
-  - border-style: dotted;    (solid:实线，dashed:虚线，dotted:点状虚线，double:双实线)
-  - border-color: red;
-  - border-collapse: collapse; (合并相邻边框)
-  - border-radius: 10px;  (圆角边框)
-- 内边距(上、右、下、左)：padding
-  - padding: 5px 5px 5px 5px;
-  - padding-top: 5px;
-  - padding-right: 5px;
-  - padding-bottom: 5px;
-  - padding-left: 5px;
-- 外边距：margin
-  - 属性设置和外边距设置遵循同样的规则，属性值也相同
-  - 外边距合并：两个盒子同时设置了外边距，会进行一个外边距合并
-  - 块级盒子，居中显示：设置宽度，左右外边距设置为 auto
-- 阴影属性：box-shadow
-  - box-shadow: 1px 1px 5px #000;
-- 轮廓：outline
-  - outline 是不占空间的，既不会增加额外的 width 或者 height
-  - outline的声明内容和border一致
+**自身内容**：width、height
+
+**边框**：border
+
+- border: 2px solid #ff0000;
+- border-width: 2px;
+- border-style: dotted;    (solid:实线，dashed:虚线，dotted:点状虚线，double:双实线)
+- border-color: red;
+- border-collapse: collapse; (合并相邻边框)
+- border-radius: 10px;  (圆角边框)
+
+**内边距**(上、右、下、左)：padding
+
+- padding: 5px 5px 5px 5px;
+- padding-top: 5px;
+- padding-right: 5px;
+- padding-bottom: 5px;
+- padding-left: 5px;
+
+**外边距**：margin
+
+- 属性设置和外边距设置遵循同样的规则，属性值也相同
+- 块级盒子，居中显示：设置宽度，左右外边距设置为 auto
+- 外边距合并：两个嵌套的盒子同时设置了外边距，会进行一个外边距合并
+  - 为父元素定义上边框
+  - 为父元素定义上内边距
+  - 为父元素添加 overflow: hidden;
+
+**阴影属性**：box-shadow
+
+- box-shadow: 1px 1px 5px #000;
+
+**轮廓**：outline
+
+- outline 是不占空间的，既不会增加额外的 width 或者 height
+- outline的声明内容和border一致
+
+#### 清楚内外边距
+
+```css
+* {
+    margin: 0;
+    padding 0;
+}
+```
 
 ### 定位：Position
 
 position 属性的五个值：
 
-- static ：默认值，没有定位，遵循正常的文档流对象
-- relative ：相对定位元素的定位是相对其正常位置；移动相对定位元素，但它原本所占的空间不会改变
-- fixed 
-  - 元素的位置相对于浏览器窗口是固定位置；即使窗口是滚动的它也不会移动
-  - Fixed 定位的元素和其他元素重叠
-- absolute ：绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于 html
-- sticky ：
+**static** ：默认值，没有定位，遵循正常的文档流对象
+
+**relative** ：相对定位元素的定位是相对其正常位置；移动相对定位元素，但它原本所占的空间不会改变
+
+**fixed** 
+
+- 元素的位置相对于浏览器窗口是固定位置；即使窗口是滚动的它也不会移动
+- Fixed 定位的元素和其他元素重叠
+
+**absolute** ：绝对定位的元素的位置相对于最近的已定位父元素，如果没有已定位的父元素，其位置相对于 html
+
+**sticky** ：
 
 ### 浮动：Float
 
