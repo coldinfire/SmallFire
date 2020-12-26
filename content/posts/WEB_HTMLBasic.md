@@ -196,7 +196,7 @@ NAME : N_Head_Title --> NAME属性命名遵循首个字母大写&_
 
 ### 引用CSS和JavaScript文件
 
-​	按照HTML5规范，一般来说，当CSS和JS文件被引用时，都会默认以 `text/css`和 `text/javascript` 的方式，没必要特意为其指定 `type` 类型。
+按照HTML5规范，一般来说，当CSS和JS文件被引用时，都会默认以 `text/css`和 `text/javascript` 的方式，没必要特意为其指定 `type` 类型。
 
 ```html
 <!-- CSS -->

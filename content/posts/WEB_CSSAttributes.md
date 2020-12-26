@@ -42,33 +42,6 @@ tags:
 - 文本转换
   - text-transform: [uppercase、lowercase、capitalize];
 
-### 盒模型
-
-盒模型的组成
-
-- 自身内容：width、height
-- 边框：border
-  - border: 2px solid #ff0000;
-  - border-width: 2px;
-  - border-style: dotted;    (solid:实线，dashed:虚线，dotted:点状虚线，double:双实线)
-  - border-color: red;
-  - border-radius: 10px;  圆角
-- 内边距(上、右、下、左)：padding
-  - padding: 5px 5px 5px 5px;
-  - padding-top: 5px;
-  - padding-right: 5px;
-  - padding-bottom: 5px;
-  - padding-left: 5px;
-- 外边距：margin
-  - 属性设置和外边距设置遵循同样的规则，属性值也相同
-- 阴影属性：box-shadow
-  - box-shadow: 1px 1px 5px #000;
-- 轮廓：outline
-  - outline 是不占空间的，既不会增加额外的 width 或者 height
-  - outline的声明内容和border一致
-
-外边距合并：两个盒子同时设置了外边距，会进行一个外边距合并
-
 ### 背景属性
 
 #### background-color
@@ -77,6 +50,10 @@ tags:
 
 - background: red;
 - background-color: red;
+
+设置透明色：第四个参数为透明度(0~1)
+
+- background-color: rgba(0,0,0,0.3);
 
 #### background-image ####
 
@@ -115,7 +92,7 @@ tags:
 
 #### 背景属性简写
 
-`body {background:#ffffff url('img.png') no-repeat fixed right top;}`
+`body {background:#fff url('img.png') no-repeat fixed right top;}`
 
 可以将上述属性统一设置，不必单独设置，属性值的顺序为：
 
@@ -149,6 +126,34 @@ tags:
 -  2、**visibility: hidden** 使元素在网页上不可见，但仍占用空间。
 
 visibility 还可能取值为 collapse 。当设置元素 **visibility: collapse** 后，一般的元素的表现与 **visibility: hidden** 一样，也即其会占用空间。但如果该元素是与 table 相关的元素，例如 table row、table column、table column group 等，其表现却跟 **display: none** 一样，也即其占用的空间会释放。
+
+### 盒模型
+
+盒模型的组成
+
+- 自身内容：width、height
+- 边框：border
+  - border: 2px solid #ff0000;
+  - border-width: 2px;
+  - border-style: dotted;    (solid:实线，dashed:虚线，dotted:点状虚线，double:双实线)
+  - border-color: red;
+  - border-collapse: collapse; (合并相邻边框)
+  - border-radius: 10px;  (圆角边框)
+- 内边距(上、右、下、左)：padding
+  - padding: 5px 5px 5px 5px;
+  - padding-top: 5px;
+  - padding-right: 5px;
+  - padding-bottom: 5px;
+  - padding-left: 5px;
+- 外边距：margin
+  - 属性设置和外边距设置遵循同样的规则，属性值也相同
+  - 外边距合并：两个盒子同时设置了外边距，会进行一个外边距合并
+  - 块级盒子，居中显示：设置宽度，左右外边距设置为 auto
+- 阴影属性：box-shadow
+  - box-shadow: 1px 1px 5px #000;
+- 轮廓：outline
+  - outline 是不占空间的，既不会增加额外的 width 或者 height
+  - outline的声明内容和border一致
 
 ### 定位：Position
 
