@@ -53,52 +53,5 @@ tags:
 
 如果金额或者数量字段显示不出来的话，可以在 “货币 / 数量字段” 标签中指定相应的数据类型。
 
-### Smartforms 设置参数实现连续打印
 
-调用 smartforms 时直接调用打印机打印，不出现打印预览窗口
-
-```JS
-DATA: fm_name TYPE rs38l_fnam.
-DATA: ls_control_param TYPE ssfctrlop .
-DATA: ls_composer_param TYPE ssfcompop .
-	
-ls_control_param-langu = sy-langu.
-ls_control_param-no_open = 'X'.
-ls_control_param-no_close = 'X'.
-ls_control_param-no_dialog = 'X'.  " Not show dialog "
-ls_composer_param-tddest = 'LP01'. " Printer "
-ls_composer_param-tdimmed = 'X'.   " Print Immediately (Print Parameters) "
-ls_composer_param-tddelete = 'X'.  " Delete After Printing (Print Parameters) "   
-lw_composer_param-tdcopies = 2.    " 重复打印次数"
-lw_composer_param-tdpageslct = '1-3'. "控制打印的页码，1,2/1-3"
-* 根据 SmartForm 名称获得 Form 的 Function Name
-CALL FUNCTION 'SSF_FUNCTION_MODULE_NAME'
-  EXPORTING
-    formname = 'FORM_NAME'
-  IMPORTING
-     fm_name = fm_name
-  EXCEPTIONS
-     no_form = 1
-     no_function_module = 2
-    OTHERS = 3 .
-IF sy-subrc <> 0.
-  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-ENDIF.
-* 调用Function 实现打印
-CALL FUNCTION fm_name
-  EXPORTING
-    control_parameters = ls_control_param
-    output_options     = ls_composer_param
-  EXCEPTIONS
-    formatting_error   = 1
-    internal_error     = 2
-    send_error         = 3
-    user_canceled      = 4
-    OTHERS             = 5.
-IF sy-subrc <> 0.
-  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-ENDIF.
-```
 

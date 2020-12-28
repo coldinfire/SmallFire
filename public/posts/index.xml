@@ -1709,6 +1709,15 @@
     </item>
     
     <item>
+      <title>Smartforms 连续打印</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartform_Print/</link>
+      <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartform_Print/</guid>
+      <description>Smartforms 设置参数实现连续打印 调用 smartforms 时直接调用打印机打印，不出现打印预览窗口 DATA: fm_name TYPE rs38l_fnam. DATA: control_param TYPE ssfctrlop . DATA: composer_param TYPE ssfcompop . control_param-langu = sy-langu. control_param-no_open = &amp;#39;X&amp;#39;. control_param-no_close = &amp;#39;X&amp;#39;. control_param-no_dialog = &amp;#39;X&amp;#39;. &amp;#34; Not show dialog &amp;#34; composer_param-tddest = &amp;#39;LP01&amp;#39;. &amp;#34; Printer</description>
+    </item>
+    
+    <item>
       <title>Smart forms统计打印次数</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartform_PrintTimes/</link>
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>

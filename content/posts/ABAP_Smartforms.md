@@ -34,6 +34,8 @@ Smartforms的执行顺序是根据左边菜单从上到下执行的。
 
 ![smartforms](/images/ABAP/smartform0.png)
 
+![smartforms](/images/ABAP/smartform1.png)
+
 ### Smartforms组成
 
 Smartforms 包括全局设置和 FORM 内容两大部分。
@@ -50,8 +52,6 @@ From 内容
 - 可以单页，也可以有多页内容
 
 ### Global Settings
-
-![smartforms](/images/ABAP/smartform1.png)
 
 #### Form Attributes
 
@@ -80,6 +80,36 @@ Tables主要用来传递调用 Smartform 时用来展示的内表数据。
 Global definitions包含可以在整个表单中使用的数据，可进行数据定义和初始化。
 
 ![smartforms](/images/ABAP/smartform5.png)
+
+### Form 内容设置
+
+Form内容显示为树形结构，在树结构中，为每个节点定义了一个选项卡，每个节点都可以链接到一个条件。当表单中满足条件时，系统将处理该节点，如果不满足，则系统不处理该节点。
+
+同过对树的节点布局，已经节点内部详细的信息处理可以实现复杂的Form内容设置。
+
+在一般情况下，树结构中的节点从上到下处理。
+
+每页上的分页数取决于当前页面上剩余的空间。
+
+### Style样式制作
+
+Style定义文字类型、大小样式等属性，可在Text对象内使用不同的样式。
+
+#### 创建Style
+
+![Smartforms Style](/images/ABAP/smartform6.png)
+
+![Smartforms Style](/images/ABAP/smartform7.png)
+
+Header data：表头数据，定义默认段落属性等参数。 
+Paragraph formats：段落格式，字体类型等，在设定对象时可以选择需要的段落。 
+Character formats：字符格式，定义是否粗体、倾斜、大小等，在一段文字内设置不同的字体、颜色等。
+
+#### 使用Style
+
+在 Smartforms 的 Form Attributes 中引入Style。
+
+![Smartforms Style](/images/ABAP/smartform8.png)
 
 ### Smartforms 程序调用
 
