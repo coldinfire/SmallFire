@@ -1,5 +1,5 @@
 ---
-title: "SO10创建标准文本"
+title: " SO10创建标准文本 "
 date: 2019-10-18
 draft: false
 author: Small Fire
@@ -12,30 +12,52 @@ tags:
 
 ---
 
+
+
+### 创建标准文本
+
 通过 Tcode SO10 可以创建标准文本：
 
 ![SO10](/images/ABAP/SO10.png)
 
-通过占位符替换长文本：
+在标准文本中输入文本内容，文本内容可以加入其他的文本，可以实现文本嵌套。
 
-![SO10 Symbol](/images/ABAP/SO10_1.png)
+![SO10 Text](/images/ABAP/SO10_1.png)
+
+### Smartforms中使用
+
+![SO10 User1](/images/ABAP/SO10_2.png)
+
+#### Step1：Create Text Node
+
+在 Smartforms 的节点中创建 Text 文本节点
+
+#### Step2：Change Text Type
+
+修改节点类型为 Include Text 
+
+#### Step3：Choose The Text
+
+通过 Text Name , Text Object ，Text ID 选择需要添加的文本信息，保存 Smartforms 。
+
+### 通过函数获取
 
 ```js
-DATA lv_name TYPE thead-tdname.
-DATA lv_langu LIKE sy-langu VALUE 'EN'.
-DATA lt_line TYPE STANDARD TABLE OF tline WITH HEADER LINE.
-DATA lv_count TYPE i.
-lv_name = 'Z_TEST'.
+DATA name TYPE thead-tdname.
+DATA langu LIKE sy-langu VALUE 'EN'.
+DATA lines TYPE STANDARD TABLE OF tline WITH HEADER LINE.
+DATA count TYPE i.
+name = 'Z_TEST'.
 " Read text from SO10 "
-  CALL FUNCTION 'READ_TEXT'
+CALL FUNCTION 'READ_TEXT'
   EXPORTING
     client                  = sy-mandt
     id                      = 'ST'
-    language                = lv_langu
-    name                    = lv_name
+    language                = langu
+    name                    = name
     object                  = 'TEXT'
   TABLES
-    lines                   = lt_line
+    lines                   = lines
   EXCEPTIONS
     id                      = 1
     language                = 2
@@ -45,7 +67,8 @@ lv_name = 'Z_TEST'.
     reference_check         = 6
     wrong_access_to_archive = 7
     OTHERS                  = 8.
-  IF sy-subrc EQ 0 .
+" Replace Symbol Value in text "
+IF sy-subrc EQ 0 .
 " Initialize the text symbols "
   CALL FUNCTION 'INIT_TEXTSYMBOL'.
 " Set dynamic text symbol "

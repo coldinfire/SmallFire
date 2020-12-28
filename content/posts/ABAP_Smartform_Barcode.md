@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 ### Smartforms 打印条码
 
 **传统的：将数据发送到打印机上，由打印机将数据转换成 条码图案，然后进行打印。**
@@ -48,9 +46,9 @@ tags:
  （9）Save。
 ```
 
-### 设置SmartFom样式（Style）：
+### 设置SmartFom样式（Style）
 
-#### SmartForms。
+#### SmartForms
 
 - （1）进入SmartForms后选择样式（Style）。
 

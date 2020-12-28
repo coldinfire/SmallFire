@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 ### Smartform中的table节点插入分页
 
 #### Command Node

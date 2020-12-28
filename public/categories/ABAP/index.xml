@@ -233,12 +233,12 @@
     </item>
     
     <item>
-      <title>SO10创建标准文本</title>
+      <title> SO10创建标准文本 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SO10/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SO10/</guid>
-      <description>通过 Tcode SO10 可以创建标准文本： 通过占位符替换长文本： DATA lv_name TYPE thead-tdname. DATA lv_langu LIKE sy-langu VALUE &amp;#39;EN&amp;#39;. DATA lt_line TYPE STANDARD TABLE OF tline WITH HEADER LINE. DATA lv_count TYPE i. lv_name = &amp;#39;Z_TEST&amp;#39;. &amp;#34; Read text from SO10 &amp;#34; CALL FUNCTION &amp;#39;READ_TEXT&amp;#39; EXPORTING client = sy-mandt id = &amp;#39;ST&amp;#39; language = lv_langu</description>
+      <description>创建标准文本 通过 Tcode SO10 可以创建标准文本： 在标准文本中输入文本内容，文本内容可以加入其他的文本，可以实现文本嵌套。 Smartforms中使用 St</description>
     </item>
     
     <item>
@@ -647,12 +647,12 @@
     </item>
     
     <item>
-      <title> Field Symbols </title>
-      <link>https://coldinfire.github.io/2018/ABAP_FileToFtp/</link>
+      <title> 将Smartforms转换成PDF发送到FTP服务器 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_SmartformsToftp/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_FileToFtp/</guid>
-      <description>原文链接：https://sapabap-tutorial.blogspot.com/2016/11/send-pdf-file-to-ft</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_SmartformsToftp/</guid>
+      <description>Send pdf file to ftp server REPORT zpdfsendtoftp. DATA : BEGIN OF t_vbak OCCURS 0, vbeln TYPE vbrk-vbeln, vkorg TYPE vbak-vkorg, vkbur TYPE vbak-vkbur, END OF t_vbak. DATA: function_name TYPE rs38l_fnam, form_name TYPE tdsfname VALUE &amp;#39;ZTEST1&amp;#39;. DATA: carr_id TYPE sbook-carrid, ctrlop TYPE ssfctrlop, compop TYPE ssfcompop, tab_otf_data TYPE ssfcrescl. DATA: pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE, tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE, bin_filesize TYPE i, pdf_xstring</description>
     </item>
     
     <item>
@@ -1093,13 +1093,22 @@
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SmartfomrsDemo/</guid>
-      <description>程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义&amp;#34; DATA: lv_form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name&amp;#34; lv_fm_name type rs38l_fnam, &amp;#34;Function Name&amp;#34; ls_control type ssfctrlop, &amp;#34;Control structure&amp;#34; ls_option type ssfcompop, &amp;#34;Smart Composer (transfer) options&amp;#34; ls_ssfcrescl type ssfcrescl. &amp;#34;Return value</description>
+      <description>程序中使用Smartform模板 &amp;#34;SMARTFORMS变量定义&amp;#34; DATA: form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name&amp;#34; fm_name type rs38l_fnam, &amp;#34;Function Name&amp;#34; control type ssfctrlop, &amp;#34;Control structure&amp;#34; option type ssfcompop, &amp;#34;Smart Composer (transfer) options&amp;#34; ssfcrescl type ssfcrescl. &amp;#34;Return value</description>
     </item>
     
     <item>
-      <title>Smartforms常用工具</title>
+      <title>Smart forms统计打印次数</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartform_PrintTimes/</link>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartform_PrintTimes/</guid>
+      <description>打印次数的记录 通过参数控制和对调用 Smart forms 完成后返回的参数值，判断用户是否完成Form打印。 DATA: fm_name TYPE rs38l_fnam. DATA: control_param TYPE ssfctrlop . DATA: composer_param TYPE ssfcompop . DATA: output_info TYPE ssfcrescl. composer_param-tdiexit = &amp;#39;X&amp;#39;. &amp;#34; 预览打印</description>
+    </item>
+    
+    <item>
+      <title>Smartforms常见问题</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</link>
-      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</guid>
       <description>中文乱码问题 如果预览时中文正常，打印出来是乱码的情况，可以尝试在中文环境下重新维护并激活。再次打印应该可以解决。如果还有问题，则检查语言包是</description>
@@ -1108,10 +1117,10 @@
     <item>
       <title>Smartforms</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartforms/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
-      <description>查找Smartforms TCode： NACE 可以查找 (例如。采购订单，销售订单等) NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加</description>
+      <description>Smartforms 使用 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。 但是 SmartForms 是一</description>
     </item>
     
     <item>

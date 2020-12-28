@@ -1,6 +1,6 @@
 ---
-title: "Smartforms常用工具"
-date: 2018-07-24
+title: "Smartforms常见问题"
+date: 2018-07-20
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -100,32 +100,5 @@ IF sy-subrc <> 0.
   MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
   WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
 ENDIF.
-```
-
-### 打印次数的记录
-
-```htnml
-DATA: ls_control_param TYPE ssfctrlop .
-DATA: ls_composer_param TYPE ssfcompop .
-DATA: ls_output_info TYPE ssfcrescl.
-
-ls_composer_param-TDIEXIT = 'X'. " 预览打印后直接退出 "
-CALL FUNCTION fm_name
-  EXPORTING
-    control_parameters = ls_control_param
-    output_options     = ls_composer_param
-  IMPORTING
-    job_output_info    = ls_output_info
-  EXCEPTIONS
-    formatting_error   = 1
-    internal_error     = 2
-    send_error         = 3
-    user_canceled      = 4
-    OTHERS             = 5.
-If sy-subrc = 0.  
-  if ls_output_info-OUTPUTDONE = 'X'. “ 是否输出到打印机 "  
-    " 增加打印次数，并把它写到相应的自定义表中 " 
-  endif.  
-ENDIF. 
 ```
 

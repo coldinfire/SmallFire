@@ -1,5 +1,5 @@
 ---
-title: " Field Symbols "
+title: " 将Smartforms转换成PDF发送到FTP服务器 "
 date: 2018-12-15
 draft: false
 author: Small Fire
@@ -9,11 +9,10 @@ categories:
 
 tags: 
   - abaputils
+
 ---
 
 
-
-原文链接：[https://sapabap-tutorial.blogspot.com/2016/11/send-pdf-file-to-ftp-server.html](https://sapabap-tutorial.blogspot.com/2016/11/send-pdf-file-to-ftp-server.html)
 
 ### Send pdf file to ftp server
 
