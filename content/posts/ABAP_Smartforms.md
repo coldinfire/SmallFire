@@ -49,6 +49,8 @@ From 内容
 - 一般 Form 里包含表头、表身、表尾；
 - 可以单页，也可以有多页内容
 
+### Global Settings
+
 ![smartforms](/images/ABAP/smartform1.png)
 
 #### Form Attributes
