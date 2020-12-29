@@ -177,7 +177,62 @@ visibility 还可能取值为 collapse 。当设置元素 **visibility: collapse
 }
 ```
 
-### 定位：Position
+### 浮动：Float
+
+CSS 的 Float（浮动），会使元素向左或向右移动，其周围的元素也会重新排列。可以让多个块级元素一行内排列显示。
+
+- img { float: none; }
+- img { float: right; }
+- img { float: left; }
+
+#### 清除浮动
+
+元素浮动之后，周围的元素会重新排列，为了避免这种情况，使用 clear 属性。
+
+clear 属性指定元素两侧不能出现浮动元素。
+
+方法一：额外标签法，在浮动元素末尾添加一个空标签(块级元素)，并对空标签清除浮动
+
+- text { clear: both; }
+
+方法二：父级元素添加 overflow，无法处理溢出部分内容
+
+- .box { overflow: hidden、auto、scroll }
+
+方法三：父元素添加 :after 伪元素
+
+```css
+.clearfix:after{
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility hidden;
+}
+.clearfix { 
+    *zoom: 1;
+}
+```
+
+方法四：父元素添加双伪元素
+
+```css
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: tabel;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+```
+
+
+
+### 定位：Position 
 
 position 属性的五个值：
 
@@ -193,18 +248,3 @@ position 属性的五个值：
 **absolute** ：绝对定位的元素的位置相对于最近的已定位父元素，如果没有已定位的父元素，其位置相对于 html
 
 **sticky** ：
-
-### 浮动：Float
-
-CSS 的 Float（浮动），会使元素向左或向右移动，其周围的元素也会重新排列。
-
-- img { float: right; }
-- img { float: left; }
-
-清除浮动
-
-元素浮动之后，周围的元素会重新排列，为了避免这种情况，使用 clear 属性。
-
-clear 属性指定元素两侧不能出现浮动元素。
-
-- text { clear: both; }

@@ -28,32 +28,33 @@ tags:
 - 在选择器中引用属性值，例如：`input[type="text"]`，在某些情况下可选是否使用，这样做也能更好地统一代码；
 - 零值不需要添加单位，例如：用 `margin: 0;` 代替 `margin: 0px;`；
 
-### 声明顺序
+### 属性书写顺序
 
 有关联的属性声明之间应该按照以下顺序组在一起：
 
-1. 定位
-2. 盒模型
-3. 排字
-4. 视觉设计
+1. 布局定位
+2. 盒模型，自身属性
+3. 文本属性
+4. 视觉设计(CSS)
 5. 其他杂项
 
-定位摆在第一位，因为它能把元素从文档正常流中脱离出来，覆盖盒模型样式。
+布局定位摆在第一位，因为它能把元素从文档正常流中脱离出来，覆盖盒模型样式。
 
 盒模型表示着组件的度量尺寸和摆放位置，因此排第二。
 
-排版和视觉都是属于元素内部的属性，不会影响到前两项，所以排为3、4。
+文本排版和视觉都是属于元素内部的属性，不会影响到前两项，所以排为3、4。
 
 ```CSS
 .header {
-/* 显示属性 */
+/* 布局定位属性 */
     display || visibility
     list-style
     position top || right || bottom || left
     z-index
     clear
     float
-/* 自身属性 */
+    overflow
+/* 盒模型，自身属性 */
     width max-width || min-width
     height max-height || min-height
     overflow || clip
@@ -65,14 +66,19 @@ tags:
 /* 文本属性 */
     color
     font
+    text-decoration
     text-overflow
     text-align
     text-indent
     line-height
     white-space
     vertical-align
+/* CSS 视觉设计 */
     cursor
     content
+    box-shadow
+    text-shadow
+    border-radius
 };
 ```
 
@@ -97,11 +103,13 @@ tags:
 
 
 - 组选择器：`h1,h2,p { color: red; }`
-
 - 子选择器：用于选择指定标签元素的子元素，作用于元素的第一代后代
   -  `.menuList>li { border:1px solid red; }` 
 - 后代选择器：用于选择指定标签元素下的后辈元素，作用于元素的所有后代
   - `.menuList span { color:red; }`
+- 伪类选择器
+
+  - `a:hover { text-decoration: none; }`
 
 #### 优先级
 
