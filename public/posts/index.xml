@@ -2141,6 +2141,15 @@
     </item>
     
     <item>
+      <title>Web 页面布局整体思路</title>
+      <link>https://coldinfire.github.io/2017/WEB_Layout/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Layout/</guid>
+      <description>页面布局整体思路 Step1 确定页面的版心，既是页面的主题部分 Step2 分析页面中的行模块，以及每个行模块中的列模块 Step3 每行中的列模块经常浮动布局，先确定每个列</description>
+    </item>
+    
+    <item>
       <title>CSS属性</title>
       <link>https://coldinfire.github.io/2017/WEB_CSSAttributes/</link>
       <pubDate>Sat, 09 Sep 2017 00:00:00 +0000</pubDate>
