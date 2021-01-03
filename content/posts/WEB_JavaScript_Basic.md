@@ -1,6 +1,6 @@
 ---
 title: "JavaScript学习与总结"
-date: 2017-09-14
+date: 2017-09-21
 draft: false
 author: Small Fire
 isCJKLanguage: true

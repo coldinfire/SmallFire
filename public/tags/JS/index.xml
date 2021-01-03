@@ -6,11 +6,11 @@
     <description>Recent content in JS on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 21 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/JS/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/JS/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bootstrap学习与总结</title>
       <link>https://coldinfire.github.io/2017/WEB_Bootstrap/</link>
-      <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Bootstrap/</guid>
       <description></description>
@@ -18,10 +18,10 @@
     
     <item>
       <title>JavaScript学习与总结</title>
-      <link>https://coldinfire.github.io/2017/WEB_JavaScriptBasic/</link>
-      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      <link>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</link>
+      <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_JavaScriptBasic/</guid>
+      <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</guid>
       <description>JavaScript 书写规范 文件编码统一为 utf-8, 书写过程过，每行代码结束必须有分号；原则上所有功能均根据 XXX 项目需求原生开发，以避免网上 down 下来的代码造成的代码污染 (</description>
     </item>
     

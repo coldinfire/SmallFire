@@ -1,6 +1,6 @@
 ---
 title: "CSS属性"
-date: 2017-09-09
+date: 2017-09-07
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -118,14 +118,33 @@ tags:
 
 ### 显示与可见性
 
+#### display 属性
+
+-  display: none  隐藏对象，元素不再占用原来的空间。
+-  display: block 除了转换为块级元素外，还有显示元素的意思
+
+#### visiblity 属性
+
 对于 CSS 里的 visibility 属性，通常其值被设置成 `visible` 或 `hidden`。
 
-**visibility: hidden** 相当于 **display:none**，能把元素隐藏起来，但两者的区别在于：
+visibility: hidden 相当于 display: none，能把元素隐藏起来，但两者的区别在于：
 
--  1、**display:none** 元素不再占用空间。
--  2、**visibility: hidden** 使元素在网页上不可见，但仍占用空间。
+-  visibility: hidden 使元素在网页上不可见，但仍占用原来的空间。
 
-visibility 还可能取值为 collapse 。当设置元素 **visibility: collapse** 后，一般的元素的表现与 **visibility: hidden** 一样，也即其会占用空间。但如果该元素是与 table 相关的元素，例如 table row、table column、table column group 等，其表现却跟 **display: none** 一样，也即其占用的空间会释放。
+visibility 还可能取值为 collapse 。当设置元素 visibility: collapse 后，一般的元素的表现与 visibility: hidden 一样，也即其会占用空间。
+
+但如果该元素是与 table 相关的元素，例如 table row、table column、table column group 等，其表现却跟 display: none 一样，也即其占用的空间会释放。
+
+#### overflow 溢出
+
+有定位的盒子，慎用 overflow: hidden 因为它会隐藏多余的部分。
+
+- overflow: visible 不剪切内容也不添加滚动条
+
+- overflow: hidden 隐藏溢出部分的内容 
+
+- overflow: scroll 一直显示滚动条
+- overflow: auto 内容溢出时自动显示滚动条，不溢出不显示滚动条
 
 ### 盒模型
 
@@ -230,21 +249,88 @@ clear 属性指定元素两侧不能出现浮动元素。
 }
 ```
 
-
-
 ### 定位：Position 
 
-position 属性的五个值：
+"子绝父相"：子级是绝对定位的话，父级要使用相对定位。
+
+- 父级需要占有位置，以此是相对定位；子盒子不需要占有位置，则是绝对定位
+
+#### position 属性值
 
 **static** ：默认值，没有定位，遵循正常的文档流对象
 
-**relative** ：相对定位元素的定位是相对其正常位置；移动相对定位元素，但它原本所占的空间不会改变
+**relative** 
+
+- 相对定位元素的定位是相对其正常位置；
+- 移动相对定位元素，但它原本所占的空间不会改变
+
+**absolute** 
+
+- 绝对定位的元素的位置相对于最近的已定位父元素，如果没有已定位的父元素，其位置相对于HTML
+- 绝对定位的元素，不会占有位置，可以放到父盒子的任何一个地方，不会影响其他兄弟盒子
 
 **fixed** 
 
-- 元素的位置相对于浏览器窗口是固定位置；即使窗口是滚动的它也不会移动
-- Fixed 定位的元素和其他元素重叠
+- 元素的位置相对于浏览器可视窗口是固定位置；即使窗口是滚动的它也不会移动
+- Fixed 定位的元素和其他元素重叠，不占有位置，脱离标准流
 
-**absolute** ：绝对定位的元素的位置相对于最近的已定位父元素，如果没有已定位的父元素，其位置相对于 html
+**sticky** 
 
-**sticky** ：
+- 以浏览器的可视窗口为参照点移动
+- 占有原先的位置
+- 必须添加 top、left、right、bottom 其中一个才有效
+
+#### 偏移量
+
+top、right、bottom、left
+
+如果一个盒子既有 left 属性也有 right 属性，则默认会执行 left 属性，同理 top bottom 则默认 top。
+
+#### z-index：定位的叠放次序
+
+div { z-index: 1; }
+
+- 数值可以是正整数、负整数或0，默认是auto，数值越大，盒子越靠上
+- 如果属性值相同，则按照书写顺序，后来居上
+- 数字后面不能加单位
+- 只有定位的盒子才有 z-index 属性
+
+### 定位拓展
+
+#### 绝对定位的盒子居中
+
+加了绝对定位的盒子不能通过 `margin: 0 auto` 水平居中，但是可以通过以下方法实现水平和垂直居中。
+
+- `left: 50% `让盒子的左侧移动到父级元素的水平中心位置。
+- `margin-left: -100px` 让盒子向左移动自身宽度的一半。
+
+#### 定位特殊特性
+
+- 行内元素添加绝对或者固定定位，可以直接设置高度和宽度
+- 块级元素添加绝对或者固定定位，如果不给宽度或者高度，默认大小是内容的大小
+
+#### 脱标的盒子不会触发外边距塌陷
+
+浮动元素，绝对定位(固定定位)的元素都不会触发外边距合并的问题。
+
+#### 绝对定位(固定定位)会完全压住盒子
+
+浮动元素不同，只会压住它下面标准流的盒子，但是不会压住下面标准流盒子里面的文字；但是绝对定位(固定定位)会压住下面标准流所有的内容。
+
+浮动之所以不会压住文字，因为浮动产生的目的最初是为了做文字环绕效果的，文字会围绕浮动元素。
+
+### 实现行内块和文字垂直居中对其 
+
+图片、表单都属于行内块元素，默认的 vertical-align 是基线对齐。
+
+- { vertical-align: baseline; } ：基线对齐
+- { vertical-align: bottom; } ：底部对齐
+- { vertical-align: middle; } ：垂直居中对齐
+- { vertical-align: top; } ：顶部对齐
+
+
+
+
+
+
+
