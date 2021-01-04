@@ -125,5 +125,70 @@ tags:
 
 **权重记忆口诀**：*从 0 开始，一个行内样式 + 1000，一个 id 选择器 + 100，一个伪类、属性选择器、或者class + 10，一个元素选择器或者伪元素 + 1，通配符 + 0。*
 
+### CSS 初始化
 
+不同浏览器对有些标签的默认值是不同的，为了消除其对HTML文本呈现的差异，实现浏览器的兼容，需要对 CSS 初始化：重置浏览器的样式。
+
+
+
+```css
+/* 把我们所有标签的内外边距清零 */
+* {
+    margin: 0;
+    padding: 0
+}
+/* em 和 i 斜体的文字不倾斜 */
+em,
+i {
+    font-style: normal
+}
+/* 去掉li 的小圆点 */
+li {
+    list-style: none
+}
+img {
+  /* 照顾低版本浏览器，如果图片外面包含了链接会有边框的问题 */
+    border: 0;
+  /* 取消图片底侧有空白缝隙的问题 */
+    vertical-align: middle
+}
+button {
+  /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+    cursor: pointer
+}
+a {
+    color: #666;
+    text-decoration: none
+}
+a:hover {
+    color: #c81623
+}
+button,
+input {
+  /* "\5B8B\4F53" 就是宋体的意思，这样浏览器兼容性比较好 */
+    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+}
+body {
+  /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    color: #666
+}
+.hide,
+.none {
+    display: none
+}
+/* 清除浮动 */
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+.clearfix {
+    *zoom: 1
+}
+```
 
