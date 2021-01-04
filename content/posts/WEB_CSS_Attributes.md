@@ -1,6 +1,6 @@
 ---
 title: "CSS属性"
-date: 2017-09-07
+date: 2017-09-05
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -154,12 +154,24 @@ visibility 还可能取值为 collapse 。当设置元素 visibility: collapse �
 
 **边框**：border
 
-- border: 2px solid #ff0000;
+- border: 2px solid #fff;
 - border-width: 2px;
 - border-style: dotted;    (solid:实线，dashed:虚线，dotted:点状虚线，double:双实线)
 - border-color: red;
 - border-collapse: collapse; (合并相邻边框)
-- border-radius: 10px;  (圆角边框)
+
+**圆角边框**
+
+可定义四个参数，代表:左上->右上->右下->左下
+
+border-radius: 10px 10px 10px 10px; 
+
+也可单独定义每一个圆角：
+
+- border-top-left-radius: 10px; 
+- border-top-right-radius: 10px; 
+- border-bottom-right-radius: 10px;
+- border-bottom-left-radius: 10px;
 
 **内边距**(上、右、下、左)：padding
 
@@ -172,7 +184,7 @@ visibility 还可能取值为 collapse 。当设置元素 visibility: collapse �
 **外边距**：margin
 
 - 属性设置和外边距设置遵循同样的规则，属性值也相同
-- 块级盒子，居中显示：设置宽度，左右外边距设置为 auto
+- 块级盒子，居中显示：设置宽度，指定居中`{ margin: 100px auto }`
 - 外边距合并：两个嵌套的盒子同时设置了外边距，会进行一个外边距合并
   - 为父元素定义上边框
   - 为父元素定义上内边距
@@ -187,18 +199,9 @@ visibility 还可能取值为 collapse 。当设置元素 visibility: collapse �
 - outline 是不占空间的，既不会增加额外的 width 或者 height
 - outline的声明内容和border一致
 
-#### 清楚内外边距
+### 浮动：float
 
-```css
-* {
-    margin: 0;
-    padding 0;
-}
-```
-
-### 浮动：Float
-
-CSS 的 Float（浮动），会使元素向左或向右移动，其周围的元素也会重新排列。可以让多个块级元素一行内排列显示。
+CSS 的 float（浮动），会使元素向左或向右移动，其周围的元素也会重新排列。可以让多个块级元素一行内排列显示。
 
 - img { float: none; }
 - img { float: right; }
@@ -318,15 +321,6 @@ div { z-index: 1; }
 浮动元素不同，只会压住它下面标准流的盒子，但是不会压住下面标准流盒子里面的文字；但是绝对定位(固定定位)会压住下面标准流所有的内容。
 
 浮动之所以不会压住文字，因为浮动产生的目的最初是为了做文字环绕效果的，文字会围绕浮动元素。
-
-### 实现行内块和文字垂直居中对其 
-
-图片、表单都属于行内块元素，默认的 vertical-align 是基线对齐。
-
-- { vertical-align: baseline; } ：基线对齐
-- { vertical-align: bottom; } ：底部对齐
-- { vertical-align: middle; } ：垂直居中对齐
-- { vertical-align: top; } ：顶部对齐
 
 
 

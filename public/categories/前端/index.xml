@@ -44,6 +44,15 @@
     </item>
     
     <item>
+      <title>DOM 知识汇总</title>
+      <link>https://coldinfire.github.io/2017/WEB_DOM/</link>
+      <pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_DOM/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>CSS 字体图标 和 用户界面样式</title>
       <link>https://coldinfire.github.io/2017/WEB_CSS_FontIMG/</link>
       <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
@@ -71,9 +80,18 @@
     </item>
     
     <item>
+      <title>CSS高级功能实现</title>
+      <link>https://coldinfire.github.io/2017/WEB_CSS_Improve/</link>
+      <pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_CSS_Improve/</guid>
+      <description>三角形实现 通过 border 设置实现三角形：BOX 的宽和高设置为 0，border的边框设置为透明色，指定对应边的border大小和颜色即可实现对应的三角</description>
+    </item>
+    
+    <item>
       <title>CSS属性</title>
       <link>https://coldinfire.github.io/2017/WEB_CSS_Attributes/</link>
-      <pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_CSS_Attributes/</guid>
       <description>CSS 属性介绍 文字文本属性 文字属性 文字颜色：color: red; 十六进制：#FF0000 | #F00 RGB值：rgb(255,0,0) 颜色名字：red 文字字体</description>
@@ -82,19 +100,10 @@
     <item>
       <title>CSS格式与标准总结</title>
       <link>https://coldinfire.github.io/2017/WEB_CSS_Basic/</link>
-      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2017/WEB_CSS_Basic/</guid>
-      <description>CSS基础知识 编码规则 编码统一为 utf-8； 使用双空格短缩进——只有这样才能保证代码能在所有渲染器中显示一致； 当成组使用选择器时，每个选择器</description>
-    </item>
-    
-    <item>
-      <title>DOM 知识汇总</title>
-      <link>https://coldinfire.github.io/2017/WEB_DOM/</link>
       <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_DOM/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2017/WEB_CSS_Basic/</guid>
+      <description>CSS基础知识 编码规则 编码统一为 utf-8； CSS 初始化 (CSS reset) 引入，不能随便更改； 使用双空格短缩进，只有这样才能保证代码能在所有渲染器中显示一致；</description>
     </item>
     
     <item>
@@ -103,7 +112,7 @@
       <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_HTMLBasic/</guid>
-      <description>HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=”utf-8″ /&amp;gt;, 书写时实现层次分明的缩进</description>
+      <description>HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;, 书写时实现层次分明的缩进； 所有编码均遵循 XHTML 标准，标签</description>
     </item>
     
   </channel>

@@ -16,26 +16,13 @@ tags:
 
 ### HTML书写规范
 
-1. 文档类型声明及编码：统一为 HTML5 声明类型 `<!DOCTYPE html>`; 编码统一为 `<meta charset=”utf-8″ />`, 书写时实现层次分明的缩进；
-
-   ```html
-   <!DOCTYPE html> 
-   <html>
-   <head>
-   <meta charset="utf-8">
-   <title> HTML </title>
-   </head>
-   <body>
-       <p> </p>
-   </body>
-   </html>
-   ```
+1. 文档类型声明及编码：统一为 HTML5 声明类型 `<!DOCTYPE html>`; 编码统一为 `<meta charset="utf-8" />`, 书写时实现层次分明的缩进；
 
 2. 所有编码均遵循 XHTML 标准，标签、属性、属性命名由小写字母、下划线、数字组成，且所有标签必须闭合，包括`<br />`,` <hr />` 等；属性值必须用双引号包括；
 
 3. 非特殊情况下样式文件外链至 `<head>…</head >` 之间；
 
-4. 非特殊情况下 JavaScript 文件外链至页面底部；即便网络问题，浏览器也把 DOM  加载渲染完成，防止因网络问题，页面加载时间长，出现空白；
+4. 非特殊情况下 JavaScript 文件外链至页面底部（如果需要界面未加载前执行的代码可以放在head标签后）；这样即便网络出现问题，浏览器也能把 DOM  加载渲染完成，防止因网络问题，页面加载 JavaScript 时间过长，出现空白界面现象；
 
 5. 引入样式文件或 JavaScript 文件时，须略去默认类型声明，写法如下:
 
@@ -45,17 +32,17 @@ tags:
    <script src="…"></script>
    ```
 
-6. 引入 JS 库文件，文件名须包含库名称及版本号及是否为压缩版，比如 jquery-1.4.1.min.js; 引入插件，文件名格式为库名称 + 插件名称，比如 jQuery.cookie.js;
+6. 引入 JS 库文件，文件名须包含库名称及版本号及是否为压缩版，比如 jquery-1.4.1.min.js; 引入插件，文件名格式为库名称 + 插件名称，比如 jQuery.cookie.js；
 
-7. 充分利用无兼容性问题的 html 自身标签，比如 span, em, strong, optgroup, label, 等等；需要为 html 元素添加自定义属性的时候，首先要考虑下有没有默认的已有的合适标签去设置，如果没有，可以使用须以”data-” 为前缀来添加自定义属性，避免使用”data:” 等其他命名方式；
+7. 充分利用无兼容性问题的 html 自身标签，比如 span, em, strong, label, 等等；需要为 html 元素添加自定义属性的时候，首先要考虑下有没有默认的已有的合适标签去设置，如果没有，可以使用须以 "data-" 为前缀来添加自定义属性，避免使用 "data:"  等其他命名方式；
 
-8. 语义化 html, 如标题根据重要性用 h*(同一页面只能有一个 h1), 段落标记用 p, 列表用 ul, 内联元素中不可嵌套块级元素；
+8. 语义化 html ；如标题根据重要性用 h*(同一页面只能有一个 h1), 段落标记用 p, 列表用 ul, 内联元素中不可嵌套块级元素；
 
-9. 尽可能减少 div 嵌套;
+9. 尽可能减少 div 嵌套；div作为一个块级的元素，主要应该用来描述布局；
 
 10. 书写链接地址时，必须避免重定向，例如：href="https://www.google.com/", 即须在 URL 地址后面加上 “/”；
 
-11. 必须为含有描述性表单元素 (input, textarea) 添加 label, 如 
+11. 为含有描述性表单元素 (input, textarea) 添加 label, 如 
 
     ```html
     <p> 姓名: <input type="text" id="name" name="name" /></p > 
@@ -63,7 +50,9 @@ tags:
     <p><label for="name"> 姓名: </label><input id="name" type="text" /></p>
     ```
 
-12. 重要图片必须加上 alt 属性；给重要的元素和截断的元素加上 title;
+12. 重要图片必须加上 alt 属性；给重要的元素和截断的元素加上 title；
+
+13. 能以背景形式呈现的图片，尽量写入 css 样式中
 
 ### HTML标签
 
@@ -94,30 +83,27 @@ tags:
 
 #### 特殊字符
 
-- 空格：`&nbsp;`
-
-
-- 大于号：`&gt`
-- 小于号：`&lt`
-- 引号：`&quot`
-- &字符：`&amp;`
-- 版权号：`&copy`
+| LABEL    | DESC      | LABEL   | DESC      | LABEL     | DESC      |
+| -------- | --------- | ------- | --------- | --------- | --------- |
+| `&nbsp;` | 空格      | `&quot` | 引号(")   | `&yen;`   | 人民币(¥) |
+| `&gt`    | 大于号(>) | `&copy` | 版权号"@" | `&radic;` | 对号(√)   |
+| `&lt`    | 小于号(<) | `&amp;` | &字符     | `&ne;`    | 不等于(≠) |
 
 #### 链接
 
 ```html
-普通的链接：<a href="http://www.example.com/" target="_blank"> 链接文本 </a>
-图像链接： <a href="http://www.example.com/"><img src="URL" alt="image"></a>
-邮件链接： <a href="mailto:webmaster@example.com"> 发送 e-mail</a>
-书签：<a id="tips"> 提示部分 </a> <a href="#tips"> 跳到提示部分 </a>
+普通链接：<a href="http://www.example.com/" target="_blank"> 链接文本 </a>
+图像链接：<a href="http://www.example.com/"><img src="URL" alt="image"></a>
+邮件链接：<a href="mailto:xxxxx@example.com"> 发送 e-mail </a>
+书签链接：<a id="tips"> 提示部分 </a> <a href="#tips"> 跳到提示部分 </a>
 ```
 
 `target` 属性值
 
-- _self :在原来页面打开链接
-- _blank :在新窗口打开链接
-- _top :打开时忽略所有的框架
-- _parent :在父窗口中打开
+- `_self` :在原来页面打开链接
+- `_blank` :在新窗口打开链接
+- `_top` :打开时忽略所有的框架
+- `_parent` :在父窗口中打开
 
 #### 列表
 
@@ -130,12 +116,12 @@ tags:
 创建表格的五个元素：table、tr、th、td、caption
 
 - `<table>...</table>`：整个表格以 < table > 标记开始、</table > 标记结束。
+- `<caption>...</caption>`：表格的标题行设置
 - `<tr>...</tr>`：表格的一行，所以有几对 tr 表格就有几行。
 - `<th>...</th>`：表格的头部的一个单元格，表格表头样式显示。
 - `<td>...</td>`：表格的一个单元格，一行中包含几对 td 说明一行中就有几列。
-- `<caption>...</caption>`：表格的标题行设置
 
-框架使用： `<iframe src="demo_iframe.htm" title="Iframe Example"></iframe>` 可以在一个页面中组织多个 html 文件
+框架使用：`<iframe src="demo_iframe.htm" title="Iframe Example"></iframe>` 在一个页面中组织多个 html 文件
 
 #### 表单
 
@@ -154,18 +140,18 @@ tags:
   <input type="text" name="name" size="40" maxlength="50" placeholder="Enter username"><br/>
   <input type="password" name="password" placeholder="Enter pwd"><br/>
   <input type="checkbox" name="hoppy" checked="checked">
-  <input type="checkbox" name="hoppy">
-  <input type="radio" name="gender" value="male" checked="checked">Male<br/>
+  <input type="checkbox" name="hoppy"><br/>
+  <input type="radio" name="gender" value="male" checked="checked">Male
   <input type="radio" name="gender" value="female">Female<br/>
   <input type="submit" value="send"><br/>
-  <input type="reset" value="reset">
+  <input type="reset" value="reset"><br/>
   <input type="hidden">
   <select name="cars">
     <option value="volvo" selected="selected">Volvo</option>
     <option value="saab">Saab</option>
     <option value="fiat">Fiat</option>
     <option value="audi">Audi</option>
-  </select>
+  </select><br/>
   <textarea name="comment" rows="60" cols="20"></textarea>
 </form>
 ```
@@ -187,14 +173,19 @@ id 则更加特定和专属，应尽量控制其使用（例如：内页书签�
 
 #### 属性命名规则
 
-```js
-CLASS : nHeadTitle --> CLASS遵循小驼峰命名法
-ID : n_head_title --> ID遵循名称&_
-NAME : N_Head_Title --> NAME属性命名遵循首个字母大写&_
-<div class="nHeadTitle" id="n_head_title" name="N_Head_Title"></div>
-```
+class 遵循小驼峰命名法
 
-### 引用CSS和JavaScript文件
+- class="nHeadTitle"
+
+id 遵循名称 &_
+
+- id="n_head_title"
+
+name 属性命名遵循首个字母大写 &_
+
+- name="N_Head_Title"
+
+### 引用 CSS 和 JavaScript 文件
 
 按照HTML5规范，一般来说，当CSS和JS文件被引用时，都会默认以 `text/css`和 `text/javascript` 的方式，没必要特意为其指定 `type` 类型。
 
@@ -221,11 +212,11 @@ NAME : N_Head_Title --> NAME属性命名遵循首个字母大写&_
 
 #### 调用优先级
 
-*内联样式和外联样式的优先级和加载顺序有关*
+*头部声明的内联样式和外联样式的优先级和加载顺序有关*
 
- - Level1：Inline style (Inside an HTML element)
- - Level2：External and internal style sheets (In the head section)
- - Level3：Browser default
+ - Level1：内联样式
+ - Level2：外联样式和头部声明的内联样式
+ - Level3：浏览器默认样式
 
 ### 资源文件路径表达
 
