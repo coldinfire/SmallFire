@@ -2119,7 +2119,7 @@
       <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Bootstrap/</guid>
-      <description></description>
+      <description>Bootstrap 介绍 Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它</description>
     </item>
     
     <item>
@@ -2128,7 +2128,7 @@
       <pubDate>Sun, 24 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery/</guid>
-      <description></description>
+      <description>jQuery简介 jQuery 是一个 JavaScript 库。 jQuery 极大地简化了 JavaScript 编程。</description>
     </item>
     
     <item>
@@ -2137,7 +2137,7 @@
       <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</guid>
-      <description>JavaScript 书写规范 文件编码统一为 utf-8, 书写过程过，每行代码结束必须有分号；原则上所有功能均根据 XXX 项目需求原生开发，以避免网上 down 下来的代码造成的代码污染 (</description>
+      <description>JavaScript 是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 JavaScript 书写规范 文件编码统一为 utf-8, 书写过程过，每行代码结束必须有分号； 库引入：原则上仅引入 jQuery</description>
     </item>
     
     <item>
@@ -2146,7 +2146,7 @@
       <pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_DOM/</guid>
-      <description></description>
+      <description>HTML DOM (文档对象模型) 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。 通过可编程的对象模型，JavaScrip</description>
     </item>
     
     <item>
