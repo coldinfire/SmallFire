@@ -31,6 +31,7 @@ tags:
 
 - 文本对齐
   - text-align: [center、right、left];
+  - 标签所包含的行内元素，行内块元素都会受控制
 - 行间距
   - line-height: [5px、1.5em];
 - 缩进

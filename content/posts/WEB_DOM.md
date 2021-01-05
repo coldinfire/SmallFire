@@ -12,7 +12,7 @@ tags:
 
 ---
 
-### HTML DOM (文档对象模型)
+## HTML DOM (文档对象模型)
 
 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
 

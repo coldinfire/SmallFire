@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Tue, 12 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/CSS/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CSS 字体图标 和 用户界面样式</title>
+      <title>CSS字体图标和用户界面样式</title>
       <link>https://coldinfire.github.io/2017/WEB_CSS_FontIMG/</link>
       <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
       
@@ -22,7 +22,7 @@
       <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_CSS_Sprites/</guid>
-      <description>为什么需要精灵图 一个网页中往往会应用很多小的背景图像作为修饰，当网页中图像过多时，会产生很多次的服务器请求，造成服务器请求压力增加，将大大降</description>
+      <description>为什么需要精灵图 一个网页中往往会应用很多小的背景图像作为修饰，当网页中图像过多时，会产生多次的服务器请求，造成服务器请求压力增加，将大大降低</description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@
       <pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_CSS_Improve/</guid>
-      <description>三角形实现 通过 border 设置实现三角形：BOX 的宽和高设置为 0，border的边框设置为透明色，指定对应边的border大小和颜色即可实现对应的三角</description>
+      <description>三角形实现 普通三角形 通过 border 设置实现三角形：BOX 的宽和高设置为 0，border的边框设置为透明色，指定对应边的border大小和颜色即可实现</description>
     </item>
     
     <item>
