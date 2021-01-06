@@ -237,5 +237,6 @@ name 属性命名遵循首个字母大写 &_
 绝对路径：就是全路径。
 
 ```html
-<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" />
+<img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"  alt="baidu"/>
 ```
+
