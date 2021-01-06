@@ -45,7 +45,7 @@ RANGES: gr_matnr FOR marc-matnr.
 内表gr_matnr按照选择表结构创建，字段参照数据库表字段。
 ```
 
-#### 选择表
+### 选择表
 
 系统为每个 SELECT-OPTIONS 语句创建选择表。选择表的目的是按标准化的方式保存复合选择限制。它们可按多种方式使用。它们的主要目的是使用 Open SQL 语句的 WHERE 子句 把选择标准直接传输到数据库表。
 
@@ -61,3 +61,12 @@ RANGES: gr_matnr FOR marc-matnr.
   - HIGH为空：LOW的内容定义单值选择，与OPTION结合指定条件
   - HIGH不空：LOW与HIGH共同组成范围值
 - HIGH：为间隔选择指定上界
+
+#### 将选择表转换为 Range
+
+```ABAP
+DATA: range_werks TYPE RANGE OF werks_d WITH HEADER LINE,
+      range_werk  LIKE LINE OF range_werks.
+APPEND LINES OF s_werks TO range_werks.
+```
+
