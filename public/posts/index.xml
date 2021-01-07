@@ -2168,12 +2168,12 @@
     </item>
     
     <item>
-      <title>Web 页面布局整体思路</title>
+      <title>Web页面布局</title>
       <link>https://coldinfire.github.io/2017/WEB_Layout/</link>
       <pubDate>Sat, 09 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Layout/</guid>
-      <description>页面布局整体思路 Step1：确定页面的版心，既是页面的主题部分 Step2：分析页面中的行模块，以及每个行模块中的列模块 Step3：每行中的列</description>
+      <description>语义化标签 &amp;lt;header&amp;gt; - Defines a header for a document or a section &amp;lt;nav&amp;gt; - 定义一组导航链接 &amp;lt;article&amp;gt; - 定义一块独立的独立内容 &amp;lt;section&amp;gt; - 在文档中定义一块独立的内容主题分组部分 &amp;lt;aside&amp;gt; - 定义核心内容之外</description>
     </item>
     
     <item>
