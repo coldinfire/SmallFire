@@ -1,6 +1,6 @@
 ---
 title: "Git学习与总结"
-date: 2018-03-11
+date: 2018-04-02
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -38,97 +38,100 @@ Git 与 Github 远程代码库，进行操作。
 
 ## Git设置签名
 
-目录位置：.git/config文件
+设置签名的主要作用是区分不同开发人员的身份 ，需要注意的是，这里设置的签名和登录远程库(Github)的账号与密码没有任何关系。
 
-**仓库级别：** 仅在当前本地库范围生效，优先级(就近原则)
+### 签名级别
+
+如果两个级别同时存在，那么依照**就近原则**，仓库级别要大于系统级别。如果两个级别都不存在，则无法完成 Git 一些命令，会提示验证身份。
+
+#### 仓库级别：仅在当前项目库范围生效
 
 - git config user.name [user_name]
 - git config user.email [user_email]
 
-**系统级别：** 登录当前操作系统的用户范围
+用户签名信息保存位置：`./.git/config`
 
-- git config ***- -global*** user.name [user_name]
-- git config ***- -global*** user.email [user_email]
+#### 系统级别：登录当前操作系统的用户范围生效
+
+- git config - -global user.name [user_name]
+- git config - -global user.email [user_email]
+
+用户签名信息保存位置：`~/.gitconfig`
+
+#### 查看签名信息
 
 - git config - -list：显示当前的Git配置
-
 -  git config -e [- -global]：编辑Git配置文件
 
 ## Git命令
 
 ### 常用的Git命令
 
-```JS
-add	       添加文件内容至索引
-bisect	   通过二分查找定位引入 bug 的变更
-branch     列出、创建或删除分支
-checkout   检出一个分支或路径到工作区
-clone      克隆一个版本库到一个新目录
-commit     记录变更到版本库
-diff       显示提交之间、提交和工作区之间等的差异
-fetch      从另外一个版本库下载对象和引用
-grep       输出和模式匹配的行
-init       创建一个空的 Git 版本库或重新初始化一个已存在的版本库
-log        显示提交日志
-merge      合并两个或更多开发历史
-mv         移动或重命名一个文件、目录或符号链接
-pull       获取并合并另外的版本库或一个本地分支
-push       更新远程引用和相关的对象
-rebase     本地提交转移至更新后的上游分支中
-reset      重置当前HEAD到指定状态
-rm         从工作区和索引中删除文件
-show       显示各种类型的对象
-status     显示工作区状态
-tag        创建、列出、删除或校验一个GPG签名的 tag 对象
-```
+| Command  | Desc                                   | Command | Desc                                                  |
+| -------- | -------------------------------------- | ------- | ----------------------------------------------------- |
+| add      | 添加文件内容至索引                     | merge   | 合并两个或更多开发历史                                |
+| bisect   | 通过二分查找定位引入 bug 的变更        | init    | 创建一个空的 Git 版本库或重新初始化一个已存在的版本库 |
+| branch   | 列出、创建或删除分支                   | mv      | 移动或重命名一个文件、目录或符号链接                  |
+| checkout | 检出一个分支或路径到工作区             | pull    | 获取并合并另外的版本库或一个本地分支                  |
+| clone    | 克隆一个版本库到一个新目录             | push    | 更新远程引用和相关的对象                              |
+| commit   | 记录/提交变更到版本库                  | rebase  | 本地提交转移至更新后的上游分支中                      |
+| config   | 本地配置信息查看                       | reset   | 重置当前HEAD到指定状态                                |
+| diff     | 显示提交之间、提交和工作区之间等的差异 | tag     | 创建、列出、删除或校验一个GPG签名的 tag 对象          |
+| fetch    | 从另外一个版本库下载对象和引用         | show    | 显示各种类型的对象                                    |
+| grep     | 输出和模式匹配的行                     | status  | 显示工作区状态                                        |
+| log      | 显示提交日志                           | rm      | 从工作区和索引中删除文件                              |
 
 ### 命令解析
 
-- 初始化：
-  - git init：初始化本地Git仓库,产生.git目录，该目录不要进行操作
+#### 初始化：
 
-- 增加和删除文件：
-  -  git add [file1] [file2]...：添加指定文件到暂存区 
-  - git add [dir]：添加指定目录到暂存区,包括子目录
-  - git add . / git add -A：添加当前目录的所有文件到暂存区
-  - git add -p：添加每个变化前，都会要求确认,对于同一个文件的多处变化，可以实现分次提交 
-  -  git rm [file1] [file2]...：删除工作区文件，并且将这次删除放入暂存区
-  - git rm - - cached [filename]：将文件从暂存区删除
-  - git mv [file-original] [file-renamed]：改名文件，并且将这个改名放入暂存区
-- 代码提交
-  -  git add . + git commit -m "xxx"：提交修改
-  - git commit -m "message" [filename]：提交暂存区到仓库
-  - git commit [file1] [file2] ... -m "message"：提交暂存区的指定文件到仓库区
-  - git commit -a：提交工作区自上次commit之后的变化，直接到仓库区
-  - git commit -v：提交时显示所有diff信息
-  - git commit - -amend [file1] [file2]：重做上一次commit，并包括指定文件的新变化
-- 查看信息
-  - git status：查看工作区是否还有文件未提交
-  - git diff [file_name]：显示暂存区和工作区的差异
-  - git diff head [file_name]：显示工作区和版本库差异
-  - git diff - -cached：显示暂存区和版本库差异
-  - git diff file.xxx：查看文件的修改内容
-  - git log：查看版本历史(git log命令显示从最近到最远的显示日志)
-  - git log - -pretty=oneline：查看简短历史
-  - git log - -oneline：每条记录显示在一行，更加简洁，缩短hash值，只显示过去的记录
-  - git reflog：查看所有产生的版本号
-  - git log - -stat：显示commit历史，以及每次commit发生变更的文件
-  - git log -S [keyword]：根据关键词搜索提交历史
-  -  git diff [first-branch]...[second-branch]：显示两次提交之间的差异
+- git init：初始化本地Git仓库,产生.git目录，**对该目录不要进行操作**
+
+#### 增加和删除文件：
+
+-  git add [file1] [file2]...：添加指定文件到暂存区 
+- git add [dir]：添加指定目录到暂存区,包括子目录
+- git add . / git add -A：添加当前目录的所有文件到暂存区
+- git add -p：添加每个变化前，都会要求确认,对于同一个文件的多处变化，可以实现分次提交 
+-  git rm [file1] [file2]...：删除工作区文件，并且将这次删除放入暂存区
+- git rm - - cached [filename]：将文件从暂存区删除
+- git mv [file-original] [file-renamed]：改名文件，并且将这个改名放入暂存区
+
+#### 代码提交
+
+-  git add . + git commit -m "xxx"：提交修改
+- git commit -m "message" [filename]：提交暂存区到仓库
+- git commit [file1] [file2] ... -m "message"：提交暂存区的指定文件到仓库区
+- git commit -a：提交工作区自上次commit之后的变化，直接到仓库区
+- git commit -v：提交时显示所有diff信息
+- git commit - -amend [file1] [file2]：重做上一次commit，并包括指定文件的新变化
+
+#### 查看信息
+
+- git status：查看工作区是否还有文件未提交
+- git diff [file_name]：显示暂存区和工作区的差异
+- git diff head [file_name]：显示工作区和版本库差异
+- git diff - -cached：显示暂存区和版本库差异
+- git diff file.xxx：查看文件的修改内容
+- git log：查看版本历史(git log命令显示从最近到最远的显示日志)
+- git log - -pretty=oneline：查看简短历史
+- git log - -oneline：每条记录显示在一行，更加简洁，缩短hash值，只显示过去的记录
+- git reflog：查看所有产生的版本号
+- git log - -stat：显示commit历史，以及每次commit发生变更的文件
+- git log -S [keyword]：根据关键词搜索提交历史
+-  git diff [first-branch]...[second-branch]：显示两次提交之间的差异
 
 ![git_log](/images/git/gitlog.jpg)
 
 ## Head
 
-- Head的本质不是指向分支，而是指向commit提交。
+head的本质不是指向分支，而是指向commit提交。
 
-- HEAD 通过先指向分支的头指针，再指向提交的意义就是表明当前所处的分支。
+head 通过先指向分支的头指针，再指向提交的意义就是表明当前所处的分支。
 
-- 当 HEAD 指针直接指向提交时，就会导致 detached HEAD 状态。在这个状态下，如果创建了新提交，新提交不属于任何分支。
-  相对应的，现存的所有分支也不会受 detached HEAD 状态提交的影响。
+当 head 指针直接指向提交时，就会导致 detached head 状态。在这个状态下，如果创建了新提交，新提交不属于任何分支。相对应的，现存的所有分支也不会受 detached head 状态提交的影响。
 
-​	进入detached HEAD：
-​	`git checkout <commit id>   git checkout --detach`
+进入detached head：`git checkout <commit id> git checkout --detach`
 
 - HEAD : 指向当前正在操作的commit
 - ORIG_HEAD : 记录危险操作之前的HEAD,方便HEAD的恢复,修改前的备份
@@ -155,12 +158,11 @@ git reset - -hard HEAD^^：回退到上上个版本
 
 git reset - -hard HEAD~n：回退到第n个版本，使用`~`
 
-- rest三个参数：
-  - --soft 参数：仅在本地库移动HEAD指针
-  - --mixed 参数：在本地移动HEAD指针，重置暂存区
-  - --hard参数：在本地移动HEAD指针，重置暂存区，重置工作区
+#### rest 三个参数：
 
-
+- --soft ：仅在本地库移动HEAD指针
+- --mixed ：在本地移动HEAD指针，重置暂存区
+- --hard：在本地移动HEAD指针，重置暂存区，重置工作区
 
 撤销修改：git checkout [file]，撤销修改回到添加暂存区后的状态
 
@@ -189,27 +191,32 @@ git reset - -hard HEAD~n：回退到第n个版本，使用`~`
 - git branch [-v]：查看所有本地分支，-v 详细信息
 - git branch -r：列出所有远程分支 :
 - git branch -a：列出所有分支 
-- git branch b_name：新建一个分支，但依然停留在当前分支
+- git branch [branch_name]：新建一个本地分支，创建之后并不会自动切换到新创建的分支，依然停留在当前分支
 - git branch --track [branch] [re-branch]：新建一个分支，与指定的远程分支建立追踪关系
-- git checkout b_name：切换分支
+- git checkout [branch_name]：切换分支
 - git checkout  - ：切换到上一个分支
-- git checkout –b name：创建+切换分支
-- git merge  from_b_name：合并指定分支到当前所在分支
-- git branch –d [b_name]：删除分支
-- git push origin --delete [b_name] / git branch -dr [remote/branch] ：删除远程分支
+- git checkout –b [branch_name]：创建+切换分支
+- git merge [branch_name]：将指定的 branch 分支与当前分支合并
+- git branch –d [branch_name]：删除分支
+- git push origin --delete [branch_name] / git branch -dr [remote/branch] ：删除远程分支
 
 ### 冲突解决
 
-Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，其中<<<<<< HEAD是指主分支修改的内容，>>>>>> b_name是指别的分支上修改的内容`resove the problem the you could merge your code.`
+Git用`<<<<<<<，=======，>>>>>>>`标记出不同分支的内容。
 
-当解决完冲突后，使用git add file > > git commit -m "Msg" :完成merge.
+- 其中`<<<<<<` HEAD是指主分支修改的内容；
+- `=======` 分割冲突信息；
+- `>>>>>>` branch_name 是当前提交的分支上修改的内容；
+
+当解决完冲突后，使用git add file > > git commit -m "msg" 完成代码合并merge。
 
 **分支管理策略：**  通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息，现在我们来使用带参数 --no-ff 来禁用”Fast forward”模式。
 
-**分支策略：** 首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，
-干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来
+**分支策略：** 首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来
 
 **Bug分支：** 在Git中，分支是很强大的，每个bug都可以通过一个临时分支来修复，修复完成后，合并分支，然后将临时的分支删除掉。
+
+#### stash 功能
 
 Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来”，等以后恢复现场后继续工作.比如我现在是在主分支master上来修复的，现在我要在master分支上创建一个临时分支issue-404.修复完成后，切换到master分支上，并完成合并，最后删除issue-404分支。工作区是干净的，那么我们工作现场去哪里呢？我们可以使用命令 git stash list来查看下.
 需要恢复一下，可以使用如下2个方法：
@@ -238,7 +245,7 @@ Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来�
 
 - git checkout -b [branch] [tag]：新建一个分支，指向某个tag
 
-## 远程同步
+## 远程分支同步
 
 ### 远程同步指令
 
@@ -246,14 +253,18 @@ Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来�
 - git remote –v：查看远程库的详细信息 
 - git remote show [origin]：查看某个远程库的信息
 - git fetch [origin]：下载远程仓库的所有变动
-
 - git fetch [origin] [master(Remote)]：下载远程仓库指定分支的所有变动
 - git merge [origin/master]：将远程仓库对应的master 分支合并到本地分支
 - git pull [origin] [master(Remote)]：取回远程仓库的变化，并与本地分支合并
-- git push [origin] [master(Local)]：上传本地指定分支到远程仓库
+- git push -u [origin] [master(Local)]：上传本地指定分支到远程仓库
 -  git push [origin] - -all：推送所有分支到远程仓库 
 - git push [origin] - -force：强行推送当前分支到远程仓库，即使有冲突 
 - git clone [git_url] [loc_url]：克隆远程库到指定文件夹
+
+若想把本地的某个分支 test 提交到远程仓库，并作为远程仓库的 master 分支；或者作为另外一个名叫 test 的分支，可以使用以下方法：
+
+- git push [origin] test:test ：提交本地 test 分支作为远程的 test 分支
+- git push [origin] test:master ：提交本地 test 分支作为远程的 master 分支
 
 **免密登录：** 只允许配置一个用户
 

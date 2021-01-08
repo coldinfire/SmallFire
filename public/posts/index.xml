@@ -2008,7 +2008,7 @@
     <item>
       <title> 使用Hugo&#43;GitHub Pages快速搭建博客  </title>
       <link>https://coldinfire.github.io/2018/hugo1/</link>
-      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/hugo1/</guid>
       <description>工具准备 Hugo：博客框架 https://github.com/gohugoio/hugo Git：用来发布博客内容 https://git-scm.com/ Github：保存和显示博客内容 https://github.com/ MarkDown编辑软件：用来进行博客文章的编辑 Typora C</description>
@@ -2016,11 +2016,47 @@
     
     <item>
       <title>Git学习与总结</title>
-      <link>https://coldinfire.github.io/2018/git/</link>
-      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
+      <link>https://coldinfire.github.io/2018/Git/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/git/</guid>
+      <guid>https://coldinfire.github.io/2018/Git/</guid>
       <description>Git本地结构 Workspace： 工作区，实际操作的目录。 Index / Stage： 暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友好交</description>
+    </item>
+    
+    <item>
+      <title>Maven依赖管理</title>
+      <link>https://coldinfire.github.io/2018/WEB_Maven_Dependency/</link>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/WEB_Maven_Dependency/</guid>
+      <description>依赖管理 依赖范围 Maven在编译主代码的时候需要使用一套 classpath，在编译和执行测试的时候会使用另一套 classpath，实际运行项</description>
+    </item>
+    
+    <item>
+      <title>Maven构建生命周期</title>
+      <link>https://coldinfire.github.io/2018/WEB_Maven_LifeCycle/</link>
+      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/WEB_Maven_LifeCycle/</guid>
+      <description>项目生命周期 Maven有三套相互独立的生命周期，分别是：clean、default、site。 clean 主要是清理项目、 default 是Maven最核心的的构建</description>
+    </item>
+    
+    <item>
+      <title>Maven-POM标签大全详解</title>
+      <link>https://coldinfire.github.io/2018/WEB_Maven_POM/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/WEB_Maven_POM/</guid>
+      <description>引用链接：菜鸟教程 POM 标签大全详解 &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&amp;#34;&amp;gt; &amp;lt;!-- 父项目的坐标。如果项目中没有规定某个元素的值，那么父项目中的对应值即为项目的默认值。 --&amp;gt; &amp;lt;!-- 坐标包括</description>
+    </item>
+    
+    <item>
+      <title>Maven使用</title>
+      <link>https://coldinfire.github.io/2018/WEB_Maven/</link>
+      <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/WEB_Maven/</guid>
+      <description>Maven简介 什么是Maven Maven 是 apache 下的开源项目，项目管理工具，管理java项目。 1、项目对象模型 (Project Object Model) POM 对象模型，每个 maven 工程中都有一个 pom.xml 文</description>
     </item>
     
     <item>

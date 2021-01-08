@@ -152,7 +152,7 @@ name 属性命名遵循首个字母大写 &_
 
 #### 表格
 
-创建表格的五个元素：table、tr、th、td、caption
+创建表格的五个元素：table、caption、tr、th、td、
 
 - `<table>...</table>`：整个表格以 < table > 标记开始、</table > 标记结束。
 - `<caption>...</caption>`：表格的标题行设置

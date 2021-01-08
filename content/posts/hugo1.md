@@ -1,6 +1,6 @@
 ---
 title: " 使用Hugo+GitHub Pages快速搭建博客  "
-date: 2018-03-12
+date: 2018-04-10
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -59,7 +59,7 @@ Hugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、
   - `git submodule add https://github.com/Fastbyte01/KeepIt.git themes/KeepIt `
   - 如果需要调整更改主题，需要在 themes/even 目录下重新 build:`cd themes/KeepIt && npm i && npm start`
 
-**创建新文件：**`hugo new about.md`,会在content文件夹下产生一个about.md的文件。
+**创建新文件：** `hugo new about.md`,会在content文件夹下产生一个about.md的文件。
 
 文件抬头信息的设定：可以根据需求进行添加或则删除
 
@@ -76,7 +76,7 @@ author: ""
 ---
 ```
 
-**配置config.toml：**该文件用于配置整个网站，根据自己的需求配置。
+**配置config.toml：** 该文件用于配置整个网站，根据自己的需求配置。
 
 ```js
 # <head> 里面的 baseurl 信息，填你的博客地址
