@@ -93,7 +93,7 @@ tags:
 - 尽可能保持简短，如果可以请限制在3个元素以内；
 - 只有在不得已的情况下再回溯最近的父级元素（例如：类名无前缀时）；
 
-#### 选择器类型
+#### CSS 基本选择器
 
 - 元素(标签)选择器：`p { color: red; }`
 
@@ -112,6 +112,64 @@ tags:
 - 伪类选择器
 
   - `a:hover { text-decoration: none; }`
+
+#### CSS3 新增选择器
+
+***属性选择器*** ：可以根据元素特定属性选择元素。这样就可以不借助于类或则id 选择器。
+
+| 选择符        | 简介                                      |
+| ------------- | ----------------------------------------- |
+| E[att]        | 选择具有 att 属性的 E 元素                |
+| E[att="val"]  | 选择具有 att 属性且 att=val 的 E 元素     |
+| E[att^="val"] | 匹配具有 att 属性且值以 val 开通的 E 元素 |
+| E[att$="val"] | 匹配具有 att 属性且值以 val 结尾的 E 元素 |
+| E[att*="val"] | 匹配具有 att 属性且值中含有 val 的 E 元素 |
+
+***结构伪类选择器*** ：主要根据文档结构来选择元素，常用于根据父级选择父级里面的子元素。
+
+| 选择符           | 简介                                         |
+| ---------------- | -------------------------------------------- |
+| E:first-child    | 匹配父元素中的第一个子元素 E                 |
+| E:last-child     | 匹配父元素中最后一个元素 E                   |
+| E:nth-child(n)   | 选择某个父元素的一个或多个特定的元素的子元素 |
+| E:first-of-type  | 指定类型 E 的第一个                          |
+| E:last-of-type   | 指定类型 E 的最后一个                        |
+| E:nth-of-type(n) | 指定类型 E 的第 n 个                         |
+
+`E:nth-child(n)` ：将所有子元素排序选择，序号是固定的；先找到第 n 个孩子，然后看是否和 E 匹配
+
+- n 可以是数字，关键字和公式
+
+- n 如果是数字，既选择第 n 个子元素，里面的数字从 1 开始
+
+- n 可以是关键字：even 偶数，odd 奇数
+
+- n 可以是公式：常见公式如下
+
+  - | 公式 | 取值                                     |
+    | ---- | ---------------------------------------- |
+    | n    | 从0开始计算，第0个或者超出的元素会被忽略 |
+    | 2n   | 选择父元素下所有的偶数孩子               |
+    | 2n+1 | 选择父元素下所有的奇数孩子               |
+    | n+5  | 从第5个开始(包含第5个)到最后             |
+    | -n+5 | 前5个(包含第5个) ....                    |
+
+`E:nth-of-type(n)` ：将指定元素的盒子排列序号
+
+- 执行的时候先看 E 指定的元素，之后看 :nth-of-type(n) 第n个孩子 
+
+***伪元素选择器*** ：可以利用 CSS 创建新标签元素，而不需要 HTML 标签
+
+| 选择符            | 简介                     |
+| ----------------- | ------------------------ |
+| element::before() | 在元素内部的前面插入内容 |
+| element::afrer()  | 在元素内部的后面插入内容 |
+
+- before 和 after 创建一个元素，但是属于行内元素
+- 新创建的这个元素在文档树中是找不到的，所以称为伪元素
+- before 和 after 必须有 content 属性
+- before 在父元素内容的前面创建元素，after 在父元素的后面插入元素
+- 伪元素选择器和标签选择器一样，权重为 1
 
 #### 优先级
 
@@ -135,49 +193,50 @@ tags:
 /* 把我们所有标签的内外边距清零 */
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
+    box-sizing: border-box;
 }
 /* em 和 i 斜体的文字不倾斜 */
 em,
 i {
-    font-style: normal
+    font-style: normal;
 }
 /* 去掉li 的小圆点 */
 li {
-    list-style: none
+    list-style: none;
 }
 img {
   /* 照顾低版本浏览器，如果图片外面包含了链接会有边框的问题 */
     border: 0;
   /* 取消图片底侧有空白缝隙的问题 */
-    vertical-align: middle
+    vertical-align: middle;
 }
 button {
   /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
-    cursor: pointer
+    cursor: pointer;
 }
 a {
     color: #666;
-    text-decoration: none
+    text-decoration: none;
 }
 a:hover {
-    color: #c81623
+    color: #c81623;
 }
 button,
 input {
   /* "\5B8B\4F53" 就是宋体的意思，这样浏览器兼容性比较好 */
-    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
 }
 body {
   /* CSS3 抗锯齿形 让文字显示的更加清晰 */
     -webkit-font-smoothing: antialiased;
     background-color: #fff;
     font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
-    color: #666
+    color: #666;
 }
 .hide,
 .none {
-    display: none
+    display: none;
 }
 /* 清除浮动 */
 .clearfix:after {
@@ -185,10 +244,10 @@ body {
     clear: both;
     display: block;
     content: ".";
-    height: 0
+    height: 0;
 }
 .clearfix {
-    *zoom: 1
+    *zoom: 1;
 }
 ```
 

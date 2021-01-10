@@ -283,6 +283,7 @@ Canvas 和 SVG 的比较
   <!-- 外部链接样式 -->
   <head>
       <link rel="stylesheet" type="text/css" href="code-guide.css">
+      <link rel="shortcut icon" href="favicon.ico" />
   </head>
   <!-- 导入样式 -->
   <style> @import url(style.css); </style>

@@ -149,19 +149,30 @@ visibility 还可能取值为 collapse 。当设置元素 visibility: collapse �
 
 ### 盒模型
 
-盒模型的组成
+盒子宽度 = width + padding左右 + border左右
 
-**自身内容**：width、height
+盒子高度 = height + padding上下 + border上下
 
-**边框**：border
+![BOX](/images/WEB/HTML_BOX.png)
+
+#### 内容区：content
+
+- 内容区指的是盒子中放置内容的区域，也就是元素中的文本内容，子元素都是存在于内容区中的
+- 如果没有为元素设置内边距和边框，则内容区大小默认和盒子大小是一致的
+- 通过 width 和 height 两个属性可以设置内容区的大小；width 和 height 属性只适用于块元素
+
+#### 边框：border
+
+在元素周围创建边框，边框是元素可见框的最外部。
 
 - border: 2px solid #fff;
 - border-width: 2px;
 - border-style: dotted;    (solid:实线，dashed:虚线，dotted:点状虚线，double:双实线)
 - border-color: red;
 - border-collapse: collapse; (合并相邻边框)
+- border-top/left/right/bottom 分别指定上、右、下、左四个方向的边框
 
-**圆角边框**
+#### 圆角边框
 
 可定义四个参数，代表:左上->右上->右下->左下
 
@@ -174,22 +185,30 @@ border-radius: 10px 10px 10px 10px;
 - border-bottom-right-radius: 10px;
 - border-bottom-left-radius: 10px;
 
-**内边距**(上、右、下、左)：padding
+#### 内边距：padding
 
-- padding: 5px 5px 5px 5px;
+内边距指的就是元素内容区与边框以内的空间。依据上、右、下、左的参数顺序声明。
+
+- padding: 5px;
+- padding: 5px 5px 5px 5px; 
 - padding-top: 5px;
 - padding-right: 5px;
 - padding-bottom: 5px;
 - padding-left: 5px;
 
-**外边距**：margin
+#### 外边距：margin
 
-- 属性设置和外边距设置遵循同样的规则，属性值也相同
-- 块级盒子，居中显示：设置宽度，指定居中`{ margin: 100px auto }`
-- 外边距合并：两个嵌套的盒子同时设置了外边距，会进行一个外边距合并
-  - 为父元素定义上边框
-  - 为父元素定义上内边距
-  - 为父元素添加 overflow: hidden;
+外边距是元素边框与周围元素相距的空间；属性设置和外边距设置遵循同样的规则，属性值也相同。
+
+- 块级盒子，居中显示：设置宽度，指定居中`{ margin: 0 auto }`
+
+外边距合并：两个嵌套的盒子同时设置了外边距，会进行一个外边距合并
+
+- 为父元素定义上边框
+- 为父元素定义上内边距
+- 为父元素添加 overflow: hidden;
+
+#### 其它属性
 
 **阴影属性**：box-shadow
 
@@ -199,6 +218,13 @@ border-radius: 10px 10px 10px 10px;
 
 - outline 是不占空间的，既不会增加额外的 width 或者 height
 - outline的声明内容和border一致
+
+#### CSS3新增特性
+
+CSS3 中可以通过 box-sizing 来指定盒模型，有2个值：即可指定为 content-box、border-box，这样就可以计算盒子大小的方式就发生了改变。
+
+- `{ box-sizing: content-box } `盒子大小为 width + padding + border (默认值)
+- `{ box-sizing: border-box }` 盒子大小为 width
 
 ### 浮动：float
 
@@ -323,9 +349,37 @@ div { z-index: 1; }
 
 浮动之所以不会压住文字，因为浮动产生的目的最初是为了做文字环绕效果的，文字会围绕浮动元素。
 
+### CSS3 新特性
 
+#### 滤镜 Filter
 
+filte：CSS属性将模糊或颜色偏移等图形效果应用于元素。
 
+| 属性                       | 描述                                                         |
+| -------------------------- | ------------------------------------------------------------ |
+| filter: blur(5px);         | 图片使用高斯模糊效果，小括号里面的数值越大，越模糊。默认是0。 |
+| filter: contrast(200%);    | 调整图像的对比度。值是0%的话图像会全黑。值是100%图像不变。值超过100%图像会比原来更亮。默认是1。 |
+| filter: grayscale(80%);    | 将图像转换为灰度图像。值定义转换的比例。值为100%则完全转为灰度图像，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。值默认是0。 |
+| filter: hue-rotate(90deg); | 给图像应用色相旋转。"angle"一值设定图像会被调整的色环角度值。默认值是0deg，则图像无变化。超过360deg的值相当于又绕一圈。 |
 
+#### calc 函数
 
+calc() 函数用于动态计算长度值，可以在声明 CSS 属性值时执行一些计算。
 
+- 需要注意的是，运算符前后都需要保留一个空格，例如：`width: calc(100% - 10px)`；
+- 任何长度值都可以使用 calc() 函数进行计算；
+- calc() 函数支持 "+", "-", "*", "/" 运算；
+- calc() 函数使用标准的数学运算优先级规则；
+
+#### transition 过渡
+
+过渡是 CSS3 中具有颠覆性的特征之一，可以在不使用 Flash 动画或 JavaScript 的情况下，当元素从一种样式变换为另一种样式时为元素添加效果。
+
+过渡动画：从一个状态渐渐的过渡到另外一个状态；经常和 :hover 一起搭配使用；*谁做过渡给谁添加该属性*。
+
+transition: [要过渡的属性] [花费时间] [运动曲线] [何时开始], ... ;
+
+- 属性：想要变化的 CSS 属性，宽度高度、背景颜色、内外边距等。如果想要所有属性都变化过渡使用 all
+- 花费时间：单位是秒，单位必须写 (0.5s)
+- 运动曲线：默认是 ease，可以省略。linear:匀速；ease-in:加速；ease-out:减速；ease-in-out:先加速后减速
+- 何时开始：单位是秒，单位必须填写。可以设置延迟触发时间，默认是 0s，可以省略
