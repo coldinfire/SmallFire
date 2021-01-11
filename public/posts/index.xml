@@ -566,6 +566,15 @@
     </item>
     
     <item>
+      <title> ABAP动态内表 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_DynamicTable/</link>
+      <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_DynamicTable/</guid>
+      <description>ABAP动态内表操作 动态内表的列是可以跟随数据的变化而变化，可以使报表显示更简洁漂亮。 REPORT zdyn_test. DATA: dyn_table TYPE REF TO data, dyn_line TYPE REF TO data, FIELD-SYMBOLS: &amp;lt;dyn_table&amp;gt; TYPE STANDARD TABLE. FIELD-SYMBOLS: &amp;lt;dyn_wa&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;dyn_field&amp;gt; TYPE ANY. DATA:</description>
+    </item>
+    
+    <item>
       <title> 维护成本控制凭证的编号范围 </title>
       <link>https://coldinfire.github.io/2019/ABAP_NumberRangeType4/</link>
       <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
