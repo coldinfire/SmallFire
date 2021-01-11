@@ -1,5 +1,5 @@
 ---
-title: "开发 常用Tcode汇总"
+title: "开发常用Tcode汇总"
 date: 2018-08-05
 draft: false
 author: Small Fire
@@ -31,7 +31,7 @@ tags:
 | SM21                    | 系统日志，记录系统的事件和问题 | SP01  | 打印需求查看                 |
 | AL08                    | 查看当前活动用户               | RZ01  | 图形化的JOB监视              |
 
-#### Background Processing
+### Background Processing
 
 | TCode   | Description                       | TCode | Description                         |
 | ------- | --------------------------------- | ----- | ----------------------------------- |
@@ -43,7 +43,7 @@ tags:
 | SM37BAK | Old SM37 backup                   | SM61B | New control object management       |
 | SM37C   | Flexible version of job selection |       |                                     |
 
-#### Performance Analysis
+### Performance Analysis
 
 | TCode     | Description                          | TCode   | Description                        |
 | --------- | ------------------------------------ | ------- | ---------------------------------- |
@@ -56,7 +56,7 @@ tags:
 | ST03G     | Global Workload Statistics           | ST07    | Application monitor                |
 | ST03N     | R/3 Workload and Perf. Statistics    | ST10    | Table Call Statistics              |
 
-#### Spool & Print
+### Spool & Print
 
 | TCode | Description             | TCode | Description             |
 | ----- | ----------------------- | ----- | ----------------------- |
@@ -67,7 +67,7 @@ tags:
 | SP02O | Display Output Requests | SPCC  | Spool consistency check |
 | SP03  | Spool: Load Formats     |       |                         |
 
-#### Transport System
+### Transport System
 
 | TCode      | Description                    | TCode       | Description                    |
 | ---------- | ------------------------------ | ----------- | ------------------------------ |
@@ -82,7 +82,7 @@ tags:
 | STMS       | Transport Management System    | STMS_TCRI   | Display/Maintain Table TMSTCRI |
 | STMS_ALERT | TMS Alert Monitor              | STMS_TRACK  | TMS Import Tracking            |
 
-#### System Monitoring
+### System Monitoring
 
 | TCode | Description                         | TCode         | Description                    |
 | ----- | ----------------------------------- | ------------- | ------------------------------ |
@@ -98,9 +98,7 @@ tags:
 | RZ20  | CCMS Monitoring                     | RZ27_SECURITY | MiniApp CCMS Alerts Security   |
 | RZ21  | CCMS Monitoring Arch. Customizing   | RZ28          | Start Alert Viewer for Monitor |
 
-
-
-#### BASIS TCode
+### BASIS TCode
 
 | 事务码    | 功能                 | 事务码 | 功能                         |
 | --------- | -------------------- | ------ | ---------------------------- |
@@ -112,5 +110,4 @@ tags:
 | SM13      | 查看 SAP update 进度 | SU22   | 根据事务码查看权限对象       |
 | SM37/SM36 | 后台 JOB             | ST01   | 事务码权限对象及权限点追踪   |
 | SM21      | SAP 系统日志         | SU53   | 检查权限                     |
-|           |                      |        |                              |
 

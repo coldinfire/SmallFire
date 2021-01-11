@@ -14,9 +14,9 @@ tags:
 
 ### 截取包含中文字符串 ###
 
-strlen()只能计算包含英文字符串的长度，不能计算中文字符串的长度。
+`strlen()` 只能计算包含英文字符串的长度，不能计算中文字符串的长度。
 
-可以通过cl_abap_list_utilities=>dynamic_output_length获取精确长度。
+可以通过`cl_abap_list_utilities=>dynamic_output_length`获取精确长度。
 
 ```JS
 FUNCTION zotfm001.
@@ -34,7 +34,6 @@ DATA:lv_char TYPE string,
    lv_st1  TYPE i,
    lv_st2  TYPE i,
    lv_str  TYPE i.
- 
 CHECK i_string IS NOT INITIAL AND i_strlen IS NOT INITIAL.
 lv_str = strlen( i_string ).
 DO.
@@ -58,7 +57,6 @@ DO.
     EXIT.
   ENDIF.
 ENDDO.
- 
 ENDFUNCTION.
 ```
 

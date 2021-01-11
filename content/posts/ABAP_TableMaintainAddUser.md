@@ -49,9 +49,7 @@ call function 'TERMINAL_ID_GET'
 ### 修改表维护 ###
 添加修改操作人字段
 
-1. SE11, go to Utilities - Table Maintenance Generator or SE55
-2. Go to Environments – Modifications – Events
-3. Create your Form routines to be called from view maintenance Event could be “Before saving the data in the database”.The FORM routine must belong to the function group, to which the maintenance modules for the view are assigned. 
-
-ZPP_MOLDTSTA：可参考
-
+1. SE11 open the table, then go to Utilities -> Table Maintenance Generator or SE55.
+2. Go to Environments –> Modifications –> Events.
+3. Create your Form routines to be called from view maintenance Event could be " Before saving the data in the database ".
+4. The form routine must belong to the function group, to which the maintenance modules for the view are assigned. 

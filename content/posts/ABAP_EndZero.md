@@ -12,7 +12,7 @@ tags:
 
 ---
 
-## 小数后面去除后缀0 ##
+### 小数后面去除后缀 0 ###
 
 ```JS
 FORM DATA_DELETE_ZERO  using p_field z_result.

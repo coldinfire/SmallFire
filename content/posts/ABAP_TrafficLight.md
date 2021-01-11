@@ -62,8 +62,10 @@ l_alv_filed-col_pos = 2.
 l_alv_filed-fieldname = 'GJAHR'.
 l_alv_filed-seltext_m = 'Year.'.
 append l_alv_filed to l_alv_filedcat.
-call function 'Z_ALV'
-    tables
-      t_data     = it_alv
+call function 'REUSE_ALV_GRID_DISPLAY'
+  exporting
+    it_fieldcat  = gt_fieldcat
+  tables
+      t_outtab   = it_alv
       t_fieldcat = l_alv_filedcat.
 ```

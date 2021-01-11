@@ -1043,7 +1043,7 @@
     </item>
     
     <item>
-      <title>开发 常用Tcode汇总</title>
+      <title>开发常用Tcode汇总</title>
       <link>https://coldinfire.github.io/2018/ABAP_Tcode/</link>
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -1246,7 +1246,7 @@
       <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_StrCNChina/</guid>
-      <description>截取包含中文字符串 strlen()只能计算包含英文字符串的长度，不能计算中文字符串的长度。 可以通过cl_abap_list_utilitie</description>
+      <description>截取包含中文字符串 strlen() 只能计算包含英文字符串的长度，不能计算中文字符串的长度。 可以通过cl_abap_list_utilities=&amp;gt;d</description>
     </item>
     
     <item>
@@ -1273,7 +1273,7 @@
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_EndZero/</guid>
-      <description>小数后面去除后缀0 FORM DATA_DELETE_ZERO using p_field z_result. DATA:var1 TYPE p DECIMALS 3, var2 TYPE p DECIMALS 2, var3 TYPE p DECIMALS 1, var4 TYPE i. move p_field to var1. move p_field to var2. move p_field to var3. move p_field to var4. IF var2 = var1. IF var3 = var1. IF var4 = var1. z_result = var4. ELSE. z_result = var3. ENDIF. ELSE. z_result</description>
+      <description>小数后面去除后缀 0 FORM DATA_DELETE_ZERO using p_field z_result. DATA:var1 TYPE p DECIMALS 3, var2 TYPE p DECIMALS 2, var3 TYPE p DECIMALS 1, var4 TYPE i. move p_field to var1. move p_field to var2. move p_field to var3. move p_field to var4. IF var2 = var1. IF var3 = var1. IF var4 = var1. z_result = var4. ELSE. z_result = var3. ENDIF. ELSE. z_result</description>
     </item>
     
     <item>
