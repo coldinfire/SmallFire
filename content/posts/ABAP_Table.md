@@ -32,13 +32,20 @@ tags:
 
 ### SAP数据表的组成元素
 
-**Data element：** 构成结构、表的基本组件 search help、parameter ID、标签描述。Goto > Documentation > Change ：修改提示文档信息
+**Data element：** 构成结构、表的基本组件 search help、parameter ID、标签描述。
+
+- Goto > Documentation > Change ：修改提示文档信息
 
 **Domain：** 定义数据元素的技术属性，类型，长度，精度。
 
-Definition：
-
 - Format、Output Charact
+  
+  - | Type | Desc            | Type | Desc           | Type | Desc        | Type   | Desc                            |
+    | ---- | --------------- | ---- | -------------- | ---- | ----------- | ------ | ------------------------------- |
+    | DEC  | doubule         | FLTP | Fload          | DATS | Date(8)     | TIMS   | Time(6)                         |
+    | INT1 | 0~255           | INT2 | -32768~32767   | INT4 | 四个字节    | CHAR   | 字符(1-255)                     |
+    | NUMC | 数字字符(1-255) | CURR | 货币字段(1-17) | CUKY | 货币代码(5) | LANG   | Language(internal 1,external 2) |
+    | QUAN | 金额(1-17)      | UNIT | 单位(2-3)      | CLNT | Client(3)   | STRING | 字符串                          |
   
 - Converse Routine(转换规则)：注意前导0的补充问题，将该字段设置为`ALPHA`。
   
@@ -46,13 +53,6 @@ Definition：
 
 - value range：设置该Domain的固定取值列表和其含义,C,Y,F类型中的一种。
 
-  ```JS
-  DEC:double    FLTP:Float  INT1:0~255  INT2:-32768~32767     INT4:4字节   
-  NUMC:数字字符(1-255)   CHAR:字符(1-255)    STRING
-  CURR:货币字段(1-17)    CUKY:货币代码(5)     QUAN:金额(1-17)  UNIT:单位(2-3)   
-  DATS:Date(8)          TIMS:Time(6)       CLNT:Client(3)    
-  LANG:Language(internal 1,external 2)
-  ```
 
 **Field:** 透明表字段，可以作为透明表的主 / 外键，继承了 Data Element 的所有属性。
 

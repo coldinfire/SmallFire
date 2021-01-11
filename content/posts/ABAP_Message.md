@@ -16,7 +16,7 @@ tags:
 
 #### 消息类的操作
 
-使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message Short Text字段为类描述，可以定义输入参数&，通过‘&’定义多个占位符,如"1&2&3&"表示有三个输入参数。
+使用 T-CODE:SE91 对 Message 定义，还能够对 Message 进行创建，修改及删除等维护操作。Message Short Text 字段为类描述，可以定义输入参数&，通过‘&’定义多个占位符,如"1&2&3&"表示有三个输入参数。
 
 ![定义消息类](/images/ABAP/SE91.jpg)
 

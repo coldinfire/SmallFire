@@ -1305,10 +1305,10 @@
     
     <item>
       <title>ABAP 性能优化(程序逻辑)</title>
-      <link>https://coldinfire.github.io/2018/ABAP_-ProgramOpt/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ProgramOpt/</link>
       <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_-ProgramOpt/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ProgramOpt/</guid>
       <description>性能分析工具 ​ SE30(旧)；SAT(新)：运行时间分析工具 ​ ST12: 程序优化 READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查找 在循环（LOOP AT &amp;h</description>
     </item>
     
@@ -1327,7 +1327,7 @@
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Message/</guid>
-      <description>MESSAGE ：SE91 消息类的操作 使用T-CODE:SE91对Message定义，还能够对Message进行创建，修改及删除等维护操作。Message</description>
+      <description>MESSAGE ：SE91 消息类的操作 使用 T-CODE:SE91 对 Message 定义，还能够对 Message 进行创建，修改及删除等维护操作。Message Short Text 字段为类描述，可以定义输入参数&amp;amp;</description>
     </item>
     
     <item>
