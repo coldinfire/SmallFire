@@ -16,7 +16,9 @@ tags:
 
 #### 什么是Maven
 
- Maven 是 apache 下的开源项目，项目管理工具，管理java项目。
+Maven 是 apache 下的开源项目，项目管理工具，管理java项目。
+
+Maven是一个项目管理工具，它包含了一个项目对象模型 (POM：Project Object Model)，一组标准集合，一个项目生命周期(Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。
 
 1、项目对象模型 (Project Object Model)
 
@@ -36,25 +38,27 @@ maven 通过坐标对项目工程所依赖的jar包统一规范管理。
 
 强调：maven 工程有自己标准的工程目录结构、定义坐标有标准。
 
-5、maven 管理项目生命周期过程都是基于插件完成的
+5、插件(plugin)目标(goal)
+
+maven 管理项目生命周期过程都是基于插件完成的
 
 #### Maven仓库
 
-Maven 给我们带来的最大的好处就是管理jar包，Maven 管理 jar 包的模式是从远程仓库中把 jar 包下载到本地仓库中。仓库可以理解为缓存的地址，就是缓存项目需要的 jar 包，那么随着项目的扩大，本地仓库肯定为越来越大。
+Maven 给我们带来的最大的好处就是管理 jar 包，Maven 管理 jar 包的模式是从远程仓库中把 jar 包下载到本地仓库中。仓库可以理解为缓存的地址，就是缓存项目需要的 jar 包，那么随着项目的扩大，本地仓库肯定为越来越大。
 
 1、中央仓库
 
-就是远程仓库，仓库中jar由专业团队（maven 团队）统一维护。
-
-- 中央仓库的地址：[http://repo1.maven.org/maven2/](http://repo1.maven.org/maven2/)
+就是远程仓库；在 maven 软件中内置一个远程仓库地址http://repo1.maven.org/maven2 ，它是中央仓库，服务于整个互联网，它是由 Maven 团队自己维护，里面存储了非常全的 jar 包，它包含了世界上大部分流行的开源项目构件。
 
 2、本地仓库
 
-相当于缓存，工程第一次会从远程仓库（互联网）去下载 jar 包，将 jar 包存在本地仓库（本地电脑上）。第二次不需要从远程仓库去下载。先从本地仓库找，如果找不到才会去远程仓库找。
+相当于缓存，工程第一次会从远程仓库（互联网）去下载 jar 包，将 jar 包存在本地仓库（本地电脑上）。第二次不需要从远程仓库去下载。先从本地仓库找，找到了则直接使用；如果本地仓库找不到 Maven 才会去远程仓库找，找到后下载到本地再使用。
+
+Maven默认的本地仓库目录位置：`${user.home}/.m2/repository`
 
 3、私服
 
-在公司内部架设一台私服，其它公司架设一台仓库，对外公开。
+私服是一种特殊的远程仓库，为了节省带宽和时间，在局域网内架设一个私有的仓库服务器，用其代理所有外部的远程仓库。内部的项目还能部署到私服上供其他项目使用。
 
 ### Maven环境搭建
 
@@ -64,9 +68,13 @@ Maven 给我们带来的最大的好处就是管理jar包，Maven 管理 jar 包
 
 ![Maven Folder](/images/WEB/Maven1.png)
 
-#### 默认仓库位置配置
+- bin:存放了 maven 的命令，比如 mvn tomcat:run
 
-Maven默认的本地仓库目录位置：`${user.home}/.m2/repository`
+- boot:存放了一些 maven 本身的引导程序，如类加载器等
+- conf:存放了 maven 的一些配置文件，如 setting.xml 文件
+- lib:存放了 maven 本身运行所需的一些 jar 包
+
+#### 默认仓库位置配置
 
 1、创建 .m2 文件夹
 
@@ -119,6 +127,14 @@ Maven默认的本地仓库目录位置：`${user.home}/.m2/repository`
 
 `<localRepository>D:\Maven-Repository</localRepository>`
 
+#### 全局 setting 与用户 setting
+
+在 maven 安装目录下的有 conf/setting.xml 文件，此 setting.xml 文件用于 maven 的所有项目，它作为 maven 的全局配置。
+
+如需要个性配置则需要在用户配置中设置，用户配置的 setting.xml 文件默认的位置在：${user.home} /.m2/settings.xml 位置。
+
+maven 会先找用户配置，如果找到则以用户配置文件为准，否则使用全局配置文件。
+
 ### Eclipse 配置 Maven
 
 #### 使用 Eclipse 自带的 maven 插件
@@ -154,7 +170,15 @@ Maven默认的本地仓库目录位置：`${user.home}/.m2/repository`
 
 ![Maven Project](/images/WEB/Maven8.png)
 
-这里有几个参数Group Id、Artifact Id、Version、Packaging。其中Group Id表示组的id，在一些大型的分组开发中会使用。Artifact Id就是以前的项目名。Version代表版本。Packaging有三个值jar、pom和war，其中jar代表普通java项目，war代表web项目，pom用于集合MAVEN组件的时候使用的。
+这里有几个参数groupId、artifactId、version、packaging。
+
+- groupId：定义当前 Maven 项目隶属的实际项目，项目的名称；项目名称以域名的倒序，比如：com.baidu.mavendemo
+- artifactId：该元素定义实际项目的中的一个 Maven 项目(模块名称即子项目名称)
+- version：定义 Maven 项目当前所处的版本，snapshot 为快照版本即非正式版本；release 为正式发布版本。
+- packaging：定义 Maven 项目的打包方式，有三个值 jar、pom 和 war。
+  - jar：代表普通 java 项目，执行 package 会打成 jar 包
+  - war：代表 web 项目，执行 package 会打成 war 包
+  - pom：用于集合 maven 组件的时候使用，通常父工程设置成 pom
 
 #### 工程目录结构说明
 
@@ -164,6 +188,7 @@ project_direct
 
 - src/main/java：项目的 java 源文件（不要放配置文件）
 - src/main/resources：项目所需要的配置文件（不要放java文件）
+- src/main/webapp：页面素材
 - src/test/java：单元测试程序 java 源文件
 - src/test/resources：单元测试程序所用的配置文件
 - target：打包输出目录
@@ -173,11 +198,13 @@ project_direct
 
 #### 生成 web.xml 文件
 
-新建好的 web 项目下面是没有 web.xml 的，需要在右击 Deploymeny Descriptor，然后点击 Generate Deployment Descriptor，生成web.xml文件。
+新建好的 web 项目下面是没有 web.xml 的，需要在右击 Deploymeny Descriptor，然后点击 Generate Deployment Descriptor，生成 web.xml 文件。
 
 #### 定义工程坐标：pom.xml
 
 maven 对所有工程管理基于坐标进行管理。
+
+Maven 坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，一组 Maven 坐标时通过一些元素定义的，他们是 groupId、artifactId、version、packaging、clas-sifier。
 
 ```xml
 <project xmlns = "http://maven.apache.org/POM/4.0.0"
@@ -198,15 +225,6 @@ maven 对所有工程管理基于坐标进行管理。
 </project>
 ```
 
-坐标包括：
-
-- groupId：项目的名称，项目名称以域名的倒序，比如：com.baidu.mavendemo
-
-- artifactId：模块名称（子项目名称）
-
-- version：模块的版本；snapshot（快照版，没有正式发行）、release（正式发行版本）
-  输入后，Finish 。
-
 #### 设置编译版本
 
 我们现在的Maven工程默认是JDK1.5 ，我们需要将编译版本改为JDK1.8。
@@ -221,6 +239,7 @@ maven 对所有工程管理基于坐标进行管理。
       <configuration>
         <source>1.8</source>
         <target>1.8</target>
+        <encoding>UTF-8</encoding>
       </configuration>
     </plugin>
   </plugins>

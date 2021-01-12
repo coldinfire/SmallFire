@@ -18,15 +18,19 @@ tags:
 
 Maven在编译主代码的时候需要使用一套 classpath，在编译和执行测试的时候会使用另一套 classpath，实际运行项目的时候，又会使用一套classpath。
 
-依赖范围的作用就是用来控制依赖与这3种 classpath（编译classpath，测试classpath，运行classpath）的关系。maven有以下几种依赖范围:
+依赖范围的作用就是用来控制依赖与这3种 classpath（编译classpath，测试classpath，运行classpath）的关系。
 
-1、compile ：编译、测试、运行有效；A在编译时依赖B，并且在测试和运行时也依赖。
+依赖范围由强到弱的顺序是：`compile>provided>runtime>test`。
+
+maven有以下几种依赖范围:
+
+1、compile ：编译、测试、运行有效；此范围为默认依赖范围；A在编译时依赖B，并且在测试和运行时也依赖。
 
 - strus-core、spring-beans 打到 war 包或 jar 包
 
 2、provided ：编译、测试有效，在运行时无效；A在编译和测试时需要B。
 
-- servlet-api就是编译和测试有用，在运行时不用（tomcat容器已提供）。不会打到war
+- servlet-api 就是编译和测试有用，在运行时不用（tomcat容器已提供），不会打到war
 
 3、runtime：测试、运行有效，编译主代码时无效。
 
@@ -35,6 +39,8 @@ Maven在编译主代码的时候需要使用一套 classpath，在编译和执�
 4、test：只是测试有效，在编译主代码或者运行项目的使用时将无法使用此类依赖。
 
 - junit 不会打到war
+
+5、system：system 范围依赖与 provided 类似；但是你必须显式的提供一个对于本地系统中 JAR 文件的路径，需要指定 systemPath 磁盘路径，system 依赖不推荐使用。
 
 #### 设置依赖范围
 
@@ -49,7 +55,7 @@ Maven在编译主代码的时候需要使用一套 classpath，在编译和执�
 </dependency>
 ```
 
-将servlet依赖设置为provided
+将 servlet 依赖设置为 provided
 
 ```xml
 <dependency>
@@ -60,13 +66,13 @@ Maven在编译主代码的时候需要使用一套 classpath，在编译和执�
 </dependency>
 ```
 
-如果是compile就不需要设置了，因为compile是scope的默认值。关于test范围我们在后边讲解单元测试时再做演示。重新执行打包为war , 会发现servlet-api.jar已经不存在。
+如果是 compile 就不需要设置了，因为 compile 是 scope 的默认值。重新执行打包为war , 会发现servlet-api.jar已经不存在。
 
 ### 依赖传递
 
 #### 什么是依赖传递？
 
-依赖传递(Transitive Dependencies)是Maven 2.0开始的提供的特性，依赖传递可以让我们不需要去寻找和发现所必须依赖的库，而是将会自动将需要依赖的库帮我们加进来。
+依赖传递(Transitive Dependencies)是 Maven 2.0 开始的提供的特性，依赖传递可以让我们不需要去寻找和发现所必须依赖的库，而是将会自动将需要依赖的库帮我们加进来。
 
 A -> B(compile)  第一关系: a依赖b - compile
 
@@ -77,6 +83,15 @@ B -> C(compile)  第二关系: b依赖c - compile
 2、传递依赖：B依赖C，C是A的传递依赖。
 
 3、中间部分：传递依赖的范围，A依赖C的范围。
+
+第一直接依赖的范围和第二直接依赖的范围决定了传递性依赖的范围。如下图所示，最左边代表第一直接依赖范围，最上面一行表示第二直接依赖范围，中间的交叉单元格则表示传递性依赖范围。
+
+|          | compile  | test   | provided | runtime  |
+| -------- | -------- | ------ | -------- | -------- |
+| compile  | compile  | ------ | ------   | runtime  |
+| test     | test     | ------ | ------   | test     |
+| provided | provided | ------ | provided | provided |
+| runtime  | runtime  | ------ | ------   | runtime  |
 
 #### 依赖传递问题
 

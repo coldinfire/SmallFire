@@ -12,29 +12,31 @@ tags:
 
 ---
 
-### 项目生命周期
+## 项目生命周期
 
 Maven有三套相互独立的生命周期，分别是：clean、default、site。
 
-- clean 主要是清理项目、
+- clean：清理项目
 
-- default 是Maven最核心的的构建项目
+- default：构件项目，是 Maven 最核心的
 
-- site 是生成项目站点。
+- site：建立项目站点
 
-每一个大的生命周期又分为很多个阶段。后面的阶段依赖于前面的阶段，这点有点像Ant的构建依赖。生命周期本身相互独立，用户可以仅仅调用生命周期的某一个阶段，也就是说用户调用了 default 周期的任何阶段，并不会触发 clean 周期以及 site 周期的任何事情。
+每一个大的生命周期又分为很多个阶段。后面的阶段依赖于前面的阶段，这点有点像 Ant 的构建依赖。
+
+生命周期本身相互独立，用户可以仅仅调用生命周期的某一个阶段，也就是说用户调用了 default 周期的任何阶段，并不会触发 clean 周期以及 site 周期的任何事情。
 
 三大生命周期蕴含着小小的阶段，我们按顺序看一下：
 
-#### clean周期
+### clean 周期
 
-pre-clean：准备清理
+pre-clean：执行一些清理前需要完成的工作
 
-clean：真正的清理工作
+clean：清理上一次构建生成的文件
 
-post-clean：执行清理后的一些后续工作
+post-clean：执行一些清理后需要完成的工作
 
-#### default周期：
+### default 周期：
 
 validate：验证
 
@@ -42,33 +44,33 @@ initialize：初始化配置
 
 generate-sources：生成源代码编译目录
 
-process-sources：处理项目主资源文件，复制资源文件到outputclasspath
+process-sources：处理项目主资源文件。一般来说，是对 src/main/resources 目录的内容进行变量替换等工作后，复制到项目输出的主 classpath 目录中
 
 generate-resources：生成资源目录
 
 process-resources：处理资源文件
 
-complie：编译源代码
+complie：编译项目的主源码。一般来说，是编译 src/main/java 目录下的 Java 文件至项目输出的主 classpath 目录中
 
 process-classes：处理编译后文件
 
 generate-test-sources：生成测试目录
 
-process-test-sources：处理项目测试资源文件，复制测试资源文件到outputclasspath
+process-test-sources：处理项目测试资源文件。一般来说，是对 src/test/resources 目录的内容进行变量替换等工作后，复制到项目输出的测试 classpath 目录中
 
 generate-test-resources：生成测试资源文件
 
 process-test-resources：处理测试资源文件
 
-test-compile：编译测试代码
+test-compile：编译项目的测试代码。一般来说，是编译 src/test/java 目录下的 Java 文件至项目输出的测试 classpath 目录中
 
 process-test-classes:处理测试代码
 
-test：单元测试运行测试代码
+test：使用单元测试框架运行测试代码，测试代码不会被打包或部署
 
 prepare-package：打包前的准备
 
-package：将编译好的代码打包成为jar或者war或者ear等等
+package：将编译好的代码打包成为 jar 或者 war 等
 
 pre-integration-test：准备整体测试
 
@@ -78,16 +80,49 @@ post-integration-test：为整体测试收尾
 
 verify：验证
 
-install：安装到本地Maven库
+install：将包安装到 Maven 本地仓库，供本地其他 Maven 项目使用
 
-deploy：将最终包部署到远程Maven仓库
+deploy：将最终的包部署到远程 Maven 仓库，供其他开发人员和 Maven 项目使用
 
-#### site周期
+### site 周期
 
-pre-site：准备生成站点
+pre-site：执行一些在生成项目站点之前需要完成的工作
 
-site：生成站点及文档
+site：生成项目站点及文档
 
-post-site：站点收尾
+post-site：执行一些在生成项目站点之后需要完成的工作
 
-site-deploy：将生成的站点发布到服务器上
+site-deploy：将生成的项目站点发布到服务器上
+
+### 命令行与生命周期
+
+**$mvn clean** ：该命令调用 clean 生命周期的 clean 阶段。实际执行的阶段为 clean 生命周期的 pre-clean 和 clean 阶段
+
+**$mvn test** ：该命令调用 default 生命周期的 test 阶段，实际执行的阶段为 default 周期的 validate、initialize 等，直到 test 的所有阶段
+
+**$mvn clean install** ：该命令调用 clean 生命周期的 clean 阶段和 default 生命周期的 install 阶段。实际执行的阶段为 clean 生命周期的 pre-clean、clean 阶段，以及 default 生命周期的从 validate 至 install 的所有阶段。结合了两个生命周期，在执行真正的项目构建之前清理项目是一个很好的实践
+
+**$mvn clean deploy site-deploy** ：该命令调用 clean 生命周期的 clean 阶段、default 生命周期的 deploy 阶段，以及 site 生命周期的 site-deploy 阶段。实际执行的阶段为 clean 生命周期的 pre-clean、clean 阶段，default 生命周期的所有阶段，以及 site 生命周期的所有阶段。该命令结合了 Maven 所有的三个生命周期，且 deploy 为 default 生命周期的最后一个阶段，site-deploy 为 site 生命周期的最后一个阶段。
+
+由于 Maven 中主要的生命周期阶段并不多，而常用的 Maven 命令实际都是基于这些阶段简单组合而成。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

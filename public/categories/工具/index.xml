@@ -49,7 +49,7 @@
       <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WEB_Maven_LifeCycle/</guid>
-      <description>项目生命周期 Maven有三套相互独立的生命周期，分别是：clean、default、site。 clean 主要是清理项目、 default 是Maven最核心的的构建</description>
+      <description>项目生命周期 Maven有三套相互独立的生命周期，分别是：clean、default、site。 clean：清理项目 default：构件项目，</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WEB_Maven_POM/</guid>
-      <description>引用链接：菜鸟教程 POM 标签大全详解 &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&amp;#34;&amp;gt; &amp;lt;!-- 父项目的坐标。如果项目中没有规定某个元素的值，那么父项目中的对应值即为项目的默认值。 --&amp;gt; &amp;lt;!-- 坐标包括</description>
+      <description>引用链接：菜鸟教程 POM 基本配置 &amp;lt;project &amp;gt; ：文件的根节点 . &amp;lt;modelversion &amp;gt; ： pom.xml使用的对象模型版本 &amp;lt;groupId &amp;gt; ：项目名称，一般写项目的域名 &amp;lt;artifactId &amp;gt; ：模块名称，子项目</description>
     </item>
     
     <item>
@@ -67,7 +67,7 @@
       <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WEB_Maven/</guid>
-      <description>Maven简介 什么是Maven Maven 是 apache 下的开源项目，项目管理工具，管理java项目。 1、项目对象模型 (Project Object Model) POM 对象模型，每个 maven 工程中都有一个 pom.xml 文</description>
+      <description>Maven简介 什么是Maven Maven 是 apache 下的开源项目，项目管理工具，管理java项目。 Maven是一个项目管理工具，它包含了一个项目对象模型 (P</description>
     </item>
     
   </channel>
