@@ -6,7 +6,16 @@
     <description>Recent content in 前端 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 29 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript其它技术点汇总</title>
+      <link>https://coldinfire.github.io/2017/WEB_JavaScript_Improve/</link>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Improve/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Easy UI 技术总结</title>
       <link>https://coldinfire.github.io/2017/WEB_EasyUI/</link>
@@ -26,7 +35,7 @@
     </item>
     
     <item>
-      <title>JQuery 学习与总结</title>
+      <title>JQueryi基础</title>
       <link>https://coldinfire.github.io/2017/WEB_JQuery/</link>
       <pubDate>Sun, 24 Sep 2017 00:00:00 +0000</pubDate>
       
@@ -35,12 +44,12 @@
     </item>
     
     <item>
-      <title>JavaScript学习与总结</title>
+      <title>JavaScript基础</title>
       <link>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</link>
       <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</guid>
-      <description>JavaScript 是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 JavaScript 书写规范 文件编码统一为 utf-8, 书写过程过，每行代码结束必须有分号； 库引入：原则上仅引入 jQuery</description>
+      <description>JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 JavaScript 书写规范 文件编码统一为 utf-8, 书写过程过，每行代码结束必须有分号； JavaScri</description>
     </item>
     
     <item>

@@ -3742,6 +3742,34 @@
     <url>
       <loc>https://coldinfire.github.io/tags/Maven/</loc>
       
+      <lastmod>2018-03-17T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/WEB_Maven_Plugin/</loc>
+      
+      <lastmod>2018-03-17T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/WEB_Maven_LifeCycle/</loc>
+      
       <lastmod>2018-03-12T00:00:00+00:00</lastmod>
       
       
@@ -3755,20 +3783,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2018/WEB_Maven_Dependency/</loc>
-      
-      <lastmod>2018-03-12T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/WEB_Maven_LifeCycle/</loc>
       
       <lastmod>2018-03-08T00:00:00+00:00</lastmod>
       
@@ -3799,6 +3813,48 @@
       <loc>https://coldinfire.github.io/2018/WEB_Maven/</loc>
       
       <lastmod>2018-03-01T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_JavaScript_Improve/</loc>
+      
+      <lastmod>2017-12-11T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/JS/</loc>
+      
+      <lastmod>2017-12-11T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+      
+      <lastmod>2017-12-11T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4034,35 +4090,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
-      
-      <lastmod>2017-09-29T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2017/WEB_Bootstrap/</loc>
-      
-      <lastmod>2017-09-27T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/JS/</loc>
       
       <lastmod>2017-09-27T00:00:00+00:00</lastmod>
       

@@ -16,7 +16,9 @@ tags:
 
 #### 什么是Maven
 
-Maven 是 apache 下的开源项目，项目管理工具，管理java项目。
+Maven 是 apache 下的开源项目，自动化构件工具，服务于java的项目构件和依赖管理。
+
+Maven 采用引用的方式将依赖的 jar 包引入项目，不对真实的 jar 包进行 copy。但是打包的时候，运行时所需要的 jar 包都会被 copy 到安装包中。
 
 Maven是一个项目管理工具，它包含了一个项目对象模型 (POM：Project Object Model)，一组标准集合，一个项目生命周期(Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。
 
@@ -292,7 +294,7 @@ public class HelloWorld {
 
 ![Add Dependency](/images/WEB/Maven11.png)
 
-我只是加了一个hibernate的核心包和一个spring-webmvc包，为什么会多出这么多jar包呢？这是因为hibernate的核心包本身又会依赖其它的jar包，所以导入hibernate包自动会添加hibernate所依赖的包；spring-webmvc一样的道理。
+我只是加了一个hibernate的核心包和一个spring-webmvc包，为什么会多出这么多jar包呢？这是因为hibernate的核心包本身又会依赖其它的jar包，所以导入hibernate包自动会添加hibernate所依赖的包；spring-webmvc 一样的道理。
 
 
 

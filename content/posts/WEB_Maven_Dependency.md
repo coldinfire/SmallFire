@@ -1,6 +1,6 @@
 ---
 title: "Maven依赖管理"
-date: 2018-03-12
+date: 2018-03-08
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -99,7 +99,7 @@ B -> C(compile)  第二关系: b依赖c - compile
 
 当依赖的数量很多的时候，依赖树会非常大
 
-### 依赖调节原则
+### 依赖调节功能
 
 `A--->B--->C(V1)` ：项目A依赖于项目B，项目B依赖于项目C 
 
@@ -111,7 +111,7 @@ B -> C(compile)  第二关系: b依赖c - compile
 
 - 依赖调解第一原则：**路径优先**，很明显，第一种路径深度是3，第二种路径深度是4，所以，maven会采用C（V1）
 
-- 依赖调解第二原则：**声明优先**，假设路径深度相等，那么声明在前的会被引用。
+- 依赖调解第二原则：**最先声明优先**，假设路径深度相等，那么声明在前的会被引用。
 
 ### 版本锁定
 
@@ -125,9 +125,9 @@ pom.xml 文件中，jar 包的版本判断的两种途径：
 
 ### 排除依赖
 
-我们仔细观察 Maven Dependencies 下的 jar 包，会发现存在了两个 javassist 包，一个是 javassist-3.18.1-GA ，另一个是 javassist-3.11.0-GA  。这是因为我们引入三大框架的jar包，hibernate 依赖 javassist-3.18.1-GA  ，而 struts 依赖     javassist-3.11.0-GA 。这就是我们通常所说的 jar 包版本冲突，如果这两个 jar 包同时存在，会导致后续某些操作会存在问题（比如 openSessionInView 失效），所以需要排除低版本的jar包。
+我们仔细观察 Maven Dependencies 下的 jar 包，会发现存在了两个 javassist 包，一个是 javassist-3.18.1-GA ，另一个是 javassist-3.11.0-GA  。这是因为我们引入三大框架的jar包，hibernate 依赖 javassist-3.18.1-GA  ，而 struts 依赖 javassist-3.11.0-GA 。这就是我们通常所说的 jar 包版本冲突，如果这两个 jar 包同时存在，会导致后续某些操作会存在问题（比如 openSessionInView 失效），所以需要排除低版本的jar包。
 
-如何来排除依赖呢？添加 exclusions 排除struts中依赖的 javassist jar 包。
+如何来排除依赖呢？添加 exclusions 排除 struts 中依赖的 javassist jar 包。
 
 ```xml
 <dependency>

@@ -33,6 +33,8 @@ tags:
 
 `<description >` ：项目描述，常用于 Maven 生成的文档
 
+`<properties>` ：自定义用户属性，在整个 pom 生效，其它地方通过`${属性名调用}`
+
 `<dependencies >` ：项目依赖构件配置，配置项目依赖构件的坐标
 
 `<build >` ：项目构建配置，配置编译、运行插件等。
@@ -221,7 +223,7 @@ tags:
     <build>
         <!--该元素设置了项目源码目录，当构建项目的时候，构建系统会编译目录里的源码。该路径是相对于pom.xml的相对路径。 -->
         <sourceDirectory />
-        <!--该元素设置了项目脚本源码目录，该目录和源码目录不同：绝大多数情况下，该目录下的内容 会被拷贝到输出目录(因为脚本是被解释的，而不是被编译的)。 -->
+        <!--该元素设置了项目脚本源码目录，该目录和源码目录不同：绝大多数情况下，该目录下的内容会被拷贝到输出目录(因为脚本是被解释的，而不是被编译的)。 -->
         <scriptSourceDirectory />
         <!--该元素设置了项目单元测试使用的源码目录，当测试项目的时候，构建系统会编译目录里的源码。该路径是相对于pom.xml的相对路径。 -->
         <testSourceDirectory />
@@ -585,7 +587,7 @@ tags:
     </pluginRepositories>
  
  
-    <!--该元素描述了项目相关的所有依赖。 这些依赖组成了项目构建过程中的一个个环节。它们自动从项目定义的仓库中下载。要获取更多信息，请看项目依赖机制。 -->
+    <!--该元素描述了项目相关的所有依赖。这些依赖组成了项目构建过程中的一个个环节。 -->
     <dependencies>
         <dependency>
             <!--依赖的group ID -->
@@ -594,19 +596,19 @@ tags:
             <artifactId>maven-artifact</artifactId>
             <!--依赖的版本号。 在Maven 2里, 也可以配置成版本号的范围。 -->
             <version>3.8.1</version>
-            <!-- 依赖类型，默认类型是jar。它通常表示依赖的文件的扩展名，但也有例外。一个类型可以被映射成另外一个扩展名或分类器。类型经常和使用的打包方式对应， 
-                尽管这也有例外。一些类型的例子：jar，war，ejb-client和test-jar。如果设置extensions为 true，就可以在 plugin里定义新的类型。所以前面的类型的例子不完整。 -->
+            <!-- 依赖类型，默认类型是jar。它通常表示依赖的文件的扩展名，但也有例外。一个类型可以被映射成另外一个扩展名或分类器。 -->
+            <!-- 类型经常和使用的打包方式对应，尽管这也有例外。一些类型的例子：jar，war，ejb-client和test-jar。-->
+            <!--如果设置extensions为true，就可以在plugin里定义新的类型。所以前面的类型的例子不完整。 -->
             <type>jar</type>
-            <!-- 依赖的分类器。分类器可以区分属于同一个POM，但不同构建方式的构件。分类器名被附加到文件名的版本号后面。例如，如果你想要构建两个单独的构件成 
-                JAR，一个使用Java 1.4编译器，另一个使用Java 6编译器，你就可以使用分类器来生成两个单独的JAR构件。 -->
+            <!-- 依赖的分类器。分类器可以区分属于同一个POM，但不同构建方式的构件。分类器名被附加到文件名的版本号后面。-->
+            <!--例如，如果你想要构建两个单独的构件成 JAR，一个使用Java 1.4编译器，另一个使用Java 6编译器，你就可以使用分类器来生成两个单独的JAR构件。 -->
             <classifier></classifier>
-            <!--依赖范围。在项目发布过程中，帮助决定哪些构件被包括进来。欲知详情请参考依赖机制。 - compile ：默认范围，用于编译 - provided：类似于编译，但支持你期待jdk或者容器提供，类似于classpath 
-                - runtime: 在执行时需要使用 - test: 用于test任务时使用 - system: 需要外在提供相应的元素。通过systemPath来取得 
-                - systemPath: 仅用于范围为system。提供相应的路径 - optional: 当项目自身被依赖时，标注依赖是否传递。用于连续依赖时使用 -->
+            <!-- 依赖范围 -->
             <scope>test</scope>
-            <!--仅供system范围使用。注意，不鼓励使用这个元素，并且在新的版本中该元素可能被覆盖掉。该元素为依赖规定了文件系统上的路径。需要绝对路径而不是相对路径。推荐使用属性匹配绝对路径，例如${java.home}。 -->
+            <!--仅供system范围使用。不鼓励使用这个元素。 -->
             <systemPath></systemPath>
-            <!--当计算传递依赖时， 从依赖构件列表里，列出被排除的依赖构件集。即告诉maven你只依赖指定的项目，不依赖项目的依赖。此元素主要用于解决版本冲突问题 -->
+            <!--当计算传递依赖时，从依赖构件列表里，列出被排除的依赖构件集。-->
+            <!--即告诉maven你只依赖指定的项目，不依赖项目的依赖。主要用于解决版本冲突问题 -->
             <exclusions>
                 <exclusion>
                     <artifactId>spring-core</artifactId>
@@ -623,7 +625,7 @@ tags:
     <reporting>
         <!--true，则，网站不包括默认的报表。这包括"项目信息"菜单中的报表。 -->
         <excludeDefaults />
-        <!--所有产生的报表存放到哪里。默认值是${project.build.directory}/site。 -->
+        <!--所有产生的报表存放到哪里。默认值${project.build.directory}/site。 -->
         <outputDirectory />
         <!--使用的报表插件和他们的配置。 -->
         <plugins>
@@ -639,7 +641,8 @@ tags:
                 <inherited />
                 <!--报表插件的配置 -->
                 <configuration />
-                <!--一组报表的多重规范，每个规范可能有不同的配置。一个规范（报表集）对应一个执行目标 。例如，有1，2，3，4，5，6，7，8，9个报表。1，2，5构成A报表集，对应一个执行目标。2，5，8构成B报表集，对应另一个执行目标 -->
+                <!--一组报表的多重规范，每个规范可能有不同的配置。一个规范（报表集）对应一个执行目标 。-->
+                <!--例如，有1，2，3，4，5，6，7，8，9个报表。1，2，5构成A报表集，对应一个执行目标。2，5，8构成B报表集，对应另一个执行目标 -->
                 <reportSets>
                     <!--表示报表的一个集合，以及产生该集合的配置 -->
                     <reportSet>
@@ -656,8 +659,7 @@ tags:
             </plugin>
         </plugins>
     </reporting>
-    <!-- 继承自该项目的所有子项目的默认依赖信息。这部分的依赖信息不会被立即解析,而是当子项目声明一个依赖（必须描述group ID和 artifact 
-        ID信息），如果group ID和artifact ID以外的一些信息没有描述，则通过group ID和artifact ID 匹配到这里的依赖，并使用这里的依赖信息。 -->
+    <!-- 继承自该项目的所有子项目的默认依赖信息。这部分的依赖信息不会被立即解析,而是当子项目声明一个依赖（必须描述groupId和 artifactId信息），如果groupId和artifactiD以外的一些信息没有描述，则通过group ID和artifact ID 匹配到这里的依赖，并使用这里的依赖信息。 -->
     <dependencyManagement>
         <dependencies>
             <!--参见dependencies/dependency元素 -->
@@ -713,8 +715,12 @@ tags:
             Maven 1 POM转换过来），partner（直接从伙伴Maven 2仓库同步过来），deployed（从Maven 2实例部 署），verified（被核实时正确的和最终的）。 -->
         <status />
     </distributionManagement>
-    <!--以值替代名称，Properties可以在整个POM中使用，也可以作为触发条件（见settings.xml配置文件里activation元素的说明）。格式是<name>value</name>。 -->
-    <properties />
+    <!--以值替代名称，Properties可以在整个POM中使用，也可以作为触发条件（见settings.xml配置文件里activation元素的说明）。-->
+    <!--格式是<name>value</name> -->
+    <!--调用方式：${属性名},${spring.group} -->
+    <properties>
+        <spring.group>org.springframework</spring.group>
+    </properties> 
 </project>
 ```
 
