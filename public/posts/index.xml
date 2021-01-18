@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SAP获取库存函数</title>
+      <link>https://coldinfire.github.io/2020/MM_GetStock/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_GetStock/</guid>
+      <description>SAP的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。 程序代码 FUNCTION zwi_get_stock. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local Interface: *&amp;#34; IMPORTING *&amp;#34; VALUE(PLANT) TYPE WERKS_D *&amp;#34; VALUE(MATERIAL) TYPE MATNR *&amp;#34; VALUE(UNIT) TYPE MEINH *&amp;#34; VALUE(STGE_LOC) TYPE LGORT_D *&amp;#34; VALUE(BATCH) TYPE CHARG_D OPTIONAL *&amp;#34; VALUE(VBELN) TYPE VBELN</description>
+    </item>
+    
     <item>
       <title> SAP系统间数据表的Copy </title>
       <link>https://coldinfire.github.io/2020/ABAP_ClientTableCopy/</link>
