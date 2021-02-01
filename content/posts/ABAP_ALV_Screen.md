@@ -14,7 +14,7 @@ tags:
 
 ## 选择屏幕 [引用链接](https://www.cnblogs.com/foxting/archive/2012/07/01/2572243.html)
 
-### 触发
+### 屏幕触发事件
 
 选择屏幕触发的是：AT SELECTION-SCREEN
 
@@ -26,32 +26,37 @@ tags:
 
 SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。
 
-**定义屏幕对象：**
+#### 定义屏幕对象
 
-```js
-SELECTION-SCREEN BEGIN OF SCREEN src.
-      .......
-SELECTION-SCREEN END OF SCREEN src.
-该语法用于定义一个INCLUDE SUREEN，可通过CALL方法在Report程序中引用。
-CALL SCREEN <num> STARTING AT [1 2] ENDING AT [1 2].
-参数可以将所定义屏幕窗体作为一个新的对话框窗体来引用，并指定期创建的具体大小及位置。
+```ABAP
+SELECTION-SCREEN BEGIN OF SCREEN src_num.
+    .......
+SELECTION-SCREEN END OF SCREEN src_num.
 ```
+
+该语法用于定义一个INCLUDE SUREEN，可通过 CALL 方法在 Report 程序中引用：
+
+`CALL SCREEN <num> STARTING AT [1 2] ENDING AT [1 2].`
+
+参数可以将所定义屏幕窗体作为一个新的对话框窗体来引用，并指定其创建的具体大小及位置。
 
 **注意：当从一个主屏幕中来调用其程序中的另一窗体时，必须使用CALL SELECTION-SCREEN方法.**
 
-**定义屏幕块：**
+#### 定义屏幕块
+
+在屏幕中定义一个BLOCK
 
 ```JS
-SELECTION-SCREEN BEGIN OF BLOCK block.
+SELECTION-SCREEN BEGIN OF BLOCK blk_1.
   ......
-SELECTION-SCREEN END OF BLOCK.
-该语法在屏幕中定义一个BLOCK，其扩展语法包括：
-   ...WITH FRAME：创建一个框架
-   ...TITLE title：创建一个带标题的框架。
-   ...NO INTERVALS：所创建的框架中限制SELECT只有一个输入项。 
+SELECTION-SCREEN END OF BLOCK blk_1.
+扩展语法包括：
+  ...WITH FRAME：创建一个框架
+  ...TITLE title：创建一个带标题的框架
+  ...NO INTERVALS：所创建的框架中限制SELECT只有一个输入项
 ```
 
-**其他元素：**
+屏幕块中可以添加的其它元素
 
 ```JS
 SELECTION-SCREEN INCLUDE BLOCKS <block1>.  调用已存在屏幕元素
@@ -63,16 +68,16 @@ SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN END OF LINE. 将所生成的屏幕元素控制在一行.
 ```
 
-**单行添加：**
+#### 单行添加
 
 ```JS
 SELECTION-SCREEN BEGIN OF LINE.
-  SELECTION-SCREEN COMMENT n(m) TEXT-001 FOR FIELD S_name. 文档信息
-  SELECTION-OPTION: S_name FOR itab-field. 设定类型
+  SELECTION-SCREEN COMMENT n(m) TEXT-001 FOR FIELD s_name. "文档信息"
+  SELECTION-OPTION: s_name FOR itab-field. "设定类型"
   SELECTION-OPTION <seltab> FOR <f> 
-    NO INTERVALS : 删除HIGH值
-	NO-EXTENSION : 限制选择为单行，不会出现多条按钮
-	OBLIGATORY   : 只有前面一个框中出现勾勾，只针对LOW字段有效
+    NO INTERVALS  "删除HIGH值"
+    NO-EXTENSION  "限制选择为单行，不会出现多条按钮"
+    OBLIGATORY    "只有前面一个框中出现勾勾，只针对LOW字段有效"
 SELECTION-SCREEN END OF LINE.
 ```
 
@@ -81,11 +86,12 @@ SELECTION-SCREEN END OF LINE.
 PARAMETERS 参照数据字典具体字段或者自定义数据类型创建单值文本输入域以及单选/复选框等：
 
 ```JS
-PARAMETERS: <P_1> LIKE <field>      "文本域"
-            TYPE AS CHECKBOX.       "复选框"
-            RADIOBUTTON GROUP GRP1, "单选域"
-            P2 RADIOBUTTON GROUP GRP1 DEFAULT 'X',  "默认选中X"
-            P3 RADIOBUTTON GROUP GRP1. "GRP1单选组"
+PARAMETERS: 
+  <P_1> LIKE <field>      "文本域"
+  TYPE AS CHECKBOX.       "复选框"
+  RADIOBUTTON GROUP GRP1, "单选域"
+  P2 RADIOBUTTON GROUP GRP1 DEFAULT 'X',  "默认选中X"
+  P3 RADIOBUTTON GROUP GRP1. "GRP1单选组"
 ```
 
   默认值：
@@ -121,7 +127,7 @@ PARAMETERS: <P_1> LIKE <field>      "文本域"
 
 定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标.
 
-PARAMETERS: P_LANG LIKE itab-field AS LISTBOX VISIBLE LENGTH 22 USER-COMMAND onli DEFAULT 'LH'.
+PARAMETERS: p_lang LIKE itab-field AS LISTBOX VISIBLE LENGTH 22 USER-COMMAND onli DEFAULT 'LH'.
 
 通过函数：VRM_SET_VALUES为下拉框初始化列表项
 
@@ -198,19 +204,24 @@ HIGH: 范围较大值
 
 ​    ...`VISIBLE LENGTH vlen：`定义所显示数据的长度。
 
-###  GOTO-->Text Elements   (TCode:SE32)
+###  维护选择字段屏幕描述：GOTO-->Text Elements 
+
+可以使用 TCode:SE32 进行维护。
 
 前台界面显示的为 PARAMETERS 和 SELECTION-OPTION 定义的字段，不便于理解需。提供某一字段的完整名称以方便用户理解。
 
 包含字段：
 
-Selection Texts：定义已存在并且激活的屏幕元素的名称。
+- Selection Texts：定义已存在并且激活的屏幕元素的名称。
 
-Text Symbols：实现自定义文本及符号,该文本使用对象为SELECTION-SCREEN，以三位字符表示(TEXT-001)。
 
-图标符号:可以在Text Symbols通过@符号来进行引用，如"@01@",可通过程序RSTXICON查看所有的图标
+- Text Symbols：实现自定义文本及符号,该文本使用对象为 SELECTION-SCREEN，以三位字符表示(TEXT-001)。
 
-#### GOTO -->Translation：可进行多语言显示的维护
+
+- 图标符号：可以在 Text Symbols 通过@符号来进行引用，如"@01@",可通过程序RSTXICON查看所有的图标
+
+
+#### 可进行多语言显示的维护：GOTO -->Translation
 
 ###  屏幕事件处理
 
