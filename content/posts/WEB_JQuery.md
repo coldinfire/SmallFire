@@ -1,5 +1,5 @@
 ---
-title: "JQueryi基础"
+title: "JQuery基础"
 date: 2017-09-24
 draft: false
 author: Small Fire
