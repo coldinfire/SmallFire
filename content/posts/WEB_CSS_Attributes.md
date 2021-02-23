@@ -383,3 +383,39 @@ transition: [要过渡的属性] [花费时间] [运动曲线] [何时开始], .
 - 花费时间：单位是秒，单位必须写 (0.5s)
 - 运动曲线：默认是 ease，可以省略。linear:匀速；ease-in:加速；ease-out:减速；ease-in-out:先加速后减速
 - 何时开始：单位是秒，单位必须填写。可以设置延迟触发时间，默认是 0s，可以省略
+
+#### transform 转换
+
+***2D 移动：translate***
+
+2D移动是2D转换里面的一种功能，可以改变元素在网页中的位置，类似定位。
+
+`transform: translate(x,y);`：transform: translate(100px, 100px);
+
+- x：是x轴上移动位置
+- y：是y轴上移动位置
+
+可以分开写：
+
+- `transform: translateX(n);`
+- `transform: translateY(n);`
+
+特点：
+
+- 定义 2D 转换中的移动，沿着 X 和 Y 轴移动元素
+
+- translate 最大的优点：不会影响到其它元素的位置
+
+- translate中的百分比单位是相对于自身元素的
+
+- 对行内标签没有效果
+
+***2D 旋转：rotate***
+
+2D 旋转指的是让元素在2维平面内顺时针旋转或则逆时针旋转。
+
+`transform: rotate(45deg);`
+
+- rotate里面单位是 deg (度数)
+- 角度为正时，顺时针旋转；为负时，逆时针旋转
+- 默认旋转的中心点是元素的中心点
