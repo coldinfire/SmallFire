@@ -272,83 +272,82 @@ Connection:Keep-Alive (CRLF)
   - eg：Expires：Thu，15 Sep 2006 16:23:12 GMT
     HTTP1.1的客户端和缓存必须将其他非法的日期格式（包括0）看作已经过期。eg：为了让浏览器不要缓存页面，我们也可以利用Expires实体报头域，设置为0，jsp中程序如下：response.setDateHeader("Expires","0");
 
-五、利用telnet观察http协议的通讯过程
+### 五、利用telnet观察http协议的通讯过程
 
 实验目的及原理：
 利用MS的telnet工具，通过手动输入http请求信息的方式，向服务器发出请求，服务器接收、解释和接受请求后，会返回一个响应，该响应会在telnet窗口上显示出来，从而从感性上加深对http协议的通讯过程的认识。
 
 实验步骤：
 
-- 1、打开telnet
-  - 1.1 打开telnet
-    运行-->cmd-->telnet
-  - 1.2 打开telnet回显功能
-    set localecho
+1、打开telnet
 
-- 2、连接服务器并发送请求
+- 1.1 打开telnet
+  运行--> cmd --> telnet
+- 1.2 打开 telnet 回显功能
+  set localecho
 
-  ```JS
-  2.1
+2、连接服务器并发送请求
+
+- 2.1 发送请求方式一
+
+  ```js
   open www.guet.edu.cn 80  //注意端口号不能省略
-  
   HEAD /index.asp HTTP/1.0
   Host:www.guet.edu.cn
-  
   /*我们可以变换请求方法,请求桂林电子主页内容,输入消息如下*/
   open www.guet.edu.cn 80 
-  
   GET /index.asp HTTP/1.0  //请求资源的内容
   Host:www.guet.edu.cn  
   ```
 
-  ```JS
-2.2
-  open www.sina.com.cn 80  //在命令提示符号下直接输入telnet www.sina.com.cn 80
+- 2.2 发送请求方式二
+
+  ```js
+  telnet www.sina.com.cn 80  //在命令提示符号下直接输入telnet www.sina.com.cn 80
   HEAD /index.asp HTTP/1.0
   Host:www.sina.com.cn
   ```
-  
-- 3.实验结果：
 
-  - 3.1 请求信息2.1得到的响应是:
+3、实验结果
 
-    ```JS
-    HTTP/1.1 200 OK                                              //请求成功
-    Server: Microsoft-IIS/5.0                                    //web服务器
-    Date: Thu,08 Mar 200707:17:51 GMT
-    Connection: Keep-Alive                                 
-    Content-Length: 23330
-    Content-Type: text/html
-    Expries: Thu,08 Mar 2007 07:16:51 GMT
-    Set-Cookie: ASPSESSIONIDQAQBQQQB=BEJCDGKADEDJKLKKAJEOIMMH; path=/
-    Cache-control: private
-    //资源内容省略
-    ```
-    
-- 3.2 请求信息2.2得到的响应是:
+- 3.1 请求信息 2.1 得到的响应是:
+
+  ```JS
+  HTTP/1.1 200 OK                                              //请求成功
+  Server: Microsoft-IIS/5.0                                    //web服务器
+  Date: Thu,08 Mar 200707:17:51 GMT
+  Connection: Keep-Alive                                 
+  Content-Length: 23330
+  Content-Type: text/html
+  Expries: Thu,08 Mar 2007 07:16:51 GMT
+  Set-Cookie: ASPSESSIONIDQAQBQQQB=BEJCDGKADEDJKLKKAJEOIMMH; path=/
+  Cache-control: private
+  //资源内容省略
+  ```
+
+- 3.2 请求信息 2.2 得到的响应是:
   
   ```JS
-    HTTP/1.0 404 Not Found       //请求失败
-    Date: Thu, 08 Mar 2007 07:50:50 GMT
-    Server: Apache/2.0.54 <Unix>
-    Last-Modified: Thu, 30 Nov 2006 11:35:41 GMT
-    ETag: "6277a-415-e7c76980"
-    Accept-Ranges: bytes
-    X-Powered-By: mod_xlayout_jh/0.0.1vhs.markII.remix
-    Vary: Accept-Encoding
-    Content-Type: text/html
-    X-Cache: MISS from zjm152-78.sina.com.cn
-    Via: 1.0 zjm152-78.sina.com.cn:80<squid/2.6.STABLES-20061207>
-    X-Cache: MISS from th-143.sina.com.cn
-    Connection: close
-    ```
+  HTTP/1.0 404 Not Found       //请求失败
+  Date: Thu, 08 Mar 2007 07:50:50 GMT
+  Server: Apache/2.0.54 <Unix>
+  Last-Modified: Thu, 30 Nov 2006 11:35:41 GMT
+  ETag: "6277a-415-e7c76980"
+  Accept-Ranges: bytes
+  X-Powered-By: mod_xlayout_jh/0.0.1vhs.markII.remix
+  Vary: Accept-Encoding
+  Content-Type: text/html
+  X-Cache: MISS from zjm152-78.sina.com.cn
+  Via: 1.0 zjm152-78.sina.com.cn:80<squid/2.6.STABLES-20061207>
+  X-Cache: MISS from th-143.sina.com.cn
+  Connection: close
+  ```
   
 
 
-失去了跟主机的连接
+失去了跟主机的连接；按任意键继续...
 
-按任意键继续...
-.注意事项：
+注意事项：
 
 ​	1、出现输入错误，则请求不会成功。
 
