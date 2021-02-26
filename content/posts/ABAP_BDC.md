@@ -116,64 +116,54 @@ Update 字段解析
 <4> 对系统自动生成的程序进行修改，达到想要的目的   	
 
 ```js
+parameters: dataset(132) lower case default 'Program_name'.
 " BDC attribute define "
-DATA:GT_BDCDATA        TYPE TABLE OF BDCDATA,  "执行的参数传递表
-     GS_BDCDATA        TYPE BDCDATA,
-     GT_MSG            TYPE TABLE OF BDCMSGCOLL,"返回执行结果
-     GS_MSG            TYPE BDCMSGCOLL.
-DATA LS_CTUPARAMS LIKE CTU_PARAMS.   "ctuparams LIKE ctu_params
-  CLEAR LS_CTUPARAMS.
-  LS_CTUPARAMS-DISMODE  = 'N'.
-  LS_CTUPARAMS-UPDMODE  = 'S'.
-  LS_CTUPARAMS-RACOMMIT = 'X'.
-perform open_group.
+DATA:BDCDATA LIKE BDCDATA  OCCURS 0 WITH HEADER LINE. "保存录屏过程中的变量及常量数据"
+DATA:MESSTAB LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE. "记录BDC执行返回数据" 
+DATA:CTU_PARAMS LIKE CTU_PARAMS.   "调事务代码时带的一些参数，是否前台执行，报错停止等"
+
+CLEAR ctu_params.
+ctu_params-dismode  = 'N'.
+ctu_params-updmode  = 'S'.
+ctu_params-racommit = 'X'.
 LOOP AT <DYN_TABLE> ASSIGNING <DYN_WA>.
-	CLEAR GT_BDCDATA.
-    PERFORM FRM_BDC_DYNPRO USING  'SAPLCOKO1'        '0110'.
-    PERFORM FRM_BDC_FIELD  USING: 'BDC_CURSOR'       'CAUFVD-AUFNR',
-                                  'BDC_OKCODE'       '/00',
-                                  'CAUFVD-AUFNR'     L_AUFNR,
-                                  'R62CLORD-FLG_OVIEW' 'X'.
-    PERFORM FRM_BDC_DYNPRO USING  'SAPLCOKO1'        '0115'.
-    PERFORM FRM_BDC_FIELD  USING: 'BDC_OKCODE'       '=BU',
-                                  'BDC_CURSOR'       'CAUFVD-GSTRS',
-                                  'CAUFVD-GLTRS'     L_ENDDA_S,
-                                  'CAUFVD-GLUZS'     '23:40',
-                                  'CAUFVD-GSTRS'     L_BEGDA_S,
-                                  'CAUFVD-GSUZS'     '23:01',
-                                  'CAUFVD-TERKZ'     '3' .
-    CLEAR GT_MSG.
-    CALL TRANSACTION 'CO02' USING GT_BDCDATA
-                   OPTIONS FROM LS_CTUPARAMS
-                   MESSAGES INTO GT_MSG.
+	CLEAR :bdcdata,messtab.
+    REFRESH: bdcdata,messtab.
+    PERFORM BDC_DYNPRO USING  'SAPLCOKO1'        '0110'.
+    PERFORM BDC_FIELD  USING: 'BDC_CURSOR'       'CAUFVD-AUFNR',
+                              'BDC_OKCODE'       '/00',
+                              'CAUFVD-AUFNR'     L_AUFNR,
+                              'R62CLORD-FLG_OVIEW' 'X'.
+    PERFORM BDC_DYNPRO USING  'SAPLCOKO1'        '0115'.
+    PERFORM BDC_FIELD  USING: 'BDC_OKCODE'       '=BU',
+                              'BDC_CURSOR'       'CAUFVD-GSTRS',
+                              'CAUFVD-GLTRS'     L_ENDDA_S,
+                              'CAUFVD-GLUZS'     '23:40',
+                              'CAUFVD-GSTRS'     L_BEGDA_S,
+                              'CAUFVD-GSUZS'     '23:01',
+                              'CAUFVD-TERKZ'     '3' .
+    CALL TRANSACTION 'CO02' USING BDCDATA
+                   OPTIONS FROM CTU_PARAMS
+                   MESSAGES INTO MESSTAB.
 ENDLOOP.
-perform close_group.
-perform close_dataset using dataset.
 ```
 
-- /SAPLSETB 0230 X . 表示数据表选择窗口
-
-- /1BCDWB/DB 1000 X. 表示数据查询窗口
-
-- /1BCDWB/DB 0101 X. 表示数据录入窗口
-
-- BDC_OKCODE  '=BU' 表示单击‘保存’按钮,  '/00' 表示回车
-
-- CAUFVD-TERKZ '3' 表示窗口字段 'CAUFVD-TERKZ' 值为 '3'
+- BDC_OKCODE  '=BU' 表示单击保存按钮
+- BDC_OKCODE  '/00' 表示回车
 
 #### 两个固定表
 
 Batch inputdata of single transaction：输入数据表
 
-- `data: BDC_DATA like bdcdata occurs 0 with header line.`
+- `data: BDCDATA like bdcdata occurs 0 with header line.`
 
 Messages of call transaction：返回信息
 
-- `data: MESSAGE like bdcmsgcoll occurs 0 with header line.`
+- `data: MESSTAB like bdcmsgcoll occurs 0 with header line.`
 
 #### 两个固定Form：尽量不要对这两个form中的内容进行修改。
 
-bdc_dynpro :指定bdc_dynpro的实参，告知系统dialog程序名称；以及Screen number。
+bdc_dynpro : 指定 bdc_dynpro 的实参，告知系统 dialog 程序名称以及 Screen number。
 
 ```JS
 *----------------------------------------------------------------------*
@@ -195,12 +185,12 @@ bdc_field：指定bdc_field的实参，告知系统把光标放在哪个字段�
 *        Insert field                                                  *
 *----------------------------------------------------------------------*
 FORM BDC_FIELD USING FNAM FVAL.
-IF FVAL <> NODATA.
-  CLEAR BDCDATA.
-  BDCDATA-FNAM = FNAM.
-  BDCDATA-FVAL = FVAL.
-  APPEND BDCDATA.
-ENDIF.
+  IF FVAL <> NODATA.
+    CLEAR BDCDATA.
+    BDCDATA-FNAM = FNAM.
+    BDCDATA-FVAL = FVAL.
+    APPEND BDCDATA.
+  ENDIF.
 ENDFORM.
 ```
 
@@ -211,15 +201,17 @@ ENDFORM.
 ```JS
 DATA:BDCDATA LIKE BDCDATA  OCCURS 0 WITH HEADER LINE. "保存录屏过程中的变量及常量数据"
 DATA:MESSTAB LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE. "记录BDC执行返回数据" 
-DATA:GS_CTU_PARAMS TYPE CTU_PARAMS. "调事务代码时带的一些参数，是否前台执行，报错停止等"
+DATA:CTU_PARAM TYPE CTU_PARAMS. "调事务代码时带的一些参数，是否前台执行，报错停止等"
 " 从程序中选一些dynpro和field的BDC行，不需要的字段或则屏幕，可以直接删除对应的代码。"
-CLEAR bdcdata[].
-  gs_ctu_params-updmode = 'S'.
-  gs_ctu_params-dismode = 'E'.
-  gs_ctu_params-defsize = ''."设置窗口非默认大小
+CLEAR bdcdata.
+REFRESH bdcdata.
+CLEAR ctu_params.
+ctu_params-updmode = 'S'.
+ctu_params-dismode = 'E'.
+ctu_params-defsize = ''."设置窗口非默认大小
 "调用BDC执行 T-code COOIS 显示订单抬头
-CALL TRANSACTION 'COOIS' USING bdcdata 
-                         OPTIONS FROM gs_ctu_params
+CALL TRANSACTION 'COOIS' USING bdcdata
+                         OPTIONS FROM ctu_params
                          MESSAGE INTO MESSTAB.
 ```
 
