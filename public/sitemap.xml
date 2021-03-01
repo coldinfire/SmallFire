@@ -30,9 +30,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
+      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
-      <lastmod>2020-12-20T00:00:00+00:00</lastmod>
+      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -45,6 +45,90 @@
   
     <url>
       <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/Enhance/</loc>
+      
+      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</loc>
+      
+      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
       
       <lastmod>2020-12-20T00:00:00+00:00</lastmod>
       
@@ -72,20 +156,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2020-12-20T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2020/MM_GetStock/</loc>
       
       <lastmod>2020-12-20T00:00:00+00:00</lastmod>
@@ -100,49 +170,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2020-12-20T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
-      
-      <lastmod>2020-12-20T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2020/ABAP_ClientTableCopy/</loc>
-      
-      <lastmod>2020-10-14T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
       <lastmod>2020-10-14T00:00:00+00:00</lastmod>
       
@@ -2875,20 +2903,6 @@
       <loc>https://coldinfire.github.io/2018/ABAP_FIVoucherReversal/</loc>
       
       <lastmod>2018-09-20T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/Enhance/</loc>
-      
-      <lastmod>2018-09-18T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

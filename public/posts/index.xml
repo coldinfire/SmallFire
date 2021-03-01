@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Text Enhancements</title>
+      <link>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</guid>
+      <description>文本增强 用文本增强修改SAP标准屏幕中的字段名称，如修改Internal Order 的 End of Work。 Step 1 : 找到对应的Data Element 事务 KO03 进入 Internal Order 主数据显示</description>
+    </item>
+    
     <item>
       <title>SAP获取库存函数</title>
       <link>https://coldinfire.github.io/2020/MM_GetStock/</link>
