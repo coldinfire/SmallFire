@@ -1,5 +1,5 @@
 ---
-title: "CSS3 属性"
+title: "CSS3 知识总结"
 date: 2017-09-13
 draft: false
 author: Small Fire
@@ -13,7 +13,69 @@ tags:
 
 
 
-## CSS3 属性介绍
+### CSS3 新增选择器
+
+#### 属性选择器
+
+可以根据元素特定属性选择元素。这样就可以不借助于类或则id 选择器。
+
+| 选择符        | 简介                                      |
+| ------------- | ----------------------------------------- |
+| E[att]        | 选择具有 att 属性的 E 元素                |
+| E[att="val"]  | 选择具有 att 属性且 att=val 的 E 元素     |
+| E[att^="val"] | 匹配具有 att 属性且值以 val 开通的 E 元素 |
+| E[att$="val"] | 匹配具有 att 属性且值以 val 结尾的 E 元素 |
+| E[att*="val"] | 匹配具有 att 属性且值中含有 val 的 E 元素 |
+
+#### 结构伪类选择器
+
+主要根据文档结构来选择元素，常用于根据父级选择父级里面的子元素。
+
+| 选择符           | 简介                                         |
+| ---------------- | -------------------------------------------- |
+| E:first-child    | 匹配父元素中的第一个子元素 E                 |
+| E:last-child     | 匹配父元素中最后一个元素 E                   |
+| E:nth-child(n)   | 选择某个父元素的一个或多个特定的元素的子元素 |
+| E:first-of-type  | 指定类型 E 的第一个                          |
+| E:last-of-type   | 指定类型 E 的最后一个                        |
+| E:nth-of-type(n) | 指定类型 E 的第 n 个                         |
+
+`E:nth-child(n)` ：将所有子元素排序选择，序号是固定的；先找到第 n 个孩子，然后看是否和 E 匹配
+
+- n 可以是数字，关键字和公式
+
+- n 如果是数字，既选择第 n 个子元素，里面的数字从 1 开始
+
+- n 可以是关键字：even 偶数，odd 奇数
+
+- n 可以是公式：常见公式如下
+
+  - | 公式 | 取值                                     |
+    | ---- | ---------------------------------------- |
+    | n    | 从0开始计算，第0个或者超出的元素会被忽略 |
+    | 2n   | 选择父元素下所有的偶数孩子               |
+    | 2n+1 | 选择父元素下所有的奇数孩子               |
+    | n+5  | 从第5个开始(包含第5个)到最后             |
+    | -n+5 | 前5个(包含第5个) ....                    |
+
+`E:nth-of-type(n)` ：将指定元素的盒子排列序号
+
+- 执行的时候先看 E 指定的元素，之后看 :nth-of-type(n) 第n个孩子 
+
+#### 伪元素选择器
+
+可以利用 CSS 创建新标签元素，而不需要 HTML 标签
+
+| 选择符            | 简介                     |
+| ----------------- | ------------------------ |
+| element::before() | 在元素内部的前面插入内容 |
+| element::afrer()  | 在元素内部的后面插入内容 |
+
+- before 和 after 创建一个元素，但是属于行内元素
+- 新创建的这个元素在文档树中是找不到的，所以称为伪元素
+- before 和 after 必须有 content 属性
+- before 在父元素内容的前面创建元素，after 在父元素的后面插入元素
+- 伪元素选择器和标签选择器一样，权重为 1
 
 ### 滤镜 Filter
 
@@ -165,7 +227,7 @@ div{
 | @keyframes                | 规定动画                                                     |
 | animation                 | 所有动画属性的简写属性，除了 animation-play-state 属性       |
 | animation-name            | 规定动画的名称，必须项                                       |
-| animation-duration        | 规定动画完成一个周期所花费的时间，s/ms。必须项               |
+| animation-duration        | 规定动画完成一个周期所花费的时间，秒/毫秒。必须项            |
 | animation-timing-function | 规定动画的速度曲线，默认是 ‘ease’                            |
 | animation-delay           | 规定动画何时开始，默认是 0                                   |
 | animation-iteration-count | 规定动画被播放的次数，默认是 1，还有 infinite                |
@@ -192,7 +254,7 @@ animation：动画名称 持续时间 运动曲线 何时开始 播放次数 是
 `animation: animation_name 5s linear 2s infinite alternate;`
 
 - 简写属性不包括 animation-play-state
-- 暂停动画：animation-play-state: puased; 经常和鼠标经过等操作配合使用
+- 暂停动画：animation-play-state: paused; 经常和鼠标经过等操作配合使用
 - 多个动画效果，中间使用逗号分隔
 
 ### 3D 转换
@@ -218,4 +280,4 @@ animation：动画名称 持续时间 运动曲线 何时开始 播放次数 是
 
 透视：perspective
 
-3D 呈现：transfrom-style
+3D 呈现：transform-style
