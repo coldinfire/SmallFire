@@ -113,3 +113,109 @@ transition: [要过渡的属性] [花费时间] [运动曲线] [何时开始], .
 
 - 书写顺序会影响转换效果
 - 同时有位移和其它属性时，将位移属性放到最前面
+
+### 动画
+
+动画 (animation) CSS3 中具有颠覆性的特征之一，可以通过设置多个节点来精确控制一个或一组动画，常用来实现复杂的动画效果。
+
+相比较过渡，动画可以实现更多变化，更多控制，连续自动播放等效果。
+
+#### 动画使用
+
+Step1：定义动画
+
+用 keyframes 定义动画
+
+```css
+@keyframes animation_name {
+	0%{
+	    transform: translate(0,0);
+	}
+    ...
+	100%{
+	    transform: translate(0,0);
+	}
+}
+```
+
+*动画序列*
+
+- 0% 是动画的开始，100% 是动画的完成。该规则就是动画序列，百分比使用整数
+- 在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画效果
+- 动画是使元素从一种样式逐渐变化为另一种样式的效果，可以改变任意多的样式；任意多的次数
+- 使用百分比来规定变化发生的时间，或用关键词 “from”，“to”，等同于 0%，100%
+
+Step2：调用动画
+
+指定元素使用动画效果
+
+```css
+div{
+    /* 调用动画 */
+    animation-name: animation_name;
+    /* 持续时间 */
+    animation-duration: keep_time;
+}
+```
+
+#### 动画常用属性
+
+| 属性                      | 描述                                                         |
+| ------------------------- | ------------------------------------------------------------ |
+| @keyframes                | 规定动画                                                     |
+| animation                 | 所有动画属性的简写属性，除了 animation-play-state 属性       |
+| animation-name            | 规定动画的名称，必须项                                       |
+| animation-duration        | 规定动画完成一个周期所花费的时间，s/ms。必须项               |
+| animation-timing-function | 规定动画的速度曲线，默认是 ‘ease’                            |
+| animation-delay           | 规定动画何时开始，默认是 0                                   |
+| animation-iteration-count | 规定动画被播放的次数，默认是 1，还有 infinite                |
+| animation-direction       | 规定动画是否在下一周期逆向播放，默认是 normal；alternate 逆播放：动画会在奇数次数（1、3、5 等）正常播放，而在偶数次数（2、4、6 等）逆向播放 |
+| animation-play-state      | 规定动画是否正在运行或暂停，默认是 running 还有 pause        |
+| animation-fill-mode       | 规定动画结束后状态，保持 forwards，回到起始 backwards        |
+
+动画速度曲线
+
+| 属性值                | 描述                                                       |
+| --------------------- | ---------------------------------------------------------- |
+| linear                | 动画从头到尾的速度是相同的                                 |
+| ease                  | 默认值。动画以低速开始，然后加快，在结束前变慢             |
+| ease-in               | 动画以低速开始                                             |
+| ease-out              | 动画以低速结束                                             |
+| ease-in-out           | 动画以低速开始和结束                                       |
+| steps(n)              | 动画分 n 步完成                                            |
+| cubic-bezier(n,n,n,n) | 在 cubic-bezier 函数中共输入自定义值。可以是 0 到 1 的数值 |
+
+动画属性简写
+
+animation：动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 动画起始或则结束时状态;
+
+`animation: animation_name 5s linear 2s infinite alternate;`
+
+- 简写属性不包括 animation-play-state
+- 暂停动画：animation-play-state: puased; 经常和鼠标经过等操作配合使用
+- 多个动画效果，中间使用逗号分隔
+
+### 3D 转换
+
+特点
+
+- 近大远小
+- 物体后面遮挡不可见
+
+#### 三维坐标系
+
+三维坐标系其实就是指立体空间，立体空间由三个轴共同组成。
+
+- x 轴：水平向右 - x 右边是正值，左边是负值
+- y 轴：垂直向下 - y下面是正值，下面是负值
+- z 轴：垂直屏幕 - z 往外面是正值，往里面是负值
+
+#### 3D 位移和旋转
+
+3D 位移：translate3d(x,y,z);
+
+3D 旋转：rotate3d(x,y,z);
+
+透视：perspective
+
+3D 呈现：transfrom-style

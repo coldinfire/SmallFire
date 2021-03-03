@@ -4204,7 +4204,21 @@
     <url>
       <loc>https://coldinfire.github.io/tags/CSS/</loc>
       
-      <lastmod>2017-09-12T00:00:00+00:00</lastmod>
+      <lastmod>2017-09-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_CSS3_Attributes/</loc>
+      
+      <lastmod>2017-09-13T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4275,20 +4289,6 @@
       <loc>https://coldinfire.github.io/2017/WEB_CSS_Improve/</loc>
       
       <lastmod>2017-09-07T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2017/WEB_CSS3_Attributes/</loc>
-      
-      <lastmod>2017-09-05T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
