@@ -13,7 +13,7 @@
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_CSS3_Attributes/</guid>
-      <description>CSS3 新增选择器 属性选择器 可以根据元素特定属性选择元素。这样就可以不借助于类或则id 选择器。 选择符 简介 E[att] 选择具有 att 属性的 E 元素 E[att=&amp;ldquo;val&amp;rdquo;] 选择具有 att 属性且</description>
+      <description>CSS3 新增选择器 属性选择器 可以根据元素特定属性选择元素。这样就可以不借助于类或则 id 选择器。 选择符 简介 E[att] 选择具有 att 属性的 E 元素 E[att=&amp;ldquo;val&amp;rdquo;] 选择具有 att 属性且 att=val</description>
     </item>
     
     <item>

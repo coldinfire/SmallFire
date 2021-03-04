@@ -307,7 +307,7 @@ transform: rotateY(45deg);
 
 transform: rotateZ(45deg);
 
-transform: rotate3d(x,y,z,ndeg); 沿着自定义轴旋转， n 为角度值 (了解即可) 
+transform: rotate3d(x,y,z,deg); 沿着自定义轴旋转， deg 定义角度值 (了解即可) 
 
 - transform: rotate3d(1,0,0,45deg);  沿着 X 轴旋转 45deg
 - transform: rotate3d(1,1,0,45deg); 沿着对角线旋转 45deg 

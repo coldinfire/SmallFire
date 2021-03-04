@@ -14,10 +14,22 @@ tags:
 
 JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功能强大的编程语言。
 
+### 浏览器组成
+
+#### 渲染引擎
+
+用来解析 HTML 与 CSS，俗称内核。
+
+#### JS 引擎
+
+JS 解释器，用来读取网页中的 JavaScript 代码，对齐处理后运行。
+
+浏览器本身不会执行 JS 代码，而是通过内置的 JS 解释器来执行 JS 代码。JS 引擎执行代码时，逐行解释每一句源码，然后由计算机去执行，所以 JavaScript 语言归为脚本语言，会逐行解释执行。
+
 ### JavaScript 书写规范
 
 1. 文件编码统一为 **utf-8**, 书写过程过，每行代码结束必须有分号；
-2. JavaScript严格区分大小写，书写时请注意
+2. JavaScript 严格区分大小写，书写时请注意
 3. 库引入：原则上仅引入 jQuery 库，若需引入第三方库，须与团队其他人员讨论决定；
 4. 变量命名：驼峰式命名。要求变量集中声明，避免全局变量
 
@@ -44,11 +56,12 @@ JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功�
 
 JavaScript 可以通过不同的方式来输出数据：
 
-- 使用 **window.alert()** 弹出警告框。
-- 使用 **document.write()** 方法将内容写到 HTML 文档中。
-  - 绝对不要在文档(DOM)加载完成之后使用 document.write()。这会覆盖该文档。
-- 使用 **.innerHTML** 写入到 HTML 元素。
-- 使用 **console.log()** 写入到浏览器的控制台。
+- 使用 **window.alert()** 弹出警告框
+- 使用 **console.log()** 写入到浏览器的控制台
+- 使用 **prompt()**  弹出可输入的对话框
+- 使用 **document.write()** 方法将内容写到 HTML 文档中
+  - 绝对不要在文档 (DOM) 加载完成之后使用 document.write()，这会覆盖该文档
+- 使用 **.innerHTML** 写入到 HTML 元素
 
 ### 数据类型和变量
 

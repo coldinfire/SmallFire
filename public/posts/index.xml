@@ -2200,7 +2200,7 @@
       <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Bootstrap/</guid>
-      <description>Bootstrap 介绍 Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它</description>
+      <description>Bootstrap 介绍 Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JavaScript 的，它</description>
     </item>
     
     <item>
@@ -2218,7 +2218,7 @@
       <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</guid>
-      <description>JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 JavaScript 书写规范 文件编码统一为 utf-8, 书写过程过，每行代码结束必须有分号； JavaScri</description>
+      <description>JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 浏览器组成 渲染引擎 用来解析 HTML 与 CSS，俗称内核。 JS 引擎 JS 解释器，用来读取网页中</description>
     </item>
     
     <item>
@@ -2236,7 +2236,7 @@
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_CSS3_Attributes/</guid>
-      <description>CSS3 新增选择器 属性选择器 可以根据元素特定属性选择元素。这样就可以不借助于类或则id 选择器。 选择符 简介 E[att] 选择具有 att 属性的 E 元素 E[att=&amp;ldquo;val&amp;rdquo;] 选择具有 att 属性且</description>
+      <description>CSS3 新增选择器 属性选择器 可以根据元素特定属性选择元素。这样就可以不借助于类或则 id 选择器。 选择符 简介 E[att] 选择具有 att 属性的 E 元素 E[att=&amp;ldquo;val&amp;rdquo;] 选择具有 att 属性且 att=val</description>
     </item>
     
     <item>
