@@ -272,12 +272,47 @@ animation：动画名称 持续时间 运动曲线 何时开始 播放次数 是
 - y 轴：垂直向下 - y下面是正值，下面是负值
 - z 轴：垂直屏幕 - z 往外面是正值，往里面是负值
 
-#### 3D 位移和旋转
+#### 3D 移动
 
-3D 位移：translate3d(x,y,z);
+3D 移动在 2D 移动的基础上添加了一个可以移动的方向，Z 轴移动。
 
-3D 旋转：rotate3d(x,y,z);
+`transform: translate3d(x,y,z);`
 
-透视：perspective
+- transform: translateZ(100px)：仅仅在 Z 轴上移动，（一般使用 px 单位）
 
-3D 呈现：transform-style
+#### 透视：perspective
+
+在 2D 平面产生近大远小的视觉立体，但是只是效果二维的
+
+- 如果想要在网页产生 3D 效果需要透视，将 3D 物体投影在 2D 平面内
+- 模拟人类的视觉位置
+- 透视既是视距：人眼睛可以看到屏幕的距离
+- 距离视觉点越近的在平面成像越大，越远成像越小
+- 透视的单位是像素 px
+
+透视写在被观察元素的父盒子上面
+
+- d：就是视距，视距就是一个人的眼睛到屏幕的距离
+- z：就是 z 轴，物体距离屏幕的距离，z 轴越大，我们看到的物体就越大
+
+#### 3D 旋转
+
+3D 旋转可以让元素在三维平面内沿着 x 轴，y 轴，z 轴或者自定义轴进行旋转。
+
+transform: rotateX(45deg);
+
+transform: rotateY(45deg);
+
+transform: rotateZ(45deg);
+
+transform: rotate3d(x,y,z,ndeg); 沿着自定义轴旋转， n 为角度值 (了解即可) 
+
+- transform: rotate3d(1,0,0,45deg);  沿着 X 轴旋转 45deg
+- transform: rotate3d(1,1,0,45deg); 沿着对角线旋转 45deg 
+
+#### 3D 呈现：transform-style
+
+- 控制子元素是否开启三维立体空间
+- transform-style: flat;  默认值，子元素不开启 3D 立体空间
+- transform-style: preserve-3d;  子元素开启立体空间
+- 代码写给父级，但是影响的是子盒子
