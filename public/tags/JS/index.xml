@@ -17,21 +17,21 @@
     </item>
     
     <item>
-      <title>Bootstrap学习与总结</title>
-      <link>https://coldinfire.github.io/2017/WEB_Bootstrap/</link>
-      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2017/WEB_Bootstrap/</guid>
-      <description>Bootstrap 介绍 Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JavaScript 的，它</description>
-    </item>
-    
-    <item>
       <title>JavaScript基础</title>
       <link>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</link>
       <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</guid>
       <description>JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 浏览器组成 渲染引擎 用来解析 HTML 与 CSS，俗称内核。 JS 引擎 JS 解释器，用来读取网页中</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap学习与总结</title>
+      <link>https://coldinfire.github.io/2017/WEB_Bootstrap/</link>
+      <pubDate>Sat, 16 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Bootstrap/</guid>
+      <description>Bootstrap 介绍 Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JavaScript 的，它</description>
     </item>
     
   </channel>

@@ -26,15 +26,6 @@
     </item>
     
     <item>
-      <title>Bootstrap学习与总结</title>
-      <link>https://coldinfire.github.io/2017/WEB_Bootstrap/</link>
-      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2017/WEB_Bootstrap/</guid>
-      <description>Bootstrap 介绍 Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JavaScript 的，它</description>
-    </item>
-    
-    <item>
       <title>JQuery基础</title>
       <link>https://coldinfire.github.io/2017/WEB_JQuery/</link>
       <pubDate>Sun, 24 Sep 2017 00:00:00 +0000</pubDate>
@@ -59,6 +50,24 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_DOM/</guid>
       <description>HTML DOM (文档对象模型) 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。 通过可编程的对象模型，JavaScrip</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap学习与总结</title>
+      <link>https://coldinfire.github.io/2017/WEB_Bootstrap/</link>
+      <pubDate>Sat, 16 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Bootstrap/</guid>
+      <description>Bootstrap 介绍 Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JavaScript 的，它</description>
+    </item>
+    
+    <item>
+      <title>页面布局方式汇总</title>
+      <link>https://coldinfire.github.io/2017/WEB_Layout_Type/</link>
+      <pubDate>Fri, 15 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Layout_Type/</guid>
+      <description>响应式开发 响应式开发原理 使用媒体查询针对不同宽度的设备进行布局和样式的设置，从而适配不同设备的目的。</description>
     </item>
     
     <item>

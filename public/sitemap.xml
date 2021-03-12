@@ -4118,20 +4118,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Bootstrap/</loc>
-      
-      <lastmod>2017-09-27T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/tags/JQuery/</loc>
       
       <lastmod>2017-09-24T00:00:00+00:00</lastmod>
@@ -4202,6 +4188,48 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2017/WEB_Bootstrap/</loc>
+      
+      <lastmod>2017-09-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/HTML/</loc>
+      
+      <lastmod>2017-09-15T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_Layout_Type/</loc>
+      
+      <lastmod>2017-09-15T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/tags/CSS/</loc>
       
       <lastmod>2017-09-13T00:00:00+00:00</lastmod>
@@ -4247,20 +4275,6 @@
       <loc>https://coldinfire.github.io/2017/WEB_CSS_Sprites/</loc>
       
       <lastmod>2017-09-11T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/HTML/</loc>
-      
-      <lastmod>2017-09-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
