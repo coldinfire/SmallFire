@@ -43,8 +43,6 @@ LT21:Display Transfer Order
 - L_TO_CREATE_TR : Create a transfer order for a transfer requirement
 - L_TO_CONFIRM : Confirm transfer order
 
-
-
 相关链接：
 
 - [Cteater Transfer Order Single](https://coldinfire.github.io/2020/WMTO_1/)
