@@ -17,12 +17,14 @@ tags:
 
 #### DATA_TO_JSON
 
+![Method parameters](/images/ABAP/ABAP_JSON7.png)
+
 ```ABAP
 METHOD DATA_TO_JSON.
   DATA:LO_DESCR TYPE REF TO CL_ABAP_TYPEDESCR.
   LO_DESCR = CL_ABAP_TYPEDESCR=>DESCRIBE_BY_DATA( IA_DATA ).
   RV_JSON = DATA_TO_JSON_INTERNAL( IA_DATA = IA_DATA IO_DESCR = LO_DESCR ).
-  "Test if root is an single element, if yes root object { ... } needed
+  "Test if root is an single element, if yes root object { ... } needed"
   IF LO_DESCR->KIND EQ CL_ABAP_TYPEDESCR=>KIND_ELEM.
     CONCATENATE '{"$ROOT":' RV_JSON '}' INTO RV_JSON.
   ENDIF.
@@ -30,6 +32,8 @@ ENDMETHOD.
 ```
 
 #### JSON_TO_DATA
+
+![Method parameters](/images/ABAP/ABAP_JSON8.png)
 
 ```ABAP
 METHOD JSON_TO_DATA.
@@ -44,6 +48,8 @@ ENDMETHOD.
 
 #### TO_STRING
 
+![Method parameters](/images/ABAP/ABAP_JSON9.png)
+
 ```ABAP
 METHOD TO_STING.
 * number is not rounded, maximum precision is preserved: 123.456 JPY -> 123.456 JPY
@@ -51,7 +57,7 @@ METHOD TO_STING.
 * number of currency decimals is ensured: 123 EUR -> 123.00 EUR
 * for negative amounts the negative sign is rendered before the number
   DEFINE RETURN_STRING.
-    " negative sign shall be in front of number
+    " negative sign shall be in front of number "
     IF LV_IS_NEGATIVE EQ ABAP_TRUE.
       CONCATENATE '-' LV_STRING INTO LV_STRING.
     ENDIF.
@@ -86,7 +92,7 @@ METHOD TO_STING.
   DATA: LV_TCURX_DECIMALS TYPE I.
   LV_TCURX_DECIMALS = GET_CURRENCY_DECIMALS( IV_CURRENCY = IS_AMOUNT-CURRENCY ).
   IF LV_TCURX_DECIMALS EQ 0.
-    " no decimals to ensure ...
+    " no decimals to ensure ... "
     RETURN_STRING.
   ENDIF.
 * split into integer and decimals part
@@ -99,7 +105,7 @@ METHOD TO_STING.
   DATA: LV_DECIMALS_COUNT TYPE I.
   LV_DECIMALS_COUNT = STRLEN( LV_DECIMAL_PART ).
   IF LV_DECIMALS_COUNT GE LV_TCURX_DECIMALS.
-   "there are already enough decimals
+   "there are already enough decimals"
     RETURN_STRING.
   ENDIF.
 * ensure decimals, add trailing zeros
@@ -119,6 +125,8 @@ ENDMETHOD.
 
 #### QUANTITY_TO_STING
 
+![Method parameters](/images/ABAP/ABAP_JSON10.png)
+
 ```ABAP
 method QUANTITY_TO_STING.
 * number is not rounded, maximum precision is preserved: 123.456789 KG -> 123.456789 KG
@@ -128,7 +136,7 @@ method QUANTITY_TO_STING.
 * NO user-dependent formatting: no thousands separator, decimals separator is ABAP default '.'
 * for negative quantites the negative sign is rendered before the number
   DEFINE RETURN_STRING.
-    " negative sign shall be in front of number
+    " negative sign shall be in front of number "
     IF LV_IS_NEGATIVE EQ ABAP_TRUE.
       CONCATENATE '-' LV_STRING INTO LV_STRING.
     ENDIF.
@@ -212,22 +220,24 @@ endmethod.
 
 #### CONVERT_TIMEPOINT_TO_TEXT
 
+![Method parameters](/images/ABAP/ABAP_JSON11.png)
+
 ```ABAP
 METHOD CONVERT_TIMEPOINT_TO_TEXT.
-  CONSTANTS MC_DATE_NULL TYPE DATS VALUE '00010101'." ##NO_TEXT.
-  CONSTANTS MC_TIME_ZERO TYPE TIMS VALUE '000000'." ##NO_TEXT.
-  CONSTANTS MC_TIMESTAMP_NULL TYPE IF_FDT_TYPES=>TIMESTAMP VALUE '00010101000000'." ##NO_TEXT.
-  CONSTANTS MC_DST_FIRST_YEAR TYPE TZNYEARACT VALUE '1916'.  " ##NO_TEXT. "#EC NOT
-  CONSTANTS MC_EMPTY_TIMEZONE TYPE TIMEZONE VALUE '      '.  " ##NO_TEXT. "#EC NOT
-  CONSTANTS MC_OFFSET_MINUTES_INITIAL TYPE CHAR3 VALUE '000'." ##NO_TEXT. "#EC
-  CONSTANTS MC_OFFSET_SIGN_MINUS TYPE TZNUTCSIGN VALUE '-'.  " ##NO_TEXT. "#EC NOT
-  CONSTANTS MC_OFFSET_SIGN_PLUS TYPE TZNUTCSIGN VALUE '+'.   " ##NO_TEXT. "#EC NOTE
-  CONSTANTS MC_OFFSET_TIME_INITIAL TYPE CHAR5 VALUE '00:00'. " ##NO_TEXT. "#EC NO
-  CONSTANTS MC_SEPARATOR_ISO_DATE TYPE C VALUE '-'." ##NO_TEXT. "#EC
-  CONSTANTS MC_SEPARATOR_ISO_INTERVAL TYPE C VALUE '/'.      " ##NO_TEXT.
-  CONSTANTS MC_SEPARATOR_ISO_TIME TYPE C VALUE ':'.          " ##NO_TEXT.
-  CONSTANTS MC_INDICATOR_TIME TYPE C VALUE 'T'.              " ##NO_TEXT.
-  CONSTANTS MC_INDICATOR_UTC TYPE C VALUE 'Z'.               " ##NO_TEXT.
+  CONSTANTS MC_DATE_NULL TYPE DATS VALUE '00010101'.         "#NO_TEXT"
+  CONSTANTS MC_TIME_ZERO TYPE TIMS VALUE '000000'.           "#NO_TEXT"
+  CONSTANTS MC_TIMESTAMP_NULL TYPE IF_FDT_TYPES=>TIMESTAMP VALUE '00010101000000'."#NO_TEXT"
+  CONSTANTS MC_DST_FIRST_YEAR TYPE TZNYEARACT VALUE '1916'.  "#NO_TEXT #EC NOT"
+  CONSTANTS MC_EMPTY_TIMEZONE TYPE TIMEZONE VALUE '      '.  "#NO_TEXT #EC NOT"
+  CONSTANTS MC_OFFSET_MINUTES_INITIAL TYPE CHAR3 VALUE '000'."#NO_TEXT #EC"
+  CONSTANTS MC_OFFSET_SIGN_MINUS TYPE TZNUTCSIGN VALUE '-'.  "#NO_TEXT #EC NOT"
+  CONSTANTS MC_OFFSET_SIGN_PLUS TYPE TZNUTCSIGN VALUE '+'.   "#NO_TEXT #EC NOTE"
+  CONSTANTS MC_OFFSET_TIME_INITIAL TYPE CHAR5 VALUE '00:00'. "#NO_TEXT #EC NO"
+  CONSTANTS MC_SEPARATOR_ISO_DATE TYPE C VALUE '-'.          "#NO_TEXT #EC"
+  CONSTANTS MC_SEPARATOR_ISO_INTERVAL TYPE C VALUE '/'.      "#NO_TEXT"
+  CONSTANTS MC_SEPARATOR_ISO_TIME TYPE C VALUE ':'.          "#NO_TEXT"
+  CONSTANTS MC_INDICATOR_TIME TYPE C VALUE 'T'.              "#NO_TEXT"
+  CONSTANTS MC_INDICATOR_UTC TYPE C VALUE 'Z'.               "#NO_TEXT"
   DATA: LS_MESSAGE TYPE IF_FDT_TYPES=>S_MESSAGE,
         LT_MESSAGE TYPE IF_FDT_TYPES=>T_MESSAGE.
 * Prepare return value
@@ -410,6 +420,8 @@ ENDMETHOD.
 
 #### GET_CURRENCY_DECIMALS
 
+![Method parameters](/images/ABAP/ABAP_JSON12.png)
+
 ```ABAP
 METHOD GET_CURRENCY_DECIMALS.
 * iv_relative not supported, deprecated.
@@ -445,10 +457,12 @@ ENDMETHOD.
 
 #### _ENSURE_DIGITS
 
+![Method parameters](/images/ABAP/ABAP_JSON13.png)
+
 ```ABAP
 METHOD _ENSURE_DIGITS.
-  CONSTANTS MC_OFFSET_MINUTES_INITIAL TYPE CHAR3 VALUE '000'." ##NO_TEXT.
-  CONSTANTS MC_SEPARATOR_ISO_TIME TYPE C VALUE ':'.          " ##NO_TEXT.
+  CONSTANTS MC_OFFSET_MINUTES_INITIAL TYPE CHAR3 VALUE '000'. "#NO_TEXT"
+  CONSTANTS MC_SEPARATOR_ISO_TIME TYPE C VALUE ':'.           "#NO_TEXT"
   DEFINE ENSURE.
     IF CHV_&1 IS SUPPLIED.
       "ensure that &1 has two digits"
@@ -552,7 +566,7 @@ METHOD _ENSURE_DIGITS.
     ELSEIF STRLEN( CHV_YEAR ) EQ 3.
       CONCATENATE '0' CHV_YEAR INTO CHV_YEAR.
     ENDIF.
-    "ensure that every digit is not SPACE but at least 0”
+    "ensure that every digit is not SPACE but at least 0"
     DATA: LV_CHAR4 TYPE C LENGTH 4.
     LV_CHAR4 = CHV_YEAR.
     IF LV_CHAR4+0(1) EQ SPACE.
@@ -582,13 +596,15 @@ ENDMETHOD.
 
 #### IS_VALID
 
+![Method parameters](/images/ABAP/ABAP_JSON14.png)
+
 ```ABAP
 METHOD IS_VALID.
-  CONSTANTS MC_DATE_NULL TYPE DATS VALUE '00010101'.        " ##NO_TEXT.
-  CONSTANTS MC_EMPTY_TIMEZONE TYPE TIMEZONE VALUE '      '. " ##NO_TEXT.
-  CONSTANTS MC_OFFSET_SIGN_PLUS TYPE TZNUTCSIGN VALUE '+'.  " ##NO_TEXT.
-  CONSTANTS MC_OFFSET_SIGN_MINUS TYPE TZNUTCSIGN VALUE '-'. " ##NO_TEXT.
-  constants MC_OFFSET_MINUTES_INITIAL type CHAR3 value '000'." ##NO_TEXT.
+  CONSTANTS MC_DATE_NULL TYPE DATS VALUE '00010101'.          "#NO_TEXT"
+  CONSTANTS MC_EMPTY_TIMEZONE TYPE TIMEZONE VALUE '      '.   "#NO_TEXT"
+  CONSTANTS MC_OFFSET_SIGN_PLUS TYPE TZNUTCSIGN VALUE '+'.    "#NO_TEXT"
+  CONSTANTS MC_OFFSET_SIGN_MINUS TYPE TZNUTCSIGN VALUE '-'.   "#NO_TEXT"
+  constants MC_OFFSET_MINUTES_INITIAL type CHAR3 value '000'. "#NO_TEXT"
   DATA: LS_MESSAGE TYPE IF_FDT_TYPES=>S_MESSAGE,
         LT_MESSAGE TYPE IF_FDT_TYPES=>T_MESSAGE.
 * NULL Timepoint is valid
@@ -626,7 +642,7 @@ METHOD IS_VALID.
         RV_IS_VALID = ABAP_FALSE.
       ENDIF.
     WHEN IF_FDT_CONSTANTS=>GC_TP_TIME.
-      "FDT does not handle time 24:00:00
+      "FDT does not handle time 24:00:00"
       IF IS_TIMEPOINT-TIME EQ '240000' .
         DATA: LV_MSGV1 TYPE SY-MSGV1.
         WRITE IS_TIMEPOINT-TIME TO LV_MSGV1.
@@ -715,10 +731,9 @@ METHOD IS_VALID.
             LV_MINUTES = MC_OFFSET_MINUTES_INITIAL.
           ELSE.
             LV_MINUTES = IS_TIMEPOINT-OFFSET_TIME.
-            " FDT: Difference between local and UTC time (in minutes)
+            " FDT: Difference between local and UTC time (in minutes)"
             _ENSURE_DIGITS( CHANGING CHV_OFFSET_MINUTES = LV_MINUTES ).   
           ENDIF.
-
 *   get timezone
           RV_TIMEZONE = _GET_TIMEZONE( IV_SIGN     = LV_SIGN
                                        IV_MINUTES  = LV_MINUTES ).
@@ -732,7 +747,7 @@ METHOD IS_VALID.
         RETURN.
       ENDIF.
     WHEN OTHERS.
-      “unsupported timepoint type
+      "unsupported timepoint type"
       RV_IS_VALID = ABAP_FALSE.
       MESSAGE E051(FDT_SERVICE) WITH IS_TIMEPOINT-TYPE INTO LS_MESSAGE-TEXT.
       MOVE-CORRESPONDING SYST TO LS_MESSAGE.
@@ -747,13 +762,15 @@ ENDMETHOD.
 
 #### IS_NULL
 
+![Method parameters](/images/ABAP/ABAP_JSON15.png)
+
 ```ABAP
 METHOD IS_NULL.
-  CONSTANTS MC_DATE_NULL TYPE DATS VALUE '00010101'.   " ##NO_TEXT.
-  CONSTANTS MC_TIME_ZERO TYPE TIMS VALUE '000000'.     " ##NO_TEXT.
-  CONSTANTS MC_TIMESTAMP_NULL TYPE IF_FDT_TYPES=>TIMESTAMP VALUE '00010101000000'." ##NO_TEXT.
-  CONSTANTS MC_OFFSET_SIGN_PLUS TYPE TZNUTCSIGN VALUE '+'.    " ##NO_TEXT.
-  CONSTANTS MC_OFFSET_MINUTES_INITIAL TYPE CHAR3 VALUE '000'. " ##NO_TEXT.
+  CONSTANTS MC_DATE_NULL TYPE DATS VALUE '00010101'.          "#NO_TEXT"
+  CONSTANTS MC_TIME_ZERO TYPE TIMS VALUE '000000'.            "#NO_TEXT"
+  CONSTANTS MC_TIMESTAMP_NULL TYPE IF_FDT_TYPES=>TIMESTAMP VALUE '00010101000000'. "#NO_TEXT"
+  CONSTANTS MC_OFFSET_SIGN_PLUS TYPE TZNUTCSIGN VALUE '+'.    "#NO_TEXT"
+  CONSTANTS MC_OFFSET_MINUTES_INITIAL TYPE CHAR3 VALUE '000'. "#NO_TEXT"
   DATA: LS_MESSAGE TYPE IF_FDT_TYPES=>S_MESSAGE,
         LT_MESSAGE TYPE IF_FDT_TYPES=>T_MESSAGE.
 * set default
@@ -786,7 +803,7 @@ METHOD IS_NULL.
         RV_IS_NULL = ABAP_TRUE.
       ENDIF.
     WHEN OTHERS.
-      " unsupported timepoint type
+      "unsupported timepoint type"
       MESSAGE E051(FDT_SERVICE) WITH IS_TIMEPOINT-TYPE INTO LS_MESSAGE-TEXT.
       MOVE-CORRESPONDING SYST TO LS_MESSAGE.
       LS_MESSAGE-SOURCE = CX_FDT=>GET_SOURCE_NAME( ).
@@ -800,10 +817,12 @@ ENDMETHOD.
 
 #### _GET_TIMEZONE
 
+![Method parameters](/images/ABAP/ABAP_JSON16.png)
+
 ```ABAP
 method _GET_TIMEZONE.
 * Prepare return value
-  constants MC_EMPTY_TIMEZONE type TIMEZONE value '      '. " ##NO_TEXT.
+  constants MC_EMPTY_TIMEZONE type TIMEZONE value '      '.  "#NO_TEXT"
   CLEAR rv_timezone.
 * build the string
   DATA: lv_string TYPE c LENGTH 13.
@@ -895,6 +914,8 @@ endmethod.
 
 #### BRF_STRUC_TO_JSON
 
+![Method parameters](/images/ABAP/ABAP_JSON17.png)
+
 ```ABAP
 METHOD BRF_STRUC_TO_JSON.
   DATA:
@@ -922,17 +943,20 @@ METHOD BRF_STRUC_TO_JSON.
       ASSIGN COMPONENT 'CURRENCY' OF STRUCTURE IA_DATA TO <CURRENCY>.
       LV_STR_NUMBER = <A_NUMBER>.
 *        lv_str_number = data_to_json_internal( <a_number> ).
-      CONCATENATE '{ "$T":"' IF_FDT_CONSTANTS=>GC_ELEMENT_TYPE_AMOUNT '", "NUMBER":' LV_STR_NUMBER ', "CURRENCY":"' <CURRENCY> '"}' INTO RV_JSON.
+      CONCATENATE '{ "$T":"' IF_FDT_CONSTANTS=>GC_ELEMENT_TYPE_AMOUNT '", "NUMBER":'
+                  LV_STR_NUMBER ', "CURRENCY":"' <CURRENCY> '"}' INTO RV_JSON.
     WHEN GC_ELEMENT_QUANTITY
       OR GC_FDT_QUANTITY.
       ASSIGN COMPONENT 'NUMBER' OF STRUCTURE IA_DATA TO <Q_NUMBER>.
       ASSIGN COMPONENT 'UNIT'   OF STRUCTURE IA_DATA TO <UNIT>.
       LV_STR_NUMBER = <Q_NUMBER>.
 *        lv_str_number = data_to_json_internal( <q_number> ).
-      CONCATENATE '{ "$T":"' IF_FDT_CONSTANTS=>GC_ELEMENT_TYPE_QUANTITY '", "NUMBER":' LV_STR_NUMBER ', "UNIT":"' <UNIT> '"}' INTO RV_JSON.
+      CONCATENATE '{ "$T":"' IF_FDT_CONSTANTS=>GC_ELEMENT_TYPE_QUANTITY 
+                  '", "NUMBER":' LV_STR_NUMBER 
+                  ', "UNIT":"' <UNIT> '"}' INTO RV_JSON.
     WHEN GC_ELEMENT_TIMEPOINT
       OR GC_FDT_TIMEPOINT.
-      ASSIGN COMPONENT 'TYPE'        OF STRUCTURE IA_DATA TO <TYPE>.
+      ASSIGN COMPONENT 'TYPE' OF STRUCTURE IA_DATA TO <TYPE>.
       CASE <TYPE>.
         WHEN IF_FDT_CONSTANTS=>GC_TP_DATE.
           ASSIGN COMPONENT 'DATE'        OF STRUCTURE IA_DATA TO <DATE>.
@@ -954,7 +978,7 @@ METHOD BRF_STRUC_TO_JSON.
         WHEN IF_FDT_CONSTANTS=>GC_TP_TIMESTAMP_UTC.
           ASSIGN COMPONENT 'TIMESTAMP'   OF STRUCTURE IA_DATA TO <TIMESTAMP>.
           LV_STR_TIMEST = <TIMESTAMP>.
-          IF <TIMESTAMP> LT 0. "get sign to the front!
+          IF <TIMESTAMP> LT 0. "get sign to the front!"
             SHIFT LV_STR_TIMEST CIRCULAR RIGHT.
           ENDIF.
 *            lv_str_timest = data_to_json_internal( <timestamp> ).
@@ -982,10 +1006,12 @@ ENDMETHOD.
 
 #### CONVERT_TOKEN
 
+![Method parameters](/images/ABAP/ABAP_JSON18.png)
+
 ```ABAP
 METHOD CONVERT_TOKEN.
   DATA: LO_DESCR      TYPE REF TO CL_ABAP_TYPEDESCR.
-  " Check target type if conversion is needed
+  " Check target type if conversion is needed "
   LO_DESCR = CL_ABAP_TYPEDESCR=>DESCRIBE_BY_DATA( IA_DATA ).
   CASE LO_DESCR->ABSOLUTE_NAME.
     WHEN GC_ABAP_BOOL
@@ -998,7 +1024,7 @@ METHOD CONVERT_TOKEN.
       ENDIF.
     WHEN OTHERS.
 *        cv_token = cv_token.
-      " replace escape characters
+      " replace escape characters "
       REPLACE ALL OCCURRENCES OF '\n' IN CV_TOKEN WITH CL_ABAP_CHAR_UTILITIES=>NEWLINE.
       REPLACE ALL OCCURRENCES OF '\t' IN CV_TOKEN WITH CL_ABAP_CHAR_UTILITIES=>HORIZONTAL_TAB.
       REPLACE ALL OCCURRENCES OF '\f' IN CV_TOKEN WITH CL_ABAP_CHAR_UTILITIES=>FORM_FEED.
@@ -1014,6 +1040,8 @@ ENDMETHOD.
 
 #### DATA_TO_JSON_INTERNAL
 
+![Method parameters](/images/ABAP/ABAP_JSON19.png)
+
 ```ABAP
 METHOD DATA_TO_JSON_INTERNAL.
   DATA:
@@ -1027,17 +1055,15 @@ METHOD DATA_TO_JSON_INTERNAL.
     <LA_DATA> TYPE ANY,
     <LT_DATA> TYPE ANY TABLE,
     <LS_COMP> TYPE LINE OF CL_ABAP_STRUCTDESCR=>INCLUDED_VIEW.
-
   IF IO_DESCR IS SUPPLIED.
     LO_DESCR = IO_DESCR.
   ELSE.
     LO_DESCR = CL_ABAP_TYPEDESCR=>DESCRIBE_BY_DATA( IA_DATA ).
   ENDIF.
-
   CASE LO_DESCR->TYPE_KIND.
     WHEN CL_ABAP_TYPEDESCR=>TYPEKIND_STRUCT1
       OR CL_ABAP_TYPEDESCR=>TYPEKIND_STRUCT2.
-      "check brf + structures first
+      "check brf + structures first"
       RV_JSON = BRF_STRUC_TO_JSON(
         IA_DATA = IA_DATA
         IV_TYPE = LO_DESCR->ABSOLUTE_NAME ).
@@ -1060,7 +1086,7 @@ METHOD DATA_TO_JSON_INTERNAL.
         CONCATENATE RV_JSON '}' INTO RV_JSON.
       ENDIF.
     WHEN CL_ABAP_TYPEDESCR=>TYPEKIND_TABLE.
-      "JSON starts with [value1, ...
+      "JSON starts with [value1, ..."
       RV_JSON = '['.
       ASSIGN IA_DATA TO <LT_DATA>.
       LO_TABLE_DESCR ?= LO_DESCR.
@@ -1077,14 +1103,14 @@ METHOD DATA_TO_JSON_INTERNAL.
     WHEN CL_ABAP_TYPEDESCR=>TYPEKIND_DREF.
       ASSIGN IA_DATA->* TO <LA_DATA>.
       IF SY-SUBRC = 0.
-        RV_JSON = '{'.          "needed?
+        RV_JSON = '{'.          "needed?"
         LV_JSON = DATA_TO_JSON_INTERNAL( IA_DATA = <LA_DATA> ).
         CONCATENATE RV_JSON LV_JSON '}' INTO RV_JSON.
       ELSE.
-        RV_JSON = '{}'. "Will produce empty JS object
+        RV_JSON = '{}'. "Will produce empty JS object"
       ENDIF.
     WHEN OTHERS.
-      "convert single field value
+      "convert single field value"
       CASE LO_DESCR->ABSOLUTE_NAME.
         WHEN GC_ELEMENT_BOOLEAN
           OR GC_FDT_BOOLEAN
@@ -1100,31 +1126,26 @@ METHOD DATA_TO_JSON_INTERNAL.
               OR CL_ABAP_TYPEDESCR=>TYPEKIND_STRING
               OR CL_ABAP_TYPEDESCR=>TYPEKIND_CHAR.
               RV_JSON = IA_DATA.
-              " Escape special characters
-*              REPLACE ALL OCCURRENCES OF '\'                                    IN RV_JSON WITH '\\'.
-*              REPLACE ALL OCCURRENCES OF '/'                                    IN RV_JSON WITH '\/'.
-*              REPLACE ALL OCCURRENCES OF '"'                                    IN RV_JSON WITH '\"'.
-*              REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>CR_LF(1)       IN RV_JSON WITH '\r'.
-*              REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>NEWLINE        IN RV_JSON WITH '\n'.
-*              REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>HORIZONTAL_TAB IN RV_JSON WITH '\t'.
-*              REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>FORM_FEED      IN RV_JSON WITH '\f'.
-*              REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>VERTICAL_TAB   IN RV_JSON WITH '\v'.
-*              REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>BACKSPACE      IN RV_JSON WITH '\b'.
+" Escape special characters "
+*   REPLACE ALL OCCURRENCES OF '\'                                    IN RV_JSON WITH '\\'.
+*   REPLACE ALL OCCURRENCES OF '/'                                    IN RV_JSON WITH '\/'.
+*   REPLACE ALL OCCURRENCES OF '"'                                    IN RV_JSON WITH '\"'.
+*   REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>CR_LF(1)       IN RV_JSON WITH '\r'.
+*   REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>NEWLINE        IN RV_JSON WITH '\n'.
+*   REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>HORIZONTAL_TAB IN RV_JSON WITH '\t'.
+*   REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>FORM_FEED      IN RV_JSON WITH '\f'.
+*   REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>VERTICAL_TAB   IN RV_JSON WITH '\v'.
+*   REPLACE ALL OCCURRENCES OF CL_ABAP_CHAR_UTILITIES=>BACKSPACE      IN RV_JSON WITH '\b'. "
               CONCATENATE '"' RV_JSON '"' INTO RV_JSON.
             WHEN CL_ABAP_TYPEDESCR=>TYPEKIND_NUM
               OR CL_ABAP_TYPEDESCR=>TYPEKIND_DATE
               OR CL_ABAP_TYPEDESCR=>TYPEKIND_TIME.
               CONCATENATE '"' IA_DATA '"' INTO RV_JSON.
-            WHEN CL_ABAP_TYPEDESCR=>TYPEKIND_FLOAT
-              OR 'a'
-              OR 'e'
-              OR '/'.
+            WHEN CL_ABAP_TYPEDESCR=>TYPEKIND_FLOAT OR 'a' OR 'e' OR '/'.
               RV_JSON = IA_DATA.
-            WHEN 'I'
-              OR 'P'
-              OR '8'.
+            WHEN 'I' OR 'P' OR '8'.
               RV_JSON = IA_DATA.
-              IF IA_DATA LT 0. "get sign to the front!
+              IF IA_DATA LT 0. "get sign to the front!"
                 SHIFT RV_JSON CIRCULAR RIGHT.
               ENDIF.
             WHEN OTHERS.
@@ -1137,30 +1158,31 @@ ENDMETHOD.
 
 #### GET_STRING
 
+![Method parameters](/images/ABAP/ABAP_JSON20.png)
+
 ```ABAP
 METHOD GET_STRING.
   DATA:
     LV_ESCAPE   TYPE I,
-    LV_CHAR     TYPE STRING, "instead of 'C' to keep spaces
+    LV_CHAR     TYPE STRING, "instead of 'C' to keep spaces"
     LV_IS_STRING TYPE ABAP_BOOL VALUE ABAP_TRUE.
-
   WHILE STRLEN( CV_JSON ) > 0
     AND LV_IS_STRING EQ ABAP_TRUE.
     LV_CHAR = CV_JSON(1).
     SHIFT CV_JSON BY 1 PLACES.
     CASE LV_CHAR.
-      WHEN '\'.
+      WHEN '\'.  
         LV_ESCAPE = LV_ESCAPE + 1.
         CONCATENATE EV_STRING LV_CHAR INTO EV_STRING.
       WHEN '"'.
         LV_ESCAPE = LV_ESCAPE MOD 2.
-        IF LV_ESCAPE EQ 0.         "end of string?
+        IF LV_ESCAPE EQ 0.         "end of string?"
           LV_IS_STRING = ABAP_FALSE.
         ELSE.
           CONCATENATE EV_STRING LV_CHAR INTO EV_STRING.
         ENDIF.
         CLEAR LV_ESCAPE.
-      WHEN OTHERS. "all other chars could be collected without any check!
+      WHEN OTHERS. "all other chars could be collected without any check!"
         CONCATENATE EV_STRING LV_CHAR INTO EV_STRING.
         CLEAR LV_ESCAPE.
     ENDCASE.
@@ -1169,6 +1191,8 @@ ENDMETHOD.
 ```
 
 #### JSON_TO_BRF_STRUC
+
+![Method parameters](/images/ABAP/ABAP_JSON21.png)
 
 ```ABAP
 METHOD JSON_TO_BRF_STRUC.
@@ -1180,20 +1204,19 @@ METHOD JSON_TO_BRF_STRUC.
     LO_DESCR      TYPE REF TO CL_ABAP_TYPEDESCR,
     LX_ROOT       TYPE REF TO CX_ROOT.
   FIELD-SYMBOLS: <LA_ANY> TYPE ANY.
-
-  "JSON example:' "A", "AMOUNT":1234,"CURRENCY":"EUR"} ...'
+  "JSON example:' "A", "AMOUNT":1234,"CURRENCY":"EUR"} ...' "
   LO_DESCR = CL_ABAP_TYPEDESCR=>DESCRIBE_BY_DATA( CA_DATA ).
 
-  "1. get the special type
+  "1. get the special type"
   SHIFT CV_JSON UP TO '"'.
-  SHIFT CV_JSON BY 1 PLACES. "eleminate quotes '"'
+  SHIFT CV_JSON BY 1 PLACES. " eleminate quotes  " 
   GET_STRING(
     IMPORTING
       EV_STRING = LV_TOKEN
     CHANGING
       CV_JSON = CV_JSON ).
   SHIFT CV_JSON UP TO ','.
-  SHIFT CV_JSON BY 1 PLACES. "eleminate comma ','
+  SHIFT CV_JSON BY 1 PLACES. " eleminate comma ',' "
   CASE LV_TOKEN.
     WHEN IF_FDT_CONSTANTS=>GC_ELEMENT_TYPE_AMOUNT.
       ASSIGN LS_AMOUNT TO <LA_ANY>.
@@ -1202,9 +1225,9 @@ METHOD JSON_TO_BRF_STRUC.
     WHEN IF_FDT_CONSTANTS=>GC_ELEMENT_TYPE_TIMEPOINT.
       ASSIGN LS_TIMEPOINT TO <LA_ANY>.
     WHEN OTHERS.
-      RETURN. "?
+      RETURN. "?"
   ENDCASE.
-  "2. get values for special type
+  "2. get values for special type"
   IF <LA_ANY> IS ASSIGNED.
     JSON_TO_DATA_INTERNAL(
       CHANGING
@@ -1213,11 +1236,11 @@ METHOD JSON_TO_BRF_STRUC.
     TRY.
         CASE LV_TOKEN.
           WHEN IF_FDT_CONSTANTS=>GC_ELEMENT_TYPE_AMOUNT.
-            "Check target type
+            "Check target type"
             CASE LO_DESCR->ABSOLUTE_NAME.
               WHEN GC_ELEMENT_AMOUNT
                 OR GC_FDT_AMOUNT.
-                CA_DATA = LS_AMOUNT.                "no conversion needed
+                CA_DATA = LS_AMOUNT.   "no conversion needed"
               WHEN GC_ELEMENT_NUMBER.
                 CA_DATA = LS_AMOUNT-NUMBER.
               WHEN GC_ELEMENT_TEXT.
@@ -1231,14 +1254,14 @@ METHOD JSON_TO_BRF_STRUC.
                     OR CL_ABAP_TYPEDESCR=>TYPEKIND_STRING.
                     CA_DATA = TO_STING( LS_AMOUNT ).
                   WHEN OTHERS.
-                    CLEAR CA_DATA. "no conversion possible
+                    CLEAR CA_DATA. "no conversion possible"
                 ENDCASE.
             ENDCASE.
           WHEN IF_FDT_CONSTANTS=>GC_ELEMENT_TYPE_QUANTITY.
             CASE LO_DESCR->ABSOLUTE_NAME.
               WHEN GC_ELEMENT_QUANTITY
                 OR GC_FDT_QUANTITY.
-                CA_DATA = LS_QUANTITY.              "no conversion needed
+                CA_DATA = LS_QUANTITY.    "no conversion needed"
               WHEN GC_ELEMENT_NUMBER.
                 CA_DATA = LS_QUANTITY-NUMBER.
               WHEN GC_ELEMENT_TEXT.
@@ -1252,14 +1275,14 @@ METHOD JSON_TO_BRF_STRUC.
                     OR CL_ABAP_TYPEDESCR=>TYPEKIND_STRING.
                     CA_DATA = QUANTITY_TO_STING( LS_QUANTITY ).
                   WHEN OTHERS.
-                    CLEAR CA_DATA. "no conversion possible
+                    CLEAR CA_DATA. "no conversion possible"
                 ENDCASE.
             ENDCASE.
           WHEN IF_FDT_CONSTANTS=>GC_ELEMENT_TYPE_TIMEPOINT.
             CASE LO_DESCR->ABSOLUTE_NAME.
               WHEN GC_ELEMENT_TIMEPOINT
                 OR GC_FDT_TIMEPOINT.
-                CA_DATA = LS_TIMEPOINT.             "no conversion needed
+                CA_DATA = LS_TIMEPOINT.             "no conversion needed"
               WHEN GC_ELEMENT_NUMBER.
                 CA_DATA = LS_TIMEPOINT-TIMESTAMP.
               WHEN GC_ELEMENT_TEXT.
@@ -1277,14 +1300,14 @@ METHOD JSON_TO_BRF_STRUC.
                   WHEN CL_ABAP_TYPEDESCR=>TYPEKIND_TIME.
                     CA_DATA = LS_TIMEPOINT-TIME.
                   WHEN OTHERS.
-                    CLEAR CA_DATA. "no conversion possible
+                    CLEAR CA_DATA. "no conversion possible"
                 ENDCASE.
             ENDCASE.
         ENDCASE.
       CATCH CX_ROOT INTO LX_ROOT.
         CLEAR CA_DATA.
     ENDTRY.
-    "to end the level - as this sign is already stripped in method before
+    "to end the level - as this sign is already stripped in method before"
     CONCATENATE '}' CV_JSON INTO CV_JSON RESPECTING BLANKS.
   ENDIF.
 ENDMETHOD.
@@ -1292,16 +1315,18 @@ ENDMETHOD.
 
 #### JSON_TO_DATA_INTERNAL
 
+![Method parameters](/images/ABAP/ABAP_JSON22.png)
+
 ```ABAP
 METHOD JSON_TO_DATA_INTERNAL.
-  "JSON               ABAP
-  "{...} object  -->  field, structure, ...
-  "[...] array   -->  table
+  "JSON               ABAP                     "
+  "{...} object  -->  field, structure, ...    "
+  "[...] array   -->  table                    "
   DATA:
     LV_CHAR      TYPE C,
     LV_TOKEN     TYPE STRING,
-    LV_DUMMY     TYPE STRING,   "is used in case of invalid fieldname
-    LT_DUMMY     LIKE STANDARD TABLE OF LV_DUMMY, "is used in case of invalid table
+    LV_DUMMY     TYPE STRING,   "is used in case of invalid fieldname"
+    LT_DUMMY     LIKE STANDARD TABLE OF LV_DUMMY, "is used in case of invalid table"
     LV_IS_FILLED TYPE ABAP_BOOL,
     LR_LINE      TYPE REF TO DATA,
     LR_TD        TYPE REF TO CL_ABAP_TYPEDESCR,
@@ -1327,7 +1352,7 @@ METHOD JSON_TO_DATA_INTERNAL.
     LV_CHAR = CV_JSON(1).
     SHIFT CV_JSON BY 1 PLACES.
     CASE LV_CHAR.
-      WHEN '{'.   "object starts --> next level
+      WHEN '{'.   "object starts --> next level"
         JSON_TO_DATA_INTERNAL(
           EXPORTING
             IV_IS_TABLINE = ABAP_FALSE
@@ -1336,11 +1361,11 @@ METHOD JSON_TO_DATA_INTERNAL.
           CHANGING
             CV_JSON     = CV_JSON
             CA_DATA     = <LA_ANY> ).
-      WHEN '['.   "array starts --> next level
+      WHEN '['.   "array starts --> next level"
         LR_TD = CL_ABAP_TYPEDESCR=>DESCRIBE_BY_DATA( <LA_ANY> ).
         IF LR_TD->KIND EQ CL_ABAP_TYPEDESCR=>KIND_TABLE.
           ASSIGN <LA_ANY> TO <LT_ANY>.
-        ELSE. "Type mismatch - to prevent short dump
+        ELSE.     "Type mismatch - to prevent short dump"
           ASSIGN LT_DUMMY TO <LT_ANY>.
         ENDIF.
         CREATE DATA LR_LINE LIKE LINE OF <LT_ANY>.
@@ -1360,20 +1385,20 @@ METHOD JSON_TO_DATA_INTERNAL.
           LR_TD = CL_ABAP_TYPEDESCR=>DESCRIBE_BY_DATA( <LT_ANY> ).
           LR_TTD ?= LR_TD.
           IF LR_TTD->TABLE_KIND EQ CL_ABAP_TABLEDESCR=>TABLEKIND_SORTED.
-            " sorted table
+            " sorted table "
             ASSIGN <LT_ANY> TO <LT_SRTD>.
             INSERT <LA_LINE> INTO TABLE <LT_SRTD>.
           ELSEIF LR_TTD->TABLE_KIND = CL_ABAP_TABLEDESCR=>TABLEKIND_HASHED.
-            " hashed table
+            " hashed table "
             ASSIGN <LT_ANY> TO <LT_HASH>.
             INSERT <LA_LINE> INTO TABLE <LT_HASH>.
           ELSE.
-            " standard table
+            " standard table "
             ASSIGN <LT_ANY> TO <LT_STND>.
             APPEND <LA_LINE> TO <LT_STND>.
           ENDIF.
         ENDIF.
-      WHEN ']'.   "Array ends --> previous level
+      WHEN ']'.    "Array ends --> previous level"
         IF LV_TOKEN IS NOT INITIAL.
           CONVERT_TOKEN(
             EXPORTING
@@ -1383,11 +1408,11 @@ METHOD JSON_TO_DATA_INTERNAL.
           TRY.
               <LA_ANY> = LV_TOKEN.
               EV_IS_FILLED = ABAP_TRUE.
-            CATCH CX_ROOT INTO LX_ROOT.          "#EC NO_HANDLER
+            CATCH CX_ROOT INTO LX_ROOT.          "#EC NO_HANDLER"
           ENDTRY.
         ENDIF.
         RETURN.
-      WHEN '}'.   "Object ends --> previous level
+      WHEN '}'.   "Object ends --> previous level"
         IF LV_TOKEN IS NOT INITIAL.
           CONVERT_TOKEN(
             EXPORTING
@@ -1397,16 +1422,16 @@ METHOD JSON_TO_DATA_INTERNAL.
           TRY.
               <LA_ANY> = LV_TOKEN.
               EV_IS_FILLED = ABAP_TRUE.
-            CATCH CX_ROOT INTO LX_ROOT.        "#EC NO_HANDLER
+            CATCH CX_ROOT INTO LX_ROOT.        "#EC NO_HANDLER"
           ENDTRY.
         ENDIF.
         RETURN.
-      WHEN ':'.   "key ends, value starts
+      WHEN ':'.   "key ends, value starts"
         TRANSLATE LV_TOKEN TO UPPER CASE.
         SHIFT LV_TOKEN LEFT DELETING LEADING SPACE.
         IF LV_TOKEN IS NOT INITIAL.
-          IF LV_TOKEN EQ '$ROOT'.              "Do nothing - already assigned!
-          ELSEIF LV_TOKEN EQ '$T'.             "ignore the value! do special things
+          IF LV_TOKEN EQ '$ROOT'.              "Do nothing - already assigned!"
+          ELSEIF LV_TOKEN EQ '$T'.             "ignore the value! do special things"
             JSON_TO_BRF_STRUC(
               CHANGING
                 CA_DATA    = <LA_ANY>
@@ -1414,13 +1439,13 @@ METHOD JSON_TO_DATA_INTERNAL.
             EV_IS_FILLED = ABAP_TRUE.
           ELSE.
             ASSIGN COMPONENT LV_TOKEN OF STRUCTURE CA_DATA TO <LA_ANY>.
-            IF SY-SUBRC NE 0.                  "Field not found?
-              ASSIGN LV_DUMMY TO <LA_ANY>.     "ignore the value!
+            IF SY-SUBRC NE 0.                  "Field not found?"
+              ASSIGN LV_DUMMY TO <LA_ANY>.     "ignore the value!"
             ENDIF.
           ENDIF.
         ENDIF.
         CLEAR LV_TOKEN.
-      WHEN ','.   "next value -- same level
+      WHEN ','.   "next value -- same level"
         IF LV_TOKEN IS NOT INITIAL.
           CONVERT_TOKEN(
             EXPORTING
@@ -1430,21 +1455,21 @@ METHOD JSON_TO_DATA_INTERNAL.
           TRY.
               <LA_ANY> = LV_TOKEN.
               EV_IS_FILLED = ABAP_TRUE.
-            CATCH CX_ROOT INTO LX_ROOT.        "#EC NO_HANDLER
+            CATCH CX_ROOT INTO LX_ROOT.        "#EC NO_HANDLER"
           ENDTRY.
         ENDIF.
         CLEAR LV_TOKEN.
-        IF IV_IS_TABLINE EQ ABAP_TRUE.  "to trigger next table line
+        IF IV_IS_TABLINE EQ ABAP_TRUE.  "to trigger next table line"
           CONCATENATE '[' CV_JSON INTO CV_JSON.
           RETURN.
         ENDIF.
-      WHEN '"'.    "string starts
+      WHEN '"'.    "string starts"
         GET_STRING(
           IMPORTING
             EV_STRING = LV_TOKEN
           CHANGING
             CV_JSON = CV_JSON ).
-      WHEN OTHERS. "ie. numbers, ...
+      WHEN OTHERS. "ie. numbers, ..."
         CONCATENATE LV_TOKEN LV_CHAR INTO LV_TOKEN.
     ENDCASE.
   ENDWHILE.

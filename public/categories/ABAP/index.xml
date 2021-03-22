@@ -13,7 +13,7 @@
       <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_JSON/</guid>
-      <description>ABAP 对象和 JSON 格式的转换工具 创建工具类 SE24：创建类,输入描述并选择类型 点击保存 需要创建的方法 方法列表</description>
+      <description>ABAP 对象和 JSON 格式的转换工具 创建工具类 SE24：创建类,输入描述并选择类型 点击保存 定义属性值 需要创建的方法 方法详细代码列表 定义Types Section 定义 Public</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_JSON_Methods/</guid>
-      <description>方法列表 DATA_TO_JSON METHOD DATA_TO_JSON. DATA:LO_DESCR TYPE REF TO CL_ABAP_TYPEDESCR. LO_DESCR = CL_ABAP_TYPEDESCR=&amp;gt;DESCRIBE_BY_DATA( IA_DATA ). RV_JSON = DATA_TO_JSON_INTERNAL( IA_DATA = IA_DATA IO_DESCR = LO_DESCR ). &amp;#34;Test if root is an single element, if yes root object { ... } needed IF LO_DESCR-&amp;gt;KIND EQ CL_ABAP_TYPEDESCR=&amp;gt;KIND_ELEM. CONCATENATE &amp;#39;{&amp;#34;$ROOT&amp;#34;:&amp;#39; RV_JSON &amp;#39;}&amp;#39; INTO RV_JSON. ENDIF. ENDMETHOD. JSON_TO_DATA METHOD JSON_TO_DATA. DATA:LV_JSON TYPE STRING. LV_JSON = IV_JSON. JSON_TO_DATA_INTERNAL( CHANGING CV_JSON = LV_JSON CA_DATA =</description>
+      <description>方法列表 DATA_TO_JSON METHOD DATA_TO_JSON. DATA:LO_DESCR TYPE REF TO CL_ABAP_TYPEDESCR. LO_DESCR = CL_ABAP_TYPEDESCR=&amp;gt;DESCRIBE_BY_DATA( IA_DATA ). RV_JSON = DATA_TO_JSON_INTERNAL( IA_DATA = IA_DATA IO_DESCR = LO_DESCR ). &amp;#34;Test if root is an single element, if yes root object { ... } needed&amp;#34; IF LO_DESCR-&amp;gt;KIND EQ CL_ABAP_TYPEDESCR=&amp;gt;KIND_ELEM. CONCATENATE &amp;#39;{&amp;#34;$ROOT&amp;#34;:&amp;#39; RV_JSON &amp;#39;}&amp;#39; INTO RV_JSON. ENDIF. ENDMETHOD. JSON_TO_DATA METHOD JSON_TO_DATA. DATA:LV_JSON TYPE STRING. LV_JSON = IV_JSON. JSON_TO_DATA_INTERNAL( CHANGING CV_JSON = LV_JSON CA_DATA =</description>
     </item>
     
     <item>
