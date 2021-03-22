@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>utils</title>
+      <link>https://coldinfire.github.io/tags/utils/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/utils/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Enhance</title>
       <link>https://coldinfire.github.io/tags/Enhance/</link>
@@ -31,15 +40,6 @@
       <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/abaputils/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utils</title>
-      <link>https://coldinfire.github.io/tags/utils/</link>
-      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/utils/</guid>
       <description></description>
     </item>
     
@@ -193,6 +193,15 @@
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/STO/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FI</title>
+      <link>https://coldinfire.github.io/tags/FI/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/FI/</guid>
       <description></description>
     </item>
     

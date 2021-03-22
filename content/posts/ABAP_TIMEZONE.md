@@ -11,10 +11,6 @@ tags:
   - abaputils
 ---
 
-
-
-
-
 时区表：TTZZ
 
 ### 获取用户时区

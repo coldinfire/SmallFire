@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> 获取工单状态 </title>
+      <link>https://coldinfire.github.io/2021/PP_WorkOrderStatus/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/PP_WorkOrderStatus/</guid>
+      <description>gsdfasf 工单状态获取 SELECT SINGLE kdauf kdpos objnr auart zz_ci_flag INTO (l_kdauf, l_kdpos, l_objnr, l_auart, l_zz_ci_flag) FROM aufk WHERE aufnr = i_aufnr. 获取工单状态 SELECT SINGLE * INTO ls_jest FROM jest WHERE objnr = l_objnr AND stat = &amp;#39;I0045&amp;#39; AND inact = &amp;#39;&amp;#39;. IF sy-subrc = 0. ELSE.</description>
+    </item>
+    
     <item>
       <title>Text Enhancements</title>
       <link>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</link>
@@ -355,7 +364,7 @@
       <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_StandardPrice/</guid>
-      <description>引用链接：移动平均价和标准价 移动平均价和标准价的概念 标准价： ​ 以一个标准的价格表示一个物料在一段时间内的价值，简称S。来源于实际成本估算。用</description>
+      <description>引用链接：移动平均价和标准价 移动平均价和标准价的概念 标准价： 以一个标准的价格表示一个物料在一段时间内的价值，简称S。来源于实际成本估算。用以</description>
     </item>
     
     <item>
@@ -868,7 +877,7 @@
       <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_MasterData_enhance1/</guid>
-      <description>Reference: https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/ ​ MM01中的Screen完全是通过一个个的subscreen，像一个个的component组合而成的。在原有的subscreen不在c</description>
+      <description>Reference: https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/ MM01中的Screen完全是通过一个个的subscreen，像一个个的component组合而成的。在原有的subscreen不在cu</description>
     </item>
     
     <item>
@@ -1075,7 +1084,7 @@
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MMGoodsReceive/</guid>
-      <description>1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO ​ GRIN清单：供应商发票上的PO# 与Org PO #相同 ​ 供应商地址和采购订单地址匹配 ​ 物料数量应在Org PO中可用 ​</description>
+      <description>1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO GRIN清单： 供应商发票上的PO# 与Org PO #相同 供应商地址和采购订单地址匹配 物料数量应在Org PO中可用 发票价格</description>
     </item>
     
     <item>
@@ -1169,12 +1178,21 @@
     </item>
     
     <item>
+      <title>FI 配置流程</title>
+      <link>https://coldinfire.github.io/2019/FI_Configure/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/FI_Configure/</guid>
+      <description>创建会计科目表 (A999账目表) 定义会计年度变式 (正常记账期间12、特殊期间4) 创建信贷控制范围 依据以上信息维护公司参数 定义科目账户组合编号</description>
+    </item>
+    
+    <item>
       <title>MM 配置流程</title>
       <link>https://coldinfire.github.io/2019/MMConfirg/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MMConfirg/</guid>
-      <description>MM 模块主要配置流程 1. 创建工厂、公司代码 22. 批量导入物料主数据（BAPI） 2. 创建库存地点 23. 创建供应商 3. 创建采购组织 24. 创建采购信息记录（Info R</description>
+      <description>MM 模块主要配置流程 创建工厂、公司代码 创建库存地点 创建采购组织 创建采购组 MRP Controller 分配工厂到公司 分配采购组织到公司 分配工厂到采购组织 定义物料 定义计划</description>
     </item>
     
     <item>
@@ -1723,7 +1741,7 @@
       <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartform_page/</guid>
-      <description>Smartform中的table节点插入分页 Command Node 在smartforms的loop节点中可以插入一个command node用来强制分页，那么如</description>
+      <description>Smartform中的table节点插入分页 Command Node 在 smartforms 的 loop 节点中可以插入一个 command node 用来强制分页，那么如何在 table 节点中插入分页的 command node 呢？这要利用到t</description>
     </item>
     
     <item>

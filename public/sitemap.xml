@@ -30,9 +30,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
+      <loc>https://coldinfire.github.io/2021/PP_WorkOrderStatus/</loc>
       
-      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
+      <lastmod>2021-03-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
+      
+      <lastmod>2021-03-16T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -45,6 +59,76 @@
   
     <url>
       <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2021-03-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2021-03-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2021-03-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2021-03-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/utils/</loc>
+      
+      <lastmod>2021-03-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
       <lastmod>2020-12-26T00:00:00+00:00</lastmod>
       
@@ -72,65 +156,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
-      
-      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</loc>
       
       <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
-      
-      <lastmod>2020-12-20T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -199,20 +227,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2020/SAP_Report_config/</loc>
-      
-      <lastmod>2020-09-26T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/utils/</loc>
       
       <lastmod>2020-09-26T00:00:00+00:00</lastmod>
       
@@ -2231,6 +2245,34 @@
       <loc>https://coldinfire.github.io/2019/MM_Tcode/</loc>
       
       <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/FI/</loc>
+      
+      <lastmod>2019-03-04T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/FI_Configure/</loc>
+      
+      <lastmod>2019-03-04T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
