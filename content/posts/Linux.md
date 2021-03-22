@@ -1,6 +1,6 @@
 ---
 title: " Linux基础 "
-date: 2017-10-16
+date: 2018-01-06
 draft: false
 author: Small Fire
 isCJKLanguage: true

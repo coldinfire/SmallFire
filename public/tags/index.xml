@@ -6,16 +6,7 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>utils</title>
-      <link>https://coldinfire.github.io/tags/utils/</link>
-      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/utils/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Enhance</title>
       <link>https://coldinfire.github.io/tags/Enhance/</link>
@@ -31,6 +22,15 @@
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/MM/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utils</title>
+      <link>https://coldinfire.github.io/tags/utils/</link>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/utils/</guid>
       <description></description>
     </item>
     
@@ -278,24 +278,6 @@
     </item>
     
     <item>
-      <title>hugo</title>
-      <link>https://coldinfire.github.io/tags/hugo/</link>
-      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://coldinfire.github.io/tags/Git/</link>
-      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/Git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Maven</title>
       <link>https://coldinfire.github.io/tags/Maven/</link>
       <pubDate>Sat, 17 Mar 2018 00:00:00 +0000</pubDate>
@@ -305,18 +287,27 @@
     </item>
     
     <item>
-      <title>JS</title>
-      <link>https://coldinfire.github.io/tags/JS/</link>
-      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      <title>hugo</title>
+      <link>https://coldinfire.github.io/tags/hugo/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/tags/JS/</guid>
+      <guid>https://coldinfire.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://coldinfire.github.io/tags/Git/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/Git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
       <link>https://coldinfire.github.io/tags/linux/</link>
-      <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/linux/</guid>
       <description></description>
@@ -325,7 +316,7 @@
     <item>
       <title>shell</title>
       <link>https://coldinfire.github.io/tags/shell/</link>
-      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/shell/</guid>
       <description></description>
@@ -334,7 +325,7 @@
     <item>
       <title>Vim</title>
       <link>https://coldinfire.github.io/tags/Vim/</link>
-      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 13 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/Vim/</guid>
       <description></description>
@@ -343,9 +334,18 @@
     <item>
       <title>http</title>
       <link>https://coldinfire.github.io/tags/http/</link>
-      <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JS</title>
+      <link>https://coldinfire.github.io/tags/JS/</link>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/JS/</guid>
       <description></description>
     </item>
     
