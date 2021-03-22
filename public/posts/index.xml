@@ -8,12 +8,12 @@
     <language>en</language>
     <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title> 获取工单状态 </title>
-      <link>https://coldinfire.github.io/2021/PP_WorkOrderStatus/</link>
+      <title> SAP Domain增强 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_DomainEnhancement/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/PP_WorkOrderStatus/</guid>
-      <description>gsdfasf 工单状态获取 SELECT SINGLE kdauf kdpos objnr auart zz_ci_flag INTO (l_kdauf, l_kdpos, l_objnr, l_auart, l_zz_ci_flag) FROM aufk WHERE aufnr = i_aufnr. 获取工单状态 SELECT SINGLE * INTO ls_jest FROM jest WHERE objnr = l_objnr AND stat = &amp;#39;I0045&amp;#39; AND inact = &amp;#39;&amp;#39;. IF sy-subrc = 0. ELSE.</description>
+      <guid>https://coldinfire.github.io/2021/ABAP_DomainEnhancement/</guid>
+      <description>Domain 值范围增加固定值 Step1 : append structure se11 进入domain 显示界面，选择 goto -&amp;gt;</description>
     </item>
     
     <item>
@@ -558,11 +558,11 @@
     
     <item>
       <title>SAP Product Order status</title>
-      <link>https://coldinfire.github.io/2019/SAP_PRODORD/</link>
+      <link>https://coldinfire.github.io/2019/PP_WorkOrderStatus/</link>
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAP_PRODORD/</guid>
-      <description>SAP生产订单状态 SAP 系统的常见订单状态如下： CRTD (创建)： 标识生产订单刚刚创建，此时禁止做后续发料和报工确认等操作； PREL (部分下达)： 当生产订单</description>
+      <guid>https://coldinfire.github.io/2019/PP_WorkOrderStatus/</guid>
+      <description>SAP生产订单状态 SAP 系统的常见订单状态如下 CRTD (创建)： 标识生产订单刚刚创建，此时禁止做后续发料和报工确认等操作； PREL (部分下达)： 当生产订单部</description>
     </item>
     
     <item>
@@ -1111,7 +1111,7 @@
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MMPurchase/</guid>
-      <description>采购流程： 单据流： 仓库数量被预约(采购订单下达) 收货采购订单，总账增加，库存成本增加； 应付账款不改变库存数量，根据数量和价格计算价格； 采购物</description>
+      <description>采购流程 单据流 仓库数量被预约(采购订单下达) 收货采购订单，总账增加，库存成本增加； 应付账款不改变库存数量，根据数量和价格计算价格； 采购物料：</description>
     </item>
     
     <item>
@@ -1129,7 +1129,7 @@
       <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MMVenderCreate/</guid>
-      <description>1.Define vendor account groups : OBD3 SPRO &amp;gt; IMG &amp;gt; Financial accounting &amp;gt; Accounts Receivable and Accounts Payable &amp;gt; Vendor Accounts &amp;gt; Master data &amp;gt; preparation for creating vendor master data &amp;gt; Define Account groups with screen layout(Vendors) ​ &amp;lt;1.Enter Account group Code and Name. ​ &amp;lt;2.Choose: Company code data and select Account management under group. ​ &amp;lt;3.Select Reconciliation account（对账账</description>
+      <description>创建供应商主数据 1.Define vendor account groups : OBD3 SPRO &amp;gt; IMG &amp;gt; Financial accounting &amp;gt; Accounts Receivable and Accounts Payable &amp;gt; Vendor Accounts &amp;gt; Master data &amp;gt; preparation for creating vendor master data &amp;gt; Define Account groups with screen layout(Vendors) 1.Enter Account group Code and Name. 2.Choose: Company code data and select Account management under group. 3.Select Reconciliation accoun</description>
     </item>
     
     <item>

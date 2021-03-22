@@ -30,7 +30,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/PP_WorkOrderStatus/</loc>
+      <loc>https://coldinfire.github.io/2021/ABAP_DomainEnhancement/</loc>
       
       <lastmod>2021-03-16T00:00:00+00:00</lastmod>
       
@@ -1164,7 +1164,21 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/SAP_PRODORD/</loc>
+      <loc>https://coldinfire.github.io/tags/PP/</loc>
+      
+      <lastmod>2019-08-25T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/PP_WorkOrderStatus/</loc>
       
       <lastmod>2019-08-25T00:00:00+00:00</lastmod>
       
