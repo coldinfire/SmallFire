@@ -922,7 +922,7 @@
       <pubDate>Sun, 23 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPAuthorization_details/</guid>
-      <description>​ SAP 扩展中用户往往都需要使用自己的权限对象，为了达到目的，请按下列流程建立和维护权限对象。一旦有账号需要赋予权限，直接用 SAP 系统标准的角色权限</description>
+      <description>自定义权限对象流程 SAP 扩展中用户往往都需要使用自己的权限对象，为了达到目的，请按下列流程建立和维护权限对象。一旦有账号需要赋予权限，直接用 SAP 系</description>
     </item>
     
     <item>
@@ -931,7 +931,7 @@
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPAuthorization/</guid>
-      <description>TCode简介 ​ SU01：查看和编辑Role ​ SU10：实现对用户组的批量维护 ​ SU20：权限字段清单，可以增、删、改权限字段，可以浏览字段</description>
+      <description>TCode简介 SU01：查看和编辑Role SU10：实现对用户组的批量维护 SU20：权限字段清单，可以增、删、改权限字段，可以浏览字段具体被</description>
     </item>
     
     <item>

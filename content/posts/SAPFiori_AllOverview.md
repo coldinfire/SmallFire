@@ -16,7 +16,7 @@ tags:
 
 ![SAP Fiori架构概览](/images/HANA/Fiori1.png)
 
-   SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。
+SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。
 
   - 基于角色 - SAP已经分解了各种SAP事务并将其更改为漂亮的用户交互式应用程序，这些应用程序仅向用户显示最相关的信息。
 

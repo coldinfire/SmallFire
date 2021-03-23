@@ -17,8 +17,6 @@ tags:
 
 ### 相关权限分配的Table
 
-
-
 | Table            | Desc                                  | Table         | Decs                                       |
 | ---------------- | ------------------------------------- | ------------- | ------------------------------------------ |
 | AGR_1016         | 活动组参数文件名称                    | AGR_FLAGS     | 角色属性                                   |
@@ -45,6 +43,6 @@ tags:
 | AGR_MINIT2       | 角色最小应用文本                      | AGR_TIMED     | 角色的日期标记                             |
 | AGR_NUM_2        | 分配参数文件名的内部计数器            | AGR_TCDTXT    | 将角色分配到事务代码                       |
 | AGR_NUMBER       | 分配参数文件名的内部计数器            | AGR_TCODE3    | 将角色分配到事务代码                       |
-| AGR_OBJ          | Assignment of Menu Nodes to Role      | AGR_TCODES    | 将角色分配到事务代码                       |
+| AGR_OBJ          | 菜单节点分配给角色                    | AGR_TCODES    | 将角色分配到事务代码                       |
 | AGR_PROF         | 角色的参数文件名                      | AGR_TEXTS     | 用于层次菜单的文件结构 - 客户              |
 | AGR_REL_KNUMA_CM | 分配：协议   > 活动                   | AGR_SELECT    | 将角色分配到事务代码                       |
