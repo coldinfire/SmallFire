@@ -121,7 +121,11 @@ Math对象不用创建，直接使用 `Math.方法名();`
 |      |      |      |      |
 |      |      |      |      |
 
+### JSON 对象
 
+#### JSON数据类型
+
+number、boolean、string、null、array、object
 
 ### 对象操作
 

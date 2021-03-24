@@ -1700,12 +1700,12 @@
     </item>
     
     <item>
-      <title>可输入弹出框</title>
+      <title>ABAP弹出框设置</title>
       <link>https://coldinfire.github.io/2018/ABAP_PopUpBox/</link>
       <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_PopUpBox/</guid>
-      <description>POPUP_GET_VALUES_USER_HELP 输入表格，SVAL相应的字段信息决定显示的效果： tabname = &amp;#39;AFKO&amp;#39;. fieldname = &amp;#39;AUFNR&amp;#39;. fieldtext = &amp;#39;生产订单号&amp;#39;. field_attr = &amp;#39;02&amp;#39;. //是否可输入和显示 value = &amp;#39;val&amp;#39;. CALL FUNCTION &amp;#39;POPUP_GET_VALUES_USER_HELP&amp;#39; EXPORTING *</description>
+      <description>可输入弹出框：POPUP_GET_VALUES_USER_HELP &amp;#34;输入表格，SVAL相应的字段信息决定显示的效果：&amp;#34; tabname = &amp;#39;AFKO&amp;#39;.</description>
     </item>
     
     <item>
