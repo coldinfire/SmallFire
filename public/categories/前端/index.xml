@@ -31,7 +31,7 @@
       <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Object/</guid>
-      <description>对象类型 Type Description Type Description Function 函数(方法)对象 Number Array 数组对象 String Boolean Boolean对象 RegExp 正则表达对象 Date 日期对象 Global Math 数学对象 JSON json对象 Function 函数(方法)对象 创建</description>
+      <description>对象类型 类型 描述 类型 描述 Function 函数(方法)对象 Number 包装类对象 Array 数组对象 String 字符串对象 Boolean Boolean对象 RegExp 正则表达对象 Date 日期对象 Global Math 数学对象 JSON jso</description>
     </item>
     
     <item>
