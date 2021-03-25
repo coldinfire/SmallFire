@@ -17,31 +17,46 @@ tags:
 
 #### 文字属性
 
-- 文字颜色：color: red;
-  - 十六进制：#FF0000 | #F00
-  - RGB值：rgb(255,0,0)
-  - 颜色名字：red
-- 文字字体：font-family: "微软雅黑",Times;
-- 文字大小：font-size: 16px;   (16px = 1em)
-- 文字粗细：font-weight: [bold、normal];
-- 字体样式：font-style: [normal、italic、oblique];
-- 小写字母以大写字母显示：font-variant: [normal、small-caps];
+文字颜色：color: red;
+- 十六进制：#FF0000 | #F00
+- RGB值：rgb(255,0,0)
+- 颜色名字：red
+
+文字字体：font-family: "微软雅黑",Times;
+
+文字大小：font-size: 16px;   (16px = 1em)
+
+文字粗细：font-weight: [bold、normal];
+
+字体样式：font-style: [normal、italic、oblique];
+
+小写字母以大写字母显示：font-variant: [normal、small-caps];
 
 #### 文本属性
 
-- 文本对齐
-  - text-align: [center、right、left];
-  - 标签所包含的行内元素，行内块元素都会受控制
-- 行间距
-  - line-height: [5px、1.5em];
-- 缩进
-  - text-indent: [5px、2em];
-- 字、字母间距：letter-spaceing: 5px;
-- 单词间距：word-spaceing: 5px;
-- 文本线
-  - text-decoration: [none、overline、line-through、underline];
-- 文本转换
-  - text-transform: [uppercase、lowercase、capitalize];
+文本对齐
+- text-align: [center、right、left];
+- 标签所包含的行内元素，行内块元素都会受控制
+
+行间距
+
+- line-height: [5px、1.5em];
+
+缩进
+
+- text-indent: [5px、2em];
+
+字、字母间距：letter-spaceing: 5px;
+
+单词间距：word-spaceing: 5px;
+
+文本线
+
+- text-decoration: [none、overline、line-through、underline];
+
+文本转换
+
+- text-transform: [uppercase、lowercase、capitalize];
 
 ### 背景属性
 
@@ -281,7 +296,7 @@ clear 属性指定元素两侧不能出现浮动元素。
 
 ### 定位：Position 
 
-**"子绝父相"**：子级是绝对定位的话，父级要使用相对定位。
+**子绝父相**：子级是绝对定位的话，父级要使用相对定位。
 
 - 父级需要占有位置，以此是相对定位；子盒子不需要占有位置，则是绝对定位
 

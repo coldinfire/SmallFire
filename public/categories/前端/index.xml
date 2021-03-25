@@ -6,11 +6,20 @@
     <description>Recent content in 前端 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JQuery基础</title>
+      <link>https://coldinfire.github.io/2017/WEB_JQuery/</link>
+      <pubDate>Fri, 13 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_JQuery/</guid>
+      <description>jQuery 知识总结 jQuery 是一个 JavaScript 库。 jQuery 极大地简化了 JavaScript 编程。</description>
+    </item>
+    
     <item>
       <title>JavaScript其它技术点汇总</title>
       <link>https://coldinfire.github.io/2017/WEB_JavaScript_Improve/</link>
-      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Improve/</guid>
       <description></description>
@@ -26,39 +35,39 @@
     </item>
     
     <item>
-      <title>JavaScript对象</title>
-      <link>https://coldinfire.github.io/2017/WEB_JavaScript_Object/</link>
-      <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
+      <title>网页 BOM 知识汇总</title>
+      <link>https://coldinfire.github.io/2017/WEB_BOM/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Object/</guid>
-      <description>对象类型 类型 描述 类型 描述 Function 函数(方法)对象 Number 包装类对象 Array 数组对象 String 字符串对象 Boolean Boolean对象 RegExp 正则表达对象 Date 日期对象 Global Math 数学对象 JSON jso</description>
-    </item>
-    
-    <item>
-      <title>JQuery基础</title>
-      <link>https://coldinfire.github.io/2017/WEB_JQuery/</link>
-      <pubDate>Sun, 24 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2017/WEB_JQuery/</guid>
-      <description>jQuery 知识总结 jQuery 是一个 JavaScript 库。 jQuery 极大地简化了 JavaScript 编程。</description>
-    </item>
-    
-    <item>
-      <title>JavaScript基础</title>
-      <link>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</link>
-      <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</guid>
-      <description>JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 浏览器组成 渲染引擎 用来解析 HTML 与 CSS，俗称内核。 JS 引擎 JS 解释器，用来读取网页中</description>
+      <guid>https://coldinfire.github.io/2017/WEB_BOM/</guid>
+      <description></description>
     </item>
     
     <item>
       <title>DOM 知识汇总</title>
       <link>https://coldinfire.github.io/2017/WEB_DOM/</link>
-      <pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 23 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_DOM/</guid>
       <description>HTML DOM (文档对象模型) 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。 通过可编程的对象模型，JavaScrip</description>
+    </item>
+    
+    <item>
+      <title>JavaScript对象</title>
+      <link>https://coldinfire.github.io/2017/WEB_JavaScript_Object/</link>
+      <pubDate>Thu, 21 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Object/</guid>
+      <description>JavaScript 对象 JavaScript的对象是一种带有属性和方法的无序的集合数据类型，它由若干键值对组成。 属性是与对象相关的值 方法是能够在对象上执行的动</description>
+    </item>
+    
+    <item>
+      <title>JavaScript基础</title>
+      <link>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</link>
+      <pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</guid>
+      <description>JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 浏览器组成 渲染引擎 用来解析 HTML 与 CSS，俗称内核。 JS 引擎 JS 解释器，用来读取网页中</description>
     </item>
     
     <item>
@@ -134,7 +143,7 @@
     </item>
     
     <item>
-      <title>CSS格式与标准总结</title>
+      <title>CSS基础知识</title>
       <link>https://coldinfire.github.io/2017/WEB_CSS_Basic/</link>
       <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
       

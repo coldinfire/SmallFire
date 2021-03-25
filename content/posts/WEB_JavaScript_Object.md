@@ -1,6 +1,6 @@
 ---
 title: "JavaScript对象"
-date: 2017-09-25
+date: 2017-09-21
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -11,7 +11,70 @@ tags:
   - JS
 ---
 
-### 对象类型
+### JavaScript 对象
+
+JavaScript的对象是一种带有属性和方法的无序的集合数据类型，它由若干键值对组成。
+
+- 属性是与对象相关的值
+- 方法是能够在对象上执行的动作，是附加在对象上的函数
+
+所有 JavaScript 中的对象都是位于原型链顶端的 Object 的实例
+
+JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
+
+`Date` 对象, `Array` 对象, 以及 `String` 对象从 `Object.prototype` 继承。
+
+#### 给已有的对象增加属性或者方法
+
+- 格式：**构造函数名.prototype.新属性或者新方法**
+
+### 创建 JavaScript 对象
+
+JavaScript 允许自定义对象。
+
+创建新对象有两种不同的方法：
+
+- 使用 Object 定义并创建对象的实例
+
+  - 使用 Object 构建函数
+
+    - ```javascript
+      person=new Object();
+      person.firstname="John";
+      person.lastname="Doe";
+      person.age=50;
+      person.eyecolor="blue";
+      ```
+
+  - 使用对象字面量创建
+
+    - var person={firstname:"John",lastname:"Doe",age:50,eyecolor:"blue"};
+    - 用一个大括号内容表示一个对象，键值对以`xxx: xxx`形式申明，用逗号隔开。
+    - 访问属性是通过`.`操作符完成的，要求属性名必须是一个有效的变量名。
+
+- 使用函数来定义对象，然后创建新的对象实例
+
+  - ```javascript
+    function person(firstname,lastname,age,eyecolor){
+        this.firstname=firstname;
+        this.lastname=lastname;
+        this.age=age;
+        this.eyecolor=eyecolor;
+        this.changeName=changeName;
+        function changeName(name)
+        {
+            this.lastname=name;
+        }
+    }
+    ```
+
+    var john = new person("John","Doe",50,"blue");
+
+    john.changeName("Elieen");
+
+
+
+### JavaScript 内建对象
 
 | 类型     | 描述           | 类型   | 描述         |
 | :------- | :------------- | ------ | :----------- |
@@ -71,15 +134,15 @@ Method 3: `var arr = new Array(默认长度);`
 
 #### 属性和方法列表
 
-| Method                | Desc                                         | Method                 | Desc                                                         |
-| :-------------------- | :------------------------------------------- | :--------------------- | :----------------------------------------------------------- |
-| arr.length;           | 数组长度                                     | arr.sort();            | 对数组进行排序，默认顺序                                     |
-| arr.indexOf(2);       | 搜索指定元素的索引位置                       | arr.reverse();         | 将数组内容进行反转                                           |
-| arr.slice(0,3);       | 截取数组的部分元素，返回新的数组；左闭右开； | arr.splice(n,m,p1,p2); | 从指定的索引开始删除若干元素，然后再从该位置添加若干元素     |
-| arr.push('A','B');    | 向数组末尾添加元素，返回新的数组长度         | arr.concat(arrOther);  | 把当前的数组和另一个数组连接起来，生产并返回一个新的数组     |
-| arr.pop();            | 删除数组最后一个元素并返回元素值             | arr.join(separate);    | 把当前数组的每个元素都用指定的分隔符连接起来，然后返回连接后的字符串 |
-| arr.unshift('A','B'); | 在数组头部添加若干元素，返回新的数组长度     | arr.toString();        | 将数组转为字符串，以逗号分隔                                 |
-| arr.shift();          | 删除数组第一个元素并返回元素值               |                        |                                                              |
+| Method            | Desc                                         | Method             | Desc                                                         |
+| :---------------- | :------------------------------------------- | :----------------- | :----------------------------------------------------------- |
+| length;           | 数组长度                                     | sort();            | 对数组进行排序，默认顺序                                     |
+| indexOf(2);       | 搜索指定元素的索引位置                       | reverse();         | 将数组内容进行反转                                           |
+| slice(0,3);       | 截取数组的部分元素，返回新的数组；左闭右开； | splice(n,m,p1,p2); | 从指定的索引开始删除若干元素，然后再从该位置添加若干元素     |
+| push('A','B');    | 向数组末尾添加元素，返回新的数组长度         | concat(arrOther);  | 把当前的数组和另一个数组连接起来，生产并返回一个新的数组     |
+| pop();            | 删除数组最后一个元素并返回元素值             | join(separate);    | 把当前数组的每个元素都用指定的分隔符连接起来，然后返回连接后的字符串 |
+| unshift('A','B'); | 在数组头部添加若干元素，返回新的数组长度     | toString();        | 将数组转为字符串，以逗号分隔                                 |
+| shift();          | 删除数组第一个元素并返回元素值               |                    |                                                              |
 
 #### 特点
 
@@ -119,21 +182,44 @@ Math对象不用创建，直接使用 `Math.方法名();`
 | floor(x) | 对 x 进行下舍入             | pow(x,y) | 返回 x 的 y 次幂       |
 | round(x) | 把 x 四舍五入为最接近的整数 | random() | 返回[0~1)之间的随机数  |
 
+### String 对象
+
+JavaScript 为字符串提供了一些常用方法。注意：调用这些方法本身不会改变原有字符串的内容，而是返回一个新字符串。
+
+**字符串是不可变的** ，如果对字符串的某个索引赋值，不会有任何错误，但是，也没有任何效果。
+
+`var s = 'Hello world';`
+
+| Method                   | Desc                                               | Method            | Desc                                                         |
+| ------------------------ | -------------------------------------------------- | ----------------- | ------------------------------------------------------------ |
+| s.length;                | 获取字符串的长度                                   | substring(0,5);   | 截取指定索引区间的字串                                       |
+| toUpperCase();           | 将字符串转为大写                                   | toLowerCase();    | 将字符串转为小写                                             |
+| s[n];                    | n是索引号，获取字符串指定位置字符，索引号从 0 开始 | indexOf('world'); | 搜索指定字符出现的首字母位置，如果没有找到返回 -1            |
+| split(separator, limit); | 将一个字符串分成子串并将它们作为数组返回           | match('XX');      | 查找字符串中特定的字符，如果找到则返回匹配到字符，否则返回 null |
+| replace();               | 在字符串中用某些字符替换另一些字符                 | concat()          | 拼接字符串                                                   |
+
 ### RegExp对象
+
+正则表达式（regular expression）: 定义字符串的组成规则
 
 #### 创建
 
-Method 1: `var reg = new RegExp("^\\w{6,12}$");`
+Method 1: `var reg = new RegExp("^\\w{6,12}$","i");`
 
-Method 2: `var reg = /^\w{6,12}$/;`
+Method 2: `var reg = /^\w{6,12}$/gi;`
 
-正则表达式：定义字符串的组成规则
+RegExp 修饰符 : 修饰符用于执行不区分大小写和全文的搜索。
+
+- **i** - 修饰符是用来执行不区分大小写的匹配。
+
+- **g** - 修饰符是用于执行全文的搜索（而不是在找到第一个就停止查找,而是找到所有的匹配）。
 
 #### 方法
 
-| Method     | Desc                                                         |
-| :--------- | ------------------------------------------------------------ |
-| test(参数) | 验证指定的字符是否符合正则定义的规范，返回 Boolean 类型 True ，False |
+| Method | Desc                                                         |
+| :----- | ------------------------------------------------------------ |
+| test() | 验证指定的字符是否符合正则定义的规范，根据结果并返回true或false |
+| exec() | 检索字符串中的指定值。返回值是被找到的值。如果没有发现匹配，则返回 null。 |
 
 #### 正则表达式：方括号
 
@@ -177,22 +263,9 @@ Method 2: `var reg = /^\w{6,12}$/;`
 
 number、boolean、string、null、array、object
 
+
+
 ### 对象操作
-
-JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成。
-
-```javascript
-var peoper = {
-    name: '',
-    age: 23,
-    height:170,
-    weight:70
-};
-```
-
-- 用一个大括号内容表示一个对象，键值对以`xxx: xxx`形式申明，用逗号隔开。
-
-- 访问属性是通过`.`操作符完成的，要求属性名必须是一个有效的变量名。
 
 #### Map & Set
 

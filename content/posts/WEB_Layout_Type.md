@@ -25,47 +25,42 @@ tags:
 
 ```css
 <head>
-    <style>
-        .container {
-            height: 150px;
-            background-color: gray;
-            margin: 0 auto;
-            padding: 0;
-        }
-
-        /* 超小屏幕下，小于768px，布局容器宽度显示 100% */
-        @media screen and (max-width: 767px) {
-            .container {
-                width: 100%;
-            }
-        }
-
-        /* 小屏幕下，大于等于768px，布局容器宽度显示 750px */
-        @media screen and (min-width: 768px) {
-            .container {
-                width: 750px;
-            }
-        }
-
-        /* 中等屏幕下，大于等于 992px，显示 970px */
-        @media screen and (min-width: 992px) {
-            .container {
-                width: 970px;
-            }
-        }
-
-        /* 大屏幕下，大于等于 1200px，显示 1170px */
-        @media screen and (min-width: 1200px) {
-            .container {
-                width: 1170px;
-            }
-        }
-    </style>
+  <style>
+    .container {
+      height: 150px;
+      background-color: gray;
+      margin: 0 auto;
+      padding: 0;
+    }
+    /* 超小屏幕下，小于768px，布局容器宽度显示 100% */
+    @media screen and (max-width: 767px) {
+      .container {
+        width: 100%;
+      }
+    }
+    /* 小屏幕下，大于等于768px，布局容器宽度显示 750px */
+    @media screen and (min-width: 768px) {
+      .container {
+         width: 750px;
+      }
+    }
+    /* 中等屏幕下，大于等于 992px，显示 970px */
+    @media screen and (min-width: 992px) {
+      .container {
+        width: 970px;
+      }
+    }
+    /* 大屏幕下，大于等于 1200px，显示 1170px */
+    @media screen and (min-width: 1200px) {
+      .container {
+        width: 1170px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- 响应式开发里面，首先需要一个布局容器 -->
-    <div class="container"></div>
+  <!-- 响应式开发里面，首先需要一个布局容器 -->
+  <div class="container"></div>
 </body>
 ```
 
