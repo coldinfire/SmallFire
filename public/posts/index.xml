@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>Ext.js 基础知识</title>
+      <link>https://coldinfire.github.io/2021/ExtJS_Basic1/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ExtJS_Basic1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Text Enhancements</title>
       <link>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
@@ -2245,7 +2254,7 @@
       <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_BOM/</guid>
-      <description></description>
+      <description>浏览器对象模型 (BOM) BOM 使 JavaScript 有能力与浏览器&amp;quot;对话&amp;quot;。 包含对象列表 对象 描述 对象 描述 对象 描述 Window 窗口对象 History 历史纪录对象 Navigator 浏览器对象 Screen</description>
     </item>
     
     <item>

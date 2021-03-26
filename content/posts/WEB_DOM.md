@@ -118,6 +118,24 @@ HTML DOM 事件允许 Javascript 在 HTML 文档元素中注册不同事件处�
 
 事件通常与函数结合使用，函数不会在事件发生前被执行！ (如用户点击按钮)。
 
+#### 事件绑定
+
+Method 1：在标签上事件中定义
+
+- `<img id="" src="" onclick="fun1()">`
+
+Method 2：在JavaScript中绑定
+
+```html
+<script>
+    function fun1(){
+        alert('function');
+    }
+    var obj = document.getElementById("");
+    obj.onclick = fun1;
+</script>
+```
+
 #### 鼠标事件
 
 | 属性          | 描述                                   |
