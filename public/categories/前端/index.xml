@@ -6,14 +6,23 @@
     <description>Recent content in 前端 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ext.js 组件</title>
+      <link>https://coldinfire.github.io/2021/ExtJS_Component/</link>
+      <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ExtJS_Component/</guid>
+      <description>Ext.js 的常用组件 ExtJS UI 由一个或多个名为 Components.Ext 的 widget 组成。 虽然 Ext 组件拥有几乎完美的对象继承模型，但是这毕竟属于底层架构的一部分，我们日常开发时候接触最多的</description>
+    </item>
+    
     <item>
       <title>Ext.js 基础知识</title>
       <link>https://coldinfire.github.io/2021/ExtJS_Basic1/</link>
       <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ExtJS_Basic1/</guid>
-      <description></description>
+      <description>Ext.js简介 Ext JS是一个JavaScript框架，它具有面向对象编程的功能。它为使用跨浏览器功能构建Web应用程序提供了丰富的UI。 Ext J</description>
     </item>
     
     <item>
@@ -58,7 +67,7 @@
       <pubDate>Sat, 23 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_DOM/</guid>
-      <description>HTML DOM (文档对象模型) 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。 通过可编程的对象模型，JavaScrip</description>
+      <description>DOM 标准分类 核心 DOM：针对任何结构化文档的标准模型 Document：文档对象 Element：元素对象 Attribute：属性对象 Text：文</description>
     </item>
     
     <item>

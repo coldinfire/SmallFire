@@ -12,7 +12,24 @@ tags:
 
 ---
 
-## HTML DOM (文档对象模型)
+
+
+### DOM 标准分类
+
+核心 DOM：针对任何结构化文档的标准模型
+
+- Document：文档对象
+- Element：元素对象
+- Attribute：属性对象
+- Text：文本对象
+- Comment：注释对象
+- Node：节点对象，上面五个的父对象
+
+XML DOM ：针对 XML 文档的标准模型
+
+HTML DOM：针对 HTML 文档的标准模型
+
+### HTML DOM (文档对象模型)
 
 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
 
@@ -56,7 +73,7 @@ nodeValue 属性规定节点的值。
 - 文本节点的 nodeValue 是文本本身
 - 属性节点的 nodeValue 是属性值
 
-### 操作 HTML 元素属性
+### 操作 HTML 元素和属性
 
 HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的方法。
 
@@ -82,13 +99,13 @@ HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的�
 
 #### 其它操作方法
 
-| Method            | Desc                 | Method           | Desc                     |
-| :---------------- | :------------------- | :--------------- | :----------------------- |
-| appendChild()     | 添加新节点到指定节点 | insertBefore()   | 在指定子节点前插入新节点 |
-| removeChild()     | 删除子节点           | createElement()  | 创建元素节点             |
-| replaceChild()    | 替换子节点           | createTextNote() | 创建本本节点             |
-| createAtttibute() | 创建属性节点         | getAttribute()   | 返回指定的属性值         |
-| setAttribute()    | 修改指定属性设置值   |                  |                          |
+| Method           | Desc                 | Method                 | Desc                     |
+| :--------------- | :------------------- | :--------------------- | :----------------------- |
+| appendChild()    | 添加新节点到指定节点 | insertBefore()         | 在指定子节点前插入新节点 |
+| removeChild()    | 删除子节点           | createAtttibute()      | 创建属性节点             |
+| replaceChild()   | 替换子节点           | setAttribute(attr,val) | 修改指定属性设置值       |
+| createElement()  | 创建元素节点         | removeAttribute(attr)  | 删除属性                 |
+| createTextNote() | 创建本本节点         | getAttribute()         | 获取指定的属性值         |
 
 #### 创建元素
 
