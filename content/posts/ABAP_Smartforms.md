@@ -24,6 +24,22 @@ Smartforms的执行顺序是根据左边菜单从上到下执行的。
 
 ### 查找Smartforms
 
+#### Method 1
+
+查找表格名称和打印程序名称的最佳方法是使用 SE38，输入程序 RSNAST00。 在以下语句处保留断点
+
+```ABAP
+PERFORM (TNAPR-RONAM) IN PROGRAM (TNAPR-PGNAM) 
+                         USING RETURNCODE US_SCREEN
+                         IF FOUND.
+```
+
+Check values of TNAPR-FONAM for form name and TNAPR-PGNAM for driver program name.
+
+TNAPR-FONAM的值为表格名称，TNAPR-PGNAM的值为驱动程序名称。
+
+#### Method 2
+
 **TCode : NACE** 可以查找 (例如。采购订单，销售订单等)
 
 - NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加的脚本表单或 Smartforms）的 Tcode。

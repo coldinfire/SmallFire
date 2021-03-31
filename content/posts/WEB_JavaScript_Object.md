@@ -44,6 +44,7 @@ JavaScript 允许自定义对象。
       person.lastname="Doe";
       person.age=50;
       person.eyecolor="blue";
+      person.showPresent=function(){alert(this.age);}
       ```
 
   - 使用对象字面量创建
@@ -52,7 +53,7 @@ JavaScript 允许自定义对象。
     - 用一个大括号内容表示一个对象，键值对以`xxx: xxx`形式申明，用逗号隔开。
     - 访问属性是通过`.`操作符完成的，要求属性名必须是一个有效的变量名。
 
-- 使用函数来定义对象，然后创建新的对象实例
+- 使用构造函数来定义对象，然后创建新的对象实例
 
   - ```javascript
     function person(firstname,lastname,age,eyecolor){
@@ -72,8 +73,6 @@ JavaScript 允许自定义对象。
 
     john.changeName("Elieen");
 
-
-
 ### JavaScript 内建对象
 
 | 类型     | 描述           | 类型   | 描述         |
@@ -88,9 +87,9 @@ JavaScript 允许自定义对象。
 
 #### 创建
 
-Method 1: `function method_name(形式参数列表){ 方法体 }`
+Method 1: `function func_name(形式参数列表){ 函数体 }`
 
-Method 2: `var method_name = function(形式参数列表){ 方法体 }`
+Method 2: `var method_name = function(形式参数列表){ 函数体 }`
 
 #### 属性
 

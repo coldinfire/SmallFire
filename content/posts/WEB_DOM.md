@@ -131,9 +131,23 @@ HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的�
 
 ### HTML DOM 事件
 
+#### DOM 事件模型
+
+冒泡型事件：事件按照从最特定的事件目标到最不特定的事件目标的顺序触发  
+
+捕获型事件：与冒泡事件相反的过程，事件从最不精确的对象开始触发，然后到最精确 
+
+```html
+<body onclick="handleClick()">  
+  <div onclick="handleClick()">Click Me</div>  
+</body> 
+冒泡触发的顺序是：div、body、html、document、window
+捕获型触发的顺序：document、div
+```
+
 HTML DOM 事件允许 Javascript 在 HTML 文档元素中注册不同事件处理程序。
 
-事件通常与函数结合使用，函数不会在事件发生前被执行！ (如用户点击按钮)。
+事件通常与函数结合使用，函数不会在事件发生前被执行。 
 
 #### 事件绑定
 
@@ -148,14 +162,14 @@ Method 2：在JavaScript中绑定
     function fun1(){
         alert('function');
     }
-    var obj = document.getElementById("");
+    var obj = document.getElementById("id_value");
     obj.onclick = fun1;
 </script>
 ```
 
 #### 鼠标事件
 
-| 属性          | 描述                                   |
+| Attribute     | Desc                                   |
 | :------------ | :------------------------------------- |
 | onclick       | 当用户点击某个对象时调用的事件句柄。   |
 | oncontextmenu | 在用户点击鼠标右键打开上下文菜单时触发 |
@@ -167,3 +181,13 @@ Method 2：在JavaScript中绑定
 | onmouseover   | 鼠标移到某元素之上。                   |
 | onmouseout    | 鼠标从某元素移开。                     |
 | onmouseup     | 鼠标按键被松开。                       |
+
+#### 键盘事件
+
+| Attribute | Desc |
+| :-------- | :--- |
+|           |      |
+|           |      |
+|           |      |
+
+#### HTML 事件

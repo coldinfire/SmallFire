@@ -30,6 +30,104 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/WEB_ECS6/</loc>
+      
+      <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/JS/</loc>
+      
+      <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+      
+      <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
       <lastmod>2021-03-06T00:00:00+00:00</lastmod>
@@ -86,62 +184,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/</loc>
-      
-      <lastmod>2021-03-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2021-03-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2021-03-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
-      
-      <lastmod>2021-03-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2021/ExtJS_Component/</loc>
       
       <lastmod>2021-01-15T00:00:00+00:00</lastmod>
@@ -157,20 +199,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/ExtJS/</loc>
-      
-      <lastmod>2021-01-15T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
       
       <lastmod>2021-01-15T00:00:00+00:00</lastmod>
       
@@ -4217,20 +4245,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_JavaScript_Improve/</loc>
-      
-      <lastmod>2017-10-11T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/JS/</loc>
       
       <lastmod>2017-10-11T00:00:00+00:00</lastmod>
       

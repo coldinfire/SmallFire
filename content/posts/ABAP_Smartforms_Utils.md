@@ -25,12 +25,12 @@ tags:
 
 ### Smartforms Debug
 
-1. 使用TCode:Smartforms进入，输入smartform name或则同个NACE查找到smartform
-2. 在smartform中找到需要Debug的一段代码，打上相应的断点
-3. 在导航栏中通过 Environment –> Function Module Name 获取Function module
-4. 在SE37中打开该Function Module,进入Main program找到Perform GLOBAL_INIT
-5. 该FORM中进行所有的程序数据初始化，所有smartform中的程序行在此处定义，可以打断点
-6. 或则在Main program中找到想要打断点的代码位置，运行Smartform，会进入断点，进行查错
+1. 使用 TCode:Smartforms 进入，输入 smartform name或则同个 NACE 查找到 smartform
+2. 在 smartform 中找到需要 Debug 的一段代码，打上相应的断点
+3. 在导航栏中通过 Environment –> Function Module Name 获取 Function module
+4. 在 SE37 中打开该 Function Module,进入 Main program 找到 Perform GLOBAL_INIT
+5. 该 FORM 中进行所有的程序数据初始化，所有 smartform 中的程序行在此处定义，可以打断点
+6. 或则在 Main program 中找到想要打断点的代码位置，运行 Smartform，会进入断点，进行查错
 
 ### 输出格式设置
 
