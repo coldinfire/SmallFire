@@ -60,6 +60,8 @@ Method 2：在JavaScript中绑定
 
 #### 加载完成事件
 
+`window.onload` 当所有的页面加载完成后，才触发 javascript 代码。
+
 ```javascript
 window.onload = function(){
   document.getElementById().onblure = function(){

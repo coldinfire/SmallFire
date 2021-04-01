@@ -1,6 +1,6 @@
 ---
 title: "Bootstrap学习与总结"
-date: 2017-09-16
+date: 2017-10-13
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -24,6 +24,7 @@ Bootstrap 优点
 
 - 标准化的 html + css 编码规范
 - 提供了一套简洁、直观、强悍的组件
+- 响应式布局：可以更好的兼容不同设备
 - 有自己的生态圈，不断的更新迭代
 - 让开发更简单，提高开发效率
 
@@ -44,18 +45,30 @@ bootstrap 文件夹中的内容是官方提供的下载包内的文件内容。
 #### Step2:创建 html 骨架，引入相关样式文件
 
 ```html
-<!-- 要求当前网页使用IE浏览器最高版本内核来渲染 -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- 视口的设置：视口的宽度和设备一直，默认的缩放比例和PC端一致，用户不能自行缩放 -->
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-<!-- 引入Bootstrap -->
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!--[if lt IE 9]>
-  <!-- 解决IE9以下浏览器对HTML5新增标签的不识别，并导致CSS不起作用的问题 -->  
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <!-- 解决IE9以下浏览器对CSS3 Media Query的不识别 -->  
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 要求当前网页使用IE浏览器最高版本内核来渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口的设置：视口的宽度和设备一直，默认的缩放比例和PC端一致，用户不能自行缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <!-- 引入Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <!-- 解决IE9以下浏览器对HTML5新增标签的不识别，并导致CSS不起作用的问题 -->  
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <!-- 解决IE9以下浏览器对CSS3 Media Query的不识别 -->  
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+    <h1>你好，世界！</h1>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
 ```
 
 #### Step3:写入内容
