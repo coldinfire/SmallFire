@@ -14,6 +14,12 @@ tags:
 
 ### MESSAGE ：SE91
 
+**消息存储的内表**：T100/T100C/T100S/T100U/T160M
+
+- T100 这个表包括所有的消息
+- T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中
+- T100S 就是表示可以修改消息类型的表
+
 #### 消息类的操作
 
 使用 T-CODE:SE91 对 Message 定义，还能够对 Message 进行创建，修改及删除等维护操作。Message Short Text 字段为类描述，可以定义输入参数&，通过‘&’定义多个占位符,如"1&2&3&"表示有三个输入参数。
@@ -51,6 +57,26 @@ EX: Message W001(ZTEST) WITH 'P1' 'P2' 'P3'.
 	2. MESSAGE 'XXXXXXXXXX' TYPE 'X'.          //直接附加消息
 	3. MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.
    	   EXIT.                                   //Screen 界面查询数据无，则返回原界面
+```
+
+#### 增强的Warning Message 不显示
+
+我在 ME22N 的增强面临这些样的问题。 我使用以下方法显示警告消息并将其附加到在检查文档时获得的日志中的警告消息。
+
+```ABAP
+DATA: msgv1 TYPE symsgv,
+      msgv2 TYPE symsgv,
+      msgv3 TYPE symsgv,
+      msgv4 TYPE symsgv.
+CALL METHOD cl_message_mm=>create
+  EXPORTING
+    im_msgid = 'Z01'
+    im_msgty = 'W'
+    im_msgno = '195'
+    im_msgv1 = msgv1
+    im_msgv2 = msgv2
+    im_msgv3 = msgv3
+    im_force_collect = 'X'.
 ```
 
 #### 用函数方式返回消息显示
@@ -147,9 +173,3 @@ CALL FUNCTION 'BAPI_MESSAGE_GETDETAIL'
 *         TEXT               =    
   
 ```
-
-**消息存储的内表**：T100/T100C/T100S/T100U/T160M
-
-- T100 这个表包括所有的消息
-- T100C 通常包括修改后的消息，即修改默认消息类型后的值存在该表中
-- T100S 就是表示可以修改消息类型的表

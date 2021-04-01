@@ -2029,7 +2029,7 @@
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Message/</guid>
-      <description>MESSAGE ：SE91 消息类的操作 使用 T-CODE:SE91 对 Message 定义，还能够对 Message 进行创建，修改及删除等维护操作。Message Short Text 字段为类描述，可以定义输入参数&amp;amp;</description>
+      <description>MESSAGE ：SE91 消息存储的内表：T100/T100C/T100S/T100U/T160M T100 这个表包括所有的消息 T100C 通常包括修改后的消息，即修改默认</description>
     </item>
     
     <item>
@@ -2273,6 +2273,15 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_BOM/</guid>
       <description>浏览器对象模型 (BOM) BOM 使 JavaScript 有能力与浏览器&amp;quot;对话&amp;quot;。 包含对象列表 对象 描述 对象 描述 对象 描述 Window 窗口对象 History 历史纪录对象 Navigator 浏览器对象 Screen</description>
+    </item>
+    
+    <item>
+      <title>HTML DOM 事件</title>
+      <link>https://coldinfire.github.io/2017/WEB_DOM_Event/</link>
+      <pubDate>Mon, 25 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_DOM_Event/</guid>
+      <description>HTML DOM 事件 当某些组件被执行了某些操作后，触发指定的执行程序。 事件：某些操作,如鼠标和键盘等操作 事件源：组件 监听器：程序代码 注册监听：将事件，事</description>
     </item>
     
     <item>

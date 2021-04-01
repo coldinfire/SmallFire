@@ -34,8 +34,6 @@ PERFORM (TNAPR-RONAM) IN PROGRAM (TNAPR-PGNAM)
                          IF FOUND.
 ```
 
-Check values of TNAPR-FONAM for form name and TNAPR-PGNAM for driver program name.
-
 TNAPR-FONAM的值为表格名称，TNAPR-PGNAM的值为驱动程序名称。
 
 #### Method 2

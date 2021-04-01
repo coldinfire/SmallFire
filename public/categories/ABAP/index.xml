@@ -1363,7 +1363,7 @@
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Message/</guid>
-      <description>MESSAGE ：SE91 消息类的操作 使用 T-CODE:SE91 对 Message 定义，还能够对 Message 进行创建，修改及删除等维护操作。Message Short Text 字段为类描述，可以定义输入参数&amp;amp;</description>
+      <description>MESSAGE ：SE91 消息存储的内表：T100/T100C/T100S/T100U/T160M T100 这个表包括所有的消息 T100C 通常包括修改后的消息，即修改默认</description>
     </item>
     
     <item>

@@ -99,13 +99,14 @@ HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的�
 
 #### 其它操作方法
 
-| Method           | Desc                 | Method                 | Desc                     |
-| :--------------- | :------------------- | :--------------------- | :----------------------- |
-| appendChild()    | 添加新节点到指定节点 | insertBefore()         | 在指定子节点前插入新节点 |
-| removeChild()    | 删除子节点           | createAtttibute()      | 创建属性节点             |
-| replaceChild()   | 替换子节点           | setAttribute(attr,val) | 修改指定属性设置值       |
-| createElement()  | 创建元素节点         | removeAttribute(attr)  | 删除属性                 |
-| createTextNote() | 创建本本节点         | getAttribute()         | 获取指定的属性值         |
+| Method             | Desc                 | Method                 | Desc                     |
+| :----------------- | :------------------- | :--------------------- | :----------------------- |
+| appendChild()      | 添加新节点到指定节点 | insertBefore()         | 在指定子节点前插入新节点 |
+| removeChild()      | 删除子节点           | createAtttibute()      | 创建属性节点             |
+| replaceChild()     | 替换子节点           | setAttribute(attr,val) | 修改指定属性设置值       |
+| createElement()    | 创建元素节点         | removeAttribute(attr)  | 删除属性                 |
+| createTextNote()   | 创建本本节点         | getAttribute()         | 获取指定的属性值         |
+| insertRow(line_no) | Table 插入一行       | insertCell(cell_no)    | 行中插入一个元素，0 开始 |
 
 #### 创建元素
 
@@ -129,65 +130,3 @@ HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的�
 | attributes | 节点(元素)的属性节点   | lastChild  | 最后一个子元素     |
 | childNodes | 节点(元素)的子节点     | parentNode | 节点(元素)的父节点 |
 
-### HTML DOM 事件
-
-#### DOM 事件模型
-
-冒泡型事件：事件按照从最特定的事件目标到最不特定的事件目标的顺序触发  
-
-捕获型事件：与冒泡事件相反的过程，事件从最不精确的对象开始触发，然后到最精确 
-
-```html
-<body onclick="handleClick()">  
-  <div onclick="handleClick()">Click Me</div>  
-</body> 
-冒泡触发的顺序是：div、body、html、document、window
-捕获型触发的顺序：document、div
-```
-
-HTML DOM 事件允许 Javascript 在 HTML 文档元素中注册不同事件处理程序。
-
-事件通常与函数结合使用，函数不会在事件发生前被执行。 
-
-#### 事件绑定
-
-Method 1：在标签上事件中定义
-
-- `<img id="" src="" onclick="fun1()">`
-
-Method 2：在JavaScript中绑定
-
-```html
-<script>
-    function fun1(){
-        alert('function');
-    }
-    var obj = document.getElementById("id_value");
-    obj.onclick = fun1;
-</script>
-```
-
-#### 鼠标事件
-
-| Attribute     | Desc                                   |
-| :------------ | :------------------------------------- |
-| onclick       | 当用户点击某个对象时调用的事件句柄。   |
-| oncontextmenu | 在用户点击鼠标右键打开上下文菜单时触发 |
-| ondblclick    | 当用户双击某个对象时调用的事件句柄。   |
-| onmousedown   | 鼠标按钮被按下。                       |
-| onmouseenter  | 当鼠标指针移动到元素上时触发。         |
-| onmouseleave  | 当鼠标指针移出元素时触发               |
-| onmousemove   | 鼠标被移动。                           |
-| onmouseover   | 鼠标移到某元素之上。                   |
-| onmouseout    | 鼠标从某元素移开。                     |
-| onmouseup     | 鼠标按键被松开。                       |
-
-#### 键盘事件
-
-| Attribute | Desc |
-| :-------- | :--- |
-|           |      |
-|           |      |
-|           |      |
-
-#### HTML 事件
