@@ -4216,6 +4216,34 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/tomcat/</loc>
+      
+      <lastmod>2017-12-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_Tomcat/</loc>
+      
+      <lastmod>2017-12-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/tags/JQuery/</loc>
       
       <lastmod>2017-10-29T00:00:00+00:00</lastmod>
