@@ -1290,7 +1290,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/PP_WorkOrderStatus/</loc>
+      <loc>https://coldinfire.github.io/2019/PP_ProductOrderStatus/</loc>
       
       <lastmod>2019-08-25T00:00:00+00:00</lastmod>
       
@@ -4261,6 +4261,48 @@
       <loc>https://coldinfire.github.io/tags/EasyUI/</loc>
       
       <lastmod>2017-10-25T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/XML/</loc>
+      
+      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_XML/</loc>
+      
+      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_XML_Parse/</loc>
+      
+      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

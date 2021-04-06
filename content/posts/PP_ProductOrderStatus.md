@@ -48,6 +48,66 @@ tags:
 | 完全入库       | REL、GMPS、CNF、DLV  | 已释放、已过账的货物移动、已确认、交货   |
 | 技术关闭       | TECO、GMPS、CNF、DLV | 技术关闭、已过账的货物移动、已确认、交货 |
 
+#### 函数使用
+
+STATUS_READ：获取输入工单的状态
+
+```ABAP
+DATA:l_aufnr type aufnr.
+DATA:it_jest type standard table jest.
+DATA:it_tj02t type standard table tj02t.
+call function 'STATUS_READ'     
+  exporting
+    OBJNR            = L_AUFNR
+    ONLY_ACTIVE      = 'X'
+  tables
+    STATUS           = IT_JEST
+  exceptions
+    OBJECT_NOT_FOUND = 1
+    others           = 2.
+if SY-SUBRC <> 0.
+endif.
+" to get the texts of statuses
+if not IT_JEST is initial.
+  select ISTAT TXT04
+    from TJ02T
+    into table IT_TJ02T
+    for all entries in IT_JEST
+    where ISTAT = IT_JEST-STAT
+      and SPRAS = SY-LANGU.
+endif.
+```
+
+STATUS_TEXT_EDIT：获取和 CO03 显示的状态一样的数据
+
+```ABAP
+
+CALL FUNCTION 'STATUS_TEXT_EDIT'
+  EXPORTING
+    flg_user_stat = 'X'
+    objnr = caufvd-objnr
+    only_active = 'X'
+    spras = sy-langu
+  IMPORTING
+    anw_stat_existing = caufvd-astex
+    line = t_hresb-sttxt "Status Result"
+    user_line = t_hresb-asttx
+  EXCEPTIONS
+    object_not_found = 01.
+```
+
+STATUS_CHECK：检查生产订单状态，看是否有某种状态
+
+```ABAP
+CALL FUNCTION 'STATUS_CHECK'
+  EXPORTING
+    OBJNR = CAUFVD-OBJNR
+    STATUS = STATUS_PRINT
+  EXCEPTIONS
+    OBJECT_NOT_FOUND = 01
+    STATUS_NOT_ACTIVE = 02.
+```
+
 #### 状态相关表
 
 根据工单可以去 AUFK 表中找到工单对应的 Object Number(OBJNR) .状态表为：**JEST,** 字段 OBJNR 为 OR + 订单号，STAT 即为订单状态。但是 STAT 的都是 I 打头的状态，通过 **CO03** 看生产订单状态都是英文简短字段标识。两者间的关系保存在表 **TJ02** 中，**TJ02T**：系统状态文本表（一般文本表都是标准表后加T）。
@@ -94,8 +154,3 @@ IF sy-subrc = 0.
   CONTINUE.
 ENDIF.
 ```
-
-#### 函数使用
-
-- STATUS_READ：获取输入工单的状态
-- STATUS_CHECK：检查生产订单状态，看是否有某种状态

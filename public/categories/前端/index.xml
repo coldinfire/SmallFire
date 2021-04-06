@@ -53,12 +53,30 @@
     </item>
     
     <item>
+      <title>XML 基础知识</title>
+      <link>https://coldinfire.github.io/2017/WEB_XML/</link>
+      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_XML/</guid>
+      <description>XML 简介 什么是 XML XML 指可扩展标记语言（EXtensible Markup Language）。 XML 是一种很像HTML的标记语言。 XML 的设计宗旨是传输数据，而不是显</description>
+    </item>
+    
+    <item>
+      <title>XML文档解析</title>
+      <link>https://coldinfire.github.io/2017/WEB_XML_Parse/</link>
+      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_XML_Parse/</guid>
+      <description>解析 XML 文档 将文档中的数据读取到内存中。 写入 XML 文档 将内存中的数据保存到 xml 文档中。持久化存储。</description>
+    </item>
+    
+    <item>
       <title>Bootstrap API学习总结</title>
       <link>https://coldinfire.github.io/2017/WEB_BootStrapAPI/</link>
       <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_BootStrapAPI/</guid>
-      <description>BootStrap 标准API使用</description>
+      <description>Bootstrap 中文网 Bootstrap 官方网站 全局 CSS 样式 页面主题默认设置：Bootstrap 将全局 font-size 设置为 14px，line-height 设置为 1.428。这些属性直接</description>
     </item>
     
     <item>
