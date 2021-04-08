@@ -6,14 +6,32 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 12 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ECMAScript 6 知识了解</title>
       <link>https://coldinfire.github.io/2021/WEB_ECS6/</link>
-      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/WEB_ECS6/</guid>
       <description>新增变量声明 let 命令 let命令，用来声明变量。它的用法类似于 var，但是所声明的变量，只在 let 命令所在的代码块内有效。 var arr = [1,&amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;]; for (let i = 0; i &amp;lt; arr.length; i++)</description>
+    </item>
+    
+    <item>
+      <title>JSON和JAVA对象的转换</title>
+      <link>https://coldinfire.github.io/2021/WEB_JSON_JAVA/</link>
+      <pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/WEB_JSON_JAVA/</guid>
+      <description>JSON解析器 常见的解析器：Gson、fastjson、jackson、Jsonlib JSON 转为 JAVA 对象 JAVA 对象转换为 JSON</description>
+    </item>
+    
+    <item>
+      <title>JSON 详解</title>
+      <link>https://coldinfire.github.io/2021/WEB_JSON/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/WEB_JSON/</guid>
+      <description>JSON 简介 JSON（JavaScript Object Notation）是一种轻量级的用于数据交换的文本格式，2001年由 Douglas Crockford 提出，目的是取代繁琐笨重的 XML 格</description>
     </item>
     
     <item>
@@ -2281,7 +2299,7 @@
       <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_XML_Parse/</guid>
-      <description>解析 XML 文档 将文档中的数据读取到内存中。 写入 XML 文档 将内存中的数据保存到 xml 文档中。持久化存储。</description>
+      <description>解析 XML 文档 将文档中的数据读取到内存中。 DOM 解析 DOM 解析原理：xml 解析器一次性把整个 xml 文档加载进内存，然后在内存中构建一颗 Document 的对象树，通过 Document 对象</description>
     </item>
     
     <item>
