@@ -2250,11 +2250,11 @@
     
     <item>
       <title> HTTP解析 </title>
-      <link>https://coldinfire.github.io/2018/HTTP/</link>
+      <link>https://coldinfire.github.io/2018/WEB_HTTP/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/HTTP/</guid>
-      <description>引言 HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，</description>
+      <guid>https://coldinfire.github.io/2018/WEB_HTTP/</guid>
+      <description>引言 HTTP 是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不</description>
     </item>
     
     <item>
@@ -2264,6 +2264,33 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_Tomcat/</guid>
       <description>Tomcat 简介 Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试 JSP</description>
+    </item>
+    
+    <item>
+      <title>Servlet Response对象</title>
+      <link>https://coldinfire.github.io/2017/WEB_Servlet_Respose/</link>
+      <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Servlet_Respose/</guid>
+      <description>Servlet Response 对象</description>
+    </item>
+    
+    <item>
+      <title>Servlet Request对象</title>
+      <link>https://coldinfire.github.io/2017/WEB_Servlet_Request/</link>
+      <pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Servlet_Request/</guid>
+      <description>Servlet Request 对象</description>
+    </item>
+    
+    <item>
+      <title>Servlet 解析</title>
+      <link>https://coldinfire.github.io/2017/WEB_Servlet/</link>
+      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Servlet/</guid>
+      <description>Servlet 简介 Servlet是Java Web的一种实现技术，可以接收浏览器发送过来的请求并给出响应。 Servlet 的创建 Method 1 : 实现 Servlet 接口 Step1：创建类并实现</description>
     </item>
     
     <item>
