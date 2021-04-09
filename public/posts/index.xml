@@ -2272,7 +2272,7 @@
       <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Servlet_Respose/</guid>
-      <description>Servlet Response 对象</description>
+      <description>Servlet Response 对象 ServletResponse 接口表示一个 Servlet 响应，在调用 Servlet 的Service( )方法前，Servlet 容器会先创建一个 ServletResponse 对象，并把它作为返回参数传给 Service( )方法。 ServletResponse 对</description>
     </item>
     
     <item>
@@ -2281,7 +2281,7 @@
       <pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Servlet_Request/</guid>
-      <description>Servlet Request 对象</description>
+      <description>Servlet Request 对象 Servlet 容器对于接受到的每一个 Http 请求，都会创建一个ServletRequest 对象，并把这个对象传递给 Servlet 的 Sevice( )方法。其中，ServletR</description>
     </item>
     
     <item>
