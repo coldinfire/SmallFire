@@ -22,9 +22,12 @@ ServletResponse 对象封装了向浏览器发送响应的复杂过程。
 
 #### HttpServletResponse 接口常用方法
 
+由于 HTTP 请求消息分为状态行，响应消息头，响应消息体三部分；因此，在 HttpServletResponse 接口中定义了向客户端发送响应状态码，响应消息头，响应消息体的方法。
+
 ```java
 //获取缓冲信息
-public void flushBuffer() throws IOException;// 强制刷新缓冲区的内容到客户端，之后如果调用forward方法将报异常。
+  // 强制刷新缓冲区的内容到客户端，之后如果调用forward方法将报异常。
+public void flushBuffer() throws IOException;
 public void resetBuffer();// 只清除缓冲。
 public void reset();// 清除缓冲、状态码、头信息，设置页面不缓存。
 public int getBufferSize();// 返回响应使用的缓冲区使用的实际大小。
