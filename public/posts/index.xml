@@ -2259,10 +2259,10 @@
     
     <item>
       <title> MySQL基本操作 </title>
-      <link>https://coldinfire.github.io/2017/MySQL_Basic/</link>
+      <link>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</link>
       <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/MySQL_Basic/</guid>
+      <guid>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</guid>
       <description>MySQL 数据库 连接操作 操作 操作语句 连接 mysql -h (ip) -u user_name -p password 断开 exit; 创建授权 grant select on 数据库.* to 用户名@登录主机 identified by &amp;ldquo;密码&amp;rdquo; 删除授权 revoke</description>
     </item>
     
@@ -2273,6 +2273,33 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_Tomcat/</guid>
       <description>Tomcat 简介 Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试 JSP</description>
+    </item>
+    
+    <item>
+      <title>Servlet Cookie对象</title>
+      <link>https://coldinfire.github.io/2017/WEB_Servlet_Cookie/</link>
+      <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Servlet_Cookie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Servlet Session对象</title>
+      <link>https://coldinfire.github.io/2017/WEB_Servlet_Session/</link>
+      <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Servlet_Session/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Servlet SrvletContext对象</title>
+      <link>https://coldinfire.github.io/2017/WEB_Servlet_ServletContext/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_Servlet_ServletContext/</guid>
+      <description>ServletContext 对象 ServletContext 代表整个WEB应用，可以和程序的容器(服务器)通讯 获取 ServletContext 对象 通过 request 对象获取 request.getServletContext() 通过 HttpServlet 获取 this.getServletContext(); 功能 获取 MIME 类型 MIME 类型：在互联网通信过程中定义</description>
     </item>
     
     <item>

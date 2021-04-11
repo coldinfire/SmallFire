@@ -4244,7 +4244,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/MySQL_Basic/</loc>
+      <loc>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</loc>
       
       <lastmod>2017-12-21T00:00:00+00:00</lastmod>
       
@@ -4316,7 +4316,49 @@
     <url>
       <loc>https://coldinfire.github.io/tags/Servlet/</loc>
       
-      <lastmod>2017-11-07T00:00:00+00:00</lastmod>
+      <lastmod>2017-11-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_Servlet_Cookie/</loc>
+      
+      <lastmod>2017-11-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_Servlet_Session/</loc>
+      
+      <lastmod>2017-11-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_Servlet_ServletContext/</loc>
+      
+      <lastmod>2017-11-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

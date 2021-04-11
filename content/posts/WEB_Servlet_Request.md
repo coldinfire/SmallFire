@@ -18,7 +18,7 @@ Servlet 容器对于接受到的每一个 Http 请求，都会创建一个Servle
 
 #### HTTP 请求信息
 
-![](/images/Tomcat/HTTPRequest.png)
+![HTTP Request](/images/Tomcat/HTTPRequest.png)
 
 #### HttpServletRequest 接口常用方法
 
@@ -96,10 +96,6 @@ Servlet 容器对于接受到的每一个 Http 请求，都会创建一个Servle
 解决post提交方式的乱码：
 
 - request.setCharacterEncoding("UTF-8");
-
-返回数据的乱码
-
-- response.setContentType("text/html;charset=utf-8");
 
 #### 请求转发
 
