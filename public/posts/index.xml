@@ -2258,6 +2258,15 @@
     </item>
     
     <item>
+      <title> MySQL基本操作 </title>
+      <link>https://coldinfire.github.io/2017/MySQL_Basic/</link>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/MySQL_Basic/</guid>
+      <description>MySQL 数据库 连接操作 操作 操作语句 连接 mysql -h (ip) -u user_name -p password 断开 exit; 创建授权 grant select on 数据库.* to 用户名@登录主机 identified by &amp;ldquo;密码&amp;rdquo; 删除授权 revoke</description>
+    </item>
+    
+    <item>
       <title>Tomcat 使用</title>
       <link>https://coldinfire.github.io/2017/WEB_Tomcat/</link>
       <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>

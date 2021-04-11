@@ -4244,6 +4244,48 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2017/MySQL_Basic/</loc>
+      
+      <lastmod>2017-12-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/JAVA/</loc>
+      
+      <lastmod>2017-12-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/MySQL/</loc>
+      
+      <lastmod>2017-12-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/tags/tomcat/</loc>
       
       <lastmod>2017-12-05T00:00:00+00:00</lastmod>
@@ -4261,20 +4303,6 @@
       <loc>https://coldinfire.github.io/2017/WEB_Tomcat/</loc>
       
       <lastmod>2017-12-05T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/JAVA/</loc>
-      
-      <lastmod>2017-11-07T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
