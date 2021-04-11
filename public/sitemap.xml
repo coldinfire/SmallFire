@@ -4286,23 +4286,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/tomcat/</loc>
+      <loc>https://coldinfire.github.io/2017/WEB_JSP_Basic/</loc>
       
-      <lastmod>2017-12-05T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Tomcat/</loc>
-      
-      <lastmod>2017-12-05T00:00:00+00:00</lastmod>
+      <lastmod>2017-11-16T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4316,7 +4302,21 @@
     <url>
       <loc>https://coldinfire.github.io/tags/Servlet/</loc>
       
-      <lastmod>2017-11-12T00:00:00+00:00</lastmod>
+      <lastmod>2017-11-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_Servlet_Session/</loc>
+      
+      <lastmod>2017-11-13T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4342,9 +4342,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Servlet_Session/</loc>
+      <loc>https://coldinfire.github.io/2017/WEB_Servlet_ServletContext/</loc>
       
-      <lastmod>2017-11-12T00:00:00+00:00</lastmod>
+      <lastmod>2017-11-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4356,7 +4356,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Servlet_ServletContext/</loc>
+      <loc>https://coldinfire.github.io/2017/WEB_Servlet_DownloadFile/</loc>
       
       <lastmod>2017-11-09T00:00:00+00:00</lastmod>
       
@@ -4400,7 +4400,35 @@
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_Servlet/</loc>
       
-      <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+      <lastmod>2017-11-04T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/tomcat/</loc>
+      
+      <lastmod>2017-11-01T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_Tomcat/</loc>
+      
+      <lastmod>2017-11-01T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
