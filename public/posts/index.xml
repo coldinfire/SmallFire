@@ -1314,28 +1314,28 @@
     
     <item>
       <title> Python基础 </title>
-      <link>https://coldinfire.github.io/2019/Python1/</link>
+      <link>https://coldinfire.github.io/2019/Python_Basic/</link>
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/Python1/</guid>
+      <guid>https://coldinfire.github.io/2019/Python_Basic/</guid>
       <description>变量定义和数据类型 变量定义 Python的变量命名规则： 硬性规则： 变量由字母、数字和下划线构成，不能以数字开头 大小写敏感 不能跟python的关</description>
     </item>
     
     <item>
       <title> Python学习资源</title>
-      <link>https://coldinfire.github.io/2019/PythonResource/</link>
+      <link>https://coldinfire.github.io/2019/Python_Resource/</link>
       <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/PythonResource/</guid>
+      <guid>https://coldinfire.github.io/2019/Python_Resource/</guid>
       <description>资源 Python 官网 包含了 Python 框架、Python 库和软件的 awesome 列表 Python 神书，里面有若干个项目，每个项目都是由业内大神所写，每个项目代码在 500 行左右 介绍 Python3 中的标</description>
     </item>
     
     <item>
       <title> Pycharm 使用 </title>
-      <link>https://coldinfire.github.io/2019/Pycharm/</link>
+      <link>https://coldinfire.github.io/2019/Python_Pycharm/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/Pycharm/</guid>
+      <guid>https://coldinfire.github.io/2019/Python_Pycharm/</guid>
       <description>常用快捷键 1、Ctrl + Enter：在下方新建行但不移动光标 2、Shift + Enter：在下方新建行并移到新行行首 3、Ctrl + /：注释(取</description>
     </item>
     
@@ -2151,100 +2151,100 @@
     
     <item>
       <title> Hugo添加搜索功能(Algolia)  </title>
-      <link>https://coldinfire.github.io/2018/hugo2/</link>
+      <link>https://coldinfire.github.io/2018/Utils_hugo2/</link>
       <pubDate>Tue, 06 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/hugo2/</guid>
+      <guid>https://coldinfire.github.io/2018/Utils_hugo2/</guid>
       <description>Algolia：博客框架 https://www.algolia.com/ Algolia配置 ​ ​ 记录API Keys相关信息： Application ID Search-Only API Key Admin API Key Hugo设置 在配置文件config中添加一下内容</description>
     </item>
     
     <item>
       <title> 使用Hugo&#43;GitHub Pages快速搭建博客  </title>
-      <link>https://coldinfire.github.io/2018/hugo1/</link>
+      <link>https://coldinfire.github.io/2018/Utils_hugo1/</link>
       <pubDate>Sun, 04 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/hugo1/</guid>
+      <guid>https://coldinfire.github.io/2018/Utils_hugo1/</guid>
       <description>工具准备 Hugo：博客框架 https://github.com/gohugoio/hugo Git：用来发布博客内容 https://git-scm.com/ Github：保存和显示博客内容 https://github.com/ MarkDown编辑软件：用来进行博客文章的编辑 Typora C</description>
     </item>
     
     <item>
       <title>Git学习与总结</title>
-      <link>https://coldinfire.github.io/2018/Git/</link>
+      <link>https://coldinfire.github.io/2018/Utils_Git/</link>
       <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/Git/</guid>
+      <guid>https://coldinfire.github.io/2018/Utils_Git/</guid>
       <description>Git本地结构 Workspace： 工作区，实际操作的目录。 Index / Stage： 暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友好交</description>
     </item>
     
     <item>
       <title> Shell 脚本-流程控制</title>
-      <link>https://coldinfire.github.io/2018/LinuxShellFlow/</link>
+      <link>https://coldinfire.github.io/2018/Linux_ShellFlow/</link>
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/LinuxShellFlow/</guid>
+      <guid>https://coldinfire.github.io/2018/Linux_ShellFlow/</guid>
       <description>退出状态 命令（包括我们编写的脚本和 shell 函数）在终止时向系统发出一个值，称为退出状态。该值是 0 到 255 范围内的整数，表示命令执行成功或失败。按照惯例</description>
     </item>
     
     <item>
       <title> Shell 脚本</title>
-      <link>https://coldinfire.github.io/2018/LinuxShell/</link>
+      <link>https://coldinfire.github.io/2018/Linux_Shell/</link>
       <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/LinuxShell/</guid>
+      <guid>https://coldinfire.github.io/2018/Linux_Shell/</guid>
       <description>什么是Shell脚本 简单来说，shell 脚本是包含一系列命令的文件。shell 读取此文件并执行命令，就像它们已直接在命令行上输入一样。she</description>
     </item>
     
     <item>
       <title> Linux软件包管理 </title>
-      <link>https://coldinfire.github.io/2018/LinuxYum/</link>
+      <link>https://coldinfire.github.io/2018/Linux_Yum/</link>
       <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/LinuxYum/</guid>
+      <guid>https://coldinfire.github.io/2018/Linux_Yum/</guid>
       <description>安装包分类 源码包 源码包：即程序软件的源代码（将软件的源码以 tar 打包后再压缩的资源包）。 RPM 最大的特点就是需要安装的软件已经编译过，并已经打包成 RPM</description>
     </item>
     
     <item>
       <title> Linux链接和网络管理 </title>
-      <link>https://coldinfire.github.io/2018/LinuxLn/</link>
+      <link>https://coldinfire.github.io/2018/Linux_Ln/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/LinuxLn/</guid>
+      <guid>https://coldinfire.github.io/2018/Linux_Ln/</guid>
       <description>软链接 创建：ln -s 源路径 目标路径 特点：删除链接文件，源文件无影响；删除源文件，链接文件失效；修改其中一个文件，两个内容都改变；可以跨分区 指向</description>
     </item>
     
     <item>
       <title> Linux 权限管理 </title>
-      <link>https://coldinfire.github.io/2018/LinuxAuth/</link>
+      <link>https://coldinfire.github.io/2018/Linux_Auth/</link>
       <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/LinuxAuth/</guid>
+      <guid>https://coldinfire.github.io/2018/Linux_Auth/</guid>
       <description>用户权限 增删改查用户 增 useradd username：创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：修改用户的</description>
     </item>
     
     <item>
       <title> Linux Vim使用 </title>
-      <link>https://coldinfire.github.io/2018/LinuxVim/</link>
+      <link>https://coldinfire.github.io/2018/Linux_Vim/</link>
       <pubDate>Sat, 13 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/LinuxVim/</guid>
+      <guid>https://coldinfire.github.io/2018/Linux_Vim/</guid>
       <description>文件编辑：Vim 1）.命令行模式command mode） 控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，</description>
     </item>
     
     <item>
       <title> Linux文件操作 </title>
-      <link>https://coldinfire.github.io/2018/LinuxFile/</link>
+      <link>https://coldinfire.github.io/2018/Linux_File/</link>
       <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/LinuxFile/</guid>
+      <guid>https://coldinfire.github.io/2018/Linux_File/</guid>
       <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： d：目录 -：文件 I：链接文档 b：可随机存储装置 c：串行端口设备 后续文字意义： 1、三个为一组均</description>
     </item>
     
     <item>
       <title> Linux基础 </title>
-      <link>https://coldinfire.github.io/2018/Linux/</link>
+      <link>https://coldinfire.github.io/2018/Linux_Basic/</link>
       <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/Linux/</guid>
+      <guid>https://coldinfire.github.io/2018/Linux_Basic/</guid>
       <description>主要内容 Linux目录组成结构及文件的增删改查，用户，权限管理 Linux软件包管理、磁盘管理 Linux网络基础 Linux状态监控命令 Linu</description>
     </item>
     
@@ -2277,64 +2277,64 @@
     
     <item>
       <title>Servlet Session对象</title>
-      <link>https://coldinfire.github.io/2017/WEB_Servlet_Session/</link>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet_Session/</link>
       <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_Servlet_Session/</guid>
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Session/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Servlet Cookie对象</title>
-      <link>https://coldinfire.github.io/2017/WEB_Servlet_Cookie/</link>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet_Cookie/</link>
       <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_Servlet_Cookie/</guid>
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Cookie/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Servlet SrvletContext对象</title>
-      <link>https://coldinfire.github.io/2017/WEB_Servlet_ServletContext/</link>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet_ServletContext/</link>
       <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_Servlet_ServletContext/</guid>
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_ServletContext/</guid>
       <description>ServletContext 对象 ServletContext 代表整个WEB应用，可以和程序的容器(服务器)通讯 获取 ServletContext 对象 通过 request 对象获取 request.getServletContext() 通过 HttpServlet 获取 this.getServletContext(); 功能 获取 MIME 类型 MIME 类型：在互联网通信过程中定义</description>
     </item>
     
     <item>
       <title>Servlet 下载文件</title>
-      <link>https://coldinfire.github.io/2017/WEB_Servlet_DownloadFile/</link>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet_DownloadFile/</link>
       <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_Servlet_DownloadFile/</guid>
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_DownloadFile/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Servlet Response对象</title>
-      <link>https://coldinfire.github.io/2017/WEB_Servlet_Respose/</link>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet_Respose/</link>
       <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_Servlet_Respose/</guid>
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Respose/</guid>
       <description>Servlet Response 对象 ServletResponse 接口表示一个 Servlet 响应，在调用 Servlet 的Service( )方法前，Servlet 容器会先创建一个 ServletResponse 对象，并把它作为返回参数传给 Service( )方法。 ServletResponse 对</description>
     </item>
     
     <item>
       <title>Servlet Request对象</title>
-      <link>https://coldinfire.github.io/2017/WEB_Servlet_Request/</link>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet_Request/</link>
       <pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_Servlet_Request/</guid>
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Request/</guid>
       <description>Servlet Request 对象 Servlet 容器对于接受到的每一个 Http 请求，都会创建一个ServletRequest 对象，并把这个对象传递给 Servlet 的 Sevice( )方法。其中，ServletR</description>
     </item>
     
     <item>
       <title>Servlet 解析</title>
-      <link>https://coldinfire.github.io/2017/WEB_Servlet/</link>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet/</link>
       <pubDate>Sat, 04 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_Servlet/</guid>
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet/</guid>
       <description>Servlet 简介 Servlet是Java Web的一种实现技术，可以接收浏览器发送过来的请求并给出响应。 Servlet 的创建 Method 1 : 实现 Servlet 接口 Step1：创建类并实现</description>
     </item>
     

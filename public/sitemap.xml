@@ -2564,7 +2564,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/Python1/</loc>
+      <loc>https://coldinfire.github.io/2019/Python_Basic/</loc>
       
       <lastmod>2019-01-16T00:00:00+00:00</lastmod>
       
@@ -2606,7 +2606,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/PythonResource/</loc>
+      <loc>https://coldinfire.github.io/2019/Python_Resource/</loc>
       
       <lastmod>2019-01-14T00:00:00+00:00</lastmod>
       
@@ -2620,7 +2620,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/Pycharm/</loc>
+      <loc>https://coldinfire.github.io/2019/Python_Pycharm/</loc>
       
       <lastmod>2019-01-03T00:00:00+00:00</lastmod>
       
@@ -3978,7 +3978,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/hugo2/</loc>
+      <loc>https://coldinfire.github.io/2018/Utils_hugo2/</loc>
       
       <lastmod>2018-02-06T00:00:00+00:00</lastmod>
       
@@ -4006,7 +4006,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/hugo1/</loc>
+      <loc>https://coldinfire.github.io/2018/Utils_hugo1/</loc>
       
       <lastmod>2018-02-04T00:00:00+00:00</lastmod>
       
@@ -4034,7 +4034,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/Git/</loc>
+      <loc>https://coldinfire.github.io/2018/Utils_Git/</loc>
       
       <lastmod>2018-02-02T00:00:00+00:00</lastmod>
       
@@ -4048,7 +4048,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/LinuxShellFlow/</loc>
+      <loc>https://coldinfire.github.io/2018/Linux_ShellFlow/</loc>
       
       <lastmod>2018-01-31T00:00:00+00:00</lastmod>
       
@@ -4104,7 +4104,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/LinuxShell/</loc>
+      <loc>https://coldinfire.github.io/2018/Linux_Shell/</loc>
       
       <lastmod>2018-01-27T00:00:00+00:00</lastmod>
       
@@ -4118,7 +4118,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/LinuxYum/</loc>
+      <loc>https://coldinfire.github.io/2018/Linux_Yum/</loc>
       
       <lastmod>2018-01-23T00:00:00+00:00</lastmod>
       
@@ -4132,7 +4132,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/LinuxLn/</loc>
+      <loc>https://coldinfire.github.io/2018/Linux_Ln/</loc>
       
       <lastmod>2018-01-22T00:00:00+00:00</lastmod>
       
@@ -4146,7 +4146,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/LinuxAuth/</loc>
+      <loc>https://coldinfire.github.io/2018/Linux_Auth/</loc>
       
       <lastmod>2018-01-17T00:00:00+00:00</lastmod>
       
@@ -4160,7 +4160,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/LinuxVim/</loc>
+      <loc>https://coldinfire.github.io/2018/Linux_Vim/</loc>
       
       <lastmod>2018-01-13T00:00:00+00:00</lastmod>
       
@@ -4188,7 +4188,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/LinuxFile/</loc>
+      <loc>https://coldinfire.github.io/2018/Linux_File/</loc>
       
       <lastmod>2018-01-10T00:00:00+00:00</lastmod>
       
@@ -4202,7 +4202,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/Linux/</loc>
+      <loc>https://coldinfire.github.io/2018/Linux_Basic/</loc>
       
       <lastmod>2018-01-06T00:00:00+00:00</lastmod>
       
@@ -4314,7 +4314,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Servlet_Session/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_Session/</loc>
       
       <lastmod>2017-11-13T00:00:00+00:00</lastmod>
       
@@ -4328,7 +4328,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Servlet_Cookie/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_Cookie/</loc>
       
       <lastmod>2017-11-12T00:00:00+00:00</lastmod>
       
@@ -4342,7 +4342,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Servlet_ServletContext/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_ServletContext/</loc>
       
       <lastmod>2017-11-09T00:00:00+00:00</lastmod>
       
@@ -4356,7 +4356,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Servlet_DownloadFile/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_DownloadFile/</loc>
       
       <lastmod>2017-11-09T00:00:00+00:00</lastmod>
       
@@ -4370,7 +4370,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Servlet_Respose/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_Respose/</loc>
       
       <lastmod>2017-11-07T00:00:00+00:00</lastmod>
       
@@ -4384,7 +4384,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Servlet_Request/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_Request/</loc>
       
       <lastmod>2017-11-06T00:00:00+00:00</lastmod>
       
@@ -4398,7 +4398,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_Servlet/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet/</loc>
       
       <lastmod>2017-11-04T00:00:00+00:00</lastmod>
       
