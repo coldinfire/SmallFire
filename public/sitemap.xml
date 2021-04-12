@@ -4328,20 +4328,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/JAVA_IO/</loc>
-      
-      <lastmod>2017-11-12T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2017/JAVA_Servlet_Cookie/</loc>
       
       <lastmod>2017-11-12T00:00:00+00:00</lastmod>
@@ -4541,6 +4527,62 @@
       <loc>https://coldinfire.github.io/2017/WEB_XML_Parse/</loc>
       
       <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/JAVA_Reflection/</loc>
+      
+      <lastmod>2017-10-20T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/JAVA%E5%8F%8D%E5%B0%84/</loc>
+      
+      <lastmod>2017-10-20T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/IO/</loc>
+      
+      <lastmod>2017-10-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/JAVA_IO/</loc>
+      
+      <lastmod>2017-10-18T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
