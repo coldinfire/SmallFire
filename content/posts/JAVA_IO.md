@@ -1,13 +1,13 @@
 ---
-title: "JavaScript其它技术点汇总"
-date: 2017-09-29
+title: "JAVA IO"
+date: 2017-11-12
 draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-  - 前端
+  - JAVA
 
 tags: 
-  - JS
+  - Servlet
 ---
 
