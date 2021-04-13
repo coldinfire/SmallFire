@@ -2398,16 +2398,16 @@
       <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_IO/</guid>
-      <description></description>
+      <description>JAVA IO 流 Java.io 包几乎包含了所有操作输入、输出需要的类。所有这些流类代表了输入源和输出目标。 一个流被定义为一个数据序列；输入流表示从一个源读取数据，</description>
     </item>
     
     <item>
       <title>JAVA 集合框架</title>
-      <link>https://coldinfire.github.io/2017/JAVA_Collect/</link>
+      <link>https://coldinfire.github.io/2017/JAVA_Collection/</link>
       <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/JAVA_Collect/</guid>
-      <description>集合 集合类的特点：集合只用于存储对象，集合长度是可变的，集合可以存储不同类型的对象。 所有集合类都位于 java.util 包下。 集合框架图 集合框架主要由 Collection 和 Map 两</description>
+      <guid>https://coldinfire.github.io/2017/JAVA_Collection/</guid>
+      <description>集合 集合类的特点：集合只用于存储对象，集合长度是可变的，集合可以存储不同类型的对象。 所有集合类都位于 java.util包下。 集合里只能保存对</description>
     </item>
     
     <item>
