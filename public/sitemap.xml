@@ -4216,34 +4216,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/WEB_HTTP/</loc>
-      
-      <lastmod>2018-01-04T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/http/</loc>
-      
-      <lastmod>2018-01-04T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</loc>
       
       <lastmod>2017-12-21T00:00:00+00:00</lastmod>
@@ -4412,6 +4384,34 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2017/WEB_HTTP/</loc>
+      
+      <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/http/</loc>
+      
+      <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/tags/tomcat/</loc>
       
       <lastmod>2017-11-01T00:00:00+00:00</lastmod>
@@ -4540,7 +4540,7 @@
     <url>
       <loc>https://coldinfire.github.io/2017/JAVA_Reflection/</loc>
       
-      <lastmod>2017-10-20T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4552,9 +4552,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/JAVA%E5%8F%8D%E5%B0%84/</loc>
+      <loc>https://coldinfire.github.io/tags/Reflection/</loc>
       
-      <lastmod>2017-10-20T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4594,9 +4594,37 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2017/JAVA_Collect/</loc>
+      
+      <lastmod>2017-10-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/%E9%9B%86%E5%90%88/</loc>
+      
+      <lastmod>2017-10-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2017/WEB_BootStrapAPI/</loc>
       
-      <lastmod>2017-10-15T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-11T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4610,7 +4638,7 @@
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_Bootstrap/</loc>
       
-      <lastmod>2017-10-13T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-10T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
