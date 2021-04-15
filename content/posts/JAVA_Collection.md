@@ -21,14 +21,10 @@ tags:
 
 #### 基本类型包装类
 
-| 基本类型 | 包装类  | 基本类型 | 包装类    |
-| :------- | ------- | -------- | --------- |
-| boolean  | Boolean | long     | Long      |
-| byte     | Byte    | float    | Fload     |
-| short    | Short   | double   | Double    |
-| int      | Integer | char     | Character |
-
-
+| 基本类型 | 包装类  | 基本类型 | 包装类 | 基本类型 | 包装类  | 基本类型 | 包装类    |
+| :------- | ------- | -------- | ------ | -------- | ------- | -------- | --------- |
+| boolean  | Boolean | short    | Short  | int      | Integer | char     | Character |
+| byte     | Byte    | long     | Long   | float    | Fload   | double   | Double    |
 
 #### 集合框架图
 
@@ -154,7 +150,7 @@ Java 里其实没有纯粹的 Stack，可以自己实现，用组合的方式，
 
 元素是无序(存入和取出的顺序不一定一致)；元素不可以重复；无下标。
 
-Set集合与Collection集合基本相同，没有提供任何额外的方法。
+Set 集合与 Collection 集合基本相同，没有提供任何额外的方法。
 
 可以用迭代器或者转换成 list。
 
@@ -168,9 +164,9 @@ HashSet 是如何保证元素唯一性的呢？
   - 如果元素的 hashCode 值相同，才会判断 equals 是否为 true。
   - 如果元素的 hashcode 值不同，不会调用 equals。
 
-在向 HashSet 集合中存储自定义对象时，为了保证 set 集合的唯一性，那么必须重写hashCode 和 equals 方法。
+在向 HashSet 集合中存储自定义对象时，为了保证 set 集合的唯一性，那么必须重写 hashCode 和 equals 方法。
 
-LinkedHashSet
+#### LinkedHashSet
 
 是 HashSet 的子类基于链表和哈希表共同实现(LinkedHashMap)；所以存取有序；元素唯一。
 
@@ -251,4 +247,4 @@ TreeMap 底层使用的二叉树，其中存放进去的所有数据都需要排
 
 #### Properties
 
-Properties 继承于 Hashtable，表示一个持久的属性集，属性列表中每个键及其对应值都是一个字符串
+Properties 继承于 Hashtable，表示一个持久的属性集，属性列表中每个键及其对应值都是一个字符串。
