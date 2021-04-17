@@ -138,9 +138,9 @@ Java 里其实没有纯粹的 Stack，可以自己实现，用组合的方式，
 
 #### Queue
 
-队列通常是指“先进先出”(FIFO，first-in-first-out)的容器。是单独的一类，不过在 SUN 的 JDK 里就是用 LinkedList 来提供这个功能。
+队列通常是指“先进先出”(FIFO，first-in-first-out)的容器。JDK 里使用 LinkedList 来提供这个功能。
 
-新元素插入（offer）到队列的尾部，访问元素（poll）操作会返回队列头部的元素。通常，队列不允许随机访问队列中的元素。
+新元素插入(offer)到队列的尾部，访问元素(poll)操作会返回队列头部的元素。队列不允许随机访问队列中的元素。
 
 方法列表：
 
@@ -248,3 +248,16 @@ TreeMap 底层使用的二叉树，其中存放进去的所有数据都需要排
 #### Properties
 
 Properties 继承于 Hashtable，表示一个持久的属性集，属性列表中每个键及其对应值都是一个字符串。
+
+文本中的数据，必须是键值对形式，可以使用空格、等号、冒号等符号分隔。
+
+常用方法列表：
+
+- Object setProperty(String key,String value)：添加键值对属性值
+-  String getProperty(String key)：通过键，获取对应的属性值
+- Set stringPropertyNames()：获取所有键的集合，返回键的集合集
+- void load(Reader reader)：把键值对形式的文本文件内容以字符流方式加载到集合中
+- void load(InputStream inStream)：把键值对形式的文本文件内容以字节流方式加载到集合中
+- void store(Writer writer,String comments)：把集合中的数据存储到文本文件中
+- void store(OutputStream out,String comments)：把集合中的数据存储到文本文件中
+
