@@ -1,6 +1,6 @@
 ---
-title: "Servlet Session对象"
-date: 2017-11-13
+title: "JSP 高级操作"
+date: 2017-11-17
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -8,6 +8,6 @@ categories:
   - JAVA
 
 tags: 
-  - Servlet
+  - JSP
 ---
 

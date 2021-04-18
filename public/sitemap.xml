@@ -4258,7 +4258,35 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_JSP_Basic/</loc>
+      <loc>https://coldinfire.github.io/tags/JSP/</loc>
+      
+      <lastmod>2017-11-17T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/JAVA_JSP_/</loc>
+      
+      <lastmod>2017-11-17T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/JAVA_JSP_Basic/</loc>
       
       <lastmod>2017-11-16T00:00:00+00:00</lastmod>
       
@@ -4274,7 +4302,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/Servlet/</loc>
       
-      <lastmod>2017-11-16T00:00:00+00:00</lastmod>
+      <lastmod>2017-11-12T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4286,21 +4314,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_Session/</loc>
-      
-      <lastmod>2017-11-13T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_Cookie/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_CookieSession/</loc>
       
       <lastmod>2017-11-12T00:00:00+00:00</lastmod>
       
@@ -4470,7 +4484,7 @@
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_EasyUI/</loc>
       
-      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-27T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4484,7 +4498,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/EasyUI/</loc>
       
-      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-27T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4498,21 +4512,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/XML/</loc>
       
-      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2017/WEB_XML/</loc>
-      
-      <lastmod>2017-10-22T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-24T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4525,6 +4525,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_XML_Parse/</loc>
+      
+      <lastmod>2017-10-24T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_XML/</loc>
       
       <lastmod>2017-10-22T00:00:00+00:00</lastmod>
       

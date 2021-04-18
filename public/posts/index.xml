@@ -2258,30 +2258,30 @@
     </item>
     
     <item>
+      <title>JSP 高级操作</title>
+      <link>https://coldinfire.github.io/2017/JAVA_JSP_/</link>
+      <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/JAVA_JSP_/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>JSP 简介</title>
-      <link>https://coldinfire.github.io/2017/WEB_JSP_Basic/</link>
+      <link>https://coldinfire.github.io/2017/JAVA_JSP_Basic/</link>
       <pubDate>Thu, 16 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_JSP_Basic/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2017/JAVA_JSP_Basic/</guid>
+      <description>JSP 简介</description>
     </item>
     
     <item>
-      <title>Servlet Session对象</title>
-      <link>https://coldinfire.github.io/2017/JAVA_Servlet_Session/</link>
-      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Session/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Servlet Cookie对象</title>
-      <link>https://coldinfire.github.io/2017/JAVA_Servlet_Cookie/</link>
+      <title>Servlet Cookie&amp;Session对象</title>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet_CookieSession/</link>
       <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Cookie/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_CookieSession/</guid>
+      <description>Cookie：客户端会话技术 将数据保存到客户端的会话技术。 创建 Cookie 对象，绑定数据 new Cookie(String name, String value)：创建 Cookie 对象，并保存数据值 发送 Cookie response.addCookie(Cookie cookie); 获取 Cookie</description>
     </item>
     
     <item>
@@ -2299,7 +2299,7 @@
       <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_Servlet_DownloadFile/</guid>
-      <description></description>
+      <description>文件下载 HTML File &amp;lt;body&amp;gt; &amp;lt;a href=&amp;#34;/Test/DownloadFile?filename=pvp.png&amp;#34;&amp;gt;download picture&amp;lt;/a&amp;gt;&amp;lt;br/&amp;gt; &amp;lt;a href=&amp;#34;/Test/DownloadFile?filename=1.avi&amp;#34;&amp;gt;download video&amp;lt;/a&amp;gt; &amp;lt;/body&amp;gt; 中文文件名 public class DownloadUtils{ public static String getFileName(String agent,String filename) throws UnsupportedEncodingException{ if(agent.contains(&amp;#34;MSIE&amp;#34;)){ // IE 浏览器 filename = URLEncoder.encode(filename,&amp;#34;utf-8&amp;#34;); filename = filename.replace(&amp;#34;+&amp;#34;,&amp;#34; &amp;#34;); } else if (agent.contains(&amp;#34;Firefox&amp;#34;)){ BASE64Encoder base64Encoder = new BASE64Encoder(); filename = &amp;#34;=?utf-8?B?&amp;#34; + base64Encoder.encode(filename.getBytes(&amp;#34;utf-8&amp;#34;)) } &amp;#34;?=&amp;#34;; } else{ filename = URLEncoder.encode(filename, &amp;#34;utf-8&amp;#34;); } return filename; } }</description>
     </item>
     
     <item>
@@ -2359,10 +2359,19 @@
     <item>
       <title>Easy UI 技术总结</title>
       <link>https://coldinfire.github.io/2017/WEB_EasyUI/</link>
-      <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_EasyUI/</guid>
       <description>Easy UI使用场景</description>
+    </item>
+    
+    <item>
+      <title>XML文档解析</title>
+      <link>https://coldinfire.github.io/2017/WEB_XML_Parse/</link>
+      <pubDate>Tue, 24 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_XML_Parse/</guid>
+      <description>解析 XML 文档 将文档中的数据读取到内存中。 DOM 解析 DOM 解析原理：xml 解析器一次性把整个 xml 文档加载进内存，然后在内存中构建一颗 Document 的对象树，通过 Document 对象</description>
     </item>
     
     <item>
@@ -2372,15 +2381,6 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_XML/</guid>
       <description>XML 简介 什么是 XML XML 指可扩展标记语言（EXtensible Markup Language）。 XML 是一种很像HTML的标记语言。 XML 的设计宗旨是传输数据，而不是显</description>
-    </item>
-    
-    <item>
-      <title>XML文档解析</title>
-      <link>https://coldinfire.github.io/2017/WEB_XML_Parse/</link>
-      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2017/WEB_XML_Parse/</guid>
-      <description>解析 XML 文档 将文档中的数据读取到内存中。 DOM 解析 DOM 解析原理：xml 解析器一次性把整个 xml 文档加载进内存，然后在内存中构建一颗 Document 的对象树，通过 Document 对象</description>
     </item>
     
     <item>
