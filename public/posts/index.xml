@@ -2258,11 +2258,11 @@
     </item>
     
     <item>
-      <title>JSP 高级操作</title>
-      <link>https://coldinfire.github.io/2017/JAVA_JSP_/</link>
+      <title>JSP 标签库</title>
+      <link>https://coldinfire.github.io/2017/JAVA_JSP_Tag/</link>
       <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/JAVA_JSP_/</guid>
+      <guid>https://coldinfire.github.io/2017/JAVA_JSP_Tag/</guid>
       <description></description>
     </item>
     
@@ -2272,7 +2272,7 @@
       <pubDate>Thu, 16 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_JSP_Basic/</guid>
-      <description>JSP 简介</description>
+      <description>JSP 简介 JSP 全称 Java Server Pages，是一种动态网页开发技术。它使用 JSP 标签在 HTML 网页中插入 Java 代码。 JSP 基于Java Servlet API，JSP 网页就是用另一种方式来编</description>
     </item>
     
     <item>

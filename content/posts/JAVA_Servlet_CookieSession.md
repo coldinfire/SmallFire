@@ -26,21 +26,21 @@ Cookie 特性
 - 同一个域名下的总 cookie 数量有限制(20)
 - Cookie 是存在有效期的。默认情况下，当浏览器关闭后 Cookie 数据被销毁。可以通过 setMaxAge(int second) 设置 Cookie 有效期
 
-#### Cookie 操作步骤
+#### Cookie 操作
 
 创建 Cookie 对象，绑定数据
 
-- new Cookie(String name, String value)：创建 Cookie 对象，并保存数据值
-- cookie.setMaxAge(3600); 设置 Cookie 存活期
+- `new Cookie(String name, String value);`
+- `cookie.setMaxAge(3600);`：设置 Cookie 存活期
 
 发送 Cookie，会在响应头设置 set-cookie:name=value 的响应头消息。
 
-- response.addCookie(Cookie cookie);
+- `response.addCookie(Cookie cookie);`
 - 可以在一次响应中创建多个 Cooike 对象，使用 response 发送多个 cooike。
 
 获取 Cookie 对象获取数据，当浏览器发出请求时，会将 Cookie 信息放在请求头 cookie 中。
 
-- Cookie[] request.getCookies();
+- `Cookie[] request.getCookies();`
 
 cookie 中存取中文：
 
@@ -96,7 +96,30 @@ Cookie 有域(domain)和路径(routing)的概念。
 
 Session 是基于唯一 ID 识别用户身份的。每个用户第一次访问服务器后，会自动获得一个 sessionID并且把这个 ID 保存到客户端的 Cookie 中，保存形式是以`JSESSIONID` 来保存的。如果用户在一段时间内没有访问服务器，那么 Session 会自动失效，下次即使带着上次分配的 sessionID 访问，服务器也认为这是一个新用户，会分配新的 sessionID。
 
+![JSESSIONID](/images/JAVA/JAVA_Session.png)
+
 在服务端保存 Session 的方法很多，内存、数据库、文件都有。使用 Session 时，由于服务器把所有用户的 Session 都存储在内存中，如果遇到内存不足的情况，就需要把部分不活动的 Session 序列化到磁盘上，这会大大降低服务器的运行效率，因此，放入 Session 的对象要小。
+
+#### Session 操作
+
+- Session在用户第一次访问服务器的时候自动创建，只有访问JSP、Servlet等程序时才会创建Session
+- `HttpSession request.getSession();`：强制生成 Session，同时服务器会为该 Session 生成唯一的 session id，这个 session id在随后的请求中会被用来重新获得已经创建的 Session
+- `setMaxInactiveInterval(long interval);`：设置 session 的有效时间
+
+#### Session 对象方法
+
+| Method                                       | Description                     |
+| :------------------------------------------- | :------------------------------ |
+| boolean isNew()                              | 判断该 Session 对象是否是新的   |
+| void invalidate()                            | 设置整个 Session 无效           |
+| String getId()                               | 返回 SessionID                  |
+| long getCreationTime()                       | 获取 Session 创建时间           |
+| long getLastAccessedTime()                   | 获取最后访问时间                |
+| void setMaxInactiveInterval(int interval)    | 设置 session 的有效时间         |
+| int getMaxInactiveInterval()                 | 获取 session 的有效时间         |
+| Object getAttribute(String name)             | 根据属性名获取 Session 属性值   |
+| void setAttribute(String name, Object value) | 设置 Session 中键值对形式的属性 |
+| void removeAttribute(String name)            | 根据属性名删除键值对属性        |
 
 ### Cookie 和 Session 结合使用
 
