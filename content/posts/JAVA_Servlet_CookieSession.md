@@ -15,22 +15,23 @@ tags:
 
 ### Cookie：客户端会话技术 
 
-将数据保存在客户端的会话技术。一般用于存储少量的不太敏感的数据信息。可以在用户不登录的情况下，完成服务器对客服端的身份识别。
+Cookie 是一小段文本信息，伴随着用户请求和页面在 Web 服务器和浏览器之间传递。一般用于存储少量的不太敏感的数据信息，以键值对形式存储。可以在用户不登录的情况下，完成服务器对客服端的身份识别。
 
-基于响应头 set-cookie 和请求头 cookie 实现。
+基于响应头 Set-Cookie 和请求头 cookie 实现。
 
-默认情况下，当浏览器关闭后，Cookie 数据被销毁。可以通过设置 Cookie 保存时间，设置其生命周期。
+Cookie 特性
 
-浏览器限制
-
-- 浏览器对于单个 cookie 的大小有限制(4KB)
+- Cookie有大小限制。浏览器对于单个 cookie 的大小限制为(4KB)，字符串长度超过 4KB，该属性返回空字符串
+- Cookie 最终都是以文件形式放在客户端机器中，查看和修改都是很方便的，因此不建议存放重要信息
 - 同一个域名下的总 cookie 数量有限制(20)
+- Cookie 是存在有效期的。默认情况下，当浏览器关闭后 Cookie 数据被销毁。可以通过 setMaxAge(int second) 设置 Cookie 有效期
 
 #### Cookie 操作步骤
 
 创建 Cookie 对象，绑定数据
 
 - new Cookie(String name, String value)：创建 Cookie 对象，并保存数据值
+- cookie.setMaxAge(3600); 设置 Cookie 存活期
 
 发送 Cookie，会在响应头设置 set-cookie:name=value 的响应头消息。
 
@@ -41,23 +42,65 @@ tags:
 
 - Cookie[] request.getCookies();
 
+cookie 中存取中文：
+
+- Cookie cookie = new Cookie("userName", URLEncoder.encode("中文", "UTF-8")) ：先进行转码
+- response.addCookie(cookie);
+- URLDecoder.decode(cookies[i].getValue(), "UTF-8")：获取数据时，进行解码
+
 #### Cookie 对象方法
 
-- setMaxAge(int seconds)：设置 Cookie 对象的存活时间，默认值是 -1
-  - 正数：设置 Cookie 的存活时间
-  - 零：删除 Cookie 信息
-  - 负数：cookies auto-expire，当浏览器关闭时，自动删除
-- getMaxAge()：获取 Cookie 对象的存活时间
+| Method                            | Description                                            |
+| :-------------------------------- | :----------------------------------------------------- |
+| Cookie(String name, String value) | 实例化Cookie对象，设置Cookie的名称和cookie的值         |
+| String getName()                  | 取得当前cookie对象的名字                               |
+| String getValue()                 | 取得当前cookie对象的值                                 |
+| void setValue(String newValue)    | 设置cookie的值                                         |
+| void setMaxAge(int expiry)        | 设置cookie的最大保存时间，即cookie的有效期，单位是：秒 |
+| int getMaxAge()                   | 获取cookies的有效期                                    |
+| void setPath(String uri)          | 设置cookie的有效路径                                   |
+| String getPath()                  | 获取cookie的有效路径                                   |
+| void setDomain(String pattern)    | 设置cookie的有效域                                     |
+| String getDomain()                | 获取cookie的有效域                                     |
+
+setMaxAge(int seconds)：设置 Cookie 对象的存活时间，默认值是 -1
+
+- 正数：设置 Cookie 的存活时间
+- 零：删除 Cookie 信息
+- 负数：cookies auto-expire，当浏览器关闭时，自动删除
 
 #### Cookie 共享
 
-同一个 tomcat 服务器中共，多个 Web 项目
+Cookie 有域(domain)和路径(routing)的概念。
 
-- 默认设置为当前的虚拟目录，此时 cookie 不能共享
+同一个 tomcat 服务器中共享，多个 Web 项目，此时路径不同：路径就是routing，一个网页所创建的 Cookie 只能被与这个网页在同一目录或子目录下的所有网页访问，而不能被其他目录下的网页访问。
+
+- 路径默认设置为当前的虚拟目录，此时 cookie 不能共享
 - setPath(String path)：设置 cookie 的获取范围为 “/”，此时可以共享
+- setSecure(true)：如果访问的是 https 网页，需要设置安全模式，否则浏览器不会发送该 Cookie
 
-不同的 tomcat 服务器间共享
+不同的 tomcat 服务器间共享，此时 domain 不同：不同的域之间是不能互相访问 Cookie。
 
 - setDomain(String path)：如果设置一级域名相同，那么多个服务器之间 cookie 可以共享
 
+#### Cookie 被禁用
+
+如果客户端的浏览器禁用了 Cookie 怎么办：
+
+-  使用一种叫做 URL 重写的技术来进行会话跟踪，即每次 HTTP 交互，URL 后面都会被附加上一个诸如 sid=xxxxx 这样的参数，服务端据此来识别用户；通过 response.encodeURL(url) 进行实现
+- 使用 Token 机制，原理和 Cookie 类似；只不过令牌是存在请求头中验证
+
 ### Session：服务器端会话技术
+
+由于 HTTP 协议是无状态的协议，所以服务端需要记录用户的状态时，就需要用某种机制来识具体的用户，这个机制就是 Session。Session 是在服务端保存的一个数据结构，用来跟踪用户的状态。
+
+Session 是基于唯一 ID 识别用户身份的。每个用户第一次访问服务器后，会自动获得一个 sessionID并且把这个 ID 保存到客户端的 Cookie 中，保存形式是以`JSESSIONID` 来保存的。如果用户在一段时间内没有访问服务器，那么 Session 会自动失效，下次即使带着上次分配的 sessionID 访问，服务器也认为这是一个新用户，会分配新的 sessionID。
+
+在服务端保存 Session 的方法很多，内存、数据库、文件都有。使用 Session 时，由于服务器把所有用户的 Session 都存储在内存中，如果遇到内存不足的情况，就需要把部分不活动的 Session 序列化到磁盘上，这会大大降低服务器的运行效率，因此，放入 Session 的对象要小。
+
+### Cookie 和 Session 结合使用
+
+SessionID 是连接 Cookie 和 Session 的一道桥梁。
+
+持久化 sessionid：将 sessionid 保存到 cookie 中，访问时浏览器会把对应的 cookie 发给服务器，服务器获取 cookie 中的 sessionid，然后从内存中获取对应的 session 做登录判断即可。
+
