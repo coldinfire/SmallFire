@@ -2281,7 +2281,7 @@
       <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_Servlet_CookieSession/</guid>
-      <description>Cookie：客户端会话技术 将数据保存到客户端的会话技术。 创建 Cookie 对象，绑定数据 new Cookie(String name, String value)：创建 Cookie 对象，并保存数据值 发送 Cookie response.addCookie(Cookie cookie); 获取 Cookie</description>
+      <description>Cookie：客户端会话技术 将数据保存在客户端的会话技术。一般用于存储少量的不太敏感的数据信息。可以在用户不登录的情况下，完成服务器对客服端</description>
     </item>
     
     <item>
