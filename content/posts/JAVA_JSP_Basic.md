@@ -71,11 +71,15 @@ JSP注释的语法格式：`<%-- 注释内容，不会在网页中显示 --%> `
 
 JSP声明的语法格式：`<%! declaration; [ declaration; ]+ ... %>`
 
+- 在 jsp 转换后的 java 类的成员位置
+
 #### JSP 脚本程序
 
 脚本程序可以包含任意量的Java语句、变量、方法或表达式，只要它们在脚本语言中是有效的。
 
 脚本程序的语法格式：`<% 代码片段 %>`
+
+- 在 service 方法在，service 方法中可以定义的内容在这里都可以定义
 
 #### JSP 表达式
 
@@ -84,6 +88,8 @@ JSP声明的语法格式：`<%! declaration; [ declaration; ]+ ... %>`
 表达式元素中可以包含任何符合 Java 语言规范的表达式，但是不能使用分号来结束表达式。
 
 JSP表达式的语法格式：`<%= 表达式 %>`
+
+- 输出到页面上，输出语句可以定义的内容在这里都可以定义
 
 #### JSP 指令
 
@@ -153,7 +159,7 @@ JSP 所支持的九大隐式对象：
 | :---------- | :----------------------------------------------------------- |
 | request     | HttpServletRequest 接口的实例                                |
 | response    | HttpServletResponse 接口的实例                               |
-| out         | JspWriter 类的实例，用于把结果输出至网页上                   |
+| out         | JspWriter 类的实例，用于把结果输出至网页上，优先级低于 response |
 | session     | HttpSession 类的实例                                         |
 | application | ServletContext 类的实例，与应用上下文有关                    |
 | config      | ServletConfig 类的实例                                       |
