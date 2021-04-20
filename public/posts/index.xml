@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>COOIS 添加字段</title>
+      <link>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</guid>
+      <description>参考文档 :Add New or Custom Fields to COOIS Output COOIS 添加并显示自定义字段 要在订单信息系统的 ALV OUTPUT 中增强/添加/显示其他字段或列，而 COOIS ALV 输出中的标准系统中未提供这些字段或</description>
+    </item>
+    
     <item>
       <title>ECMAScript 6 知识了解</title>
       <link>https://coldinfire.github.io/2021/WEB_ECS6/</link>
@@ -725,6 +734,15 @@
       
       <guid>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</guid>
       <description>Inventory Management使用的BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证</description>
+    </item>
+    
+    <item>
+      <title>BADI 维护</title>
+      <link>https://coldinfire.github.io/2019/ABAP_BADI/</link>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_BADI/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -1561,7 +1579,7 @@
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_BAPI_SUM/</guid>
-      <description>本文主要记录一些收集来的BAPI 在SE38环境下的程序名输入栏 输入&amp;rsquo;DEMO&amp;rsquo;后按F4，你可以查到SAP所有的DEM</description>
+      <description>本文主要记录一些收集来的BAPI 在SE38环境下的程序名输入栏 输入 DEMO 后按 F4，你可以查到 SAP 所有的 DEMO 示例程序，会学到很多 ABAP 功能的实现方法 输入 BCALV</description>
     </item>
     
     <item>

@@ -75,15 +75,15 @@ Enhancement & Enhancement Project：
 
 #### BADI (Business Add-in,第三代增强)
 
-通过面向对象的方式来提供扩展点，它支持Customer Exits所有的enhancement 类型，
-因目前Class中不能包含subscreen所以在用BADI enhance screen时比用Customer Exits要复杂些。
+通过面向对象的方式来提供扩展点，它支持 Customer Exits 所有的 enhancement 类型，
+因目前 Class 中不能包含 subscreen 所以在用 BADI enhance screen 时比用 Customer Exits 要复杂些。
 
 SAP BADI 的使用分类：
 
-- 非Multiple Case的BADI同时只能有一个Active Implementation，即要Active新生成的需先inactive旧的。
-- Multiple Case的BADI则可同时有多个Active Implementation，且所有的Implementation在没有Filter的情况下都会被遍历执行。
+- 非 Multiple Case 的 BADI 同时只能有一个 Active Implementation，要 Active 新生成的需要先 inactive 旧的。
+- Multiple Case 的 BADI 则可同时有多个 Active Implementation，且所有的 Implementation在没有 Filter 的情况下都会被遍历执行。
 
-在某些情况下，出于业务需求，可能存在多个开发内容需要放置在这种BADI的实施中。因为只有一个实施类可用，就可能会导致不同开发人员的代码发生碰撞，造成一些不好的结果。这时会自然地产生为这种BADI创造多个实施、并让它们依次执行的需求。
+在某些情况下，出于业务需求，可能存在多个开发内容需要放置在这种 BADI 的实施中。因为只有一个实施类可用，就可能会导致不同开发人员的代码发生碰撞，造成一些不好的结果。这时会自然地产生为这种 BADI 创造多个实施、并让它们依次执行的需求。
 
 读取BADI接口对应的自定义实施类: **cl_sic_configuration**
 
@@ -102,16 +102,16 @@ ENDLOOP.
 
 解决方法：
 
-1. 为我们想要增强的类创建一个基本BADI实施，在该实施类中使用cl_sic_configuration获取BADI对应的所有自定义实施类的列表。
+1. 为我们想要增强的类创建一个基本 BADI 实施，在该实施类中使用 cl_sic_configuration获取 BADI 对应的所有自定义实施类的列表。
 2. 过滤掉系统类、以及基本实施类本身。为剩余的自定义实施类创建实例、并调用相关方法。
-3. 基本BADI实施需要设置为活动状态。
-4. 创建的其它BADI是非活动状态。
+3. 基本 BADI 实施需要设置为活动状态。
+4. 创建的其它 BADI 是非活动状态。
 
 #### Others
 
-- User Exits与Customer Exits的区别在于User Exits的使用需要Access Key但Customer Exits不要。
-- FM exits在关联的Function Group中的命名规则为：EXIT_PROGRAMNAME_XXX.
-- Customer exits的调用方式为：
+- User Exits 与 Customer Exits 的区别在于 User Exits 的使用需要 Access Key 但 Customer Exits 不要。
+- FM exits 在关联的 Function Group 中的命名规则为：EXIT_PROGRAMNAME_XXX.
+- Customer exits 的调用方式为：
   - FM Exits: CALL CUSTOMER-FUNCTION 'xxx' EXPORTING ... IMPORTING ...
   - Subscreen: Call CUSTOMER-SUBSCREEN INCLUDING
 

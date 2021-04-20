@@ -404,6 +404,15 @@
     </item>
     
     <item>
+      <title>BADI 维护</title>
+      <link>https://coldinfire.github.io/2019/ABAP_BADI/</link>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_BADI/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title> ALV Tree标准Demo </title>
       <link>https://coldinfire.github.io/2019/ABAP_ALVTree/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
@@ -886,7 +895,7 @@
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_BAPI_SUM/</guid>
-      <description>本文主要记录一些收集来的BAPI 在SE38环境下的程序名输入栏 输入&amp;rsquo;DEMO&amp;rsquo;后按F4，你可以查到SAP所有的DEM</description>
+      <description>本文主要记录一些收集来的BAPI 在SE38环境下的程序名输入栏 输入 DEMO 后按 F4，你可以查到 SAP 所有的 DEMO 示例程序，会学到很多 ABAP 功能的实现方法 输入 BCALV</description>
     </item>
     
     <item>

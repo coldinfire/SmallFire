@@ -16,41 +16,41 @@ tags:
 
 在SE38环境下的程序名输入栏
 
-- 输入'DEMO'后按F4，你可以查到SAP所有的DEMO示例程序，会学到很多ABAP功能的实现方法
+- 输入 **DEMO** 后按 F4，你可以查到 SAP 所有的 DEMO 示例程序，会学到很多 ABAP 功能的实现方法
 
-- 输入'BCALV'后按F4，你可以查到很多ALV示例程序 。
+- 输入 **BCALV** 后按 F4，你可以查到很多 ALV 示例程序 。
 
 ## 函数名 描述 
 ```JS
-• CONVERSION_EXIT_ALPHA_INPUT     数字串前补0
-• CONVERSION_EXIT_ALPHA_OUTPUT    消除数字串前的0
-• TERMINAL_ID_GET 		  获得端末id
-• TH_USER_INFO			  获得当前用户的信息 (会话，登陆的工作台等)
-• BKK_GET_MONTH_LASTDAY           根据日期获取当前月的最后一天 
-• CONVERSION_EXIT_CUNIT_OUTPUT    单位转换
-• SJIS_DBC_TO_SBC 		  全角转半角
-• SJIS_SBC_TO_DBC 		  半角转换为全角
-• CO_R0_CHECK_DECIMAL_POINT   	  根据单位检查数据的小数位
-• CONVERSION_EXIT_MATN1_INPUT     物料号码转换函数
-• CONVERSION_EXIT_MATN1_OUTPUT    同上相反
-• CONVERT_TO_LOCAL_CURRENCY       按照指定日期汇率转换金额为指定货币类型
-• SSF_FUNCTION_MODULE_NAME        根据form名取得对应的函数名(SmartForm) 
-• K_WERKS_OF_BUKRS_FIND   	  返回一个特定公司代码的所有工厂。
-• DATE_CHECK_PLAUSIBILITY    	  日期CHECK
-• DATE_GET_WEEK         	  返回一个日期所在的周数。 
-• MONTH_NAMES_GET		  获得所有的月和名字
-• RP_CALC_DATE_IN_INTERVAL	  年月日加减
-• SD_DATETIME_DIFFERENCE	  两日期作差 
-• RP_LAST_DAY_OF_MONTHS 	  获得一个月的最后一天
-• DATE_CHECK_PLAUSIBILITY 	  检查一个日期是否是SAP的有效格式
-• HOLIDAY_GET 			  基于Factory Calendar&/ Holiday Calendar提供了一个节日表。
-• SAPGUI_PROGRESS_INDICATOR	  显示一个进度条 
-• CLOI_PUT_SIGN_IN_FRONT    	  将负号前置， SAP默认将负号放在数字后面
-• TH_USER_LIST			  显示登陆到应用服务器的用户列表
-• UNIT_CONVERSION_SIMPLE	  衡量单位转换
-• SXPG_COMMAND_CHECK		  检查用户是否有执行某个命令的权限
-• SXPG_COMMAND_EXECUTE		  检查用户是否有执行某个命令的权限，拥有授权则执行命令
-• FILENAME_GET 			  弹出一个文件选择对话框
+• CONVERSION_EXIT_ALPHA_INPUT   数字串前补0
+• CONVERSION_EXIT_ALPHA_OUTPUT  消除数字串前的0
+• TERMINAL_ID_GET    获得端末id
+• TH_USER_INFO       获得当前用户的信息 (会话，登陆的工作台等)
+• BKK_GET_MONTH_LASTDAY         根据日期获取当前月的最后一天 
+• CONVERSION_EXIT_CUNIT_OUTPUT  单位转换
+• SJIS_DBC_TO_SBC    全角转半角
+• SJIS_SBC_TO_DBC    半角转换为全角
+• CO_R0_CHECK_DECIMAL_POINT     根据单位检查数据的小数位
+• CONVERSION_EXIT_MATN1_INPUT   物料号码转换函数
+• CONVERSION_EXIT_MATN1_OUTPUT  同上相反
+• CONVERT_TO_LOCAL_CURRENCY     按照指定日期汇率转换金额为指定货币类型
+• SSF_FUNCTION_MODULE_NAME      根据form名取得对应的函数名(SmartForm) 
+• K_WERKS_OF_BUKRS_FIND         返回一个特定公司代码的所有工厂。
+• DATE_CHECK_PLAUSIBILITY       日期CHECK
+• DATE_GET_WEEK      返回一个日期所在的周数。 
+• MONTH_NAMES_GET    获得所有的月和名字
+• RP_CALC_DATE_IN_INTERVAL      年月日加减
+• SD_DATETIME_DIFFERENCE        两日期作差 
+• RP_LAST_DAY_OF_MONTHS         获得一个月的最后一天
+• DATE_CHECK_PLAUSIBILITY       检查一个日期是否是SAP的有效格式
+• HOLIDAY_GET        基于Factory Calendar&/ Holiday Calendar提供了一个节日表。
+• SAPGUI_PROGRESS_INDICATOR	    显示一个进度条 
+• CLOI_PUT_SIGN_IN_FRONT        将负号前置， SAP默认将负号放在数字后面
+• TH_USER_LIST       显示登陆到应用服务器的用户列表
+• UNIT_CONVERSION_SIMPLE        衡量单位转换
+• SXPG_COMMAND_CHECK            检查用户是否有执行某个命令的权限
+• SXPG_COMMAND_EXECUTE          检查用户是否有执行某个命令的权限，拥有授权则执行命令
+• FILENAME_GET       弹出一个文件选择对话框
 	DATA out(60) TYPE c.
 	 CALL FUNCTION 'FILENAME_GET'  
 	 EXPORTING    
@@ -58,25 +58,25 @@ tags:
 		title = 'GET FILENAME'  
 	  IMPORTING   
 		filename = OUT.
-• GET_JOB_RUNTIME_INFO      	  获得job相关信息
-• BP_JOBLOG_READ 		  获得job log的执行结果
-• DATE_CONVERT_TO_FACTORYDATE     把输入日期转为工厂日历日期
-• VIEW_MAINTENANCE_CALL     	  维护表视图 
+• GET_JOB_RUNTIME_INFO          获得job相关信息
+• BP_JOBLOG_READ                获得job log的执行结果
+• DATE_CONVERT_TO_FACTORYDATE   把输入日期转为工厂日历日期
+• VIEW_MAINTENANCE_CALL         维护表视图 
 ```
 ## 函数名 描述
 ```JS
-• BAPI_TRANSACTION_COMMIT             COMMIT WORK AND WAIT.
-• BAPI_TRANSACTION_ROLLBACK           ROLLBACK WORK.
+• BAPI_TRANSACTION_COMMIT   COMMIT WORK AND WAIT.
+• BAPI_TRANSACTION_ROLLBACK ROLLBACK WORK.
 • SD_VBAP_READ_WITH_VBELN   根据销售订单读取表vbap中的信息
 • EDIT_LINES                把READ_TEXT返回的LINES中的行按照TDFORMAT=“*”重新组织
 • DY_GET_FOCUS              获得屏幕焦点 
 • DY_GET_SET_FIELD_VALUE    获得或者设置屏幕字段的值 
-• F4IF_INT_TABLE_VALUE_REQUEST    显示检索help 
-• READ_TEXT      		      读取长文本
-• INIT_TEXT 		      上传长文本到SAP。
-• POSTAL_CODE_CHECK 	      检查邮政编码 
-• MESSAGE_TEXT_BUILD 	      把消息转为文本 
-• POPUP_TO_CONFIRM                弹出确认窗口 
+• F4IF_INT_TABLE_VALUE_REQUEST 显示检索help 
+• READ_TEXT            读取长文本
+• INIT_TEXT           上传长文本到SAP。
+• POSTAL_CODE_CHECK   检查邮政编码 
+• MESSAGE_TEXT_BUILD  把消息转为文本 
+• POPUP_TO_CONFIRM    弹出确认窗口 
 ```
 ## 函数名 描述 
 ```JS

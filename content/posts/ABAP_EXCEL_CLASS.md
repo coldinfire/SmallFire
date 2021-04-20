@@ -15,7 +15,7 @@ tags:
 
 ### SAP Excel 操作实现 (CLASS)
 
-```javascript
+```ABAP
 *&---------------------------------------------------------------------*
 *& Report  ZEXCEL_CLASS_DEMO
 *&---------------------------------------------------------------------*
@@ -35,18 +35,18 @@ SELECTION-SCREEN END OF BLOCK file_name.
 SELECTION-SCREEN FUNCTION KEY 1.
 
 TYPES: BEGIN OF tp_template,
-  pspid  TYPE proj-pspid,   " Project Definition
-*  stufe  TYPE prps-stufe,  " Level in Project Hierarchy
-  posid  TYPE prps-posid,   " WBS Element
-  post1  TYPE prps-post1,   " WBS Element Desc
-*  wbs_up   TYPE ps_posid,  " WBS Up Level Element
-*  wbs_left TYPE ps_posid,  " WBS Up Element
-  usr00  TYPE prps-usr00,   " Cost Category
-  usr01  TYPE prps-usr01,   " Cost Item
-  usr02  TYPE prps-usr02,   " Cost Type
-  usr03  TYPE prps-usr03,   " Capex/Opex
-  belkz TYPE prps-belkz,    " Acct asst elem.
-  fakkz TYPE prps-fakkz,    " Billing element
+  pspid  TYPE proj-pspid,   " Project Definition "
+*  stufe  TYPE prps-stufe,  " Level in Project Hierarchy "
+  posid  TYPE prps-posid,   " WBS Element "
+  post1  TYPE prps-post1,   " WBS Element Desc "
+*  wbs_up   TYPE ps_posid,  " WBS Up Level Element "
+*  wbs_left TYPE ps_posid,  " WBS Up Element "
+  usr00  TYPE prps-usr00,   " Cost Category "
+  usr01  TYPE prps-usr01,   " Cost Item "
+  usr02  TYPE prps-usr02,   " Cost Type "
+  usr03  TYPE prps-usr03,   " Capex/Opex "
+  belkz TYPE prps-belkz,    " Acct asst elem "
+  fakkz TYPE prps-fakkz,    " Billing element "
 END OF tp_template.
 DATA: gt_template TYPE STANDARD TABLE OF tp_template.
 
@@ -76,7 +76,7 @@ FORM frm_init_screen .
   gs_dyntxt-quickinfo = 'Download Template'.
   gs_dyntxt-icon_text = 'Download Template'.
   sscrfields-functxt_01 = gs_dyntxt.
-ENDFORM.                    " FRM_INIT_SCREEN
+ENDFORM.                    " FRM_INIT_SCREEN "
 *&---------------------------------------------------------------------*
 *&      Form  FRM_GET_FILENAME
 *&---------------------------------------------------------------------*
@@ -109,7 +109,7 @@ FORM frm_get_filename  CHANGING p_file.
   IF sy-subrc EQ 0 AND lv_rc EQ 1.
     READ TABLE lt_file INDEX 1 INTO p_file.
   ENDIF.
-ENDFORM.                    " FRM_GET_FILENAME
+ENDFORM.                    " FRM_GET_FILENAME "
 *&---------------------------------------------------------------------*
 *&      Form  FRM_DOWNLOAD_FILE
 *&---------------------------------------------------------------------*
@@ -182,7 +182,7 @@ FORM frm_download_file .
       RETURN.
     ENDIF.
   ENDIF.
-ENDFORM.                    " FRM_DOWNLOAD_FILE
+ENDFORM.                    " FRM_DOWNLOAD_FILE "
 *&---------------------------------------------------------------------*
 *&      Form  FRM_CHECK_FILE
 *&---------------------------------------------------------------------*

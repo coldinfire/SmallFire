@@ -15,7 +15,7 @@ tags:
 
 ### SAP Excel 操作实现 (BAPI)
 
-```html
+```ABAP
 *&---------------------------------------------------------------------*
 *& Report  ZEXCEL_BAPI
 *&---------------------------------------------------------------------*
@@ -34,18 +34,18 @@ SELECTION-SCREEN END OF BLOCK file_name.
 SELECTION-SCREEN FUNCTION KEY 1.
 
 TYPES: BEGIN OF tp_template,
-  pspid  TYPE proj-pspid,   " Project Definition
-*  stufe  TYPE prps-stufe,   " Level in Project Hierarchy
-  posid  TYPE prps-posid,   " WBS Element
-  post1  TYPE prps-post1,   " WBS Element Desc
-*  wbs_up   TYPE ps_posid,   " WBS Up Level Element
-*  wbs_left TYPE ps_posid,   " WBS Up Element
-  usr00  TYPE prps-usr00,   " Cost Category
-  usr01  TYPE prps-usr01,   " Cost Item
-  usr02  TYPE prps-usr02,   " Cost Type
-  usr03  TYPE prps-usr03,   " Capex/Opex
-  belkz TYPE prps-belkz,    " Acct asst elem.
-  fakkz TYPE prps-fakkz,    " Billing element
+  pspid  TYPE proj-pspid,   " Project Definition "
+*  stufe  TYPE prps-stufe,   " Level in Project Hierarchy "
+  posid  TYPE prps-posid,   " WBS Element "
+  post1  TYPE prps-post1,   " WBS Element Desc "
+*  wbs_up   TYPE ps_posid,   " WBS Up Level Element "
+*  wbs_left TYPE ps_posid,   " WBS Up Element "
+  usr00  TYPE prps-usr00,   " Cost Category "
+  usr01  TYPE prps-usr01,   " Cost Item "
+  usr02  TYPE prps-usr02,   " Cost Type "
+  usr03  TYPE prps-usr03,   " Capex/Opex "
+  belkz TYPE prps-belkz,    " Acct asst elem. "
+  fakkz TYPE prps-fakkz,    " Billing element "
 END OF tp_template.
 DATA: gt_template TYPE STANDARD TABLE OF tp_template.
 
@@ -80,7 +80,7 @@ FORM frm_init_screen .
   gs_dyntxt-quickinfo = 'Download Template'.
   gs_dyntxt-icon_text = 'Download Template'.
   sscrfields-functxt_01 = gs_dyntxt.
-ENDFORM.                    " FRM_INIT_SCREEN
+ENDFORM.                    " FRM_INIT_SCREEN "
 *&---------------------------------------------------------------------*
 *&      Form  FRM_GET_FILENAME
 *&---------------------------------------------------------------------*
@@ -88,7 +88,7 @@ FORM frm_get_filename  CHANGING p_file.
 " Method 1 "
   CALL FUNCTION 'WS_FILENAME_GET'
     EXPORTING
-      def_path           = 'C:\'
+      def_path           = 'C:\'  '
       mask               = ',Excel(*.xls),*.XLS,*.XLSX,*.xlsx,'
       mode               = 'O'
       title              = 'Please choose file'
@@ -114,7 +114,7 @@ FORM frm_get_filename  CHANGING p_file.
 *    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
 *    EXIT.
 *  ENDIF.
-ENDFORM.                    " FRM_GET_FILENAME
+ENDFORM.                    " FRM_GET_FILENAME "
 *&---------------------------------------------------------------------*
 *&      Form  FRM_DOWNLOAD_FILE
 *&---------------------------------------------------------------------*
@@ -126,7 +126,7 @@ FORM frm_download_file .
         lv_temp TYPE c,
         lv_message TYPE string.
   ls_filekey-relid = 'MI'.
-  ls_filekey-objid = 'ZPSR_UPLOAD_WBS'. " SMW0定义的对象名称
+  ls_filekey-objid = 'ZPSR_UPLOAD_WBS'. " SMW0定义的对象名称 "
   " 判断模板是否存在 "
   CALL FUNCTION 'WWWDATA_IMPORT'
     EXPORTING
@@ -157,7 +157,7 @@ FORM frm_download_file .
   " 选择下载路径 "
   CALL FUNCTION 'WS_FILENAME_GET'
   EXPORTING
-    def_path           = 'C:\'
+    def_path           = 'C:\' '
     mask               = ',Excel(*.xls),*.XLS,*.XLSX,*.xlsx,'
     mode               = 'S'
     title              = 'Please choose file'
@@ -190,7 +190,7 @@ FORM frm_download_file .
     MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
         WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   ENDIF.
-ENDFORM.                    " FRM_DOWNLOAD_FILE
+ENDFORM.                    " FRM_DOWNLOAD_FILE "
 *&---------------------------------------------------------------------*
 *&      Form  FRM_EXCUTE_CHECK
 *&---------------------------------------------------------------------*
@@ -220,7 +220,7 @@ FORM frm_get_data .
   DATA: ls_template LIKE LINE OF gt_template,
         lv_index  LIKE sy-tabix.
   FIELD-SYMBOLS: <fv_value> .
-  " 将Excel数据转换到内表数据
+  " 将Excel数据转换到内表数据 "
   CALL FUNCTION 'ALSM_EXCEL_TO_INTERNAL_TABLE'
     EXPORTING
       filename                = p_file
@@ -250,6 +250,6 @@ FORM frm_get_data .
     CLEAR:ls_intern.
   ENDLOOP.
   CHECK gt_template[] IS NOT INITIAL.
-ENDFORM.                    " FRM_GET_DATA
+ENDFORM.                    " FRM_GET_DATA "
 ```
 
