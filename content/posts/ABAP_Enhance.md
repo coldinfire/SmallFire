@@ -150,7 +150,7 @@ ENDLOOP.
 
 6. ST05选择"TABLE BUFFER TRACE"而不是常用的"SQL trace",然后查找 (SXS_INTER,SXC_EXIT,SXC_CLASS,SXC_ATTR)找到BADI
 
-7. 通过 **CL_EXITHANDLER -> GET_INSTANCE** Debug程序查找调用的BADI
+7. 通过 **CL_EXITHANDLER -> GET_INSTANCE** Debug程序查找调用的BADI；这只是经典BADI是这样来调用的，如果是新式的BADI，则调用为 GET BADI handle-BADI定义名、CALL BADI handle->method，来判断对象是否存在，并返回实例
 
    ```JS
    <1>Go to TCode SE24 and enter CL_EXITHANDLER as object type.
@@ -163,7 +163,7 @@ ENDLOOP.
    ```
 
 
-### Customer Exits and BADI implementation.
+### Customer Exits and BADI implementation
 
 ####  Customer Exits: SMOD, CMOD
 
@@ -176,6 +176,8 @@ ENDLOOP.
 使用SE24 查看CLASS Interface。
 
 注：接口编码 BADI 加前缀 `IF_CL_`，客户类编码 `ZCL_IM_`
+
+BADI 创建和实现：[https://coldinfire.github.io/2019/ABAP_BADI/](https://coldinfire.github.io/2019/ABAP_BADI/)
 
 ### 查找的功能程序：
 
