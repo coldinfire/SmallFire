@@ -52,12 +52,12 @@ DATA: t_packing_list LIKE sopcklsti1 OCCURS 0 WITH HEADER LINE,
       gd_error TYPE sy-subrc,
       gd_reciever TYPE sy-subrc.
       
-DATA: title TYPE string VALUE 'Example Excel attachment'.
-DATA: file_format TYPE string VALUE 'XLSX'.
-DATA: file_name TYPE string VALUE 'testdemo'.
-DATA: attdescription TYPE string VALUE '1'.
-DATA: sender_address TYPE string.
-DATA: sender_address_type TYPE string.
+DATA: title TYPE sodocchgi1-obj_descr VALUE 'Example Excel attachment'.
+DATA: file_format TYPE so_obj_tp VALUE 'XLSX'.
+DATA: file_name TYPE so_obj_des VALUE 'testdemo'.
+DATA: attdescription TYPE so_obj_nam VALUE '1'.
+DATA: sender_address TYPE soextreci1-receiver.
+DATA: sender_address_type TYPE soextreci1-adr_typ.
 **************************** Event *******************************
 START-OF-SELECTION.
 * Retrieve sample data from table ekpo
@@ -108,6 +108,16 @@ FORM build_xls_data_table.
   ENDLOOP.
 ENDFORM. " BUILD_XLS_DATA_TABLE "
 *&---------------------------------------------------------------------*
+*& Form POPULATE_EMAIL_MESSAGE_BODY
+*&---------------------------------------------------------------------*
+* Populate message body text
+*----------------------------------------------------------------------*
+FORM populate_email_message_body.
+  REFRESH it_message.
+  it_message = 'Please find attached excel file'.
+  APPEND it_message.
+ENDFORM. "populate_email_message_body"
+*&---------------------------------------------------------------------*
 *& Form SEND_FILE_AS_EMAIL_ATTACHMENT
 *&---------------------------------------------------------------------*
 * Send email
@@ -133,13 +143,6 @@ FORM send_file_as_email_attachment TABLES pit_message pit_attach
   ld_attfilename = p_filename.
   ld_sender_address = p_sender_address.
   ld_sender_address_type = p_sender_addres_type.
-* Fill the document data.
-  w_doc_data-doc_size = 1.
-* Populate the subject/generic message attributes
-  w_doc_data-obj_langu = sy-langu.
-  w_doc_data-obj_name = 'SAPRPT'.
-  w_doc_data-obj_descr = ld_mtitle .
-  w_doc_data-sensitivty = 'F'.
 * Fill the document data and get size of attachment
   CLEAR w_doc_data.
   READ TABLE it_attach INDEX w_cnt.
@@ -181,12 +184,13 @@ FORM send_file_as_email_attachment TABLES pit_message pit_attach
   t_receivers-notif_del = 'X'.
   t_receivers-notif_ndel = 'X'.
   APPEND t_receivers.
+  
   CALL FUNCTION 'SO_DOCUMENT_SEND_API1'
     EXPORTING
       document_data              = w_doc_data
       put_in_outbox              = 'X'
-      sender_address             = ld_sender_address
-      sender_address_type        = ld_sender_address_type
+*     sender_address             = ld_sender_address
+*     sender_address_type        = ld_sender_address_type
       commit_work                = 'X'
     IMPORTING
       sent_to_all                = w_sent_all
@@ -220,15 +224,5 @@ FORM initiate_mail_execute_program.
   WAIT UP TO 2 SECONDS.
   SUBMIT rsconn01 WITH mode = 'INT' WITH output = 'X' AND RETURN.
 ENDFORM. " INITIATE_MAIL_EXECUTE_PROGRAM "
-*&---------------------------------------------------------------------*
-*& Form POPULATE_EMAIL_MESSAGE_BODY
-*&---------------------------------------------------------------------*
-* Populate message body text
-*----------------------------------------------------------------------*
-FORM populate_email_message_body.
-  REFRESH it_message.
-  it_message = 'Please find attached excel file'.
-  APPEND it_message.
-ENDFORM. "populate_email_message_body"
 ```
 
