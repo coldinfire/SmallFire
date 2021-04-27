@@ -598,7 +598,7 @@
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_EmailExcel/</guid>
-      <description>转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html 程序实例 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z7258_MAIL_EXCEL * *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Example of sending external email via SAPCONNECT * *&amp;amp;---------------------------------------------------------------------* REPORT z7258_mail_excel . TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiverDEFAULT &amp;#39;coldfire@163.com&amp;#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN OF t_charekpo, ebeln(10)</description>
+      <description>转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html 程序实例 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZTEST_EMAIL_EXCEL *&amp;amp;---------------------------------------------------------------------* REPORT ztest_email_excel. TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiver DEFAULT &amp;#39;coldfire@163.com&amp;#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN OF t_charekpo, ebeln(10) TYPE c, ebelp(5) TYPE c, aedat(8) TYPE c, matnr(18) TYPE c,</description>
     </item>
     
     <item>
