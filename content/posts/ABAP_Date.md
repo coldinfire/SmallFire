@@ -128,6 +128,20 @@ CALL FUNCTION 'FIMA_DAYS_AND_MONTHS_AND_YEARS'
      E_YEARS          = YEARS .
 ```
 
+分别输入开始日期、开始时间、结束日期、结束时间，函数返回两个日期间隔秒数。
+
+```ABAP
+DATA: diff_second TYPE int4.
+CALL FUNCTION 'SALP_SM_CALC_TIME_DIFFERENCE'
+  EXPORTING
+    date_1  = '20080801'
+    time_1  = '17:22:12'
+    date_2  = '20080802'
+    time_2  = '18:22:12'
+  IMPORTING
+    seconds = diff_second.   "86,400"
+```
+
 #### 获取日期所在的周数
 
 ```html
