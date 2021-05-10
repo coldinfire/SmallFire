@@ -112,20 +112,25 @@ CALL FUNCTION 'RP_CALC_DATE_IN_INTERVAL'
 
 #### 查询两个日期间的日间间隔
 
-分别输入开始日期和结束日期，函数返回两个日期间隔的天数、月数、和年数。
+两个日期作差，即是两个日期相减，包括当天时间。
 
-```html
-CALL FUNCTION 'FIMA_DAYS_AND_MONTHS_AND_YEARS'
-    EXPORTING
-      I_DATE_FROM     = '20080101'
-*     I_KEY_DAY_FROM  =
-      I_DATE_TO       = '20090508'
-*     I_KEY_DAY_TO    =
-*     I_FLG_SEPARATE  = ' '
-   IMPORTING
-     E_DAYS           = DAYS
-     E_MONTHS         = MONTHS
-     E_YEARS          = YEARS .
+```ABAP
+DATA: datediff TYPE p,
+      timediff TYPE p,
+      earliest TYPE c.
+CALL FUNCTION 'SD_DATETIME_DIFFERENCE'
+  EXPORTING
+    date1            = '20140101'
+    time1            = '240000'
+    date2            = '20140101'
+    time2            = '083000'
+  IMPORTING
+    datediff         = datediff     "返回日期差：0 "
+    timediff         = timediff     "返回时间差：16"
+    earliest         = earliest     "返回时间正负：2，1-负 0-相等 2-正"
+  EXCEPTIONS
+    invalid_datetime = 1
+    OTHERS           = 2.
 ```
 
 分别输入开始日期、开始时间、结束日期、结束时间，函数返回两个日期间隔秒数。
