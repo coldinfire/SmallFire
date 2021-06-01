@@ -20,6 +20,22 @@ Servlet 容器对于接受到的每一个 Http 请求，都会创建一个Servle
 
 ![HTTP Request](/images/Tomcat/HTTPRequest.png)
 
+| 信息                | 描述                                                         |
+| :------------------ | :----------------------------------------------------------- |
+| Accept              | 指定客户端可以处理的MIME类型。它的值通常为 text/html 或 image/jpeg |
+| Accept-Charset      | 指定浏览器要使用的字符集。比如 ISO-8859-1                    |
+| Accept-Encoding     | 指定编码类型。它的值通常为 gzip 或 compress                  |
+| Accept-Language     | 指定客户端首选语言，servlet会优先返回以当前语言构成的结果集，如果servlet支持这种语言的话。比如 en，en-us，ru等等 |
+| Authorization       | 在访问受密码保护的网页时识别不同的用户                       |
+| Connection          | 表明客户端是否可以处理HTTP持久连接。持久连接允许客户端或浏览器在一个请求中获取多个文件。**Keep-Alive** 表示启用持久连接 |
+| Content-Length      | 仅适用于POST请求，表示 POST 数据的字节数                     |
+| Cookie              | 返回先前发送给浏览器的cookies至服务器                        |
+| Host                | 指出原始URL中的主机名和端口号                                |
+| If-Modified-Since   | 表明只有当网页在指定的日期被修改后客户端才需要这个网页。 服务器发送304码给客户端，表示没有更新的资源 |
+| If-Unmodified-Since | 与If-Modified-Since相反， 只有文档在指定日期后仍未被修改过，操作才会成功 |
+| Referer             | 标志着所引用页面的URL。比如，如果你在页面1，然后点了个链接至页面2，那么页面1的URL就会包含在浏览器请求页面2的信息头中 |
+| User-Agent          | 用来区分不同浏览器或客户端发送的请求，并对不同类型的浏览器返回不同的内容 |
+
 #### HttpServletRequest 接口常用方法
 
 获取常用信息
@@ -36,7 +52,7 @@ Servlet 容器对于接受到的每一个 Http 请求，都会创建一个Servle
 | public String getScheme();                   | 获取协议名称，如HTTP、FTP、HTTPS                             |
 | public String getRequestedSessionId();       | 返回这个请求相应的Session Id                                 |
 | public HttpSession getSession();             | 获取Session对话，用于与网页通信                              |
-| public Cookie[] getCookies();                | 返回使用数组存储的Cookie对象                                 |
+| `public Cookie[] getCookies();`              | 返回使用数组存储的Cookie对象                                 |
 | `public ServletContext getServletContext();` | 获取 ServletContext 对象                                     |
 
 获取请求头信息

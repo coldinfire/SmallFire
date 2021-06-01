@@ -24,6 +24,23 @@ ServletResponse 对象封装了向浏览器发送响应的复杂过程。
 
 由于 HTTP 请求消息分为状态行，响应消息头，响应消息体三部分；因此，在 HttpServletResponse 接口中定义了向客户端发送响应状态码，响应消息头，响应消息体的方法。
 
+| 响应头              | 描述                                                         |
+| :------------------ | :----------------------------------------------------------- |
+| Allow               | 指定服务器支持的request方法（GET，POST等等）                 |
+| Cache-Control       | 指定响应文档能够被安全缓存的情况。通常取值为 public,private或no-cache等。 Public意味着文档可缓存，Private意味着文档只为单用户服务并且只能使用私有缓存。No-cache意味着文档不被缓存。 |
+| Connection          | 命令浏览器是否要使用持久的HTTP连接。close : 命令浏览器不使用持久HTTP连接，keep-alive : 使用持久化连接。 |
+| Content-Disposition | 让浏览器要求用户将响应以给定的名称存储在磁盘中               |
+| Content-Encoding    | 指定传输时页面的编码规则                                     |
+| Content-Language    | 表述文档所使用的语言，比如en， en-us,，ru等等                |
+| Content-Length      | 表明响应的字节数。只有在浏览器使用持久化 (keep-alive) HTTP 连接时才有用 |
+| Content-Type        | 表明文档使用的MIME类型                                       |
+| Expires             | 指明什么时候过期并从缓存中移除                               |
+| Last-Modified       | 指明文档最后修改时间。客户端可以 缓存文档并且在后续的请求中提供一个 **If-Modified-Since**请求头 |
+| Location            | 在300秒内，包含所有的有一个状态码的响应地址，浏览器会自动重连然后检索新文档 |
+| Refresh             | 指明浏览器每隔多久请求更新一次页面。                         |
+| Retry-After         | 与503 (Service Unavailable)一起使用来告诉用户多久后请求将会得到响应 |
+| Set-Cookie          | 指明当前页面对应的cookie                                     |
+
 设置响应行
 
 | Method                                                       | Desc                               |
