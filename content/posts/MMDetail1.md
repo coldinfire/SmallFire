@@ -33,13 +33,21 @@ tags:
 
 ### 相关事物码
 
-- MM01：创建 / MM02：修改 / MM03：显示
-- MM06：立即删除标记，Material的删除分两个层次， 一个是加Delete
-  flag material,但号码还存在， 但强制使用还是可以的， 所以建议使用Status来控制，将所有的状态都block住。
+- MM01/02/03：创建 / 修改 / 显示
+
+- MM06：立即删除标记，Material的删除分两个层次， 一个是加 Delete
+  flag material,但号码还存在， 但强制使用还是可以的， 所以建议使用 Status 来控制，将所有的状态都 block住。
+
+  ![MM06](/images/MM/MM06_Delete.png)
+
 - MM17：批量维护物料主数据内容
+
 - MM50：物料视图扩充
+
 - MM60：物料清单
+
 - MMAM：配置物料类型
+
 - MMD1：MRP文档创建
 
 ### 主要信息 ###

@@ -102,7 +102,7 @@ Session 是基于唯一 ID 识别用户身份的。每个用户第一次访问�
 
 #### Session 操作
 
-- Session在用户第一次访问服务器的时候自动创建，只有访问JSP、Servlet等程序时才会创建Session
+- Session在用户第一次访问服务器的时候自动创建，只有访问 JSP、Servlet 等程序时才会创建Session
 
 - `HttpSession request.getSession();`：强制生成 Session，同时服务器会为该 Session 生成唯一的 sessionID，这个 sessionID 在随后的请求中会被用来重新获得已经创建的 Session
 
@@ -138,7 +138,14 @@ HttpSession 方法列表：
 客户端关闭后，服务器不关闭，两次获取的 session 是否为同一个
 
 - 默认情况下：不是。因为客户端关闭后，cookie 的有效期就截止了
+
 - 如果需要保持相同，可以创建 Cookie，键为 JSESSIONID，设置最大存活时间，将 Cookie 持久化保持。
+
+  ```java
+  Cookie cookie = new Cookie("JSESSIONID",session.getId());
+  cookie.setMaxAge(60*60);
+  response.addCookie(cookie);
+  ```
 
 客户端不关闭，服务器关闭后，两次获取的 session 是否为同一个
 
@@ -148,9 +155,14 @@ HttpSession 方法列表：
 - session 的活化
   - 在服务器启动后，将 session 文件转化为内存中的 session 对象
 
-### Cookie 和 Session 结合使用
+### Cookie 和 session 结合使用
 
 SessionID 是连接 Cookie 和 Session 的一道桥梁。
 
 持久化 sessionid：将 sessionid 保存到 cookie 中，访问时浏览器会把对应的 cookie 发给服务器，服务器获取 cookie 中的 sessionid，然后从内存中获取对应的 session 做登录判断即可。
 
+#### Cookie 和 Session 的区别
+
+- session 存储数据在服务器端，Cookie 在客户端
+- session 没有数据大小限制，Cookie 有限制
+- session 数据是安全的，Cookie 相对于 session 不安全

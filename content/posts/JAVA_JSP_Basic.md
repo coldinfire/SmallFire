@@ -19,6 +19,8 @@ JSP 全称 Java Server Pages，是一种动态网页开发技术。它使用 JSP
 
 JSP 基于Java Servlet API，JSP 网页就是用另一种方式来编写 Servlet 。JSP页面可以与处理业务逻辑的 Servlet 一起使用，这种模式被 Java servlet 模板引擎所支持。
 
+JSP 是服务器端的，它的局限性在于数据必须在返回给客户端之前就“装载”完毕。
+
 #### JSP 优势
 
 - 与纯 Servlet 相比：JSP可以很方便的编写或者修改 HTML 网页而不用去面对大量的 println 语句
@@ -30,7 +32,7 @@ JSP 基于Java Servlet API，JSP 网页就是用另一种方式来编写 Servlet
 Web 服务器使用 JSP 创建网页过程
 
 - 浏览器发送一个 HTTP 请求给服务器。
-- Web 服务器识别出这是一个对 JSP 网页的请求(通过使用 URL或者 .jsp 文件来完成)，并且将该请求传递给 JSP 引擎。
+- Web 服务器识别出这是一个对 JSP 网页的请求(通过使用 URL 或者 .jsp 文件来完成)，并且将该请求传递给 JSP 引擎。
 - JSP 引擎从磁盘中载入 JSP 文件，然后将它们转化为 Servlet。这种转化只是简单地将所有模板文本改用 println() 语句，并且将所有的 JSP 元素转化成 Java 代码。
 - JSP 引擎将 Servlet 编译成可执行类，并且将原始请求传递给 Servlet 引擎。
 - Web 服务器的某组件将会调用 Servlet 引擎，然后载入并执行 Servlet 类。在执行过程中，Servlet 产生 HTML 格式的输出并将其内嵌于 HTTP response 中上交给 Web 服务器。
@@ -38,6 +40,8 @@ Web 服务器使用 JSP 创建网页过程
 - 最终，Web 浏览器处理 HTTP response 中动态产生的HTML网页，就好像在处理静态网页一样。
 
 #### JSP 生命周期
+
+![JSP Life Cycle](/images/JAVA/jsp_life_cycle.jpg)
 
 编译阶段：当浏览器请求 JSP 页面时，JSP 引擎会首先去检查是否需要编译这个文件。如果这个文件没有被编译过，或者在上次编译后被更改过，则编译这个 JSP 文件。
 
@@ -101,21 +105,21 @@ JSP指令语法格式：`<%@ directive attribute="value" %>`
 
 - 语法：`<%@ page attribute="value" %>`
 
-- | **属性**           | **描述**                                            |
-  | :----------------- | :-------------------------------------------------- |
-  | buffer             | 指定out对象使用缓冲区的大小                         |
-  | autoFlush          | 控制out对象的 缓存区                                |
-  | contentType        | 指定当前JSP页面的MIME类型和字符编码                 |
-  | errorPage          | 指定当JSP页面发生异常时需要转向的错误处理页面       |
-  | isErrorPage        | 指定当前页面是否可以作为另一个JSP页面的错误处理页面 |
-  | extends            | 指定servlet从哪一个类继承                           |
-  | import             | 导入要使用的Java类                                  |
-  | info               | 定义JSP页面的描述信息                               |
-  | isThreadSafe       | 指定对JSP页面的访问是否为线程安全                   |
-  | language           | 定义JSP页面所用的脚本语言，默认是Java               |
-  | session            | 指定JSP页面是否使用session                          |
-  | isELIgnored        | 指定是否执行EL表达式                                |
-  | isScriptingEnabled | 确定脚本元素能否被使用                              |
+- | **属性**           | **描述**                                                     |
+  | :----------------- | :----------------------------------------------------------- |
+  | buffer             | 指定out对象使用缓冲区的大小，默认 8KB                        |
+  | autoFlush          | 控制out对象的 缓存区                                         |
+  | contentType        | 指定当前JSP页面的MIME类型和字符编码                          |
+  | errorPage          | 指定当JSP页面发生异常时需要转向的错误处理页面                |
+  | isErrorPage        | 指定当前页面是否可以作为错误处理页面，true可使用 exception 对象 |
+  | extends            | 指定servlet从哪一个类继承                                    |
+  | import             | 导入要使用的Java类                                           |
+  | info               | 定义JSP页面的描述信息                                        |
+  | isThreadSafe       | 指定对JSP页面的访问是否为线程安全                            |
+  | language           | 定义JSP页面所用的脚本语言，默认是Java                        |
+  | session            | 指定JSP页面是否使用session                                   |
+  | isELIgnored        | 指定是否执行EL表达式                                         |
+  | isScriptingEnabled | 确定脚本元素能否被使用                                       |
 
 *include 指令*：包含其他文件，被包含的文件可以是JSP文件、HTML文件或文本文件。包含的文件就好像是该 JSP 文件的一部分，会被同时编译执行。
 
