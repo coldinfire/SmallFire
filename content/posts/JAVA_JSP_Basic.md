@@ -65,9 +65,11 @@ Web 服务器使用 JSP 创建网页过程
 
 #### JSP 注释
 
-JSP注释主要有两个作用：为代码作注释以及将某段代码注释掉。
+JSP 注释主要有两个作用：为代码作注释以及将某段代码注释掉。
 
-JSP注释的语法格式：`<%-- 注释内容，不会在网页中显示 --%> `
+JSP 注释的语法格式：`<%-- 注释内容，不会在网页中显示 --%> `
+
+JSP 注释，仅仅只是在 jsp 页面中存在，翻译后的 Java 源代码中是没有的。
 
 #### JSP 常量
 
@@ -129,19 +131,21 @@ JSP 指令语法格式：`<%@ directive attribute="value" %>`
   | isThreadSafe       | 指定对JSP页面的访问是否为线程安全                            |
   | language           | 定义JSP页面所用的脚本语言，默认是Java                        |
   | session            | 指定JSP页面是否使用session                                   |
-  | isELIgnored        | 指定是否执行EL表达式                                         |
+  | isELIgnored        | 指定是否执行EL表达式，默认 false                             |
   | isScriptingEnabled | 确定脚本元素能否被使用                                       |
 
-*include 指令*：包含其他文件，被包含的文件可以是JSP文件、HTML文件或文本文件。包含的文件就好像是该 JSP 文件的一部分，会被同时编译执行。
+*include 指令*：静态包含。包含其他文件，被包含的文件可以是JSP文件、HTML文件或文本文件。包含的文件就好像是该 JSP 文件的一部分，会被同时编译执行。
 
 - 语法：`<%@ include file="文件相对url地址" %>`
 - include 指令中的文件名实际上是一个相对的 URL 地址。如果没有给文件关联一个路径，JSP 编译器默认在当前路径下寻找
+- 在某个页面上引入其他的 jsp 页面的时候，要求其他的 jsp 页面中只写网页的主体内容，而不需要网页的框架，因为它们在翻译成 Java 代码的时候，会被翻译到同一个 Java 文件中。
 
-*taglib 指令*：引入一个自定义标签集合的定义，包括库路径、自定义标签。
+*taglib 指令*：引入一个自定义标签集合的定义，包括库路径、自定义标签。主要是在页面上引入其他已经定义好的标签或者函数（其实就是在引入Java程序或者理解成类）。
 
 - 语法：`<%@ taglib uri="uri" prefix="prefixOfTag" %>`
-- uri 属性确定标签库的位置
-- prefix 属性指定标签库的前缀
+  - `<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>`
+- uri : 是当前标签对应的 Java 代码封装之后绑定的名称空间（给java代码专门的命名）
+- prefix : 是当前在页面上可以使用的标签的前缀
 
 #### JSP 行为
 
@@ -177,17 +181,17 @@ JSP 隐式对象是 JSP 容器为每个页面提供的 Java 对象，开发者�
 
 JSP 所支持的九大隐式对象：
 
-| 对象        | 描述                                                         |
-| :---------- | :----------------------------------------------------------- |
-| request     | HttpServletRequest 接口的实例，一次请求访问的多个资源        |
-| response    | HttpServletResponse 接口的实例                               |
-| out         | JspWriter 类的实例，用于把结果输出至网页上，优先级低于 response |
-| session     | HttpSession 类的实例，和Java Servlets中的session对象有一样的行为 |
-| application | ServletContext 类的实例，所有用户间共享数据                  |
-| config      | ServletConfig 类的实例，直接包装了servlet 的ServletConfig类的对象 |
-| pageContext | PageContext 类的实例，当前页面共享数据，提供对JSP页面所有对象以及命名空间的访问 |
-| page        | 类似于Java类中的this关键字，它可以被看做是整个JSP页面的代表  |
-| exception   | Exception 类的对象，包装了从先前页面中抛出的异常信息，被用来产生对出错条件的适当响应 |
+| 对象            | 描述                                                         |
+| :-------------- | :----------------------------------------------------------- |
+| **request**     | HttpServletRequest 接口的实例，一次请求访问的多个资源        |
+| response        | HttpServletResponse 接口的实例                               |
+| out             | JspWriter 类的实例，用于把结果输出至网页上，优先级低于 response |
+| **session**     | HttpSession 类的实例，和Java Servlets中的session对象有一样的行为 |
+| **application** | ServletContext 类的实例，所有用户间共享数据                  |
+| config          | ServletConfig 类的实例，直接包装了servlet 的ServletConfig类的对象 |
+| **pageContext** | PageContext 类的实例，当前页面共享数据，提供对JSP页面所有对象以及命名空间的访问 |
+| page            | 类似于Java类中的this关键字，它可以被看做是整个JSP页面的代表  |
+| exception       | Exception 类的对象，包装了从先前页面中抛出的异常信息，被用来产生对出错条件的适当响应 |
 
 JSP 重定向：
 
