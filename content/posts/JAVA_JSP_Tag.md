@@ -39,10 +39,6 @@ tags:
 
 EL 表达式只能从域对象中获取值，`${域名称.键名}` 从指定域中获取指定键的值。
 
-EL 表达式从四个域中取值，就是在代替使用 PageContext 中的getAttribute 方法取值的麻烦，底层依然在使用 PageContext 中的getAttribute 方法。
-
-使用 pageContext 的 getAttribute方法或者 findAttribute 方法从4个范围中取出数据的时候，如果指定的 key 不存在会得到 null，而使用 EL 表达式取出的时候指定的 key 不存在，页面上什么都没有。
-
 域名称:
 
 - pageScope              ->   pageContext
@@ -54,7 +50,11 @@ web 中的四个域对象（容器对象）范围：从小到大顺序：
 
 - page < request < session < application(ServletContext)
 
-如果不知道数据在哪个范围中，这时可以不用指定范围直接书写 key值即可 `${键名}`
+EL 表达式从四个域中取值，就是在代替使用 PageContext 中的getAttribute 方法取值的麻烦，底层依然在使用 PageContext 中的getAttribute 方法。
+
+使用 pageContext 的 getAttribute方法或者 findAttribute 方法从4个范围中取出数据的时候，如果指定的 key 不存在会得到 null，而使用 EL 表达式取出的时候指定的 key 不存在，页面上什么都没有。
+
+如果不知道数据在哪个范围中，这时可以不用指定范围直接书写 key值即可：`${键名}`。依次从最小的域中查找是否有该键对应的值，知道找到为止。
 
 #### EL 表达式获取复杂数据
 
