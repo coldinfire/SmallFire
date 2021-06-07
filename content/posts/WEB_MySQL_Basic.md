@@ -31,7 +31,7 @@ command：net start mysql | net stop mysql ，启动和停止 MySQL 服务
 | 删除授权 | `revoke select,insert,update,delete om *.* from test2@localhost;` |
 | 修改密码 | mysql admin -u username -p old_pwd password new_pwd          |
 
-#### DDL  操纵数据库、表
+### DDL  操纵数据库、表
 
 | 操作               | 操作语句                                                    | 操作     | 操作语句                            |
 | :----------------- | :---------------------------------------------------------- | :------- | :---------------------------------- |
@@ -58,28 +58,103 @@ command：net start mysql | net stop mysql ，启动和停止 MySQL 服务
 | datetime  | 8       | create_on datetime | yyyy-MM-dd HH:mm:ss，存储日期+时间                 |
 | timestamp | 4       | stmp timestamp     | yyyy-MM-dd HH:mm:ss，存储日期+时间，可作时间戳     |
 
-#### DML 增删改表数据
+### DML 增删改表数据
 
-添加数据
+#### 添加数据
 
 - INSERT INTO table_name(field1,field2,...) VALUES (field1_value,field2_value,...);
 - INSERT INTO table_name VALUES(value1,value2,...);  -- 需要给所有列添加值
 - 除了数字类型,NULL，其他类型需要使用引号引起来
 
-删除数据
+#### 删除数据
 
 - DELETE FROM table_name WHERE condition_type;
 - DELETE FROM table_name;   -- 清空表数据
 - TRUNCATE TABLE table_name;  -- 删除表，然后再创建一个一模一样的空表
 
-修改数据
+#### 修改数据
 
 - UPDATE table_name SET field1 = value1, field2 = value2 [WHERE condition_type];
 - 如果不添加 where 条件，则会将表中所有记录全部修改
 
-#### DQL 查询表数据
+### DQL 查询表数据
 
+SELECT 字段列表 FROM 表明列表 WHERE 条件列表;
 
+-  [ GROUP BY 分组字段] [ HAVING 分组后条件] [ORDER BY 排序字段] [LIMIT 分页] 
+
+- 去重 distinct：SELECT DISTINCT FROM table_name WHERE condition_type;
+
+- NULL 值参与运算 `IFNULL(expr1,expr2)` : expr1 — 需要判断是否为 null 的字段，expr2 — null 值的替换值
+
+#### WHERE 子条件的条件运算符
+
+| 运算符类型     | 运算符                                                       |
+| :------------- | :----------------------------------------------------------- |
+| 比较运算符     | =、<> / !=、>、<、>=、<=                                     |
+| 逻辑运算符     | && / AND 、\|\| / OR、! / NOT                                |
+| 范围限定运算符 | (NOT) BETWEEN ... AND ... ，判断某个字段的值是否在给定的两个数据范围之间 |
+| 范围包含运算符 | (NOT) IN (var1,var2,...)，判断某个字段的值是否存在指定的值列表中 |
+| 模糊查询运算符 | (NOT) LIKE，判断某个字符字段的值是否包含给定的字符；%，代表任意字符；_，单个任意字符 |
+| 存在运算符     | IS，判断一个字段值是否存在或不存在；只有两种写法  IS NULL / IS NOT NULL |
+
+#### 排序查询
+
+SELECT 字段列表 FROM 表明列表 WHERE 条件列表 ORDER BY 排序字段;
+
+- 语法：ORDER BY 排序字段1 排序方式1, 排序字段2 排序方式2 ...
+- 排序方式：ASC 默认值，升序；DESC 降序
+- 多个排序条件：前面的条件值一样时，才会判断第二条件
+
+#### 聚合函数
+
+将一类数据作为一个整体，进行纵向的计算。
+
+| 表达式 | 描述                       |              |                              |
+| :----- | :------------------------- | :----------- | :--------------------------- |
+| MAX    | 最大值                     | CONCAT       | 拼接字符串显示               |
+| MIN    | 最小值                     | CONCAT_WS    | 使用统一符号拼接字段         |
+| AVG    | 平均值                     | GROUP_CONCAT | 分组后的字段，拼接字符串显示 |
+| COUNT  | 计算个数，选择非空列(主键) |              |                              |
+| SUM    | 求和计算                   |              |                              |
+
+#### 分组查询
+
+SELECT 字段列表 FROM 表明列表 WHERE 条件列表 GROUP BY 分组字段 HAVING 分组后条件;
+
+- 语法：GROUP BY 分组字段;
+- 分组之后查询的字段：分组字段、聚合函数
+- 使用 HAVING 进行分组后结果过滤；HAVING 分组后条件
+
+HAVING 的语法格式与 WHERE 一致，但是两者使用方式不一样：
+
+- WHERE 在分组之前进行限定，如果不满足条件则不参与分组；HAVING 是在分组之后进行的过滤，如果不满足条件，则不会被查询出来
+- WHERE 不能用聚合函数，但是 HAVING 可以进行聚合函数的判断.
+
+#### 分页查询
+
+SELECT 字段列表 FROM 表明列表 WHERE 条件列表 LIMIT from_index,page_counts;
+
+- 语法：LIMIT from_index,page_counts;  from_index — 开始索引位置，page_counts — 每页显示的条数
+- 开始的索引 = (当前的页码 - 1) * 每页显示的条数
+
+### 约束
+
+主键约束：PRIMARY KEY 要求被装饰的字段：唯一和非空 
+
+唯一约束：UNIQUE 要求被装饰的字段：唯一，联合唯一：在结尾：unique(字段1，字段2)
+
+非空约束：NOT NULL 要求被装饰的字段：非空 
+
+外键约束：FOREIGN KEY 某主表的外键
+
+自动增加：AUTO_INCREMENT 自动增加，需要和主键 PRIMARY KEY 同时用 
+
+设置默认值：DEFAULT 为该属性设置默认值 
+
+不足位数默认填充0：ZEROFILL 在int、char中使用  
+
+### 数据库范式
 
 #### MySQL 复杂操作
 
