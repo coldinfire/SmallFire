@@ -2272,7 +2272,7 @@
       <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</guid>
-      <description>MySQL 数据库 连接操作 操作 操作语句 连接 mysql -h (ip) -u user_name -p password 断开 exit; 创建授权 grant select on 数据库.* to 用户名@登录主机 identified by &amp;ldquo;密码&amp;rdquo; 删除授权 revoke</description>
+      <description>MySQL 数据库 服务器启动和关闭 Windows：services.msc 查看服务信息，可以启动和关闭 MySQL 服务 command：net start mysql | net stop mysql ，启动和</description>
     </item>
     
     <item>
