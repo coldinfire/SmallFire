@@ -33,18 +33,55 @@ command：net start mysql | net stop mysql ，启动和停止 MySQL 服务
 
 #### DDL  操纵数据库、表
 
-| 操作               | 操作语句                                                     | 操作           | 操作语句                                |
-| :----------------- | :----------------------------------------------------------- | :------------- | :-------------------------------------- |
-| 创建库             | create database if not exists db_name character set 字符集;  # 默认 utf8 | 创建表         | create table table_name (字段设定列表); |
-| 查询所有数据库     | show databases;                                              | 显示数据表     | show tables;                            |
-| 查询数据库创建语句 | show create database db_name;                                | 查询表结构     | describe table_name;                    |
-| 修改数据库         | alter database db_name character set 字符集;                 | 修改表         | alter table t1 rename t2;               |
-| 删除数据库         | drop database if exists db_name;                             | 删除表         | drop table table_name;                  |
-| 查询当前使用数据库 | select database();                                           | 清空表         | delete from table_name;                 |
-| 使用数据库         | use db_name;                                                 | 使用表(选中表) | use table_name;                         |
-|                    |                                                              | 查询表         | select * from table_name;               |
+| 操作               | 操作语句                                                    | 操作     | 操作语句                            |
+| :----------------- | :---------------------------------------------------------- | :------- | :---------------------------------- |
+| 创建库             | create database if not exists db_name character set 字符集; | 创建     | create table table_name (字段列表); |
+| 查询数据库         | show databases;                                             | 显示     | show tables;                        |
+| 库创建语句         | show create database db_name;                               | 查表结构 | desc table_name;                    |
+| 修改数据库         | alter database db_name character set 字符集;                | 修改     | alter table t1 rename t2;           |
+| 删除数据库         | drop database if exists db_name;                            | 删除     | drop table table_name;              |
+| 查询当前使用数据库 | select database();                                          | 清空     | delete from table_name;             |
+| 使用数据库         | use db_name;                                                |          |                                     |
 
-#### 复杂操作
+数据库字段数据类型：
+
+| 数据类型  | 字节数  | 语法               | 描述                                               |
+| --------- | ------- | ------------------ | -------------------------------------------------- |
+| char      | 0-255   | char(20)           | 定长字符串，存储右空格填充到指定的长度，默认1      |
+| varchar   | 0-65535 | varchar(20)        | 变长字符串，创建VARCHAR类型字段必须定义长度        |
+| int       | 4       | num int            | 整型数据类型，MySQL中整型默认是带符号的            |
+| float     | 4       | num float(M,D)     | 单精度浮点型，显示长度(M)和小数位数(D)，默认(10,2) |
+| double    | 8       | num double(M,D)    | 双精度浮点型，存在精度丢失问题，默认为(16,4)       |
+| decimal   | M/D+2   | decimal(M, D)      | 定点型，以字符串形式进行保存，默认为decimal(10, 0) |
+| date      | 3       | create_date date   | yyyy-MM-dd，存储日期值                             |
+| time      | 3       | create_time time   | HH:mm:ss，存储时分秒                               |
+| datetime  | 8       | create_on datetime | yyyy-MM-dd HH:mm:ss，存储日期+时间                 |
+| timestamp | 4       | stmp timestamp     | yyyy-MM-dd HH:mm:ss，存储日期+时间，可作时间戳     |
+
+#### DML 增删改表数据
+
+添加数据
+
+- INSERT INTO table_name(field1,field2,...) VALUES (field1_value,field2_value,...);
+- INSERT INTO table_name VALUES(value1,value2,...);  -- 需要给所有列添加值
+- 除了数字类型,NULL，其他类型需要使用引号引起来
+
+删除数据
+
+- DELETE FROM table_name WHERE condition_type;
+- DELETE FROM table_name;   -- 清空表数据
+- TRUNCATE TABLE table_name;  -- 删除表，然后再创建一个一模一样的空表
+
+修改数据
+
+- UPDATE table_name SET field1 = value1, field2 = value2 [WHERE condition_type];
+- 如果不添加 where 条件，则会将表中所有记录全部修改
+
+#### DQL 查询表数据
+
+
+
+#### MySQL 复杂操作
 
 | 操作                           | 操作语句                                                     |
 | :----------------------------- | :----------------------------------------------------------- |
