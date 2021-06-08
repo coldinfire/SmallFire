@@ -140,19 +140,36 @@ SELECT 字段列表 FROM 表明列表 WHERE 条件列表 LIMIT from_index,page_c
 
 ### 约束
 
-主键约束：PRIMARY KEY 要求被装饰的字段：唯一和非空 
+对表中的数据进行限定，保证数据的正确性、有效性和完整性。
 
-唯一约束：UNIQUE 要求被装饰的字段：唯一，联合唯一：在结尾：unique(字段1，字段2)
+主键约束：`PRIMARY KEY` 要求被装饰的字段：唯一和非空 
 
-非空约束：NOT NULL 要求被装饰的字段：非空 
+- 删除主键：ALTER TABLE table_name DROP PRIMARY KEY;
+- 创建表后添加主键：ALTER TABLE table_name MODIFY key_field INT PRIMARY KEY;
 
-外键约束：FOREIGN KEY 某主表的外键
+唯一约束：`UNIQUE` 要求被装饰的字段：唯一，联合唯一：在表创建结尾：`UNIQUE(字段1，字段2)`
 
-自动增加：AUTO_INCREMENT 自动增加，需要和主键 PRIMARY KEY 同时用 
+- 删除唯一约束：ALTER TABLE table_name DROP INDEX unique_field;
+- 创建表后添加唯一约束：ALTER TABLE table_name MODIFY unique_field VARCHAR(10) UNIQUE;
 
-设置默认值：DEFAULT 为该属性设置默认值 
+非空约束：`NOT NULL `要求被装饰的字段：非空 
 
-不足位数默认填充0：ZEROFILL 在int、char中使用  
+- 删除非空约束：ALTER TABLE table_name MODIFY notnull_field VARCHAR(10);
+
+- 创建表后添加非空约束：ALTER TABLE table_name MODIFY notnull_field VARCHAR(10) NOT NULL;
+
+自动增加：`AUTO_INCREMENT` 自动增加，需要和主键 PRIMARY KEY 同时用 
+
+- 删除自动增长：ALTER TABLE table_name MODIFY auto_key_field INT;
+- 创建表后添加自增：ALTER TABLE table_name MODIFY auto_key_field INT AUTO_INCREMENT;
+
+外键约束：`FOREIGN KEY` 某主表的外键
+
+- CONSTRAINT 外键名称 FOREIGN KEY (外键字段名) REFERENCES 主表名称(主表列名称);
+
+设置默认值：`DEFAULT` 为该属性设置默认值 
+
+不足位数默认填充0：`ZEROFILL` 在int、char中使用  
 
 ### 数据库范式
 
