@@ -2267,12 +2267,30 @@
     </item>
     
     <item>
+      <title> JDBC连接 </title>
+      <link>https://coldinfire.github.io/2017/JAVA_JDBC/</link>
+      <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/JAVA_JDBC/</guid>
+      <description>JDBC JDBC (Java DataBase Connectivity )，Java 数据库连接，是Java程序访问数据库的标准接口。各个数据库厂商自己去实现该接口，并提供数据库驱动 jar 包。 使用JDBC的好</description>
+    </item>
+    
+    <item>
+      <title> MySQL高级操作 </title>
+      <link>https://coldinfire.github.io/2017/WEB_MySQL_High/</link>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_MySQL_High/</guid>
+      <description>MySQL 事务操作 如果一个包含多个步骤的业务操作被事务管理，那么这些操作要么同时成功，要么同时失败。 事务执行是一个整体，所有 SQL 语句都必须执行成功。如</description>
+    </item>
+    
+    <item>
       <title> MySQL基本操作 </title>
       <link>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</link>
-      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</guid>
-      <description>MySQL 数据库 服务器启动和关闭 Windows：services.msc 查看服务信息，可以启动和关闭 MySQL 服务 command：net start mysql | net stop mysql ，启动和</description>
+      <description>MySQL 数据库 服务器启动和关闭 Windows：services.msc 查看服务信息，可以启动和关闭 MySQL 服务 Command：net start mysql | net stop mysql ，启动和</description>
     </item>
     
     <item>

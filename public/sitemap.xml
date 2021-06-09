@@ -4244,9 +4244,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_JDBC/</loc>
       
-      <lastmod>2017-12-21T00:00:00+00:00</lastmod>
+      <lastmod>2017-12-03T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4260,7 +4260,35 @@
     <url>
       <loc>https://coldinfire.github.io/categories/JAVA/</loc>
       
-      <lastmod>2017-12-21T00:00:00+00:00</lastmod>
+      <lastmod>2017-12-03T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/JDBC/</loc>
+      
+      <lastmod>2017-12-03T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_MySQL_High/</loc>
+      
+      <lastmod>2017-11-28T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4274,7 +4302,21 @@
     <url>
       <loc>https://coldinfire.github.io/tags/MySQL/</loc>
       
-      <lastmod>2017-12-21T00:00:00+00:00</lastmod>
+      <lastmod>2017-11-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</loc>
+      
+      <lastmod>2017-11-25T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
