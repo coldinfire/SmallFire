@@ -2267,12 +2267,21 @@
     </item>
     
     <item>
+      <title> 数据库连接池 </title>
+      <link>https://coldinfire.github.io/2017/WEB_MySQL_Pool/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_MySQL_Pool/</guid>
+      <description>连接池的应用 每次访问数据库都会创建一个连接，初始化连接，关闭连接，会走访问数据库的所有操作，由于每次创建初始化连接和关闭连接会花费大量的时间</description>
+    </item>
+    
+    <item>
       <title> JDBC连接 </title>
       <link>https://coldinfire.github.io/2017/JAVA_JDBC/</link>
       <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_JDBC/</guid>
-      <description>JDBC JDBC (Java DataBase Connectivity )，Java 数据库连接，是Java程序访问数据库的标准接口。各个数据库厂商自己去实现该接口，并提供数据库驱动 jar 包。 使用JDBC的好</description>
+      <description>JDBC JDBC (Java DataBase Connectivity )，是利用 Java 语言或程序连接并且访问数据库的一门技术，是 Java 程序访问数据库的标准接口，通常是面向关系型数据库的。各个数据库厂商自己去实</description>
     </item>
     
     <item>
