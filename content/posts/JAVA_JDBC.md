@@ -24,33 +24,80 @@ JDBC (Java DataBase Connectivity )，是利用 Java 语言或程序连接并且�
 
 ### JDBC 连接数据库
 
+#### 创建步骤
+
 创建一个以JDBC连接数据库的程序，包含以下步骤。
 
-- 导入MySQL 驱动包，下载地址 [mysql-connector-java.jar ](https://dev.mysql.com/downloads/connector/j/) 。
-- 获取：user，password，url，driverClass
-  - url：`jdbc:子协议://ip地址:端口号/数据库名` ：MySQL — jdbc:mysql://localhost:3306/mysql
-    - 8.0 以上：`?characterEcoding=utf-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true`
-  - driverClass：`com.mysql.jdbc.Driver`，8.0 以上：`com.mysql.cj.jdbc.Driver`
-- 注册驱动
-  - `Class.forName(String driverClass);`
-- 获取连接
-  - `Connection conn = DriverManager.getConnection(String url, String user, String password);`
-- 获取传输器，并输入准备好的 SQL 语句
-  - `PreparedStatement pstmt = connection.prepareStatement(String sql);`
-- 通过传输器执行 MySQL
-  - `ResultSet resultSet = pstmt.executeQuery();`
-- 结果集数据处理
-- 释放资源：越晚获取的资源越先关闭，代码放在 finally 块中
-  - 依序关闭使用的对象连接：ResultSet -> Statement -> Connection
+Step1：导入MySQL 驱动包，下载地址 [mysql-connector-java.jar ](https://dev.mysql.com/downloads/connector/j/) 。
 
-JDBC需要用到的类和接口有:
+Step2：获取：user，password，url，driverClass
+- url：`jdbc:子协议://ip地址:端口号/数据库名` ：MySQL — jdbc:mysql://localhost:3306/mysql
+  - 8.0 以上：`?characterEcoding=utf-8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true`
+- driverClass：`com.mysql.jdbc.Driver`，8.0 以上：`com.mysql.cj.jdbc.Driver`
 
-- DriverManager：注册 JDBC 驱动
-- Connection：创建 JDBC 连接
-- PreparedStatement：Statement 的子类接口，比 Statement 更加安全，并且能够提高执行效率。增加SQL预编译生成骨架，保证语义的准确性不会发生改变，防止 SQL 注入攻击。
-- ResultSet：结果集对象，用于封装 SQL 语句查询的结果，该对象提供了遍历数据以及获取数据的方法。 
+Step3：注册驱动
+
+- `Class.forName(String driverClass);`
+
+Step4：获取连接
+
+- `Connection conn = DriverManager.getConnection(String url, String user, String password);`
+
+Step5：获取传输器，并输入准备好的 SQL 语句
+
+- `PreparedStatement pstmt = connection.prepareStatement(String sql);`
+
+Step6：通过传输器执行 MySQL
+
+- `ResultSet resultSet = pstmt.executeQuery();`
+
+Step7：结果集数据处理
+
+Step8：释放资源：越晚获取的资源越先关闭，代码放在 finally 块中
+
+- 依序关闭使用的对象连接：ResultSet -> Statement -> Connection
+
+#### JDBC需要用到的类和接口
+
+DriverManager：驱动管理对象
+
+- 注册驱动：static void registerDriver(Driver driver)  —  注册给定的驱动程序
+- 获取数据库连接：static Connection getConnection(String url, String user, String password)
+
+Connection：数据库连接对象
+
+- 获取执行 sql 的对象：PreparedStatement prepareStatement(String sql)
+- 管理事务
+  - 开启事务 — setAutoCommit(boolean autoCommit) ，false 开启事务：在执行 sql 之前开启事务
+  - 提交事务 — commit()：当所有 sql 都执行完提交事务
+  - 回滚事务 — rollback()：在 catch 中进行事务的回滚
+
+PreparedStatement：执行 SQL 的对象
+
+- Statement 的子类接口，比 Statement 更加安全，并且能够提高执行效率。
+- 增加 SQL 预编译生成骨架，保证语义的准确性不会发生改变，防止 SQL 注入攻击。
+
+- sql 的参数使用 `?` 作为占位符。
+
+ResultSet：结果集对象
+
+用于封装 SQL 语句查询的结果，该对象提供了遍历数据以及获取数据的方法。 
+
+- | Method                                                      | Description                               |
+  | :---------------------------------------------------------- | :---------------------------------------- |
+  | boolean next()                                              | 游标向下移动一行                          |
+  | String getString(int columnIndex / String columnLabel)      | 根据 "列编号"/"列名称" 获取字符串类型数据 |
+  | int getInt(int columnIndex / String columnLabel)            | 获取 INT 类型数据                         |
+  | float getFloat(int columnIndex / String columnLabel)        | 获取 Float 类型数据                       |
+  | double getDouble(int columnIndex / String columnLabel)      | 获取 Double 类型数据                      |
+  | java.sql.Date getDate(int columnIndex / String columnLabel) | 获取 Date 类型数据                        |
+  | ResultSetMetaData getMetaData()                             |                                           |
 
 ### JDBC 连接数据库实例
+
+获取 src 下文件路径：
+
+- `String path = 类名.class.getClassLoader().getResource("filename.type").getPath();`
 
 #### JDBCUtil
 
@@ -86,15 +133,6 @@ public class JDBCUtil {
             }finally {
                 conn = null;
             }
-            if( stat != null ) {
-                try {
-                    stat.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }finally {
-                    stat = null;
-                }
-            }
             if( rs != null ) {
                 try {
                     rs.close();
@@ -102,6 +140,15 @@ public class JDBCUtil {
                     e.printStackTrace();
                 }finally {
                     rs = null;
+                }
+            }
+            if( stat != null ) {
+                try {
+                    stat.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }finally {
+                    stat = null;
                 }
             }
         }
