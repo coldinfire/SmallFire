@@ -23,13 +23,9 @@ Command：net start mysql | net stop mysql ，启动和停止 MySQL 服务
 
 #### 连接操作
 
-| 操作     | 操作语句                                                     |
-| :------- | :----------------------------------------------------------- |
-| 连接     | mysql -h (ip) -u username -p password / mysql --user=username --password=psd |
-| 断开     | exit; / quit;                                                |
-| 创建授权 | grant select on 数据库.* to 用户名@登录主机 identified by "password" |
-| 删除授权 | `revoke select,insert,update,delete om *.* from test2@localhost;` |
-| 修改密码 | mysql admin -u username -p old_pwd password new_pwd          |
+连接：`mysql -h (ip) -u username -p password`、`mysql --user=username --password=password`
+
+断开：`exit; `、`quit;`
 
 ### DDL  操纵数据库、表
 
@@ -45,18 +41,33 @@ Command：net start mysql | net stop mysql ，启动和停止 MySQL 服务
 
 数据库字段数据类型：
 
-| 数据类型  | 字节数  | 语法               | 描述                                               |
-| --------- | ------- | ------------------ | -------------------------------------------------- |
-| char      | 0-255   | char(20)           | 定长字符串，存储右空格填充到指定的长度，默认1      |
-| varchar   | 0-65535 | varchar(20)        | 变长字符串，创建VARCHAR类型字段必须定义长度        |
-| int       | 4       | num int            | 整型数据类型，MySQL中整型默认是带符号的            |
-| float     | 4       | num float(M,D)     | 单精度浮点型，显示长度(M)和小数位数(D)，默认(10,2) |
-| double    | 8       | num double(M,D)    | 双精度浮点型，存在精度丢失问题，默认为(16,4)       |
-| decimal   | M/D+2   | decimal(M, D)      | 定点型，以字符串形式进行保存，默认为decimal(10, 0) |
-| date      | 3       | create_date date   | yyyy-MM-dd，存储日期值                             |
-| time      | 3       | create_time time   | HH:mm:ss，存储时分秒                               |
-| datetime  | 8       | create_on datetime | yyyy-MM-dd HH:mm:ss，存储日期+时间                 |
-| timestamp | 4       | stmp timestamp     | yyyy-MM-dd HH:mm:ss，存储日期+时间，可作时间戳     |
+| 数据类型  | 字节数  | 语法          | 描述                                               |
+| --------- | ------- | ------------- | -------------------------------------------------- |
+| char      | 0-255   | char(20)      | 定长字符串，存储右空格填充到指定的长度，默认1      |
+| varchar   | 0-65535 | varchar(20)   | 变长字符串，创建VARCHAR类型字段必须定义长度        |
+| int       | 4       | int           | 整型数据类型，MySQL中整型默认是带符号的            |
+| float     | 4       | float(M,D)    | 单精度浮点型，显示长度(M)和小数位数(D)，默认(10,2) |
+| double    | 8       | double(M,D)   | 双精度浮点型，存在精度丢失问题，默认为(16,4)       |
+| decimal   | M/D+2   | decimal(M, D) | 定点型，以字符串形式进行保存，默认为decimal(10, 0) |
+| date      | 3       | date          | yyyy-MM-dd，存储日期值                             |
+| time      | 3       | time          | HH:mm:ss，存储时分秒                               |
+| datetime  | 8       | datetime      | yyyy-MM-dd HH:mm:ss，存储日期+时间                 |
+| timestamp | 4       | timestamp     | yyyy-MM-dd HH:mm:ss，存储日期+时间，可作时间戳     |
+
+JAVA数据类型和MYSQL数据类型对应关系表：
+
+| JAVA 类型          | SQL 类型                  |
+| :----------------- | :------------------------ |
+| boolean            | BIT                       |
+| byte               | TINYINT                   |
+| short              | SMALLINT                  |
+| int                | INTEGER                   |
+| long               | BIGINT                    |
+| String             | CHANR,VARCHAR,LONGVARCHAR |
+| byte array         | BINARY VAR BINARY         |
+| java.sql.Date      | DATE                      |
+| java.sql.Time      | TIME                      |
+| java.sql.Timestamp | TIMESTAMP                 |
 
 ### DML 增删改表数据
 

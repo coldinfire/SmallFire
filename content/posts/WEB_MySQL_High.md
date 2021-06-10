@@ -54,9 +54,11 @@ tags:
 
 隔离级别从小到大安全性越来越高，但是效率越来越低。
 
-查询数据库隔离级别：SELECT @@tx_isolation;
+查询数据库隔离级别：`SELECT @@tx_isolation;`
 
-设置数据库隔离级别：SET GLOBAL TRANSACTION ISOLATION LEVEL 级别字符串;
+设置当前 MySQL 连接的隔离级别：`SET TRANSACTION ISOLATION LEVEL level_field;` 
+
+设置数据库系统全局的隔离级别：`SET GLOBAL TRANSACTION ISOLATION LEVEL 级别字符串;`
 
 | 隔离级别              | 描述                                       |
 | :-------------------- | :----------------------------------------- |

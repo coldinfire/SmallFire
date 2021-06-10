@@ -91,7 +91,7 @@ ResultSet：结果集对象
   | float getFloat(int columnIndex / String columnLabel)        | 获取 Float 类型数据                       |
   | double getDouble(int columnIndex / String columnLabel)      | 获取 Double 类型数据                      |
   | java.sql.Date getDate(int columnIndex / String columnLabel) | 获取 Date 类型数据                        |
-  | ResultSetMetaData getMetaData()                             |                                           |
+  | ResultSetMetaData getMetaData()                             | 提供了许多方法用于获得结果集的各种信息    |
 
 ### JDBC 连接数据库实例
 
