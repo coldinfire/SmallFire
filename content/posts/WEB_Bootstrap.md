@@ -42,6 +42,10 @@ Bootstrap 版本
 
 bootstrap 文件夹中的内容是官方提供的下载包内的文件内容。
 
+把bootstrap文件夹放在WebContent下时：
+
+- 路径：`<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">`
+
 #### Step2:创建 html 骨架，引入相关样式文件
 
 ```html

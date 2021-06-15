@@ -53,9 +53,11 @@ Step6：通过传输器执行 MySQL
 
 Step7：结果集数据处理
 
+- `while(resultSet.next()){ ... }`
+
 Step8：释放资源：越晚获取的资源越先关闭，代码放在 finally 块中
 
-- 依序关闭使用的对象连接：ResultSet -> Statement -> Connection
+- `xxx.close()`；依序关闭使用的对象连接 ResultSet -> Statement -> Connection
 
 #### JDBC需要用到的类和接口
 
@@ -77,7 +79,7 @@ PreparedStatement：执行 SQL 的对象
 - Statement 的子类接口，比 Statement 更加安全，并且能够提高执行效率。
 - 增加 SQL 预编译生成骨架，保证语义的准确性不会发生改变，防止 SQL 注入攻击。
 
-- sql 的参数使用 `?` 作为占位符。
+- SQL 的参数使用 `?` 作为占位符。
 
 ResultSet：结果集对象
 
@@ -99,17 +101,18 @@ ResultSet：结果集对象
 
 - `String path = 类名.class.getClassLoader().getResource("filename.type").getPath();`
 
-#### JDBCUtil
+#### JDBC 工具类
 
 ```java
 package test.jdbc;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 public class JDBCUtil {
     // 获取连接
-    public static Connection getConnection(String dbName,String user, String password) {
+    public static Connection getConnection(String dbName,String user, String password){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); //注册驱动
             Connection conn = DriverManager.getConnection(
@@ -124,7 +127,28 @@ public class JDBCUtil {
         return null;
     }
     // 释放资源
-    public static void releaseSource(Connection conn, Statement stat, ResultSet rs) {
+    public static void close(Statement stmt,Connection conn){
+        close(null,stmt,conn);
+    }
+    public static void close(Connection conn, Statement stmt, ResultSet rs) {
+        if( rs != null ) {
+            try {
+                rs.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally {
+                rs = null;
+            }
+        }
+        if( stmt != null ) {
+            try {
+                stmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally {
+                stmt = null;
+            }
+        }
         if( conn != null ) {
             try {
                 conn.close();
@@ -132,24 +156,6 @@ public class JDBCUtil {
                 e.printStackTrace();
             }finally {
                 conn = null;
-            }
-            if( rs != null ) {
-                try {
-                    rs.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }finally {
-                    rs = null;
-                }
-            }
-            if( stat != null ) {
-                try {
-                    stat.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }finally {
-                    stat = null;
-                }
             }
         }
     }
@@ -177,12 +183,11 @@ public class testJDBCUtil {
             //1.注册驱动，2.获取连接
             conn = JDBCUtil.getConnection('jdbctest','test','test123');
             //3.获取传输器
-            String sql = "insert into account (id,name,age) values(?,?,?)";
-            pstmt = (PreparedStatement) conn.prepareStatement(sql);
+            String sql = "insert into account (id,name,age) values(NULL,?,?)";
+            pstmt = conn.prepareStatement(sql);
             //4.通过传输器发送SQL语句到服务器执行并返回结果
-            pstmt.setInt(1,NULL);
-            pstmt.setString(2,"zhangsan");
-            pstmt.setInt(3,23);
+            pstmt.setString(1,"zhangsan");
+            pstmt.setInt(2,23);
             rows = pstmt.executeUpdate();
             //5.处理结果
             System.out.println("影响的行数是：" + rows);
@@ -190,7 +195,7 @@ public class testJDBCUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
-            JDBCUtil.close(conn,stat,rs);
+            JDBCUtil.close(conn,pstmt,rs);
         }
     }
     //删除数据
@@ -205,7 +210,7 @@ public class testJDBCUtil {
             conn = JDBCUtil.getConnection('jdbctest','test','test123');
             //3.获取传输器
             String sql = "delete from account where name = ?";
-            pstmt = (PreparedStatement) conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql);
             //4.通过传输器发送SQL语句到服务器执行并返回结果
             pstmt.setString(1,'zhangsan');
             rows = pstmt.executeUpdate();
@@ -215,7 +220,7 @@ public class testJDBCUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
-            JDBCUtil.close(conn,stat,rs);
+            JDBCUtil.close(conn,pstmt,rs);
         }
     }
     //修改数据
@@ -230,7 +235,7 @@ public class testJDBCUtil {
             conn = JDBCUtil.getConnection('jdbctest','test','test123');
             //3.获取连接
             String sql = "update account set age = ? where name = ?";
-            pstmt = (PreparedStatement) conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql);
             //4.通过传输器发送SQL语句到服务器执行并返回结果
             pstmt.setInt(1,23);
             pstmt.setString(2,'zhangsan');
@@ -241,7 +246,7 @@ public class testJDBCUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
-            JDBCUtil.close(conn,stat,rs);
+            JDBCUtil.close(conn,pstmt,rs);
         }
     }
     //查询数据
@@ -255,7 +260,7 @@ public class testJDBCUtil {
             conn = JDBCUtil.getConnection('jdbctest','test','test123');
             //3.获取连接
             String sql = "select * from account";
-            pstmt = (PreparedStatement) conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql);
             //4.通过传输器发送SQL语句到服务器执行并返回结果
             rs = pstmt.executeQuery();
             //5.处理结果
@@ -269,7 +274,7 @@ public class testJDBCUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
-            JDBCUtil.close(conn,stat,rs);
+            JDBCUtil.close(conn,pstmt,rs);
         }
     }     
 }
