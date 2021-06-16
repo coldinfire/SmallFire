@@ -1,6 +1,6 @@
 ---
 title: "Easy UI 技术总结"
-date: 2017-10-27
+date: 2017-12-13
 draft: false
 author: Small Fire
 isCJKLanguage: true
