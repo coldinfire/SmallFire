@@ -13,8 +13,6 @@ tags:
 
 ---
 
-
-
 ### Inventory Management使用的BAPI
 
 There are two BAPIs for posting Goods Movements:

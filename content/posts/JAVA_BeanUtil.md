@@ -1,14 +1,14 @@
 ---
-title: "JavaScript其它技术点汇总"
-date: 2017-09-29
+title: "BeanUtil工具类使用"
+date: 2017-10-14
 draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-  - 前端
+  - JAVA
 
 tags: 
-  - JS
+  - javabasic
 
 ---
 

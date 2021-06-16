@@ -8,11 +8,9 @@ categories:
   - 前端
 
 tags: 
-  - DOM
+  - JS
 
 ---
-
-
 
 ### DOM 标准分类
 

@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 #### L_TO_CREATE_SINGLE 
 
 Create a transfer order with one item.

@@ -9,9 +9,8 @@ categories:
 
 tags: 
   - PP
+
 ---
-
-
 
 参考文档 :[Add New or Custom Fields to COOIS Output](https://blogs.sap.com/2015/10/07/add-new-or-custom-fields-to-coois-output/)
 

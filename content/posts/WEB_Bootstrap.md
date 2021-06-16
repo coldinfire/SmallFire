@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 ### Bootstrap 介绍
 
 [Bootstrap](https://bootstrap.css88.com/)，来自 Twitter，前端开发框架。Bootstrap 是基于 HTML、CSS、JavaScript 的，它简洁灵活，使得 Web 开发更加快捷。
@@ -52,6 +50,7 @@ bootstrap 文件夹中的内容是官方提供的下载包内的文件内容。
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
     <!-- 要求当前网页使用IE浏览器最高版本内核来渲染 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- 视口的设置：视口的宽度和设备一直，默认的缩放比例和PC端一致，用户不能自行缩放 -->
@@ -63,12 +62,12 @@ bootstrap 文件夹中的内容是官方提供的下载包内的文件内容。
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <!-- 解决IE9以下浏览器对CSS3 Media Query的不识别 -->  
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <![endif] -->
  </head>
  <body>
     <h1>你好，世界！</h1>
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/jquery-2.1.0.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>

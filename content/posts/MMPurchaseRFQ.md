@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 ### Request For Quotation (RFQ): ME41 /42/43
 
 - SPRO > IMG > Logistics > MM > Purchasing > RFQ/Quotation > RFQ

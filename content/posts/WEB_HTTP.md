@@ -5,10 +5,10 @@ draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-  - Linux
+  - 前端
 
 tags: 
-  - http
+  - JS
 
 ---
 

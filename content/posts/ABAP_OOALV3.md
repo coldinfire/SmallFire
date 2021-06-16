@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 OO ALV简单实例：其中屏幕的创建， 和对应PAI,PBO以及Status title等可以自定调整。
 
 ```JS

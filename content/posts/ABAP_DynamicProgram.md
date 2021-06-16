@@ -1,5 +1,4 @@
 ---
-
 title: " ABAP Dynnamic Programer"
 date: 2019-09-25
 draft: false

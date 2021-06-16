@@ -101,6 +101,11 @@ Servlet 容器对于接受到的每一个 Http 请求，都会创建一个Servle
 | public String getRemoteHost();             | 获取客户端的主机名                                          |
 | public int getRemotePort();                | 获取客户端的端口号                                          |
 
+#### 获取路径
+
+- String path = request.getContextPath();
+- String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
 #### Request 乱码问题解决
 
 在 service 中使用的编码解码方式默认为：ISO-8859-1编码，但此编码并不支持中文，因此会出现乱码问题，所以我们需要手动修改编码方式为 UTF-8 编码，才能解决中文乱码问题。

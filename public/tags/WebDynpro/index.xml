@@ -112,7 +112,7 @@
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_Demo/</guid>
-      <description>准备数据 ​ SAP Web Dynpro 一般都是采用调用ERP接口方式获取业务数据，因此输入，输出参数等结构都需要和ERP系统中接口的内容保持一致。在ERP系统中找</description>
+      <description>准备数据 SAP Web Dynpro 一般都是采用调用 ERP 接口方式获取业务数据，因此输入，输出参数等结构都需要和 ERP 系统中接口的内容保持一致。在 ERP 系统中找到 Report 对应的程序</description>
     </item>
     
     <item>

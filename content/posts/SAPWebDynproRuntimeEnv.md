@@ -12,9 +12,7 @@ tags:
 
 ---
 
-
-
-# Remove User settings option
+## Remove User settings option
 
 ### ABAP Enviroment
 

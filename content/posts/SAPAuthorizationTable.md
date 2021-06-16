@@ -13,8 +13,6 @@ tags:
 
 ---
 
-
-
 ### 相关权限分配的Table
 
 | Table            | Desc                                  | Table         | Decs                                       |

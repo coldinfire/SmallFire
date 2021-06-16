@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 #### Purchase Request 内容：
 
 - PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期

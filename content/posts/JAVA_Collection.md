@@ -8,7 +8,8 @@ categories:
   - JAVA
 
 tags: 
-  - 集合
+  - javabasic
+
 ---
 
 ### 集合

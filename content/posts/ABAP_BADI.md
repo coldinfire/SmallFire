@@ -2,7 +2,6 @@
 title: "BADI 维护"
 date: 2019-06-30
 draft: false
-draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
@@ -10,9 +9,8 @@ categories:
 
 tags: 
   - Enhance
+
 ---
-
-
 
 ### BADI 基于类的增强
 

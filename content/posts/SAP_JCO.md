@@ -12,21 +12,19 @@ tags:
 
 ---
 
-
-
 ### SAP JCO简介
 
-​	为了在R/3系统和JAVA平台之间进行实时的交换数据。SAP提供了一套高效的基于RFC的ABAP和JAVA进程间通讯组件：SAP JAV Connector.
+为了在 R/3 系统和 JAVA 平台之间进行实时的交换数据。SAP 提供了一套高效的基于 RFC 的 ABAP 和 JAVA 进程间通讯组件：SAP JAV Connector.
 
-​	Jco库提供了可以直接在JAVA程序中使用的API.该API通过JNI调用部署在客户端的SAP的RFC库。
+Jco 库提供了可以直接在 JAVA 程序中使用的 API.该 API 通过 JNI 调用部署在客户端的 SAP 的 RFC 库。
 
 ### 安装与配置
 
-​	下载Jco库的jar包。然后解压，将文件librfc32.dll的文件复制到目录system32下面。这个文件就是SAP的RFC协议实现。然后确保CLASSPATH环境下包含文件sapjco.jar所在的目录。该jar包中包含有在JAVA程序中需要直接调用的类和接口。
+下载 Jco 库的 jar 包。然后解压，将文件 librfc32.dll 的文件复制到目录 system32 下面。这个文件就是 SAP 的 RFC 协议实现。然后确保 CLASSPATH 环境下包含文件 sapjco.jar 所在的目录。该 jar 包中包含有在 JAVA 程序中需要直接调用的类和接口。
 
 ### 建立连接
 
-​	类JCO是Jco库中最主要的一个入口，提供了很多静态方法。其中有一系列重载的createClient方法可以用来创建于SAP系统的连接信息。
+类 JCO 是 Jco 库中最主要的一个入口，提供了很多静态方法。其中有一系列重载的 createClient 方法可以用来创建于 SAP 系统的连接信息。
 
 - 直接输入参数
 
@@ -54,13 +52,15 @@ tags:
   JCO.Client myCont = JCO.createClient(properties);
   ```
 
-​	建立从当前JAVA进程到SAP服务器的连接:	`this.myCont.connect();`
+- 建立从当前JAVA进程到SAP服务器的连接:	`this.myCont.connect();`
 
-​	获取连接状态：`if( myCont != null && myCont.isAlive())`
+
+- 获取连接状态：`if( myCont != null && myCont.isAlive())`
+
 
 #### 连接池
 
-​	Jco库支持以连接池的形式重用已经创建的连接。需要调用JCO类的静态方法addClientPool即可创建一个连接池，并可以在参数中指定连接池的名字和允许同时激活的最大连接数。
+Jco 库支持以连接池的形式重用已经创建的连接。需要调用 JCO 类的静态方法 addClientPool 即可创建一个连接池，并可以在参数中指定连接池的名字和允许同时激活的最大连接数。
 
 ```JS
 public static final String POOL_NAME = "JCO_Pool";
@@ -84,9 +84,9 @@ if(poo == null){
 
 ### 调用Function Models
 
-​	Jco库使用RFC的方式来调用ABAP中的函数，所以被调用的函数必须已经勾选"Remote-enabled"属性。
+Jco 库使用 RFC 的方式来调用 ABAP 中的函数，所以被调用的函数必须已经勾选 "Remote-enabled" 属性。
 
-- 第一步：创建JCO.Repository类的对象，获取所有ABAP函数的元数据。
+- 第一步：创建 JCO.Repository 类的对象，获取所有 ABAP 函数的元数据。
 
   - `JCO.Repository myRepository = new JCO.Repository("Repository",myCont/POOL_NAME);`
   - 构造函数有两个参数，第一个是可以任意指定的名字；第二个是当前使用的连接。可以指定连接池名字，Jco库会自动从该连接池获取连接	
@@ -151,8 +151,6 @@ if(poo == null){
 - 在ABAP程序内设置外部断点。
 
   - 并设置Debugging里设置External Debugging的Users为设置的外部名。
-
-
 
 ### DATA TYPE
 

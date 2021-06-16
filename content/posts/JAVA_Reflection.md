@@ -8,11 +8,9 @@ categories:
   - JAVA
 
 tags: 
-  - Reflection
+  - javabasic
 
 ---
-
-
 
 ### 反射
 

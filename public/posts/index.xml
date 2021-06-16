@@ -283,7 +283,7 @@
       <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/SAPDBCO_Connect/</guid>
-      <description>TCode: DBCO查看数据库连接信息 测试连通性 使用程序：ADBC_TEST_CONNECTION / 参考 ADBC* 输入Database connection name,进行连接测试</description>
+      <description>SAP 数据库配置 TCode: DBCO查看数据库连接信息 测试连通性 使用程序：ADBC_TEST_CONNECTION / 参考 ADBC* 输入Database connection name,</description>
     </item>
     
     <item>
@@ -310,7 +310,7 @@
       <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/WM_Table/</guid>
-      <description>WM 常用Table的功能划分： Transfer requirement Transfer order Inventory Documents Storage Locations Storage Stocks SAP WM Tables for Transfer requirement 主要用于使用仓库管理系统（WMS）计划货物移动。 通过区分货物移动的计划和执行，您</description>
+      <description>WM 常用Table的功能划分 Transfer requirement Transfer order Inventory Documents Storage Locations Storage Stocks SAP WM Tables for Transfer requirement 主要用于使用仓库管理系统（WMS）计划货物移动。 通过区分货物移动的计划和执行，您可</description>
     </item>
     
     <item>
@@ -526,7 +526,7 @@
       <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAP_JCO/</guid>
-      <description>SAP JCO简介 ​ 为了在R/3系统和JAVA平台之间进行实时的交换数据。SAP提供了一套高效的基于RFC的ABAP和JAVA进程间通讯组件：SA</description>
+      <description>SAP JCO简介 为了在 R/3 系统和 JAVA 平台之间进行实时的交换数据。SAP 提供了一套高效的基于 RFC 的 ABAP 和 JAVA 进程间通讯组件：SAP JAV Connector. Jco 库提供了可以直接在 JAVA</description>
     </item>
     
     <item>
@@ -589,7 +589,7 @@
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Outsourcing_Business/</guid>
-      <description>委外加工是指由本公司提供材料（可能是部分）给外包商进行加工，完工后收回成品并向委外加工商支付加工费的业务方式； 步骤： 1.创建为外加工订单： 订</description>
+      <description>委外加工 是指由本公司提供材料（可能是部分）给外包商进行加工，完工后收回成品并向委外加工商支付加工费的业务方式。 1.创建委外加工订单 订单类型：</description>
     </item>
     
     <item>
@@ -1201,7 +1201,7 @@
       <pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_MasterData_enhance2/</guid>
-      <description>正常情况下通过FM Exits来增强一个屏幕的步骤： Find relevant enhancement thru program name. T-code: CMOD, create an enhancement project, then assign the enhancement to the enhancement project Create a subscreen in corresponding X function group Implement the FM exits for transporting data to subscreen and retrieving data from subscreen. Active the enhancement</description>
+      <description>自定义增强字段 正常情况下通过FM Exits来增强一个屏幕的步骤： Find relevant enhancement thru program name. T-code: CMOD, create an enhancement project, then assign the enhancement to the enhancement project Create a subscreen in corresponding X function group Implement the FM exits for transporting data to subscreen and</description>
     </item>
     
     <item>
@@ -1543,7 +1543,7 @@
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAPWebDynproABAP_Demo/</guid>
-      <description>准备数据 ​ SAP Web Dynpro 一般都是采用调用ERP接口方式获取业务数据，因此输入，输出参数等结构都需要和ERP系统中接口的内容保持一致。在ERP系统中找</description>
+      <description>准备数据 SAP Web Dynpro 一般都是采用调用 ERP 接口方式获取业务数据，因此输入，输出参数等结构都需要和 ERP 系统中接口的内容保持一致。在 ERP 系统中找到 Report 对应的程序</description>
     </item>
     
     <item>
@@ -1804,7 +1804,7 @@
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Package/</guid>
-      <description>​ 创建 ABAP 程序的时候都要选择一个 Package，当后续需要修改程序所属的Package时可以使用以下方法： 通过SE38或则SE80打开对应的程</description>
+      <description>创建 ABAP 程序的时候都要选择一个 Package，当后续需要修改程序所属的Package时可以使用以下方法： 通过SE38或则SE80打开对应的程序</description>
     </item>
     
     <item>
@@ -2444,6 +2444,15 @@
       
       <guid>https://coldinfire.github.io/2017/JAVA_IO/</guid>
       <description>JAVA IO 流 Java.io 包几乎包含了所有操作输入、输出需要的类。所有这些流类代表了输入源和输出目标。 流是一组有顺序的，有起点和终点的字节集合，是对数据传输的</description>
+    </item>
+    
+    <item>
+      <title>BeanUtil工具类使用</title>
+      <link>https://coldinfire.github.io/2017/JAVA_BeanUtil/</link>
+      <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/JAVA_BeanUtil/</guid>
+      <description></description>
     </item>
     
     <item>

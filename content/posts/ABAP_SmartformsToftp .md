@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 ### Send pdf file to ftp server
 
 ```html

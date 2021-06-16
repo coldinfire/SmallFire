@@ -8,7 +8,8 @@ categories:
   - 前端
 
 tags: 
-  - BOM
+  - JS
+
 ---
 
 ### 浏览器对象模型 (BOM)

@@ -8,7 +8,8 @@ categories:
   - 前端
 
 tags: 
-  - DOM
+  - JS
+
 ---
 
 ### HTML DOM 事件

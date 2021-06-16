@@ -15,8 +15,6 @@ tags:
 
 参考链接：[https://fenginfo.com/1821.html](https://fenginfo.com/1821.html)
 
-
-
 ## 总述
 
 在 SAP 系统中，批处理操作有多种方法。如果是对一个事物码（TCODE）进行批处理操作，常用的是 LSMW。LSMW 全称是 Legacy System Migration Workbench。它能够对静态数据（如各类主数据）、动态数据（如初始化库存）、业务数据（如销售订单）等进行成批操作，是上线数据准备和运维期间大规模数据操作的主力武器。
