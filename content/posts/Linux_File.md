@@ -1,6 +1,6 @@
 ---
 title: " Linux文件操作 "
-date: 2018-01-10
+date: 2018-02-10
 draft: false
 author: Small Fire
 isCJKLanguage: true

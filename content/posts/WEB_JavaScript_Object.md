@@ -19,7 +19,7 @@ JavaScript的对象是一种带有属性和方法的无序的集合数据类型�
 - 属性是与对象相关的值
 - 方法是能够在对象上执行的动作，是附加在对象上的函数
 
-所有 JavaScript 中的对象都是位于原型链顶端的 Object 的实例
+所有 JavaScript 中的对象都是位于原型链顶端的 Object 的实例。
 
 JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
 
@@ -31,9 +31,7 @@ JavaScript 对象有一个指向一个原型对象的链。当试图访问一个
 
 ### 创建 JavaScript 对象
 
-JavaScript 允许自定义对象。
-
-创建新对象有两种不同的方法：
+JavaScript 允许自定义对象。创建新对象有两种不同的方法：
 
 - 使用 Object 定义并创建对象的实例
 
@@ -92,9 +90,7 @@ Method 1: `function func_name(形式参数列表){ 函数体 }`
 
 Method 2: `var method_name = function(形式参数列表){ 函数体 }`
 
-#### 属性
-
-`arguments.length` : 代表形参的个数
+**属性** ：`arguments.length` : 代表形参的个数
 
 #### 特点
 
@@ -106,9 +102,7 @@ Method 2: `var method_name = function(形式参数列表){ 函数体 }`
 
 - 在方法声明中有一个隐藏的内置对象(数组) `arguments`，封装所有的实际参数
 
-#### 调用
-
-方法名称(实际参数列表);
+**调用** ：方法名称(实际参数列表);
 
 #### Demo
 
@@ -259,11 +253,7 @@ RegExp 修饰符 : 修饰符用于执行不区分大小写和全文的搜索。
 
 ### JSON 对象
 
-#### JSON数据类型
-
-number、boolean、string、null、array、object
-
-
+**JSON数据类型** ：number、boolean、string、null、array、object
 
 ### 对象操作
 

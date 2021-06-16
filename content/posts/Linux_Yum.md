@@ -1,6 +1,6 @@
 ---
 title: " Linux软件包管理 "
-date: 2018-01-23
+date: 2018-02-23
 draft: false
 author: Small Fire
 isCJKLanguage: true

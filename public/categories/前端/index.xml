@@ -157,7 +157,7 @@
       <pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Basic/</guid>
-      <description>JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 浏览器组成 渲染引擎 用来解析 HTML 与 CSS，俗称内核。 JS 引擎 JS 解释器，用来读取网页中</description>
+      <description>JavaScript ( ECMAScript )是一个脚本语言。它是一个轻量级，但功能强大的编程语言。 浏览器组成 渲染引擎 ：用来解析 HTML 与 CSS，俗称内核。 JS 引擎 ：JS 解释器，用来读取</description>
     </item>
     
     <item>
@@ -202,7 +202,7 @@
       <pubDate>Sat, 09 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Layout/</guid>
-      <description>语义化标签 &amp;lt;header&amp;gt; - Defines a header for a document or a section &amp;lt;nav&amp;gt; - 定义一组导航链接 &amp;lt;article&amp;gt; - 定义一块独立的独立内容 &amp;lt;section&amp;gt; - 在文档中定义一块独立的内容主题分组部分 &amp;lt;aside&amp;gt; - 定义核心内容之外</description>
+      <description>语义化标签 &amp;lt;header&amp;gt; — Defines a header for a document or a section &amp;lt;nav&amp;gt; — 定义一组导航链接 &amp;lt;article&amp;gt; — 定义一块独立的独立内容 &amp;lt;section&amp;gt; — 在文档中定义一块独立的内容主题分组部分 &amp;lt;aside&amp;gt; — 定义核心内容之外</description>
     </item>
     
     <item>

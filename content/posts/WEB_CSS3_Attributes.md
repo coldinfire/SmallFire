@@ -63,7 +63,7 @@ tags:
 
 #### 伪元素选择器
 
-可以利用 CSS 创建新标签元素，而不需要 HTML 标签
+可以利用 CSS 创建新标签元素，而不需要 HTML 标签；允许我们添加额外元素而不扰乱文档本身。
 
 | 选择符            | 简介                     |
 | ----------------- | ------------------------ |
@@ -75,6 +75,17 @@ tags:
 - before 和 after 必须有 content 属性
 - before 在父元素内容的前面创建元素，after 在父元素的后面插入元素
 - 伪元素选择器和标签选择器一样，权重为 1
+
+```css
+/*伪元素清楚浮动*/
+.record li::after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both;
+    overflow: hidden;
+}
+```
 
 ### 滤镜 Filter
 

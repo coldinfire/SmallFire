@@ -1,6 +1,6 @@
 ---
 title: " Linux Vim使用 "
-date: 2018-01-13
+date: 2018-02-13
 draft: false
 author: Small Fire
 isCJKLanguage: true

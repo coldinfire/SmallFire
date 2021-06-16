@@ -16,17 +16,17 @@ tags:
 
 ![Semantic Elements](/images/WEB/HTML_Layout.png)
 
-`<header>` - Defines a header for a document or a section
+`<header>` — Defines a header for a document or a section
 
-`<nav>` - 定义一组导航链接
+`<nav>` — 定义一组导航链接
 
-`<article>` - 定义一块独立的独立内容
+`<article>` — 定义一块独立的独立内容
 
-`<section>` - 在文档中定义一块独立的内容主题分组部分
+`<section>` — 在文档中定义一块独立的内容主题分组部分
 
-`<aside>` - 定义核心内容之外的内容（如边栏）
+`<aside>` — 定义核心内容之外的内容（如边栏）
 
-`<footer>` - 定义文档或section的页脚
+`<footer>` — 定义文档或section的页脚
 
 ### 页面布局整体思路
 

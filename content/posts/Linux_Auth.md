@@ -1,6 +1,6 @@
 ---
 title: " Linux 权限管理 "
-date: 2018-01-17
+date: 2018-02-17
 draft: false
 author: Small Fire
 isCJKLanguage: true
