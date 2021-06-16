@@ -16,11 +16,11 @@ tags:
 
 commons-beanutils 是 Apache 组织下的一个基础的开源库，它提供了对 Java 反射和内省的 API 的包装，依赖内省，其主要目的是利用反射机制对 JavaBean 的属性进行处理。
 
-BeanUtils 是 commons-beanutils 包下的一个工具类，如果想在我们的项目中使用这个类需要导入以下两个 jar 包拷贝到 WEB-INF/lib 下：
+BeanUtils 是 commons-beanutils 包下的一个工具类，如果想在我们的项目中使用这个类需要导入以下 jar 包拷贝到 WEB-INF/lib 下：
 
 - [commons-beanutils.jar ](http://commons.apache.org/proper/commons-beanutils/)
-
-- [commons-logging.jar](http://commons.apache.org/proper/commons-logging/)
+- [commons-logging-1.2.jar](http://commons.apache.org/proper/commons-logging/)
+- [commons-collections-3.2.2.jar](http://commons.apache.org/proper/commons-collections/)
 
 #### 获取某个对象的某个属性 
 

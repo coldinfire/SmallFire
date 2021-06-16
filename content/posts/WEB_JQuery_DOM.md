@@ -1,6 +1,6 @@
 ---
-title: "Easy UI 技术总结"
-date: 2018-01-13
+title: "JQuery操作DOM"
+date: 2017-12-13
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -8,8 +8,8 @@ categories:
   - 前端
 
 tags: 
-  - EasyUI
+  - JQuery
 
 ---
 
-Easy UI使用场景
+### JQuery 操作DOM

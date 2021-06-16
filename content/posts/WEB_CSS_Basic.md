@@ -127,6 +127,22 @@ tags:
 
 **权重记忆口诀**：*从 0 开始，一个行内样式 + 1000，一个 id 选择器 + 100，一个伪类、属性选择器、或者class + 10，一个元素选择器或者伪元素 + 1，通配符 + 0。*
 
+### @规则
+
+[@namespace](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@namespace) ，告诉 CSS 引擎必须考虑XML命名空间。
+
+[@media](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media)， 如果满足媒体查询的条件则条件规则组里的规则生效。
+
+[@page](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@page)， 描述打印文档时布局的变化.
+
+[@font-face](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face)， 描述将下载的外部的字体。
+
+[@keyframes](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@keyframes)， 描述 CSS 动画的关键帧。
+
+[@document](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@document)， 如果文档样式表满足给定条件则条件规则组里的规则生效。
+
+[@supports](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@supports) 用于查询特定的 CSS 是否生效，可以结合 not、and 和 or 操作符进行后续的操作。
+
 ### CSS 初始化 (CSS reset)
 
 CSS初始化是指重设浏览器的样式。不同浏览器对有些标签的默认值是不同的，为了消除其对HTML文本呈现的差异，实现浏览器的兼容，需要对 CSS 初始化。

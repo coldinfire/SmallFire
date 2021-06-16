@@ -2268,19 +2268,28 @@
     
     <item>
       <title>Easy UI 技术总结</title>
-      <link>https://coldinfire.github.io/2017/WEB_EasyUI/</link>
-      <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
+      <link>https://coldinfire.github.io/2018/WEB_EasyUI/</link>
+      <pubDate>Sat, 13 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_EasyUI/</guid>
+      <guid>https://coldinfire.github.io/2018/WEB_EasyUI/</guid>
       <description>Easy UI使用场景</description>
     </item>
     
     <item>
+      <title>JQuery操作DOM</title>
+      <link>https://coldinfire.github.io/2017/WEB_JQuery_DOM/</link>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_JQuery_DOM/</guid>
+      <description>JQuery 操作DOM</description>
+    </item>
+    
+    <item>
       <title>JQuery选择器</title>
-      <link>https://coldinfire.github.io/2017/WEB_JQuery_High/</link>
+      <link>https://coldinfire.github.io/2017/WEB_JQuery_Choose/</link>
       <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_JQuery_High/</guid>
+      <guid>https://coldinfire.github.io/2017/WEB_JQuery_Choose/</guid>
       <description>jQuery 选择器 jQuery 中的选择器完全继承了 CSS 的风格。jQuery 的行为规则都必须在获取到元素后才能生效。 CSS 选择器找到元素后是添加样式，jQuery 选择器</description>
     </item>
     
@@ -2296,16 +2305,25 @@
     <item>
       <title> 数据库连接池 </title>
       <link>https://coldinfire.github.io/2017/JAVA_JDBC_Pool/</link>
-      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_JDBC_Pool/</guid>
       <description>数据库连接池的应用 每次访问数据库都会创建一个连接，初始化连接，关闭连接，会执行访问数据库的所有操作，由于每次创建初始化连接和关闭连接会花费大</description>
     </item>
     
     <item>
+      <title> Spring JDBC连接 </title>
+      <link>https://coldinfire.github.io/2017/JAVA_JDBC_Spring/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/JAVA_JDBC_Spring/</guid>
+      <description>Spring JDBC Spring 框架对 JDBC 的简单封装。提供一个 JDBCTemplate 对象简化 JDBC 的开发 使用步骤 Step1： 下载 spring-framework jar 包 并导入需要的 jar 包 Step2：创建 JdbcTemplate 对象。依赖于数据源 DataSource JdbcTemplate template</description>
+    </item>
+    
+    <item>
       <title> JDBC连接 </title>
       <link>https://coldinfire.github.io/2017/JAVA_JDBC/</link>
-      <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_JDBC/</guid>
       <description>JDBC JDBC (Java DataBase Connectivity )，是利用 Java 语言或程序连接并且访问数据库的一门技术，是 Java 程序访问数据库的标准接口，通常是面向关系型数据库的。各个数据库厂商自己去实</description>
@@ -2314,7 +2332,7 @@
     <item>
       <title> MySQL高级操作 </title>
       <link>https://coldinfire.github.io/2017/WEB_MySQL_High/</link>
-      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_MySQL_High/</guid>
       <description>MySQL 事务操作 如果一个包含多个步骤的业务操作被事务管理，那么这些操作要么同时成功，要么同时失败。 事务执行是一个整体，所有 SQL 语句都必须执行成功。如</description>
@@ -2323,7 +2341,7 @@
     <item>
       <title> MySQL基本操作 </title>
       <link>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</link>
-      <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_MySQL_Basic/</guid>
       <description>MySQL 数据库 服务器启动和关闭 Windows：services.msc 查看服务信息，可以启动和关闭 MySQL 服务 Command：net start mysql | net stop mysql ，启动和</description>
@@ -2332,7 +2350,7 @@
     <item>
       <title>JSP 标签库</title>
       <link>https://coldinfire.github.io/2017/JAVA_JSP_JSTL/</link>
-      <pubDate>Sun, 19 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_JSP_JSTL/</guid>
       <description>EL表达式 表达式语言（Expression Language，EL），EL 表达式是用 ${expression} 括起来的脚本，用来更方便的读取对象。EL 表达式主要用来读</description>
@@ -2551,7 +2569,7 @@
       <pubDate>Fri, 15 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Layout_Type/</guid>
-      <description>响应式开发 响应式开发原理 使用媒体查询针对不同宽度的设备进行布局和样式的设置，从而适配不同设备的目的。 响应式布局容器 响应式需要一个父级做为布局</description>
+      <description>响应式开发 响应式开发原理 使用媒体查询针对不同宽度的设备进行布局和样式的设置，从而适配不同设备的目的。 媒体查询 媒体查询是指针对不同的设备、特定</description>
     </item>
     
     <item>
