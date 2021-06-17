@@ -121,7 +121,7 @@
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Improve/</guid>
-      <description></description>
+      <description>重定向 location.href = &amp;quot;${pageContext.request.contextPath }/method?id=123&amp;quot;;</description>
     </item>
     
     <item>

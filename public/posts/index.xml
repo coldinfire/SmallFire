@@ -2407,7 +2407,7 @@
       <pubDate>Mon, 06 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Request/</guid>
-      <description>Servlet Request 对象 Servlet 容器对于接受到的每一个 Http 请求，都会创建一个ServletRequest 对象，并把这个对象传递给 Servlet 的 Sevice( )方法。其中，ServletR</description>
+      <description>Servlet Request 对象 Servlet 容器对于接受到的每一个 Http 请求，都会创建一个 ServletRequest 对象，并把这个对象传递给 Servlet 的 Sevice( )方法。其中，ServletRequest 对象内封装了关</description>
     </item>
     
     <item>
@@ -2416,7 +2416,7 @@
       <pubDate>Sat, 04 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_Servlet/</guid>
-      <description>Servlet 简介 Servlet是Java Web的一种实现技术，可以接收浏览器发送过来的请求并给出响应。 Servlet 的创建 Method 1 : 实现 Servlet 接口 Step1：创建类并实现</description>
+      <description>Servlet 简介 Servlet 是 Java Web 的一种实现技术，可以接收浏览器发送过来的请求并给出响应。 Servlet 的创建 Method 1 : 实现 Servlet 接口 Step1：创建类并实现 Servlet 接口 public class TestServlet implements Servlet { @Override public</description>
     </item>
     
     <item>
@@ -2515,7 +2515,7 @@
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JavaScript_Improve/</guid>
-      <description></description>
+      <description>重定向 location.href = &amp;quot;${pageContext.request.contextPath }/method?id=123&amp;quot;;</description>
     </item>
     
     <item>

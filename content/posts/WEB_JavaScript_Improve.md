@@ -12,3 +12,7 @@ tags:
 
 ---
 
+### 重定向
+
+`location.href = "${pageContext.request.contextPath }/method?id=123";`
+

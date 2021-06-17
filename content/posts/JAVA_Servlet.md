@@ -14,7 +14,7 @@ tags:
 
 ### Servlet 简介
 
-Servlet是Java Web的一种实现技术，可以接收浏览器发送过来的请求并给出响应。
+Servlet 是 Java Web 的一种实现技术，可以接收浏览器发送过来的请求并给出响应。
 
 ### Servlet 的创建
 
@@ -112,7 +112,7 @@ public class HelloServlet extends HttpServlet {
 
 ### Servlet 的运行过程
 
-![](/images/Tomcat/tomcat_parse.png)
+![servlet excute](/images/Tomcat/tomcat_parse.png)
 
 第一步：客户端向Web服务器(Tomcat)发出 HTTP 请求，服务器接收到请求后转给容器。
 

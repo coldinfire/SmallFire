@@ -14,7 +14,7 @@ tags:
 
 ### Servlet Request 对象
 
-Servlet 容器对于接受到的每一个 Http 请求，都会创建一个ServletRequest 对象，并把这个对象传递给 Servlet 的 Sevice( )方法。其中，ServletRequest 对象内封装了关于这个请求的许多详细信息。
+Servlet 容器对于接受到的每一个 Http 请求，都会创建一个 ServletRequest 对象，并把这个对象传递给 Servlet 的 Sevice( )方法。其中，ServletRequest 对象内封装了关于这个请求的许多详细信息。
 
 #### HTTP 请求信息
 
@@ -51,7 +51,7 @@ Servlet 容器对于接受到的每一个 Http 请求，都会创建一个Servle
 | public String getProtocol();                 | 获取协议信息的版本号，如HTTP/1.1                             |
 | public String getScheme();                   | 获取协议名称，如HTTP、FTP、HTTPS                             |
 | public String getRequestedSessionId();       | 返回这个请求相应的Session Id                                 |
-| public HttpSession getSession();             | 获取Session对话，用于与网页通信                              |
+| `public HttpSession getSession();`           | 获取Session对话，用于与网页通信                              |
 | `public Cookie[] getCookies();`              | 返回使用数组存储的Cookie对象                                 |
 | `public ServletContext getServletContext();` | 获取 ServletContext 对象                                     |
 
@@ -79,12 +79,12 @@ Servlet 容器对于接受到的每一个 Http 请求，都会创建一个Servle
 
 获取请求参数：get 和 post 都可以使用下列方法获取请求参数
 
-| Method                                            | Desc                                |
-| :------------------------------------------------ | :---------------------------------- |
-| `public String getParameter(String name);`        | 通过参数名获取参数值                |
-| `public Map<String, String[]> getParameterMap();` | 将所有参数名和参数值以Map的形式返回 |
-| public Enumeration`<String>` getParameterNames(); | 获取全部参数名                      |
-| public String[] getParameterValues(String name);  | 通过参数名获取数组类型的参数值。    |
+| Method                                            | Desc                                    |
+| :------------------------------------------------ | :-------------------------------------- |
+| `public String getParameter(String name);`        | 通过参数名获取post，get等方式传入的数据 |
+| `public Map<String, String[]> getParameterMap();` | 将所有参数名和参数值以Map的形式返回     |
+| public Enumeration`<String>` getParameterNames(); | 获取全部参数名                          |
+| public String[] getParameterValues(String name);  | 通过参数名获取数组类型的参数值          |
 
 获取服务器和客户端信息
 
@@ -120,9 +120,7 @@ Servlet 容器对于接受到的每一个 Http 请求，都会创建一个Servle
 
 #### 请求转发
 
-一种在服务器内部的资源跳转方式。
-
-实现是通过 request 对象获取请求转发器对象，使用 RequestDispatcher 对象进行转发
+一种在服务器内部的资源跳转方式。实现是通过 request 对象获取请求转发器对象，使用 RequestDispatcher 对象进行转发
 
 - `public RequestDispatcher getRequestDispatcher(String path);`
 
@@ -133,12 +131,13 @@ Servlet 容器对于接受到的每一个 Http 请求，都会创建一个Servle
 - 浏览器地址栏路径不会发送变化
 - 只能转发到当前服务器内部资源中
 - 转发只发生了一次 HTTP 请求
+- 共享 request 域中的数据
 
 #### 共享数据
 
 域对象：一个有作用范围的对象，可以在范围内共享数据
 
-request 域：代表一次请求的范围，一般用于请求转发的多个资源中共享数据
+request 域：代表一次请求的范围，一般用于**请求转发**的多个资源中共享数据
 
 操作属性值方法：
 
@@ -148,3 +147,21 @@ request 域：代表一次请求的范围，一般用于请求转发的多个资
 | public Object getAttribute(String name);              | 通过属性名获取属性对象 |
 | public Enumeration`<String>` getAttributeNames();     | 得到全部的属性名       |
 | public void removeAttribute(String name);             | 通过属性名删除属性对象 |
+
+#### getAttribute 和 getParameter 的区别
+
+返回值类型不同
+
+- getParameter 得到的都是 String 类型的值。或者是 url?id=123 中的123，或者是某个表单提交过去的数据；
+- getAttribute 返回的是Object，需进行转换，可用 setAttribute 设置成任意对象 ；
+
+获取参数值对象不同
+
+- getParameter 是获取 POST/GET 传递的参数值； 
+- getAttribute 是获取对象容器中的数据值；
+
+使用场景不同
+
+- getParameter：用于客户端重定向时，即点击了链接或提交按扭时传值用，在用表单或 url 重定向传值时接收数据用。 
+- getAttribute：用于服务器端重定向时，即在 sevlet 中使用了 forward 函数。getAttribute 只能收到程序用 setAttribute 传过来的值。
+  

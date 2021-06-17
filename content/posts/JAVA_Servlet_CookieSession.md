@@ -119,18 +119,18 @@ Session 是基于唯一 ID 识别用户身份的。每个用户第一次访问�
 
 HttpSession 方法列表：
 
-| Method                                       | Description                         |
-| :------------------------------------------- | :---------------------------------- |
-| boolean isNew()                              | 判断该 Session 对象是否是新的       |
-| void invalidate()                            | 设置整个 Session 无效               |
-| String getId()                               | 返回 SessionID                      |
-| long getCreationTime()                       | 获取 Session 创建时间               |
-| long getLastAccessedTime()                   | 获取最后访问时间                    |
-| void setMaxInactiveInterval(int interval)    | 设置 session 的有效时间，单位：分钟 |
-| int getMaxInactiveInterval()                 | 获取 session 的有效时间             |
-| Object getAttribute(String name)             | 根据属性名获取 Session 属性值       |
-| void setAttribute(String name, Object value) | 设置 Session 中键值对形式的属性     |
-| void removeAttribute(String name)            | 根据属性名删除键值对属性            |
+| Method                                         | Description                         |
+| :--------------------------------------------- | :---------------------------------- |
+| boolean isNew()                                | 判断该 Session 对象是否是新的       |
+| void invalidate()                              | 设置整个 Session 无效               |
+| String getId()                                 | 返回 SessionID                      |
+| long getCreationTime()                         | 获取 Session 创建时间               |
+| long getLastAccessedTime()                     | 获取最后访问时间                    |
+| void setMaxInactiveInterval(int interval)      | 设置 session 的有效时间，单位：分钟 |
+| int getMaxInactiveInterval()                   | 获取 session 的有效时间             |
+| `Object getAttribute(String name)`             | 根据属性名获取 Session 属性值       |
+| `void setAttribute(String name, Object value)` | 设置 Session 中键值对形式的属性     |
+| `void removeAttribute(String name)`            | 根据属性名删除键值对属性            |
 
 #### Session 细节
 
