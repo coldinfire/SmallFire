@@ -4482,9 +4482,37 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_Filter/</loc>
+      
+      <lastmod>2017-11-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/JAVA_Servlet_Listener/</loc>
+      
+      <lastmod>2017-11-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/tags/Servlet/</loc>
       
-      <lastmod>2017-11-12T00:00:00+00:00</lastmod>
+      <lastmod>2017-11-14T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

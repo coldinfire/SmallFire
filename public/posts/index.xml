@@ -2366,6 +2366,24 @@
     </item>
     
     <item>
+      <title>Filter 过滤器</title>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet_Filter/</link>
+      <pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Filter/</guid>
+      <description>Filter 使用 Filter 是 Servlet2.3 新增加的功能，它不是 Servlet，不能处理用户请求，也不能处理用户响应。主要对 HttpServletRequest 进行预处理，也对 HttpServletResponse 进行后处理，是典型的处理链。</description>
+    </item>
+    
+    <item>
+      <title>Listener 监听器</title>
+      <link>https://coldinfire.github.io/2017/JAVA_Servlet_Listener/</link>
+      <pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Listener/</guid>
+      <description>监听器使用</description>
+    </item>
+    
+    <item>
       <title>Servlet Cookie&amp;Session对象</title>
       <link>https://coldinfire.github.io/2017/JAVA_Servlet_CookieSession/</link>
       <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
