@@ -2371,7 +2371,7 @@
       <pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Filter/</guid>
-      <description>Filter 使用 Filter 是 Servlet2.3 新增加的功能，它不是 Servlet，不能处理用户请求，也不能处理用户响应。主要对 HttpServletRequest 进行预处理，也对 HttpServletResponse 进行后处理，是典型的处理链。</description>
+      <description>Filter 使用 Filter 是 Servlet2.3 新增加的功能，它不是 Servlet，不能处理用户请求，也不能处理用户响应。主要对 HttpServletRequest 进行预处理，也对 HttpServletResponse 进行后续处理，是典型的处理链</description>
     </item>
     
     <item>
@@ -2380,7 +2380,7 @@
       <pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/JAVA_Servlet_Listener/</guid>
-      <description>监听器使用</description>
+      <description>监听器使用 使用步骤 Step1：定义一个 java 类实现需要监听的接口 Step2：拦截路径配置 方法一、注解方式：@WebListener 方法二、配置 web.xml</description>
     </item>
     
     <item>
