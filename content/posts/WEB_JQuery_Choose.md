@@ -114,8 +114,6 @@ siblings() 方法与 $("prev~siblings") 选择器比较：
 | :last-child                | 选取每个父元素的最后一个子元素             | 集合元素 | $("ul li:last-child")   |
 | :only-child                | 匹配父元素中唯一的子元素                   | 集合元素 | $("ul li:only-child")   |
 
-
-
 ### 表单选择器
 
 利用表单选择器，可以很方便的获取到表单中的某个或某类型的元素。

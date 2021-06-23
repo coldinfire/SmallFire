@@ -20,13 +20,13 @@ tags:
 
 - `$("#id").html();`
 
-类似于 javascript 中的 innerHTML 属性，可以用来读取或设置某个元素中的 HTML 内容。
+类似于 javascript 中的 innerHTML 属性，可以用来读取或设置某个元素中的 HTML 内容。设置内容时：新的内容会将原有内容覆盖，HTML标签会被解析执行。
 
 #### text()
 
 - `$("#id").text();`
 
-类似于 javascript 中的 innerText 属性，可以用来读取或设置某个元素中的文本内容。
+类似于 javascript 中的 innerText 属性，可以用来读取或设置某个元素中的纯文本内容。设置内容时：新的内容会将原有内容覆盖，HTML标签不会被解析执行。
 
 #### val()
 
@@ -53,17 +53,28 @@ attr 和 prop 的区别：
 
 ### 样式操作
 
-对 class 属性操作。
+`addClass("class_name")`：向被选中元素添加一个或多个 class
 
-addClass()：添加 class 属性值
+`removeClass("class_name")`：从被选元素删除一个或多个 class
 
-removeClass()：删除 class 属性值
+`toggleClass("class_name")`：如果存在(不存在)就删除(添加) class 属性
 
-toggleClass()：如果存在(不存在)就删除(添加) class 属性
-
-
+`css("Attr","Value")`：设置或返回样式属性
 
 ### 节点操作
 
-#### 创建节点
+#### 插入节点
+
+将动态创建的 HTML 元素插入到文档中。方法：将该元素成为文档某个节点的子节点。
+
+| 方法           | 描述                                 | 示例                           |
+| -------------- | ------------------------------------ | ------------------------------ |
+| append()       | 向每个匹配的元素内部追加内容         | $("div").append("html");       |
+| appendTo()     | 将所有匹配的元素追加到指定的元素中   | $("html").appendTo("div");     |
+| prepend()      | 向每个匹配的元素内部前置内容         | $("div").prepend("html");      |
+| prependTo()    | 将所有匹配的元素前置到指定的元素中   | $("html").appendTo("div");     |
+| before()       | 在每个匹配的元素之前插入内容         | $("div").before("html");       |
+| insertBefore() | 将所有匹配的元素插入到指定元素的前面 | $("html").insertBefore("div"); |
+| after()        | 在每个匹配的元素之后插入内容         | $("div").after("html");        |
+| insertAfter()  | 将所有匹配的元素插入到指定元素的后面 | $("html").insertAfter("div");  |
 

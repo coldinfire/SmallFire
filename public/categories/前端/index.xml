@@ -49,7 +49,7 @@
       <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_DOM/</guid>
-      <description>JQuery 操作DOM 设置和获取 HTML、TEXT 和 val html() $(&amp;quot;#id&amp;quot;).html(); 类似于 javascript 中的 innerHTML 属性，可以用来读取或设置某个元素中的 HTML 内容。 text() $(&amp;quot;#id&amp;quot;).text(); 类似于 javascript 中的 innerText 属性，可以用来读</description>
+      <description>JQuery 操作DOM 设置和获取 HTML、TEXT 和 val html() $(&amp;quot;#id&amp;quot;).html(); 类似于 javascript 中的 innerHTML 属性，可以用来读取或设置某个元素中的 HTML 内容。设置内容时：新的内容会将原有内容覆</description>
     </item>
     
     <item>
