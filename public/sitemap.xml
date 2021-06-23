@@ -170,62 +170,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/JSON/</loc>
-      
-      <lastmod>2021-03-11T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2021/WEB_JSON_JAVA/</loc>
-      
-      <lastmod>2021-03-11T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
-      
-      <lastmod>2021-03-11T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2021/WEB_JSON/</loc>
-      
-      <lastmod>2021-03-10T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
       <lastmod>2021-03-06T00:00:00+00:00</lastmod>
@@ -3936,23 +3880,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/Maven/</loc>
+      <loc>https://coldinfire.github.io/2018/WEB_EasyUI/</loc>
       
-      <lastmod>2018-03-25T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/WEB_Maven_Plugin/</loc>
-      
-      <lastmod>2018-03-25T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-13T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3964,51 +3894,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/WEB_Maven_LifeCycle/</loc>
+      <loc>https://coldinfire.github.io/tags/EasyUI/</loc>
       
-      <lastmod>2018-03-21T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/WEB_Maven_Dependency/</loc>
-      
-      <lastmod>2018-03-16T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/WEB_Maven_POM/</loc>
-      
-      <lastmod>2018-03-14T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/WEB_Maven/</loc>
-      
-      <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-13T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4035,6 +3923,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/hugo/</loc>
+      
+      <lastmod>2018-03-08T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
       
       <lastmod>2018-03-08T00:00:00+00:00</lastmod>
       
@@ -4258,9 +4160,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/WEB_EasyUI/</loc>
+      <loc>https://coldinfire.github.io/tags/Maven/</loc>
       
-      <lastmod>2018-01-13T00:00:00+00:00</lastmod>
+      <lastmod>2018-01-25T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4272,9 +4174,107 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/EasyUI/</loc>
+      <loc>https://coldinfire.github.io/2018/WEB_Maven_Plugin/</loc>
       
-      <lastmod>2018-01-13T00:00:00+00:00</lastmod>
+      <lastmod>2018-01-25T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/WEB_Maven_LifeCycle/</loc>
+      
+      <lastmod>2018-01-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/WEB_Maven_Dependency/</loc>
+      
+      <lastmod>2018-01-16T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/WEB_Maven_POM/</loc>
+      
+      <lastmod>2018-01-14T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/WEB_Maven/</loc>
+      
+      <lastmod>2018-01-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/JSON/</loc>
+      
+      <lastmod>2017-12-24T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_JSON_JAVA/</loc>
+      
+      <lastmod>2017-12-24T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_JSON/</loc>
+      
+      <lastmod>2017-12-22T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4288,7 +4288,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/JQuery/</loc>
       
-      <lastmod>2017-12-13T00:00:00+00:00</lastmod>
+      <lastmod>2017-12-06T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4302,7 +4302,7 @@
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_JQuery_DOM/</loc>
       
-      <lastmod>2017-12-13T00:00:00+00:00</lastmod>
+      <lastmod>2017-12-06T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4316,7 +4316,7 @@
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_JQuery_Choose/</loc>
       
-      <lastmod>2017-12-11T00:00:00+00:00</lastmod>
+      <lastmod>2017-12-04T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4330,7 +4330,7 @@
     <url>
       <loc>https://coldinfire.github.io/2017/WEB_JQuery/</loc>
       
-      <lastmod>2017-12-10T00:00:00+00:00</lastmod>
+      <lastmod>2017-12-02T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

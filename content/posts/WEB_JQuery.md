@@ -1,6 +1,6 @@
 ---
 title: "JQuery基础"
-date: 2017-12-10
+date: 2017-12-02
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -67,7 +67,7 @@ jQuery 的优势：轻量级、强大的选择器、出色的 DOM 操作的封�
 
 #### 入口函数
 
-网页中所有 DOM 结构绘制完毕后就可以执行。
+网页中所有 DOM 结构加载完毕后就可以执行该函数中的代码。可以多次定义使用。
 
 ```javascript
 $(document).ready(function(){

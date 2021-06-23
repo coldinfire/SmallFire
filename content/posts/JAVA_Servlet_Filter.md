@@ -32,7 +32,7 @@ WEB 开发人员可以通过 Filter 技术，对 web 服务器管理的所有 we
 
 #### Step1：定义一个 java 类实现 Filter 接口
 
-通过实现其 doFilter 方法进行过滤功能的实现。必须执行 `chain.doFilter(request, response);` 
+通过覆写其 doFilter 方法进行过滤功能的实现。必须执行 `chain.doFilter(request, response);` 对请求进行放行。
 
 #### Step2：拦截路径配置
 
@@ -63,7 +63,7 @@ WEB 开发人员可以通过 Filter 技术，对 web 服务器管理的所有 we
   | `<servlet-name>`   | 设置 Filter 所拦截的Servlet名称                              |
   | `<dispatcher>`     | 设置拦截的资源被调用的方式：REQUEST(默认),INCLUDE,FORWARD,ERROR。 |
 
-拦截路径：
+拦截路径配置：
 
 - | 类型             | 示例        | 描述                                     |
   | :--------------- | :---------- | :--------------------------------------- |
@@ -72,7 +72,7 @@ WEB 开发人员可以通过 Filter 技术，对 web 服务器管理的所有 we
   | 目录拦截         | /test/*     | 当访问 /test 下的资源时会被拦截          |
   | 具体资源路径拦截 | /index.html | 当访问服务器 index.html 资源时才会被拦截 |
 
-拦截方式：
+拦截方式配置：
 
 - | 拦截方式 | 参数                   | 描述                         |
   | -------- | ---------------------- | ---------------------------- |
@@ -81,7 +81,17 @@ WEB 开发人员可以通过 Filter 技术，对 web 服务器管理的所有 we
   | FORWARD  | DispatcherType.FORWARD | 包含访问资源时执行过滤器     |
   | ERROR    | DispatcherType.ERROR   | 错误跳转资源时执行过滤器     |
 
-  
+#### 过滤器链配置
+
+注解配置：按照类名的字符串比较规则进行比较，值小的先执行
+
+- AFilter 和 BFilter，AFilter 先执行
+
+web.xml：按照在 `<filter-mapping>` 中定义顺序执行
+
+### Filter 执行流程
+
+![Filter](/images/JAVA/Filter.png)
 
 ### Filter 生命周期
 
@@ -96,6 +106,10 @@ WEB 开发人员可以通过 Filter 技术，对 web 服务器管理的所有 we
 每次客户请求访问与过滤器关联的目标资源时，Servlet 过滤器将先执行 doFilter 方法，FilterChain 参数用于访问后续过滤器。
 
 - `public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException;`
+
+将 ServletRequest 请求转换成 HttpServletRequest ：
+
+- `HttpServletRequest hrequest = (HttpServletRequest)request;`
 
 #### 销毁
 
