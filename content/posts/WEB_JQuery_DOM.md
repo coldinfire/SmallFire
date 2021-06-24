@@ -53,13 +53,35 @@ attr 和 prop 的区别：
 
 ### 样式操作
 
-`addClass("class_name")`：向被选中元素添加一个或多个 class
+`addClass("class1")`：向被选中元素添加一个或多个 class
 
-`removeClass("class_name")`：从被选元素删除一个或多个 class
+`removeClass("class1 class2")`：从被选元素删除一个或多个 class，不输如指定 class 时移除所有 class
 
-`toggleClass("class_name")`：如果存在(不存在)就删除(添加) class 属性
+`toggleClass("class1")`：如果存在(不存在)就删除(添加) class 属性
 
-`css("Attr","Value")`：设置或返回样式属性
+#### CSS DOM 操作
+
+就是读取和设置 style 对象的个各种属性。
+
+- `css()`：设置或返回样式属性，如果属性中带有"-"符号，设置属性时使用驼峰式写法
+
+| 功能                   | 示例                                              |
+| ---------------------- | ------------------------------------------------- |
+| 获取元素的样式属性     | $("#test").css("color")                           |
+| 设置某个元素的单个样式 | $("#test").css("color","red")                     |
+| 设置某个元素的多个样式 | $("#test").css({"color":"red","fontSize":"30px"}) |
+
+其它方法使用：
+
+| 方法         | 描述                                                     | 示例                                         |
+| ------------ | -------------------------------------------------------- | -------------------------------------------- |
+| height()     | 获取和设置元素的高度，数字默认单位：px                   | $("p").height() / $("p").height(100)         |
+| width()      | 获取和设置元素的宽度，数字默认单位：px                   | $("p").width() / $("p").width(100)           |
+| poistion()   | 获取元素相对于最近的一个定位样式属性的祖父节点的相对偏移 | $("p").position().left / .top                |
+| scrollTop()  | 获取和设置元素的滚动条距离顶端的距离                     | $("p").scrollTop() / $("p").scrollTop(300)   |
+| scrollLeft() | 获取和设置元素的滚动条距离左侧的距离                     | $("p").scrollLeft() / $("p").scrollLeft(300) |
+
+
 
 ### 节点操作
 
@@ -67,17 +89,19 @@ attr 和 prop 的区别：
 
 将动态创建的 HTML 元素插入到文档中。方法：将该元素成为文档某个节点的子节点。
 
-| 方法           | 描述                                               | 示例                             |
-| -------------- | -------------------------------------------------- | -------------------------------- |
-| append()       | 向每个匹配的元素(父)内部追加内容(子)               | $("div").append("html");         |
-| appendTo()     | 将所有匹配的元素(子)追加到指定的元素(父)中         | $("html").appendTo("div");       |
-| prepend()      | 向每个匹配的元素(父)内部前置内容(子)               | $("div").prepend("html");        |
-| prependTo()    | 将所有匹配的元素(子)前置到指定的元素(父)中         | $("html").appendTo("div");       |
-| before()       | 在每个匹配的元素之前插入内容，兄弟节点             | $("div").before("html");         |
-| insertBefore() | 将所有匹配的元素插入到指定元素的前面，兄弟节点     | $("html").insertBefore("div");   |
-| after()        | 在每个匹配的元素之后插入内容，兄弟节点             | $("div").after("html");          |
-| insertAfter()  | 将所有匹配的元素插入到指定元素的后面，兄弟节点     | $("html").insertAfter("div");    |
-| remove()       | 移除元素，将对象删除掉                             | $("div").remove();               |
-| empty()        | 清空元素的所有后代元素，保留当前对象以及其属性节点 | $("div").empty();                |
-| clone()        | 克隆匹配的DOM元素并且选中这些克隆的副本            | $("span").clone().append("div"); |
+this：代表当前选中的节点对象。
+
+| 方法             | 描述                                                 | 示例                                 |
+| :--------------- | :--------------------------------------------------- | :----------------------------------- |
+| append()         | 向每个匹配的元素(父)内部追加内容(子)                 | $("div").append("html");             |
+| appendTo()       | 将所有匹配的元素(子)追加到指定的元素(父)中           | $("html").appendTo("div");           |
+| prepend()        | 向每个匹配的元素(父)内部前置内容(子)                 | $("div").prepend("html");            |
+| prependTo()      | 将所有匹配的元素(子)前置到指定的元素(父)中           | $("html").appendTo("div");           |
+| before()         | 在每个匹配的元素之前插入内容，兄弟节点               | $("div").before("html");             |
+| insertBefore()   | 将所有匹配的元素插入到指定元素的前面，兄弟节点       | $("html").insertBefore("div");       |
+| after()          | 在每个匹配的元素之后插入内容，兄弟节点               | $("div").after("html");              |
+| insertAfter()    | 将所有匹配的元素插入到指定元素的后面，兄弟节点       | $("html").insertAfter("div");        |
+| remove([option]) | 从DOM中删除匹配的元素，当前和后代节点都被移除        | $("div").remove();                   |
+| empty()          | 清空元素的所有后代元素，保留当前对象以及其属性节点   | $("div").empty();                    |
+| clone([true])    | 克隆匹配的DOM元素并且选中这些克隆的副本,true复制事件 | $("span").clone(true).append("div"); |
 

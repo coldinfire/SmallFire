@@ -44,6 +44,24 @@
     </item>
     
     <item>
+      <title>JQuery事件</title>
+      <link>https://coldinfire.github.io/2017/WEB_JQuery_Event/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_JQuery_Event/</guid>
+      <description>事件处理 事件绑定 bind( type [, data] , fn ); 事件类型：类型包括 blur、focus、load、resize、scroll、unload、click、dbl</description>
+    </item>
+    
+    <item>
+      <title>JQuery动画</title>
+      <link>https://coldinfire.github.io/2017/WEB_JQuery_Animation/</link>
+      <pubDate>Fri, 08 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_JQuery_Animation/</guid>
+      <description>JQuery 动画 默认方式 方法 描述 hide([speed],[easing],[fn]) 将选择元素的 display 样式改为 none show([speed],[easing],[fn]) 将元素的 display 样式设置为之前的显示状态(其它) toggle([speed],[easing],[fn]) hide() 方法在隐藏的时候会先保存原先的 display 属性值(其它</description>
+    </item>
+    
+    <item>
       <title>JQuery操作DOM</title>
       <link>https://coldinfire.github.io/2017/WEB_JQuery_DOM/</link>
       <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
