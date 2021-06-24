@@ -67,14 +67,17 @@ attr 和 prop 的区别：
 
 将动态创建的 HTML 元素插入到文档中。方法：将该元素成为文档某个节点的子节点。
 
-| 方法           | 描述                                 | 示例                           |
-| -------------- | ------------------------------------ | ------------------------------ |
-| append()       | 向每个匹配的元素内部追加内容         | $("div").append("html");       |
-| appendTo()     | 将所有匹配的元素追加到指定的元素中   | $("html").appendTo("div");     |
-| prepend()      | 向每个匹配的元素内部前置内容         | $("div").prepend("html");      |
-| prependTo()    | 将所有匹配的元素前置到指定的元素中   | $("html").appendTo("div");     |
-| before()       | 在每个匹配的元素之前插入内容         | $("div").before("html");       |
-| insertBefore() | 将所有匹配的元素插入到指定元素的前面 | $("html").insertBefore("div"); |
-| after()        | 在每个匹配的元素之后插入内容         | $("div").after("html");        |
-| insertAfter()  | 将所有匹配的元素插入到指定元素的后面 | $("html").insertAfter("div");  |
+| 方法           | 描述                                               | 示例                             |
+| -------------- | -------------------------------------------------- | -------------------------------- |
+| append()       | 向每个匹配的元素(父)内部追加内容(子)               | $("div").append("html");         |
+| appendTo()     | 将所有匹配的元素(子)追加到指定的元素(父)中         | $("html").appendTo("div");       |
+| prepend()      | 向每个匹配的元素(父)内部前置内容(子)               | $("div").prepend("html");        |
+| prependTo()    | 将所有匹配的元素(子)前置到指定的元素(父)中         | $("html").appendTo("div");       |
+| before()       | 在每个匹配的元素之前插入内容，兄弟节点             | $("div").before("html");         |
+| insertBefore() | 将所有匹配的元素插入到指定元素的前面，兄弟节点     | $("html").insertBefore("div");   |
+| after()        | 在每个匹配的元素之后插入内容，兄弟节点             | $("div").after("html");          |
+| insertAfter()  | 将所有匹配的元素插入到指定元素的后面，兄弟节点     | $("html").insertAfter("div");    |
+| remove()       | 移除元素，将对象删除掉                             | $("div").remove();               |
+| empty()        | 清空元素的所有后代元素，保留当前对象以及其属性节点 | $("div").empty();                |
+| clone()        | 克隆匹配的DOM元素并且选中这些克隆的副本            | $("span").clone().append("div"); |
 
