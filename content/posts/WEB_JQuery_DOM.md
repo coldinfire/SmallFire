@@ -14,23 +14,30 @@ tags:
 
 ## JQuery 操作DOM
 
-### 设置和获取 HTML、TEXT 和 val
+### 设置和获取 html、text 和 val
 
 #### html()
 
-- `$("#id").html();`
+- `$(selector).html();` ：获取元素 HTML 元素
+- `$(selector).html(content);` ：设置元素 HTML 元素
+- `$(selector).html(function(index,element))` ：使用函数设置元素内容；index — 返回集合中元素的索引值；element — 返回被选中元素的对象
 
 类似于 javascript 中的 innerHTML 属性，可以用来读取或设置某个元素中的 HTML 内容。设置内容时：新的内容会将原有内容覆盖，HTML标签会被解析执行。
 
 #### text()
 
-- `$("#id").text();`
+- `$(selector).text();` ：获取文本内容
+- `$(selector).text(content);` ：设置文本内容
+- `$(selector).text(function(index,element))` ：使用函数设置文本内容
 
 类似于 javascript 中的 innerText 属性，可以用来读取或设置某个元素中的纯文本内容。设置内容时：新的内容会将原有内容覆盖，HTML标签不会被解析执行。
 
 #### val()
 
-- `$("#id").val();`
+- `$("#id").val();` ：获取 value 属性
+- `$("#id").val(value);` ：设置 value 属性
+
+- `$("#id").val(function(index,element));` ：使用函数设置 value 属性
 
 类似于 javascript 中的 value 属性，可以用来设置和获取元素的值。文本框、下拉列表、单选框等都可以返回元素的值。如果元素为多选，则返回包含所有选择的值的数组。
 
@@ -81,8 +88,6 @@ attr 和 prop 的区别：
 | scrollTop()  | 获取和设置元素的滚动条距离顶端的距离                     | $("p").scrollTop() / $("p").scrollTop(300)   |
 | scrollLeft() | 获取和设置元素的滚动条距离左侧的距离                     | $("p").scrollLeft() / $("p").scrollLeft(300) |
 
-
-
 ### 节点操作
 
 #### 插入节点
@@ -104,4 +109,22 @@ this：代表当前选中的节点对象。
 | remove([option]) | 从DOM中删除匹配的元素，当前和后代节点都被移除        | $("div").remove();                   |
 | empty()          | 清空元素的所有后代元素，保留当前对象以及其属性节点   | $("div").empty();                    |
 | clone([true])    | 克隆匹配的DOM元素并且选中这些克隆的副本,true复制事件 | $("span").clone(true).append("div"); |
+
+#### 遍历节点
+
+for 循环
+
+- for(初始化值; 循环结束条件; 步长)
+
+jQuery_obj.each(callback)：回调函数返回 false 则结束循环，返回 true 则继续循环
+
+- ```javascript
+  $("img").each(function(i){this.src = "test" + i + ".jpg";});
+  ```
+
+$.each(object,callback)
+
+- ```javascript
+  $.each($("img"),function(i){this.src = "test" + i + ".jpg";});
+  ```
 

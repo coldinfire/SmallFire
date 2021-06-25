@@ -2276,12 +2276,21 @@
     </item>
     
     <item>
+      <title>JQuery Ajax</title>
+      <link>https://coldinfire.github.io/2017/WEB_JQuery_Ajax/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2017/WEB_JQuery_Ajax/</guid>
+      <description>AJAX AJAX (Asynchronous JavaScript and XML)是异步 JavaScript 和 XML。 主要功能是在不重载整个网页的情况下，AJAX 通过后台加载数据，并在网页上进行显示。</description>
+    </item>
+    
+    <item>
       <title>JQuery事件</title>
       <link>https://coldinfire.github.io/2017/WEB_JQuery_Event/</link>
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_Event/</guid>
-      <description>事件处理 事件绑定 bind( type [, data] , fn ); 事件类型：类型包括 blur、focus、load、resize、scroll、unload、click、dbl</description>
+      <description>事件处理 事件绑定 标准绑定方式 $(selector).bind(even[,data],fn); 简写模式为：$(selector).even(fn) 事件类型：类型包括 blur、focus、load、resi</description>
     </item>
     
     <item>
@@ -2290,7 +2299,7 @@
       <pubDate>Fri, 08 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_Animation/</guid>
-      <description>JQuery 动画 默认方式 方法 描述 hide([speed],[easing],[fn]) 将选择元素的 display 样式改为 none show([speed],[easing],[fn]) 将元素的 display 样式设置为之前的显示状态(其它) toggle([speed],[easing],[fn]) hide() 方法在隐藏的时候会先保存原先的 display 属性值(其它</description>
+      <description>JQuery 动画 默认方式 方法 描述 hide([speed],[easing],[fn]) 同时修改多个样式属性，将选择元素的 display 样式改为 none show([speed],[easing],[fn]) 将元素的 display 样式设置为之前的显示状态(其它) toggle([speed],[easing],[fn]) 切换元素的可见状体 hide() 方法</description>
     </item>
     
     <item>
@@ -2299,7 +2308,7 @@
       <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_DOM/</guid>
-      <description>JQuery 操作DOM 设置和获取 HTML、TEXT 和 val html() $(&amp;quot;#id&amp;quot;).html(); 类似于 javascript 中的 innerHTML 属性，可以用来读取或设置某个元素中的 HTML 内容。设置内容时：新的内容会将原有内容覆</description>
+      <description>JQuery 操作DOM 设置和获取 html、text 和 val html() $(selector).html(); ：获取元素 HTML 元素 $(selector).html(content); ：设置元素 HTML 元素 $(selector).html(function(index,element)) ：使用函数设置元素内容；index — 返回集合中元素的索引</description>
     </item>
     
     <item>
