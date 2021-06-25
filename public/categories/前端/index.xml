@@ -46,7 +46,7 @@
     <item>
       <title>JQuery Ajax</title>
       <link>https://coldinfire.github.io/2017/WEB_JQuery_Ajax/</link>
-      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_Ajax/</guid>
       <description>AJAX AJAX (Asynchronous JavaScript and XML)是异步 JavaScript 和 XML。 主要功能是在不重载整个网页的情况下，AJAX 通过后台加载数据，并在网页上进行显示。</description>
@@ -58,7 +58,7 @@
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_Event/</guid>
-      <description>事件处理 事件绑定 标准绑定方式 $(selector).bind(even[,data],fn); 简写模式为：$(selector).even(fn) 事件类型：类型包括 blur、focus、load、resi</description>
+      <description>事件处理 事件绑定 标准绑定方式 $(selector).bind(event[,data],fn); 简写模式为：$(selector).event(function(eventObject)) 事件类型：类型包括</description>
     </item>
     
     <item>
