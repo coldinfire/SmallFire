@@ -73,7 +73,7 @@
     <item>
       <title>JQuery操作DOM</title>
       <link>https://coldinfire.github.io/2017/WEB_JQuery_DOM/</link>
-      <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_DOM/</guid>
       <description>JQuery 操作DOM 设置和获取 html、text 和 val html() $(selector).html(); ：获取元素 HTML 元素 $(selector).html(content); ：设置元素 HTML 元素 $(selector).html(function(index,element)) ：使用函数设置元素内容；index — 返回集合中元素的索引</description>
@@ -82,7 +82,7 @@
     <item>
       <title>JQuery选择器</title>
       <link>https://coldinfire.github.io/2017/WEB_JQuery_Choose/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_Choose/</guid>
       <description>jQuery 选择器 jQuery 中的选择器完全继承了 CSS 的风格。jQuery 的行为规则都必须在获取到元素后才能生效。 CSS 选择器找到元素后是添加样式，jQuery 选择器</description>
