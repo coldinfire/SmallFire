@@ -1,6 +1,6 @@
 ---
 title: "Maven Plugin Goal"
-date: 2018-01-25
+date: 2017-12-30
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -9,6 +9,7 @@ categories:
 
 tags: 
   - Maven
+
 ---
 
 ### Maven 插件

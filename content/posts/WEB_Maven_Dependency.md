@@ -1,6 +1,6 @@
 ---
 title: "Maven依赖管理"
-date: 2018-01-16
+date: 2017-12-26
 draft: false
 author: Small Fire
 isCJKLanguage: true
