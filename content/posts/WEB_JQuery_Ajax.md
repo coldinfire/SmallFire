@@ -14,9 +14,11 @@ tags:
 
 ### AJAX
 
-AJAX (Asynchronous JavaScript and XML)是异步 JavaScript 和 XML。
+AJAX (Asynchronous JavaScript and XML)是异步的 JavaScript 和 XML。
 
-主要功能是在不重载整个网页的情况下，AJAX 使用 XMLHttpRequest 和服务器进行异步通讯，加载数据，并在网页上进行显示。
+主要功能是在无需重新加载整个网页的情况下，使用 XMLHttpRequest 和服务器进行异步通讯，能够更新部分网页的技术。
+
+### JS 原生 JQuery
 
 工作流程：创建 XMLHttpRequest 对象、然后连接服务器、发送请求、接受服务器返回的数据。
 
@@ -33,11 +35,13 @@ AJAX (Asynchronous JavaScript and XML)是异步 JavaScript 和 XML。
   }
   ```
 
-open(method,url,async) ： 建立前端到服务器的请求，有三个参数：第一个参数定义发送请求所使用的方式(get/post)；第二个参数设置文件在服务器端的位置 URL；第三个参数设置是否对请求进行异步处理(true 异步 / false 同步)。
+open(method,url,async) ： 建立前端到服务器的请求，有三个参数：
 
-- `xmlHttp.open("GET",URL,true);`
+- 第一个参数定义发送请求所使用的方式(get/post)；
+- 第二个参数设置文件在服务器端的位置 URL；
+- 第三个参数设置是否对请求进行异步处理(true 异步 / false 同步)。
 
-send(content) ：向服务器发送请求，当请求方式为 post 时可以设置参数
+send(content) ：向服务器发送请求；当请求方式为 post 时需要设置参数；请求参数为 get 时不用设置参数
 
 - `xmlHttp.send();`
 
@@ -53,20 +57,18 @@ readyState 属性：该属性代表着当前 xmlHttpRequest 的状态，每当 r
 
 - ```javascript
   xmlHttp.onreadystatechange = function() {
-      if (xmlHttp.readyState == 4) {
-          if (xmlHttp.status == 200) {
-              var obj = document.getElementById(id);
-              obj.innerHTML = xmlHttp.responseText;
-          } else {
-              alert("AJAX服务器返回错误！");
-          }
-      }
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+      var obj = document.getElementById("test");
+      obj.innerHTML = xmlHttp.responseText;
+    } else {
+      alert("AJAX服务器返回错误！");
+    }
   }
   ```
 
 ### JQuery AJAX
 
-#### 实现语法
+#### $.ajax()
 
 ```javascript
 $.ajax({
@@ -85,4 +87,12 @@ $.ajax({
   }
 });
 ```
+
+#### $.get() 和 $.post()
+
+提供两种简化的函数方式。
+
+`$.get(url,[data],[callback],[dataType])`
+
+`$.post(url,[data],[callback],[dataType])`
 

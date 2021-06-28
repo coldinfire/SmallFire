@@ -2272,7 +2272,7 @@
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_Ajax/</guid>
-      <description>AJAX AJAX (Asynchronous JavaScript and XML)是异步 JavaScript 和 XML。 主要功能是在不重载整个网页的情况下，AJAX 使用 XMLHttpRequest 和服务器进行异步通讯，加载数据，并在网页上进行显示。 工</description>
+      <description>AJAX AJAX (Asynchronous JavaScript and XML)是异步的 JavaScript 和 XML。 主要功能是在无需重新加载整个网页的情况下，使用 XMLHttpRequest 和服务器进行异步通讯，能够更新部分网页的技术。 JS 原生 JQuery</description>
     </item>
     
     <item>
@@ -2479,7 +2479,7 @@
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JSON_JAVA/</guid>
-      <description>JSON解析器 常见的解析器：Gson、fastjson、jackson、Jsonlib JSON 转为 JAVA 对象 JAVA 对象转换为 JSON</description>
+      <description>JSON 解析器 常见的解析器：Gson、jackson、fastjson、Jsonlib 下载 jackson jar 包 JAVA 对象和 JSON 互相转换 import java.util.*; import com.fasterxml.jackson.core.type.TypeReference; import com.fasterxml.jackson.databind.ObjectMapper; public class JacksonTest { public static void main(String[] args) throws</description>
     </item>
     
     <item>
