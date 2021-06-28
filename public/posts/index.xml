@@ -2272,7 +2272,7 @@
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JQuery_Ajax/</guid>
-      <description>AJAX AJAX (Asynchronous JavaScript and XML)是异步 JavaScript 和 XML。 主要功能是在不重载整个网页的情况下，AJAX 通过后台加载数据，并在网页上进行显示。</description>
+      <description>AJAX AJAX (Asynchronous JavaScript and XML)是异步 JavaScript 和 XML。 主要功能是在不重载整个网页的情况下，AJAX 使用 XMLHttpRequest 和服务器进行异步通讯，加载数据，并在网页上进行显示。 工</description>
     </item>
     
     <item>
