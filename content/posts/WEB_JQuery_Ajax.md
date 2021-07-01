@@ -80,7 +80,7 @@ $.ajax({
     para1:"value2"
   },
   success:function(data){ // 接受数据成功时调用的函数
-    console.log(data);    // data为服务器返回的数据
+  console.log(data);    // data为服务器返回的数据
   },
   error:function(request){// 请求数据失败时调用的函数
     alert("发生错误:"+request.status);

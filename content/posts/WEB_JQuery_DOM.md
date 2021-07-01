@@ -116,7 +116,7 @@ for 循环
 
 - for(初始化值; 循环结束条件; 步长)
 
-jQuery_obj.each(callback)：回调函数返回 false 则结束循环，返回 true 则继续循环
+$(selector).each(callback)：回调函数返回 false 则结束循环，返回 true 则继续循环
 
 - ```javascript
   $("img").each(function(i){this.src = "test" + i + ".jpg";});

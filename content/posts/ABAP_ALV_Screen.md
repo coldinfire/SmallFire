@@ -24,39 +24,39 @@ tags:
 
 ### SELECT-SCREEN 
 
-SELECT-SCREEN语句用于创建屏幕的框架结构,主要包括屏幕元素的创建、子屏幕的创建等。
+SELECT-SCREEN 语句用于创建屏幕的框架结构，主要包括屏幕元素的创建、子屏幕的创建等。
 
 #### 定义屏幕对象
 
 ```ABAP
 SELECTION-SCREEN BEGIN OF SCREEN src_num.
-    .......
+  ...
 SELECTION-SCREEN END OF SCREEN src_num.
 ```
 
-该语法用于定义一个INCLUDE SUREEN，可通过 CALL 方法在 Report 程序中引用：
+该语法用于定义一个 INCLUDE SUREEN，可通过 CALL 方法在 Report 程序中引用：
 
 `CALL SCREEN <num> STARTING AT [1 2] ENDING AT [1 2].`
 
 参数可以将所定义屏幕窗体作为一个新的对话框窗体来引用，并指定其创建的具体大小及位置。
 
-**注意：当从一个主屏幕中来调用其程序中的另一窗体时，必须使用CALL SELECTION-SCREEN方法.**
+**注意：当从一个主屏幕中来调用其程序中的另一窗体时，必须使用CALL SELECTION-SCREEN方法**
 
 #### 定义屏幕块
 
-在屏幕中定义一个BLOCK
+在屏幕中定义一个 BLOCK 块：
 
 ```JS
-SELECTION-SCREEN BEGIN OF BLOCK blk_1.
+SELECTION-SCREEN BEGIN OF BLOCK blk_1 [WITH FRAME] [TITLE title] [NO INTERVALS].
   ......
 SELECTION-SCREEN END OF BLOCK blk_1.
-扩展语法包括：
-  ...WITH FRAME：创建一个框架
-  ...TITLE title：创建一个带标题的框架
-  ...NO INTERVALS：所创建的框架中限制SELECT只有一个输入项
+扩展语法：
+  WITH FRAME：创建一个框架
+  TITLE title：创建一个带标题的框架
+  NO INTERVALS：所创建的框架中限制SELECT只有一个输入项
 ```
 
-屏幕块中可以添加的其它元素
+屏幕块中添加的其它元素：
 
 ```JS
 SELECTION-SCREEN INCLUDE BLOCKS <block1>.  调用已存在屏幕元素
@@ -94,42 +94,55 @@ PARAMETERS:
   P3 RADIOBUTTON GROUP GRP1. "GRP1单选组"
 ```
 
-  默认值：
+  可选参数列表：
 
-​    ...`DEFAULT f：`定义默认值。
-
-​    ...`TYPE type：`参照某一类型对象定义PARAMETERS。
-
-​    ...`DECIMALS dec：`定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)。
+- ​    `DEFAULT f`：定义默认值
 
 
-​    ...`LIKE g：`參照某一字典对象定义PARAMETERS。
+- ​    `TYPE type`：参照某一类型对象定义PARAMETERS
 
-​    ...`MEMORY ID pi：`将PARAMETERS存储在SAP内存，参数名长度不能超过三位。
 
-​    ...`NO-DISPLAY：`将PARAMETERS设置为隐藏，不会的屏幕上输出。
+- ​    `DECIMALS dec`：定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)
 
-​    ...`LOWER CASE：`输入值中不允许输入小写字符，否则会自动转换为大写。
 
-​    ...`OBLIGATORY：`限制该PARAMETERS为必填，否则会提示输入。
+- 
+  ​    `LIKE g`：參照某一字典对象定义PARAMETERS
 
-​    ...`AS CHECKBOX：`创建CHECKBOX对象。
 
-​    ...`RADIO BUTTON GROUP radi：`创建（RADIO）单选框。
+- ​    `MEMORY ID pi`：将PARAMETERS存储在SAP内存，参数名长度不能超过三位
 
-​    ...`VISIBLE LENGTH vlen：`定义显示长度。
 
-​    ...`USER-COMMAND ucom：`为创建对象分配对象名，该值保存在内表中可供其它对象操作。
+- ​    `NO-DISPLAY`：将PARAMETERS设置为隐藏，不会的屏幕上输出
 
-​    ...`AS LISTBOX VISIBLE LENGTH vlen：`创建一个下拉框，并指定长度。
 
-**下拉框实现：**
+- ​    `LOWER CASE`：输入值中不允许输入小写字符，否则会自动转换为大写
+
+
+- ​    `OBLIGATORY`：限制该PARAMETERS为必填，否则会提示输入
+
+
+- ​    `AS CHECKBOX`：创建CHECKBOX对象
+
+
+- ​    `RADIO BUTTON GROUP radi`：创建（RADIO）单选框
+
+
+- ​    `VISIBLE LENGTH vlen`：定义显示长度
+
+
+- ​    `USER-COMMAND fcode`：为创建对象分配对象名，fcode 会存储到 sscrfields-ucomm 字段中
+
+
+- ​    `AS LISTBOX VISIBLE LENGTH vlen`：创建一个下拉框，并指定长度
+
+
+#### 下拉框实现
 
 定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标.
 
 PARAMETERS: p_lang LIKE itab-field AS LISTBOX VISIBLE LENGTH 22 USER-COMMAND onli DEFAULT 'LH'.
 
-通过函数：VRM_SET_VALUES为下拉框初始化列表项
+通过函数：`VRM_SET_VALUES` 为下拉框初始化列表项
 
 该变量用于记录下拉列表数值是否初始化，否则每次屏幕初始化都会重新加载重复数据
 
@@ -171,7 +184,7 @@ ENDFORM.
 
 SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过8位，最大输入长度为18位：
 
- ` SELECT-OPTIONS： <S_1> FOR <dbtab-ele>....`   
+ ` SELECT-OPTIONS： <S_1> FOR <dbtab-ele> option`   
 
 内表结构：
 
@@ -182,27 +195,37 @@ LOW : 范围较小值
 HIGH: 范围较大值
 ```
 
-  默认值设定：
+  参数可选属性列表：
 
-​	...`DEFAULT g：`定义单一默认值。
+- ​	`DEFAULT g`：定义单一默认值
 
-​    ...`DEFAULT g...OPTION  xxx ... SIGN s：`定义含判断条件的单一默认值。
 
-​    ...`DEFAULT g TO h：`定义默认值的取值范围。
+- ​    `DEFAULT g...OPTION  xxx ... SIGN s`：定义含判断条件的单一默认值
 
-​    ...`DEFAULT g TO h ... OPTION op ... SIGN s：`设置默认值的聚会范围及判断条件。
 
-​    ...`MEMORY ID pid：`将SELECT-OPTIONS分配参数名并存储在SAP内存，参数名长度不能超过三位。
+- ​    `DEFAULT g TO h`：定义默认值的取值范围
 
-​    ...`NO-DISPLAY：`将SELECT-OPTIONS设置为隐藏，不会在屏幕上输出。
 
-​    ...`LOWER CASE：`输入值中不允许输入小写字符，否则会自动转换为大写。
+- ​    `DEFAULT g TO h ... OPTION op ... SIGN s`：设置默认值的聚会范围及判断条件
 
-​    ...`OBLIGATORY：`限制该SELECT-OPTIONS为必须输入的项目，执行中系统会提示。
 
-​    ...`NO-EXTENSION：`限制该SELECT-OPTIONS只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏。
+- ​    `MEMORY ID pid`：将SELECT-OPTIONS分配参数名并存储在SAP内存，参数名长度不能超过三位
 
-​    ...`VISIBLE LENGTH vlen：`定义所显示数据的长度。
+
+- ​    `NO-DISPLAY`：将SELECT-OPTIONS设置为隐藏，不会在屏幕上输出
+
+
+- ​    `LOWER CASE`：输入值中不允许输入小写字符，否则会自动转换为大写
+
+
+- ​    `OBLIGATORY`：限制该SELECT-OPTIONS为必须输入的项目，执行中系统会提示
+
+
+- ​    `NO-EXTENSION`：限制该SELECT-OPTIONS只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏
+
+
+- ​    `VISIBLE LENGTH vlen`：定义所显示数据的长度
+
 
 ###  维护选择字段屏幕描述：GOTO-->Text Elements 
 
@@ -212,10 +235,10 @@ HIGH: 范围较大值
 
 包含字段：
 
-- Selection Texts：定义已存在并且激活的屏幕元素的名称。
+- Selection Texts：定义已存在并且激活的屏幕元素的名称
 
 
-- Text Symbols：实现自定义文本及符号,该文本使用对象为 SELECTION-SCREEN，以三位字符表示(TEXT-001)。
+- Text Symbols：实现自定义文本及符号,该文本使用对象为 SELECTION-SCREEN，以三位字符表示(TEXT-001)
 
 
 - 图标符号：可以在 Text Symbols 通过@符号来进行引用，如"@01@",可通过程序RSTXICON查看所有的图标
@@ -225,24 +248,31 @@ HIGH: 范围较大值
 
 ###  屏幕事件处理
 
-INITIALIZATION：程序初始化事件，该事件在程序屏幕未显示之前执行。对程序设置值及屏幕元素进行初始化
+#### INITIALIZATION
 
-START-OF-SELECTION：该事件在单击按钮后触发
+程序初始化事件，该事件在程序屏幕未显示之前执行。对程序设置值及屏幕元素进行初始化
 
-END-OF-SELECTION：该事件应用于所有数据处理完成，即START-OF-SELECTION相关执行事件执行完成。但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
+#### START-OF-SELECTION
 
-AT SELECTION-SCREEN：选择屏幕显示之后，用来响应回车，F8，F1，F4等事件。
+该事件在单击按钮后触发
 
-```JS
-...ON <field>：检查具体输入字段(SELECTION-OPTIONS或PARAMETERS)是否完整或正确。
-...ON VALUE-REQUEST FOR <field low/high>：SELECT-OPTIONS按选择帮助<F4>键时触发该事件。
-...ON HELP-REQUEST FOR <field low/high>：SELECTION-OPTIONS按选择帮助<F1>键时键发该事件。
-...ON RADIOBUTTON GROUP <radio>：单选按钮事件，必须进行整体输入检查。
-...ON BLOCK <block>：框架的触发事件（控制框架中的屏幕元素值的输入）。
-...OUTPUT：用于屏幕输出时的各屏幕元素值的管控（PBO处理，在选择屏幕显示之前就被调用；
-		   响应屏幕上的事件，用户回车或F8后也被调用；通过modify screen可以修改选择屏幕字段）。
-...ON EXIT-COMMAND：用于"BACK","CANCEL","EXIT"等事件。
-```
+END-OF-SELECTION
+
+该事件应用于所有数据处理完成，即 START-OF-SELECTION 相关执行事件执行完成。但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
+
+#### AT SELECTION-SCREEN
+
+选择屏幕显示之后，用来响应回车，F1，F4等事件。
+
+可选参数：
+
+- `ON field`：检查具体输入字段（SELECTION-OPTIONS或PARAMETERS）是否完整或正确
+- `ON VALUE-REQUEST FOR <field low/high>`：SELECT-OPTIONS 点击选择帮助F4键时触发该事件
+- `ON HELP-REQUEST FOR <field low/high>`：SELECTION-OPTIONS 按选择帮助F1键时键发该事件
+- `ON RADIOBUTTON GROUP <radio>`：单选按钮事件，必须进行整体输入检查
+- `ON BLOCK <block>`：框架的触发事件（控制框架中的屏幕元素值的输入）
+- `OUTPUT`：用于屏幕输出时的各屏幕元素值的管控（PBO处理，在选择屏幕显示之前就被调用；响应屏幕上的事件，用户回车或F8后也被调用；通过modify screen可以修改选择屏幕字段）
+- `ON EXIT-COMMAND`：用于 BACK、CANCEL、EXIT 等事件
 
 **设置屏幕选择框不可输入和必输控制**
 
@@ -271,13 +301,13 @@ ACTIVE：控制屏幕的可见性 1:可见  2:不可见
 
 `/n` :按钮初始时距离屏幕左边的位置
 
-`<pos(len)>：`PUSHBUTTON按钮在屏幕生成的位置与长度。
+`<pos(len)>`：PUSHBUTTON按钮在屏幕生成的位置与长度。
 
-`<name>：`PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。​    
+`<name>`：PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。    
 
-`<ucom>：`必须指定的字符代码，当用户在选择屏幕上触发按钮时，`<ucom>`被输入到词典对象字段：SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。
+`<ucom>`：必须指定的字符代码，当用户在选择屏幕上触发按钮时，`<ucom>` 被输入到词典对象字段：SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。
 
-**Demo**  
+实例：
 
 ```JS
 TABLES SSCRFIELDS. "引用词典对象"
@@ -299,9 +329,9 @@ AT SELECTION-SCREEN.
 
 `SELECTION-SCREEN FUNCTION KEY n.`
 
-该按钮的定义保存在系统结构体SSCRFIELDS中，n为一个整数序数最大至5。
+该按钮的定义保存在系统结构体 SSCRFIELDS 中，n 为一个整数序数最大至 5。
 
-当n等于1时，其按钮描述保存在字段SSCRFIELDS-FUNCTXT_01中，其按钮对象命名为"FC01",保存在字段SSCRFIELDS-UCOMM中。
+当 n=1 时，其按钮描述保存在字段 SSCRFIELDS-FUNCTXT_01 中，其按钮对象命名为"FC01"，保存在字段SSCRFIELDS-UCOMM 中。
 
 **实例：**
 
