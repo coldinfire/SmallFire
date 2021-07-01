@@ -276,7 +276,7 @@ END-OF-SELECTION
 
 **设置屏幕选择框不可输入和必输控制**
 
-```JS
+```ABAP
 AT SELECTION-SCREEN OUTPUT.
   LOOP AT SCREEN.
 	IF screen-name = 'X_NORM' OR screen-name = 'X_PARK'.
@@ -289,10 +289,14 @@ AT SELECTION-SCREEN OUTPUT.
     ENDIF.
     ...
   ENDLOOP.
-REQUIRED：控制必输属性，使用后会忽略OBLIGATORY.0:不必输 1:必输，系统自动校验 2:不必输，但是会提示必输标志
-INPUT：控制屏幕元素的可输入性
-ACTIVE：控制屏幕的可见性 1:可见  2:不可见
 ```
+
+- REQUIRED：控制必输属性，使用后会忽略OBLIGATORY。
+  - 0：不必输 
+  - 1：必输，系统自动校验 
+  - 2：不必输，但是会提示必输标志
+- INPUT：控制屏幕元素的可输入性
+- ACTIVE：控制屏幕的可见性 (0:不可见  1:不可见) 
 
 ###  屏幕内创建按钮
 
