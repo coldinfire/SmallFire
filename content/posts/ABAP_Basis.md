@@ -33,10 +33,11 @@ tags:
 | SY-DATUM | 当前系统日期           | SY-HOST  | 服务器名称           |
 | SY-UZEIT | 当前系统时间           | SY-DYNNR | 屏幕的编号           |
 | SY-INDEX | DO-ENDDO 中是有效的    | SY-DBCNT | DB操作处理过的表行号 |
-| SY-TABIX | LOOP索引，Read内表索引 | SY-MSGV1 | Message Variable     |
-| SY-MSGID | Message Class          | SY-MSGV2 | Message Variable     |
-| SY-MSGTY | Message Type           | SY-MSGV3 | Message Variable     |
-| SY-MSGNO | Message Number         | SY-MSGV4 | Message Variable     |
+| SY-TABIX | LOOP索引，Read内表索引 | SY-LANGU | 当前登陆的语言       |
+| SY-MSGID | Message Class          | SY-MSGV1 | Message Variable     |
+| SY-MSGTY | Message Type           | SY-MSGV2 | Message Variable     |
+| SY-MSGNO | Message Number         | SY-MSGV3 | Message Variable     |
+| SY-ZONLO | 当前时区               | SY-MSGV4 | Message Variable     |
 
 ### 变量的声明
 
