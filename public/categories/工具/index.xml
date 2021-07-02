@@ -94,7 +94,7 @@
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JSON_JAVA/</guid>
-      <description>JSON 解析器 常见的解析器：Gson、jackson、fastjson、Jsonlib 下载 jackson jar 包 JAVA 对象和 JSON 互相转换 import java.util.*; import com.fasterxml.jackson.core.type.TypeReference; import com.fasterxml.jackson.databind.ObjectMapper; public class JacksonTest { public static void main(String[] args) throws</description>
+      <description>JSON 解析器 常见的解析器：Gson、jackson、fastjson、Jsonlib jackson 优点 解析大文件的速度比较快； 运行时占用的内存比较少，性能更</description>
     </item>
     
     <item>

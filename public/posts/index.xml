@@ -1948,7 +1948,7 @@
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</guid>
-      <description>选择屏幕 引用链接 屏幕触发事件 选择屏幕触发的是：AT SELECTION-SCREEN 对话屏幕触发的是：PAI 列表屏幕触发的是：AT USER-COMMAND SELECT-SCREEN SELECT-SCREEN语句用于创建</description>
+      <description>选择屏幕 引用链接 屏幕触发事件 选择屏幕触发的是：AT SELECTION-SCREEN 对话屏幕触发的是：PAI 列表屏幕触发的是：AT USER-COMMAND SELECT-SCREEN SELECT-SCREEN 语句用于创建屏幕的框架结构，主要包括</description>
     </item>
     
     <item>
@@ -2200,7 +2200,7 @@
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WEB_Redis_Basic/</guid>
-      <description></description>
+      <description>Redis 简介 redis 时一款高性能的非关系型数据库(NOSQL)。 数据的存储格式是key,value形式，且数据之间没有关联关系 数据存储在内存中 关系型数据</description>
     </item>
     
     <item>
@@ -2479,7 +2479,7 @@
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_JSON_JAVA/</guid>
-      <description>JSON 解析器 常见的解析器：Gson、jackson、fastjson、Jsonlib 下载 jackson jar 包 JAVA 对象和 JSON 互相转换 import java.util.*; import com.fasterxml.jackson.core.type.TypeReference; import com.fasterxml.jackson.databind.ObjectMapper; public class JacksonTest { public static void main(String[] args) throws</description>
+      <description>JSON 解析器 常见的解析器：Gson、jackson、fastjson、Jsonlib jackson 优点 解析大文件的速度比较快； 运行时占用的内存比较少，性能更</description>
     </item>
     
     <item>

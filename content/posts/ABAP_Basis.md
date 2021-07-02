@@ -87,9 +87,9 @@ DEFINE alv_ref1.
   gw_field-edit = &6.
   gw_field-f4availabl = &7.
 append gw_field to gt_field.
-ENDDEFINE alv_ref1.
+END-OF-DEFINITION.
 ```
-使用：alv_ref1 'para1' 'para2' ... 'paran'.
+使用：`alv_ref1 'para1' 'para2' ... 'paran'.`
 
 ###  DESCRIBE使用
 
