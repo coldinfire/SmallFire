@@ -20,7 +20,7 @@ Maven 是 apache 下的开源项目，自动化构件工具，服务于java的�
 
 Maven 采用引用的方式将依赖的 jar 包引入项目，不对真实的 jar 包进行 copy。但是打包的时候，运行时所需要的 jar 包都会被 copy 到安装包中。
 
-Maven是一个项目管理工具，它包含了一个项目对象模型 (POM：Project Object Model)，一组标准集合，一个项目生命周期(Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。
+Maven 是一个项目管理工具，它包含了一个项目对象模型 (POM：Project Object Model)，一组标准集合，一个项目生命周期(Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。
 
 1、项目对象模型 (Project Object Model)
 
@@ -34,7 +34,7 @@ maven 通过坐标对项目工程所依赖的jar包统一规范管理。
 
 3、maven 定义一套项目生命周期
 
-清理、初始化、编译、测试、报告 、打包、部署、站点生成
+清理、初始化、编译、测试、报告 、打包、部署、站点生成。
 
 4、一组标准集合
 
@@ -42,7 +42,7 @@ maven 通过坐标对项目工程所依赖的jar包统一规范管理。
 
 5、插件(plugin)目标(goal)
 
-maven 管理项目生命周期过程都是基于插件完成的
+maven 管理项目生命周期过程都是基于插件完成的。
 
 #### Maven仓库
 
@@ -70,17 +70,17 @@ Maven默认的本地仓库目录位置：`${user.home}/.m2/repository`
 
 ![Maven Folder](/images/WEB/Maven1.png)
 
-- bin:存放了 maven 的命令，比如 mvn tomcat:run
+- bin：存放了 maven 的命令，比如 mvn tomcat:run
 
-- boot:存放了一些 maven 本身的引导程序，如类加载器等
-- conf:存放了 maven 的一些配置文件，如 setting.xml 文件
-- lib:存放了 maven 本身运行所需的一些 jar 包
+- boot：存放了一些 maven 本身的引导程序，如类加载器等
+- conf：存放了 maven 的一些配置文件，如 setting.xml 文件
+- lib：存放了 maven 本身运行所需的一些 jar 包
 
 #### 默认仓库位置配置
 
 1、创建 .m2 文件夹
 
-我们会发现`${user.home}`下面没有`.m2`文件夹，这时候需要创建文件夹。新建文件夹的时候，windows是不支持文件命以小数点开头的，这里需要用命令行创建文件夹。在想要创建.m2文件夹的文件夹下按住shift加鼠标右键打开右键菜单，进入powerShell或者命令行。
+我们会发现`${user.home}`下面没有`.m2`文件夹，这时候需要创建文件夹。新建文件夹的时候，windows是不支持文件命以小数点开头的，这里需要用命令行创建文件夹。在想要创建 .m2 文件夹的文件夹下按住shift加鼠标右键打开右键菜单，进入 powerShell 或者命令行。
 
 ![powerShell](/images/WEB/Maven3.png)
 

@@ -31,7 +31,7 @@ redis 存储的是 key,value 形式的数据，key 都是字符串，value 有5�
 字符串类型：string；可以存储字符串、图片等多种类型，最大长度支持 512 M。
 
 - GET key/MGET key1 [key2 ...]：获取单个/多个字符元素
-- SET/MSET/SETEX/MSETNX：设置单个/多个/当字段不存在时设置值
+- SET/MSET/SETEX/MSETNX：存储单个/多个值/设置指定过期时间的键值对
 - DEL key1 [key2 ...]：删除指定 key
 - INCR/DECR
 - GETSET
@@ -39,7 +39,7 @@ redis 存储的是 key,value 形式的数据，key 都是字符串，value 有5�
 哈希类型：hash；map 格式，key 和 value 都是字符串类型
 
 - HGET/HMGET/HGETALL：获取一个/多个/所有字段的值
-- HSET/HMSET/HSETNX：赋值一个/多个字段
+- HSET/HMSET/HSETNX：赋值一个/多个字段/键不存在时设置值
 - HDEL：删除字段
 - HKEYS/HVALS：获取所有字段名/字段值
 - HEXISTS/HLEN
