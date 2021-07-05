@@ -1925,7 +1925,7 @@
     </item>
     
     <item>
-      <title>报表开发&lt;ALV显示设置&gt;</title>
+      <title>报表开发&lt;ALV FieldCatalog设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Display/</link>
       <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
       
@@ -2200,7 +2200,7 @@
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WEB_Redis_Basic/</guid>
-      <description>Redis 简介 redis 时一款高性能的非关系型数据库(NOSQL)。 数据的存储格式是key,value形式，且数据之间没有关联关系 数据存储在内存中 关系型数据</description>
+      <description>Redis 简介 redis 时一款高性能的非关系型数据库(NOSQL)，包含多种数据结构、支持网络、可选持久性的键值对存储数据库。 数据的存储格式是key,val</description>
     </item>
     
     <item>

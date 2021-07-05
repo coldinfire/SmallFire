@@ -75,6 +75,7 @@ REUSE_ALV_GRID_DISPLAY_LVC:
 | OUTPUTLEN(6)                | 列的字符输出宽度                                      | 1….n                     |
 | OFFSET(6)                   | 设置偏移量                                            |                          |
 | **TEXT_FIELDNAME**          | 文本字段名称                                          |                          |
+| **REPTEXT_DDIC**            | 与数据元素的主标题类似                                |                          |
 | FIX_COLUMN(1)               | 列固定不滚动，颜色不会发生变化                        | X-设置，space-不设置     |
 | JUST(1)                     | 定义字段对齐方式                                      | (R)IGHT(L)EFT(C)ENTER    |
 | **TECH**(1)                 | 置为技术列的列将不会再显示出来                        | X-设置，space-不设置     |
