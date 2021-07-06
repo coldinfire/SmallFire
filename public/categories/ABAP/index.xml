@@ -1304,7 +1304,7 @@
     </item>
     
     <item>
-      <title>红绿灯</title>
+      <title>ALV显示红绿灯</title>
       <link>https://coldinfire.github.io/2018/ABAP_TrafficLight/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
@@ -1318,7 +1318,7 @@
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_EndZero/</guid>
-      <description>小数后面去除后缀 0 FORM DATA_DELETE_ZERO using p_field z_result. DATA:var1 TYPE p DECIMALS 3, var2 TYPE p DECIMALS 2, var3 TYPE p DECIMALS 1, var4 TYPE i. move p_field to var1. move p_field to var2. move p_field to var3. move p_field to var4. IF var2 = var1. IF var3 = var1. IF var4 = var1. z_result = var4. ELSE. z_result = var3. ENDIF. ELSE. z_result</description>
+      <description>小数后面去除后缀 0 FORM DATA_DELETE_ZERO using p_field z_result. DATA: var1 TYPE p DECIMALS 3, var2 TYPE p DECIMALS 2, var3 TYPE p DECIMALS 1, var4 TYPE i. move p_field to var1. move p_field to var2. move p_field to var3. move p_field to var4. IF var2 = var1. IF var3 = var1. IF var4 = var1. z_result = var4. ELSE. z_result = var3. ENDIF. ELSE.</description>
     </item>
     
     <item>
@@ -1345,7 +1345,7 @@
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ProgramCall/</guid>
-      <description>同步调用 在一个程序中调用其他ABAP程序。有两种方式 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function]. SUBMIT [program] AND RETURN. CALL TRANSACTION [TCode].</description>
+      <description>同步调用 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function]. SUBMIT [program] AND RETURN. CALL TRANSACTION [TCode]. CALL FUNCTION [Fucntion] 使用CALL FUNCTION &amp;lsquo;AAA&amp;r</description>
     </item>
     
     <item>
@@ -1354,7 +1354,7 @@
       <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ProgramOpt/</guid>
-      <description>性能分析工具 ​ SE30(旧)；SAT(新)：运行时间分析工具 ​ ST12: 程序优化 READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查找 在循环（LOOP AT &amp;h</description>
+      <description>性能分析工具 ​ SE30(旧)；SAT(新)：运行时间分析工具 ​ ST12：Single transaction analysis 程序优化 READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查</description>
     </item>
     
     <item>
@@ -1372,7 +1372,7 @@
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Message/</guid>
-      <description>MESSAGE ：SE91 消息存储的内表：T100/T100C/T100S/T100U/T160M T100 这个表包括所有的消息 T100C 通常包括修改后的消息，即修改默认</description>
+      <description>MESSAGE ：SE91 消息存储的内表：T100/T100C/T100S/T100U/T160M T100：该表包括所有的消息 T100C：通常包括修改后的</description>
     </item>
     
     <item>
@@ -1390,7 +1390,7 @@
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OpenSQL/</guid>
-      <description>Open SQL ABAP可以通过两种方式与数据库交互 Native SQL:数据库自身的SQL，可以直接访问数据库，不够安全。 Open SQL:集成到ABAP中的标准SQL子</description>
+      <description>Open SQL ABAP可以通过两种方式与数据库交互 Native SQL：数据库自身的 SQL，可以直接访问数据库，不够安全。 Open SQL：集成到ABAP中的标准 SQL 子集，</description>
     </item>
     
     <item>
@@ -1399,7 +1399,7 @@
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SubRoutines/</guid>
-      <description>全局变量，局部变量 报表程序中：选择屏幕事件块(AT SELECTION-SCREEN),逻辑数据库事件块，及methods，subroutin</description>
+      <description>全局变量，局部变量 局部变量：报表程序中选择屏幕事件块(AT SELECTION-SCREEN)、逻辑数据库事件块，以及methods、subr</description>
     </item>
     
     <item>

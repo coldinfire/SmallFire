@@ -41,34 +41,34 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 
 ***定义***
 
-​	DATA obj_wcl_container TYPE REF TO CL_GUI_CUSTOM_CONTAINER."控制容器类
+​	DATA obj_wcl_container TYPE REF TO CL_GUI_CUSTOM_CONTAINER. ：控制容器类
 
-​	DATA obj_wcl_alv TYPE REF TO CL_GUI_ALV_GRID . "ALV控制类
+​	DATA obj_wcl_alv TYPE REF TO CL_GUI_ALV_GRID . ：ALV控制类
 
-​	DATA GS_LAYOUT1 TYPE LVC_S_LAYO. "布局结构	
+​	DATA GS_LAYOUT1 TYPE LVC_S_LAYO. ：布局结构	
 
-​	DATA GT_FIELDCAT TYPE LVC_T_FCAT. "存放字段目录的内表
+​	DATA GT_FIELDCAT TYPE LVC_T_FCAT. ：存放字段目录的内表
 
-​	DATA GS_FIELDCAT TYPE LVC_S_FCAT."存放字段目录的结构
+​	DATA GS_FIELDCAT TYPE LVC_S_FCAT. ：存放字段目录的结构
 
-​	DATA lt_exclude TYPE ui_functions. "alv不需要的图标按钮 
+​	DATA lt_exclude TYPE ui_functions. ：alv不需要的图标按钮 
 
 ### 控制区域、Container、Grid关系
 
 ------
 
-​	先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER容器实例,最后以此容器实例来创建 CL_GUI_ALV_GRID实例。首先要在程序内创建一个屏幕，并在程序中定义一个Customer Control.
+先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER 容器实例，最后以此容器实例来创建 CL_GUI_ALV_GRID实例。首先要在程序内创建一个屏幕，并在程序中定义一个Customer Control。
 
 ![屏幕定义](/images/ABAP/OOALV2.png)
 
-```JS
-DATA : obj_wcl_container TYPE REF TO cl_gui_custom_container, "控制容器类
-       obj_wcl_alv TYPE REF TO cl_gui_alv_grid . "ALV控制类
-“创建SAP容器实例
+```ABAP
+DATA: obj_wcl_container TYPE REF TO cl_gui_custom_container, "控制容器类"
+      obj_wcl_alv TYPE REF TO cl_gui_alv_grid . "ALV控制类"
+"创建SAP容器实例"
 IF obj_wcl_alv IS INITIAL.
  CREATE OBJECT obj_wcl_container
 	EXPORTING
-      container_name  =  'CONTAINER'. "自定义控件名称
+      container_name  =  'CONTAINER'. "自定义控件名称"
 	EXCEPTONS
       cntl_error      = 1
 	  others          = 6.
@@ -76,7 +76,7 @@ IF obj_wcl_alv IS INITIAL.
 	MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno 
 		WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   ENEIF.
-”创建ALV GRID实例
+"创建ALV GRID实例"
  CREATE OBJECT obj_wcl_alv
     EXPORTING
       i_parent  = obj_wcl_container.
@@ -94,30 +94,25 @@ IF obj_wcl_alv IS INITIAL.
 
 **一个屏幕创建多个ALV：**
 
-```JS
+```ABAP
 DATA:G_SPLITTER TYPE REF TO CL_GUI_SPLITTER_CONTAINER,
      G_CONTAINER_2000L TYPE REF TO CL_GUI_CONTAINER,
      G_CONTAINER_2000R TYPE REF TO CL_GUI_CONTAINER.
-     
 IF g_splitter IS INITIAL.
-    CREATE OBJECT g_splitter  “定义一个屏幕包含两个ALV
+    CREATE OBJECT g_splitter  "定义一个屏幕包含两个ALV"
       EXPORTING
         parent  = cl_gui_container=>screen0
         rows    = 2
         columns = 1.
-        
     CALL METHOD g_splitter->set_border
       EXPORTING
         border = cl_gui_cfw=>false.
-        
     g_container_2000l = g_splitter->get_container( row = 1 column = 1 ).
     g_container_2000r = g_splitter->get_container( row = 2 column = 1 ).
-    
     g_splitter->set_row_height( id = 1 height = 20 ).
     g_splitter->set_row_height( id = 2 height = 80 ).
+ENDIF.
 ```
-
-
 
 ### FieldCat
 
@@ -141,9 +136,9 @@ DEFINE M_FIELDCAT.
 END-OF-DEFINITION.
 DATA: alv1_fieldcat type standard table of lvc_s_fcat with header line.
 M_FIELDCAT:
-  alv1_fieldcat  'DATUM'         'Plan.Date'          ''      ''     ''    ''          '',
-  "alv1_fieldcat  'UZEIT'        'Plan.Time'          ''      ''     ''    ''          '',
-  alv1_fieldcat  'STATUS'        'Status'             ''      ''     ''    ''          ''.
+  alv1_fieldcat  'DATUM'  'Plan.Date' '' '' '' '' '',
+  alv1_fieldcat  'UZEIT'  'Plan.Time' '' '' '' '' '',
+  alv1_fieldcat  'STATUS' 'Status'    '' '' '' '' ''.
     
 ```
 
@@ -187,11 +182,11 @@ ENDFORM .
 设置布局：
 
 ```JS
-FORM prepare_layout CHANGING ps_layout TYPElvc_s_layo.     
-	ps_layout-zebra = 'X' .    
-	ps_layout-grid_title = 'Flights' .    
-    ps_layout-smalltitle = 'X' .
-ENDFORM. " prepare_layout
+FORM prepare_layout CHANGING ps_layout TYPE lvc_s_layo.     
+  ps_layout-zebra = 'X' .    
+  ps_layout-grid_title = 'Flights' .    
+  ps_layout-smalltitle = 'X' .
+ENDFORM. "prepare_layout"
 ```
 
 排除不必要的按钮：
@@ -203,29 +198,29 @@ ENDFORM. " prepare_layout
     APPEND 'CLOSE' TO lt_excl.
     APPEND 'SALL.PUL' TO lt_excl.
     APPEND 'UALL.PUL' TO lt_excl.
-  SET PF-STATUS 'STATUS' EXCLUDING  lt_excl .
+  SET PF-STATUS 'STATUS' EXCLUDING lt_excl .
   SET TITLEBAR 'TITLE'.
   ```
 
 - 系统标准按钮
 
-  ```JS
+  ```ABAP
   FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
     DATA ls_exclude TYPE ui_func.      
     ls_exclude = cl_gui_alv_grid=>mc_fc_maximum .      
-      APPEND ls_exclude TO pt_exclude.      
+    APPEND ls_exclude TO pt_exclude.      
     ls_exclude = cl_gui_alv_grid=>mc_fc_minimum .    
-      APPEND ls_exclude TO pt_exclude.     
+    APPEND ls_exclude TO pt_exclude.     
     ls_exclude = cl_gui_alv_grid=>mc_fc_subtot .    
-      APPEND ls_exclude TO pt_exclude.     
+    APPEND ls_exclude TO pt_exclude.     
     ls_exclude = cl_gui_alv_grid=>mc_fc_sum .      
-      APPEND ls_exclude TO pt_exclude.      
+    APPEND ls_exclude TO pt_exclude.      
     ls_exclude = cl_gui_alv_grid=>mc_fc_average .     
-   	APPEND ls_exclude TO pt_exclude.      
+    APPEND ls_exclude TO pt_exclude.      
     ls_exclude = cl_gui_alv_grid=>mc_mb_sum .     
-   	APPEND ls_exclude TO pt_exclude.      
+    APPEND ls_exclude TO pt_exclude.      
     ls_exclude = cl_gui_alv_grid=>mc_mb_subtot .
-    	APPEND ls_exclude TO pt_exclude.
+    APPEND ls_exclude TO pt_exclude.
   ENDFORM .
   ```
 
@@ -236,22 +231,22 @@ ENDFORM. " prepare_layout
 CL_GUI_ALV_GRID重要方法
 
 ```JS
--显示ALV 
- CALL METHOD obj_wcl_alv->set_table_for_first_display 
-    EXPORTING 
-      “i_structure_name             = 'XXXX'      :参照表结构字段显示
-      is_variant                    = ls_variant   :指定布局变式
-      is_layout                     = ls_layout    :布局设置
-      i_save                        = 'A'          :保存表格布局
-      it_toolbar_excluding          = lt_exclude   :排除的按钮
-    CHANGING 
-      it_outtab                     = gt_list[]    :需要显示的内表数据
-      it_fieldcatalog               = lt_fieldcat  :结构字段
-    EXCEPTIONS 
-      invalid_parameter_combination = 1 
-      program_error                 = 2 
-      too_many_lines                = 3 
-      OTHERS                        = 4.
+"显示ALV"
+CALL METHOD obj_wcl_alv->set_table_for_first_display 
+   EXPORTING 
+     i_structure_name             = 'XXXX'      "参照表结构字段显示"
+     is_variant                    = ls_variant  "指定布局变式"
+     is_layout                     = ls_layout   "布局设置"
+     i_save                        = 'A'         "保存表格布局"
+     it_toolbar_excluding          = lt_exclude  "排除的按钮"
+   CHANGING 
+     it_outtab                     = gt_list[]   "需要显示的内表数据"
+     it_fieldcatalog               = lt_fieldcat "结构字段"
+   EXCEPTIONS 
+     invalid_parameter_combination = 1 
+     program_error                 = 2 
+     too_many_lines                = 3 
+     OTHERS                        = 4.
 ```
 
 **刷新：REFRESH_TABLE_DISPLAY.**
@@ -265,12 +260,11 @@ CALL METHODgr_alvgrid->refresh_table_display
 	finished = 1
 	OTHERS = 2 .
 IF sy-subrc <> 0.
-	"Exception handling
+  "Exception handling
 ENDIF 
 
 IS_STABLE：有行列两个参数，如果设置了相应的参数，对应的行或列属性就不会滚动。刷新的稳定性，就是滚动条保持不动
 I_SOFT_REFRESH:  软刷新，为了显示数据而设置的过滤都将保持不变。临时给ALV创建的合计，排序，等保持不变
-
 ```
 
 ### 给ALV对象注册事件
