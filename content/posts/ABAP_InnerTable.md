@@ -52,7 +52,7 @@ END OF str_matnr.
 - 结构对象复用
       
       
-      - ```ABAP
+      - ```javascript
            DATA: BEGIN OF gt_result OCCURS 0,
              endcount TYPE zz_final_count,
              enddiffs TYPE zz_final_diffs. "直接定义组件字段，但前面语句后面使用逗号"
