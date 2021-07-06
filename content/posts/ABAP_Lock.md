@@ -74,21 +74,21 @@ SAP 系统在应用服务器层面有一个全局的 LOCK TABLE，可以用来�
 
 #### 五、相关表
 
-DD25L: 组合标题 (方式，MC 目标，锁定目标)(纪录了锁主表)
+DD25L：组合标题 (方式，MC 目标，锁定目标)(纪录了锁主表)
 
-DD25T:
+DD25T：视图和锁定对象的短文本
 
-DD26S: 视图的基本表和外来码关系 (纪录了所有和锁相关的表)
+DD26S：视图的基本表和外来码关系 (纪录了所有和锁相关的表)
 
-DD27S: 合计 (视图，MC 对象，锁定对象) 字段
+DD27S：合计 (视图，MC 对象，锁定对象) 字段
 
 #### 六、相关函数
 
-RS_DD_ENQU_EDIT
+`RS_DD_ENQU_EDIT`
 
-RS_DD_ENQU_ADD
+`RS_DD_ENQU_ADD`
 
-DEQUEUE_ALL：释放当前 LUW 的所有锁
+`DEQUEUE_ALL`：释放当前 LUW 的所有锁
 
 #### 七、通过断点找程序所用到的锁
 
@@ -110,8 +110,7 @@ CALL FUNCTION 'ENQUEUE_E_TABLE'
   EXCEPTIONS
     FOREIGN_LOCK = 1
     SYSTEM_FAILURE = 2
-    OTHERS = 3
-       .
+    OTHERS = 3.
 IF sy-subrc = 0.
   WRITE: 'Lock table successfully!'.
 ELSE.

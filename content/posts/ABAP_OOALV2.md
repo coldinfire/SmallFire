@@ -23,15 +23,14 @@ tags:
 对象有独立的 **interface**
 
 ```js
-*Class Declarations
+"Class Declarations"
 CLASS application DEFINITION.
   PUBLIC SECTION.
     METHODS: show_text.
   PRIVATE SECTION.
     DATA text(100) TYPE c VALUE 'This is my first ABAP Object.'.
 ENDCLASS.
-
-*Class Implementation
+"Class Implementation"
 CLASS application IMPLEMENTATION.
   METHOD show_text.
     WRITE text.
@@ -66,30 +65,25 @@ ENDCLASS.
     EXCEPTIONS ... x1 TYPE ...
   ```
 
-
 事件
 
 - 用于一个类对象发布其状态的改变，因而其他对象可以捕获该方法并作出响应.
+- 事件的触发和处理是通过特定的方法进行的，一个方法作为触发者触发事件， 而程序中的另一个方法则作为处理者捕获并处理该事件，处理方法在事件出现进被执行
 
-- 事件的触发和处理是通过特定的方法进行的，一个方法作为触发者触发事件， 而程序中的另一个方法则作为处理者捕获并处理该事件，处理方法在事件出现进被执行.
-
-  ```JS
+- ```JS
   *声明事件
   //使用 EXPORTING 附加项指定需要向事件处理方法中传递的参数，该参数传递方法恒为值传递
   EVENTS|CLASS-EVENTS event
     EXPORTING ... VALUE(e1) TYPE type [OPTIONAL] ...
-  
   *触发事件
   //实例事件可以被类中的任意方法触发，静态事件则可以被静态方法触发
   //参数除可选外必须传输。ME自身引用对象在被默认的传递到隐含参数 SENDER.
   RAISE EVENT evt EXPORTING ... e1 = f1 ...
-  
   *处理事件
   //事件需要通过方法捕获事件并处理，必须首先为该事件定义一个事件处理方法，然后在运行时为事件进行注册.
   //事件处理方法不需要使用所有 RAISE EVENT 中定义的参数
   METHODS|CLASS-METHODS meth 
     FOR EVENT event OF cif IMPORTING ... ei ...
-  
   *注册事件处理方法.
   //要使事件处理方法能够对事件进行响应，必须在运行时为相关事件注册该方法，语法格式如下:
   SET HANDLER ... hi ... [FOR] ...obj|ALL INSTANCES...
@@ -97,16 +91,16 @@ ENDCLASS.
   2.定义在接口中的实例事件.
   3.定义在类中的静态事件.
   4.定义在接口中的静态事件.
-  
   *事件处理时间
     在程序执行到 RAISE EVENT 语句之后，所有已注册的处理方法都将在下一个语句之前被处理。如果处理方法本身
-    触发事件，则该处理方法在原方法继续执行之前被重新调用.
+    触发事件，则该处理方法在原方法继续执行之前被重新调用。
   ```
 
-  实例：
 
-  ```js
-  ******* 事件触发器 *******  
+实例：
+
+- ```ABAP
+  "事件触发器"
   CLASS class1 DEFINITION.
     PUBLIC SECTION.
       EVENTS E1
@@ -122,8 +116,7 @@ ENDCLASS.
       RAISE EVENT E1 EXPORTING P1= atr1.
     ENDMETHOD.
   ENDCLASS.
-  
-  ******* 事件处理器 *******
+  "事件处理器"
   CLASS class2 DEFINITION.
     PUBLIC SECTION.
       METHODS: M2 FOR EVENT E1 OF class1 IMPORTING P1. 
@@ -139,6 +132,8 @@ ENDCLASS.
     ENDMETHOD.
   ENDCLASS.
   ```
+
+
 
 
 ## SAP中定义系统类
@@ -198,18 +193,21 @@ CREATE OBJECT ob_test2.
 
 #### 访问对象组件
 
-对象创建之后, 可以通过指向它的指针(引用变量)对其进行操作. 可以使用的对象组件一般为当前可见的属性和方法, 通过引用变量后接运算符 -> 访问对象组件. -> 即可以访问类中定义的实例组件又可以访问静态组件. 但对于静态组件还有另一种访问方式, 通过类名称本身=>直接访问.自身访问通过ME.
+对象创建之后，可以通过指向它的指针(引用变量)对其进行操作。可以使用的对象组件一般为当前可见的属性和方法，通过引用变量后接运算符 -> 访问对象组件。
 
-```JS
-	                         访问类成员
-访问对象的实例或则静态属性         |    oref->attr
-访问类的静态属性			      |    class_name=>attr
-在类内部访问自身实例或静态属性     |     ME->attr/attr
-对象的实例属性或静态方法	       |    CALL METHOD oref->meth
-类的静态方法				        |    CALL METHOD class=>meth
-在类内部访问自身实例方法或静态方法  |    CALL METHOD me->attr/CALL METHOD attr
-链式访问结构                      |    oref1->oref2->comp / class=>oref->comp
-```
+` ->` 即可以访问类中定义的实例组件又可以访问静态组件。但对于静态组件还有另一种访问方式：通过类名称本身=>直接访问。自身访问通过 ME。
+
+访问成员类：
+
+| 描述                               | 示例                                   |
+| :--------------------------------- | :------------------------------------- |
+| 访问对象的实例或则静态属性         | oref->attr                             |
+| 访问类的静态属性                   | class_name=>attr                       |
+| 在类内部访问自身实例或静态属性     | ME->attr/attr                          |
+| 对象的实例属性或静态方法           | CALL METHOD oref->meth                 |
+| 类的静态方法                       | CALL METHOD class=>meth                |
+| 在类内部访问自身实例方法或静态方法 | CALL METHOD me->attr/CALL METHOD attr  |
+| 链式访问结构                       | oref1->oref2->comp / class=>oref->comp |
 
 #### 删除对象
 

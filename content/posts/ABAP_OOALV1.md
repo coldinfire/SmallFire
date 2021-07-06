@@ -22,8 +22,6 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 
 ### 相关类
 
-------
-
 - CL_GUI_CUSTOM_CONTAINER：用户自己定义控件区域
 
 
@@ -54,8 +52,6 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 ​	DATA lt_exclude TYPE ui_functions. ：alv不需要的图标按钮 
 
 ### 控制区域、Container、Grid关系
-
-------
 
 先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER 容器实例，最后以此容器实例来创建 CL_GUI_ALV_GRID实例。首先要在程序内创建一个屏幕，并在程序中定义一个Customer Control。
 
@@ -116,11 +112,9 @@ ENDIF.
 
 ### FieldCat
 
-------
+设置显示数据的FieldCat
 
-设置显示数据的字段目录：
-
-- 宏定义
+#### 宏定义
 
 ```JS
 DEFINE M_FIELDCAT.
@@ -139,10 +133,9 @@ M_FIELDCAT:
   alv1_fieldcat  'DATUM'  'Plan.Date' '' '' '' '' '',
   alv1_fieldcat  'UZEIT'  'Plan.Time' '' '' '' '' '',
   alv1_fieldcat  'STATUS' 'Status'    '' '' '' '' ''.
-    
 ```
 
-- 通过调用BAPI完成
+#### 通过调用BAPI完成
 
 ```JS
 FORM prepare_field_catalog CHANGING pt_fieldcat TYPE lvc_t_fcat .
@@ -177,9 +170,7 @@ ENDFORM .
 
 ### Layout
 
-------
-
-设置布局：
+#### 设置布局
 
 ```JS
 FORM prepare_layout CHANGING ps_layout TYPE lvc_s_layo.     
@@ -189,11 +180,11 @@ FORM prepare_layout CHANGING ps_layout TYPE lvc_s_layo.
 ENDFORM. "prepare_layout"
 ```
 
-排除不必要的按钮：
+#### 排除不必要的按钮
 
 - 自定义按钮
 
-  ```JS
+  ```ABAP
   DATA: lt_excl TYPE slis_t_extab.
     APPEND 'CLOSE' TO lt_excl.
     APPEND 'SALL.PUL' TO lt_excl.
@@ -230,11 +221,11 @@ ENDFORM. "prepare_layout"
 
 CL_GUI_ALV_GRID重要方法
 
-```JS
+```ABAP
 "显示ALV"
 CALL METHOD obj_wcl_alv->set_table_for_first_display 
    EXPORTING 
-     i_structure_name             = 'XXXX'      "参照表结构字段显示"
+     i_structure_name             = 'XXXX'       "参照表结构字段显示"
      is_variant                    = ls_variant  "指定布局变式"
      is_layout                     = ls_layout   "布局设置"
      i_save                        = 'A'         "保存表格布局"
@@ -253,29 +244,26 @@ CALL METHOD obj_wcl_alv->set_table_for_first_display
 
 ```JS
 CALL METHODgr_alvgrid->refresh_table_display 
-  "EXPORTING
-  	"IS_STABLE = 
-	"I_SOFT_REFRESH = 'X'
+  EXPORTING
+  	"IS_STABLE = "
+	I_SOFT_REFRESH = 'X'
   EXCEPTIONS
 	finished = 1
 	OTHERS = 2 .
 IF sy-subrc <> 0.
-  "Exception handling
+  "Exception handling"
 ENDIF 
-
-IS_STABLE：有行列两个参数，如果设置了相应的参数，对应的行或列属性就不会滚动。刷新的稳定性，就是滚动条保持不动
-I_SOFT_REFRESH:  软刷新，为了显示数据而设置的过滤都将保持不变。临时给ALV创建的合计，排序，等保持不变
+IS_STABLE:有行列两个参数,如果设置了相应的参数,对应的行或列属性就不会滚动.刷新的稳定性,就是滚动条保持不动
+I_SOFT_REFRESH:软刷新,为了显示数据而设置的过滤都将保持不变.临时给ALV创建的合计,排序,等保持不变
 ```
 
 ### 给ALV对象注册事件
 
-------
+(1) HANDLE_TOOLBAR：这个事件用于给ALV加自定义工具条按钮。
 
-(1) HANDLE_TOOLBAR:这个事件用于给ALV加自定义工具条按钮。
+(2) HANDLE_CLICK：用于给ALV点击其中一行后处理代码段。
 
-(2) HANDLE_CLICK:用于给ALV点击其中一行后处理代码段。
-
-(3) HANDLE_COMMAND:事件用于接收用户按了自定义按钮后，触发的代码段。
+(3) HANDLE_COMMAND：事件用于接收用户按了自定义按钮后，触发的代码段。
 
 (4) HANDLE_DOUBLE_CLICK：双击事件
 
@@ -287,76 +275,76 @@ I_SOFT_REFRESH:  软刷新，为了显示数据而设置的过滤都将保持不
 
 **定义事件**
 
-```JS
+```ABAP
 CLASS cl_event_receiver DEFINITION.
   PUBLIC SECTION.
-    " 声明单击事件的方法
+    "声明单击事件的方法"
     METHODS handle_hotspot_click
       FOR EVENT hotspot_click OF cl_gui_alv_grid
       IMPORTING e_row_id e_column_id.
-    " 声明双击事件方法
+    "声明双击事件方法"
     METHODS handle_double_click
       FOR EVENT double_click OF cl_gui_alv_grid
       IMPORTING e_row e_column.
-    " 声明 Toolbar 事件方法
+    "声明 Toolbar 事件方法"
     METHODS handle_toolbar
       FOR EVENT toolbar OF cl_gui_alv_grid
       IMPORTING e_object e_interactive.
-    " 声明 USER-COMMAND 事件方法
+    "声明 USER-COMMAND 事件方法"
     METHODS handle_command
       FOR EVENT user_command OF cl_gui_alv_grid
       IMPORTING e_ucomm.
-ENDCLASS.                    "cl_event_receiver DEFINITION
+ENDCLASS.                    "cl_event_receiver DEFINITION"
 ```
 
 **事件执行的方法代码**
 
-```JS
+```ABAP
 CLASS cl_event_receiver IMPLEMENTATION.
-  " 单击事件方法的实现
+  "单击事件方法的实现"
   METHOD handle_hotspot_click.
     CONDENSE e_row_id     NO-GAPS.
     CONDENSE e_column_id  NO-GAPS.
     MESSAGE i001(00) WITH ' 单击事件 -> 行号:' e_row_id  '、列名：' e_column_id.
-  ENDMETHOD.                    "handle_HOTSPOT_CLICK
-  " 双击事件方法的实现
+  ENDMETHOD.                    "handle_HOTSPOT_CLICK"
+  "双击事件方法的实现"
   METHOD handle_double_click.
     CONDENSE e_row     NO-GAPS.
     CONDENSE e_column  NO-GAPS.
     MESSAGE i001(00) WITH ' 双击事件 -> 行号:' e_row  '、列名：' e_column.
-  ENDMETHOD.                    "handle_double_click
-  " 实现 Toolbar 事件方法
+  ENDMETHOD.                    "handle_double_click"
+  "实现 Toolbar 事件方法"
   METHOD handle_toolbar.
     DATA: ls_toolbar TYPE stb_button.
     CLEAR: ls_toolbar.
-    ls_toolbar-butn_type = 3. " 分隔符
+    ls_toolbar-butn_type = 3.   "分隔符"
     APPEND ls_toolbar TO e_object->mt_toolbar.
     CLEAR: ls_toolbar.
-    ls_toolbar-function = 'DISP'.    " 功能码
-    ls_toolbar-icon = icon_display.  " 图标名称
-    ls_toolbar-quickinfo = ' 显示'.   " 图标的提示信息
-    ls_toolbar-butn_type = 0.        " 0 表示正常按钮
-    ls_toolbar-disabled = ''.        " X 表示灰色，不可用
-    ls_toolbar-text = ' 按钮 1'.       " 按钮上显示的文本
+    ls_toolbar-function = 'DISP'.    "功能码"
+    ls_toolbar-icon = icon_display.  "图标名称"
+    ls_toolbar-quickinfo = ' 显示'.   "图标的提示信息"
+    ls_toolbar-butn_type = 0.        "0 表示正常按钮"
+    ls_toolbar-disabled = ''.        "X 表示灰色，不可用"
+    ls_toolbar-text = 'btn1'.      "按钮上显示的文本"
     APPEND ls_toolbar TO e_object->mt_toolbar.
-  ENDMETHOD.                    "handle_toolbar
-  " 实现 USER-COMMAND 事件方法
+  ENDMETHOD.                    "handle_toolbar"
+  "实现 USER-COMMAND 事件方法"
   METHOD handle_command.
     CASE e_ucomm.
     WHEN 'DISP'.
        MESSAGE i001(00) WITH 'Toolbar 事件 + USER-COMMAND 事件 '.
     ENDCASE.
-  ENDMETHOD.                    "HANDLE_COMMAND
-ENDCLASS.                    "cl_event_receiver IMPLEMENTATION
+  ENDMETHOD.                    "HANDLE_COMMAND"
+ENDCLASS.                    "cl_event_receiver IMPLEMENTATION"
 ```
 
 **注册事件**
 
 在创建GRID实例后注册事件：
 
-```JS
+```ABAP
 CREATE OBJECT event_receiver.
-  " 注册事件 handler 方法
+  "注册事件 handler 方法"
    SET HANDLER event_receiver->handle_hotspot_click  FOR g_grid01.
    SET HANDLER event_receiver->handle_double_click   FOR g_grid01.
    SET HANDLER event_receiver->handle_toolbar FOR g_grid01.
@@ -365,19 +353,17 @@ CREATE OBJECT event_receiver.
 
 **单元格编辑**
 
-设置FIELDCAT的 EDIT 属性。
+设置FIELDCAT的 EDIT 属性。还需要在显示ALV前添加触发数据改变事件：
 
-```JS
-
-还需要在显示ALV前添加触发数据改变事件：
+```ABAP
 CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
   EXPORTING
-    I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_MODIFIED. “必须设置一种触发方式
-    
-按回车触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.
-单元格失去焦点触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.
+    I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_MODIFIED. "必须设置一种触发方式"
 ```
-#### 第一次显示后修改Field Catalog或则Layout
+- 按回车触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.
+- 单元格失去焦点触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.
+
+#### 第一次显示后修改Field Catalog或Layout
 
 - Field Catalog
   - get_frontend_fieldcatalog
@@ -386,11 +372,11 @@ CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
   - get_frontend_layout
   - set_frontend_layout
 
-```js
+```ABAP
 DATA ls_fcat TYPE lvc_s_fcat .
 DATA lt_fcat TYPE lvc_t_fcat .
 DATA ls_layout TYPE lvc_s_layo .
-"Field Cattalog
+"Field Cattalog"
 CALL METHOD gr_alvgrid->get_frontend_fieldcatalog
   IMPORTING
     et_fieldcatalog = lt_fcat[] .
@@ -403,7 +389,7 @@ ENDLOOP .
 CALL METHOD gr_alvgrid->set_frontend_fieldcatalog
   EXPORTING
     it_fieldcatalog = lt_fcat[] .
-"Layout
+"Layout"
 CALL METHOD gr_alvgrid->get_frontend_layout
   IMPORTING
     es_layout = ls_layout .
@@ -413,25 +399,22 @@ CALL METHOD gr_alvgrid->set_frontend_layout
     is_layout = ls_layout .
 ```
 
-
-
 #### 排序
 
-​	初始化排序功能，在`set_table_for_first_display`中添加参数`IT_SORT`.如果排序字段在Field catalog会出现Dump。
+初始化排序功能，在`set_table_for_first_display`中添加参数`IT_SORT`.如果排序字段在Field catalog会出现Dump。
 
-```JS
+```ABAP
 FORM prepare_sort_table CHANGING pt_sort TYPE lvc_t_sort .
   DATA ls_sort TYPE lvc_s_sort .
   ls_sort-spos = '1' .
   ls_sort-fieldname = 'XXXX' .
-  ls_sort-up = 'X' . "A to Z
+  ls_sort-up = 'X' . "A to Z"
   ls_sort-down = space .
   APPEND ls_sort TO pt_sort .
   ls_sort-spos = '2' .
   ls_sort-fieldname = 'XXXX' .
   ls_sort-up = space .
-  ls_sort-down = 'X' . "Z to A
+  ls_sort-down = 'X' . "Z to A"
   APPEND ls_sort TO pt_sort .
-ENDFORM. " prepare_sort_table
+ENDFORM. "prepare_sort_table"
 ```
-
