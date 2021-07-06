@@ -19,6 +19,7 @@ redis 时一款高性能的非关系型数据库(NOSQL)，包含多种数据结�
 - 数据的存储格式是key,value形式，且数据之间没有关联关系
 - 数据存储在内存中，性能高效
 - 支持分布式，理论上可以无限扩展
+- 单线程请求处理、I/O多路复用技术
 
 关系型数据库和 NoSQL 数据库是互补的关系。一般将数据存储在关系型数据库中，在 nosql 数据库中备份存储关系型数据库的数据。
 
@@ -44,19 +45,20 @@ redis 存储的是 key,value 形式的数据，key 都是字符串，value 有5�
 - HKEYS/HVALS：获取所有字段名/字段值
 - HEXISTS/HLEN
 
-列表类型：list；基于 linkedList 实现，是一个插入顺序排序的字符串元素集合。
+列表类型：list；底层基于 linkedList 实现，是一个插入顺序排序的字符串元素集合。
 
 - LPUSH/LPUSHX/RPUSH/RPUSHX/LINSERT/LSET
 - LPOP/RPOP：删除列表中最左/右边的数据，并将元素返回
-- LINDEX/LRANGE：获取列表在：给定位置的单个元素/给定范围内的所有值
+- LINDEX/RINDEX/LRANGE/RANGE：获取列表在：给定位置的单个元素/给定范围内的所有值
 - LLEN/LTRIM
 
 集合类型：Set；集合中的元素没有顺序, 且元素是唯一的。Set 类型的底层是通过哈希表实现的。
 
-- SADD
-- SMEMBERS：获取 set 集合中所有元素
-- SREM/SPOP/SMOVE：删除 set 集合中的元素
+- SADD：向集合中添加元素
+- SMEMBERS：获取 set 集合中所有的键
+- SREM/SPOP/SMOVE：删除 set 集合中给定的键
 - SCARD：获取 set 集合长度
+- SISMEMBER：潘顿键是否在集合中
 - SINTER/SDIFF/SDIFFSTORE/SUNION
 
 有序集合类型：sorted set；每个元素都会关联一个 double 类型的分数权值，通过这个权值来为集合中的成员进行从小到大的排序。与 Set 类型一样，其底层也是通过哈希表实现的。
@@ -85,7 +87,7 @@ redis 存储的是 key,value 形式的数据，key 都是字符串，value 有5�
 
 #### RDB(默认方式)
 
-默认使用的机制，在一定的时间间隔中，检查 key 的变化情况，然后持久化数据。
+默认使用的机制：快照持久化，在一定的时间间隔中，检查 key 的变化情况，然后持久化数据。
 
 Step1：在文件 redis.windows.conf 中配置保存时间
 

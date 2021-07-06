@@ -25,7 +25,7 @@ EXPORTING i_grid_settings = i_grid_settings
 方法二：通过函数参数I_CALLBACK_USER_COMMAND指定的回调Form的参数slis_selfield进行设置
 
 ```JS
-FORM user_command USING ucomm LIKE sy-ucommselfield 
+FORM user_command USING ucomm LIKE sy-ucomm
                         selfield TYPE slis_selfield.
   selfield-refresh = 'X'.
   CASE ucomm.
