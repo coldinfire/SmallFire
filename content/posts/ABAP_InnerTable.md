@@ -1,5 +1,5 @@
 ---
-title: "ABAP 内表"
+title: "ABAP 内表使用"
 date: 2018-05-16
 draft: false
 author: Small Fire
@@ -16,72 +16,65 @@ tags:
 
 #### 工作区域
 
-工作区域可以存放多个变量数据,相当于一维数组。
+工作区域可以存放多个变量数据，相当于一维数组。
 
-- 通过Type声明自定义工作区：需要使用Data进行初始化赋值
+间接定义：通过 Type 定义结构类型，然后通过DATA赋值
 
-  ```js
-  TYPES: BEGIN OF str_name.
-    aufnr  TYPE afko-aufnr,    " Order Number
-    dauat  TYPE afpo-dauat,    " Order Type
-   END OF str_name.
-  " TYPE定义的只是一个类型，不可以在程序中直接使用，必须用DATA赋值
-  DATA: lt_table TYPE TABLE OF str_name,
-        ls_table TYPE str_name.
-  ```
+```ABAP
+TYPES: BEGIN OF str_order.
+  aufnr  TYPE afko-aufnr,
+  dauat  TYPE afpo-dauat,
+ END OF str_order.
+" TYPE定义的只是一个类型，不可以在程序中直接使用，必须用DATA赋值 "
+DATA: lt_table TYPE TABLE OF str_order,
+      ls_table TYPE str_order.
+```
 
-- 直接定义：直接使用Data声明一个结构体，可以在后续程序中直接使用该工作区。
+直接定义：直接使用 DATA 声明一个结构对象，可以在后续程序中直接使用该工作区
 
-  ```JS
-  DATA: BEGIN OF <str>,   
-    aufnr TYPE afko-aufnr,    " Order Number "
-    dauat TYPE afpo-dauat,    " Order Type "
-  END OF <str>.
-  ```
+```ABAP
+DATA: BEGIN OF str_matnr,   
+  matnr TYPE matnr,
+  werks TYPE bukrs,
+END OF str_matnr.
+```
 
-- 参照DB或则结构：`DATA <wa> TYPE <dbtab>|<str>.`
+参照DB或则结构创建工作区：`DATA <wa> TYPE <dbtab>|<str>.`
+
+参照内表创建工作区：`DATA  <wa>  LIKE LINE OF <dbtab>.`
+
+继承结构：结构复用，作用是将结构类型 structure_type 与结构变量 structure 的所有组件字段拷贝到当前结构定义的指定位置。
 
 
-- 参照内表：`DATA  <wa>  LIKE LINE OF <dbtab>.`
+- `INCLUDE { {TYPE struc_type} | {STRUCTURE struc} }
+          [AS name [RENAMING WITH SUFFIX suffix]]`.
+      
+- 结构对象复用
+      
+      
+      - ```ABAP
+           DATA: BEGIN OF gt_result OCCURS 0,
+             endcount TYPE zz_final_count,
+             enddiffs TYPE zz_final_diffs. "直接定义组件字段，但前面语句后面使用逗号"
+             INCLUDE STRUCTURE str_matnr.  "直接将结构对象包括进来,也可以是已经定义的结构"
+             INCLUDE TYPE str_order.   "直接将结构类型包括进来"
+             DATA:comm LIKE ztest_str. "直接参照"
+           DATA: END OF gt_result.
+           ```
+      
+- 结构类型复用
 
 
-- 继承结构：结构复用
-
-  
-  - `INCLUDE { {TYPE struc_type} | {STRUCTURE struc} }
-            [AS name [RENAMING WITH SUFFIX suffix]]`.
-        
-  - 该语句只能用在定义结构的 BEGIN OF 与 END OF 之间。作用是将**结构类型** **structure_type** 与**结构变量structure** 的所有组件字段拷贝到当前结构定义的指定位置。
-  
   - ```ABAP
-        TYPES: BEGIN OF pi_type,
-                name TYPE c LENGTH 40,
-                no   TYPE c LENGTH 4,
-              END OF pi_type.
-       DATA: BEGIN OF zpidoc_structure OCCURS 0,
-               matnr type matnr,
-               bukrs type bukrs,
-             END OF zpidoc_structure.
-       结构对象复用：
-       DATA: BEGIN OF gt_result OCCURS 0,
-               endcount TYPE zz_final_count,
-               enddiffs TYPE zz_final_diffs. " 直接定义组件字段，但前面语句后面使用逗号 "
-               INCLUDE STRUCTURE zpidoc_structure." 直接将结构对象包括进来,也可以是已经定义的结构 "
-               INCLUDE TYPE pi_type. " 直接将结构类型包括进来 "
-               DATA:comm LIKE zpidoc_structure. " 直接参照 "
-       DATA: END OF gt_result.
-              
-       类型复用：
-       TYPES: BEGIN OF str_pidoc,
-           endcount TYPE zz_final_count,
-           enddiffs TYPE zz_final_diffs. "直接定义字段，但是保留前面的逗号"
-           INCLUDE STRUCTURE zpidoc_structure. "直接将结构对象包括进来"
-           INCLUDE TYPE  pi_type.    "直接将结构类型包括进来"
-           TYPES: uname type c,
-                  ustatus type c.
-       TYPES:  END OF str_pidoc.
-       ```
-  
+    TYPES: BEGIN OF str_result,
+      endcount TYPE zz_final_count,
+      enddiffs TYPE zz_final_diffs. "直接定义字段，但是保留前面的逗号"
+      INCLUDE STRUCTURE str_matnr.  "直接将结构对象包括进来"
+      INCLUDE TYPE str_order.       "直接将结构类型包括进来"
+      TYPES: uname type c,
+        ustatus type c.
+    TYPES: END OF str_pidoc.
+    ```
 
 #### 内表类型
 
@@ -98,18 +91,17 @@ tags:
 
 #### 内表定义
 
-可以参考结构体、其他内表、透明表
+可以参考结构体、其他内表、透明表等方式定义内表。
 
-参考结构：`DATA <table_name> TYPE STANDARD TABLE OF <structure> [WITH HEADER LINE].
-  `  
+参考结构：`DATA <table_name> TYPE STANDARD TABLE OF <structure> [WITH HEADER LINE].`  
 
 参考内表：`DATA <table_name> TYPE TABLE OF <内表或透明表> [WITH HEADER LINE].`
 
-   - WITH HEADER LINE ,用 itab[] 和 itab 来区分内表和工作区
+   - WITH HEADER LINE ，用 itab[] 和 itab 来区分内表和工作区
    - 分别定义内表和工作区
    - 定义结构时用 OCCUR 0 直接定义
-   - LIKE LINE OF后面接一个内表，表示一个data参数具有和内表一样的结构，可当做Work Area使用
-   - LIKE TABLE OF后面接一个结构，表示一个data参数是一个内表，这个内表和后面接的结构一样
+   - LIKE LINE OF 后面接一个内表，表示一个 data 参数具有和内表一样的结构，可当做 Work Area 使用
+   - LIKE TABLE OF 后面接一个结构，表示一个 data 参数是一个内表，这个内表和后面接的结构一样
 
 ### 内表操作
 

@@ -52,30 +52,15 @@ tags:
 - 透明表、结构、数据字典：既是类型又是对象，可用 type 和 like 。
 - 只能使用 LIKE 引用另一自定义变量的类型，不可以使用 TYPE
 
-#### 继承结构
-
-```JS
-DATA:BEGIN OF STAFFINFO.
-    INCLUDE STRUCTURE USER_INFO.
- DATA:BIRTHDAY TYPE D,
-    ADDRESS(50) TYPE C,
-END OF STAFFINFO.
-
-TYPES: BEGIN OF STR_DATA,
-    BIRTHDAY TYPE D.
-    INCLUDE STRUCTURE USER_INFO.
-TYPES: END OF STR_DATA.
-```
-
 ### 定义常量、宏
 
-**常量定义**
+#### 常量定义
 
  `CONSTANTS <var>(len) TYPE <type> VALUE <value>.`
 
 `CONSTANTS <var>(len) LIKE <var2> VALUE <value>.`
 
-**宏定义** 
+#### 宏定义 
 
 ```ABAP
 DEFINE alv_ref1.
@@ -93,8 +78,6 @@ END-OF-DEFINITION.
 使用：`alv_ref1 'para1' 'para2' ... 'paran'.`
 
 ###  DESCRIBE使用
-
-`DESCRIBE TABLE lt_mat LINES lv_cont.`：这行的意思是 计算内表 lt_mat 的行数 ，将行数放到变量 lv_cont 里。
 
 字段属性：`DESCRIBE FIELD <field> [mes var]...
  `     (一个data的类型、长度、小数点、输出长度等信息)
