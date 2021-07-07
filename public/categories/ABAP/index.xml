@@ -1210,7 +1210,7 @@
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV2/</guid>
-      <description>类声明和实现 类具有属性和方法 对象是类的实例 对象是通过指针变量来访问的 对象有独立的 interface *Class Declarations CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &amp;#39;This is my first ABAP Object.&amp;#39;. ENDCLASS. *Class Implementation CLASS application IMPLEMENTATION. METHOD</description>
+      <description>类声明和实现 类具有属性和方法 对象是类的实例 对象是通过指针变量来访问的 对象有独立的 interface &amp;#34;Class Declarations&amp;#34; CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &amp;#39;This is my first ABAP Object.&amp;#39;. ENDCLASS. &amp;#34;Class Implementation&amp;#34; CLASS application IMPLEMENTATION. METHOD</description>
     </item>
     
     <item>

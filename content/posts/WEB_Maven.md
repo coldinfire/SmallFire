@@ -30,9 +30,9 @@ Maven 是一个项目管理工具，它包含了一个项目对象模型 (POM：
 
 2、依赖管理系统 (基础核心)
 
-maven 通过坐标对项目工程所依赖的jar包统一规范管理。
+maven 通过坐标对项目工程所依赖的 jar 包统一规范管理。
 
-3、maven 定义一套项目生命周期
+3、maven 定义了一套项目生命周期
 
 清理、初始化、编译、测试、报告 、打包、部署、站点生成。
 
@@ -50,15 +50,15 @@ Maven 给我们带来的最大的好处就是管理 jar 包，Maven 管理 jar �
 
 1、中央仓库
 
-就是远程仓库；在 maven 软件中内置一个远程仓库地址http://repo1.maven.org/maven2 ，它是中央仓库，服务于整个互联网，它是由 Maven 团队自己维护，里面存储了非常全的 jar 包，它包含了世界上大部分流行的开源项目构件。
+就是远程仓库；在 maven 软件中内置一个远程仓库地址http://repo1.maven.org/maven2 ，它是中央仓库，服务于整个互联网，它是由 Maven 团队自己维护，里面存储了非常全的 jar 包，它包含了世界上大部分流行的开源项目构件。可以通过修改配置文件，将仓库修改成自己需要的地址源。
 
 2、本地仓库
 
-相当于缓存，工程第一次会从远程仓库（互联网）去下载 jar 包，将 jar 包存在本地仓库（本地电脑上）。第二次不需要从远程仓库去下载。先从本地仓库找，找到了则直接使用；如果本地仓库找不到 Maven 才会去远程仓库找，找到后下载到本地再使用。
+相当于缓存，工程第一次会从远程仓库（互联网）去下载 jar 包，将 jar 包存在本地仓库（本地电脑上）。第二次获取 jar 包时不需要从远程仓库去下载，先从本地仓库找，找到了则直接使用；如果本地仓库找不到，Maven 才会去远程仓库找，找到后下载到本地仓库再使用。
 
-Maven默认的本地仓库目录位置：`${user.home}/.m2/repository`
+Maven默认的本地仓库目录位置：`${user.home}\.m2\repository`
 
-3、私服
+3、私服仓库
 
 私服是一种特殊的远程仓库，为了节省带宽和时间，在局域网内架设一个私有的仓库服务器，用其代理所有外部的远程仓库。内部的项目还能部署到私服上供其他项目使用。
 
@@ -70,7 +70,7 @@ Maven默认的本地仓库目录位置：`${user.home}/.m2/repository`
 
 ![Maven Folder](/images/WEB/Maven1.png)
 
-- bin：存放了 maven 的命令，比如 mvn tomcat:run
+- bin：存放了 maven 的可执行程序，比如 mvn tomcat:run
 
 - boot：存放了一些 maven 本身的引导程序，如类加载器等
 - conf：存放了 maven 的一些配置文件，如 setting.xml 文件
@@ -104,16 +104,16 @@ Maven默认的本地仓库目录位置：`${user.home}/.m2/repository`
   <url>https://maven.aliyun.com/repository/central</url>
 </mirror>
 <mirror>
-  <id>repo1</id>
-  <mirrorOf>central</mirrorOf>
-  <name>central repo</name>
-  <url>http://repo1.maven.org/maven2/</url>
-</mirror>
-<mirror>
   <id>aliyunmaven</id>
   <mirrorOf>apache snapshots</mirrorOf>
   <name>aliyun apache repository</name>
   <url>https://maven.aliyun.com/repository/apache-snapshots</url>
+</mirror>
+<mirror>
+  <id>repo1</id>
+  <mirrorOf>central</mirrorOf>
+  <name>central repo</name>
+  <url>http://repo1.maven.org/maven2/</url>
 </mirror>
 ```
 
@@ -129,13 +129,13 @@ Maven默认的本地仓库目录位置：`${user.home}/.m2/repository`
 
 `<localRepository>D:\Maven-Repository</localRepository>`
 
-#### 全局 setting 与用户 setting
+#### 全局 Setting 与用户 Setting
 
 在 maven 安装目录下的有 conf/setting.xml 文件，此 setting.xml 文件用于 maven 的所有项目，它作为 maven 的全局配置。
 
-如需要个性配置则需要在用户配置中设置，用户配置的 setting.xml 文件默认的位置在：${user.home} /.m2/settings.xml 位置。
+如需要个性配置则需要在用户配置中设置，用户配置的 setting.xml 文件默认的位置在：`${user.home}/.m2/settings.xml` 位置。
 
-maven 会先找用户配置，如果找到则以用户配置文件为准，否则使用全局配置文件。
+配置文件查找顺序：maven 会先找用户配置，如果找到则以用户配置文件为准，否则使用全局配置文件。
 
 ### Eclipse 配置 Maven
 
@@ -186,11 +186,9 @@ maven 会先找用户配置，如果找到则以用户配置文件为准，否�
 
 Maven 提倡使用一个共同的标准目录结构，Maven 使用约定优于配置的原则。
 
-project_direct
-
-- src/main/java：项目的 java 源文件（不要放配置文件）
-- src/main/resources：项目所需要的配置文件（不要放java文件）
-- src/main/webapp：页面素材
+- src/main/java：核心代码部分，项目的 java 源文件（不要放配置文件）
+- src/main/resources：项目所需要的配置文件（不要放 java 文件）
+- src/main/webapp：页面资源，js，css，图片等资源
 - src/test/java：单元测试程序 java 源文件
 - src/test/resources：单元测试程序所用的配置文件
 - target：打包输出目录
@@ -229,34 +227,86 @@ Maven 坐标为各种构件引入了秩序，任何一个构件都必须明确�
 
 #### 设置编译版本
 
-我们现在的Maven工程默认是JDK1.5 ，我们需要将编译版本改为JDK1.8。
+我们现在的Maven工程默认是 JDK1.5 ，我们需要将编译版本改为 JDK1.8。
 
 ```xml
 <build>
-  <plugins>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-compiler-plugin</artifactId>
-      <version>3.1</version>
-      <configuration>
-        <source>1.8</source>
-        <target>1.8</target>
-        <encoding>UTF-8</encoding>
-      </configuration>
-    </plugin>
-  </plugins>
-</build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.2</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <!-- 设置编码格式 -->
+          <uriEncoding>UTF-8</uriEncoding>
+          <!-- 控制 tomcat 端口号 -->
+          <port>80</port>
+          <!-- 项目发布到 tomcat 后的名称 -->
+          <!-- 如果写 /，相当于项目发布后的名称为 ROOT -->
+          <!-- 如果写 /abc，相当于项目发布后的名称为 abc -->
+          <path>/</path>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 ```
 
 将上边的配置信息粘贴到pom.xml中。点击工程右键  Maven ->  Update Project，弹出窗口后OK 。操作后 ，编译版本改为 1.8。
 
 ![Maven Project](/images/WEB/Maven9.png)
 
+#### Maven dependency fro Servlet API
+
+For Tomcat 8 (Java 8, Servlet 3.1)
+
+```xml
+<dependency>
+  <groupId>javax.servlet</groupId>
+  <artifactId>javax.servlet-api</artifactId>
+  <version>3.1.0</version>
+  <scope>provided</scope>
+</dependency>
+<dependency>
+  <groupId>javax.servlet.jsp</groupId>
+  <artifactId>javax.servlet.jsp-api</artifactId>
+  <version>2.3.0</version>
+  <scope>provided</scope>
+</dependency>
+<dependency>
+  <groupId>javax.el</groupId>
+  <artifactId>javax.el-api</artifactId>
+  <version>3.0.0</version>
+  <scope>provided</scope>
+</dependency>
+<dependency>
+  <groupId>javax.servlet</groupId>
+  <artifactId>jstl</artifactId>
+  <version>1.2</version>
+</dependency>
+```
+
+
+
 #### 编写代码
 
 （1）在src/main/java 目录下创建包 com.baidu.mavendemo
 
-（2）在包com.baidu.mavendemo下创建HelloWorld 类
+（2）在包 com.baidu.mavendemo下创建HelloWorld 类
 
 ```java
 package com.baidu.mavendemo;
@@ -269,7 +319,7 @@ public class HelloWorld {
 
 #### 添加依赖
 
-右键点击工程  Maven -- >  Add Dependency 添加 hibernate 包，spring-webmvc等包都可以直接搜索添加到pom.xml 文件中。
+右键点击工程  Maven -- >  Add Dependency 添加 hibernate 包，spring-webmvc 等包都可以直接搜索添加到 pom.xml 文件中。
 
 ![Add Dependency](/images/WEB/Maven10.png)
 

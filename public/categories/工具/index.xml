@@ -49,7 +49,7 @@
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Maven_LifeCycle/</guid>
-      <description>项目生命周期 Maven有三套相互独立的生命周期，分别是：clean、default、site。 clean：清理项目 default：构件项目，</description>
+      <description>Maven指令的生命周期 Maven 对项目构建过程分为三套相互独立的生命周期，分别是： Clean Lifecycle：在进行真正的构建之前进行一些清理工作 Default Li</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@
       <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Maven_Dependency/</guid>
-      <description>依赖管理 依赖范围 Maven在编译主代码的时候需要使用一套 classpath，在编译和执行测试的时候会使用另一套 classpath，实际运行项</description>
+      <description>依赖管理 依赖范围 Maven 在编译主代码的时候需要使用一套 classpath；在编译和执行测试的时候会使用另一套 classpath；实际运行项目的时候</description>
     </item>
     
     <item>

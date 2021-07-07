@@ -12,31 +12,31 @@ tags:
 
 ---
 
-## 项目生命周期
+## Maven指令的生命周期
 
-Maven有三套相互独立的生命周期，分别是：clean、default、site。
+Maven 对项目构建过程分为三套相互独立的生命周期，分别是：
 
-- clean：清理项目
+- Clean Lifecycle：在进行真正的构建之前进行一些清理工作
 
-- default：构件项目，是 Maven 最核心的
+- Default Lifecycle：构建项目过程，是 Maven 最核心的
 
-- site：建立项目站点
+- Site Lifecycle：生成项目报告，站点，发布站点
 
-每一个大的生命周期又分为很多个阶段。后面的阶段依赖于前面的阶段，这点有点像 Ant 的构建依赖。
+每一个大的生命周期又分为很多个阶段。后面的阶段依赖于前面的阶段，这点有点像 Ant 的构建依赖。每一个构建项目的命令都对应了 maven 底层一个插件。
 
 生命周期本身相互独立，用户可以仅仅调用生命周期的某一个阶段，也就是说用户调用了 default 周期的任何阶段，并不会触发 clean 周期以及 site 周期的任何事情。
 
 三大生命周期蕴含着小小的阶段，我们按顺序看一下：
 
-### clean 周期
+### clean 生命周期
 
 pre-clean：执行一些清理前需要完成的工作
 
-clean：清理上一次构建生成的文件
+`clean`：清理上一次构建生成的文件
 
 post-clean：执行一些清理后需要完成的工作
 
-### default 周期：
+### default 生命周期
 
 validate：验证
 
@@ -50,7 +50,7 @@ generate-resources：生成资源目录
 
 process-resources：处理资源文件
 
-complie：编译项目的主源码。一般来说，是编译 src/main/java 目录下的 Java 文件至项目输出的主 classpath 目录中
+`complie`：编译项目的主源码。一般来说，是编译 src/main/java 目录下的 Java 文件至项目输出的主 classpath 目录中
 
 process-classes：处理编译后文件
 
@@ -66,11 +66,11 @@ test-compile：编译项目的测试代码。一般来说，是编译 src/test/j
 
 process-test-classes:处理测试代码
 
-test：使用单元测试框架运行测试代码，测试代码不会被打包或部署
+`test`：使用单元测试框架运行测试代码，测试代码不会被打包或部署
 
 prepare-package：打包前的准备
 
-package：将编译好的代码打包成为 jar 或者 war 等
+`package`：将编译好的代码打包成为 jar 或者 war 等
 
 pre-integration-test：准备整体测试
 
@@ -80,11 +80,11 @@ post-integration-test：为整体测试收尾
 
 verify：验证
 
-install：将包安装到 Maven 本地仓库，供本地其他 Maven 项目使用
+`install`：将包安装到 Maven 本地仓库，供本地其他 Maven 项目使用
 
-deploy：将最终的包部署到远程 Maven 仓库，供其他开发人员和 Maven 项目使用
+`deploy`：将最终的包部署到远程 Maven 仓库，供其他开发人员和 Maven 项目使用
 
-### site 周期
+### site 生命周期
 
 pre-site：执行一些在生成项目站点之前需要完成的工作
 
@@ -105,24 +105,3 @@ site-deploy：将生成的项目站点发布到服务器上
 **$mvn clean deploy site-deploy** ：该命令调用 clean 生命周期的 clean 阶段、default 生命周期的 deploy 阶段，以及 site 生命周期的 site-deploy 阶段。实际执行的阶段为 clean 生命周期的 pre-clean、clean 阶段，default 生命周期的所有阶段，以及 site 生命周期的所有阶段。该命令结合了 Maven 所有的三个生命周期，且 deploy 为 default 生命周期的最后一个阶段，site-deploy 为 site 生命周期的最后一个阶段。
 
 由于 Maven 中主要的生命周期阶段并不多，而常用的 Maven 命令实际都是基于这些阶段简单组合而成。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
