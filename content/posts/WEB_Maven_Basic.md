@@ -214,10 +214,14 @@ Maven 坐标为各种构件引入了秩序，任何一个构件都必须明确�
     <groupId>com.companyname.project-group</groupId>
     <!-- 项目的唯一ID，一个groupId下面可能多个项目，就是靠artifactId来区分的 -->
     <artifactId>project</artifactId>
-    <!-- 版本号 -->
+    <!-- 产品版本号 -->
     <version>1.0</version>
-    <!-- 打包方式 -->
+    <!-- 打包方式 jar,war,pom 等 -->
     <packaging>war</packaging>
+    <!-- 项目构建配置，配置编译、运行插件等 -->
+    <build><plugins><plugin>...</plugin></plugins></build>
+    <!-- 项目依赖构件配置，配置项目依赖构件的坐标 -->
+    <dependencies><dependency>...</dependency></dependencies>
 </project>
 ```
 
