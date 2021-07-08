@@ -332,6 +332,15 @@
     </item>
     
     <item>
+      <title>hugo</title>
+      <link>https://coldinfire.github.io/tags/hugo/</link>
+      <pubDate>Tue, 03 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>EasyUI</title>
       <link>https://coldinfire.github.io/tags/EasyUI/</link>
       <pubDate>Tue, 13 Mar 2018 00:00:00 +0000</pubDate>
@@ -341,11 +350,11 @@
     </item>
     
     <item>
-      <title>hugo</title>
-      <link>https://coldinfire.github.io/tags/hugo/</link>
-      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      <title>Jenkins</title>
+      <link>https://coldinfire.github.io/tags/Jenkins/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/tags/hugo/</guid>
+      <guid>https://coldinfire.github.io/tags/Jenkins/</guid>
       <description></description>
     </item>
     
@@ -364,6 +373,33 @@
       <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/Git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpringMVC</title>
+      <link>https://coldinfire.github.io/tags/SpringMVC/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/SpringMVC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>https://coldinfire.github.io/tags/Spring/</link>
+      <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/Spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mybatis</title>
+      <link>https://coldinfire.github.io/tags/Mybatis/</link>
+      <pubDate>Sat, 13 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/Mybatis/</guid>
       <description></description>
     </item>
     
