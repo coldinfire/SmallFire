@@ -35,21 +35,21 @@
     </item>
     
     <item>
+      <title>Git学习与总结</title>
+      <link>https://coldinfire.github.io/2018/Utils_Git/</link>
+      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/Utils_Git/</guid>
+      <description>Git本地结构 Workspace： 工作区，实际操作的目录。 Index / Stage： 暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友好交</description>
+    </item>
+    
+    <item>
       <title>Jenkins 使用</title>
       <link>https://coldinfire.github.io/2018/WEB_CI_Jenkins/</link>
       <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WEB_CI_Jenkins/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Git学习与总结</title>
-      <link>https://coldinfire.github.io/2018/Utils_Git/</link>
-      <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Utils_Git/</guid>
-      <description>Git本地结构 Workspace： 工作区，实际操作的目录。 Index / Stage： 暂存区，数据暂时存放的区域，可在工作区和版本库之间进行数据的友好交</description>
     </item>
     
     <item>
