@@ -18,7 +18,11 @@ Maven 插件主要是为 maven 中生命周期中的阶段服务，maven 中只�
 
 插件通常提供了一个目标的集合，并且可以使用下面的语法执行：
 
-`<code>mvn [plugin-name]:[goal-name]</code>`
+`mvn [plugin-name]:[goal-name]`
 
-### 插件目标
+#### 描述插件
+
+使用 maven-help-plugin 来获取插件的详细信息。
+
+
 

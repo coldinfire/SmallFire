@@ -16,7 +16,7 @@ tags:
 
 #### 什么是Maven
 
-Maven 是 apache 下的开源项目，自动化构件工具，服务于java的项目构件和依赖管理。
+Maven 是 apache 下的开源项目，自动化构件工具，服务于java的项目构件和依赖管理。Maven 提倡”约定优于配置“(Convention Over Configuration)，这是 Maven 最核心的设计理念之一，使用约定可以大量减少配置。
 
 Maven 采用引用的方式将依赖的 jar 包引入项目，不对真实的 jar 包进行 copy。但是打包的时候，运行时所需要的 jar 包都会被 copy 到安装包中。
 
@@ -200,9 +200,9 @@ Maven 提倡使用一个共同的标准目录结构，Maven 使用约定优于�
 
 #### 定义工程坐标：pom.xml
 
-maven 对所有工程管理基于坐标进行管理。
+maven 对所有工程管理基于坐标进行管理。Nexus-indexer 是一个对 Maven 仓库编纂索引并提供搜索功能的类库，它是 Nexus 项目的一个子模块。
 
-Maven 坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，一组 Maven 坐标是通过一些元素定义的，他们是 groupId、artifactId、version、packaging。
+Maven 坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，一组 Maven 坐标是通过一些元素定义的，他们是 groupId、artifactId、version、packaging、clas-sifier。
 
 ```xml
 <project xmlns = "http://maven.apache.org/POM/4.0.0"

@@ -16,27 +16,27 @@ tags:
 
 ### POM 基本配置
 
-`<project > `：文件的根节点 . 
+`<project> `：文件的根节点
 
-`<modelversion >` ： pom.xml使用的对象模型版本 
+`<modelversion>` ： pom.xml使用的对象模型版本
 
-`<groupId >` ：项目名称，一般写项目的域名 
+`<groupId>` ：定义当前 Maven 项目隶属的实际项目，通常与域名反向一一对应
 
-`<artifactId >` ：模块名称，子项目名或模块名称
+`<artifactId>` ：定义实际项目中共的一个 Maven 模块名称，子项目名或模块名称，一般使用实际项目名称作为 artifactId 的前缀
 
-`<version >` ：产品的版本号 .
+`<version>` ：定义 Maven 项目当前所处的版本号
 
-`<packaging >` ：打包类型，一般有jar、war、pom 等 
+`<packaging>` ：定义 Maven 项目的打包方式，一般有jar(默认值)、war、pom 等 
 
-`<name >` ：项目的显示名，常用于 Maven 生成的文档。 
+`<name>` ：项目的显示名，常用于 Maven 生成的文档
 
-`<description >` ：项目描述，常用于 Maven 生成的文档
+`<description>` ：项目描述，常用于 Maven 生成的文档
 
 `<properties>` ：自定义用户属性，在整个 pom 生效，其它地方通过`${属性名调用}`
 
-`<dependencies >` ：项目依赖构件配置，配置项目依赖构件的坐标
+`<dependencies>` ：项目依赖构件配置，配置项目依赖构件的坐标
 
-`<build >` ：项目构建配置，配置编译、运行插件等。
+`<build>` ：项目构建配置，配置编译、运行插件等
 
 ### POM 标签大全详解
 
