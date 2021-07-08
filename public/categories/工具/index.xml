@@ -6,7 +6,16 @@
     <description>Recent content in 工具 on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 08 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gradle 使用</title>
+      <link>https://coldinfire.github.io/2018/WEB_Gradle/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/WEB_Gradle/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title> Hugo添加搜索功能(Algolia)  </title>
       <link>https://coldinfire.github.io/2018/Utils_hugo2/</link>
@@ -58,7 +67,7 @@
       <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2017/WEB_Maven_Dependency/</guid>
-      <description>依赖管理 依赖范围 Maven 在编译主代码的时候需要使用一套 classpath；在编译和执行测试的时候会使用另一套 classpath；实际运行项目的时候</description>
+      <description>依赖管理 添加依赖 右键点击工程 Maven &amp;ndash; &amp;gt; Add Dependency 添加 hibernate 包，spring-webmvc 等包都可以直接搜索添加到 pom.xml 文件中。 添加后打开pom.xml，发现多</description>
     </item>
     
     <item>
@@ -72,10 +81,10 @@
     
     <item>
       <title>Maven使用</title>
-      <link>https://coldinfire.github.io/2017/WEB_Maven/</link>
+      <link>https://coldinfire.github.io/2017/WEB_Maven_Basic/</link>
       <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2017/WEB_Maven/</guid>
+      <guid>https://coldinfire.github.io/2017/WEB_Maven_Basic/</guid>
       <description>Maven简介 什么是Maven Maven 是 apache 下的开源项目，自动化构件工具，服务于java的项目构件和依赖管理。 Maven 采用引用的方式将依赖的 jar 包引入项目，</description>
     </item>
     
