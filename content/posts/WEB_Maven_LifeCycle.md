@@ -38,7 +38,7 @@ post-clean：执行一些清理后需要完成的工作
 
 ### default 生命周期
 
-validate：验证
+validate：验证项目是否正确且所有必须信息是可用的
 
 initialize：初始化配置
 
@@ -48,7 +48,7 @@ process-sources：处理项目主资源文件。一般来说，是对 src/main/r
 
 generate-resources：生成资源目录
 
-process-resources：处理资源文件
+process-resources：复制和处理资源文件到目标目录，为打包阶段做好准备
 
 `complie`：编译项目的主源码。一般来说，是编译 src/main/java 目录下的 Java 文件至项目输出的主 classpath 目录中
 
@@ -60,29 +60,29 @@ process-test-sources：处理项目测试资源文件。一般来说，是对 sr
 
 generate-test-resources：生成测试资源文件
 
-process-test-resources：处理测试资源文件
+process-test-resources：处理测试资源文件，复制和处理测试资源到目标文件
 
 test-compile：编译项目的测试代码。一般来说，是编译 src/test/java 目录下的 Java 文件至项目输出的测试 classpath 目录中
 
-process-test-classes:处理测试代码
+process-test-classes：处理测试源码编译生成的文件
 
-`test`：使用单元测试框架运行测试代码，测试代码不会被打包或部署
+`test`：使用单元测试框架(JUnit)运行测试代码，测试代码不会被打包或部署
 
 prepare-package：打包前的准备
 
 `package`：将编译好的代码打包成为 jar 或者 war 等
 
-pre-integration-test：准备整体测试
+pre-integration-test：集成测试前准备
 
-integration-test：整体测试
+integration-test：集成测试
 
-post-integration-test：为整体测试收尾
+post-integration-test：为集成测试收尾
 
-verify：验证
+verify：验证，对集成测试的结果进行检查，保证质量达标
 
-`install`：将包安装到 Maven 本地仓库，供本地其他 Maven 项目使用
+`install`：安装打包的项目到 Maven 本地仓库，供本地其他项目使用
 
-`deploy`：将最终的包部署到远程 Maven 仓库，供其他开发人员和 Maven 项目使用
+`deploy`：将最终的工程包部署到远程 Maven 仓库，供其他开发人员和 Maven 项目使用
 
 ### site 生命周期
 
@@ -90,7 +90,7 @@ pre-site：执行一些在生成项目站点之前需要完成的工作
 
 site：生成项目站点及文档
 
-post-site：执行一些在生成项目站点之后需要完成的工作
+post-site：执行一些在生成项目站点之后需要完成的工作，并且为部署做准备
 
 site-deploy：将生成的项目站点发布到服务器上
 

@@ -14,9 +14,47 @@ tags:
 
 ## 依赖管理
 
+### 添加依赖
+
+右键点击工程  Maven -- >  Add Dependency 添加 hibernate 包，spring-webmvc 等包都可以直接搜索添加到 pom.xml 文件中。
+
+![Add Dependency](/images/WEB/Maven10.png)
+
+添加后打开pom.xml，发现多了以下信息
+
+```xml
+<dependencies>
+  <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.0.7.Final</version>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>4.3.4.RELEASE</version>
+  </dependency>
+</dependencies>
+```
+
+我们再看工程目录下的Maven Dependecies 下又多了很多jar包；
+
+![Add Dependency](/images/WEB/Maven11.png)
+
+我只是加了一个hibernate的核心包和一个spring-webmvc包，为什么会多出这么多jar包呢？这是因为hibernate的核心包本身又会依赖其它的jar包，所以导入hibernate包自动会添加hibernate所依赖的包；spring-webmvc 一样的道理。
+
+### Maven 依赖搜索顺序
+
+当我们执行 Maven 构建命令时，Maven 开始按照以下顺序查找依赖的库：
+
+- **步骤 1** － 在本地仓库中搜索，如果找不到，执行步骤 2，如果找到了则执行其他操作。
+- **步骤 2** － 在中央仓库中搜索，如果找不到，并且有一个或多个远程仓库已经设置，则执行步骤 4，如果找到了则下载到本地仓库中以备将来引用。
+- **步骤 3** － 如果远程仓库没有被设置，Maven 将简单的停滞处理并抛出错误（无法找到依赖的文件）。
+- **步骤 4** － 在一个或多个远程仓库中搜索依赖的文件，如果找到则下载到本地仓库以备将来引用，否则 Maven 将停止处理并抛出错误（无法找到依赖的文件）。
+
 ### 依赖范围
 
-Maven 在编译主代码的时候需要使用一套 classpath；在编译和执行测试的时候会使用另一套 classpath；实际运行项目的时候，又会使用一套classpath。
+Maven 在编译主代码的时候需要使用一套 classpath；在编译和执行测试的时候会使用另一套 classpath；实际运行项目的时候，又会使用一套 classpath。
 
 依赖范围的作用就是用来控制依赖与这 3 种 classpath（编译classpath，测试classpath，运行classpath）的关系。
 

@@ -52,6 +52,8 @@ Maven 给我们带来的最大的好处就是管理 jar 包，Maven 管理 jar �
 
 就是远程仓库；在 maven 软件中内置一个远程仓库地址http://repo1.maven.org/maven2 ，它是中央仓库，服务于整个互联网，它是由 Maven 团队自己维护，里面存储了非常全的 jar 包，它包含了世界上大部分流行的开源项目构件。可以通过修改配置文件，将仓库修改成自己需要的地址源。
 
+要浏览中央仓库的内容，maven 社区提供了一个 URL：[http://search.maven.org/#browse](http://search.maven.org/#browse)。使用这个仓库，开发人员可以搜索所有可以获取的代码库。
+
 2、本地仓库
 
 相当于缓存，工程第一次会从远程仓库（互联网）去下载 jar 包，将 jar 包存在本地仓库（本地电脑上）。第二次获取 jar 包时不需要从远程仓库去下载，先从本地仓库找，找到了则直接使用；如果本地仓库找不到，Maven 才会去远程仓库找，找到后下载到本地仓库再使用。
@@ -100,14 +102,8 @@ Maven默认的本地仓库目录位置：`${user.home}\.m2\repository`
 <mirror>
   <id>aliyunmaven</id>
   <mirrorOf>central</mirrorOf>
-  <name>aliyun repository</name>
-  <url>https://maven.aliyun.com/repository/central</url>
-</mirror>
-<mirror>
-  <id>aliyunmaven</id>
-  <mirrorOf>apache snapshots</mirrorOf>
-  <name>aliyun apache repository</name>
-  <url>https://maven.aliyun.com/repository/apache-snapshots</url>
+  <name>aliyun maven</name>
+  <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
 </mirror>
 <mirror>
   <id>repo1</id>
@@ -204,7 +200,7 @@ Maven 提倡使用一个共同的标准目录结构，Maven 使用约定优于�
 
 maven 对所有工程管理基于坐标进行管理。
 
-Maven 坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，一组 Maven 坐标时通过一些元素定义的，他们是 groupId、artifactId、version、packaging、clas-sifier。
+Maven 坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，一组 Maven 坐标是通过一些元素定义的，他们是 groupId、artifactId、version、packaging。
 
 ```xml
 <project xmlns = "http://maven.apache.org/POM/4.0.0"
@@ -299,52 +295,6 @@ For Tomcat 8 (Java 8, Servlet 3.1)
   <version>1.2</version>
 </dependency>
 ```
-
-
-
-#### 编写代码
-
-（1）在src/main/java 目录下创建包 com.baidu.mavendemo
-
-（2）在包 com.baidu.mavendemo下创建HelloWorld 类
-
-```java
-package com.baidu.mavendemo;
-public class HelloWorld {
-  public static void main(String[] args) {
-    System.out.println("Hello World!!");
-  }
-}
-```
-
-#### 添加依赖
-
-右键点击工程  Maven -- >  Add Dependency 添加 hibernate 包，spring-webmvc 等包都可以直接搜索添加到 pom.xml 文件中。
-
-![Add Dependency](/images/WEB/Maven10.png)
-
-添加后打开pom.xml，发现多了以下信息
-
-```xml
-<dependencies>
-  <dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>5.0.7.Final</version>
-  </dependency>
-  <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-webmvc</artifactId>
-    <version>4.3.4.RELEASE</version>
-  </dependency>
-</dependencies>
-```
-
-我们再看工程目录下的Maven Dependecies 下又多了很多jar包；
-
-![Add Dependency](/images/WEB/Maven11.png)
-
-我只是加了一个hibernate的核心包和一个spring-webmvc包，为什么会多出这么多jar包呢？这是因为hibernate的核心包本身又会依赖其它的jar包，所以导入hibernate包自动会添加hibernate所依赖的包；spring-webmvc 一样的道理。
 
 
 
