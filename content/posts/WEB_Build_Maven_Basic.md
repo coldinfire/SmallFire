@@ -166,6 +166,8 @@ Maven默认的本地仓库目录位置：`${user.home}\.m2\repository`
 
 选中红框部分的复选框（跳过骨架），如果不跳过骨架，可以选择并使用一些项目骨架模板来创建 Maven 项目(例如：maven-archetype-quickstart)。
 
+![Maven Project](/images/WEB/Maven14.png)
+
 点击 next，输入项目参数：
 
 ![Maven Project](/images/WEB/Maven8.png)

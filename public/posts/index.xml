@@ -2227,7 +2227,7 @@
       <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WEB_CI_Jenkins/</guid>
-      <description></description>
+      <description>Jenkins 简介 Jenkins是一个开源的、提供友好操作界面的持续集成(CI)工具，起源于Hudson（Hudson是商用的），主要用于持续、自动的构</description>
     </item>
     
     <item>
@@ -2258,12 +2258,30 @@
     </item>
     
     <item>
+      <title>Mybatis 配置文件</title>
+      <link>https://coldinfire.github.io/2018/WEB_Frame_Mybatis_CRUD/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/WEB_Frame_Mybatis_CRUD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mybatis 配置文件</title>
+      <link>https://coldinfire.github.io/2018/WEB_Frame_Mybatis_Config/</link>
+      <pubDate>Sun, 07 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/WEB_Frame_Mybatis_Config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Mybatis 使用</title>
       <link>https://coldinfire.github.io/2018/WEB_Frame_Mybatis/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WEB_Frame_Mybatis/</guid>
-      <description></description>
+      <description>MyBatis 简介 MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作</description>
     </item>
     
     <item>

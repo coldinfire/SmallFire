@@ -4316,7 +4316,35 @@
     <url>
       <loc>https://coldinfire.github.io/tags/Mybatis/</loc>
       
-      <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+      <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/WEB_Frame_Mybatis_CRUD/</loc>
+      
+      <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/WEB_Frame_Mybatis_Config/</loc>
+      
+      <lastmod>2018-01-07T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4330,7 +4358,7 @@
     <url>
       <loc>https://coldinfire.github.io/2018/WEB_Frame_Mybatis/</loc>
       
-      <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+      <lastmod>2018-01-05T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
