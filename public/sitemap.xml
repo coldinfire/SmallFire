@@ -30,9 +30,37 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
+      <loc>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</loc>
       
-      <lastmod>2021-04-15T00:00:00+00:00</lastmod>
+      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
+      
+      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/abaputils/</loc>
+      
+      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -45,6 +73,62 @@
   
     <url>
       <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
       
       <lastmod>2021-04-15T00:00:00+00:00</lastmod>
       
@@ -72,49 +156,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2021-04-15T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/tags/PP/</loc>
-      
-      <lastmod>2021-04-15T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2021-04-15T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
       
       <lastmod>2021-04-15T00:00:00+00:00</lastmod>
       
@@ -170,20 +212,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/ABAP/</loc>
-      
-      <lastmod>2021-03-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2021/ABAP_JSON/</loc>
       
       <lastmod>2021-03-06T00:00:00+00:00</lastmod>
@@ -199,20 +227,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2021/ABAP_JSON_Methods/</loc>
-      
-      <lastmod>2021-03-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/abaputils/</loc>
       
       <lastmod>2021-03-06T00:00:00+00:00</lastmod>
       
@@ -352,7 +366,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/ABAP_ClientTableCopy/</loc>
+      <loc>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</loc>
       
       <lastmod>2020-10-14T00:00:00+00:00</lastmod>
       
@@ -5255,6 +5269,18 @@
       <loc>https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/</loc>
       
       <lastmod>2017-09-01T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/1/WEB_Frame_Log_Log4j/</loc>
       
       
       <changefreq>monthly</changefreq>

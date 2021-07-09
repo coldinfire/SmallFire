@@ -12,6 +12,12 @@ tags:
 
 ---
 
+
+
+
+
+Mybatis 官方文档：[https://mybatis.org/mybatis-3/zh/configuration.html](https://mybatis.org/mybatis-3/zh/configuration.html)
+
 ### MyBatis 简介
 
 MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。
@@ -79,7 +85,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <!-- 加载数据库连接属性配置文件 -->
-  <properties resource="db.properties" />
+  <properties resource="database.properties" />
   <!-- 配置环境 -->
   <environments default="development">
     <!-- 配置MySQL环境 -->
@@ -99,7 +105,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <mapper resource="User.xml" />
   </mappers>
 </configuration>
-
 ```
 
 ### MyBatis 映射器
@@ -177,3 +182,35 @@ Mybatis 通过使用内置的日志工厂提供日志功能。内置日志工厂
 - JDK logging
 
 MyBatis 内置日志工厂会基于运行时检测信息选择日志委托实现。它会（按上面罗列的顺序）使用第一个查找到的实现。当没有找到这些实现时，将会禁用日志功能。
+
+#### log4j.properties
+
+```properties
+# 全局日志配置
+log4j.rootLogger=ERROR, debug, CONSOLE, LOGFILE
+# MyBatis 日志配置
+log4j.logger.org.mybatis.example.BlogMapper=TRACE
+log4j.logger.org.apache.axis.enterprise=FATAL, CONSOLE
+# 控制台输出
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} %-6r [%15.15t] %-5p %30.30c %c - %m\n
+# LOGFILE 设置文件输出
+log4j.appender.LOGFILE=org.apache.log4j.FileAppender
+log4j.appender.LOGFILE.File=d:\axis.log
+log4j.appender.LOGFILE.Append=true
+log4j.appender.LOGFILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.LOGFILE.layout.ConversionPattern=%d{ISO8601} %-6r [%15.15t] %-5p %30.30c %c - %m\n
+```
+
+#### 日值配置
+
+```xml
+<configuration>
+  <settings>
+    ...
+    <setting name="logImpl" value="LOG4J"/>
+    ...
+  </settings>
+</configuration>
+```

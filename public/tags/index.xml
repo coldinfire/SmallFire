@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>abaputils</title>
+      <link>https://coldinfire.github.io/tags/abaputils/</link>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/abaputils/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>PP</title>
       <link>https://coldinfire.github.io/tags/PP/</link>
@@ -22,15 +31,6 @@
       <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/JS/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>abaputils</title>
-      <link>https://coldinfire.github.io/tags/abaputils/</link>
-      <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/abaputils/</guid>
       <description></description>
     </item>
     

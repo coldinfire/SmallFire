@@ -6,7 +6,16 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 06 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> ABAP 数值四舍五入函数 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</link>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</guid>
+      <description>ABAP 保留指定小数位 ROUND函数 INT_SORT-MENGE = ROUND( VAL = LTB-EMENG * P_QPA DEC = 3 MODE = 1 ). mode代表着小数省略的规则， 1： 默认值，这个值总是从 0 四舍五入到更大的绝对值 5</description>
+    </item>
+    
     <item>
       <title>ABAP Json 转换</title>
       <link>https://coldinfire.github.io/2021/ABAP_JSON/</link>
@@ -36,10 +45,10 @@
     
     <item>
       <title> SAP系统间数据表的Copy </title>
-      <link>https://coldinfire.github.io/2020/ABAP_ClientTableCopy/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</link>
       <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_ClientTableCopy/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</guid>
       <description>需求场景 在功能开发完成后，需要使用一些测试数据来进行测试，有时可能需要将一些比较新的生产数据复制到测试系统，为了完成数据表的复制，需要使用一</description>
     </item>
     

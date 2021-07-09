@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> ABAP 数值四舍五入函数 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</link>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</guid>
+      <description>ABAP 保留指定小数位 ROUND函数 INT_SORT-MENGE = ROUND( VAL = LTB-EMENG * P_QPA DEC = 3 MODE = 1 ). mode代表着小数省略的规则， 1： 默认值，这个值总是从 0 四舍五入到更大的绝对值 5</description>
+    </item>
+    
     <item>
       <title>COOIS 添加字段</title>
       <link>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</link>
@@ -90,10 +99,10 @@
     
     <item>
       <title> SAP系统间数据表的Copy </title>
-      <link>https://coldinfire.github.io/2020/ABAP_ClientTableCopy/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</link>
       <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_ClientTableCopy/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</guid>
       <description>需求场景 在功能开发完成后，需要使用一些测试数据来进行测试，有时可能需要将一些比较新的生产数据复制到测试系统，为了完成数据表的复制，需要使用一</description>
     </item>
     
@@ -2281,7 +2290,7 @@
       <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/WEB_Frame_Mybatis/</guid>
-      <description>MyBatis 简介 MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作</description>
+      <description>Mybatis 官方文档：https://mybatis.org/mybatis-3/zh/configuration.html MyBatis 简介 MyBatis 是一款优秀的持久层</description>
     </item>
     
     <item>
@@ -2759,6 +2768,15 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/</guid>
       <description>HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;, 书写时实现层次分明的缩进； 所有编码均遵循 XHTML 标准，标签</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://coldinfire.github.io/1/WEB_Frame_Log_Log4j/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/1/WEB_Frame_Log_Log4j/</guid>
+      <description>1.log4j 是Apache为java提供日志管理的工具 作用：可以调试程序，就像输出一样 2.核心概念： log4j有三大组件： 日志器（Logger） 日志输</description>
     </item>
     
   </channel>
