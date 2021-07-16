@@ -28,10 +28,10 @@ DATA: layout TYPE LVC_S_LAYO,
       structures TYPE lvc_t_fcat, 
       structure TYPE lvc_s_fcat. 
 START-OF-SELECTION. 
-PERFORM create_structure.  " 定义内表的结构 
-PERFORM create_dynamic_table.   " 按照定义的内表结构，产生一个内表 
-PERFORM write_data_to_dyntable. " 向动态内表中写数 
-PERFORM output_dyntable_data.   " 从动态内表中取数，并写到屏幕 
+PERFORM create_structure.       "定义内表的结构" 
+PERFORM create_dynamic_table.   "按照定义的内表结构，产生一个内表"
+PERFORM write_data_to_dyntable. "向动态内表中写数"
+PERFORM output_dyntable_data.   "从动态内表中取数，并写到屏幕"
 ```
 
 ### Step1：创建动态内表
@@ -45,22 +45,22 @@ PERFORM output_dyntable_data.   " 从动态内表中取数，并写到屏幕
 *&      Form  create_structure 
 *&-----------------------------------------------------------* 
 FORM create_structure . 
-  structure-fieldname = 'COL1'.  " 第一列列名 
+  structure-fieldname = 'COL1'.  " 第一列列名 " 
   structure-col_pos   = 1.       
-  structure-inttype = 'C'.       " 数据类型 
-  structure-intlen = 6.          " 长度 
+  structure-inttype = 'C'.       " 数据类型 "
+  structure-intlen = 6.          " 长度 " 
   APPEND structure TO structures. 
-  structure-fieldname = 'COL2'.  " 第二列列名 
+  structure-fieldname = 'COL2'.  " 第二列列名 " 
   structure-col_pos   = 2.       
-  structure-inttype = 'C'.       " 数据类型 
-  structure-intlen = 6.          " 长度 
+  structure-inttype = 'C'.       " 数据类型 " 
+  structure-intlen = 6.          " 长度 " 
   APPEND wa_structure TO structures. 
-  structure-fieldname = 'COL3'.  " 第三列名 
+  structure-fieldname = 'COL3'.  " 第三列名 " 
   structure-col_pos   = 3.        
-  structure-inttype = 'C'.       " 数据类型 
-  structure-intlen = 6.          " 长度 
+  structure-inttype = 'C'.       " 数据类型 " 
+  structure-intlen = 6.          " 长度 " 
   APPEND structure TO structures. 
-ENDFORM.                    " create_structure
+ENDFORM.                    " create_structure "
 ```
 
 #### 根据表结构生成内表. 
@@ -77,9 +77,9 @@ FORM create_dynamic_table .
       it_fieldcatalog = structures
     IMPORTING 
       ep_table        = dyn_table. 
-  "用表类型指针<dyn_table>指向数据对象的内容.
+  "用表类型指针<dyn_table>指向数据对象的内容. "
   ASSIGN dyn_table->* TO <dyn_table>. 
-ENDFORM.                    " create_dynamic_table 
+ENDFORM.                    " create_dynamic_table " 
 ```
 
 ### Step2：动态内表的赋值
@@ -93,22 +93,22 @@ ENDFORM.                    " create_dynamic_table
 FORM write_data_to_dyntable . 
   DATA:i TYPE n. 
   DATA:j TYPE n. 
-  " 建立一个与动态内表结构相同的数据对象，且数据对象为是一个结构 
+  " 建立一个与动态内表结构相同的数据对象，且数据对象为是一个结构 " 
   CREATE DATA dyn_line LIKE LINE OF <dyn_table>.  
-  ASSIGN dyn_line->* TO <dyn_wa>. " 用<dyn_wa>指针指向该结构 
+  ASSIGN dyn_line->* TO <dyn_wa>. " 用<dyn_wa>指针指向该结构 " 
   DO 3 TIMES. 
     i = i + 1. 
     CLEAR j. 
     LOOP AT structures INTO structure.  
       j = j + 1. 
-      " 用指针<dyn_field>指向工作区<dyn_wa>中的一个字段，字段名为structure-fieldname. 
+      " 用指针<dyn_field>指向工作区<dyn_wa>中的一个字段，字段名为structure-fieldname. " 
       ASSIGN COMPONENT structure-fieldname OF STRUCTURE <dyn_wa> TO <dyn_field>.  
-      CONCATENATE i j INTO <dyn_field>.  " 给指针指向的字段赋值
+      CONCATENATE i j INTO <dyn_field>.  " 给指针指向的字段赋值 "
     ENDLOOP. 
     APPEND <dyn_wa> TO <dyn_table>. 
     CLEAR <dyn_wa>.
   ENDDO. 
-ENDFORM.                    " write_data_to_dyntable 
+ENDFORM.                    " write_data_to_dyntable " 
 *&-----------------------------------------------------------* 
 ```
 
@@ -128,11 +128,11 @@ FORM output_dyntable_data .
     WRITE: / . 
     CLEAR structure.
     LOOP AT structures INTO structure.
-    " 用指针<dyn_field>指向工作区<dyn_wa>中的一个字段，字段名为structure-fieldname.
+    " 用指针<dyn_field>指向工作区<dyn_wa>中的一个字段，字段名为structure-fieldname. "
       ASSIGN COMPONENT structure-fieldname OF STRUCTURE <dyn_wa> TO <dyn_field>.   
      WRITE: <dyn_field>. 
     ENDLOOP. 
   ENDLOOP. 
-ENDFORM.                    " output_dyntable_data 
+ENDFORM.                    " output_dyntable_data "
 ```
 

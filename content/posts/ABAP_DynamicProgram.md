@@ -28,7 +28,7 @@ FIELD-SYMBOLS: <struc> TYPE ANY,
 PARAMETERS: p_table(20) DEFAULT 'LFA1' OBLIGATORY,
             p_rows   TYPE i OBLIGATORY.
 TRY .
-    "Dynamic create Table & Structure "
+    "Dynamic create Table & Structure"
     CREATE DATA tab_reference TYPE STANDARD TABLE OF (p_table)
            WITH NON-UNIQUE DEFAULT KEY.
     ASSIGN tab_reference->* TO <itab>.
