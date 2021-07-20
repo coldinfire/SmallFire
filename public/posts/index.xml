@@ -1777,7 +1777,7 @@
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_CONVERT_MATERIAL_UNIT/</guid>
-      <description>MARM物料单位转换 call function &amp;#39;MD_CONVERT_MATERIAL_UNIT&amp;#39; exporting i_matnr = matnr i_in_me = in_me i_out_me = out_me i_menge = in_menge importing e_menge = out_menge exceptions error_in_application = 1 error = 2 others = 3 . if sy-subrc &amp;lt;&amp;gt; 0. MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4. endif. 取字段简短描述 DATA inttab LIKE STANDARD TABLE</description>
+      <description>MARM物料单位转换 CALL function &amp;#39;MD_CONVERT_MATERIAL_UNIT&amp;#39; exporting i_matnr = matnr i_in_me = in_me i_out_me = out_me i_menge = in_menge importing e_menge = out_menge exceptions error_in_application = 1 error = 2 others = 3. IF sy-subrc &amp;lt;&amp;gt; 0. MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4. ENDIF. 物料单位比例获取 DATA: h_denominator(100) TYPE n, h_numerator(100)</description>
     </item>
     
     <item>

@@ -15,7 +15,7 @@ tags:
 ### MARM物料单位转换
 
 ```JS
-call function 'MD_CONVERT_MATERIAL_UNIT'
+CALL function 'MD_CONVERT_MATERIAL_UNIT'
    exporting
      i_matnr                    = matnr
      i_in_me                    = in_me
@@ -26,12 +26,31 @@ call function 'MD_CONVERT_MATERIAL_UNIT'
    exceptions
      error_in_application       = 1
      error                      = 2
-     others                     = 3
-               .
-if sy-subrc <> 0.
+     others                     = 3.
+IF sy-subrc <> 0.
    MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
      WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
- endif.
+ENDIF.
+```
+
+### 物料单位比例获取
+
+```ABAP
+DATA: h_denominator(100) TYPE n,
+      h_numerator(100)   TYPE n.
+CALL FUNCTION 'CONVERSION_FACTOR_GET'
+  EXPORTING
+    no_type_check              = 'X'
+    unit_in                    = ' ' "输入单位"
+    unit_out                   = ' ' "输出单位"
+  IMPORTING
+    denominator                = h_denominator "分母"
+    numerator                  = h_numerator   "分子"
+IF sy-subrc <> 0.
+   MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
+     WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
+ENDIF.
+"单位比例 = 分子/分母"
 ```
 
 ### 取字段简短描述
