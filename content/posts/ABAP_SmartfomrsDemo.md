@@ -12,7 +12,7 @@ tags:
 
 ---
 
-### 程序中使用Smartform模板
+### 程序中使用 Smartform 模板
 
 ```JS
 "SMARTFORMS变量定义"

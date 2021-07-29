@@ -12,11 +12,11 @@ tags:
 
 ---
 
-### Smartform中的table节点插入分页
+### Smartform 中的 table 节点插入分页
 
 #### Command Node
 
-在 smartforms 的 loop 节点中可以插入一个 command node 用来强制分页，那么如何在 table 节点中插入分页的 command node 呢？这要利用到table节点的 sort event.
+在 smartforms 的 Loop 节点中可以插入一个 command node 用来强制分页，那么如何在 table 节点中插入分页的 command node 呢？这要利用到table节点的 sort event.
 
 在 table 节点的 data tab 页签中勾上 event on sort end，别忘了输入要排序的字段，然后就会在左边 table 节点的最后出现一个 Event on Sort End 的节点，在这个下面插入command node 进行分页就可以了。
 

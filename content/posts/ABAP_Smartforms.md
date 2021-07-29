@@ -22,7 +22,7 @@ tags:
 
 Smartforms的执行顺序是根据左边菜单从上到下执行的。
 
-### 查找Smartforms
+### 查找 Smartforms
 
 #### Method 1
 
@@ -50,19 +50,19 @@ TNAPR-FONAM的值为表格名称，TNAPR-PGNAM的值为驱动程序名称。
 
 ![smartforms](/images/ABAP/smartform1.png)
 
-### Smartforms组成
+### Smartforms 组成
 
 Smartforms 包括全局设置和 FORM 内容两大部分。
 
 全局设置
 
-- 设置form的页面格式
-- 设置form将要展示的数据接口参数类型
-- 设置form中进行数据处理的内容转换时需要的变量
+- 设置 form 的页面格式
+- 设置 form 将要展示的数据接口参数类型
+- 设置 form 中进行数据处理的内容转换时需要的变量
 
 From 内容
 
-- 一般 Form 里包含表头、表身、表尾；
+- 一般 form 里包含表头、表身、表尾；
 - 可以单页，也可以有多页内容
 
 ### Global Settings
@@ -75,7 +75,7 @@ From 内容
 
 #### Form Interface
 
-表格接口，定义表格的输入参数，输出参数，tables和异常信息。类似BAPI的接口参数。
+表格接口，定义表格的输入参数，输出参数，tables 和异常信息。类似 BAPI 的接口参数。
 
 ![smartforms](/images/ABAP/smartform3.png)
 
@@ -87,29 +87,29 @@ From 内容
 - 输出参数：用于记录 Smartform 执行的结果，和执行状态的一些参数汇总
 - 异常参数：Smartform 执行时遇到异常情况的捕捉
 
-Tables主要用来传递调用 Smartform 时用来展示的内表数据。
+Tables 主要用来传递调用 Smartform 时用来展示的内表数据。
 
 #### Global Definitions
 
-Global definitions包含可以在整个表单中使用的数据，可进行数据定义和初始化。
+Global definitions 包含可以在整个表单中使用的数据，可进行数据定义和初始化。
 
 ![smartforms](/images/ABAP/smartform5.png)
 
 ### Form 内容设置
 
-Form内容显示为树形结构，在树结构中，为每个节点定义了一个选项卡，每个节点都可以链接到一个条件。当表单中满足条件时，系统将处理该节点，如果不满足，则系统不处理该节点。
+Form 内容显示为树形结构，在树结构中，为每个节点定义了一个选项卡，每个节点都可以链接到一个条件。当表单中满足条件时，系统将处理该节点，如果不满足，则系统不处理该节点。
 
-同过对树的节点布局，已经节点内部详细的信息处理可以实现复杂的Form内容设置。
+同过对树的节点布局，已经节点内部详细的信息处理可以实现复杂的 Form 内容设置。
 
 在一般情况下，树结构中的节点从上到下处理。
 
 每页上的分页数取决于当前页面上剩余的空间。
 
-### Style样式制作
+### Style 样式制作
 
-Style定义文字类型、大小样式等属性，可在Text对象内使用不同的样式。
+Style 定义文字类型、大小样式等属性，可在 Text 对象内使用不同的样式。
 
-#### 创建Style
+#### 创建 Style
 
 ![Smartforms Style](/images/ABAP/smartform6.png)
 
@@ -119,15 +119,17 @@ Header data：表头数据，定义默认段落属性等参数。
 Paragraph formats：段落格式，字体类型等，在设定对象时可以选择需要的段落。 
 Character formats：字符格式，定义是否粗体、倾斜、大小等，在一段文字内设置不同的字体、颜色等。
 
-#### 使用Style
+#### 使用 Style
 
-在 Smartforms 的 Form Attributes 中引入Style。
+在 Smartforms 的 Form Attributes 中引入 Style。
 
 ![Smartforms Style](/images/ABAP/smartform8.png)
 
 ### Smartforms 程序调用
 
-调用方式是通过函数`SSF_FUNCTION_MODULE_NAME` 将 form 生成一个函数，然后调用函数打印Smart Form 。
+调用方式是通过函数`SSF_FUNCTION_MODULE_NAME` 将 form 生成一个函数，然后调用函数打印 form 。
+
+- 记录总页数：sfsy-page(当前页数) / sfsy-formpages(总页数)
 
 ```JS
 DATA: fm_name TYPE rs38l_fnam,
@@ -174,8 +176,6 @@ IF sy-subrc <> 0.
   WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
 ENDIF.
 ```
-
-- 记录总页数：sfsy-page(当前页数) / sfsy-formpages(总页数)
 
 
 

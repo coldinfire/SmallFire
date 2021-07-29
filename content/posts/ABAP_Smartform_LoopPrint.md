@@ -1,5 +1,5 @@
 ---
-title: "Smartforms循环打印，页码统计"
+title: "Smartform 循环打印，页码统计"
 date: 2018-07-31
 draft: false
 author: Small Fire
@@ -12,9 +12,9 @@ tags:
 
 ---
 
-### Smartforms循环打印数据
+### Smartforms 循环打印数据
 
-在smartforms的使用中，偶尔会遇到客户要求按某一条件进行数据的分组打印，并进行页码的统计和区分，这里记录下自己使用的方法。
+在 smartform 的使用中，偶尔会遇到用户要求按某一条件进行数据的分组打印，并进行页码的统计和区分，这里记录下自己使用的方法。
 
 ```JS
 FORM sub_data_print .

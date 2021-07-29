@@ -12,7 +12,7 @@ tags:
 
 ---
 
-### 1.程序中使用Smartform模板
+### 1.程序中使用 Smartform 模板
 
 ```JS
 "SMARTFORMS变量定义"
@@ -92,7 +92,7 @@ CALL FUNCTION function_name
  ENDIF.
 ```
 
-### 2.打印成PDF
+### 2.打印成 PDF
 
 ```JS
 DATA:
