@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title> BAPI:VIEW_MAINTENANCE_CALL 使用 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_TABLE_Maintenance/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_TABLE_Maintenance/</guid>
+      <description>BAPI: VIEW_MAINTENANCE_CALL DATA:LT_SELLIST LIKE TABLE OF VIMSELLIST WITH HEADER LINE. CLEAR:LT_SELLIST. REFRESH: LT_SELLIST. LT_SELLIST-VIEWFIELD = &amp;#39;BUKRS&amp;#39;. LT_SELLIST-OPERATOR = &amp;#39;EQ&amp;#39;. LT_SELLIST-VALUE = P_BUKRS. LT_SELLIST-AND_OR = &amp;#39;AND&amp;#39;. APPEND LT_SELLIST. CALL FUNCTION &amp;#39;VIEW_MAINTENANCE_CALL&amp;#39; EXPORTING ACTION = &amp;#39;U&amp;#39;&amp;#34;S = Display U = Change T = Transport VIEW_NAME = &amp;#39;ZCO002&amp;#39; TABLES DBA_SELLIST = LT_SELLIST EXCEPTIONS CLIENT_REFERENCE = 1 FOREIGN_LOCK = 2 INVALID_ACTION = 3 NO_CLIENTINDEPENDENT_AUTH = 4 NO_DATABASE_FUNCTION = 5 NO_EDITOR_FUNCTION = 6 NO_SHOW_AUTH =</description>
+    </item>
+    
+    <item>
       <title>ABAP Json 转换</title>
       <link>https://coldinfire.github.io/2021/ABAP_JSON/</link>
       <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
