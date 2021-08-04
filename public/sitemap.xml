@@ -30,23 +30,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</loc>
-      
-      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
-      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      <lastmod>2021-07-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -60,7 +46,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/abaputils/</loc>
       
-      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      <lastmod>2021-07-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -74,7 +60,21 @@
     <url>
       <loc>https://coldinfire.github.io/categories/</loc>
       
-      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      <lastmod>2021-07-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/Excel/</loc>
+      
+      <lastmod>2021-07-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -88,7 +88,21 @@
     <url>
       <loc>https://coldinfire.github.io/posts/</loc>
       
-      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      <lastmod>2021-07-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/ABAP_EXCEL_ALV/</loc>
+      
+      <lastmod>2021-07-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -102,7 +116,7 @@
     <url>
       <loc>https://coldinfire.github.io/</loc>
       
-      <lastmod>2021-06-12T00:00:00+00:00</lastmod>
+      <lastmod>2021-07-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -115,6 +129,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2021-07-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</loc>
       
       <lastmod>2021-06-12T00:00:00+00:00</lastmod>
       
@@ -2763,20 +2791,6 @@
       <loc>https://coldinfire.github.io/2018/ABAP_Smartfomrs_PDF/</loc>
       
       <lastmod>2018-12-05T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/Excel/</loc>
-      
-      <lastmod>2018-12-02T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

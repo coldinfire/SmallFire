@@ -15,7 +15,7 @@ tags:
 
 
 ## 概述 ##
-DOI（Desktop office Integration）采用OO的思想实现与Office的结合使用。
+DOI（Desktop office Integration）采用 OO 的思想实现与 Office 的结合使用。
 
 可以先上传模板到服务器(OAOR)，然后对模板进行填充。也可以通过代码创建ExceL文档。
 
