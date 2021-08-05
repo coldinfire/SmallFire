@@ -78,9 +78,9 @@ DATA: gt_ranges      TYPE soi_range_list,
       gs_contents    LIKE LINE OF gt_contents,
       g_initialized  TYPE c,
       gt_excel_format TYPE soi_format_table,
-      wa_format      LIKE LINE OF gt_excel_format,
-      wa_cellitem    TYPE soi_generic_item,
-      wa_rangeitem   TYPE soi_range_item,.
+      gs_excel_format LIKE LINE OF gt_excel_format,
+      gs_cellitem    TYPE soi_generic_item,
+      gs_rangeitem   TYPE soi_range_item.
 ```
 OAOR  模板方法参数定义
 
@@ -95,8 +95,12 @@ DATA: bds_documents  TYPE REF TO cl_bds_document_set,
       gt_doc_signature  TYPE sbdst_signature,
       gs_doc_signature  LIKE LINE OF gt_doc_signature,
       gt_doc_components TYPE sbdst_components,
+      gs_doc_components LIKE LINE OF gt_doc_components,
       gt_bds_uris       TYPE sbdst_uri,
-      gs_bds_uri        LIKE LINE OF gt_doc_uris,
+      gs_bds_uri        LIKE LINE OF gt_bds_uris,
+      gt_doc_properties TYPE sbdst_properties,
+      gs_doc_properties LIKE LINE OF gt_doc_properties,
+      doc_mimetype      TYPE bapicompon-mimetype,
       template_url      TYPE t_url.
 ```
 
@@ -198,6 +202,7 @@ CLASS c_office_document DEFINITION.
     METHODS: open_document
                IMPORTING open_inplace  TYPE c DEFAULT ' '
                          open_readonly TYPE c DEFAULT ' '
+                         doc_url TYPE t_url DEFAULT ' '
                EXPORTING retcode TYPE soi_ret_string.
 *   Re-Open Docuent
     METHODS: reopen_document
@@ -286,6 +291,7 @@ CLASS c_office_document IMPLEMENTATION.
   METHOD open_document.
 *                 IMPORTING open_inplace  TYPE c DEFAULT ' '
 *                           open_readonly TYPE c DEFAULT ' '
+*                           doc_url TYPE t_url DEFAULT ' '
 *                 RETURNING value(retcode) TYPE t_oi_ret_string.
     IF NOT proxy IS INITIAL.
       CALL METHOD me->close_document.
@@ -300,16 +306,30 @@ CLASS c_office_document IMPLEMENTATION.
     IF retcode NE c_oi_errors=>ret_ok.
       EXIT.
     ENDIF.
-    CALL METHOD proxy->open_document_from_table
-      EXPORTING
-        document_table = data_table
-        document_size  = data_size
-        open_inplace   = open_inplace
-        open_readonly  = open_readonly
-      IMPORTING
-        retcode        = retcode.
-    IF retcode NE c_oi_errors=>ret_ok.
-      EXIT.
+    me->doc_url = doc_url.
+    IF NOT doc_url IS INITIAL.
+      CALL METHOD proxy->open_document
+        EXPORTING
+          document_url  = doc_url
+          open_inplace  = open_inplace
+          open_readonly = open_readonly
+        IMPORTING
+          retcode       = retcode.
+      IF retcode NE c_oi_errors=>ret_ok.
+        EXIT.
+      ENDIF.
+    ELSE.
+      CALL METHOD proxy->open_document_from_table
+        EXPORTING
+          document_table = data_table
+          document_size  = data_size
+          open_inplace   = open_inplace
+          open_readonly  = open_readonly
+        IMPORTING
+          retcode        = retcode.
+      IF retcode NE c_oi_errors=>ret_ok.
+        EXIT.
+      ENDIF.
     ENDIF.
     SET HANDLER me->on_close_document FOR proxy.
   ENDMETHOD.                    "open_document"
@@ -505,29 +525,100 @@ ENDCLASS.                    "c_office_document IMPLEMENTATION"
 
 #### 使用自定义类操作 Document
 
-```JS
+```ABAP
 MODULE user_command_0100 INPUT.
-  ...
-ENDMODULE.                 " USER_COMMAND_0100  INPUT "
+  DATA: l_fcode LIKE fcode.
+  l_fcode = fcode.
+  CLEAR fcode.
+  CALL METHOD cl_gui_cfw=>dispatch.
+  CASE l_fcode.
+    WHEN 'CREATE'.
+*    Create a New Excel Document
+      IF NOT control IS INITIAL.
+        IF NOT document IS INITIAL.
+          CALL METHOD document->close_document.
+        ENDIF.
+        document_type = 'Excel.Sheet.8'.
+        document_format = 'OLE'. "soi_docformat_compound"
+        " 实例化自定义对象，通过对象的方法操作 Document "
+        CREATE OBJECT document
+                    EXPORTING control = control
+                              document_type = document_type
+                              document_format = document_format.
+        CALL METHOD document->create_document
+                    EXPORTING open_inplace = 'X'
+                    IMPORTING retcode = retcode.
+        CALL METHOD c_oi_errors=>raise_message EXPORTING type = 'E'.
+        is_open_inplace = 1. is_open_for_edit = 1.
+      ENDIF.
+    WHEN 'EXIT'.
+*    Close the Document and Release Control then Leave Program.
+      IF NOT document IS INITIAL.
+        CALL METHOD document->close_document.
+        FREE document.
+      ENDIF.
+      IF NOT control IS INITIAL.
+        CALL METHOD control->destroy_control IMPORTING retcode = retcode.
+        FREE control.
+      ENDIF.
+      LEAVE PROGRAM.
+    WHEN 'OPEN'.
+      IF NOT document IS INITIAL AND document->data_size NE 0.
+        IF NOT control IS INITIAL.
+          IF is_open_for_edit EQ 1.
+            CALL METHOD document->reopen_document
+                        IMPORTING retcode = retcode.
+          ELSE.
+            CALL METHOD document->open_document
+                        IMPORTING retcode = retcode.
+          ENDIF.
+          CALL METHOD c_oi_errors=>raise_message EXPORTING type = 'E'.
+          is_open_inplace = 0. is_open_for_edit = 1.
+        ENDIF.
+      ELSE.
+        MESSAGE 'First craete and save the excel document once' TYPE 'W'.
+      ENDIF.
+    WHEN 'VIEW'.
+      IF NOT document IS INITIAL AND document->data_size NE 0.
+        IF NOT control IS INITIAL.
+          CALL METHOD document->view_document
+                            IMPORTING retcode = retcode.
+          is_open_inplace = 0. is_open_for_edit = 0.
+          CALL METHOD c_oi_errors=>raise_message EXPORTING type = 'E'.
+        ENDIF.
+      ELSE.
+        MESSAGE 'Please create a document first!' TYPE 'E'.
+      ENDIF.
+    WHEN 'CLOSE'.
+      IF NOT document IS INITIAL.
+        DATA: error TYPE REF TO i_oi_error.
+        CALL METHOD document->close_document
+                      EXPORTING do_save = 'X'
+                      IMPORTING error = error.
+        is_open_inplace = 0. is_open_for_edit = 0.
+        CALL METHOD error->raise_message EXPORTING type = 'W'.
+      ELSE.
+        MESSAGE 'No document being processed' TYPE 'E'.
+      ENDIF.
+    WHEN 'SAVEDOC'.
+      IF NOT document IS INITIAL.
+         DATA : document_size TYPE I.
+         CALL METHOD document->save_document_to_url
+               EXPORTING url           = 'FILE://C:\temp\TESTEXPORT.xls'
+               CHANGING  document_size = document_size.
+        MESSAGE 'Document is Exported to C:\temp\TESTEXPORT.xls' TYPE 'I'.
+      ELSE.
+        MESSAGE 'Please create a document first!' TYPE 'E'.
+      ENDIF.
 
-*===== Create_excel_document
-CALL METHOD control->get_document_proxy
-  exporting
-    document_type  = 'Excel.Sheet'
-    no_flush      = 'X'
-  importing
-    document_proxy = gr_document.
-CALL METHOD document->create_document
-  exporting
-    document_title = 'DOI test by Stone Wang '
-    no_flush      = 'X '
-    open_inplace  = 'X'.
+  ENDCASE.
+ENDMODULE.                 " USER_COMMAND_0100  INPUT "
 ```
 #### 操作模板文档
 
 操作 excel 模板文档，使用 cl_bds_document_set 类，这个类的 get_with_url 方法获取文档的 url。
 
-```JS
+```ABAP
 * Business document system
 *===== Server Link Check =====*
 CALL METHOD control->get_link_server
@@ -545,9 +636,8 @@ CALL METHOD link_server->start_link_server
 IF bds_documents IS INITIAL.
   CREATE OBJECT bds_documents.
 ENDIF.
-*===== Get template url =====*
-CLEAR: gt_bds_uris[],gs_bds_uri.
-CALL METHOD bds_documents=>get_info
+*===== Get template info =====*
+CALL METHOD bds_documents=>get_info  "_newest_only  "alternativly
   EXPORTING
     classname  = g_classname
     classtype  = g_classtype
@@ -555,6 +645,22 @@ CALL METHOD bds_documents=>get_info
   CHANGING
     components = gt_doc_components
     signature  = gt_doc_signature.
+  EXCEPTIONS
+    nothing_found = 1
+    error_kpro    = 2.
+IF sy-subrc NE 0 AND sy-subrc NE 1.
+  MESSAGE 'Error in the Business Document Service (BDS)' TYPE 'E'.
+ENDIF.
+gs_doc_signature-prop_name = 'DESCRIPTION'.
+LOOP AT doc_signature INTO wa_doc_signature WHERE prop_name = 'DESCRIPTION'.
+  gs_doc_signature-prop_value = wa_doc_signature-prop_value.
+ENDLOOP.
+APPEND gs_doc_signature TO gt_doc_signature.
+CLEAR gs_doc_signature.
+* READ TABLE gt_doc_components INTO gs_doc_components INDEX 1.
+* doc_mimetype = gs_doc_components-mimetype.
+*===== Get template url =====*
+CLEAR: gt_bds_uris[],gs_bds_uri.
 CALL METHOD bds_documents=>get_with_url
   EXPORTING
     classname  = g_classname
@@ -563,10 +669,18 @@ CALL METHOD bds_documents=>get_with_url
   CHANGING
     uris       = gt_bds_uris
     signature  = gt_doc_signature.
-IF sy-subrc <> 0.
+  EXCEPTIONS
+    nothing_found   = 1
+    error_kpro      = 2
+    internal_error  = 3
+    parameter_error = 4
+    not_authorized  = 5
+    not_allowed     = 6.
+IF sy-subrc NE 0 AND sy-subrc NE 1 AND sy-subrc NE 6.
+  MESSAGE 'Error in the Business Document Service (BDS)' TYPE 'S' DISPLAY LIKE 'E'.
   LEAVE TO SCREEN 0.
 ENDIF.
-READ TABLE gt_bds_uris into gs_bds_uri index 1.
+READ TABLE gt_bds_uris INTO gs_bds_uri INDEX 1.
 template_url = gs_bds_uri-uri.
 *===== Open the Excel =====*
 CREATE OBJECT document
@@ -578,7 +692,7 @@ CALL METHOD document->close_document.
 CALL METHOD document->open_document
    EXPORTING
      open_inplace = 'X'
-     document_url      = template_url
+     document_url = template_url
    IMPORTING
      error        = error.
 IF error->error_code EQ 'OPEN_DOCUMENT_FAILED'.
@@ -589,23 +703,23 @@ IF error->error_code EQ 'OPEN_DOCUMENT_FAILED'.
       error   = error
       retcode = retcode.
   FREE: control,link_server,document,error,bds_documents.
-  CALL METHOD container->free.
+  CALL METHOD custom_container->free.
   LEAVE TO SCREEN 0.
 ENDIF.
-*===== Get Spreadsheet Interface =====*
-DATA: available type i.
-CALL METHOD document->has_spreadsheet_interface
-   EXPORTING
-     no_flush    = 'X'
-   IMPORTING
-     is_available = available.
-CALL METHOD document->get_spreadsheet_interface
-   EXPORTING
-     no_flush        = 'X'
-   IMPORTING
-     sheet_interface = spreadsheet_interface.
 ```
 ### Excel 操作
+
+#### 获取文件操作接口
+
+```ABAP
+*===== Get Spreadsheet Interface =====*
+CALL METHOD document->has_spreadsheet_interface
+   IMPORTING
+     is_available = is_available.
+IF NOT is_available IS INITIAL.
+  CALL METHOD document->get_spreadsheet_interface.
+ENDIF.
+```
 
 #### 操作Excel文件
 
@@ -653,7 +767,7 @@ CALL METHOD spreadsheet_interface->set_sheet_name
 - set_range_data：写入数据到 range，写入的时候，ranges 参数设定 range 的名称和大小，contents参数设定写入的内容。
 
 ```ABAP
-* insert_range_dim:界定 ranges 范围
+*===== insert_range_dim:界定 ranges 范围 =====*
 CALL METHOD spreadsheet_interface->insert_range_dim
   EXPORTING
     name     = 'cp'
@@ -669,7 +783,7 @@ gs_range-name = 'cp'.
 gs_range-columns = rows_number.
 gs_range-rows = columns_number.
 APPEND gs_range TO gt_ranges.
-* set_range_data
+*===== set_range_data =====*
 DATA: lv_row TYPE i,lv_column TYPE i.
 DATA: lwa_fieldcat TYPE slis_fieldcat_alv.
 CLEAR lv_column.
@@ -687,7 +801,6 @@ CALL METHOD spreadsheet_interface->set_ranges_data
     no_flush = 'X'
   IMPORTING
     error    = error.
-* Set data
 CALL METHOD spreadsheet_interface->fit_widest
   EXPORTING
     name     = space
@@ -695,30 +808,84 @@ CALL METHOD spreadsheet_interface->fit_widest
 REFRESH: gt_ranges, gt_contents.
 ```
 
-### 对象销毁： ###
+### 对象销毁 ###
 PAI 的 exit-command 事件中对 spreadsheet、control 和 container 等对象进行销毁操作。
 
 ```ABAP
-module exit_program input.
+MODULE exit_program INPUT.
   save_ok = ok_code.
-  clear ok_code.
-  if save_ok = 'EXIT'.
-    if not document is initial.
-      call method document->close_document.
-      free document.
+  CLEAR ok_code.
+  IF save_ok = 'EXIT'.
+    IF NOT document IS INITIAL.
+      CALL METHOD document->close_document.
+      FREE document.
+    ENDIF.
+    IF NOT control IS INITIAL.
+      CALL METHOD control->destroy_control.
+      FREE control.
     endif.
-    if not control is initial.
-      call method control->destroy_control.
-      free control.
-    endif.
-    if container is not initial.
-      call method container->free.
-    endif.
-    leave program.
-  endif.
-endmodule.
+    IF NOT container IS INITIAL.
+      CALL METHOD container->free.
+    ENDIF.
+    LEAVE PROGRAM.
+  ENDIF.
+ENDMODULE.
 ```
+### 错误处理 ###
+
+#### 第一种方法
+
+使用 c_oi_errors 的静态方法 raise_message 简单地显示相关的错误：type 可以是 A, E, W, I, S 其中之一。
+
+```ABAP
+CALL METHOD C_OI_ERRORS=>RAISE_MESSAGE
+    EXPORTING
+       TYPE = 'E'.
+```
+
+#### 第二种方法
+
+区分不同的错误，给用户一个更明确的提示。
+
+```ABAP
+IF ret_code EQ c_oi_errors=>ret_ok.
+  " Document opened successfully "
+ELSEIF ret_code EQ c_oi_errors=>ret_document_already_open.
+  " Special error handling, e.g. dialog box."
+ELSE.
+  CALL METHOD c_oi_errors=>raise_message
+    EXPORTING 
+      type = 'E'.
+ENDIF.
+```
+
+#### 集中处理
+
+因为 Excel 操作多个步骤，为了在过程中间减少对用户的干扰，也可以把 `ret_code` 返回的错误码先储存在内表中，集中处理。
+
+```ABAP
+DATA: errors TYPE REF TO i_oi_error OCCURS 0 WITH HEADER LINE.
+* DOI processing
+CALL METHOD control->get_link_server
+  EXPORTING server_type = server_type
+    no_flush = 'X'
+  IMPORTING link_server = link_server
+    retcode = retcode
+    error = errors.
+APPEND errors.
+LOOP AT errors. 
+  CALL METHOD errors->raise_message
+    EXPORTING
+	  type = 'E'
+    EXCEPTIONS 
+      message_raised = 1
+      flush_failed = 2.
+ENDLOOP.
+FREE errors.
+```
+
 ## 其他实现 ##
+
 ### 1. 如何根据屏幕大小让 Excel 自适应 ###
 
 使用：splitter 
@@ -818,55 +985,6 @@ FORM set_excel_attributes.
 ENDFORM.   
 ```
 
-### 4. 错误处理 ###
-#### 第一种方法
-
-使用 c_oi_errors 的静态方法 raise_message 简单地显示相关的错误：type 可以是 A, E, W, I, S 其中之一。
-
-```ABAP
-CALL METHOD C_OI_ERRORS=>RAISE_MESSAGE
-    EXPORTING
-       TYPE = 'E'.
-```
-#### 第二种方法
-
-区分不同的错误，给用户一个更明确的提示。
-
-```ABAP
-IF ret_code EQ c_oi_errors=>ret_ok.
-  " Document opened successfully "
-ELSEIF ret_code EQ c_oi_errors=>ret_document_already_open.
-  " Special error handling, e.g. dialog box."
-ELSE.
-  CALL METHOD c_oi_errors=>raise_message
-    EXPORTING 
-      type = 'E'.
-ENDIF.
-```
-#### 集中处理
-
-因为 Excel 操作多个步骤，为了在过程中间减少对用户的干扰，也可以把 `ret_code` 返回的错误码先储存在内表中，集中处理。
-
-```ABAP
-DATA: errors TYPE REF TO i_oi_error OCCURS 0 WITH HEADER LINE.
-* DOI processing
-CALL METHOD control->get_link_server
-  EXPORTING server_type = server_type
-    no_flush = 'X'
-  IMPORTING link_server = link_server
-    retcode = retcode
-    error = errors.
-APPEND errors.
-LOOP AT errors. 
-  CALL METHOD errors->raise_message
-    EXPORTING
-	  type = 'E'
-    EXCEPTIONS 
-      message_raised = 1
-      flush_failed = 2.
-ENDLOOP.
-FREE errors.
-```
 
 
 参考文章
