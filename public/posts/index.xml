@@ -1327,7 +1327,7 @@
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_Webservice/</guid>
-      <description>SAP Webservice SAP 调用 Webservice a. 获取 webservice wsdl, b. 生成 webservice c.LPCONFIG 创建 Logical Port, 保存并激活 d. 编写 webserive 程序，CALL 方法调用 webservice， e. 测试程序； SAP 发布 Webservice 供其他系统调用 a. 服</description>
+      <description>ABAP 调用外部 Webservice 创建代理类 Step1：SE80 选择 package，点击创建 Enterprise Service / Web service-proxy client Step2：参数填写，没有错误的话，会根据指定的 wsdl 文件，产</description>
     </item>
     
     <item>
