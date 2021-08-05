@@ -913,79 +913,183 @@ ENDFORM.                    " GET_DYNAMIC_CONTAINER "
 单个单元格写入的方法，同批量写入一样，使用 i_oi_spreadsheet 接口的 set_range_dim 方法和 set_range_data方法。区别在于 range 只包含一行一列。
 
 ```ABAP
-FORM write_single_cell using p_row p_col p_value.
+FORM write_single_cell USING p_row p_col p_value.
 * define internal table for ranges and contents parameters
-  data: lt_ranges type soi_range_list,
-        ls_rangeitem type soi_range_item,
-        lt_contents type soi_generic_table,
-        ls_content type soi_generic_item.
+  DATA: lt_ranges TYPE soi_range_list,
+        ls_rangeitem TYPE soi_range_item,
+        lt_contents TYPE soi_generic_table,
+        ls_content TYPE soi_generic_item.
 * populate ranges
-  clear ls_rangeitem.
-  clear lt_ranges[].
-  ls_rangeitem-name = 'cell' .
+  CLEAR ls_rangeitem.
+  CLEAR lt_ranges[].
+  ls_rangeitem-name = 'cp' .
   ls_rangeitem-columns = 1.
   ls_rangeitem-rows = 1.
   ls_rangeitem-code = 4.
-  append ls_rangeitem to lt_ranges.
+  APPEND ls_rangeitem TO lt_ranges.
 * populate contents
-  clear ls_content.
-  clear lt_contents[].
+  CLEAR ls_content.
+  CLEAR lt_contents[].
   ls_content-column = 1.
   ls_content-row = 1.
   ls_content-value = p_value.
-  append ls_content to lt_contents.
+  APPEND ls_content TO lt_contents.
 * 每次只写一行一列
-  call method gr_spreadsheet->insert_range_dim
-    exporting
-      name    = 'cell'
+  CALL METHOD spreadsheet_interface->insert_range_dim
+    EXPORTING
+      name     = 'cp'
       no_flush = 'X'
       top      = p_row
-      left    = p_col
-      rows    = 1
+      left     = p_col
+      rows     = 1
       columns  = 1.
-  call method gr_spreadsheet->set_ranges_data
-    exporting
-      ranges  = lt_ranges
+  CALL METHOD spreadsheet_interface->set_ranges_data
+    EXPORTING
+      ranges   = lt_ranges
       contents = lt_contents
       no_flush = 'X'.
-endform.   
+ENDFORM.   
 * 循环写入
-loop at gt_spfli into gs_spfli.
+LOOP AT gt_spfli INTO gs_spfli.
    row_index = sy-tabix + 1.
-   perform write_single_cell using row_index 1 gs_spfli-carrid.
-   perform write_single_cell using row_index 2 gs_spfli-connid.
-   perform write_single_cell using row_index 3 gs_spfli-cityfrom.
-   perform write_single_cell using row_index 4 gs_spfli-cityto.
-   clear gs_spfli.
-endloop.
+   PERFORM write_single_cell USING row_index 1 gs_spfli-carrid.
+   PERFORM write_single_cell USING row_index 2 gs_spfli-connid.
+   PERFORM write_single_cell USING row_index 3 gs_spfli-cityfrom.
+   PERFORM write_single_cell USING row_index 4 gs_spfli-cityto.
+   CLEAR gs_spfli.
+ENDLOOP.
 ```
 
 ### 3. 设置 Excel 属性 ###
 ```ABAP
 FORM set_excel_attributes.
-* 修改 WORK SHEET 的名字
-  CALL METHOD cl_spreadsheet->set_sheet_name
-    EXPORTING
-      newname = '物料主数据清单'
-      oldname = 'Sheet1'
-    IMPORTING
-      error   = error.
 * set border line for range
-  call method gr_spreadsheet->set_frame
-    exporting
-      rangename = 'cell'
-      typ      = '127'
-      color    = '1'
+  CALL METHOD spreadsheet_interface->set_frame
+    EXPORTING
+      rangename = 'cp'
+      typ       = '127'
+      color     = '1'
       no_flush  = 'X'.
-* auto fit
-  call method gr_spreadsheet->fit_widest
+* set font
+  CALL METHOD spreadsheet_interface->set_font
+    EXPORTING
+      rangename = 'cp'
+      family    = 'Times New Roman'
+      size      = 9
+      bold      = 0
+      italic    = 0
+      align     = 0
+    IMPORTING
+      error     = error
+      retcode   = retcode.
+* set format
+  call method spreadsheet_interface->set_format
     exporting
+      rangename = 'cp'
+      typ       = 0
+      currency  = 'RMB'
+    importing
+      error     = error
+      retcode   = retcode.
+* auto fit
+  CALL METHOD spreadsheet_interface->fit_widest
+    EXPORTING
       name    = space
       no_flush = 'X'.
 ENDFORM.   
 ```
 
+### 4.金额数字格式转换
 
+```ABAP
+FORM frm_output_format USING l_num CHANGING l_result.
+  DATA:l_amt(17),
+       l_int(10),
+       l_char(17),
+       l_fac(2),
+       l_len TYPE i,
+       l_count TYPE i,
+       l_pos TYPE i,
+       l_rest TYPE i,
+       l_time TYPE i.
+  CONSTANTS: c_tab VALUE ',',
+             c_pot VALUE '.'.
+  CLEAR l_amt.
+  IF l_num > 0.
+    l_amt = ABS( l_num ).
+    CONDENSE l_amt.
+    SPLIT l_amt AT c_pot INTO l_int l_fac.
+    l_len = STRLEN( l_int ).
+    l_count = l_len.
+    l_rest = l_len MOD 3.
+    IF l_rest = 0.
+      l_time = l_len DIV 3.
+    ELSE.
+      l_time = l_len DIV 3 + 1.
+    ENDIF.
+    DO l_time TIMES.
+      l_count = l_count - 3.
+      IF l_count > 0.
+        CONCATENATE c_tab l_int+l_count(3) l_char INTO l_char.
+      ELSEIF l_count <= 0.
+        l_count = l_count + 3.
+        CONCATENATE l_int+0(l_count) l_char INTO l_char.
+        EXIT.
+      ENDIF.
+    ENDDO.
+    CLEAR l_len.
+    l_len = STRLEN( l_fac ).
+    IF l_fac IS INITIAL.
+      CONCATENATE l_char '.00' INTO l_result.
+    ELSEIF l_len = 1.
+      CONCATENATE l_char '.' l_fac '0' INTO l_result.
+    ELSEIF l_len = 2.
+      CONCATENATE l_char '.' l_fac INTO l_result.
+    ENDIF.
+    CONDENSE l_result.
+  ELSEIF l_num < 0.
+
+    l_amt = ABS( l_num ).
+    CONDENSE l_amt.
+    SPLIT l_amt AT c_pot INTO l_int l_fac.
+    l_len = STRLEN( l_int ).
+    l_count = l_len.
+    l_rest = l_len MOD 3.
+    IF l_rest = 0.
+      l_time = l_len DIV 3.
+    ELSE.
+      l_time = l_len DIV 3 + 1.
+    ENDIF.
+    DO l_time TIMES.
+      l_count = l_count - 3.
+      IF l_count > 0.
+        CONCATENATE c_tab l_int+l_count(3) l_char INTO l_char.
+      ELSEIF l_count <= 0.
+        l_count = l_count + 3.
+        CONCATENATE l_int+0(l_count) l_char INTO l_char.
+        EXIT.
+      ENDIF.
+    ENDDO.
+    CLEAR l_len.
+    l_len = STRLEN( l_fac ).
+    IF l_fac IS INITIAL.
+      CONCATENATE '-' l_char '.00' INTO l_result.
+    ELSEIF l_len = 1.
+      CONCATENATE '-' l_char '.' l_fac '0' INTO l_result.
+    ELSEIF l_len = 2.
+      CONCATENATE '-' l_char '.' l_fac INTO l_result.
+    ENDIF.
+    CONDENSE l_result.
+  ELSE.
+    l_result = '0.00'.
+  ENDIF.
+ENDFORM.                    "frm_output_format"
+
+DATA: l_amt(20) TYPE c,
+      l_amt_doccur TYPE DMBTR.
+PERFORM frm_output_format USING     l_amt_doccur
+                          CHANGING  l_amt.
+```
 
 参考文章
 
