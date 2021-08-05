@@ -15,19 +15,19 @@ tags:
 
 
 ## 概述 ##
-DOI（Desktop office Integration）采用 OO 的思想实现与 Office 的结合使用。SAP 标准DEMO： SAPRDEMOEXCEL_EXPORT、SAPRDEMO_DOI_BDS。
+DOI（Desktop office Integration）采用 OO 的思想实现与 Office 的结合使用，通过 DOI 对文档进行操作和处理。SAP 标准DEMO： `SAPRDEMOEXCEL_EXPORT`、`SAPRDEMO_DOI_BDS`。
 
 文档使用方式：
 
-- 先上传模板到服务器(OAOR)，然后对模板进行填充
-  - OAOR：class name、class type、object key
+- 先上传模板到服务器(OAOR)，然后由 DOI 对模板进行调用
+  - OAOR：class name (HRFPM_EXCEL_STANDARD)、class type (OT)、object key
 - 通过代码直接创建 ExceL / Word 文档
 
-#### 核心对象
+#### DOI 核心对象
 
-- container：类型是 `cl_gui_custom_container`；存放 Excel 电子表格(spreadsheet)的容器，spreadsheet 需要一个容器来存放，标准的 container 接口的类型是 `cl_gui_container`
-- container control：类型是 `i_oi_container_control`；容器中用于创建和管理其他 Office 集成所需要的对象
-- document proxy：类型是 `i_oi_document_proxy`；每一个 document proxy 的实例代表用 office application 打开的文档。如果想打开多个文档，需要定义多个实例
+- container：类型是 `cl_gui_custom_container`；存放 Excel 电子表格(spreadsheet)的容器，一般是程序中默认的 screen。标准的 container 接口的类型是 `cl_gui_container` 。
+- container control：类型是 `i_oi_container_control`；容器中用于创建和管理其他 Office 集成所需要的对象。
+- document proxy：类型是 `i_oi_document_proxy`；每一个 document proxy 的实例代表用 office application 打开的文档，如果想打开多个文档，需要定义多个实例。
 - spreadsheet: 类型是`i_oi_spreadsheet`；spreadsheet 接口代表最终要操作的 excel 文档。
 - errors：类型是 `i_oi_error`；异常的处理，保存操作时产生的异常信息
 - retcode ：类型是 `soi_ret_string`；执行方法时返回的消息字符串
@@ -38,15 +38,15 @@ DOI（Desktop office Integration）采用 OO 的思想实现与 Office 的结合
   - business document set：类型`cl_bds_document_set`，用于管理后续要操作的文档，可以包含一个或多个文档。
   - link server：类型`i_oi_link_server`，连接服务器对象
 
-####   操作 Excel 步骤 (OAOR上传文档后)
+####   DOI 操作 Excel 步骤 
 
    1. 获取 container 容器
    2. 创建 container control 对象实例并初始化
    3. 创建 document proxy 对象的实例
    4. 打开一个服务器上的模板文档或新建一个 excel 文档
-   5. 操作 excel 文档，设置 excel 的属性
+   5. 操作 excel 文档，设置 excel 的属性或调用相关方法
    6. 退出时关闭 excel 文档，释放资源
-   7. 异常管理
+   7. 异常信息管理
 
 ## DOI 定义和使用 ##
 ### 字段定义 ###
@@ -66,22 +66,21 @@ DATA: container TYPE REF TO cl_gui_container,
       retcode   TYPE soi_ret_string,
       splitter  TYPE REF TO cl_gui_splitter_container.
 * Spreadsheet Option Paramter
-DATA: document_type TYPE soi_document_type,
-      document_format TYPE soi_document_type,
-      doc_url TYPE t_url.
-
-DATA: is_open_inplace  TYPE i VALUE 0.
-DATA: is_open_for_edit TYPE i VALUE 0.
-DATA: is_available     TYPE i.
+DATA: document_type   TYPE soi_document_type,
+      document_format TYPE soi_document_type.
+DATA: is_open_inplace  TYPE i VALUE 0,
+      is_open_for_edit TYPE i VALUE 0,
+      is_available     TYPE i.
 * Spreadsheet interface structures for Excel data input
-DATA: wa_cellitem    TYPE soi_generic_item,
-      wa_rangeitem   TYPE soi_range_item,
-      gt_ranges      TYPE soi_range_list,
-      gt_excel_input TYPE soi_generic_table,
-      wa_excel_input TYPE soi_generic_item,
+DATA: gt_ranges      TYPE soi_range_list,
+      gs_range       LIKE LINE OF gt_ranges,
+      gt_contents    TYPE soi_generic_table,
+      gs_contents    LIKE LINE OF gt_contents,
       g_initialized  TYPE c,
       gt_excel_format TYPE soi_format_table,
-      wa_format      LIKE LINE OF gt_excel_format.
+      wa_format      LIKE LINE OF gt_excel_format,
+      wa_cellitem    TYPE soi_generic_item,
+      wa_rangeitem   TYPE soi_range_item,.
 ```
 OAOR  模板方法参数定义
 
@@ -89,15 +88,16 @@ OAOR  模板方法参数定义
 * OAOR Template parameter
 DATA: g_classname  TYPE sbdst_classname VALUE 'HRFPM_EXCEL_STANDARD',
       g_classtype  TYPE sbdst_classtype VALUE 'OT',
-      g_object_key TYPE sbdst_object_key VALUE 'ZTEST'.
+      g_objectkey  TYPE sbdst_object_key VALUE 'ZTEST'.
 "BDS Method Parameter"
-DATA: bds_instance   TYPE REF TO cl_bds_document_set,
+DATA: bds_documents  TYPE REF TO cl_bds_document_set,
       link_server    TYPE REF TO i_oi_link_server,
       gt_doc_signature  TYPE sbdst_signature,
-      wa_doc_signature  LIKE LINE OF gt_doc_signature,
+      gs_doc_signature  LIKE LINE OF gt_doc_signature,
       gt_doc_components TYPE sbdst_components,
-      gt_doc_uris       TYPE sbdst_uri,
-      wa_doc_uris       LIKE LINE OF gt_doc_uris.
+      gt_bds_uris       TYPE sbdst_uri,
+      gs_bds_uri        LIKE LINE OF gt_doc_uris,
+      template_url      TYPE t_url.
 ```
 
 ### 创建 DOI ###
@@ -108,7 +108,7 @@ MODULE status_0100 OUTPUT.
   SET PF-STATUS 'MAIN0100'.
   SET TITLEBAR '001'.
   PERFORM get_dynamic_container.
-  PERFORM get_control.
+  PERFORM create_container_control.
 ENDMODULE.                 " STATUS_0100  OUTPUT "
 MODULE user_command_0100 INPUT.
   ...
@@ -126,7 +126,7 @@ FORM get_dynamic_container.
   container = splitter->get_container( row = 1 column = 1 ).
 ENDFORM.                    " GET_DYNAMIC_CONTAINER "
 
-FORM get_control .
+FORM create_container_control .
   IF control IS INITIAL.
     DATA:l_has_activex.
     CALL FUNCTION 'GUI_HAS_ACTIVEX'
@@ -138,16 +138,14 @@ FORM get_control .
 *===== Get container (静态Container) =====*
     CREATE OBJECT custom_container
       EXPORTING
-        container_name = 'DOI_PARENT'. "100屏幕上的控件名."
+        container_name = 'DOI_PARENT'. "100屏幕上的Custom Control控件名"
 *===== Get the SAP DOI container control interface =====*
     CALL METHOD c_oi_container_control_creator=>get_container_control
       IMPORTING
         control = control
         error   = error.
    "check no errors occured"
-    CALL METHOD error->raise_message
-      EXPORTING
-        type = 'E'.
+    CALL METHOD error->raise_message EXPORTING type = 'E'.
 *===== Initialize the SAP DOI Container, tell it to run in the container =====*
     CALL METHOD control->init_control
       EXPORTING
@@ -160,11 +158,10 @@ FORM get_control .
         no_flush                 = 'X'
       IMPORTING
         error                    = error.
-    CALL METHOD error->raise_message
-      EXPORTING
-        type = 'E'.
+    "check no errors occured"
+    CALL METHOD error->raise_message EXPORTING type = 'E'.
   ENDIF.
-ENDFORM.                    " GET_CONTROL "
+ENDFORM.                    " create_container_control "
 ```
 
 ### 对 Document 进行操作 ###
@@ -186,63 +183,63 @@ CLASS c_office_document DEFINITION.
           doc_url TYPE t_url.
 *   Constructor
     METHODS: constructor
-              IMPORTING control TYPE REF TO i_oi_container_control
-                        document_type TYPE c
-                        document_format TYPE c.
+               IMPORTING control TYPE REF TO i_oi_container_control
+                         document_type TYPE c
+                         document_format TYPE c.
 *   Close Event Processor
     METHODS: on_close_document
-              FOR EVENT on_close_document OF i_oi_document_proxy
-              IMPORTING document_proxy has_changed.
-*   Create Docuent
+               FOR EVENT on_close_document OF i_oi_document_proxy
+               IMPORTING document_proxy has_changed.
+*   Create Docuent: open_inplace控制文档是独立显示还是在SAP GUI中嵌入显示(X)
     METHODS: create_document
-                  IMPORTING open_inplace  TYPE c DEFAULT ' '
-                  EXPORTING retcode TYPE soi_ret_string.
+               IMPORTING open_inplace  TYPE c DEFAULT ' '
+               EXPORTING retcode TYPE soi_ret_string.
 *   Open Docuent
     METHODS: open_document
-                  IMPORTING open_inplace  TYPE c DEFAULT ' '
-                            open_readonly TYPE c DEFAULT ' '
-                  EXPORTING retcode TYPE soi_ret_string.
+               IMPORTING open_inplace  TYPE c DEFAULT ' '
+                         open_readonly TYPE c DEFAULT ' '
+               EXPORTING retcode TYPE soi_ret_string.
 *   Re-Open Docuent
     METHODS: reopen_document
-                  IMPORTING open_inplace  TYPE c DEFAULT ' '
-                  EXPORTING retcode TYPE soi_ret_string.
+               IMPORTING open_inplace  TYPE c DEFAULT ' '
+               EXPORTING retcode TYPE soi_ret_string.
     METHODS: view_document
-                  EXPORTING retcode TYPE soi_ret_string.
+               EXPORTING retcode TYPE soi_ret_string.
 *   Close Docuent
     METHODS: close_document
-                  IMPORTING do_save     TYPE c DEFAULT ' '
-                  EXPORTING retcode     TYPE soi_ret_string
-                            error       TYPE REF TO i_oi_error.
+               IMPORTING do_save     TYPE c DEFAULT ' '
+               EXPORTING retcode     TYPE soi_ret_string
+                         error       TYPE REF TO i_oi_error.
 *   Check for availability of Spreadsheet interface
     METHODS: has_spreadsheet_interface
-                  EXPORTING is_available TYPE i
-                            retcode      TYPE soi_ret_string
-                            error        TYPE REF TO i_oi_error.
+               EXPORTING is_available TYPE i
+                         retcode      TYPE soi_ret_string
+                         error        TYPE REF TO i_oi_error.
 *   Get the Spreadsheet interface
     METHODS: get_spreadsheet_interface
-                  EXPORTING retcode         TYPE soi_ret_string
-                            error           TYPE REF TO i_oi_error.
+               EXPORTING retcode      TYPE soi_ret_string
+                         error        TYPE REF TO i_oi_error.
 *   Method in Spreadsheet interface to set the data for ranges in Excel
     METHODS: set_ranges_data
-                 IMPORTING ranges    TYPE soi_range_list
-                           contents  TYPE soi_generic_table
-                 EXPORTING error     TYPE REF TO i_oi_error
-                           retcode   TYPE soi_ret_string.
+               IMPORTING ranges    TYPE soi_range_list
+                         contents  TYPE soi_generic_table
+               EXPORTING error     TYPE REF TO i_oi_error
+                         retcode   TYPE soi_ret_string.
 *   Method in Spreadsheet interface to set the ranges in Excel
     METHODS: insert_range
-                IMPORTING rows    TYPE i
-                          columns TYPE i
-                          name    TYPE c
-                EXPORTING error   TYPE REF TO i_oi_error
-                          retcode TYPE soi_ret_string.
+               IMPORTING rows    TYPE i
+                         columns TYPE i
+                         name    TYPE c
+               EXPORTING error   TYPE REF TO i_oi_error
+                         retcode TYPE soi_ret_string.
 *   Save the document at given URL.
     METHODS: save_document_to_url
-                 IMPORTING url         TYPE t_url
-                 EXPORTING error       TYPE REF TO i_oi_error
-                           retcode     TYPE soi_ret_string
-                 CHANGING  document_size TYPE i.
+               IMPORTING url         TYPE t_url
+               EXPORTING error       TYPE REF TO i_oi_error
+                         retcode     TYPE soi_ret_string
+               CHANGING  document_size TYPE i.
   PRIVATE SECTION.
-    DATA: control  TYPE REF TO i_oi_container_control.
+    DATA: control TYPE REF TO i_oi_container_control.
 ENDCLASS.                    "c_office_document DEFINITION"
 
 DATA: document TYPE REF TO c_office_document.
@@ -260,8 +257,8 @@ CLASS c_office_document IMPLEMENTATION.
     me->document_format = document_format.
   ENDMETHOD.                    "constructor"
   METHOD create_document.
-*                 IMPORTING open_inplace  TYPE c DEFAULT ' '
-*                 RETURNING value(retcode) TYPE t_oi_ret_string.
+*              IMPORTING open_inplace  TYPE c DEFAULT ' '
+*              RETURNING value(retcode) TYPE t_oi_ret_string.
     IF NOT proxy IS INITIAL.
       CALL METHOD me->close_document.
     ENDIF.
@@ -514,19 +511,19 @@ MODULE user_command_0100 INPUT.
 ENDMODULE.                 " USER_COMMAND_0100  INPUT "
 
 *===== Create_excel_document
-call method control->get_document_proxy
+CALL METHOD control->get_document_proxy
   exporting
     document_type  = 'Excel.Sheet'
     no_flush      = 'X'
   importing
     document_proxy = gr_document.
-call method document->create_document
+CALL METHOD document->create_document
   exporting
     document_title = 'DOI test by Stone Wang '
     no_flush      = 'X '
     open_inplace  = 'X'.
 ```
-#### 操作模板文档：
+#### 操作模板文档
 
 操作 excel 模板文档，使用 cl_bds_document_set 类，这个类的 get_with_url 方法获取文档的 url。
 
@@ -539,179 +536,169 @@ CALL METHOD control->get_link_server
   IMPORTING
     link_server = link_server
     error       = error.
-CALL METHOD control->init_control
-  EXPORTING
-    r3_application_name   = sy-repid      
-    parent                = customer_container
-    inplace_show_toolbars = ''.
-CALL METHOD go_link_server->start_link_server
+CALL METHOD link_server->start_link_server
   EXPORTING
     no_flush = 'X'
   IMPORTING
     error    = error.
-*===== Create Document =====*
+*===== Create BDS Object =====*
+IF bds_documents IS INITIAL.
+  CREATE OBJECT bds_documents.
+ENDIF.
+*===== Get template url =====*
+CLEAR: gt_bds_uris[],gs_bds_uri.
+CALL METHOD bds_documents=>get_info
+  EXPORTING
+    classname  = g_classname
+    classtype  = g_classtype
+    object_key = g_objectkey
+  CHANGING
+    components = gt_doc_components
+    signature  = gt_doc_signature.
+CALL METHOD bds_documents=>get_with_url
+  EXPORTING
+    classname  = g_classname
+    classtype  = g_classtype
+    object_key = g_objectkey
+  CHANGING
+    uris       = gt_bds_uris
+    signature  = gt_doc_signature.
+IF sy-subrc <> 0.
+  LEAVE TO SCREEN 0.
+ENDIF.
+READ TABLE gt_bds_uris into gs_bds_uri index 1.
+template_url = gs_bds_uri-uri.
+*===== Open the Excel =====*
 CREATE OBJECT document
   EXPORTING
     control        = control
     document_type  = document_type
     document_format = document_format.
-IF bds_instance IS INITIAL.
-  CREATE OBJECT bds_instance.
-ENDIF.
-*===== =====*
-wa_doc_signature-prop_name  = 'DESCRIPTION'.
-wa_doc_signature-prop_value = 'ZFBL5NP'.
-APPEND wa_doc_signature TO gt_doc_signature.
-CLEAR g_wa_doc_signature.
-CLEAR: gt_doc_uris[],wa_doc_uris.
-*===== Get template url =====*
-  call method cl_bds_document_set=>get_info
-    exporting
-      classname  = g_classname
-      classtype  = g_classtype
-      object_key = g_objectkey
-    changing
-      components = g_doc_components
-      signature  = g_doc_signature.
-call method cl_bds_document_set=>get_with_url
-  exporting
-    classname  = g_classname
-    classtype  = g_classtype
-    object_key = g_objectkey
-  changing
-    uris       = gt_bds_uris
-    signature  = g_doc_signature.
- free gr_bds_documents.
- read table gt_bds_uris into gs_bds_url index 1.
- g_url = gs_bds_url-uri.
-"<cl_bds_document_set> 的静态方法get_with_url获取excel template的url。"
-"数据存放在内表中，读取后放在global变量g_template_url里面。"
-
-"Open the excel"
-call method gr_control->get_document_proxy
-   exporting
-     document_type      = 'Excel.Sheet'
-     no_flush          = 'X'
-     register_container = 'X'
-   importing
-     document_proxy    = gr_document.
-call method gr_document->open_document
-   exporting
+CALL METHOD document->close_document.
+CALL METHOD document->open_document
+   EXPORTING
      open_inplace = 'X'
-     document_url = g_template_url.
- data: available type i.
-call method gr_document->has_spreadsheet_interface
-   exporting
+     document_url      = template_url
+   IMPORTING
+     error        = error.
+IF error->error_code EQ 'OPEN_DOCUMENT_FAILED'.
+  CALL METHOD cl_gui_cfw=>flush.
+  CALL METHOD cl_gui_cfw=>dispatch.
+  CALL METHOD link_server->stop_link_server
+    IMPORTING
+      error   = error
+      retcode = retcode.
+  FREE: control,link_server,document,error,bds_documents.
+  CALL METHOD container->free.
+  LEAVE TO SCREEN 0.
+ENDIF.
+*===== Get Spreadsheet Interface =====*
+DATA: available type i.
+CALL METHOD document->has_spreadsheet_interface
+   EXPORTING
      no_flush    = 'X'
-   importing
+   IMPORTING
      is_available = available.
-call method gr_document->get_spreadsheet_interface
-   exporting
+CALL METHOD document->get_spreadsheet_interface
+   EXPORTING
      no_flush        = 'X'
-   importing
-     sheet_interface = gr_spreadsheet.
+   IMPORTING
+     sheet_interface = spreadsheet_interface.
 ```
-原文：[https://blog.csdn.net/SAPmatinal/article/details/52776862](https://blog.csdn.net/SAPmatinal/article/details/52776862)
-
 ### Excel 操作
 
 #### 操作Excel文件
 
 ```ABAP
-CALL method spreadsheet->select_sheet
-   exporting
-     name    = 'Sheet1'
+CALL METHOD spreadsheet_interface->select_sheet
+   EXPORTING
+     name    = sel_sheetname
      no_flush = ''
-   importing
+   IMPORTING
      error    = error
      retcode  = retcode.
-CALL method spreadsheet->get_active_sheet
-    exporting
+CALL METHOD spreadsheet_interface->get_active_sheet
+    EXPORTING
       no_flush  = ''
-    importing
+    IMPORTING
       sheetname = sheetname
       error    = error
       retcode  = retcode.
-CALL method spreadsheet->add_sheet
-   exporting
-     name    = '年度报表'
+CALL METHOD spreadsheet_interface->add_sheet
+   EXPORTING
+     name    = add_sheetname
      no_flush = ''
-   importing
+   IMPORTING
      error    = error
      retcode  = retcode.
-CALL method spreadsheet->delete_sheet
-   exporting
-     name    = sheetname
+CALL METHOD spreadsheet_interface->delete_sheet
+   EXPORTING
+     name    = del_sheetname
      no_flush = ''
-   importing
+   IMPORTING
      error    = error
      retcode  = retcode.
+CALL METHOD spreadsheet_interface->set_sheet_name
+  EXPORTING
+    newname  = new_sheetname
+    oldname  = 'Sheet1'
+    no_flush = 'X'.
 ```
 
 #### 数据写入Excel ####
 
 数据写入Excel，可以使用批量的方式或者逐个单元格写入的方式。批量写入的方式效率高，逐个单元格写入的方式比较灵活。将数据写入 excel 需要使用 `i_oi_spreadsheet` 接口实例的两个方法：
 
-- insert_range_dim：定义一个范围(range)，设定range的名称、位置和大小。
-- set_range_data：写入数据到range，写入的时候，ranges参数设定range的名称和大小，contents参数设定写入的内容
+- insert_range_dim：定义一个范围(range)，设定 range 的名称、位置和大小。
+- set_range_data：写入数据到 range，写入的时候，ranges 参数设定 range 的名称和大小，contents参数设定写入的内容。
 
 ```ABAP
-* insert_range_dim
-CALL METHOD spreadsheet->insert_range_dim
- exporting
-    name     = 'cell'
+* insert_range_dim:界定 ranges 范围
+CALL METHOD spreadsheet_interface->insert_range_dim
+  EXPORTING
+    name     = 'cp'
     no_flush = 'X'
-    top      = 2
-    left     = 1
-    rows     = line_count
-    columns  = 4.
+    top      = row "位置开始行"
+    left     = col "位置开始列"
+    rows     = rows_number    "Range 总行数"
+    columns  = columns_number "Range 总列数"
+  IMPORTING
+    error    = error.
+REFRESH: gt_ranges,gt_contents.
+gs_range-name = 'cp'.
+gs_range-columns = rows_number.
+gs_range-rows = columns_number.
+APPEND gs_range TO gt_ranges.
 * set_range_data
-CALL METHOD spreadsheet->set_ranges_data
- exporting
+DATA: lv_row TYPE i,lv_column TYPE i.
+DATA: lwa_fieldcat TYPE slis_fieldcat_alv.
+CLEAR lv_column.
+LOOP AT it_fieldcat INTO lwa_fieldcat.
+  lv_column = lv_column + 1.
+  gs_content-row = 1.
+  gs_content-column = lv_column.
+  gs_content-value  = lwa_fieldcat-seltext_l.
+  APPEND gs_content TO gt_contents.
+ENDLOOP.
+CALL METHOD spreadsheet_interface->set_ranges_data
+  EXPORTING
     ranges   = gt_ranges
     contents = gt_contents
-    no_flush = 'X'.
-* 界定ranges范围
-CALL METHOD R_HANDLE_EXCEL->INSERT_RANGE_DIM
-  EXPORTING
-      NAME     = 'title'
-      NO_FLUSH = 'X'
-      TOP      = 1
-      LEFT     = 1
-      ROWS     = 1
-      COLUMNS= LV_TOTAL_COLUMNS.
-  WA_RANGES-NAME= 'title'.
-  WA_RANGES-ROWS = 1.
-  WA_RANGES-COLUMNS= LV_TOTAL_COLUMNS.
-  APPEND WA_RANGESTO IT_RANGES.
-DATA LV_ROW TYPE I.
-DATA LV_COLUMN TYPE I.
-FIELD-SYMBOLS .
-DATA LWA_FIELDCAT TYPE SLIS_FIELDCAT_ALV.
-CLEAR LV_COLUMN.
-LOOP AT IT_FIELDCAT INTO LWA_FIELDCAT.
-  LV_COLUMN = LV_COLUMN + 1.
-  WA_CONTENTS-ROW = 1.
-  WA_CONTENTS-COLUMN = LV_COLUMN.
-  WA_CONTENTS-VALUE  = LWA_FIELDCAT-SELTEXT_L.
-  APPEND WA_CONTENTSTO IT_CONTENTS.
-ENDLOOP.
+    no_flush = 'X'
+  IMPORTING
+    error    = error.
 * Set data
-CALL METHOD R_HANDLE_EXCEL->SET_RANGES_DATA
+CALL METHOD spreadsheet_interface->fit_widest
   EXPORTING
-    RANGES   = IT_RANGE
-    CONTENTS = IT_CONTENTS
-    NO_FLUSH = 'X'.
-CALL METHOD R_HANDLE_EXCEL->FIT_WIDEST
-  EXPORTING
-    NAME     = SPACE
-    NO_FLUSH = 'X'.
+    name     = space
+    no_flush = 'X'.
+REFRESH: gt_ranges, gt_contents.
 ```
 
 ### 对象销毁： ###
 PAI 的 exit-command 事件中对 spreadsheet、control 和 container 等对象进行销毁操作。
 
-```JS
+```ABAP
 module exit_program input.
   save_ok = ok_code.
   clear ok_code.
@@ -756,10 +743,10 @@ ENDFORM.                    " GET_DYNAMIC_CONTAINER "
 ```
 ### 2. Excel 单个单元格写入 ###
 
-单个单元格写入的方法，同批量写入一样，使用 i_oi_spreadsheet 接口的set_range_dim 方法和 set_range_data方法。区别在于 range 只包含一行一列：
+单个单元格写入的方法，同批量写入一样，使用 i_oi_spreadsheet 接口的 set_range_dim 方法和 set_range_data方法。区别在于 range 只包含一行一列。
 
-```JS
-form write_single_cell using p_row p_col p_value.
+```ABAP
+FORM write_single_cell using p_row p_col p_value.
 * define internal table for ranges and contents parameters
   data: lt_ranges type soi_range_list,
         ls_rangeitem type soi_range_item,
@@ -795,7 +782,7 @@ form write_single_cell using p_row p_col p_value.
       contents = lt_contents
       no_flush = 'X'.
 endform.   
-* 循环写入：
+* 循环写入
 loop at gt_spfli into gs_spfli.
    row_index = sy-tabix + 1.
    perform write_single_cell using row_index 1 gs_spfli-carrid.
@@ -807,15 +794,15 @@ endloop.
 ```
 
 ### 3. 设置 Excel 属性 ###
-```JS
-form set_excel_attributes.
-* 修改WORK SHEET 的名字
+```ABAP
+FORM set_excel_attributes.
+* 修改 WORK SHEET 的名字
   CALL METHOD cl_spreadsheet->set_sheet_name
     EXPORTING
       newname = '物料主数据清单'
       oldname = 'Sheet1'
     IMPORTING
-      error   = cl_errors.
+      error   = error.
 * set border line for range
   call method gr_spreadsheet->set_frame
     exporting
@@ -828,32 +815,39 @@ form set_excel_attributes.
     exporting
       name    = space
       no_flush = 'X'.
-endform.   
+ENDFORM.   
 ```
 
 ### 4. 错误处理 ###
-通常有两种方法来处理错误：
+#### 第一种方法
 
- 第一种方法：使用 c_oi_errors 的静态方法 raise_message 简单地显示相关的错误：
-```JS
-CALL METHODC_OI_ERRORS=>RAISE_MESSAGE
+使用 c_oi_errors 的静态方法 raise_message 简单地显示相关的错误：type 可以是 A, E, W, I, S 其中之一。
+
+```ABAP
+CALL METHOD C_OI_ERRORS=>RAISE_MESSAGE
     EXPORTING
-       TYPE = type
- type 可以是 A, E, W, I, S 其中之一。
+       TYPE = 'E'.
 ```
-  第二种方法是区分不同的错误，给用户一个更明确的提示：
-```JS
+#### 第二种方法
+
+区分不同的错误，给用户一个更明确的提示。
+
+```ABAP
 IF ret_code EQ c_oi_errors=>ret_ok.
-  " Document opened successfully"
-ELSEIF ret_code EQ c_oi_errors=> ret_document_already_open.
+  " Document opened successfully "
+ELSEIF ret_code EQ c_oi_errors=>ret_document_already_open.
   " Special error handling, e.g. dialog box."
 ELSE.
   CALL METHOD c_oi_errors=>raise_message
-     EXPORTING type = 'E'.
+    EXPORTING 
+      type = 'E'.
 ENDIF.
 ```
-也可以把 ret_code 返回的错误码先储存在内表中，集中处理：
-```JS
+#### 集中处理
+
+因为 Excel 操作多个步骤，为了在过程中间减少对用户的干扰，也可以把 `ret_code` 返回的错误码先储存在内表中，集中处理。
+
+```ABAP
 DATA: errors TYPE REF TO i_oi_error OCCURS 0 WITH HEADER LINE.
 * DOI processing
 CALL METHOD control->get_link_server
@@ -873,5 +867,10 @@ LOOP AT errors.
 ENDLOOP.
 FREE errors.
 ```
-原文：https://blog.csdn.net/stone0823/article/details/53819960
 
+
+参考文章
+
+- [ABAP DOI展示EXCEL或WORD ](https://blog.csdn.net/SAPmatinal/article/details/52776862)
+
+- [ABAP DOI详解](https://blog.csdn.net/stone0823/article/details/53819960)

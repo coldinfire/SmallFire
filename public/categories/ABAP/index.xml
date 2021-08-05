@@ -211,7 +211,7 @@
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_EXCEL_OLE/</guid>
-      <description>引用链接：OLE 下载数据到EXCEL模板及速度优化 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员</description>
+      <description>OLE 下载 EXCEL 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员自定义下载数据程序。 步骤： 上传模板 tcod</description>
     </item>
     
     <item>
@@ -688,7 +688,7 @@
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_EXCEL_DOI/</guid>
-      <description>概述 DOI（Desktop office Integration）采用 OO 的思想实现与 Office 的结合使用。SAP 标准DEMO： SAPRDEMOEXCEL_EXPO</description>
+      <description>概述 DOI（Desktop office Integration）采用 OO 的思想实现与 Office 的结合使用，通过 DOI 对文档进行操作和处理。SAP 标准DEMO： SAPR</description>
     </item>
     
     <item>
