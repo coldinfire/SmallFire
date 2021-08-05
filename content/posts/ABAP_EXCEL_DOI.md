@@ -8,8 +8,8 @@ categories:
   - ABAP
 
 tags: 
+  - abaputils
   - ALV
-  - DOI
 
 ---
 
