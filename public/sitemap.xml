@@ -310,7 +310,21 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/ExtJS_Basic1/</loc>
+      <loc>https://coldinfire.github.io/2021/ExtJs_Build/</loc>
+      
+      <lastmod>2021-01-06T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/ExtJS_Basic/</loc>
       
       <lastmod>2021-01-04T00:00:00+00:00</lastmod>
       
