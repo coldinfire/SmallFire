@@ -156,6 +156,76 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2021/ExtJS_Component/</loc>
+      
+      <lastmod>2021-05-25T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/ExtJS/</loc>
+      
+      <lastmod>2021-05-25T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+      
+      <lastmod>2021-05-25T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/ExtJS_Build/</loc>
+      
+      <lastmod>2021-05-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/ExtJS_Basic/</loc>
+      
+      <lastmod>2021-05-09T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/categories/business/</loc>
       
       <lastmod>2021-04-15T00:00:00+00:00</lastmod>
@@ -240,20 +310,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
-      
-      <lastmod>2021-03-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2021/ABAP_JSON/</loc>
       
       <lastmod>2021-03-06T00:00:00+00:00</lastmod>
@@ -271,62 +327,6 @@
       <loc>https://coldinfire.github.io/2021/ABAP_JSON_Methods/</loc>
       
       <lastmod>2021-03-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2021/ExtJS_Component/</loc>
-      
-      <lastmod>2021-01-15T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/ExtJS/</loc>
-      
-      <lastmod>2021-01-15T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2021/ExtJs_Build/</loc>
-      
-      <lastmod>2021-01-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2021/ExtJS_Basic/</loc>
-      
-      <lastmod>2021-01-04T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -5297,6 +5297,18 @@
       <loc>https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/</loc>
       
       <lastmod>2017-09-01T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/1/ExtJS_Dev/</loc>
       
       
       <changefreq>monthly</changefreq>
