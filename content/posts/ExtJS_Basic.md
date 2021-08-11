@@ -12,19 +12,39 @@ tags:
 
 ---
 
-### Ext.js简介
+### Ext JS 简介
 
-Ext JS 是一个 JavaScript 框架，它具有面向对象编程的功能。它为使用跨浏览器功能构建 Web 应用程序提供了丰富的UI。 Ext JS 基本上用于创建桌面应用程序它支持所有现代浏览器。
+Ext JS 是一个 JavaScript 框架，它具有面向对象编程的功能。Ext JS 是一个“JavaScript 优先”的框架。 也就是说，用户界面及其逻辑都是在 JavaScript 中定义的。 各种包含的主题（例如 Material）提供了必要的样式。
 
-**Ext 是封装 Ext JS 中所有类的命名空间**
+Ext JS 为使用跨浏览器功能构建 Web 应用程序提供了丰富的 UI。 Ext JS 基本上用于创建桌面应用程序，它支持所有现代浏览器。Ext JS 提供对 MVC 和 MVVM 应用程序架构的支持。
+
+**Ext 是封装 Ext JS 中所有类的命名空间。**
+
+#### MVC  (Model-View-Controller)
+
+在 MVC 架构中，大多数类是模型、视图或控制器。用户与视图交互，视图显示模型中保存的数据。这些交互由控制器监控，然后控制器根据需要通过更新视图和模型来响应交互。
+
+- Model(模型) ：用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法。一个数据字段的集合，可通过关联被链接到其他模型和通过代理链接到一个数据流。
+
+- View(视图)：表示数据给用户。任何类型的组件，这些组件将信息输出到浏览器，如Form、Grid、Chart。
+
+- Controller(控制器)：是 MVC 应用程序的逻辑部分。它处理事件并作出响应。“事件”包括用户的行为和数据 Model 上的改变。Ext.app.Controller 为控制器的基类。
+
+View 和 Model 通常不知道彼此，因为 Controller 全权负责指导更新。一般来说，控制器将包含 MVC 应用程序中的大部分应用程序逻辑。理想情况下，视图几乎没有（如果有）业务逻辑。模型主要是数据的接口，并包含管理对所述数据的更改的业务逻辑。
+
+MVC 的目标是明确定义应用程序中每个类的职责。因为每个类都有明确定义的职责，所以它们隐含地与更大的环境分离。这使得应用程序更易于测试和维护，并且其代码更易于重用。
+
+#### MVVM
+
+MVC 和 MVVM 之间的主要区别在于 MVVM 具有称为 ViewModel 的视图抽象。ViewModel 使用一种称为“数据绑定”的技术来协调 Model 的数据和 View 对该数据的表示之间的变化。
+
+- (VM) ViewModel - ViewModel 是管理特定于视图的数据的类。它允许感兴趣的组件绑定到它并在此数据更改时进行更新。
+
+结果是模型和框架执行尽可能多的工作，最小化或消除直接操作视图的应用程序逻辑。
 
 #### Ext.js 命名规范
 
-Ext JS中的命名约定遵循标准 JavaScript 约定，这不是强制性的，而是遵循的良好做法。
-
-它应该遵循 Camel case 语法命名类，方法，变量和属性。
-
-如果 name 与两个单词组合，则第二个单词将始终以大写字母开头。
+Ext JS中的命名约定遵循标准 JavaScript 约定，这不是强制性的，而是遵循的良好做法。它应该遵循 Camel case 语法命名类，方法，变量和属性。如果 name 与两个单词组合，则第二个单词将始终以大写字母开头。
 
 | 名称          | 惯例                                                         |
 | :------------ | :----------------------------------------------------------- |
@@ -36,7 +56,7 @@ Ext JS中的命名约定遵循标准 JavaScript 约定，这不是强制性的�
 
 ### 在Ext JS中定义类
 
-**Ext.onReady** 是指在整个页面加载完后执行：
+**Ext.onReady** 是指在整个页面加载完后执行。
 
 ```ejs
 <script type="text/javascript">
@@ -46,11 +66,11 @@ Ext JS中的命名约定遵循标准 JavaScript 约定，这不是强制性的�
 </script>
 ```
 
-**Ext.define()** 用于在Ext JS中定义类。
+**Ext.define()** 用于在 Ext JS 中定义类。
 
 `Ext.define(class_name, class_members/properties, callback_function);`
 
-- class_name：是根据应用程序结构的类名称 - appName.folderName.ClassName
+- 类名称：是根据应用程序结构的类名称 - appName.folderName.ClassName
 - 类属性/成员：定义类的行为。
 - 回调函数是可选的：当类正确加载时，会调用它。
 
