@@ -198,6 +198,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2021/ExtJS_Dev/</loc>
+      
+      <lastmod>2021-05-15T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2021/ExtJS_Build/</loc>
       
       <lastmod>2021-05-13T00:00:00+00:00</lastmod>
@@ -5297,18 +5311,6 @@
       <loc>https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/</loc>
       
       <lastmod>2017-09-01T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/1/ExtJS_Dev/</loc>
       
       
       <changefreq>monthly</changefreq>

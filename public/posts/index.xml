@@ -35,7 +35,16 @@
     </item>
     
     <item>
-      <title>Extjs 开发环境搭建</title>
+      <title>Extjs 应用程序创建</title>
+      <link>https://coldinfire.github.io/2021/ExtJS_Dev/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ExtJS_Dev/</guid>
+      <description>Eclipse 配置 ExtJS 项目构建 将 Ext 开发包 copy 到 eclipse 项目的 /WebRoot 目录下： 注意：不需要整个Ext开发包全部导入，这样很容易造成eclipse卡死，因为eclipse会</description>
+    </item>
+    
+    <item>
+      <title>Extjs 应用程序创建</title>
       <link>https://coldinfire.github.io/2021/ExtJS_Build/</link>
       <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
       
@@ -2804,15 +2813,6 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/</guid>
       <description>HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;, 书写时实现层次分明的缩进； 所有编码均遵循 XHTML 标准，标签</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://coldinfire.github.io/1/ExtJS_Dev/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/1/ExtJS_Dev/</guid>
-      <description></description>
     </item>
     
     <item>

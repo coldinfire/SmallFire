@@ -17,7 +17,16 @@
     </item>
     
     <item>
-      <title>Extjs 开发环境搭建</title>
+      <title>Extjs 应用程序创建</title>
+      <link>https://coldinfire.github.io/2021/ExtJS_Dev/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ExtJS_Dev/</guid>
+      <description>Eclipse 配置 ExtJS 项目构建 将 Ext 开发包 copy 到 eclipse 项目的 /WebRoot 目录下： 注意：不需要整个Ext开发包全部导入，这样很容易造成eclipse卡死，因为eclipse会</description>
+    </item>
+    
+    <item>
+      <title>Extjs 应用程序创建</title>
       <link>https://coldinfire.github.io/2021/ExtJS_Build/</link>
       <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
       
