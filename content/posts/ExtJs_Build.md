@@ -39,10 +39,10 @@ Step3：将下载的文件解压
   ![Zip build](/images/EXTJS/extjs_dirs_1.png)
 
   - **ext-bootstrap.js** ：引导文件，根据当前运行环境自动加载 ext-all.js 或者 ext-all-dev.js 文件。
-  - **ext.js** ：已压缩 js 代码；基本框架，动态加载扩展类。
-  - **ext-all.js** ：已压缩 js 代码；包括 ExtJS 整个框架。
+  - **ext.js** ：已压缩 js 代码；核心文件，其中包含运行应用程序的所有功能。
+  - **ext-all.js** ：已压缩 js 代码；此文件包含在文件中没有注释的所有缩小的代码。
   - **ext-debug.js** ：未压缩 js 代码；基本框架，动态加载扩展类。
-  - **ext-all-debug.js** ：未压缩 js 代码；包括 ExtJS 整个 debug 框架。
+  - **ext-all-debug.js** ：这是 ext-all.js 的未分级版本，用于调试目的。
   - **ext-all-rtl.js** ：已压缩 js 代码；包括 ExtJS 整个框架并支持从右到左阅读。
   - **ext-all-rtl-debug.js** ：未压缩 js 代码；包括 ExtJS 整个框架并支持从右到左阅读。
   - **ext-all-rtl-sandbox.js** ：已压缩 js 代码；包括 ExtJS 整个框架、支持从右到左阅读以及支持以沙盒方式使用其他版本的 ExtJS。
@@ -51,6 +51,8 @@ Step3：将下载的文件解压
   - **ext-all-sandbox-debug.js** ：未压缩 js 代码；包括 ExtJS 整个框架并支持以沙盒方式使用其他版本的 ExtJS。
 
 #### 下载安装  Sencha Cmd
+
+Sencha CMD 是一个提供 Ext JS 代码缩小，脚手架，生产构建生成功能的工具。
 
 下载地址：[https://www.sencha.com/products/extjs/cmd-download/](https://www.sencha.com/products/extjs/cmd-download/)
 
@@ -147,26 +149,25 @@ ExtJS 非常适合 SAP(单页面应用) 的程序，除了入口的 index.html �
 
 将 Ext 开发包 copy 到 eclipse 项目的 /WebRoot 目录下：
 
-不需要整个 Ext 开发包全部导入，这样很容易造成 eclipse 卡死，因为 eclipse 会自动检测 js 的合法性，会占用大量的检测时间、cpu和内存。通常普通的开发只需要用到 \extjs-4.2.1\resources 文件包、build\ext-all.js 这两个资源就可以，需要中文化再导入 \locale\ext-lang-zh_CN.js 就可以了。
+不需要整个 Ext 开发包全部导入，这样很容易造成 eclipse 卡死，因为 eclipse 会自动检测 js 的合法性，会占用大量的检测时间、cpu和内存。通常普通的开发只需要用到 build\class\theme-xxx\resources 文件包、build\ext-all.js 这两个资源就可以。如果需要中文显示，则可以导入 build\class\locale\locale-zh_CN.js 文件。
 
-#### 在web页面中通过 script 标签引入 ext 的库文件(注意引入顺序)
+#### 在web页面中通过 script 标签引入 ext 的库文件 (注意引入顺序)
 
 ```html
-<link rel="stylesheet" type="text/css" href="extjs-4.2.1/resources/css/ext-all.css">
+<link rel="stylesheet" type="text/css" href="extjs/resources/theme-classic-all.css">
 // 引入样式文件 
-<script type="text/javascript" src="extjs-4.2.1/bootstrap.js"></script>
-<script type="text/javascript" src="ext-4.2.1/locale/ext-lang-zh_CN.js"></script>// 中文化 
+<script type="text/javascript" src="extjs/ext-all.js"></script>
+<script type="text/javascript" src="extjs/ext-bootstrap.js"></script>
+<script type="text/javascript" src="extjs/resources/locale-zh_CN.js"></script>
 ```
 
-### (4) 调用Ext.onReady()初始化组件
+#### 初始化组件
 
-   
-
-```javascript
- <script>
-   Ext.onReady(function(){
-    …///在这里面创建及使用ext控件
-    });
+```html
+<script>
+  Ext.onReady(function(){
+    ... ///在这里面创建及使用ext控件
+  });
 </script>
 ```
 

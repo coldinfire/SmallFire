@@ -96,49 +96,48 @@ PARAMETERS:
 
   可选参数列表：
 
-- ​    `DEFAULT f`：定义默认值
+- `DEFAULT f`：定义默认值
 
 
-- ​    `TYPE type`：参照某一类型对象定义PARAMETERS
+- `TYPE type`：参照某一类型对象定义PARAMETERS
 
 
-- ​    `DECIMALS dec`：定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)
+- `DECIMALS dec`：定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)
 
 
-- 
-  ​    `LIKE g`：參照某一字典对象定义PARAMETERS
+- `LIKE g`：參照某一字典对象定义PARAMETERS
 
 
-- ​    `MEMORY ID pi`：将PARAMETERS存储在SAP内存，参数名长度不能超过三位
+- `MEMORY ID pi`：将PARAMETERS存储在SAP内存，参数名长度不能超过三位
 
 
-- ​    `NO-DISPLAY`：将PARAMETERS设置为隐藏，不会的屏幕上输出
+- `NO-DISPLAY`：将PARAMETERS设置为隐藏，不会的屏幕上输出
 
 
-- ​    `LOWER CASE`：输入值中不允许输入小写字符，否则会自动转换为大写
+- `LOWER CASE`：输入值中不允许输入小写字符，否则会自动转换为大写
 
 
-- ​    `OBLIGATORY`：限制该PARAMETERS为必填，否则会提示输入
+- `OBLIGATORY`：限制该PARAMETERS为必填，否则会提示输入
 
 
-- ​    `AS CHECKBOX`：创建CHECKBOX对象
+- `AS CHECKBOX`：创建CHECKBOX对象
 
 
-- ​    `RADIO BUTTON GROUP radi`：创建（RADIO）单选框
+- `RADIO BUTTON GROUP radi`：创建（RADIO）单选框
 
 
-- ​    `VISIBLE LENGTH vlen`：定义显示长度
+- `VISIBLE LENGTH vlen`：定义显示长度
 
 
-- ​    `USER-COMMAND fcode`：为创建对象分配对象名，fcode 会存储到 sscrfields-ucomm 字段中
+- `USER-COMMAND fcode`：为创建对象分配对象名，fcode 会存储到 sscrfields-ucomm 字段中
 
 
-- ​    `AS LISTBOX VISIBLE LENGTH vlen`：创建一个下拉框，并指定长度
+- `AS LISTBOX VISIBLE LENGTH vlen`：创建一个下拉框，并指定长度
 
 
 #### 下拉框实现
 
-定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标.
+定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标。
 
 PARAMETERS: p_lang LIKE itab-field AS LISTBOX VISIBLE LENGTH 22 USER-COMMAND onli DEFAULT 'LH'.
 
@@ -184,41 +183,41 @@ ENDFORM.
 
 SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过8位，最大输入长度为18位：
 
- ` SELECT-OPTIONS： <S_1> FOR <dbtab-ele> option`   
+- ` SELECT-OPTIONS： s_xxx FOR dbtab-element [options].` 
 
 内表结构：
 
 ```JS
-SIGN：I , E
-OPTION: EQ,NE,CP（模糊查询）,NP,GE,LT,LE,GT
-LOW : 范围较小值
+SIGN: I,E
+OPTION: EQ,NE,CP(模糊查询),NP,GE,LT,LE,GT
+LOW: 范围较小值
 HIGH: 范围较大值
 ```
 
   参数可选属性列表：
 
-- ​	`DEFAULT g`：定义单一默认值
+- `DEFAULT g`：定义单一默认值
 
 
-- ​    `DEFAULT g...OPTION  xxx ... SIGN s`：定义含判断条件的单一默认值
+- `DEFAULT g...OPTION  xxx ... SIGN s`：定义含判断条件的单一默认值
 
 
-- ​    `DEFAULT g TO h`：定义默认值的取值范围
+- `DEFAULT g TO h`：定义默认值的取值范围
 
 
-- ​    `DEFAULT g TO h ... OPTION op ... SIGN s`：设置默认值的聚会范围及判断条件
+- `DEFAULT g TO h ... OPTION op ... SIGN s`：设置默认值的聚会范围及判断条件
 
 
-- ​    `MEMORY ID pid`：将SELECT-OPTIONS分配参数名并存储在SAP内存，参数名长度不能超过三位
+- `MEMORY ID pid`：将SELECT-OPTIONS分配参数名并存储在SAP内存，参数名长度不能超过三位
 
 
-- ​    `NO-DISPLAY`：将SELECT-OPTIONS设置为隐藏，不会在屏幕上输出
+- `NO-DISPLAY`：将SELECT-OPTIONS设置为隐藏，不会在屏幕上输出
 
 
-- ​    `LOWER CASE`：输入值中不允许输入小写字符，否则会自动转换为大写
+- `LOWER CASE`：输入值中不允许输入小写字符，否则会自动转换为大写
 
 
-- ​    `OBLIGATORY`：限制该SELECT-OPTIONS为必须输入的项目，执行中系统会提示
+- `OBLIGATORY`：限制该SELECT-OPTIONS为必须输入的项目，执行中系统会提示
 
 
 - ​    `NO-EXTENSION`：限制该SELECT-OPTIONS只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏
@@ -229,9 +228,7 @@ HIGH: 范围较大值
 
 ###  维护选择字段屏幕描述：GOTO-->Text Elements 
 
-可以使用 TCode:SE32 进行维护。
-
-前台界面显示的为 PARAMETERS 和 SELECTION-OPTION 定义的字段，不便于理解需。提供某一字段的完整名称以方便用户理解。
+可以使用 TCode:SE32 进行维护。前台界面显示的为 PARAMETERS 和 SELECTION-OPTION 定义的字段，不便于理解需。提供某一字段的完整名称以方便用户理解。
 
 包含字段：
 
@@ -256,7 +253,7 @@ HIGH: 范围较大值
 
 该事件在单击按钮后触发
 
-END-OF-SELECTION
+#### END-OF-SELECTION
 
 该事件应用于所有数据处理完成，即 START-OF-SELECTION 相关执行事件执行完成。但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
 
@@ -270,7 +267,7 @@ END-OF-SELECTION
 - `ON VALUE-REQUEST FOR <field low/high>`：SELECT-OPTIONS 点击选择帮助F4键时触发该事件
 - `ON HELP-REQUEST FOR <field low/high>`：SELECTION-OPTIONS 按选择帮助F1键时键发该事件
 - `ON RADIOBUTTON GROUP <radio>`：单选按钮事件，必须进行整体输入检查
-- `ON BLOCK <block>`：框架的触发事件（控制框架中的屏幕元素值的输入）
+- `ON BLOCK <block>`：Block 的触发事件（控制框架中的屏幕元素值的输入）
 - `OUTPUT`：用于屏幕输出时的各屏幕元素值的管控（PBO处理，在选择屏幕显示之前就被调用；响应屏幕上的事件，用户回车或F8后也被调用；通过modify screen可以修改选择屏幕字段）
 - `ON EXIT-COMMAND`：用于 BACK、CANCEL、EXIT 等事件
 

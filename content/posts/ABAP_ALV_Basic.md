@@ -14,37 +14,51 @@ tags:
 
 ### 报表格式
 
-- 程序说明：包括程序名称，实现的业务功能等信息
-- 数据定义
-- Include内容
-- 定义选择屏幕
-- 执行程序业务代码
-- 创建TCode：SE93
+**程序说明**：包括程序名称，实现的业务功能等信息
+
+**数据定义**：定义报表依赖的表，定义全局变量、内表、ALV 变量、宏定义等。
+
+**Include 内容**：可以通过 include 方式保存报表的功能函数。
+
+**定义选择屏幕**：定义报表的选择屏幕内容。
+
+**定义报表事件**：在报表事件中对选择屏幕内容进行处理。
+
+**执行程序业务代码**：在报表事件START-OF-SELECTION 后面实现报表的主要业务逻辑。
 
 ### 执行程序的使用范围，报表事件
 
+#### 选择屏幕事件
+
 - LOAD-OF-PROGRAM.
-- INITIALIZATION. //初始化事件，用来填充选择屏幕默认值
-- AT-SELECTION SCREEN ON field(mention the field name).  // 在PAI事件结束后执行，进行校验和检查输入值
-- AT SELECTION-SCREEN ON VALUE-REQUEST FOR Z_XXX. // 选择屏幕字段选择功能扩展
-- AT SELECTION-SCREEN ON block.
-- AT SELECTION-SCREEN OUTPUT.   // (PBO)显示选择屏幕之前触发
-- AT SELECTION-SCREEN.   // (PAI)选择屏幕中执行某些功能后触发
+- INITIALIZATION. 
+  - 初始化事件，用来填充选择屏幕默认值
+- AT-SELECTION SCREEN ON field p_xxx.  
+  - 在 PAI 事件结束后执行，进行校验和检查输入值
+- AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_xxx. 
+  - 选择屏幕字段选择功能扩展
+- AT SELECTION-SCREEN ON block_xxx.
+  - Block 的触发事件（控制框架中的屏幕元素值的输入）
+- AT SELECTION-SCREEN OUTPUT.   
+  - (PBO) 显示选择屏幕之前触发
+- AT SELECTION-SCREEN.   
+- (PAI) 选择屏幕中执行某些功能后触发
+  - PERFORM check_input.
+- START-OF-SELECTION.
+- Begin the main programmer
 
-  - ​	PERFORM check_input.
-- START-OF-SELECTION.//Begin the main programer
+#### 列表屏幕事件
 
-  - xxxx
 - TOP-OF-PAGE.
 - END-OF-SELECTION. 
-- AT PF(nn)
-- AT LINE-SELECTION
-- AT USER-COMMAND
-- TOP-OF-PAGE DURING LINE-SELECTION
-- Interactive Eventrs. (User for interactive reporting)
+- AT PF (nn)
+- AT LINE-SELECTION.
+- AT USER-COMMAND.
+- TOP-OF-PAGE DURING LINE-SELECTION.
+- Interactive Events. (User for interactive reporting)
 
 ### 报表程序大体逻辑结构
-**抬  头:** 报表的主要信息(抬头信息)
+**抬  头:** 报表的主要信息 (抬头信息)
 
 **行项目:** 查询出的每行记录信息
 
