@@ -16,7 +16,7 @@ tags:
 
 Ext JS 是一个 JavaScript 框架，它具有面向对象编程的功能。Ext JS 是一个“JavaScript 优先”的框架。 也就是说，用户界面及其逻辑都是在 JavaScript 中定义的。 各种包含的主题（例如 Material）提供了必要的样式。
 
-Ext JS 为使用跨浏览器功能构建 Web 应用程序提供了丰富的 UI。 Ext JS 基本上用于创建桌面应用程序，它支持所有现代浏览器。Ext JS 提供对 MVC 和 MVVM 应用程序架构的支持。
+Ext JS 为使用跨浏览器功能构建 Web 应用程序提供了丰富的 UI。 Ext JS 主要专注于前端用户界面，它支持所有现代浏览器。Ext JS 提供对 MVC 和 MVVM 应用程序架构的支持。
 
 **Ext 是封装 Ext JS 中所有类的命名空间。**
 
