@@ -93,8 +93,10 @@ Step1：选择目录
 
 Step2：创建应用程序
 
-- `sencha -sdk [解压后的ext sdk目录的位置] generate app [项目名称] [项目地址]`
+- `sencha -sdk [解压后的ext sdk目录的位置] generate app -classic [项目名称] [项目地址]`
 
+  - -classic | -modern可以省略，Ext JS的6.0版本其中一个主要的更新就是把Ext JS和Touch合并，在创建时可以选择哪一种类型，classic 对应 Ext JS，而 modern 对应 Touch。如果省略，则创建所谓的 universal 类型，即 classic 和 modern 并存。在本文中演示的是桌面端程序，所以我们选择 classic。
+  
   ![Sencha Cmd APP](/images/EXTJS/extjs_app_1.png)
 
 Step3：运行应用程序
@@ -125,7 +127,7 @@ ExtJS 应用程序遵循统一的目录结构，每个应用程序都相同。�
 
 最佳实践是：使用类似的命名结构将ViewControllers和 ViewModels 逻辑地组合在文件夹内的子文件`app/view/`夹中，您将使用该命名结构本身（请参阅“app/view/main/”和“classic/src/view /main/”文件夹）。
 
-
+![Sencha Cmd APP](/images/EXTJS/extjs_app_6.png)
 
 - **appname**目录：应用程序的根目录。
 
