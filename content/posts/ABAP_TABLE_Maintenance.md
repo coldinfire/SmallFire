@@ -51,7 +51,7 @@ CALL FUNCTION 'VIEW_MAINTENANCE_CALL'
 
 Selection range for view maintenance，如果设置了该参数，则后续打开的 SM30 表维护数据新增数据时，只能新增满足该条件的数据。SAP 会在保存时校验改参数的条件，如果不满足则提示以下错误：
 
-![BAPI Error](/images/ABAP/SM3017.png)
+![BAPI Error](/images/ABAP/sm3017.png)
 
 
 
