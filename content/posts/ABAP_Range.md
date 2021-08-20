@@ -22,24 +22,24 @@ Range Table为SAP R/3系统标准内表的一种，结构与Selection Table一�
 #### 定义
 
 - DATA: range_tab {TYPE RANGE OF type} | {LIKE RANGE OF dobj}.
-  
--  DATA: gr_werks TYPE RANGE OF werks_d WITH HEADER LINE,        gw_werks LIKE LINE  OF gr_werks.
-  
-- RANGES range_tab FOR dobj [OCCURS n] ：创建一个选择表
+- DATA: gr_werks TYPE RANGE OF werks_d WITH HEADER LINE,
+  - gw_werks LIKE LINE  OF gr_werks.
+- RANGES: range_tab FOR dobj [OCCURS n]. ：创建一个选择表
 
   - For 后面字段必须为参考表的字段，不能使用 Data Element 来定义.
 
-
 #### 使用
 
-```JS
-RANGES: gr_matnr FOR marc-matnr.
-  gr_matnr-sign = 'I'
-  gr_matnr-option = 'EQ'
-  gr_matnr-low = xxx
-  gr_matnr-high = xxx
-  APPEND gr_matnr.
-内表gr_matnr按照选择表结构创建，字段参照数据库表字段。
+Range： gr_matnr 字段参照数据库表字段。
+
+```ABAP
+RANGES: gr_matnr FOR marc-matnr OCCURS 0.
+CLEAR gr_matnr.
+gr_matnr-sign = 'I'.
+gr_matnr-option = 'EQ'.
+gr_matnr-low = xxx.
+gr_matnr-high = xxx.
+APPEND gr_matnr.
 ```
 
 ### 选择表

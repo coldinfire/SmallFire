@@ -22,7 +22,7 @@
       <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_ALV_Screen_Layout/</guid>
-      <description>屏幕选择 Layout &amp;#34; 选择屏幕参数 &amp;#34; PARAMETERS: p_disva TYPE slis_vari MEMORY ID zvari. &amp;#34; 屏幕事件定义 &amp;#34; AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_disva. PERFORM variant_search CHANGING p_disva. &amp;#34; Search Help &amp;#34; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Form VARIANT_SEARCH *&amp;amp;---------------------------------------------------------------------* * text *----------------------------------------------------------------------* * &amp;lt;--P_P_DISVA text *----------------------------------------------------------------------* FORM variant_search CHANGING cv_variant. DATA: zlv_f4_exit TYPE c, zls_variant TYPE disvariant. CLEAR:zls_variant. zls_variant-report = syst-repid. CALL</description>
+      <description>屏幕选择 Layout &amp;#34; 选择屏幕参数 &amp;#34; PARAMETERS: p_disva TYPE slis_vari MEMORY ID zvari. &amp;#34; 屏幕事件定义 &amp;#34; AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_disva. PERFORM variant_search CHANGING p_disva. &amp;#34; Search Help &amp;#34; Function 方法 FORM variant_search CHANGING cv_variant. DATA: zlv_f4_exit TYPE c, zls_variant TYPE disvariant. CLEAR:zls_variant. zls_variant-report = syst-repid. CALL FUNCTION &amp;#39;REUSE_ALV_VARIANT_F4&amp;#39; EXPORTING is_variant = zls_variant i_save = &amp;#39;A&amp;#39;</description>
     </item>
     
     <item>

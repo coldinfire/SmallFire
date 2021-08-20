@@ -23,13 +23,11 @@ PARAMETERS: p_disva TYPE slis_vari MEMORY ID zvari.
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_disva.
   PERFORM variant_search CHANGING p_disva.
 " Search Help "
-*&---------------------------------------------------------------------*
-*&      Form  VARIANT_SEARCH
-*&---------------------------------------------------------------------*
-*       text
-*----------------------------------------------------------------------*
-*      <--P_P_DISVA  text
-*----------------------------------------------------------------------*
+```
+
+#### Function 方法
+
+```ABAP
 FORM variant_search  CHANGING cv_variant.
   DATA: zlv_f4_exit TYPE c,
         zls_variant TYPE disvariant.
@@ -51,5 +49,18 @@ FORM variant_search  CHANGING cv_variant.
     cv_variant = zls_variant-variant.
   ENDIF.
 ENDFORM.                    " VARIANT_SEARCH
+```
+
+#### Class 方法
+
+```ABAP
+FORM variant_search  CHANGING cv_variant.
+  DATA: ls_layout_key  TYPE salv_s_layout_key,
+        ls_layout_info TYPE salv_s_layout_info.
+
+  ls_layout_key-report = sy-repid.
+  ls_layout_info = cl_salv_layout_service=>f4_layouts( ls_layout_key ).
+  cv_variant = ls_layout_info-layout.
+ENDFORM.
 ```
 

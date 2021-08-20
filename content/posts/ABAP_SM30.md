@@ -108,3 +108,37 @@ Recording rountine:
 - 03：删除已显示的数据之前
 - 04：删除数据显示之后
 - 05：建立新的条目.....
+
+FORM Routine 定义
+
+```ABAP
+*----------------------------------------------------------------------*
+***INCLUDE 
+*----------------------------------------------------------------------*
+FORM test.
+  DATA: lv_msg TYPE string.
+  DATA: lt_data TYPE TABLE z_table,
+        ls_data TYPE z_table.
+  LOOP AT total.
+    IF <action> NE 'D' AND <action> NE 'X'. "U:Update,D:Delete"
+      APPEND <vim_total_struc> TO lt_data.
+    ENDIF.
+  ENDLOOP.
+  IF lt_data IS NOT INITIAL.
+    "Sucess"
+    vim_abort_saving = abap_false.
+    sy-subrc = 0.
+  ELSE.
+    "Error Msg"
+    lv_msg = 'Error Message.'.
+    MESSAGE lv_msg TYPE 'S' DISPLAY 'E'. 
+    vim_abort_saving = abap_true.
+    sy-subrc = 4.
+  ENDIF.
+  IF sy-subrc <> 0.
+    MESSAGE 'XXXX' TYPE 'X'.
+  ENDIF.
+ENDFORM.
+```
+
+-  [TOTAL 及 action 等字段解析](http://remote-database.com/00000271/91ca9fb9a9d111d1a5690000e82deaaa.html)

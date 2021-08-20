@@ -34,7 +34,7 @@ METHOD INIT_DATA_NODE .
   l_ref_interfacecontroller = wd_this->wd_cpifc_my_alv( ).
 *... Set the data
   l_ref_interfacecontroller->set_data(
-    r_node_data = lr_node  " Ref to if_Wd_Context_Node
+    r_node_data = lr_node  " Ref to if_Wd_Context_Node "
   ).
 *... Get model
   data: l_value type ref to cl_salv_wd_config_table.
@@ -59,37 +59,37 @@ ENDMETHOD.
 ```HTML
 data: lt_stock type salv_wd_t_test,
       ls_stock type salv_wd_s_test.
-   ls_stock-field1 = 'ICON_RED_LIGHT'.                      "#EC NOTEXT
+   ls_stock-field1 = 'ICON_RED_LIGHT'.                      "#EC NOTEXT"
 *  ls_stock-field1 = '{SALV_WD_LAYOUT_UI}/salv_wd_first_page.gif'.
-*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/flug2.jpg'.     "#EC NOTEXT
-*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/doughnut.png'.  "#EC NOTEXT
-*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/Details.bmp'.   "#EC NOTEXT
-*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/mastercard.jpg'."#EC NOTEXT
-  ls_stock-field2 = 'Stock empty'.                          "#EC NOTEXT
-  ls_stock-field3 = 'Pullover'.                             "#EC NOTEXT
-  ls_stock-field4 = 'Regal1'.                               "#EC NOTEXT
+*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/flug2.jpg'.     "#EC NOTEXT"
+*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/doughnut.png'.  "#EC NOTEXT"
+*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/Details.bmp'.   "#EC NOTEXT"
+*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/mastercard.jpg'."#EC NOTEXT"
+  ls_stock-field2 = 'Stock empty'.                          "#EC NOTEXT"
+  ls_stock-field3 = 'Pullover'.                             "#EC NOTEXT"
+  ls_stock-field4 = 'Regal1'.                               "#EC NOTEXT"
   ls_stock-num1   =  0.
   append ls_stock to lt_stock.
 
   ls_stock-field1 = 'ICON_YELLOW_LIGHT'.                    "#EC NOTEXT
-*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/OrderLine.bmp'.  "#EC NOTEXT
-  ls_stock-field2 = 'Stock low'.                            "#EC NOTEXT
-  ls_stock-field3 = 'Hemden'.                               "#EC NOTEXT
-  ls_stock-field4 = 'Regal2'.                               "#EC NOTEXT
+*  ls_stock-field1 = '/SAP/BC/WebDynpro/SAP/WDR_TEST_FLUG_BUCHEN_SUCH/OrderLine.bmp'.  "#EC NOTEXT"
+  ls_stock-field2 = 'Stock low'.                            "#EC NOTEXT"
+  ls_stock-field3 = 'Hemden'.                               "#EC NOTEXT"
+  ls_stock-field4 = 'Regal2'.                               "#EC NOTEXT"
   ls_stock-num1   =  5.
   append ls_stock to lt_stock.
 
-  ls_stock-field1 = 'ICON_GREEN_LIGHT'.                     "#EC NOTEXT
-  ls_stock-field2 = 'Stock o.k.'.                           "#EC NOTEXT
-  ls_stock-field3 = 'Hosen'.                                "#EC NOTEXT
-  ls_stock-field4 = 'Regal3'.                               "#EC NOTEXT
+  ls_stock-field1 = 'ICON_GREEN_LIGHT'.                     "#EC NOTEXT"
+  ls_stock-field2 = 'Stock o.k.'.                           "#EC NOTEXT"
+  ls_stock-field3 = 'Hosen'.                                "#EC NOTEXT"
+  ls_stock-field4 = 'Regal3'.                               "#EC NOTEXT"
   ls_stock-num1   =  100.
   append ls_stock to lt_stock.
 
-  ls_stock-field1 = '@0A@'.                                 "#EC NOTEXT
-  ls_stock-field2 = 'Stock o.k.'.                           "#EC NOTEXT
-  ls_stock-field3 = 'Hemden'.                               "#EC NOTEXT
-  ls_stock-field4 = 'Regal4'.                               "#EC NOTEXT
+  ls_stock-field1 = '@0A@'.                                 "#EC NOTEXT"
+  ls_stock-field2 = 'Stock o.k.'.                           "#EC NOTEXT"
+  ls_stock-field3 = 'Hemden'.                               "#EC NOTEXT"
+  ls_stock-field4 = 'Regal4'.                               "#EC NOTEXT"
   ls_stock-num1   =  100.
   append ls_stock to lt_stock.
 *... Get data node
