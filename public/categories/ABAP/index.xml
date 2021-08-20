@@ -202,7 +202,7 @@
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_CostCenter/</guid>
-      <description></description>
+      <description>成本中心理解 成本中心（Cost Center）是管理会计中的基本责任单元，是公司内部对费用负责人的组织，可以理解为企业内的“部门”。但在管理会</description>
     </item>
     
     <item>
@@ -738,10 +738,10 @@
     
     <item>
       <title>日期操作</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Date/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Util_Date/</link>
       <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Date/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Util_Date/</guid>
       <description>日期格式转换 系统标准Function CONVERSION_EXIT_IDATE_OUTPUT INPUT: 20080203 OUTPUT: 03FEB2008 CONVERT_DATE_TO_EXTERNAL INPUT: 20080203 OUTPUT: 02/03/2008 &amp;#34;According to user&amp;#39;s default setting. CONVERT_DATE_TO_INTERNAL INPUT: 02/03/2008 &amp;#34;Should be same as the user&amp;#39;s default setting OUPUT: 20080203 自定义工具 FUNCTION ZCONVERT_DATE_FORMAT. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local interface: *&amp;#34; IMPORTING *&amp;#34; REFERENCE(ZNAME) LIKE USR01-BNAME *&amp;#34; CHANGING *&amp;#34; REFERENCE(ZDATE) TYPE C *&amp;#34;---------------------------------------------------------------------- DATA:</description>
     </item>
     
