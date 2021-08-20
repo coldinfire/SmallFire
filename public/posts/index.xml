@@ -2070,10 +2070,10 @@
     
     <item>
       <title>表维护添加修改人信息</title>
-      <link>https://coldinfire.github.io/2018/ABAP_TableMaintainAddUser/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_TABLE_MaintainAddUser/</link>
       <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_TableMaintainAddUser/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_TABLE_MaintainAddUser/</guid>
       <description>添加修改人信息 可以根据TCode进行相应的判断： 创建人信息: l_wa_head-ernam = sy-uname. l_wa_head-erdat = sy-datum. l_wa_head-erzet = sy-uzeit. call function &amp;#39;TERMINAL_ID_GET&amp;#39; exporting username = sy-uname importing terminal = l_wa_head-eterminal exceptions multiple_terminal_id = 1 no_terminal_found = 2 others = 3. 修改人信息： l_wa_head-urnam = sy-uname. l_wa_head-urdat</description>
     </item>
     
