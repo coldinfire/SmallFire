@@ -341,12 +341,12 @@
     </item>
     
     <item>
-      <title>使用BAPI创建Purchase Order</title>
+      <title>使用BAPI操作Purchase Order</title>
       <link>https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/</link>
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/</guid>
-      <description>通过BAPI创建PO FUNCTION zcreate_po. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local interface: *&amp;#34; IMPORTING *&amp;#34; VALUE(CALLNO) TYPE ZCALLNO *&amp;#34; VALUE(DOC_TYPE) LIKE BAPIMEPOHEADER-DOC_TYPE DEFAULT &amp;#39;ZIPR&amp;#39; *&amp;#34; VALUE(PURCH_ORG) LIKE BAPIMEPOHEADER-PURCH_ORG DEFAULT &amp;#39;POIC&amp;#39; *&amp;#34; VALUE(PUR_GROUP) LIKE BAPIMEPOHEADER-PUR_GROUP *&amp;#34; VALUE(VENDOR) LIKE BAPIMEPOHEADER-VENDOR *&amp;#34; VALUE(COMP_CODE) LIKE BAPIMEPOHEADER-COMP_CODE DEFAULT &amp;#39;GF50&amp;#39; *&amp;#34; VALUE(DZTERM) TYPE DZTERM DEFAULT &amp;#39;0001&amp;#39; *&amp;#34; EXPORTING *&amp;#34; VALUE(PO_NUMBER) LIKE BAPIMEPOHEADER-PO_NUMBER *&amp;#34; VALUE(FLAG) LIKE BAPIRET2-TYPE *&amp;#34; VALUE(MESSAGE) LIKE BAPIRET2-MESSAGE *&amp;#34; TABLES *&amp;#34;</description>
+      <description>通过 BAPI 操作 Purchase Order 通过BAPI创建PO FUNCTION zcreate_po. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local interface: *&amp;#34; IMPORTING *&amp;#34; VALUE(CALLNO) TYPE ZCALLNO *&amp;#34; VALUE(DOC_TYPE) LIKE BAPIMEPOHEADER-DOC_TYPE DEFAULT &amp;#39;ZIPR&amp;#39; *&amp;#34; VALUE(PURCH_ORG) LIKE BAPIMEPOHEADER-PURCH_ORG DEFAULT &amp;#39;POIC&amp;#39; *&amp;#34; VALUE(PUR_GROUP) LIKE BAPIMEPOHEADER-PUR_GROUP *&amp;#34; VALUE(VENDOR) LIKE BAPIMEPOHEADER-VENDOR *&amp;#34; VALUE(COMP_CODE) LIKE BAPIMEPOHEADER-COMP_CODE DEFAULT &amp;#39;GF50&amp;#39; *&amp;#34; VALUE(DZTERM) TYPE DZTERM DEFAULT &amp;#39;0001&amp;#39; *&amp;#34; EXPORTING *&amp;#34; VALUE(PO_NUMBER) LIKE BAPIMEPOHEADER-PO_NUMBER *&amp;#34; VALUE(FLAG) LIKE BAPIRET2-TYPE</description>
     </item>
     
     <item>
@@ -509,15 +509,6 @@
       
       <guid>https://coldinfire.github.io/2020/ABAP_ALV_Progress/</guid>
       <description>添加进度条功能 为了更加清晰的了解到程序执行进度，可以在程序中添加显示进度条功能。 DATA:BEGIN OF gt_result OCCURS 0, sel(1), matnr TYPE mara-matnr, zz_edi_grp TYPE mara-zz_edi_grp, werks TYPE mseg-werks, eknam TYPE eknam, maktx TYPE maktx, num TYPE sy-tabix, row TYPE sy-tabix, icon TYPE icon-id,</description>
-    </item>
-    
-    <item>
-      <title>PR转PO</title>
-      <link>https://coldinfire.github.io/2020/MM_BAPI_PR_TO_PO/</link>
-      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2020/MM_BAPI_PR_TO_PO/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -782,7 +773,7 @@
     </item>
     
     <item>
-      <title> 冲销物料凭证 </title>
+      <title> Goods Movement Cacel </title>
       <link>https://coldinfire.github.io/2019/MM_BAPI_GoodsMovementCancel/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
@@ -791,7 +782,7 @@
     </item>
     
     <item>
-      <title> BAPI_GOODSMVT_CREATE 解析及示例 </title>
+      <title> Goods Movement Create 解析及示例 </title>
       <link>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</link>
       <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
       

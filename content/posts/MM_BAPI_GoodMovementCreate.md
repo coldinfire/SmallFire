@@ -1,5 +1,5 @@
 ---
-title: " BAPI_GOODSMVT_CREATE 解析及示例 "
+title: " Goods Movement Create 解析及示例 "
 date: 2019-07-04
 draft: false
 author: Small Fire

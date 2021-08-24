@@ -1,5 +1,5 @@
 ---
-title: " 冲销物料凭证 "
+title: " Goods Movement Cacel "
 date: 2019-07-05
 draft: false
 author: Small Fire

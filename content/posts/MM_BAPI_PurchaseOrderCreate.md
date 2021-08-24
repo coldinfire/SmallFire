@@ -1,5 +1,5 @@
 ---
-title: "使用BAPI创建Purchase Order"
+title: "使用BAPI操作Purchase Order"
 date: 2020-06-16
 draft: false
 author: Small Fire
@@ -9,12 +9,13 @@ categories:
 
 tags: 
   - MM
-
 ---
+
+## 通过 BAPI  操作 Purchase Order
 
 ### 通过BAPI创建PO
 
-```html
+```ABAP
 FUNCTION zcreate_po.
 *"----------------------------------------------------------------------
 *"*"Local interface:
@@ -130,9 +131,9 @@ CALL FUNCTION 'BAPI_PO_CREATE1'
 ENDFUNCTION.
 ```
 
-### 根据PR创建PO
+### 根据 Purchase Request 创建 Purchase Order
 
-```html
+```ABAP
 LOOP AT PRITEM.
    IF SY-TABIX = 1.
      LS_POHEADER-DOC_TYPE   = 'ZSTL'.
@@ -328,9 +329,9 @@ CALL FUNCTION 'BAPI_PO_CREATE1'
   ENDLOOP.
 ```
 
-### 删除PO
+### 删除和修改 Purchase Order
 
-```html
+```ABAP
 FUNCTION zchange_po.
 *"----------------------------------------------------------------------
 *"*"Local interface:
