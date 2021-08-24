@@ -1,5 +1,5 @@
 ---
-title: "PO 增强"
+title: "Purchase Order增强"
 date: 2019-09-11
 draft: false
 author: Small Fire
@@ -9,18 +9,20 @@ categories:
 
 tags: 
   - MM
+  - BADI
 
 ---
 
 创建采购订单(Purchase Order)时可以通过增强做一些控制。
 
-**BADI:ME_PROCESS_PO_CUST**
+### BADI:ME_PROCESS_PO_CUST
 
-**PROCESS_HEADER：** 对PO抬头数据进行检查
+- PROCESS_HEADER：对PO抬头数据进行检查
 
-**PROCESS_ITEM：** 对PO行项目做一些输入数据检查(限价检查)
+- PROCESS_ITEM：对PO行项目做一些输入数据检查(限价检查)
 
-**POST：** 点击保存时进行数据更新(底价更新)
+- POST：点击保存时进行数据更新(底价更新)
+
 
 #### METHOD： IF_EX_ME_PROCESS_PO_CUST~PROCESS_ITEM.
 

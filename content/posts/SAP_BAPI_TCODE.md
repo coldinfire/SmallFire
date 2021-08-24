@@ -12,15 +12,13 @@ tags:
 
 ---
 
-### BAPI 和 Tcode 执行之间的差异
-
 BAPI 和前台 Tcode 操作大部分是相同的，但是仍然会有一些差异。当使用 BAPI 进行操作时，如果遇到问题，可能需要查找一些资料信息或者 Debug 进行参数排查。
 
-#### Subsequent Debit/Credit
+### Subsequent Debit/Credit
 
 无法使用 BAPI 创建后续借记或贷记凭证。
 
-#### Error message F5A252
+### Error message F5A252
 
 BAPI_INCOMINGINVOICE_CREATE
 
@@ -30,9 +28,10 @@ Discount - is in use(折扣 - 正在使用中)，仅适用于前台事物码。 
 
 可能的解决方案：
 
-您可以在 BADI 功能模块中开发此检查功能：MRMBADI_PAYMENT_TERMS。 Function Module 将在这些发票流程中执行。
+- 您可以在 BADI 功能模块中开发此检查功能：MRMBADI_PAYMENT_TERMS。 Function Module 将在这些发票流程中执行。
 
-#### Withholding tax zero value
+
+### Withholding tax zero value
 
 BAPI_INCOMINGINVOICE_CREATE
 
@@ -47,11 +46,13 @@ BAPI_INCOMINGINVOICE_CREATE
 
 可能的解决方案：
 
-   a) 不使用预扣税码过帐：那么 FI 凭证中的基本金额将为零，但税码也将为空。
+- 不使用预扣税码过帐：那么 FI 凭证中的基本金额将为零，但税码也将为空。
 
-   b) 使用 MIRO 而不是 BAPI 过账。 在 MIRO 中，您可以手动输入 0,00 的预扣税基数，这稍后也会出现在 FI 文档中。
 
-#### 预扣税 (Withholding tax)
+-    使用 MIRO 而不是 BAPI 过账。 在 MIRO 中，您可以手动输入 0,00 的预扣税基数，这稍后也会出现在 FI 文档中。
+
+
+### 预扣税 (Withholding tax)
 
 BAPI_INCOMINGINVOICE_PARK
 
@@ -59,13 +60,13 @@ BAPI_INCOMINGINVOICE_CREATE
 
 尽管在供应商主数据中填写了信息，但如果供应商需要缴纳预扣税，则您必须填写 BAPI 中的 WITHTAXDATA 表。
 
-#### 典型预扣税 (Classic Withholding tax)
+### 典型预扣税 (Classic Withholding tax)
 
 如果你想使用 BAPI_INCOMINGINVOICE_CREATE 创建带有经典预扣税的发票，则必须实现 BADI -> MRM_WT_SPLIT_UPDATE。 不可以将 BAPI 接口表 WITHTAXDATA 与经典预扣税一起使用。 
 
 BAPI 不支持经典预扣税，因为 WITHTAXDATA 结构仅用于扩展预扣税。SAP Note 830717 说明：这是支持的，但只能通过 BADI 实现。
 
-#### 重复发票检查 (Duplicate invoice check)
+### 重复发票检查 (Duplicate invoice check)
 
 BAPI_INCOMINGINVOICE_CREATE
 
@@ -75,13 +76,13 @@ BAPI_INCOMINGINVOICE_CREATE
 
 考虑在客户自己的程序中添加 FM -> MRM_DUPLICATE_INVOICE_CHECK，在调用 FM BAPI_INCOMINGINVOICE_CREATE 之前或在 BAPI 提交之前（调用 FM BAPI_TRANSACTION_COMMIT）。
 
-#### 带有采购订单参考的发票预制凭证 (Invoice park with Purchase order reference)
+### 带有采购订单参考的发票预制凭证 (Invoice park with Purchase order reference)
 
 使用 BAPI，如果基于 GR 的 Invoice 处于 active 状态并且没有已过帐的 GR，则无法暂存发票，请参阅 include -> LMRM_BAPIF23 的 FORM：itemdata_check 中完成的检查。 
 
 在 BAPI 中，不可能像在前台 MIR7 中那样将参考采购订单保存在附加选择表中。
 
-#### 付款条件 (Terms of payment)
+### 付款条件 (Terms of payment)
 
 BAPI_INCOMINGINVOICE_PARK
 
@@ -89,7 +90,7 @@ BAPI_INCOMINGINVOICE_PARK
 
 如果发票在没有采购订单参考的情况下在 MIR7 中创建预制凭证，那么如果添加新的采购订单参考行，付款条款将从采购订单中更新。
 
-#### 一次性供应商银行数据 (One-time vendor bank data)
+### 一次性供应商银行数据 (One-time vendor bank data)
 
 BAPI_INCOMINGINVOICE_POST
 

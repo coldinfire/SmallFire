@@ -184,6 +184,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</loc>
+      
+      <lastmod>2021-06-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</loc>
       
       <lastmod>2021-06-12T00:00:00+00:00</lastmod>
@@ -814,7 +828,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/MM_PurchaseOrder_BAPI/</loc>
+      <loc>https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/</loc>
       
       <lastmod>2020-06-16T00:00:00+00:00</lastmod>
       
@@ -828,7 +842,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/MM_PurchaseRequest_BAPI/</loc>
+      <loc>https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/</loc>
       
       <lastmod>2020-06-04T00:00:00+00:00</lastmod>
       
@@ -1094,7 +1108,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/MM_PurchaseRequest_BAPI2/</loc>
+      <loc>https://coldinfire.github.io/2020/MM_BAPI_PR_TO_PO/</loc>
       
       <lastmod>2020-02-28T00:00:00+00:00</lastmod>
       
@@ -1346,6 +1360,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/BADI/</loc>
+      
+      <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/MM_PurchaseOrder_Enhance/</loc>
       
       <lastmod>2019-09-11T00:00:00+00:00</lastmod>
@@ -1570,7 +1598,21 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MM_GoodMovement_BAPI/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_BAPI_GoodsMovementCancel/</loc>
+      
+      <lastmod>2019-07-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</loc>
       
       <lastmod>2019-07-04T00:00:00+00:00</lastmod>
       
@@ -1612,7 +1654,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/SAP_BS_Workflow/</loc>
+      <loc>https://coldinfire.github.io/2019/SAP_Business_Workflow/</loc>
       
       <lastmod>2019-06-17T00:00:00+00:00</lastmod>
       

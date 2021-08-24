@@ -12,7 +12,7 @@ tags:
 
 ---
 
-#### Purchase Request 内容：
+#### Purchase Request 内容
 
 - PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期
   
@@ -20,9 +20,9 @@ tags:
 
 BAPI: 
 
-- BAPI_PR_CREATE：单个创建PR
+- ME51N：BAPI_PR_CREATE & BAPI_PR_CHANGE
 
-- BAPI_REQUISITION_CREATE：批量创建PR
+- ME51：BAPI_REQUISITION_CREATE & BAPI_REQUISITION_CHANGE
 
 #### BAPI_PR_CREATE 实例
 
@@ -83,9 +83,7 @@ ELSE.
 ENDIF.
 ```
 
-
-
-#### BAPI_REQUISITION_CREATE 实例
+#### BAPI_REQUISITION_CREATE Demo1
 
 ```JS
 FORM create_pr_batch .
@@ -247,5 +245,67 @@ FORM create_pr_batch .
     ENDAT.
   ENDLOOP.
 ENDFORM.                    " CREATE_PR
+```
+
+Demo2
+
+```ABAP
+*&---------------------------------------------------------------------*
+*& BAPI_REQUISITION_CREATE 和 BAPI_PR_CREATE 相关问题查看NOTE
+*& 499627 - FAQ BAPIs for purchase requisitions
+*&---------------------------------------------------------------------*
+REPORT ZLM_CREATE_PR.
+DATA: LT_ITEM     LIKE TABLE OF  BAPIEBANC,
+      LT_RETURN   LIKE TABLE OF  BAPIRETURN,
+      LS_RETURN   LIKE  BAPIRETURN,
+      LS_ITEM     LIKE BAPIEBANC.
+*&如果有增强字段
+DATA: LT_EXTENSIONIN  TYPE TABLE OF  BAPIPAREX .
+DATA: LW_ITM    TYPE BAPI_TE_REQUISITION_ITEM.
+DATA: LV_PR_NO  TYPE BAPIEBANC-PREQ_NO.
+PARAMETERS:P_MATNR1 TYPE MATNR .
+PARAMETERS:P_MATNR2 TYPE MATNR.
+PARAMETERS:P_EKORG  TYPE EKORG .
+PARAMETERS:P_WERKS  TYPE WERKS_D.
+START-OF-SELECTION.
+  CLEAR LT_ITEM[].
+  CLEAR LS_ITEM.
+  LS_ITEM-DOC_TYPE      = 'NB'.              "凭证类型"
+  LS_ITEM-PREQ_ITEM     = '00010'.           "项目"
+  LS_ITEM-MATERIAL      = P_MATNR1.          "商品代码"
+  LS_ITEM-QUANTITY      = 1.                 "数量"
+  LS_ITEM-DELIV_DATE    = SY-DATUM.          "交货日期"
+  LS_ITEM-PLANT         = P_WERKS.           "工厂"
+  LS_ITEM-PURCH_ORG     = P_EKORG.
+
+  APPEND LS_ITEM TO LT_ITEM.
+  IF P_MATNR2 IS NOT INITIAL.
+    LS_ITEM-DOC_TYPE     = 'NB'.           "凭证类型"
+    LS_ITEM-PREQ_ITEM    = '00020'.        "项目"
+    LS_ITEM-MATERIAL     = P_MATNR2.       "商品代码"
+    LS_ITEM-QUANTITY     = 1.              "数量"
+    LS_ITEM-DELIV_DATE   = SY-DATUM.       "交货日期"
+    LS_ITEM-PLANT        = P_WERKS.        "工厂"
+    LS_ITEM-PURCH_ORG    = P_EKORG.
+    APPEND LS_ITEM TO LT_ITEM.
+  ENDIF.
+*  extensionin-structure = 'BAPI_TE_REQUISITION_ITEM'.
+*  extensionin-valuepart1 = lw_itm.
+*  APPEND EXTENSIONIN.
+
+  CALL FUNCTION 'BAPI_REQUISITION_CREATE'
+    IMPORTING
+      NUMBER            = LV_PR_NO
+    TABLES
+      REQUISITION_ITEMS = LT_ITEM
+*     requisition_account_assignment = pr_account
+*     requisition_item_text          = pr_item_id
+      RETURN            = LT_RETURN.
+*      extensionin                    = extensionin[].
+
+  LOOP AT LT_RETURN INTO LS_RETURN WHERE TYPE = 'E' .
+    WRITE LS_RETURN-MESSAGE.
+  ENDLOOP.
+  WRITE LV_PR_NO.
 ```
 

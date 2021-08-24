@@ -16,9 +16,9 @@ tags:
 
 #### 1.库存类型
 
-​      可用库存：可通过BAPI_MATERIAL_AVAILABILITY来获取
+​      可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取
 
-​      当前库存：一般保存在MARD-LABST字段中
+​      当前库存：一般保存在 MARD-LABST 字段中
 
 ​      在途库存：MARC-UMLMC（中转库存）+ MARC-TRAME（在途库存），在途库存是不存在库位关系的
 

@@ -12,21 +12,35 @@ tags:
 
 ---
 
-### 采购申请增强
+### BADIs for Purchasing
 
-#### BADI
+#### Commonly used PR BADIs
 
-ME_PROCESS_REQ_CUST
+| BADI                 | Description                                            |
+| -------------------- | ------------------------------------------------------ |
+| ME_PROCESS_REQ_CUST  | PR BADI                                                |
+| ME_REQ_POSTED        | Purchase Requisition Posted                            |
+| ME_REQ_OI_EXT        | Commitment Update in the Case of External Requisitions |
+| ME_COMMTMNT_REQ_RE_C | Check of Commitment Relevance of Purchase Requisitions |
+| ME_COMMTMNT_REQ_RELE | Check of Commitment Relevance of Purchase Requisitions |
 
-### 采购订单增强
+#### Commonly used PO BADIs
 
-#### BADI
-
-ME_GUI_PO_CUST
-
-ME_PROCESS_PO_CUST
-
-[MM_PO_Enhance](https://coldinfire.github.io/2019/MM_PO_Enhance/)
+| BADI                                                         | Description                                                 |
+| ------------------------------------------------------------ | ----------------------------------------------------------- |
+| [ME_PROCESS_PO_CUST](https://coldinfire.github.io/2019/MM_PurchaseOrder_Enhance/) | PO BADI                                                     |
+| ME_PROCESS_PO_CUST                                           | Enhancements for Processing Enjoy Purchase Order: Customer  |
+| ME_PROCESS_PO                                                | Enhancements for Processing Enjoy Purchase Order: Intern.   |
+| ME_PROCESS_COMP                                              | Processing of Component Default Data at Time of GR: Custome |
+| ME_PO_SC_SRV                                                 | BAdI: Service Tab Page for Subcontracting                   |
+| ME_PO_PRICING_CUST                                           | Enhancements to Price Determination: Customer               |
+| ME_PO_PRICING                                                | Enhancements to Price Determination: Internal               |
+| ME_INFOREC_SEND                                              | Capture/Send Purchase Info Record Changes - Internal Use    |
+| ME_HOLD_PO                                                   | Hold Enjoy Purchase Orders: Activation/Deactivation         |
+| ME_GUI_PO_CUST                                               | Customer's Own Screens in Enjoy Purchase Order              |
+| ME_FIELDSTATUS_STOCK                                         | FM Account Assignment Behavior for Stock PR/PO              |
+| ME_COMMTMNT_PO_REL_C                                         | Check for Commitment-Relevance of Purchase Orders           |
+| ME_COMMTMNT_PO_RELEV                                         | Check for Commitment-Relevance of Purchase Orders           |
 
 ### 物料凭证增强
 
@@ -97,6 +111,6 @@ INVOICE_UPDATE
 
 #### BADI
 
-VENDOR_ADD_DATA
+VENDOR_ADD_DATA：创建供应商
 
 VENDOR_ADD_DATA_CS ：供应商主数据屏幕增强

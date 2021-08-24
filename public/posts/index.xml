@@ -13,7 +13,7 @@
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</guid>
-      <description>BAPI 和 Tcode 执行之间的差异 BAPI 和前台 Tcode 操作大部分是相同的，但是仍然会有一些差异。当使用 BAPI 进行操作时，如果遇到问题，可能需要查找一些资料信息或者 Debug 进行</description>
+      <description>BAPI 和前台 Tcode 操作大部分是相同的，但是仍然会有一些差异。当使用 BAPI 进行操作时，如果遇到问题，可能需要查找一些资料信息或者 Debug 进行参数排查。 Subsequent Debit/Credit 无法使</description>
     </item>
     
     <item>
@@ -32,6 +32,15 @@
       
       <guid>https://coldinfire.github.io/2021/ABAP_ALV_Screen_Layout/</guid>
       <description>屏幕选择 Layout &amp;#34; 选择屏幕参数 &amp;#34; PARAMETERS: p_disva TYPE slis_vari MEMORY ID zvari. &amp;#34; 屏幕事件定义 &amp;#34; AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_disva. PERFORM variant_search CHANGING p_disva. &amp;#34; Search Help &amp;#34; Function 方法 FORM variant_search CHANGING cv_variant. DATA: zlv_f4_exit TYPE c, zls_variant TYPE disvariant. CLEAR:zls_variant. zls_variant-report = syst-repid. CALL FUNCTION &amp;#39;REUSE_ALV_VARIANT_F4&amp;#39; EXPORTING is_variant = zls_variant i_save = &amp;#39;A&amp;#39;</description>
+    </item>
+    
+    <item>
+      <title> BABI-BADI-RFC-BDC 区别 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -333,20 +342,20 @@
     
     <item>
       <title>使用BAPI创建Purchase Order</title>
-      <link>https://coldinfire.github.io/2020/MM_PurchaseOrder_BAPI/</link>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/</link>
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_PurchaseOrder_BAPI/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/</guid>
       <description>通过BAPI创建PO FUNCTION zcreate_po. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local interface: *&amp;#34; IMPORTING *&amp;#34; VALUE(CALLNO) TYPE ZCALLNO *&amp;#34; VALUE(DOC_TYPE) LIKE BAPIMEPOHEADER-DOC_TYPE DEFAULT &amp;#39;ZIPR&amp;#39; *&amp;#34; VALUE(PURCH_ORG) LIKE BAPIMEPOHEADER-PURCH_ORG DEFAULT &amp;#39;POIC&amp;#39; *&amp;#34; VALUE(PUR_GROUP) LIKE BAPIMEPOHEADER-PUR_GROUP *&amp;#34; VALUE(VENDOR) LIKE BAPIMEPOHEADER-VENDOR *&amp;#34; VALUE(COMP_CODE) LIKE BAPIMEPOHEADER-COMP_CODE DEFAULT &amp;#39;GF50&amp;#39; *&amp;#34; VALUE(DZTERM) TYPE DZTERM DEFAULT &amp;#39;0001&amp;#39; *&amp;#34; EXPORTING *&amp;#34; VALUE(PO_NUMBER) LIKE BAPIMEPOHEADER-PO_NUMBER *&amp;#34; VALUE(FLAG) LIKE BAPIRET2-TYPE *&amp;#34; VALUE(MESSAGE) LIKE BAPIRET2-MESSAGE *&amp;#34; TABLES *&amp;#34;</description>
     </item>
     
     <item>
       <title>使用BAPI创建Purchase Request</title>
-      <link>https://coldinfire.github.io/2020/MM_PurchaseRequest_BAPI/</link>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_PurchaseRequest_BAPI/</guid>
-      <description>Purchase Request 内容： PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期 PR Item : 物料编号、短文本、发货日期、采购订单数量、采购订单价格、分类 BAPI: BAP</description>
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/</guid>
+      <description>Purchase Request 内容 PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期 PR Item : 物料编号、短文本、发货日期、采购订单数量、采购订单价格、分类 BAPI: ME51</description>
     </item>
     
     <item>
@@ -503,12 +512,12 @@
     </item>
     
     <item>
-      <title>创建PR BAPI_REQUISITION_CREATE</title>
-      <link>https://coldinfire.github.io/2020/MM_PurchaseRequest_BAPI2/</link>
+      <title>PR转PO</title>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_PR_TO_PO/</link>
       <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_PurchaseRequest_BAPI2/</guid>
-      <description>引用链接：https://mp.weixin.qq.com/s/2nt_V5dpgxkspDQsldJJ3A 创建PR BAPI_REQUISITION_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; BAPI_REQUISITION_CREATE 和 BAPI_PR_CREATE 相关问题查看</description>
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_PR_TO_PO/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -638,12 +647,12 @@
     </item>
     
     <item>
-      <title>PO 增强</title>
+      <title>Purchase Order增强</title>
       <link>https://coldinfire.github.io/2019/MM_PurchaseOrder_Enhance/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_PurchaseOrder_Enhance/</guid>
-      <description>创建采购订单(Purchase Order)时可以通过增强做一些控制。 BADI:ME_PROCESS_PO_CUST PROCESS_HEADER： 对PO抬头数据进行检查 PROCESS_I</description>
+      <description>创建采购订单(Purchase Order)时可以通过增强做一些控制。 BADI:ME_PROCESS_PO_CUST PROCESS_HEADER：对PO抬头数据进行检查 PROCESS_I</description>
     </item>
     
     <item>
@@ -697,7 +706,7 @@
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Enhance_LIST/</guid>
-      <description>采购申请增强 BADI ME_PROCESS_REQ_CUST 采购订单增强 BADI ME_GUI_PO_CUST ME_PROCESS_PO_CUST MM_PO_Enhance 物料凭证增强 BADI MB_DOCUMENT_BADI User Exit MBCF0002 ：实现功能 当参照预留过帐时，检查填入数量是否小于预留数量 移动类型是 *** 的时候，查看 RSNUM</description>
+      <description>BADIs for Purchasing Commonly used PR BADIs BADI Description ME_PROCESS_REQ_CUST PR BADI ME_REQ_POSTED Purchase Requisition Posted ME_REQ_OI_EXT Commitment Update in the Case of External Requisitions ME_COMMTMNT_REQ_RE_C Check of Commitment Relevance of Purchase Requisitions ME_COMMTMNT_REQ_RELE Check of Commitment Relevance of Purchase Requisitions Commonly used PO BADIs BADI Description ME_PROCESS_PO_CUST PO BADI ME_PROCESS_PO_CUST Enhancements for Processing Enjoy Purchase Order: Customer ME_PROCESS_PO Enhancements for Processing Enjoy Purchase Order: Intern. ME_PROCESS_COMP Processing of Component</description>
     </item>
     
     <item>
@@ -773,11 +782,20 @@
     </item>
     
     <item>
+      <title> 冲销物料凭证 </title>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_GoodsMovementCancel/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_GoodsMovementCancel/</guid>
+      <description>全部冲销 (Full reversal) 如果必须取消整个物料凭证，则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。 BAPI 参数 Import MATERIALDOCUMENT：Number of a Material Document MA</description>
+    </item>
+    
+    <item>
       <title> BAPI_GOODSMVT_CREATE 解析及示例 </title>
-      <link>https://coldinfire.github.io/2019/MM_GoodMovement_BAPI/</link>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</link>
       <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_GoodMovement_BAPI/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</guid>
       <description>Inventory Management 使用的 BAPI 解析 使用到的 BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证的以下信息</description>
     </item>
     
@@ -801,10 +819,10 @@
     
     <item>
       <title>业务流程</title>
-      <link>https://coldinfire.github.io/2019/SAP_BS_Workflow/</link>
+      <link>https://coldinfire.github.io/2019/SAP_Business_Workflow/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAP_BS_Workflow/</guid>
+      <guid>https://coldinfire.github.io/2019/SAP_Business_Workflow/</guid>
       <description>PP流程 MM01(Material)-&amp;gt;CS01(BOM)-&amp;gt;CR01(WORKCENTERY)-&amp;gt;CA01(ROUTING)-&amp;gt;MD11(PLANNED ORDER)-&amp;gt; COO1(PRODUCTION ORDERS)也可通过CO41/CO40转换计划单得来. COMAC:对生产订单进行可用性检查 COHVOMPRINT:打印订单 M</description>
     </item>
     
@@ -1201,7 +1219,7 @@
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_InventoryManagement/</guid>
-      <description>一、基本介绍 1.库存类型 ​ 可用库存：可通过BAPI_MATERIAL_AVAILABILITY来获取 ​ 当前库存：一般保存在MARD-LABS</description>
+      <description>一、基本介绍 1.库存类型 ​ 可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取 ​ 当前库存：一般保存在 MARD-LABST 字段中 ​ 在途库存：MARC-UMLMC（中转库存）+ MARC-TR</description>
     </item>
     
     <item>

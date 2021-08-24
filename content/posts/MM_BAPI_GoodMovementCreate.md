@@ -40,7 +40,7 @@ And two in combination with for the transactional handling:
 
 - BAPI 还提供了测试运行功能，传入  `TESTRUN = 'X'` 
 
-参数规则
+输入参数规则
 
 - Material number 18-character with leading zeros
 - Batches with uppercase letters
@@ -60,9 +60,15 @@ And two in combination with for the transactional handling:
 
 根据 Goods Movement Code 输入 movement indicator (ITEM-MVT_IND)
 
-- GM_Code 01 : B
-- GM_Code 02 : F
-- Others GM_Code : blank.
+| Fixed Value | Descript                                                   |
+| ----------- | ---------------------------------------------------------- |
+| SPACE       | Goods movement w/o reference                               |
+| B           | Goods movement for purchase order                          |
+| F           | Goods movement for production order                        |
+| L           | Goods movement for delivery note                           |
+| K           | Goods movement for kanban requirement (WM - internal only) |
+| O           | Subsequent adjustment of "material-provided" consumption   |
+| W           | Subsequent adjustment of proportion/product unit material  |
 
 ### Example Code for calling the GM BAPI to post a 561 Goods Movement
 
@@ -71,14 +77,14 @@ And two in combination with for the transactional handling:
 *& Report  Z_BAPI_GDSMVT
 *&---------------------------------------------------------------------*
 REPORT  z_bapi_gdsmvt.
-DATA: ls_mmdochdr LIKE bapi2017_gm_head_01,
-      lt_gm       TYPE STANDARD TABLE OF bapi2017_gm_item_create,
-      ls_gm       LIKE bapi2017_gm_item_create,
-      lt_ret      TYPE STANDARD TABLE OF bapiret2,
-      ls_ret      LIKE bapiret2,
-      ls_hdr      LIKE bapi2017_gm_head_ret,
-      ls_ser      LIKE bapi2017_gm_serialnumber,
-      lt_ser      LIKE  STANDARD TABLE OF bapi2017_gm_serialnumber.
+DATA: ls_head   LIKE bapi2017_gm_head_01,
+      lt_item   TYPE STANDARD TABLE OF bapi2017_gm_item_create,
+      ls_item   LIKE bapi2017_gm_item_create,
+      lt_return TYPE STANDARD TABLE OF bapiret2,
+      ls_return LIKE bapiret2,
+      ls_headret LIKE bapi2017_gm_head_ret,
+      ls_serial   LIKE bapi2017_gm_serialnumber,
+      lt_serial   LIKE  STANDARD TABLE OF bapi2017_gm_serialnumber.
 PARAMETERS: p_pstdat LIKE bapi2017_gm_head_01-pstng_date,
             p_docdat LIKE bapi2017_gm_head_01-doc_date,
             p_matnr  LIKE bapi2017_gm_item_create-material,
@@ -88,30 +94,31 @@ PARAMETERS: p_pstdat LIKE bapi2017_gm_head_01-pstng_date,
             p_batch  LIKE bapi2017_gm_item_create-batch.
 START-OF-SELECTION.
 * Prepare Data for Goods Movement
-  ls_mmdochdr-pstng_date = p_pstdat.
-  ls_mmdochdr-doc_date = p_docdat.
- 
-  ls_gm-move_type = '561'.
-  ls_gm-material = p_matnr.
-  ls_gm-plant = p_plant.
-  ls_gm-stge_loc = p_sloc.
-  ls_gm-entry_qnt = p_quant.
-  ls_gm-batch = p_batch.
-  APPEND ls_gm TO lt_gm.
-  CLEAR ls_gm.
+  ls_head-pstng_date = p_pstdat.
+  ls_head-doc_date = p_docdat.
+  ls_head-pr_uname = sy-uname.
+
+  ls_item-material = p_matnr.
+  ls_item-plant = p_plant.
+  ls_item-stge_loc = p_sloc.
+  ls_item-move_type = '561'.
+  ls_item-entry_qnt = p_quant.
+  ls_item-batch = p_batch.
+  APPEND ls_item TO lt_item.
+  CLEAR ls_item.
 * Call BAPI
   CALL FUNCTION 'BAPI_GOODSMVT_CREATE'
     EXPORTING
-      goodsmvt_header  = ls_mmdochdr
+      goodsmvt_header  = ls_header
       goodsmvt_code    = '05'
     IMPORTING
-      goodsmvt_headret = ls_hdr
+      goodsmvt_headret = ls_headret
     TABLES
-      goodsmvt_item    = lt_gm
-      return           = lt_ret.
+      goodsmvt_item    = lt_item
+      return           = lt_return.
 * If no error, commit
-  IF lt_ret IS INITIAL.
-    WRITE: 'Material Document posted:', ls_hdr-mat_doc, ' ', ls_hdr-doc_year.
+  IF lt_return IS INITIAL.
+    WRITE: 'Material Document posted:', ls_headret-mat_doc, ' ', ls_headret-doc_year.
     CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
       EXPORTING
         wait = 'X'.
@@ -120,10 +127,8 @@ START-OF-SELECTION.
     CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'.
 *   Alternative ROLLBACK WORK.
     WRITE: 'Error during posting Material document:', /.
-    LOOP AT lt_ret INTO ls_ret.
-      WRITE: ls_ret-type,ls_ret-id,ls_ret-number,ls_ret-message,ls_ret-log_no,
-             ls_ret-log_msg_no,ls_ret-message_v1,ls_ret-message_v2,ls_ret-message_v3,
-             ls_ret-message_v4.
+    LOOP AT lt_return INTO ls_return.
+      ...
     ENDLOOP.
   ENDIF.
 ```
@@ -182,8 +187,6 @@ Special stock (e.g. sales order, project, vendor etc.)
 
 - SPEC_STOCK (Special stock indicator for Project stock)
 - WBS_ELEM & VAL_WBS_ELEM
-
-### BAPI_GOODSMVT_CANCEL 冲销物料凭证
 
 
 
