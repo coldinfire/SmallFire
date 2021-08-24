@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> BAPI和Tcode执行之间的差异 </title>
+      <link>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</guid>
+      <description>BAPI 和 Tcode 执行之间的差异 BAPI 和前台 Tcode 操作大部分是相同的，但是仍然会有一些差异。当使用 BAPI 进行操作时，如果遇到问题，可能需要查找一些资料信息或者 Debug 进行</description>
+    </item>
+    
     <item>
       <title>SAP DOI 直接下载文件到本地</title>
       <link>https://coldinfire.github.io/2021/ABAP_EXCEL_ALV/</link>
@@ -764,12 +773,12 @@
     </item>
     
     <item>
-      <title> BAPI_GOODSMVT_CREATE Demo </title>
-      <link>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</link>
+      <title> BAPI_GOODSMVT_CREATE 解析及示例 </title>
+      <link>https://coldinfire.github.io/2019/MM_GoodMovement_BAPI/</link>
       <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_GoodsMVT_BAPI/</guid>
-      <description>Inventory Management使用的BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证</description>
+      <guid>https://coldinfire.github.io/2019/MM_GoodMovement_BAPI/</guid>
+      <description>Inventory Management 使用的 BAPI 解析 使用到的 BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证的以下信息</description>
     </item>
     
     <item>

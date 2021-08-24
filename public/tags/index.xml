@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BAPI</title>
+      <link>https://coldinfire.github.io/tags/BAPI/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/BAPI/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>abaputils</title>
       <link>https://coldinfire.github.io/tags/abaputils/</link>
@@ -103,15 +112,6 @@
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/FICO/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>BAPI</title>
-      <link>https://coldinfire.github.io/tags/BAPI/</link>
-      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/BAPI/</guid>
       <description></description>
     </item>
     

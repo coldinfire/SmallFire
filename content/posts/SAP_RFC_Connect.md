@@ -88,5 +88,5 @@ After the RFCs are created (or sometimes in the case of already existing RFCs) w
 
 ### Step 4: What went wrong?
 
-If somehow the RFC connection is not established successfully, we can check the logs (to analyze the issue) at OS level in the 'WORK' director. There we can find the log files with the naming convention as "*dev_rfc<sequence no.>*" and the error description can be read from such files.
+If somehow the RFC connection is not established successfully, we can check the logs (to analyze the issue) at OS level in the 'WORK' director. There we can find the log files with the naming convention as "`dev_rfc<sequence no.>`" and the error description can be read from such files.
 
