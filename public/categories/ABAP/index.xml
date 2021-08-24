@@ -17,12 +17,12 @@
     </item>
     
     <item>
-      <title>SAP DOI 直接下载文件到本地</title>
+      <title> 查询 DBCO 执行结果 </title>
       <link>https://coldinfire.github.io/2021/ABAP_EXCEL_ALV/</link>
       <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_EXCEL_ALV/</guid>
-      <description>使用 EXCEL 导出 ALV 数据 SAP DEMO：SAPRDEMOEXCEL_EXPORT CLASS 定义和实现</description>
+      <description>查询 DBCO 执行结果 Step1：执行程序 ADBC_QUERY DB Connection Name：DBCO 中配置的数据库连接名称 Table Name：DBCO 配置连接的数据库对应数据表的表名称 Ste</description>
     </item>
     
     <item>
