@@ -1,5 +1,5 @@
 ---
-title: "RFQ"
+title: "RFQ 流程解析"
 date: 2019-03-18
 draft: false
 author: Small Fire
@@ -50,8 +50,6 @@ Create Vendor Address Screen:
 
 维护工厂的条件维护：SPRO > IMG > Logistics > MM > Purchasing > Conditions > Define Condition Control at Plant level
 
-
-
 ### Set Tolerance Limits For Price Variance
 
 - SPR > IMG > MM > Purchasing > Purchase Order > Set Tolerance Limits For Price Var
@@ -72,19 +70,19 @@ Enter Valid time,Vendor,Purchasing Org,Fix(固定源),Blk(供应商阻止采购�
 
 - SPRO > IMG > Logistics > MM > Purchasing > Purchase Requisition > Create
 
-0.Header note:部门账号，授权部门签名，交货说明，条款和条件
+Header note:部门账号，授权部门签名，交货说明，条款和条件
 
-1.Select document type for PR
+Select document type for PR
 
- 2.Enter material code
+Enter material code
 
- 3.Enter quantity of material
+Enter quantity of material
 
- 4.Update delivery date
+Update delivery date
 
- 5.Enter respective plant code
+Enter respective plant code
 
- 6.Enter corresponding storage location
+Enter corresponding storage location
 
- 7.Enter requisitioner use id
+Enter requisition use id
 

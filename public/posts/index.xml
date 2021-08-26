@@ -256,7 +256,7 @@
       <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_MaterialSaveData/</guid>
-      <description>程序实例 REPORT ZUPDATE_MATNR. data: headdata type bapimathead, &amp;#34; 表头数据 &amp;#34; clientdata type bapi_mara, &amp;#34; 基本数据 &amp;#34; clientdatax type bapi_marax. &amp;#34; 变更数据标识 &amp;#34; data: materialdescription type table of bapi_makt with header line. data: unitsofmeasure type table of bapi_marm with header line. data: unitsofmeasurex type table of bapi_marmx with header line. data: pr_unit type meins, &amp;#34; 基本</description>
+      <description>程序实例 REPORT ZUPDATE_MATNR. &amp;#34;$. Region BAPI Data DATA gs_bapimathead TYPE bapimathead. &amp;#34; 物料号 物料类型 物料视图表 &amp;#34; DATA gs_bapi_mara TYPE bapi_mara. &amp;#34; MARA数据-基本视图数据 &amp;#34; DATA gs_bapi_marax TYPE bapi_marax. &amp;#34; 变更数据标识 &amp;#34; DATA gs_bapi_mvke TYPE bapi_mvke. &amp;#34; 销售视图 &amp;#34; DATA</description>
     </item>
     
     <item>
@@ -1223,7 +1223,7 @@
     </item>
     
     <item>
-      <title>Info Record</title>
+      <title>Info Record 使用</title>
       <link>https://coldinfire.github.io/2019/MMInfoRecord/</link>
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -1232,7 +1232,7 @@
     </item>
     
     <item>
-      <title>RFQ</title>
+      <title>RFQ 流程解析</title>
       <link>https://coldinfire.github.io/2019/MMPurchaseRFQ/</link>
       <pubDate>Mon, 18 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -1241,7 +1241,7 @@
     </item>
     
     <item>
-      <title>有库存的采购</title>
+      <title>有库存的采购流程解析</title>
       <link>https://coldinfire.github.io/2019/MMPurchase/</link>
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -1268,7 +1268,7 @@
     </item>
     
     <item>
-      <title>供应商(Vendor)</title>
+      <title>供应商(Vendor)管理</title>
       <link>https://coldinfire.github.io/2019/MMVender/</link>
       <pubDate>Wed, 13 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -1277,7 +1277,7 @@
     </item>
     
     <item>
-      <title>MM 物料主数据创建</title>
+      <title>MM 物料主数据管理</title>
       <link>https://coldinfire.github.io/2019/MMMasterData/</link>
       <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -1340,12 +1340,12 @@
     </item>
     
     <item>
-      <title>MM Summary</title>
+      <title>MM 概要</title>
       <link>https://coldinfire.github.io/2019/MMSummary/</link>
       <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MMSummary/</guid>
-      <description>MM概要 业务 (采购询价 ME41 / 报价 ME47 录入、ME49 报价比较)&amp;mdash;-&amp;gt; 采购申请 (PR)&amp;mdash;-&amp;gt; 采购订单 (PO)&amp;mdash;-&amp;gt; 发送采购单给供应商 &amp;lt; ME9F&amp;gt;&amp;mdash;-&amp;gt; 采购收货 (产生物料</description>
+      <description>包含业务 (采购询价 ME41 / 报价 ME47 录入、ME49 报价比较)&amp;mdash;-&amp;gt; 采购申请 (PR)&amp;mdash;-&amp;gt; 采购订单 (PO)&amp;mdash;-&amp;gt; 发送采购单给供应商 &amp;lt; ME9F&amp;gt;&amp;mdash;-&amp;gt; 采购收货 (产生物料凭证</description>
     </item>
     
     <item>

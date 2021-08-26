@@ -16,124 +16,73 @@ tags:
 
 ```ABAP
 REPORT ZUPDATE_MATNR.
-data: headdata      type bapimathead,     " 表头数据 "
-      clientdata    type bapi_mara,       " 基本数据 "
-      clientdatax   type bapi_marax.      " 变更数据标识 "
-data: materialdescription type table of bapi_makt with header line.
-data: unitsofmeasure type table of bapi_marm with header line.      
-data: unitsofmeasurex type table of bapi_marmx with header line.    
-data: pr_unit type meins,  " 基本单位 "
-      pr_unit2 type meins, " 重量单位 "
-      return type bapiret2.
-data: begin of msg occurs 0,
-  material type matnr,
-  description type maktx,
-  message(97) type c,
-end of msg.
-data:begin of itab occurs 0,
-  head_material type matnr,      " 物料号 "
-  head_ind_sector type mbrsh,    " 行业领域 "
-  head_matl_type type mtart,     " 物料类型 "
-  t_makt_matl_desc type maktx,   " 物料描述 "
-  mara_base_uom type meins,      " 基本计量单位 "
-  mara_matl_group type matkl,    " 物料组 "
-  t_old_mat_no type bismt,       " 型号 "
-  mara_division type spart,      " 产品组 "
-  t_dsn_office type labor,       " 实验室 / 办公室 "
-  mara_item_cat type mtpos_mara, " 普通项目组类别 "
-  t_marm_gross_wt type brgew,    " 毛重 "
-  mara_unit_of_wt type gewei,    " 重量单位 "
-  mara_net_weight type ntgew,    " 净重 "
-  mara_size_dim type groes,      " 大小 / 量纲 "
-end of itab.
-data itab1 type itab occurs 0 with header line.
+"$. Region BAPI Data
+DATA gs_bapimathead TYPE bapimathead. " 物料号 物料类型 物料视图表 "
+DATA gs_bapi_mara   TYPE bapi_mara.   " MARA数据-基本视图数据 "
+DATA gs_bapi_marax  TYPE bapi_marax.  " 变更数据标识 "
+DATA gs_bapi_mvke   TYPE bapi_mvke.   " 销售视图 "
+DATA gs_bapi_mvkex  TYPE bapi_mvkex.
+DATA gs_bapi_marc   TYPE bapi_marc.   " MRP视图数据 "
+DATA gs_bapi_marcx  TYPE bapi_marcx.
+DATA gs_bapi_mbew   TYPE bapi_mbew.   " 会计成本视图 "
+DATA gs_bapi_mbewx  TYPE bapi_mbewx.
+DATA gs_return      TYPE bapiret2.    " 返回参数 "
 
-PERFORM putdata.
-PERFORM run.
+DATA gt_bapi_makt   LIKE TABLE OF bapi_makt WITH HEADER LINE.   " 物料描述 "
+DATA gt_bapi_marm   LIKE TABLE OF bapi_marm WITH HEADER LINE.   " 物料的单位换算 "
+DATA gt_bapi_marmx  LIKE TABLE OF bapi_marmx WITH HEADER LINE.
+DATA gt_bapi_mlan   LIKE TABLE OF bapi_mlan WITH HEADER LINE .  " 税分类 "
+DATA gt_bapi_mltx   LIKE TABLE OF bapi_mltx WITH HEADER LINE .  " 文本数据 "
+DATA gt_return1 LIKE TABLE OF  bapi_matreturn2 WITH HEADER LINE." 返回信息 "
 
-FORM run.
-loop at itab.
-  clear headdata.
-  headdata-material       = itab-head_material.
-  headdata-matl_type      = itab-head_matl_type.
-  headdata-ind_sector     = itab-head_ind_sector.
-  headdata-basic_view     = 'X'.  " 基本数据视图 "
-  clear pr_unit,pr_unit2.
-  PERFORM frm_unit using itab-mara_base_uom changing pr_unit.    " 基本单位 "
-  PERFORM frm_unit using itab-mara_unit_of_wt changing pr_unit2. " 重量单位 "
-  clear clientdata.
-  clientdata-base_uom = pr_unit.                 " 基本计量单位 "
-  clientdata-matl_group = itab-mara_matl_group.  " 物料组 "
-  clientdata-old_mat_no = itab-t_old_mat_no.     " 型号 "
-  clientdata-division = itab-mara_division.      " 产品组 "
-  clientdata-dsn_office = itab-t_dsn_office.     " 实验室 / 办公室 "
-  clientdata-item_cat = itab-mara_item_cat.      " 普通项目组类别 "
-  clientdata-unit_of_wt = pr_unit2.              " 重量单位 "
-  clientdata-net_weight = itab-mara_net_weight.  " 净重 "
-  clientdata-size_dim = itab-mara_size_dim.      " 大小 / 量纲 "
-  " bapi_mara 的复选框结构 "
-  clear clientdatax.
-  clientdatax-base_uom = 'X'.    
-  clientdatax-matl_group = 'X'.  
-  clientdatax-old_mat_no = 'X'.  
-  clientdatax-division = 'X'.    
-  clientdatax-dsn_office = 'X'.  
-  clientdatax-item_cat = 'X'.    
-  clientdatax-unit_of_wt = 'X'.  
-  clientdatax-net_weight = 'X'.  
-  clientdatax-size_dim = 'X'.    
-  " 计量单位
-  unitsofmeasure-alt_unit = pr_unit.    " 替换单位 (必须为基本计量单位，否则会报错：没有转换因子) "
-  unitsofmeasure-numerator = 1.         " 分子 "
-  unitsofmeasure-denominatr = 1.        " 分母 "
-  unitsofmeasure-gross_wt = itab-t_marm_gross_wt. " 毛重 "
-  unitsofmeasure-unit_of_wt = pr_unit2. " 填充毛重时，注意此处需要添加重量单位，否则会提示没有指定单位 "
-  append unitsofmeasure.
-  clear unitsofmeasure.
-  unitsofmeasurex-alt_unit = pr_unit.   " 注意此处不是填充 'X' "
-  unitsofmeasurex-numerator = 'X'.
-  unitsofmeasurex-denominatr = 'X'.
-  unitsofmeasurex-gross_wt = 'X'.
-  unitsofmeasurex-unit_of_wt = 'X'.     " 此处填充 'X' "
-  if unitsofmeasurex-alt_unit is not initial and unitsofmeasurex-numerator is not initial 
-                                             and unitsofmeasurex-denominatr is not initial.
-    append unitsofmeasurex.
-  endif.
-  clear unitsofmeasurex.
-  " 物料描述
-  clear materialdescription[].
-  materialdescription-langu_iso = 'ZH'.
-  materialdescription-matl_desc = itab-t_makt_matl_desc.
-  append materialdescription.
-  clear return.
-  call function 'BAPI_MATERIAL_SAVEDATA'
-    exporting
-      headdata            = headdata
-      clientdata          = clientdata
-      clientdatax         = clientdatax
-    importing
-      return              = return
-    tables
-      materialdescription = materialdescription[]
-      unitsofmeasure = unitsofmeasure[]
-      unitsofmeasurex = unitsofmeasurex[].
-  if return-type ne 'E'.
-    call function 'BAPI_TRANSACTION_COMMIT'
-      exporting
-        wait          = 'X' .
-  else.
-    call function 'bapi_transaction_rollback'.
-  endif.
-endloop.
-write : return-type,return-message.
-ENDFORM.
-FORM putdata.
-  itab-head_material = '10101010105'.
-  itab-head_ind_sector = 'M'.          
-  itab-head_matl_type = 'zroh'.        " 物料类型 "
-  itab-mara_base_uom = 'EA'.           " 基本计量单位 "
-  itab-mara_matl_group = '10235'.      " 物料组 "
-  itab-t_old_mat_no = 'testbapi05'.    " 型号 "
+DATA:gs_bapi_te_mara  LIKE bapi_te_mara,     " 自定i增强字段:客户级别的物料数据 "
+     gs_bapi_te_marax LIKE bapi_te_marax.
+DATA:gs_bapi_te_e1mvke  LIKE bapi_te_e1mvke, " 自定义增强字段：销售视图 "
+     gs_bapi_te_e1mvkex LIKE bapi_te_e1mvkex.
+DATA:gt_extensionin  LIKE TABLE OF  bapiparex WITH HEADER LINE, " 附加结构 "
+     gt_extensioninx LIKE TABLE OF  bapiparexx WITH HEADER LINE.
+DATA:l_valuepart(960),l_valuepartx(960).
+
+DATA: pr_unit TYPE meins,  " 基本单位 "
+      pr_unit2 TYPE meins. " 重量单位 "
+"$. Endregion BAPI Data
+
+"$. Region Structure
+DATA:BEGIN OF itab OCCURS 0,
+  head_material TYPE matnr,      " 物料号 "
+  head_ind_sector TYPE mbrsh,    " 行业领域 "
+  head_matl_type TYPE mtart,     " 物料类型 "
+  t_makt_matl_desc TYPE maktx,   " 物料描述 "
+  mara_base_uom TYPE meins,      " 基本计量单位 "
+  mara_matl_group TYPE matkl,    " 物料组 "
+  t_old_mat_no TYPE bismt,       " 型号 "
+  mara_division TYPE spart,      " 产品组 "
+  t_dsn_office TYPE labor,       " 实验室 / 办公室 "
+  mara_item_cat TYPE mtpos_mara, " 普通项目组类别 "
+  t_marm_gross_wt TYPE brgew,    " 毛重 "
+  mara_unit_of_wt TYPE gewei,    " 重量单位 "
+  mara_net_weight TYPE ntgew,    " 净重 "
+  mara_size_dim TYPE groes,      " 大小 / 量纲 "
+  zz_model TYPE char30,          " 屏幕增强字段 "
+  zz_drawing TYPE char27,        " 屏幕增强字段 "
+  zz_color TYPE char20,          " 屏幕增强字段 "
+END OF itab.
+DATA itab1 TYPE itab OCCURS 0 WITH HEADER LINE.
+"$. Endregion Structure
+START-OF-SELECTION.
+  PERFORM prepare_data.
+  PERFORM excute_bapi.
+*&---------------------------------------------------------------------*
+*&      Form  PREPARE_DATA
+*&---------------------------------------------------------------------*
+FORM prepare_data .
+  DATA : lv_matnr TYPE char18.
+  itab-head_material = '1500-620'.
+  itab-head_ind_sector = 'M'.
+  itab-head_matl_type = 'HIBE'.        " 物料类型 "
+  itab-mara_base_uom = 'CSE'.           " 基本计量单位 "
+  itab-mara_matl_group = '010'.      " 物料组 "
+  itab-t_old_mat_no = 'test007'.       " 型号 "
   itab-mara_division = '00'.           " 产品组 "
   itab-t_dsn_office = '001'.           " 实验室 / 办公室 "
   itab-mara_item_cat = 'NORM'.         " 普通项目组类别 "
@@ -142,29 +91,148 @@ FORM putdata.
   itab-mara_size_dim = '2*3'.          " 大小 / 量纲 "
   itab-t_marm_gross_wt = 22 / 10.      " 毛重 "
   itab-mara_unit_of_wt = 'KG'.         " 重量单位 "
-  itab-t_makt_matl_desc = 'test mat'.  " 物料描述 "
-  call function 'CONVERSION_EXIT_ALPHA_INPUT'"
-    exporting
+  itab-t_makt_matl_desc = '10W40 MOTOR OIL CASE test'.  " 物料描述 "
+  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+    EXPORTING
       input  = itab-head_material
-    importing
+    IMPORTING
       output = itab-head_material.
-  append itab.
-ENDFORM.
-* 获取基本计量单位内码
-FORM frm_unit using unit1 changing unit2.
-  call function 'CONVERSION_EXIT_CUNIT_INPUT'
-    exporting      
+  lv_matnr = itab-head_material.
+  TRANSLATE lv_matnr TO UPPER CASE.
+  itab-head_material = lv_matnr.
+  APPEND itab.
+ENDFORM.                    " PREPARE_DATA "
+*&---------------------------------------------------------------------*
+*&      Form  EXCUTE_BAPI
+*&---------------------------------------------------------------------*
+FORM excute_bapi .
+  LOOP AT itab.
+    CLEAR: gs_bapimathead,gs_bapi_mara,gs_bapi_marax,gs_bapi_marc,
+    gs_bapi_marcx,gs_bapi_mbew,gs_bapi_mbewx,gs_return.
+    CLEAR: gt_bapi_makt,gt_bapi_marm,gt_bapi_marmx,gt_bapi_mlan,gt_return1.
+    REFRESH:gt_bapi_makt,gt_bapi_marm,gt_bapi_marmx,gt_bapi_mlan,gt_return1.
+    " 表头控制数据 "
+    gs_bapimathead-material   = itab-head_material.  " 物料编码 "
+    gs_bapimathead-matl_type  = itab-head_matl_type. " 物料类型 "
+    gs_bapimathead-ind_sector = itab-head_ind_sector." 行业领域 "
+    gs_bapimathead-basic_view = 'X'.      " 基本数据视图 "
+    gs_bapimathead-purchase_view = 'X'.   " 采购视图 "
+    gs_bapimathead-mrp_view = 'X'.        " MRP数据视图 "
+*   gs_bapimathead-work_sched_view = 'X'. " 工作计划 "
+*   gs_bapimathead-quality_view    = 'X'. " 质量管理视图 "
+*   gs_bapimathead-storage_view    = 'X'. " 工厂存储 "
+*   gs_bapimathead-sales_view      = 'X'. " 销售 "
+*   gs_bapimathead-account_view    = 'X'. " 会计 "
+*   gs_bapimathead-cost_view       = 'X'. " 成本 "
+    CLEAR: pr_unit,pr_unit2.
+    PERFORM frm_unit USING itab-mara_base_uom CHANGING pr_unit.    " 基本单位 "
+    PERFORM frm_unit USING itab-mara_unit_of_wt CHANGING pr_unit2. " 重量单位 "
+    " 基本数据视图数据 "
+    gs_bapi_mara-base_uom = pr_unit.                 " 基本计量单位 "
+    gs_bapi_mara-matl_group = itab-mara_matl_group.  " 物料组 "
+    gs_bapi_mara-old_mat_no = itab-t_old_mat_no.     " 型号 "
+    gs_bapi_mara-division = itab-mara_division.      " 产品组 "
+    gs_bapi_mara-dsn_office = itab-t_dsn_office.     " 实验室 / 办公室 "
+    gs_bapi_mara-item_cat = itab-mara_item_cat.      " 普通项目组类别 "
+    gs_bapi_mara-unit_of_wt = pr_unit2.              " 重量单位 "
+    gs_bapi_mara-net_weight = itab-mara_net_weight.  " 净重 "
+    gs_bapi_mara-size_dim = itab-mara_size_dim.      " 大小 / 量纲 "
+    gs_bapi_marax-base_uom = 'X'.
+    gs_bapi_marax-matl_group = 'X'.
+    gs_bapi_marax-old_mat_no = 'X'.
+    gs_bapi_marax-division = 'X'.
+    gs_bapi_marax-dsn_office = 'X'.
+    gs_bapi_marax-item_cat = 'X'.
+    gs_bapi_marax-unit_of_wt = 'X'.
+    gs_bapi_marax-net_weight = 'X'.
+    gs_bapi_marax-size_dim = 'X'.
+    " 计量单位 "
+    gt_bapi_marm-alt_unit = pr_unit.    " 替换单位 (必须为基本计量单位，否则会报错：没有转换因子) "
+    gt_bapi_marm-numerator = 1.         " 分子 "
+    gt_bapi_marm-denominatr = 1.        " 分母 "
+    gt_bapi_marm-gross_wt = itab-t_marm_gross_wt. " 毛重 "
+    gt_bapi_marm-unit_of_wt = pr_unit2. " 填充毛重时，注意此处需要添加重量单位，否则会提示没有指定单位 "
+    APPEND gt_bapi_marm.
+    CLEAR gt_bapi_marmx.
+    gt_bapi_marmx-alt_unit = pr_unit.   " 注意此处不是填充 'X' "
+    gt_bapi_marmx-numerator = 'X'.
+    gt_bapi_marmx-denominatr = 'X'.
+    gt_bapi_marmx-gross_wt = 'X'.
+    gt_bapi_marmx-unit_of_wt = 'X'.     " 此处填充 'X' "
+    IF gt_bapi_marmx-alt_unit IS NOT INITIAL AND gt_bapi_marmx-numerator IS NOT INITIAL
+    AND gt_bapi_marmx-denominatr IS NOT INITIAL.
+      APPEND gt_bapi_marmx.
+    ENDIF.
+    " 物料描述 "
+    gt_bapi_makt-langu_iso = 'EN'.
+    gt_bapi_makt-matl_desc = itab-t_makt_matl_desc.
+    APPEND gt_bapi_makt.
+    " 维护增强字段 "
+    gs_bapi_te_mara-material   = itab-head_material.
+    gs_bapi_te_mara-zz_model   = itab-zz_model.
+    gs_bapi_te_mara-zz_drawing = itab-zz_drawing.
+    gs_bapi_te_mara-zz_color   = itab-zz_color.
+    l_valuepart = gs_bapi_te_mara.
+    gt_extensionin-structure = 'BAPI_TE_MARA'.
+    gt_extensionin-valuepart1 = l_valuepart+0(240).
+    gt_extensionin-valuepart2 = l_valuepart+240(240).
+    gt_extensionin-valuepart3 = l_valuepart+480(240).
+    APPEND gt_extensionin.
+    gs_bapi_te_marax-material  = itab-matnr.
+    gs_bapi_te_marax-zz_model  = 'X'.
+    gs_bapi_te_marax-zz_drawing_no = 'X'.
+    gs_bapi_te_marax-zz_color = 'X'.
+    l_valuepartx = gs_bapi_te_marax.
+    gt_extensioninx-structure = 'BAPI_TE_MARAX'.
+    gt_extensioninx-valuepart1 = l_valuepartx+0(240).
+    gt_extensioninx-valuepart2 = l_valuepartx+240(240).
+    gt_extensioninx-valuepart3 = l_valuepartx+480(240).
+    APPEND gt_extensioninx.
+    " CALL BAPI "
+    CALL FUNCTION 'BAPI_MATERIAL_SAVEDATA'
+      EXPORTING
+        headdata            = gs_bapimathead
+        clientdata          = gs_bapi_mara
+        clientdatax         = gs_bapi_marax
+      IMPORTING
+        return              = gs_return
+      TABLES
+        materialdescription = gt_bapi_makt[]
+        unitsofmeasure      = gt_bapi_marm[]
+        unitsofmeasurex     = gt_bapi_marmx[]
+        returnmessages      = gt_return1[].
+    IF gs_return-type NE 'E'.
+      CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+        EXPORTING
+          wait = 'X'.
+    ELSE.
+      CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'.
+    ENDIF.
+  ENDLOOP.
+  WRITE : gs_return-type,gs_return-message.
+ENDFORM.                    " EXCUTE_BAPI "
+*&---------------------------------------------------------------------*
+*&      Form  frm_unit
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*      -->UNIT1      text
+*      -->UNIT2      text
+*----------------------------------------------------------------------*
+FORM frm_unit USING unit1 CHANGING unit2.
+  CALL FUNCTION 'CONVERSION_EXIT_CUNIT_INPUT'
+    EXPORTING
       input          = unit1
       language       = sy-langu
-    importing      
+    IMPORTING
       output         = unit2
-    exceptions      
+    EXCEPTIONS
       unit_not_found = 1
-      others         = 2.
-  if sy-subrc <> 0.
+      OTHERS         = 2.
+  IF sy-subrc <> 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *           with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
-ENDFORM.                    "frm_unit"
+  ENDIF.
+ENDFORM.                    "FRM_UNIT"
 ```
 
