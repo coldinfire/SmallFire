@@ -9,6 +9,7 @@ categories:
 
 tags: 
   - MM
+
 ---
 
 ## 通过 BAPI  操作 Purchase Order

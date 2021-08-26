@@ -256,7 +256,7 @@
       <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_MaterialSaveData/</guid>
-      <description>程序实例 REPORT ZUPDATE_MATNR. &amp;#34;$. Region BAPI Data DATA gs_bapimathead TYPE bapimathead. &amp;#34; 物料号 物料类型 物料视图表 &amp;#34; DATA gs_bapi_mara TYPE bapi_mara. &amp;#34; MARA数据-基本视图数据 &amp;#34; DATA gs_bapi_marax TYPE bapi_marax. &amp;#34; 变更数据标识 &amp;#34; DATA gs_bapi_mvke TYPE bapi_mvke. &amp;#34; 销售视图 &amp;#34; DATA</description>
+      <description>BAPI_MATERIAL_SAVEDATA 使用实例 REPORT ZUPDATE_MATNR. &amp;#34;$. Region BAPI Data&amp;#34; DATA gs_bapimathead TYPE bapimathead. &amp;#34; 物料号 物料类型 物料视图表 &amp;#34; DATA gs_bapi_mara TYPE bapi_mara. &amp;#34; MARA数据-基本视图数据 &amp;#34; DATA gs_bapi_marax TYPE bapi_marax. &amp;#34; 变更数据标识 &amp;#34; DATA gs_bapi_mvke TYPE bapi_mvke. &amp;#34; 销售视图 &amp;#34;</description>
     </item>
     
     <item>
@@ -647,12 +647,12 @@
     </item>
     
     <item>
-      <title>生产订单标准BAPI</title>
-      <link>https://coldinfire.github.io/2019/SAP_PRODORD_BAPI/</link>
+      <title>BAPI 操作生产订单</title>
+      <link>https://coldinfire.github.io/2019/PP_BAPI_ProductOrder_Menu/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAP_PRODORD_BAPI/</guid>
-      <description>创建PO *---------------------------------------------------------------------* * Form FRM_ORDER_CREATE *---------------------------------------------------------------------* *----------------------------------------------------------------------* * p1 text * p2 text *----------------------------------------------------------------------* FORM frm_order_create . DATA: ls_upload LIKE LINE OF gt_upload, ls_style TYPE lvc_s_styl, lv_index LIKE sy-tabix. DATA: ls_order TYPE bapi_pp_order_create, ls_return TYPE bapiret2, lv_ordnum TYPE bapi_order_key-order_number, lv_ordtyp TYPE bapi_order_copy-order_type. LOOP AT gt_upload INTO ls_upload WHERE ztype EQ space AND box EQ &#39;X&#39;. lv_index = sy-tabix. CLEAR: ls_order, ls_return, lv_ordnum, lv_ordtyp, ls_style. IF ls_upload-externind EQ</description>
+      <guid>https://coldinfire.github.io/2019/PP_BAPI_ProductOrder_Menu/</guid>
+      <description>创建Product Order：BAPI_PRODORD_CREATE *---------------------------------------------------------------------* * Form FRM_ORDER_CREATE *---------------------------------------------------------------------* *----------------------------------------------------------------------* * p1 text * p2 text *----------------------------------------------------------------------* FORM frm_order_create . DATA: ls_upload LIKE LINE OF gt_upload, ls_style TYPE lvc_s_styl, lv_index LIKE sy-tabix. DATA: ls_order TYPE bapi_pp_order_create, ls_return TYPE bapiret2, lv_ordnum</description>
     </item>
     
     <item>
@@ -1765,7 +1765,7 @@
     <item>
       <title>Dialog程序知识汇总</title>
       <link>https://coldinfire.github.io/2018/ABAP_DialogDetail/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_DialogDetail/</guid>
       <description></description>

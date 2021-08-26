@@ -1,5 +1,5 @@
 ---
-title: "生产订单标准BAPI"
+title: "BAPI 操作生产订单"
 date: 2019-09-07
 draft: false
 author: Small Fire
@@ -7,13 +7,13 @@ isCJKLanguage: true
 categories: 
   - business
 
-tags: 
+tags:
   - BAPI
   - MM
 
 ---
 
-### 创建PO
+### 创建Product Order：BAPI_PRODORD_CREATE
 
 ```jsp
 *---------------------------------------------------------------------*
@@ -87,7 +87,7 @@ FORM frm_order_create .
   ENDFORM.                    " FRM_ORDER_CREATE
 ```
 
-### 修改PO
+### 修改Product Order：BAPI_PRODORD_CHANGE
 
 ```JS
 *&---------------------------------------------------------------------*
@@ -158,7 +158,7 @@ FORM frm_order_change.
 ENDFORM.                    "frm_order_change"
 ```
 
-### Order Release
+### Product Order Release：BAPI_PRODORD_RELEASE
 
 ```JS
 *&---------------------------------------------------------------------*

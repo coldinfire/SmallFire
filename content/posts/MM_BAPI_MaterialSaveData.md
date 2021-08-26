@@ -12,11 +12,11 @@ tags:
 
 ---
 
-### 程序实例
+### BAPI_MATERIAL_SAVEDATA 使用实例
 
 ```ABAP
 REPORT ZUPDATE_MATNR.
-"$. Region BAPI Data
+"$. Region BAPI Data"
 DATA gs_bapimathead TYPE bapimathead. " 物料号 物料类型 物料视图表 "
 DATA gs_bapi_mara   TYPE bapi_mara.   " MARA数据-基本视图数据 "
 DATA gs_bapi_marax  TYPE bapi_marax.  " 变更数据标识 "
@@ -45,9 +45,9 @@ DATA:l_valuepart(960),l_valuepartx(960).
 
 DATA: pr_unit TYPE meins,  " 基本单位 "
       pr_unit2 TYPE meins. " 重量单位 "
-"$. Endregion BAPI Data
+"$. Endregion BAPI Data"
 
-"$. Region Structure
+"$. Region Structure"
 DATA:BEGIN OF itab OCCURS 0,
   head_material TYPE matnr,      " 物料号 "
   head_ind_sector TYPE mbrsh,    " 行业领域 "
@@ -68,7 +68,7 @@ DATA:BEGIN OF itab OCCURS 0,
   zz_color TYPE char20,          " 屏幕增强字段 "
 END OF itab.
 DATA itab1 TYPE itab OCCURS 0 WITH HEADER LINE.
-"$. Endregion Structure
+"$. Endregion Structure"
 START-OF-SELECTION.
   PERFORM prepare_data.
   PERFORM excute_bapi.

@@ -17,7 +17,7 @@ tags:
 
 | BAPI                                                         | Desc                                           |
 | ------------------------------------------------------------ | ---------------------------------------------- |
-| BAPI_MATERIAL_SAVEDATA                                       | 创建及更改物料主数据                           |
+| [BAPI_MATERIAL_SAVEDATA](http://localhost:1313/2020/MM_BAPI_MaterialSaveData/) | 创建及更改物料主数据                           |
 | BAPI_OBJCL_CREATE                                            | 分类视图的创建                                 |
 | BAPI_OBJCL_GETCLASSES                                        | 分类视图得到详细信息                           |
 | BAPI_MATERIAL_SAVEREPLICA                                    | 物料视图的扩充                                 |
