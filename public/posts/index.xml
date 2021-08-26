@@ -40,7 +40,7 @@
       <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</guid>
-      <description></description>
+      <description>BAPI 介绍 BAPI (Business Application Programming Interface) 代表业务应用程序编程接口。 BAPI 是存储在 SAP 系统的 BOR（业务对象库）中以执行特定业务任务的特定方法。 它支持 SAP 组件之间以及 SAP 和非 SAP</description>
     </item>
     
     <item>
@@ -148,7 +148,7 @@
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_GetStock/</guid>
-      <description>SAP的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。 程序代码 FUNCTION zwi_get_stock. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local Interface: *&amp;#34; IMPORTING *&amp;#34; VALUE(PLANT) TYPE WERKS_D *&amp;#34; VALUE(MATERIAL) TYPE MATNR *&amp;#34; VALUE(UNIT) TYPE MEINH *&amp;#34; VALUE(STGE_LOC) TYPE LGORT_D *&amp;#34; VALUE(BATCH) TYPE CHARG_D OPTIONAL *&amp;#34; VALUE(VBELN) TYPE VBELN</description>
+      <description>SAP的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。 库存类型 非批次管理库存：MARD 批次库存：MCHB 销售库存：MSKA 项目</description>
     </item>
     
     <item>
@@ -252,11 +252,11 @@
     
     <item>
       <title>批量创建/修改物料主数据</title>
-      <link>https://coldinfire.github.io/2020/MM_Material_Savedata/</link>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_MaterialSaveData/</link>
       <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_Material_Savedata/</guid>
-      <description>程序实例 REPORT ZUPDATE_MATNR. data: headdata type bapimathead, &amp;quot; 表头数据 &amp;quot; clientdata type bapi_mara, &amp;quot; 基本数据 &amp;quot; clientdatax type bapi_marax. &amp;quot; 变更数据标识 &amp;quot; data: materialdescription type table of bapi_makt with header line. data: unitsofmeasure type table of bapi_marm with header line. data: unitsofmeasurex type table of bapi_marmx with header line. data: pr_unit type meins, &amp;quot; 基本</description>
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_MaterialSaveData/</guid>
+      <description>程序实例 REPORT ZUPDATE_MATNR. data: headdata type bapimathead, &amp;#34; 表头数据 &amp;#34; clientdata type bapi_mara, &amp;#34; 基本数据 &amp;#34; clientdatax type bapi_marax. &amp;#34; 变更数据标识 &amp;#34; data: materialdescription type table of bapi_makt with header line. data: unitsofmeasure type table of bapi_marm with header line. data: unitsofmeasurex type table of bapi_marmx with header line. data: pr_unit type meins, &amp;#34; 基本</description>
     </item>
     
     <item>
@@ -279,11 +279,11 @@
     
     <item>
       <title> MM BAPI List </title>
-      <link>https://coldinfire.github.io/2020/MM_BAPI_LIST/</link>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_ALL_LIST/</link>
       <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_BAPI_LIST/</guid>
-      <description>MM BAPI LIST 整理 BAPI Desc BAPI_MATERIAL_SAVEDATA 创建及更改物料主数据 BAPI_OBJCL_CREATE 分类视图的创建 BAPI_OBJCL_GETCLASSES 分类视图得到详细信息 BAPI_MATERIAL_SAVEREPLICA 物料视图的扩充 BAPI_GOODSMVT_CREATE 创建物料凭证 注意表T158G可以决定goodsm</description>
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_ALL_LIST/</guid>
+      <description>MM BAPI LIST 整理 BAPI Desc BAPI_MATERIAL_SAVEDATA 创建及更改物料主数据 BAPI_OBJCL_CREATE 分类视图的创建 BAPI_OBJCL_GETCLASSES 分类视图得到详细信息 BAPI_MATERIAL_SAVEREPLICA 物料视图的扩充 BAPI_GOODSMVT_CREATE 创建物料凭证，注意表T158G可以决定goods</description>
     </item>
     
     <item>

@@ -14,7 +14,7 @@ tags:
 
 ### 程序实例
 
-```
+```ABAP
 REPORT ZUPDATE_MATNR.
 data: headdata      type bapimathead,     " 表头数据 "
       clientdata    type bapi_mara,       " 基本数据 "
@@ -165,6 +165,6 @@ FORM frm_unit using unit1 changing unit2.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *           with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
-ENDFORM.                    "frm_unit
+ENDFORM.                    "frm_unit"
 ```
 
