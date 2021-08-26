@@ -1,4 +1,14 @@
 ---
+title: "日志使用"
+date: 2018-01-24
+draft: false
+author: Small Fire
+isCJKLanguage: true
+categories: 
+  - JAVA
+
+tags: 
+  - Log
 
 ---
 
@@ -6,7 +16,6 @@
 
 1.log4j 是Apache为java提供日志管理的工具
         作用：可以调试程序，就像输出一样
-
 
 2.核心概念：
     log4j有三大组件：  日志器（Logger）   日志输出的目标（Appender）  格式化器（Layout）
@@ -41,16 +50,15 @@
      ConsoleAppender：  向控制台输出日志；
      FileAppender:     向文件输出日志
       DailyRollingFileApperder:
-      
+
      log4j.appender.AA.File=log.txt
      log4j.appender.AA.LAYOUT=org.apache.log4j.SimpleLayout
      log4j.appender.AA.DatePatten='yyyy-MM-dd'
-     
-     layout种类：
-     %m:  信息本身
-     %c:  日志器的名称
-     %d:   日期，还可以指定日期格式   %d{yyyy-MM-dd HH:mm:ss}
-     %p:   日志级别
-     %n:    换行
-     %t:    当前线程
-     %l：    输出日志java类的相关信息
+ layout种类：
+ %m:  信息本身
+ %c:日志器的名称
+ %d:日期，还可以指定日期格式   %d{yyyy-MM-dd HH:mm:ss}
+ %p:日志级别
+ %n:换行
+ %t:当前线程
+ %l:输出日志java类的相关信息

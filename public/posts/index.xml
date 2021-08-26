@@ -2321,6 +2321,15 @@
     </item>
     
     <item>
+      <title>日志使用</title>
+      <link>https://coldinfire.github.io/2018/WEB_Frame_Log_Log4j/</link>
+      <pubDate>Wed, 24 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/WEB_Frame_Log_Log4j/</guid>
+      <description>1.log4j 是Apache为java提供日志管理的工具 作用：可以调试程序，就像输出一样 2.核心概念： log4j有三大组件： 日志器（Logger） 日志输</description>
+    </item>
+    
+    <item>
       <title>SpringMVC 使用</title>
       <link>https://coldinfire.github.io/2018/WEB_Frame_SpringMVC/</link>
       <pubDate>Sun, 21 Jan 2018 00:00:00 +0000</pubDate>
@@ -2840,15 +2849,6 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/</guid>
       <description>HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;, 书写时实现层次分明的缩进； 所有编码均遵循 XHTML 标准，标签</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://coldinfire.github.io/1/WEB_Frame_Log_Log4j/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/1/WEB_Frame_Log_Log4j/</guid>
-      <description>1.log4j 是Apache为java提供日志管理的工具 作用：可以调试程序，就像输出一样 2.核心概念： log4j有三大组件： 日志器（Logger） 日志输</description>
     </item>
     
   </channel>

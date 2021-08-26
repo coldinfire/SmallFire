@@ -7,7 +7,7 @@ isCJKLanguage: true
 categories: 
   - business
 
-tags:
+tags: 
   - BAPI
   - MM
 
