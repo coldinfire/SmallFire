@@ -1,5 +1,5 @@
 ---
-title: "SAP Product Order status"
+title: "SAP生产订单状态"
 date: 2019-08-25
 draft: false
 author: Small Fire
@@ -12,9 +12,7 @@ tags:
 
 ---
 
-### SAP生产订单状态
-
-#### SAP 系统的常见订单状态如下
+### SAP 系统的常见订单状态如下
 
 - **CRTD (创建)：** 标识生产订单刚刚创建，此时禁止做后续发料和报工确认等操作；
 - **PREL (部分下达)：** 当生产订单部分下达时，如仅下达部分工序时出现此状态；
@@ -46,9 +44,9 @@ tags:
 | 完全入库       | REL、GMPS、CNF、DLV  | 已释放、已过账的货物移动、已确认、交货   |
 | 技术关闭       | TECO、GMPS、CNF、DLV | 技术关闭、已过账的货物移动、已确认、交货 |
 
-#### 函数使用
+### 函数使用
 
-STATUS_READ：获取输入工单的状态
+**STATUS_READ**：获取输入工单的状态
 
 ```ABAP
 DATA:l_aufnr type aufnr.
@@ -76,7 +74,7 @@ if not IT_JEST is initial.
 endif.
 ```
 
-STATUS_TEXT_EDIT：获取和 CO03 显示的状态一样的数据
+**STATUS_TEXT_EDIT**：获取和 CO03 显示的状态一样的数据
 
 ```ABAP
 
@@ -94,7 +92,7 @@ CALL FUNCTION 'STATUS_TEXT_EDIT'
     object_not_found = 01.
 ```
 
-STATUS_CHECK：检查生产订单状态，看是否有某种状态
+**STATUS_CHECK**：检查生产订单状态，看是否有某种状态
 
 ```ABAP
 CALL FUNCTION 'STATUS_CHECK'
@@ -106,9 +104,11 @@ CALL FUNCTION 'STATUS_CHECK'
     STATUS_NOT_ACTIVE = 02.
 ```
 
-#### 状态相关表
+### 状态相关表
 
-根据工单可以去 AUFK 表中找到工单对应的 Object Number(OBJNR) .状态表为：**JEST,** 字段 OBJNR 为 OR + 订单号，STAT 即为订单状态。但是 STAT 的都是 I 打头的状态，通过 **CO03** 看生产订单状态都是英文简短字段标识。两者间的关系保存在表 **TJ02** 中，**TJ02T**：系统状态文本表（一般文本表都是标准表后加T）。
+根据工单可以去 AUFK 表中找到 Product Order 对应的 Object Number(OBJNR) 。
+
+状态表为：**JEST,** 字段 OBJNR 为 OR + 订单号，STAT 即为订单状态。但是 STAT 的都是 I 打头的状态，通过 **CO03** 看生产订单状态都是英文简短字段标识。两者间的关系保存在表 **TJ02** 中，**TJ02T**：系统状态文本表（一般文本表都是标准表后加T）。
 
 ![AUFK](/images/Resource/AUFK.png)
 

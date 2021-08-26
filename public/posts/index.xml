@@ -638,7 +638,7 @@
     </item>
     
     <item>
-      <title>Purchase Order增强</title>
+      <title>Purchase Order 增强</title>
       <link>https://coldinfire.github.io/2019/MM_PurchaseOrder_Enhance/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -674,12 +674,12 @@
     </item>
     
     <item>
-      <title>SAP Product Order status</title>
+      <title>SAP生产订单状态</title>
       <link>https://coldinfire.github.io/2019/PP_ProductOrderStatus/</link>
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/PP_ProductOrderStatus/</guid>
-      <description>SAP生产订单状态 SAP 系统的常见订单状态如下 CRTD (创建)： 标识生产订单刚刚创建，此时禁止做后续发料和报工确认等操作； PREL (部分下达)： 当生产订单部</description>
+      <description>SAP 系统的常见订单状态如下 CRTD (创建)： 标识生产订单刚刚创建，此时禁止做后续发料和报工确认等操作； PREL (部分下达)： 当生产订单部分下达时，如仅下达</description>
     </item>
     
     <item>
@@ -1196,7 +1196,7 @@
     </item>
     
     <item>
-      <title>STO详解</title>
+      <title>STO 详解</title>
       <link>https://coldinfire.github.io/2019/MM_STO/</link>
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -1214,7 +1214,7 @@
     </item>
     
     <item>
-      <title>收货</title>
+      <title>SAP 收货流程</title>
       <link>https://coldinfire.github.io/2019/MMGoodsReceive/</link>
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -1304,7 +1304,7 @@
     </item>
     
     <item>
-      <title>MM常用TCode</title>
+      <title>MM 常用TCode</title>
       <link>https://coldinfire.github.io/2019/MM_Tcode/</link>
       <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
       

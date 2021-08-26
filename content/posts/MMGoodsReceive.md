@@ -1,5 +1,5 @@
 ---
-title: "收货"
+title: "SAP 收货流程"
 date: 2019-03-20
 draft: false
 author: Small Fire

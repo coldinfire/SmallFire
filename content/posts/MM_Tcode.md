@@ -1,5 +1,5 @@
 ---
-title: "MM常用TCode"
+title: "MM 常用TCode"
 date: 2019-03-06
 draft: false
 author: Small Fire
