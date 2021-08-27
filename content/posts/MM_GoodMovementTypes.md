@@ -12,11 +12,13 @@ tags:
 
 ---
 
-SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型。
+### SAP 移动类型
 
-移动类型参考字段MSEG-BWART，移动类型参考表T156，文本表是T156T.
+SAP Good Movement Types 使用 3 个数字来标识 SAP Good Movement 的类型。
 
-#### SAP MM中重要的移动类型
+移动类型参考字段 MSEG-BWART，移动类型参考表T156，文本表是T156T。
+
+### SAP MM中重要的移动类型
 
 | Movement Type | Desc                                                         | 中文描述                                |
 | ------------- | ------------------------------------------------------------ | --------------------------------------- |
@@ -29,7 +31,7 @@ SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型
 | 311           | Transfer posting storage location to storage location in one step | SAP MM 一步将过帐存储地点转移到存储地点 |
 | 313           | Stock transfer storage location to storage location in two steps | 分两步将库存转移到存储地点              |
 
-#### SAP 和收货相关的移动类型
+### SAP 和收货相关的移动类型
 
 | Movement Type | Desc                                                     | 中文描述                       |
 | ------------- | -------------------------------------------------------- | ------------------------------ |
@@ -41,7 +43,7 @@ SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型
 | 124           | Return delivery to vendor from GR blocked stock          | 从收货冻结的库存退货给供应商   |
 | 161           | Returns for purchase order                               | 采购订单退货                   |
 
-#### SAP 和发货相关的移动类型
+### SAP 和发货相关的移动类型
 
 | Movement Type | Desc                                       | 中文描述                 |
 | ------------- | ------------------------------------------ | ------------------------ |
@@ -52,7 +54,7 @@ SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型
 | 281           | Goods issue for a network                  | network的发货(PS)        |
 | 291           | Goods issue for any account assignment     | 任何科目分配的发货       |
 
-#### 工厂到工厂和存储地点的转移
+### 工厂到工厂和存储地点的转移
 
 - 工厂到工厂的转移(一步和两步)
 - 存储地点转移到其他存储地点，包括SAP中检验库存，样品转移和Block状态移动
@@ -77,7 +79,7 @@ SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型
 | 349           | Transfer of blocked stock :  inspection stock                | 冻结库存的转移：检验库存                 |
 | 351           | Goods issue for a stock transport order (without shipping)   | 库存运输订单的发货（不发货）             |
 
-#### 特殊库存，转移库存和冻结库存退货
+### 特殊库存，转移库存和冻结库存退货
 
 | Movement Types | Desc                                                         | 中文描述                                   |
 | -------------- | ------------------------------------------------------------ | ------------------------------------------ |
@@ -89,7 +91,7 @@ SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型
 | 457            | Transfer of blocked stock returns to inspection stock        | 将冻结的退货库存转移到检验库存             |
 | 459            | Transfer of blocked stock returns to blocked stock           | 将冻结的库存退货转移到冻结的库存           |
 
-#### 不同类型的收货处理
+### 不同类型的收货处理
 
 | Movement Types | Desc                                                         | 中文描述                             |
 | -------------- | ------------------------------------------------------------ | ------------------------------------ |
@@ -112,7 +114,7 @@ SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型
 | 565            | Initial entry of stock balances :  blocked stock             | 库存余额的初始输入：冻结库存         |
 | 581            | Goods receipt of a by-product from network                   | 来自network的副产品收货              |
 
-#### 与运输相关的SAP移动类型
+### 与运输相关的SAP移动类型
 
 主要功能是：
 
@@ -144,11 +146,9 @@ SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型
 | 673            | Returns for a cross-company-code stock transport order (shipping) | 跨公司代码库存运输订单（装运）的退货               |
 | 675            | Returns for a cross-company-code stock transport order (shipping) performed in one step | 一步执行的跨公司代码库存运输订单（装运）的退货     |
 
+### SAP 中的库存差异移动类型
 
-
-#### SAP 中的库存差异移动类型
-
-​	在SPA MM(物料管理)和SAP WM(仓库管理)中，与库存差异相关的移动类型。
+在SPA MM(物料管理)和SAP WM(仓库管理)中，与库存差异相关的移动类型。
 
 | Movement Types | Desc                                                     | 中文描述                          |
 | -------------- | -------------------------------------------------------- | --------------------------------- |

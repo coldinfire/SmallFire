@@ -23,9 +23,9 @@ tags:
 | BAPI_MATERIAL_SAVEREPLICA                                    | 物料视图的扩充                                 |
 | [BAPI_GOODSMVT_CREATE](https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/) | 创建物料凭证，注意表T158G可以决定goodsmvt_code |
 | [BAPI_GOODSMVT_CANCEL](https://coldinfire.github.io/2019/MM_BAPI_GoodsMovementCancel/) | 冲销物料凭证                                   |
-| [BAPI_PR_CREATE](https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/) | 创建 PR New                                    |
-| [BAPI_REQUISITION_CREATE](https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/) | 创建 PR Old                                    |
-| [BAPI_PO_CREATE1](https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/) | 创建 PO                                        |
+| [BAPI_PR_CREATE](https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/) | 创建 Purchase Requisition New                  |
+| [BAPI_REQUISITION_CREATE](https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/) | 创建 Purchase Requisition Old                  |
+| [BAPI_PO_CREATE1](https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/) | 创建 Purchase Order                            |
 | [BAPI_PO_CHANGE](https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/) | 修改 PO 和删除 PO                              |
 | WS_REVERSE_GOODS_ISSUE                                       | 冲销交货单的过账发货                           |
 | BAPI_RESERVATION_CREATE1                                     | 创建预留                                       |
