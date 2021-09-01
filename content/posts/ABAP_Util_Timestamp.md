@@ -68,7 +68,16 @@ tags:
 - BAPI：`TZON_GET_USER_TIMEZONE`
 
   ```ABAP
-  
+  DATA: lv_zonlo TYPE sy-zonlo.
+  CALL FUNCTION 'TZON_GET_USER_TIMEZONE'
+  EXPORTING
+      if_username                   = sy-uname
+    IMPORTING
+      ef_timezone                   = lv_zonlo
+    EXCEPTIONS
+      no_timezone_customizing       = 1
+      no_valid_user                 = 2
+      others                        = 3.
   ```
-
+  
   
