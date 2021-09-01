@@ -14,7 +14,7 @@ tags:
 
 ## 单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中
 
-方法一：通过对REUSE_ALV_GRID_DISPLAY函数参数i_grid_settings-edt_cll_cb进行设置
+方法一：通过对 REUSE_ALV_GRID_DISPLAY 函数参数 i_grid_settings-edt_cll_cb 进行设置
 
 ```JS
 i_grid_settings-edt_cll_cb  = 'X' .
@@ -22,7 +22,7 @@ CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'
 EXPORTING i_grid_settings = i_grid_settings
 ```
 
-方法二：通过函数参数I_CALLBACK_USER_COMMAND指定的回调Form的参数slis_selfield进行设置
+方法二：通过函数参数 I_CALLBACK_USER_COMMAND 指定的回调 Form 的参数 slis_selfield 进行设置
 
 ```JS
 FORM user_command USING ucomm LIKE sy-ucomm

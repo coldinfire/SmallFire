@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SAP RFC Function 日志工具</title>
+      <link>https://coldinfire.github.io/2021/ABAP_Util_RFC_Log/</link>
+      <pubDate>Sat, 28 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Util_RFC_Log/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title> BAPI和Tcode执行之间的差异 </title>
       <link>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</link>
@@ -36,10 +45,10 @@
     
     <item>
       <title> BABI-BADI-RFC-BDC 区别 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Util_Function_Diff/</link>
       <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Util_Function_Diff/</guid>
       <description>BAPI 介绍 BAPI (Business Application Programming Interface) 代表业务应用程序编程接口。 BAPI 是存储在 SAP 系统的 BOR（业务对象库）中以执行特定业务任务的特定方法。 它支持 SAP 组件之间以及 SAP 和非 SAP</description>
     </item>
     
@@ -382,7 +391,7 @@
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_GoodMovementTypes/</guid>
-      <description>SAP Good Movement Types:是3个数字，用于标识 SAP Good Movement 的类型。 移动类型参考字段MSEG-BWART，移动类型参考表T156，文本表是T156T. SAP MM</description>
+      <description>SAP 移动类型 SAP Good Movement Types 使用 3 个数字来标识 SAP Good Movement 的类型。 移动类型参考字段 MSEG-BWART，移动类型参考表T156，文本表是T156T。 SAP MM中</description>
     </item>
     
     <item>
@@ -1448,12 +1457,12 @@
     </item>
     
     <item>
-      <title>不同时区日期转换</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Util_TIMEZONE/</link>
+      <title>时间戳操作</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Util_Timestamp/</link>
       <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Util_TIMEZONE/</guid>
-      <description>时区表：TTZZ 获取用户时区 Function：TZON_GET_USER_TIMEZONE 根据时区得到时间戳 FUNCTION：IB_CONV</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Util_Timestamp/</guid>
+      <description>ABAP 时间戳 获取时间戳方法 GET TIME STAMP FIELD time_stamp. DATA time_stamp TYPE tzntstmps. &amp;#34;UTC Time Stamp in Short Form (YYYYMMDDhhmmss)&amp;#34; GET TIME STAMP FIELD time_stamp. BAPI：IB_CONVERT_INTO_TIMESTAMP DATA:time_stamp TYPE tzntstmps. CALL FUNCTION &amp;#39;IB_CONVERT_INTO_TIMESTAMP&amp;#39; EXPORTING i_datlo</description>
     </item>
     
     <item>

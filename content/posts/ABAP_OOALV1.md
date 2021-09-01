@@ -53,7 +53,7 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 
 ### 控制区域、Container、Grid关系
 
-先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER 容器实例，最后以此容器实例来创建 CL_GUI_ALV_GRID实例。首先要在程序内创建一个屏幕，并在程序中定义一个Customer Control。
+先在屏幕绘制一个用户自定义控件区域，然后以自定义区域为基础创建 CL_GUI_CUSTOM_CONTAINER 容器实例，最后以此容器实例来创建  CL_GUI_ALV_GRID 实例。首先要在程序内创建一个屏幕，并在程序中定义一个Customer Control。
 
 ![屏幕定义](/images/ABAP/OOALV2.png)
 
@@ -112,7 +112,7 @@ ENDIF.
 
 ### FieldCat
 
-设置显示数据的FieldCat
+设置显示数据的 FieldCat。
 
 #### 宏定义
 
@@ -217,12 +217,11 @@ ENDFORM. "prepare_layout"
 
 ### ALV显示
 
-------
+#### 显示 ALV
 
-CL_GUI_ALV_GRID重要方法
+CL_GUI_ALV_GRID 重要方法 `set_table_for_first_display`。
 
 ```ABAP
-"显示ALV"
 CALL METHOD obj_wcl_alv->set_table_for_first_display 
    EXPORTING 
      i_structure_name             = 'XXXX'       "参照表结构字段显示"
@@ -240,10 +239,15 @@ CALL METHOD obj_wcl_alv->set_table_for_first_display
      OTHERS                        = 4.
 ```
 
-**刷新：REFRESH_TABLE_DISPLAY.**
+#### 刷新 ALV 
 
-```JS
-CALL METHODgr_alvgrid->refresh_table_display 
+`REFRESH_TABLE_DISPLAY`
+
+- IS_STABLE：有行列两个参数，如果设置了相应的参数，对应的行或列属性就不会滚动。刷新的稳定性，就是滚动条保持不动。
+- I_SOFT_REFRESH：软刷新，为了显示数据而设置的过滤都将保持不变。临时给 ALV 创建的合计，排序，等保持不变。
+
+```ABAP
+CALL METHOD obj_wcl_alv->refresh_table_display 
   EXPORTING
   	"IS_STABLE = "
 	I_SOFT_REFRESH = 'X'
@@ -252,9 +256,7 @@ CALL METHODgr_alvgrid->refresh_table_display
 	OTHERS = 2 .
 IF sy-subrc <> 0.
   "Exception handling"
-ENDIF 
-IS_STABLE:有行列两个参数,如果设置了相应的参数,对应的行或列属性就不会滚动.刷新的稳定性,就是滚动条保持不动
-I_SOFT_REFRESH:软刷新,为了显示数据而设置的过滤都将保持不变.临时给ALV创建的合计,排序,等保持不变
+ENDIF.
 ```
 
 ### 给ALV对象注册事件
@@ -363,7 +365,7 @@ CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
 - 按回车触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.
 - 单元格失去焦点触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.
 
-#### 第一次显示后修改Field Catalog或Layout
+#### 第一次显示后修改 Field Catalog 或 Layout
 
 - Field Catalog
   - get_frontend_fieldcatalog

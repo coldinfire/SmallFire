@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 ### 屏幕选择 Layout
 
 ```ABAP

@@ -1,5 +1,5 @@
 ---
-title: "OO语法"
+title: "ABAP OO语法"
 date: 2018-07-10
 draft: false
 author: Small Fire
@@ -132,8 +132,6 @@ ENDCLASS.
     ENDMETHOD.
   ENDCLASS.
   ```
-
-
 
 
 ## SAP中定义系统类
