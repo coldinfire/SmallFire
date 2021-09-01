@@ -506,6 +506,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2020/ABAP_OOALV5_Diff_Containers/</loc>
+      
+      <lastmod>2020-10-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</loc>
       
       <lastmod>2020-10-14T00:00:00+00:00</lastmod>
@@ -3530,7 +3544,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Package/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Util_PackageChange/</loc>
       
       <lastmod>2018-08-01T00:00:00+00:00</lastmod>
       

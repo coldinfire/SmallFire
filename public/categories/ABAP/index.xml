@@ -98,6 +98,15 @@
     </item>
     
     <item>
+      <title> OO ALV不同Container </title>
+      <link>https://coldinfire.github.io/2020/ABAP_OOALV5_Diff_Containers/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_OOALV5_Diff_Containers/</guid>
+      <description>1.Custom container Custom container can be created with a class CL_GUI_CUSTOM_CONTAINER, but it needs a parent container in which it could be placed or it needs an custom control area to be created in custom screen . This solution is mainly used by me in the applications I develop now. But it’s also common that you’ll mix custom containers with other in</description>
+    </item>
+    
+    <item>
       <title> SAP系统间数据表的Copy </title>
       <link>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</link>
       <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
@@ -778,7 +787,7 @@
       <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Util_Timestamp/</guid>
-      <description>ABAP 时间戳 获取时间戳方法 GET TIME STAMP FIELD time_stamp. DATA time_stamp TYPE tzntstmps. &amp;#34;UTC Time Stamp in Short Form (YYYYMMDDhhmmss)&amp;#34; GET TIME STAMP FIELD time_stamp. BAPI：IB_CONVERT_INTO_TIMESTAMP DATA:time_stamp TYPE tzntstmps. CALL FUNCTION &amp;#39;IB_CONVERT_INTO_TIMESTAMP&amp;#39; EXPORTING i_datlo</description>
+      <description>SAP 时间戳 获取时间戳方法 GET TIME STAMP FIELD time_stamp. DATA time_stamp TYPE tzntstmps. &amp;#34;UTC Time Stamp in Short Form (YYYYMMDDhhmmss)&amp;#34; GET TIME STAMP FIELD time_stamp. BAPI：IB_CONVERT_INTO_TIMESTAMP CALL FUNCTION &amp;#39;IB_CONVERT_INTO_TIMESTAMP&amp;#39; EXPORTING i_datlo = sy-datum i_timlo</description>
     </item>
     
     <item>
@@ -1165,15 +1174,15 @@
       <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_EditControl/</guid>
-      <description>实现ALV单元格不可编辑 如果已经把ALV中的整列设为可编辑，而只想让这个列中的某些单元格不可编辑，可以使用以下这种方法。 具体单元格可编辑状态</description>
+      <description>实现 ALV 单元格不可编辑 如果已经把ALV中的整列设为可编辑，而只想让这个列中的某些单元格不可编辑，可以使用以下这种方法。 具体单元格可编辑状态设置</description>
     </item>
     
     <item>
       <title> 修改文件所属 Package </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Package/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Util_PackageChange/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Package/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Util_PackageChange/</guid>
       <description>创建 ABAP 程序的时候都要选择一个 Package，当后续需要修改程序所属的Package时可以使用以下方法： 通过SE38或则SE80打开对应的程序</description>
     </item>
     
@@ -1277,7 +1286,7 @@
     </item>
     
     <item>
-      <title>OO语法</title>
+      <title>ABAP OO语法</title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV2/</link>
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
@@ -1309,7 +1318,7 @@
       <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</guid>
-      <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对REUSE_ALV_GRID_DISPLAY函数参</description>
+      <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对 REUSE_ALV_GRID_DISPLAY 函数参数 i_grid_settings-edt_cll_cb 进行设置 i_grid_settings-edt_cll_cb = &amp;#39;X&amp;#39; . CALL FUNCTION &amp;#39;REUSE_ALV_GRID_DISPLAY&amp;#39; EXPORTING i_grid_settings = i_grid_settings 方法二：</description>
     </item>
     
     <item>
