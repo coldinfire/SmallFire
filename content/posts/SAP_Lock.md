@@ -1,5 +1,5 @@
 ---
-title: "SAP锁机制"
+title: "SAP 锁机制"
 date: 2018-07-12
 draft: false
 author: Small Fire

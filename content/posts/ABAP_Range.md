@@ -1,5 +1,5 @@
 ---
-title: " ABAP定义Range "
+title: " ABAP 定义Range "
 date: 2018-08-16
 draft: false
 author: Small Fire

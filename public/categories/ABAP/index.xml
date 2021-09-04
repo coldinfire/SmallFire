@@ -81,10 +81,10 @@
     
     <item>
       <title> BAPI:VIEW_MAINTENANCE_CALL 使用 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_TABLE_Maintenance/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_TABLE_Maintenance_BAPI/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_TABLE_Maintenance/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_TABLE_Maintenance_BAPI/</guid>
       <description>BAPI: VIEW_MAINTENANCE_CALL DATA:LT_SELLIST LIKE TABLE OF VIMSELLIST WITH HEADER LINE. CLEAR:LT_SELLIST. REFRESH: LT_SELLIST. LT_SELLIST-VIEWFIELD = &amp;#39;BUKRS&amp;#39;. LT_SELLIST-OPERATOR = &amp;#39;EQ&amp;#39;. LT_SELLIST-VALUE = P_BUKRS. LT_SELLIST-AND_OR = &amp;#39;AND&amp;#39;. APPEND LT_SELLIST. CALL FUNCTION &amp;#39;VIEW_MAINTENANCE_CALL&amp;#39; EXPORTING ACTION = &amp;#39;U&amp;#39;&amp;#34;S = Display U = Change T = Transport VIEW_NAME = &amp;#39;ZCO002&amp;#39; TABLES DBA_SELLIST = LT_SELLIST EXCEPTIONS CLIENT_REFERENCE = 1 FOREIGN_LOCK = 2 INVALID_ACTION = 3 NO_CLIENTINDEPENDENT_AUTH = 4 NO_DATABASE_FUNCTION = 5 NO_EDITOR_FUNCTION = 6 NO_SHOW_AUTH =</description>
     </item>
     
@@ -378,10 +378,10 @@
     
     <item>
       <title>IDoc 操作</title>
-      <link>https://coldinfire.github.io/2019/ABAP_IDoc/</link>
+      <link>https://coldinfire.github.io/2019/SAP_IDoc/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_IDoc/</guid>
+      <guid>https://coldinfire.github.io/2019/SAP_IDoc/</guid>
       <description>参考链接 1.IDoc简介 IDoc：是基于文档，用作异步传输数据的载体，类似于XML;使用功能场景：假设 1040 和 1020 是同一个集团下两个不同子公司的 SAP</description>
     </item>
     
@@ -395,11 +395,11 @@
     </item>
     
     <item>
-      <title>Long Texts</title>
-      <link>https://coldinfire.github.io/2019/ABAP_LongTexts/</link>
+      <title>SAP 长文本</title>
+      <link>https://coldinfire.github.io/2019/ABAP_Util_LongTexts/</link>
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_LongTexts/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_Util_LongTexts/</guid>
       <description>介绍 长文本是用于在 SAP 系统中包含长文本的容器，通常将它们附加到业务对象上，用户可以输入自由注释。 长文本只能通过与其相连的业务对象的维护事务来维</description>
     </item>
     
@@ -737,11 +737,11 @@
     </item>
     
     <item>
-      <title>SAP后台JOB</title>
-      <link>https://coldinfire.github.io/2019/ABAP_JOB/</link>
+      <title>SAP 后台JOB</title>
+      <link>https://coldinfire.github.io/2019/SAP_JOB/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_JOB/</guid>
+      <guid>https://coldinfire.github.io/2019/SAP_JOB/</guid>
       <description>定义后台 job 第一种：SE38执行可执行程序 菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo; 输入输出设备 选择开始时</description>
     </item>
     
@@ -1007,11 +1007,11 @@
     </item>
     
     <item>
-      <title> SM30表维护 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_SM30/</link>
+      <title> SM30 表维护 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Table_Maintenance/</link>
       <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_SM30/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Table_Maintenance/</guid>
       <description>表维护创建 创建自定义表 需要设置为 Display/Maintenance Allowed.允许修改，才可以在SM30中进行数据维护。否则会产生以下异常： 创建表维护 权限组：控制访问权</description>
     </item>
     
@@ -1160,7 +1160,7 @@
     </item>
     
     <item>
-      <title> ABAP定义Range </title>
+      <title> ABAP 定义Range </title>
       <link>https://coldinfire.github.io/2018/ABAP_Range/</link>
       <pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -1187,7 +1187,7 @@
     </item>
     
     <item>
-      <title>ABAP弹出框设置</title>
+      <title>ABAP 弹出框设置</title>
       <link>https://coldinfire.github.io/2018/ABAP_PopUpBox/</link>
       <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -1322,11 +1322,11 @@
     </item>
     
     <item>
-      <title>SAP锁机制</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Lock/</link>
+      <title>SAP 锁机制</title>
+      <link>https://coldinfire.github.io/2018/SAP_Lock/</link>
       <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Lock/</guid>
+      <guid>https://coldinfire.github.io/2018/SAP_Lock/</guid>
       <description>SAP 为什么要设置锁 1.保持数据的一致性 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防止第二个用户</description>
     </item>
     
@@ -1439,11 +1439,11 @@
     </item>
     
     <item>
-      <title>表维护添加修改人信息</title>
-      <link>https://coldinfire.github.io/2018/ABAP_TABLE_MaintainAddUser/</link>
+      <title> 表维护添加修改人信息 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Table_Maintenance_AddUser/</link>
       <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_TABLE_MaintainAddUser/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Table_Maintenance_AddUser/</guid>
       <description>添加修改人信息 可以根据TCode进行相应的判断： 创建人信息: l_wa_head-ernam = sy-uname. l_wa_head-erdat = sy-datum. l_wa_head-erzet = sy-uzeit. call function &amp;#39;TERMINAL_ID_GET&amp;#39; exporting username = sy-uname importing terminal = l_wa_head-eterminal exceptions multiple_terminal_id = 1 no_terminal_found = 2 others = 3. 修改人信息： l_wa_head-urnam = sy-uname. l_wa_head-urdat</description>
     </item>
     
@@ -1457,7 +1457,7 @@
     </item>
     
     <item>
-      <title>ABAP程序间调用</title>
+      <title>ABAP 程序间调用</title>
       <link>https://coldinfire.github.io/2018/ABAP_ProgramCall/</link>
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
