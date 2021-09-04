@@ -1,5 +1,5 @@
 ---
-title: " SAP FI 会计凭证过账 "
+title: " FI 会计凭证过账 "
 date: 2020-08-02
 draft: false
 author: Small Fire

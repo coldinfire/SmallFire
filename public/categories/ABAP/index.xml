@@ -1431,10 +1431,10 @@
     
     <item>
       <title>数据输入输出转换</title>
-      <link>https://coldinfire.github.io/2018/ABAP_DataConversion/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Util_DataConversion/</link>
       <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_DataConversion/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Util_DataConversion/</guid>
       <description>输入输出转换 如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。 通过转换规则输</description>
     </item>
     
@@ -1458,10 +1458,10 @@
     
     <item>
       <title>ABAP 性能优化(数据操作)</title>
-      <link>https://coldinfire.github.io/2018/ABAP_DatabaseOpt/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_SQL_DatabaseOpt/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_DatabaseOpt/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_SQL_DatabaseOpt/</guid>
       <description>性能分析工具 ST05：性能分析，追踪 SQL，分析哪条 SQL Statement 语句，最耗时间 STAD：得到某个程序或事务运行时的总体分析数据，系统时间，CPU 时间</description>
     </item>
     

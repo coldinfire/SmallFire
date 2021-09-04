@@ -20,19 +20,19 @@ tags:
 
 #### 去除前导零
 
-- 去除前导0：`SHIFT ITAB-FIELD LEFT DELETING LEADING '0'.`
+去除前导0：`SHIFT ITAB-FIELD LEFT DELETING LEADING '0'.`
 
-- ```js
-  DEFINE conversion_output.
-    CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
-      EXPORTING
-        input  = &1
-      IMPORTING
-        output = &1.  
-  END-OF-DEFINITION.
-  ```
+```js
+DEFINE conversion_output.
+  CALL FUNCTION 'CONVERSION_EXIT_ALPHA_OUTPUT'
+    EXPORTING
+      input  = &1
+    IMPORTING
+      output = &1.  
+END-OF-DEFINITION.
+```
 
-添加前导零
+#### 添加前导零
 
 ```JS
 DEFINE conversion_input.

@@ -81,5 +81,5 @@ CALL FUNCTION 'AAA'
  
 
 - [ABAP Submit 实现程序间互相调用](https://coldinfire.github.io/2018/ABAP_Submit/)
-- [ABAP CALL TRANSACTION 详解](https://coldinfire.github.io/2018/BDC/)
+- [ABAP CALL TRANSACTION 详解](https://coldinfire.github.io/2018/ABAP_BDC/)
 - [ABAP CALL FUNCTION 详解](https://coldinfire.github.io/2018/ABAP_RFC/)

@@ -1,5 +1,5 @@
 ---
-title: " ABAP学习网站记录 "
+title: " ABAP 学习网站记录 "
 date: 2019-06-13
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: " ABAP动态内表 "
+title: " ABAP 动态内表 "
 date: 2019-07-26
 draft: false
 author: Small Fire

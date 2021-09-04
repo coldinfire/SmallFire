@@ -1,5 +1,5 @@
 ---
-title: " 发送带文本的Email "
+title: " 发送带文本的 Email "
 date: 2019-05-22
 draft: false
 author: Small Fire

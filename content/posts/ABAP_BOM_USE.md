@@ -1,5 +1,5 @@
 ---
-title: "BOM展开"
+title: "BOM 展开"
 date: 2018-11-25
 draft: false
 author: Small Fire

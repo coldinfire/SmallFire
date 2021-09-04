@@ -1,5 +1,5 @@
 ---
-title: "Dialog程序简介"
+title: "Dialog 程序简介"
 date: 2018-08-28
 draft: false
 author: Small Fire
@@ -47,7 +47,7 @@ Screen Flow Logic定义了在screen上的各种事件，而Dynpro定义了这个
 - `LEAVE screen.`          
   
 - `Call screen xxx   [starting at lc ur] [ending at rc lr].`   (Modal dialog box类型)
-   
+  
 - `set cursor field <f> [offset <o>].  `
 - `MODULE EXIT AT EXIT-COMMAND.`
 

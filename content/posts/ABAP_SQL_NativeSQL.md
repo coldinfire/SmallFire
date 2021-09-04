@@ -16,18 +16,22 @@ tags:
 
 EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。
 
-**连接其他的数据库**：TCode : `DBCO`
+#### 连接外部的数据库
 
-存储数据表：`DBCON`
+- 事物码：`DBCO`
 
-添加新的连接：`MSSQL_SERVER=IP adress MSSQL_DBNAME=dbname OBJECT_SOURCE=dbname`
+- 存储数据的表：`DBCON`
 
-#### 注意事项：
+
+- 添加新的连接：`MSSQL_SERVER=IP adress MSSQL_DBNAME=dbname OBJECT_SOURCE=dbname`
+
+
+#### 注意事项
 
 - Native SQL 语句不能有结尾符号
 
 
-- EXEC SQL ... ENDEXEC间不能有注释
+- EXEC SQL ... ENDEXEC 间不能有注释
 
 
 - 参数占位符是冒号`:para_value`
@@ -35,14 +39,14 @@ EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据
 
 ### 程序调用
 
-#### 连接DB
+#### 连接 DB
 
-```html
+```ABAP
 DATA: CON_NAME LIKE DBCON-CON_NAME VALUE 'DBNAME',
 DATA: sql_error TYPE REF TO cx_sy_native_sql_error, 
       error_text TYPE string.
 ...
- 内表数据准备
+" 内表数据准备 "
 ...
 " 连接数据库 "
 TRY. 
@@ -66,13 +70,12 @@ ENDTRY.
 LOOP demo_datas.
   TRY.
     EXEC SQL PERFORMING frm_download_data.
-      SELECT * into :wa_emp FROM emp
-            WHERE index = :demo_datas-index
+      SELECT * into :wa_emp FROM emp WHERE index = :demo_datas-index
     ENDEXEC.
     CATCH CX_SY_NATIVE_SQL_ERROR.
       CLEAR: e_type,e_message.
-      E_TYPE = 'E'.
-      E_MESSAGE = 'Download RQM data Error'.
+      e_type    = 'E'.
+      e_message = 'Download RQM data Error'.
       CLEAR: wa_emp.
   ENDTRY.
 ENDLOOP.
@@ -82,14 +85,14 @@ ENDLOOP.
 
 ```ABAP
 TRY. 
- LOOP AT gt_room INTO gs_room. 
-  EXEC SQL. 
-   insert into ljc_room ( room_id, room_name, room_people, room_desc ) 
-   values(:gs_room-room_id, :gs_room-room_name, :gs_room-room_people, :gs_room-room_desc)
-  ENDEXEC.
- ENDLOOP.
-CATCH cx_sy_native_sql_error INTO sql_error. 
- error_text = l_sql_error->get_text( ). 
+  LOOP AT gt_room INTO gs_room. 
+    EXEC SQL. 
+      insert into ljc_room ( room_id, room_name, room_people, room_desc ) 
+      values(:gs_room-room_id, :gs_room-room_name, :gs_room-room_people, :gs_room-room_desc)
+    ENDEXEC.
+  ENDLOOP.
+  CATCH cx_sy_native_sql_error INTO sql_error. 
+    error_text = l_sql_error->get_text( ). 
 ENDTRY. 
 ```
 
@@ -98,45 +101,44 @@ ENDTRY.
 ```ABAP
 "异常处理"
 IF error_text IS INITIAL.
- EXEC SQL.
-  commit
- ENDEXEC.
+  EXEC SQL.
+    commit
+  ENDEXEC.
 ELSE.
- CLEAR error_text. 
- EXEC SQL. 
-  rollback 
- ENDEXEC.  
+  CLEAR error_text. 
+  EXEC SQL. 
+    rollback 
+  ENDEXEC.  
 ENDIF.
 "断开连接"
 EXEC SQL. 
- DISCONNECT :p_dbname 
+  DISCONNECT :p_dbname 
 ENDEXEC.
 ```
 
 ### 游标使用
 
 ```ABAP
-DATA : arg1 TYPE string VALUE '800' .
-TABLES : t001 .
-EXEC SQL .
+DATA: arg1 TYPE string VALUE '800'.
+TABLES: t001.
+EXEC SQL.
   OPEN c1 FOR  " 打开游标 "
-  SELECT MANDT , BUKRS 
-	FROM T001      " 远程数据库表 "
+  SELECT MANDT, BUKRS FROM T001   " 远程数据库表 "
     WHERE MANDT = :arg1 AND BUKRS >= 'ZA01'
-ENDEXEC .
-DO .
-  EXEC SQL .
+ENDEXEC.
+DO.
+  EXEC SQL.
     FETCH NEXT c1 INTO :t001-mandt, :t001-bukrs  "读取游标"
-  ENDEXEC .
-  IF sy - subrc <> 0 .
-    EXIT .
-  ELSE .
-    WRITE : / t001-mandt, t001-bukrs .
-  ENDIF .
-ENDDO .
-EXEC SQL .
-  CLOSE c1 "关闭游标"
-ENDEXEC .
+  ENDEXEC.
+  IF sy-subrc <> 0.
+    EXIT.
+  ELSE.
+    WRITE: / t001-mandt, t001-bukrs.
+  ENDIF.
+ENDDO.
+EXEC SQL.
+  CLOSE c1     "关闭游标"
+ENDEXEC.
 ```
 
 ### 使用类调用  Native SQL
@@ -145,15 +147,15 @@ ENDEXEC .
 
 ```ABAP
 REPORT z_sql_demo.
+"Get business datas"
+"Excute data"
 DATA: index TYPE i.
 DATA: sql(100) TYPE c.
 DATA: retcode  TYPE i.
 TYPES: BEGIN OF sql_data,
-	sql(300) TYPE c,
-END OF sql_data. 
+    sql(300) TYPE c,
+END OF sql_data.
 DATA: sql_datas TYPE STANDARD TABLE OF sql_data WITH HEADER LINE.
-"get datas"
-"excute data"
 LOOP AT datas.
   index = sy-tabix.
   CLEAR: sql.

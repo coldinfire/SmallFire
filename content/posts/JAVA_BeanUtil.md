@@ -1,5 +1,5 @@
 ---
-title: "BeanUtil工具类使用"
+title: "BeanUtil 工具类使用"
 date: 2017-10-14
 draft: false
 author: Small Fire

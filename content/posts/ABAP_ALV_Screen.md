@@ -68,7 +68,7 @@ SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN END OF LINE. 将所生成的屏幕元素控制在一行.
 ```
 
-#### 单行添加
+#### 屏幕元素单行添加
 
 ```JS
 SELECTION-SCREEN BEGIN OF LINE.

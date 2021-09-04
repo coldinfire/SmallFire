@@ -1,5 +1,5 @@
 ---
-title: "ABAP DOI使用"
+title: "ABAP DOI 使用"
 date: 2019-02-22
 draft: false
 author: Small Fire
