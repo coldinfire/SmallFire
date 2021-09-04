@@ -71,7 +71,7 @@
     </item>
     
     <item>
-      <title>SAP ABAP将数字金额转为大写</title>
+      <title>ABAP 将数字金额转为大写</title>
       <link>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</link>
       <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
       
@@ -179,7 +179,7 @@
     </item>
     
     <item>
-      <title> SAP Domain增强 </title>
+      <title> SAP Domain 增强 </title>
       <link>https://coldinfire.github.io/2020/ABAP_DomainEnhancement/</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
       
@@ -189,10 +189,10 @@
     
     <item>
       <title> OO ALV不同Container </title>
-      <link>https://coldinfire.github.io/2020/ABAP_OOALV5_Diff_Containers/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_OOALV4_Diff_Containers/</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_OOALV5_Diff_Containers/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_OOALV4_Diff_Containers/</guid>
       <description>1.Custom container Custom container can be created with a class CL_GUI_CUSTOM_CONTAINER, but it needs a parent container in which it could be placed or it needs an custom control area to be created in custom screen . This solution is mainly used by me in the applications I develop now. But it’s also common that you’ll mix custom containers with other in</description>
     </item>
     
@@ -233,7 +233,7 @@
     </item>
     
     <item>
-      <title>LSMW操作步骤详解</title>
+      <title>LSMW 操作步骤详解</title>
       <link>https://coldinfire.github.io/2020/SAP_LSMW_Details/</link>
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -242,7 +242,7 @@
     </item>
     
     <item>
-      <title>LSMW批处理使用方法</title>
+      <title>LSMW 批处理使用方法</title>
       <link>https://coldinfire.github.io/2020/SAP_LSMW/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -296,7 +296,7 @@
     </item>
     
     <item>
-      <title> SAP FI 会计凭证过账 </title>
+      <title> FI 会计凭证过账 </title>
       <link>https://coldinfire.github.io/2020/FI_DocumentPost/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -359,7 +359,7 @@
     </item>
     
     <item>
-      <title>SAP Query Tutorial</title>
+      <title>SAP Query 使用介绍</title>
       <link>https://coldinfire.github.io/2020/SAP_Query/</link>
       <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
       
@@ -369,10 +369,10 @@
     
     <item>
       <title>SAP DBCO连接测试</title>
-      <link>https://coldinfire.github.io/2020/SAPDBCO_Connect/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_SQL_DBCOConnect/</link>
       <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAPDBCO_Connect/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_SQL_DBCOConnect/</guid>
       <description>SAP 数据库配置 TCode: DBCO查看数据库连接信息 测试连通性 使用程序：ADBC_TEST_CONNECTION / 参考 ADBC* 输入Database connection name,</description>
     </item>
     
@@ -494,7 +494,7 @@
     </item>
     
     <item>
-      <title> SAP ABAP代码扫描工具 </title>
+      <title> SAP ABAP 代码扫描工具 </title>
       <link>https://coldinfire.github.io/2020/ABAP_Code_Search/</link>
       <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
@@ -549,10 +549,10 @@
     
     <item>
       <title>凭证冲销 BAPI_ACC_DOCUMENT_REV_POST</title>
-      <link>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_REV/</link>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_ACC_DOCUMENT_REV/</link>
       <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAP_ACC_DOCUMENT_REV/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_ACC_DOCUMENT_REV/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/0RoUY8nyWfONjKTItjTouA BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 前台操作： FB08 直接点保存</description>
     </item>
     
@@ -584,7 +584,7 @@
     </item>
     
     <item>
-      <title>ABAP BTE增强使用</title>
+      <title> BTE 增强使用 </title>
       <link>https://coldinfire.github.io/2019/ABAP_Enhance_BTE/</link>
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
@@ -593,7 +593,7 @@
     </item>
     
     <item>
-      <title> CS12 ALV的增强 </title>
+      <title> CS12 ALV 的增强 </title>
       <link>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
       
@@ -602,7 +602,7 @@
     </item>
     
     <item>
-      <title>SAP JCO连接</title>
+      <title>SAP JCO 连接</title>
       <link>https://coldinfire.github.io/2019/SAP_JCO/</link>
       <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
       
@@ -638,7 +638,7 @@
     </item>
     
     <item>
-      <title> ABAP Dynnamic Programer</title>
+      <title> ABAP Dynnamic Programer </title>
       <link>https://coldinfire.github.io/2019/ABAP_DynamicProgram/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -656,7 +656,7 @@
     </item>
     
     <item>
-      <title>ABAP字符串处理</title>
+      <title>ABAP 字符串处理</title>
       <link>https://coldinfire.github.io/2019/ABAP_Util_String/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -746,7 +746,7 @@
     </item>
     
     <item>
-      <title> ABAP动态内表 </title>
+      <title> ABAP 动态内表 </title>
       <link>https://coldinfire.github.io/2019/ABAP_DynamicTable/</link>
       <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
       
@@ -854,7 +854,7 @@
     </item>
     
     <item>
-      <title>BAPI使用</title>
+      <title>BAPI 使用</title>
       <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -863,7 +863,7 @@
     </item>
     
     <item>
-      <title> ABAP学习网站记录 </title>
+      <title> ABAP 学习网站记录 </title>
       <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -1017,15 +1017,15 @@
     
     <item>
       <title>BOM了解</title>
-      <link>https://coldinfire.github.io/2019/SAP_BOM/</link>
+      <link>https://coldinfire.github.io/2019/MM_BOM/</link>
       <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAP_BOM/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BOM/</guid>
       <description>BOM定义 ​ BOM:物料清单，是部件完整、正式的结构化清单，组成一个产品或装配。包括每个部件的项目号、损耗、数量和计量单位。</description>
     </item>
     
     <item>
-      <title> 发送带文本的Email </title>
+      <title> 发送带文本的 Email </title>
       <link>https://coldinfire.github.io/2019/ABAP_EmailText/</link>
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
       
@@ -1034,7 +1034,7 @@
     </item>
     
     <item>
-      <title> 发送带附件(Excel)的Email </title>
+      <title> 发送带附件(Excel)的 Email </title>
       <link>https://coldinfire.github.io/2019/ABAP_EmailExcel/</link>
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
@@ -1205,7 +1205,7 @@
     </item>
     
     <item>
-      <title> SAP下载程序源码工具 </title>
+      <title> SAP 下载程序源码工具 </title>
       <link>https://coldinfire.github.io/2019/ABAP_DownloadSourceCode/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -1214,7 +1214,7 @@
     </item>
     
     <item>
-      <title> SAP发送Email </title>
+      <title> SAP 发送 Email </title>
       <link>https://coldinfire.github.io/2019/ABAP_Email/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -1394,7 +1394,7 @@
     </item>
     
     <item>
-      <title>ABAP DOI使用</title>
+      <title>ABAP DOI 使用</title>
       <link>https://coldinfire.github.io/2019/ABAP_EXCEL_DOI/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -1421,7 +1421,7 @@
     </item>
     
     <item>
-      <title> Python基础 </title>
+      <title> Python 基础 </title>
       <link>https://coldinfire.github.io/2019/Python_Basic/</link>
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       
@@ -1430,7 +1430,7 @@
     </item>
     
     <item>
-      <title> Python学习资源</title>
+      <title> Python 学习资源</title>
       <link>https://coldinfire.github.io/2019/Python_Resource/</link>
       <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
       
@@ -1520,7 +1520,7 @@
     </item>
     
     <item>
-      <title>BOM展开</title>
+      <title>BOM 展开</title>
       <link>https://coldinfire.github.io/2018/ABAP_BOM_USE/</link>
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -1539,10 +1539,10 @@
     
     <item>
       <title>Product Order的增强</title>
-      <link>https://coldinfire.github.io/2018/SAP_ProOrder_Enhance/</link>
+      <link>https://coldinfire.github.io/2018/PP_ProOrder_Enhance/</link>
       <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAP_ProOrder_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2018/PP_ProOrder_Enhance/</guid>
       <description>生产订单的增强 如果SAP系统的标准功能不能满足业务需求，用户出口或 BADI 可能会有所帮助。 Customer Exit SMOD:SAP增强管理 CMOD:SAP增强编辑器维</description>
     </item>
     
@@ -1556,11 +1556,11 @@
     </item>
     
     <item>
-      <title> ALV tree显示BOM结构 </title>
-      <link>https://coldinfire.github.io/2018/SAP_BOM_Tree/</link>
+      <title> ALV tree 显示BOM结构 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Util_BOMTree/</link>
       <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAP_BOM_Tree/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Util_BOMTree/</guid>
       <description>实例代码 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo. TABLES: stpox. INCLUDE &amp;lt;icon&amp;gt;. CLASS: cl_gui_column_tree DEFINITION LOAD, cl_gui_cfw DEFINITION LOAD . DATA: tree1 TYPE REF TO cl_gui_alv_tree , mr_toolbar TYPE REF TO cl_gui_toolbar . DATA: gs_stpox TYPE stpox, gt_stpox TYPE stpox OCCURS 0, gt_fieldcatalog TYPE lvc_t_fcat, gt_item_layout TYPE lvc_t_laci, gs_item_layout TYPE lvc_s_laci, okcode LIKE sy-ucomm . TYPES: BEGIN OF gs_f. INCLUDE STRUCTURE stpox. TYPES: node_key TYPE lvc_nkey, END OF gs_f. DATA:</description>
     </item>
     
@@ -1673,7 +1673,7 @@
     </item>
     
     <item>
-      <title>BAPI总结列表</title>
+      <title>BAPI 总结列表</title>
       <link>https://coldinfire.github.io/2018/ABAP_BAPI_SUM/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       
@@ -1700,7 +1700,16 @@
     </item>
     
     <item>
-      <title>BDC屏幕录制</title>
+      <title> SAP Field Symbols </title>
+      <link>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</guid>
+      <description>字段符号 定义 FIELD-SYMBOLS: &amp;lt;fs_tb&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs_wa&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE LINE OF &amp;lt;table&amp;gt;. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE &amp;lt;structure&amp;gt;. 使用 FIELD-SYMBOLS 必须和某个变量，结构或者内表绑定后才能使用，在使用字段符号前必须分配给某个变量，不然</description>
+    </item>
+    
+    <item>
+      <title>BDC 屏幕录制</title>
       <link>https://coldinfire.github.io/2018/ABAP_BDC/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -1781,25 +1790,34 @@
     </item>
     
     <item>
-      <title> SAP Field Symbols </title>
-      <link>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</link>
+      <title>ABAP Object Oriented 语法</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Object_Oriented_Basic/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</guid>
-      <description>字段符号 定义 FIELD-SYMBOLS: &amp;lt;fs_tb&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs_wa&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE LINE OF &amp;lt;table&amp;gt;. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE &amp;lt;structure&amp;gt;. 使用 FIELD-SYMBOLS 必须和某个变量，结构或者内表绑定后才能使用，在使用字段符号前必须分配给某个变量，不然</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Object_Oriented_Basic/</guid>
+      <description>类声明和实现 类具有属性和方法 对象是类的实例 对象是通过指针变量来访问的 对象有独立的 interface &amp;#34;Class Declarations&amp;#34; CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &amp;#39;This is my first ABAP Object.&amp;#39;. ENDCLASS. &amp;#34;Class Implementation&amp;#34; CLASS application IMPLEMENTATION. METHOD</description>
     </item>
     
     <item>
-      <title>Dialog程序实例</title>
+      <title>ABAP Object Oriented 概述</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Object_Oriented_Overview/</link>
+      <pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Object_Oriented_Overview/</guid>
+      <description>ABAP Object Oriented 通过使用面向对象技术可以减少错误发生的隐患以及增强代码的可维护性。 ABAP Object Oriented 的年代史： SAP Basis Release 4.5 发布了 ABAP OO 的一个版本，引入了类接口的概念，并</description>
+    </item>
+    
+    <item>
+      <title>Dialog 程序实例</title>
       <link>https://coldinfire.github.io/2018/ABAP_DialogTmp/</link>
-      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_DialogTmp/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Dialog程序知识汇总</title>
+      <title>Dialog 程序知识汇总</title>
       <link>https://coldinfire.github.io/2018/ABAP_DialogDetail/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -1808,7 +1826,7 @@
     </item>
     
     <item>
-      <title>Dialog程序简介</title>
+      <title>Dialog 程序简介</title>
       <link>https://coldinfire.github.io/2018/ABAP_Dialog/</link>
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -1822,7 +1840,7 @@
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_ListDemo/</guid>
-      <description>程序实例 *&amp;amp;--------------------------------------- *&amp;amp; Report ZWR_PI_LOG *&amp;amp;---------------------------------------- REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;#34;ALV Data&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, lw_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS: p_chk2 RADIOBUTTON</description>
+      <description>程序实例 *&amp;amp;--------------------------------------- *&amp;amp; Report ZWR_PI_LOG *&amp;amp;--------------------------------------- REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;#34;ALV Data&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, lw_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS: p_chk2 RADIOBUTTON</description>
     </item>
     
     <item>
@@ -1989,10 +2007,10 @@
     
     <item>
       <title>报表开发&lt;OO ALV工具&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV4/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV3/</link>
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV4/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV3/</guid>
       <description>显示后，修改字段目录和布局 通过方法在第一次显示之后，设置一个新的布局或则字段目录。 方法 字段目录：GET_FRONTEND_FIELDCATA</description>
     </item>
     
@@ -2006,21 +2024,12 @@
     </item>
     
     <item>
-      <title>ABAP OO语法</title>
+      <title>OO ALV 实例程序</title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV2/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV2/</guid>
-      <description>类声明和实现 类具有属性和方法 对象是类的实例 对象是通过指针变量来访问的 对象有独立的 interface &amp;#34;Class Declarations&amp;#34; CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &amp;#39;This is my first ABAP Object.&amp;#39;. ENDCLASS. &amp;#34;Class Implementation&amp;#34; CLASS application IMPLEMENTATION. METHOD</description>
-    </item>
-    
-    <item>
-      <title>OO ALV实例程序</title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV3/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV3/</guid>
-      <description>OO ALV简单实例：其中屏幕的创建， 和对应PAI,PBO以及Status title等可以自定调整。 REPORT zoo_alv. TYPE-POOLS: slis. *-- Global data Decleration. TYPES:BEGIN OF ty_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV2/</guid>
+      <description>OO ALV 简单实例：其中屏幕的创建， 和对应PAI,PBO以及 Status title 等可以自定调整。 REPORT zoo_alv. TYPE-POOLS: slis. *-- Global data Decleration. TYPES:BEGIN OF ty_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE ebelp, matnr TYPE matnr, werks TYPE werks_d, menge TYPE bstmg, meins</description>
     </item>
     
     <item>
@@ -2096,16 +2105,16 @@
     </item>
     
     <item>
-      <title> ABAP通过字段找表程序 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_FieldFindProgram/</link>
+      <title> ABAP 通过字段找表程序 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Util_FieldFindProgram/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_FieldFindProgram/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Util_FieldFindProgram/</guid>
       <description>获取数据保存在哪个表 前台对指定栏位 使用 F1 帮助找表 ST05 跟踪业务操作过程，检索需要的数据表.（此方法找表很高效） 对于文本字段找表，可以找到前台维护</description>
     </item>
     
     <item>
-      <title>ALV显示红绿灯</title>
+      <title>ALV 显示红绿灯</title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_TrafficLight/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
@@ -2537,7 +2546,7 @@
     </item>
     
     <item>
-      <title> JDBC连接 </title>
+      <title> JDBC 连接 </title>
       <link>https://coldinfire.github.io/2017/JAVA_JDBC/</link>
       <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
       
@@ -2726,7 +2735,7 @@
     </item>
     
     <item>
-      <title>BeanUtil工具类使用</title>
+      <title>BeanUtil 工具类使用</title>
       <link>https://coldinfire.github.io/2017/JAVA_BeanUtil/</link>
       <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
       

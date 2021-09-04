@@ -115,8 +115,6 @@ Enhancement Spot 是作为一个 BADI 的容器，一个 Enhancement Spot 下可
 
 如果想要达到像 Java 中多态的话，需要创建多个不同的 Enhancement Implementation 增强实现，BADI 中的多态就是通过不同的 Enhancement Implementation 增强实现来实现的。
 
-
-
 #### SE19 实现 BADI
 
 Edit Implementation：输入 Enhancement Implementation 即可查找包含的 BADI Implementations

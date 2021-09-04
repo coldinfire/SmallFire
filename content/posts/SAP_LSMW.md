@@ -1,5 +1,5 @@
 ---
-title: "LSMW批处理使用方法"
+title: "LSMW 批处理使用方法"
 date: 2020-09-02
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: " Python基础 "
+title: " Python 基础 "
 date: 2019-01-16
 draft: false
 author: Small Fire

@@ -1,6 +1,6 @@
 ---
 title: " SAP Field Symbols "
-date: 2018-09-08
+date: 2018-09-29
 draft: false
 author: Small Fire
 isCJKLanguage: true

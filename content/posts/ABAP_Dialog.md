@@ -26,15 +26,15 @@ ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中定义�
 
 - 推送数据：在PAI中控制
 
-- PBO:Before the screen is displayed
+- PBO：Before the screen is displayed
   
-- PAI: After a user action on the screen
+- PAI：After a user action on the screen
   
-- POH: when F1
+- POH：when F1
   
-- POV: When F4
+- POV：When F4
 
-Screen Flow Logic定义了在screen上的各种事件，而Dynpro定义了这个Screen和各种事件。ABAP MODULE POOL会处理这些event, 在每次事件时调用一个ABAP program。
+Screen Flow Logic 定义了在 screen 上的各种事件，而 Dynpro 定义了这个 Screen 和各种事件。ABAP MODULE POOL 会处理这些 Event，在每次事件时调用一个ABAP program。
 
 #### 语法：
 
@@ -66,10 +66,10 @@ Screen Flow Logic定义了在screen上的各种事件，而Dynpro定义了这个
 #### 单字段检查
 
 - 单个字段检查： `FIELD <FLD1> MODULE <MDL1> .`
-- 单个字段多个MODULE检查，如FLD1有两个MODULE检查：` FIELD <FLD1> MODULE<MDL1>.
+- 单个字段多个 MODULE 检查，如 FLD1 有两个 MODULE 检查：` FIELD <FLD1> MODULE<MDL1>.
   MODULE<MDL2>.`
 
-#### 检查多字段，使用CHAIN
+#### 检查多字段，使用 CHAIN
 
 ```JSP
 CHAIN.

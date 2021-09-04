@@ -1,5 +1,5 @@
 ---
-title: " ALV tree显示BOM结构 "
+title: " ALV tree 显示BOM结构 "
 date: 2018-11-08
 draft: false
 author: Small Fire

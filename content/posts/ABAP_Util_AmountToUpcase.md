@@ -1,5 +1,5 @@
 ---
-title: "SAP ABAP将数字金额转为大写"
+title: "ABAP 将数字金额转为大写"
 date: 2021-06-07
 draft: false
 author: Small Fire
