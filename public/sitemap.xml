@@ -240,6 +240,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</loc>
+      
+      <lastmod>2021-06-07T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2021/ExtJS_Component/</loc>
       
       <lastmod>2021-05-25T00:00:00+00:00</lastmod>
@@ -297,20 +311,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2021/ExtJS_Build/</loc>
-      
-      <lastmod>2021-05-13T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</loc>
       
       <lastmod>2021-05-13T00:00:00+00:00</lastmod>
       

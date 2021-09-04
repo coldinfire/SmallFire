@@ -73,7 +73,7 @@
     <item>
       <title>SAP ABAP将数字金额转为大写</title>
       <link>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</link>
-      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</guid>
       <description>SAP 实际业务中可能会有将金额、重量等数字格式转换为中文大写或则英文大写的银行金额内容。可以使用标准的函数 SPELL_AMOUNT 来进行处理，但是要注意该函数可能出现</description>
