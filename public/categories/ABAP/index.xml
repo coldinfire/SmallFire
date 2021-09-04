@@ -503,9 +503,18 @@
     </item>
     
     <item>
-      <title> ALV Tree标准Demo </title>
+      <title> ALV Tree 使用 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_ALV_TreeDemo/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_ALV_TreeDemo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> ALV Tree 标准Demo </title>
       <link>https://coldinfire.github.io/2019/ABAP_ALV_Tree/</link>
-      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_ALV_Tree/</guid>
       <description>Demo列表 BCALV_TREE_01 ALV 树控制：构建层次树 BCALV_TREE_02 ALV 树控制：事件处理 BCALV_TREE_03 ALV 树控制：使用自己的上下文菜单 BCALV_TREE_04 ALV 树控制：添加按钮到工具栏 BCALV_TREE_05 ALV 树控制：添加菜单到工具</description>
@@ -1296,10 +1305,10 @@
     
     <item>
       <title>ALV添加复选框，并添加全选，不全选功能</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_CHECKBOX/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_CheckBox/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_CHECKBOX/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_CheckBox/</guid>
       <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT添加并定义CheckBox &amp;#34;$. Region ALV_Data&amp;#34; TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &amp;#39;CHECKBOX&amp;#39;. alv_fieldcat-scrtext_m = &amp;#39;Choose&amp;#39;. alv_fieldcat-checkbox =</description>
     </item>
     

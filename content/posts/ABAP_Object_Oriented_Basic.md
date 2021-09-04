@@ -196,15 +196,15 @@ CREATE OBJECT ob_test2.
 
 ` ->`： 即可以访问类中定义的实例组件又可以访问静态组件。但对于静态组件还有另一种访问方式：通过`类名称=>`直接访问。自身访问通过 `ME`。
 
-| 描述                               | 示例                                   |
-| :--------------------------------- | :------------------------------------- |
-| 访问对象的实例或则静态属性         | oref->obj_attr                         |
-| 访问类的静态属性                   | class_name=>class_attr                 |
-| 在类内部访问自身实例或静态属性     | ME->attr / attr                        |
-| 对象的实例属性或静态方法           | CALL METHOD oref->meth                 |
-| 类的静态方法                       | CALL METHOD class=>meth                |
-| 在类内部访问自身实例方法或静态方法 | CALL METHOD me->attr/CALL METHOD attr  |
-| 链式访问结构                       | oref1->oref2->comp / class=>oref->comp |
+| 描述                               | 示例                                    |
+| :--------------------------------- | :-------------------------------------- |
+| 访问对象的实例或则静态属性         | oref->obj_attr                          |
+| 访问类的静态属性                   | class_name=>class_attr                  |
+| 在类内部访问自身实例或静态属性     | me->static_attr / static_attr           |
+| 对象的实例属性或静态方法           | CALL METHOD oref->meth                  |
+| 类的静态方法                       | CALL METHOD class=>meth                 |
+| 在类内部访问自身实例方法或静态方法 | CALL METHOD me->attr / CALL METHOD attr |
+| 链式访问结构                       | oref1->oref2->comp / class=>oref->comp  |
 
 #### 删除对象
 
