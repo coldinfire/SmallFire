@@ -57,11 +57,10 @@ tags:
 
 **Field:** 透明表字段最长 16 位，可以作为透明表的主 / 外键，继承了 Data Element 的所有属性。
 
-**Technical Setting**：
+**Technical Setting**：设置表的类型和存储数据量大小
 
-透明表中的 Technical Setting 设置 Log data changes 后可以使用 SCU3，STAD 查看日志。
+- 透明表中的 Technical Setting 设置 Log data changes 后可以使用 SCU3，STAD 查看日志。非特殊情况不设置，会占用很大的内存
 
-- 非特殊情况不设置，会占用很大的内存
 
 ### 数据分类
 
@@ -95,7 +94,17 @@ tags:
 ### 复制结构/表中的所有字段
 
 - SE11创建自定义表/结构
+
 - Edit -> Transfer Fields
-- 选择要复制的表/结构和要复制的字段![Copy Components](/images/ABAP/Table1.png)
-- 选择要复制的字段并选择Copy![Field Selection](/images/ABAP/Table2.png)
--  粘贴所有复制的字段并激活自定义的表/结构![Field paste](/images/ABAP/Table3.png)
+
+- 选择要复制的表/结构和要复制的字段
+
+  ![Copy Components](/images/ABAP/Table1.png)
+
+- 选择要复制的字段并选择Copy
+
+  ![Field Selection](/images/ABAP/Table2.png)
+
+- 粘贴所有复制的字段并激活自定义的表/结构
+
+  ![Field paste](/images/ABAP/Table3.png)

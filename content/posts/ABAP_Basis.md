@@ -43,14 +43,22 @@ tags:
 
 #### 自定义变量类型
 
-`DATA <var>(len) TYPE <type> VALUE <value> [<decimals>]`
+`DATA <var1>(len) TYPE <var2> [VALUE <default_value>] [<decimals>]`
 
 #### 参考字段定义变量
 
 `DATA <var1> like <var2>`  & `DATA <var1> TYPE <var2>`
 
-- 透明表、结构、数据字典：既是类型又是对象，可用 type 和 like 。
+- 透明表、结构、数据字典：既是类型又是对象，可用 TYPE 和 LIKE
 - 只能使用 LIKE 引用另一自定义变量的类型，不可以使用 TYPE
+
+`DATA <var> LIKE LINE OF xxx `
+
+- 后面参照内表，表示该变量具有和参照内表一样的结构，可当做 Work Area 使用
+
+`DATA <var> LIKE TABLE OF xxx`
+
+- 后面参照结构，表示该变量是一个和参照结构一样的内表，这个内表和后面参照的结构一样
 
 ### 定义常量、宏
 

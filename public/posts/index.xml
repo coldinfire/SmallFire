@@ -1475,7 +1475,7 @@
     </item>
     
     <item>
-      <title>日期操作</title>
+      <title> 日期操作 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Util_Date/</link>
       <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -1781,12 +1781,12 @@
     </item>
     
     <item>
-      <title> Field Symbols </title>
+      <title> SAP Field Symbols </title>
       <link>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</guid>
-      <description>字段符号 定义: FIELD-SYMBOLS: &amp;lt;fs&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs&amp;gt; LIKE LINE OF &amp;lt;t_TABLE&amp;gt;. FIELD-SYMBOLS: &amp;lt;fs&amp;gt; TYPE ANY. &amp;lt;1&amp;gt; FS必须和某个变量，结构或者内表绑定后才能使用，在使用FS前必须分配给某个变量，不然会发生FS</description>
+      <description>字段符号 定义 FIELD-SYMBOLS: &amp;lt;fs_tb&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs_wa&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE LINE OF &amp;lt;table&amp;gt;. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE &amp;lt;structure&amp;gt;. 使用 FIELD-SYMBOLS 必须和某个变量，结构或者内表绑定后才能使用，在使用字段符号前必须分配给某个变量，不然</description>
     </item>
     
     <item>
@@ -2088,10 +2088,10 @@
     
     <item>
       <title> ABAP截取中文字符串 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_StrCNChina/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Util_StrCNChina/</link>
       <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_StrCNChina/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Util_StrCNChina/</guid>
       <description>截取包含中文字符串 strlen() 只能计算包含英文字符串的长度，不能计算中文字符串的长度。 可以通过cl_abap_list_utilities=&amp;gt;d</description>
     </item>
     
@@ -2178,19 +2178,19 @@
     
     <item>
       <title>ABAP Native SQL</title>
-      <link>https://coldinfire.github.io/2018/ABAP_NativeSQL/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_SQL_NativeSQL/</link>
       <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_NativeSQL/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_SQL_NativeSQL/</guid>
       <description>Native SQL EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql</description>
     </item>
     
     <item>
       <title>ABAP Open SQL</title>
-      <link>https://coldinfire.github.io/2018/ABAP_OpenSQL/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_SQL_OpenSQL/</link>
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_OpenSQL/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_SQL_OpenSQL/</guid>
       <description>Open SQL ABAP可以通过两种方式与数据库交互 Native SQL：数据库自身的 SQL，可以直接访问数据库，不够安全。 Open SQL：集成到ABAP中的标准 SQL 子集，</description>
     </item>
     
@@ -2214,10 +2214,10 @@
     
     <item>
       <title>ABAP 数据表</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Table/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Table_Basic/</link>
       <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Table/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Table_Basic/</guid>
       <description>SAP 数据表类型 透明表(Transparent table)： 和数据库具有相同结构的表存储结构，数据库中有一个相应得物理表。 簇表(Cluster t</description>
     </item>
     
