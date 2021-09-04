@@ -102,7 +102,33 @@ CALL METHOD l_guid->refresh_table_display
 
 ` AT SELECTION-SCREEN ON VALUE-REQUEST FOR xxx.`
 
-在屏幕的 ON VALUE—REQUEST 事件里可以通过下面几个函数来创建搜索帮助：
+在屏幕的 ON VALUE—REQUEST 事件里可以通过下面方法来创建搜索帮助
+
+### 标准方法
+
+#### 日历对话框
+
+```ABAP
+PARAMETERS: p_date TYPE sy-datum.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_date.
+  CALL FUNCTION 'F4_DATE'
+    EXPORTING
+      date_for_first_month = sy-datum
+    IMPORTING
+      select_date = p_date  "用户选择后返回的日期"
+    EXCEPTIONS
+      calendar_buffer_not_loadable = 1
+      date_after_range = 2
+      date_before_range = 3
+      date_invalid = 4
+      factory_calendar_not_found = 5
+      holiday_calendar_not_found = 6
+      parameter_conflict = 7
+      OTHERS = 8.
+```
+
+### 自定义方法
 
 -   `F4IF_FIELD_VALUE_REQUEST` ： 函数的作用是在运行时，可以动态的为某个屏幕字段指定Search Help ，这个被引用的 Help 来自某个表（或结构）字段上绑定的 Help
 
@@ -123,7 +149,8 @@ DATA: it_return LIKE ddshretval OCCURS 0 WITH HEADER LINE.
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR S_TIMSTP-LOW.
   SELECT *
     INTO CORRESPONDING FIELDS OF TABLE IT_MATF4
-    FROM <table> WHERE <var> = <option>.
+    FROM <table>  
+   WHERE <var> = <option>.
   CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'   "F4输出函数"
     EXPORTING
 *   DDIC_STRUCTURE    = ' '

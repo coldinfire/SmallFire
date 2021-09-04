@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title> SAP全局宏设置和使用 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Util_GlobalMacro/</link>
+      <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Util_GlobalMacro/</guid>
+      <description>宏定义和使用 在 ABAP 代码的开发中通过使用DEFINE ... END-OF-DEFINITION. 来创建局部的宏变量，通过局部宏变量的设定可以让代码变得更加简单，同时也避免了代码冗余。 最</description>
+    </item>
+    
+    <item>
       <title> BAPI和Tcode执行之间的差异 </title>
       <link>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
@@ -59,6 +68,15 @@
       
       <guid>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</guid>
       <description>ABAP 保留指定小数位 ROUND函数 INT_SORT-MENGE = ROUND( VAL = LTB-EMENG * P_QPA DEC = 3 MODE = 1 ). mode代表着小数省略的规则， 1： 默认值，这个值总是从 0 四舍五入到更大的绝对值 5</description>
+    </item>
+    
+    <item>
+      <title>SAP ABAP将数字金额转为大写</title>
+      <link>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</guid>
+      <description>SAP 实际业务中可能会有将金额、重量等数字格式转换为中文大写或则英文大写的银行金额内容。可以使用标准的函数 SPELL_AMOUNT 来进行处理，但是要注意该函数可能出现</description>
     </item>
     
     <item>
@@ -341,7 +359,7 @@
     </item>
     
     <item>
-      <title> ABAP 搜索帮助 </title>
+      <title> ABAP搜索帮助 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SearchHelp/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
@@ -369,11 +387,11 @@
     
     <item>
       <title>ABAP字符串处理</title>
-      <link>https://coldinfire.github.io/2019/ABAP_String/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_Util_String/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_String/</guid>
-      <description>字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。 1.获取字符串长度 var1 = strl</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_Util_String/</guid>
+      <description>字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。 1.获取字符串长度 var1 = strlen( str );</description>
     </item>
     
     <item>
@@ -747,11 +765,11 @@
     
     <item>
       <title>STVARV使用详情</title>
-      <link>https://coldinfire.github.io/2019/ABAP_Variant/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_Util_Stvarv/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Variant/</guid>
-      <description>STVARV使用 该配置不能跨Client因此需要在每个Client单独配置；使用TCode：stvarv进入配置界面，可以新建、修改、删除记</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_Util_Stvarv/</guid>
+      <description>STVARV 使用 该配置不能跨 Client 因此需要在每个 Client 单独配置；使用事物码STVARV进入配置界面，可以新建、修改、删除记录。 程序内使用 程序内只是取出配置的值</description>
     </item>
     
     <item>

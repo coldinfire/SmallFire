@@ -1,5 +1,5 @@
 ---
-title: " ABAP 搜索帮助 "
+title: " ABAP搜索帮助 "
 date: 2019-10-12
 draft: false
 author: Small Fire
@@ -22,7 +22,7 @@ tags:
 
 4、给出一些搜索帮助的描述。
 
-5、在选择方法字段中，应输入数据库表名称。该表是我们将从中选择信息类型编号字段的值的表。表 T157D可用于此目的。
+5、在选择方法字段中，应输入数据库表名称。该表是我们将从中选择信息类型编号字段的值的表。表 T157D 可用于此目的。
 
 6、选择对话框类型：Display values immediately
 
@@ -59,7 +59,7 @@ INITIALIZATION.
 
 10、搜索帮助出口 ：`Z_REASON_CODE_MIN_Z21`
 
-```JS
+```ABAP
 FUNCTION Z_REASON_CODE_MIN_Z21.
 *----------------------------------------------------------------------
 *Local Interface:
@@ -157,17 +157,15 @@ DATA:BEGIN OF l_it_t157d OCCURS 0,
 ENDFUNCTION.
 ```
 
-
-
 ![SE11 Serch help](/images/ABAP/SearchHelp.png)
 
 ### 功能模块 'F4IF_INT_TABLE_VALUE_REQUEST'
 
-​	在程序运行时,将某个内表动态的用作 **Search help** 的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果.
+在程序运行时,将某个内表动态的用作 **Search help** 的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果。
 
-```JS
+```ABAP
 parameters: p_bname LIKE usr02-bname,
-    p_class LIKE usr02-class.
+            p_class LIKE usr02-class.
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_bname.
 	PERFORM frm_valuereq_bwart.
 
@@ -233,8 +231,6 @@ CALL FUNCTION 'DDIF_FIELDINFO_GET'
   ENDIF.
 ENDFORM.
 ```
-
-
 
 ### 搜索帮助优先级
 

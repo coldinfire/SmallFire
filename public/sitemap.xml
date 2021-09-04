@@ -128,6 +128,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2021/ABAP_Util_GlobalMacro/</loc>
+      
+      <lastmod>2021-08-27T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</loc>
       
       <lastmod>2021-08-12T00:00:00+00:00</lastmod>
@@ -283,6 +297,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/2021/ExtJS_Build/</loc>
+      
+      <lastmod>2021-05-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</loc>
       
       <lastmod>2021-05-13T00:00:00+00:00</lastmod>
       
@@ -1346,7 +1374,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_String/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_Util_String/</loc>
       
       <lastmod>2019-09-18T00:00:00+00:00</lastmod>
       
@@ -2676,7 +2704,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_Variant/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_Util_Stvarv/</loc>
       
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       
