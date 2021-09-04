@@ -494,12 +494,12 @@
     </item>
     
     <item>
-      <title> SAP source scan ABAP Report 工具 </title>
+      <title> SAP ABAP代码扫描工具 </title>
       <link>https://coldinfire.github.io/2020/ABAP_Code_Search/</link>
       <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_Code_Search/</guid>
-      <description>SAP提供两个代码扫描工具。 使用场景 如果您不知道某功能模块的名称，并且需要查找使用RFC的位置，则可以使用诸如CALL FUNCTION或DE</description>
+      <description>使用场景 在不知道某功能模块的名称，并且需要查找使用 RFC 的位置，则可以使用诸如 CALL FUNCTION 或DESTINATION 之类的关键字来运行 ABAP 代码扫描工具。 当增</description>
     </item>
     
     <item>
@@ -647,12 +647,12 @@
     </item>
     
     <item>
-      <title>IDoc操作</title>
+      <title>IDoc 操作</title>
       <link>https://coldinfire.github.io/2019/ABAP_IDoc/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_IDoc/</guid>
-      <description>参考链接 IDoc 1.IDoc简介 IDoc:是基于文档，用作异步传输数据的载体，类似于XML;使用功能场景：假设 1040 和 1020 是同一个集团下两个不同子公司的</description>
+      <description>参考链接 1.IDoc简介 IDoc：是基于文档，用作异步传输数据的载体，类似于XML;使用功能场景：假设 1040 和 1020 是同一个集团下两个不同子公司的 SAP</description>
     </item>
     
     <item>
@@ -1728,10 +1728,10 @@
     
     <item>
       <title> 财务凭证冲销 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_FIVoucherReversal/</link>
+      <link>https://coldinfire.github.io/2018/FI_VoucherReversal/</link>
       <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_FIVoucherReversal/</guid>
+      <guid>https://coldinfire.github.io/2018/FI_VoucherReversal/</guid>
       <description>凭证的更改 1：已经过帐的 TCODE：FB02. 过完帐的允许更改的地方有限，只有凭证抬头文本，参照，分配，文本，原因代码等 2：预制凭证的更改.</description>
     </item>
     
@@ -2002,7 +2002,7 @@
       <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Lock/</guid>
-      <description>一、SAP 为什么要设置锁： 1，保持数据的一致性 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防止</description>
+      <description>SAP 为什么要设置锁 1.保持数据的一致性 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防止第二个用户</description>
     </item>
     
     <item>
@@ -2228,6 +2228,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis/</guid>
       <description>ABAP基本数据类型 基本数据类型 Type Description Type Description C Character text D Date(YYYYMMDD) N Numeric text(不能进行计算) T Time(HHMMSS) I Integer F Floating point P Packed(包类型:1-16) X 十六进制 常用</description>
+    </item>
+    
+    <item>
+      <title> ABAP 技能树 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Goal_Setting/</link>
+      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Goal_Setting/</guid>
+      <description>ABAP 学习 ABAP语法详解 全面掌握 SAP 的开发环境，ABAP 语法等基础知识。 报表开发全面总结 全面总结 SAP 系统中各种类型报表的实现方案和技术细节，开发者</description>
     </item>
     
     <item>

@@ -3292,7 +3292,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_FIVoucherReversal/</loc>
+      <loc>https://coldinfire.github.io/2018/FI_VoucherReversal/</loc>
       
       <lastmod>2018-09-20T00:00:00+00:00</lastmod>
       
@@ -4079,6 +4079,20 @@
       <loc>https://coldinfire.github.io/2018/ABAP_Basis/</loc>
       
       <lastmod>2018-05-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Goal_Setting/</loc>
+      
+      <lastmod>2018-05-10T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
