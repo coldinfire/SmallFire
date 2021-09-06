@@ -41,9 +41,9 @@ REUSE_ALV_GRID_DISPLAY_LVC:
 
 在 ALV 开发中有两个重要的对象： **LAYOUT** 和 **FIELDCAT** 。
 
-- **LAYOUT** 主要用于设置 ALV 的输出格式，如输出字段的颜色、表格中的线条等，为 ALV 输出的可选项。
+- LAYOUT：主要用于设置 ALV 的输出格式，如输出字段的颜色、表格中的线条等，为 ALV 输出的可选项。
 
-- **FIELDCAT** 主要用于 ALV 结构定义，包括具体字段的名称、类型、格式等属性，与 Layout 不一样的是输出格式只针对某个字段。为 ALV 输出的必选项。
+- FIELDCAT：主要用于 ALV 结构定义，包括具体字段的名称、类型、格式等属性，与 Layout 不一样的是输出格式只针对某个字段。为 ALV 输出的必选项。
 
 ## Field Catalog 字段
 

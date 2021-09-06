@@ -1,6 +1,6 @@
 ---
 title: " OO ALV不同Container "
-date: 2020-10-18
+date: 2018-07-08
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -28,7 +28,25 @@ Splitter (*CL_GUI_SPLITTER_CONTAINER*) needs a custom container as a parent in o
 
 The simple example found in program *ZDEMO_AIN_CL02* will create a splitter with two rows and one column. The *SCREEN* 0100 found here is exactly the same as in *ZDEMO_AIN_CL01*. 
 
-
+```ABAP
+DATA:G_SPLITTER TYPE REF TO CL_GUI_SPLITTER_CONTAINER,
+     G_CONTAINER_2000L TYPE REF TO CL_GUI_CONTAINER,
+     G_CONTAINER_2000R TYPE REF TO CL_GUI_CONTAINER.
+IF g_splitter IS INITIAL.
+    CREATE OBJECT g_splitter  "定义一个屏幕包含两个ALV"
+      EXPORTING
+        parent  = cl_gui_container=>screen0
+        rows    = 2
+        columns = 1.
+    CALL METHOD g_splitter->set_border
+      EXPORTING
+        border = cl_gui_cfw=>false.
+    g_container_2000l = g_splitter->get_container( row = 1 column = 1 ).
+    g_container_2000r = g_splitter->get_container( row = 2 column = 1 ).
+    g_splitter->set_row_height( id = 1 height = 20 ).
+    g_splitter->set_row_height( id = 2 height = 80 ).
+ENDIF.
+```
 
 ### 3.Docking container
 

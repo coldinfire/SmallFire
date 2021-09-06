@@ -1,6 +1,6 @@
 ---
 title: "OO ALV 实例程序"
-date: 2018-07-08
+date: 2018-07-06
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -12,7 +12,7 @@ tags:
 
 ---
 
-OO ALV 简单实例：其中屏幕的创建， 和对应PAI,PBO以及 Status title 等可以自定调整。
+OO ALV 简单实例：其中屏幕的创建， 和对应PAI,PBO 以及 Status title 等可以自定调整。
 
 ```JS
 REPORT  zoo_alv.
@@ -37,10 +37,8 @@ DATA: lt_ekko TYPE TABLE OF ekko,
       ls_output TYPE ty_output.
 "Global Data Definitions for ALV"
 "$. Region ALV_Data"
-*DATA g_CONTAINER TYPE REF TO CL_GUI_CONTAINER.
-*DATA g_splitter TYPE REF TO cl_gui_splitter_container.
-DATA container TYPE REF TO cl_gui_custom_container .  "-- Custom container instance reference"
-DATA grid        TYPE REF TO cl_gui_alv_grid .        "-- ALV Grid instance reference"
+DATA container   TYPE REF TO cl_gui_custom_container .  " Custom container instance reference"
+DATA grid        TYPE REF TO cl_gui_alv_grid .        " ALV Grid instance reference"
 DATA lt_fieldcat TYPE lvc_t_fcat.  "-- Field catalog table"
 DATA lw_fieldcat TYPE lvc_s_fcat.
 DATA lw_layout   TYPE lvc_s_layo .  "-- Layout structure"
@@ -126,7 +124,7 @@ MODULE status_0100 OUTPUT.
         OTHERS            = 5.
     IF sy-subrc <> 0.
       MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-     WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+        WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
 *----Here will be additional preparations
 *--e.g. initial sorting criteria, initial filtering criteria, excluding
