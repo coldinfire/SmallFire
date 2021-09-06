@@ -364,7 +364,7 @@
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SearchHelp/</guid>
-      <description>使用搜索帮助对象 1、在命令字段中输入事务代码作为 SE11。 2、选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 3、在下</description>
+      <description>使用搜索帮助对象 1、在命令字段中输入事务代码 SE11。 2、选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 3、在下一个</description>
     </item>
     
     <item>
@@ -787,7 +787,7 @@
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Submit/</guid>
-      <description>ABAP 代码中通过Submit实现程序的调用以及调用时数据参数的传递. 程序准备 将要被调用的Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line</description>
+      <description>ABAP 代码中通过 Submit 实现程序的调用以及调用时数据参数的传递。 程序准备 将要被调用的 Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line TYPE i. lv_line = LINES( s1_matnr ). WRITE: / &amp;#39;S1_MATNR&amp;#39;,lv_line. lv_line</description>
     </item>
     
     <item>
@@ -1102,7 +1102,7 @@
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Object_Oriented_Basic/</guid>
-      <description>类声明和实现 类具有属性和方法 对象是类的实例 对象是通过指针变量来访问的 对象有独立的 interface &amp;#34;Class Declarations&amp;#34; CLASS application DEFINITION. PUBLIC SECTION. METHODS: show_text. PRIVATE SECTION. DATA text(100) TYPE c VALUE &amp;#39;This is my first ABAP Object.&amp;#39;. ENDCLASS. &amp;#34;Class Implementation&amp;#34; CLASS application IMPLEMENTATION. METHOD</description>
+      <description>类声明和实现 类具有属性和方法；对象是类的实例；对象是通过指针变量来访问的；对象有独立的 interface。 &amp;#34;Class Declarations&amp;#34; CLASS application DEFINITION. PUBLIC SECTION. &amp;#34;公有属性定</description>
     </item>
     
     <item>

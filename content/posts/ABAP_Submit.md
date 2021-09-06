@@ -12,13 +12,13 @@ tags:
 
 ---
 
-ABAP 代码中通过Submit实现程序的调用以及调用时数据参数的传递.
+ABAP 代码中通过 Submit 实现程序的调用以及调用时数据参数的传递。
 
 ### 程序准备
 
-#### 将要被调用的Report: ZTEST_SUBMIT1
+#### 将要被调用的 Report: ZTEST_SUBMIT1
 
-```JS
+```ABAP
 REPORT ZTEST_SUBMIT1.
 DATA: lv_matnr TYPE matnr.
 DATA: lv_charg TYPE charg.
@@ -32,9 +32,9 @@ START-OF-SELECTION.
   WRITE: / 'S1_CHARG',lv_line.
 ```
 
-#### 使用Submit的Report: ZTEST_SUBMIT2
+#### 使用 Submit 的 Report: ZTEST_SUBMIT2
 
-```JS
+```ABAP
 REPORT ZTEST_SUBMIT2.
 DATA: lv_matnr TYPE matnr.
 SELECT-OPTIONS: s2_matnr FOR matnr.                
@@ -44,7 +44,7 @@ START-OF-SELECTION.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 ```
 
-SUBMIT使用语法：
+SUBMIT 使用语法：
 
 ```JS
 SUBMIT {report|(name)} [selscreen_options]
@@ -69,7 +69,7 @@ SUBMIT ztest_submit1
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 ```
 
-### 使用SELECTION-TABLE调用
+### 使用 SELECTION-TABLE 调用
 
 ```JS
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
@@ -96,7 +96,7 @@ ENDLOOP.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 ```
 
-### 使用Report Variant调用
+### 使用 Report Variant 调用
 
 ```JS
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
@@ -126,26 +126,28 @@ SUBMIT ztest_submit1 VIA SELECTION-SCREEN AND RETURN.
 
 - 在被调用的程序中：IMPORT T_ITAB FROM MEMORY 'Z_SUBMIT_MEMORY''
 
-#### 使用cl_salv_bs_runtime_info 获取report结果并输入到内表
+#### 使用 cl_salv_bs_runtime_info 获取 report 结果并输入到内表
 
 这个是 SAP 提供的 API 所以我们不关心如何存储所以该方法不需要修改目标程序就可以直接得到 ALV 显示的结果， 但不能设置目标程序的中断点，需显示 ALV 的函数执行完毕方可获取到数据。
 
 CL_SALV_BS_RUNTIME_INFO 与读取 ALV 有关的方法：
 
-1. SET（） - 此方法初始化类（清除内存区域），然后允许标志的设置让任何后续 ALV 对象如何工作。它应该在装程序调用 ALV 报告程序之前被调用。
+1. SET( ) - 此方法初始化类（清除内存区域），然后允许标志的设置让任何后续 ALV 对象如何工作。它应该在装程序调用 ALV 报告程序之前被调用。
    参数：
    DISPLAY - 将它设为 abap_false 强制所有后续 ALV 报告不会被输出到 GUI。
    METADATA - 将它设为 abap_false 防止基本信息（布局，字段目录等）被取到内存中，一般我们不需要。
    DATA - 将它设为 abap_true 迫使数据表导出到内存而不是显示报表。
-2. GET_DATA_REF（） - 非常灵活的 GET_DATA * 方法，这种方法可以用来访问该数据表变量的引用（动态而且易用），所以即使不知道 ALV 数据表的结构也没关系。
+2. GET_DATA_REF( ) - 非常灵活的 GET_DATA * 方法，这种方法可以用来访问该数据表变量的引用（动态而且易用），所以即使不知道 ALV 数据表的结构也没关系。
    参数：
    R_DATA - 输出 ALV 数据表。
    R_DATA_LINE - 如果执行的 ALV 有 HEADER 的（可选）。
-3. GET_DATA（） - 如果知道需要调用的 ALV 数据表的结构，可以使用这个方法。
+3. GET_DATA( ) - 如果知道需要调用的 ALV 数据表的结构，可以使用这个方法。
    参数：
    T_DATA - 输出参数数据表。
    T_DATA_LINE - 如果执行的 ALV 有 HEADER（可选）。
-4. CLEAR_ALL（） - 此方法清除在 set（）方法设置的标志。如果之后本程序还需要显示其他 ALV 那么这个方法尤为重要。如果不清除设置，你的 ALV 就不会被显示出来。
+4. CLEAR_ALL( ) - 此方法清除在 set 方法设置的标志。如果之后本程序还需要显示其他 ALV 那么这个方法尤为重要。如果不清除设置，你的 ALV 就不会被显示出来。
+
+#### 代码示例
 
 ```JS
 FIELD-SYMBOLS: <lt_data> TYPE STANDARD TABLE.

@@ -14,7 +14,7 @@ tags:
 
 ### 使用搜索帮助对象
 
-1、在命令字段中输入事务代码作为 SE11。
+1、在命令字段中输入事务代码 SE11。
 
 2、选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 
 
@@ -159,7 +159,7 @@ ENDFUNCTION.
 
 ![SE11 Serch help](/images/ABAP/SearchHelp.png)
 
-### 功能模块 'F4IF_INT_TABLE_VALUE_REQUEST'
+### FM：F4IF_INT_TABLE_VALUE_REQUEST
 
 在程序运行时,将某个内表动态的用作 **Search help** 的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果。
 
@@ -196,14 +196,14 @@ h_dselc-dyfldname = 'P_CLASS'.
 APPEND h_dselc.
 CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
   EXPORTING
-    retfield = 'P_BWART'
+    retfield = 'P_BWART' "搜索帮助表返回到选择屏幕的字段的参数"
     dynpprog = sy-repid
-    dynpnr = sy-dynnr
-    dynprofield = 'P_BWART'
+    dynpnr   = sy-dynnr
+    dynprofield = 'P_BWART' "选择屏幕上需要添加F4帮助的字段"
   * multiple_choice = ''
-  * value_org = 'S'
+    value_org = 'S'      "默认：C"
   TABLES
-    value_tab = t_data
+    value_tab = t_data   "F4 帮助值的表"
     field_tab = h_field_tab
   * return_tab = return_tab
     DYNPFLD_MAPPING = h_dselc

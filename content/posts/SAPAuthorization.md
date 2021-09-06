@@ -56,13 +56,11 @@ PFCG：进入权限角色维护界面，创建Role 设置Role的Authorization Ob
 
 Role 包含了若干权限对象、在透明表`AGR_1250`中存储二者之间的关系。
 
-在SAP实际应用中，用户所直接操作的是屏幕及屏幕对应的字段，这些字段都是由权限对象进行控制，包括该字段所允许的操作及所允许的值。
+在 SAP 实际应用中，用户所直接操作的是屏幕及屏幕对应的字段，这些字段都是由权限对象进行控制，包括该字段所允许的操作及所允许的值。
 
-SAP权限对象(Authorization Object)： 权限对象设置后，需要绑定到事务码上，然后在ABAP程序中通过AUTHORITY-CHECK OBJECT 语句来做权限检查。权限对象就起作用了。
+SAP权限对象(Authorization Object)： 权限对象设置后，需要绑定到事务码上，然后在程序中通过 AUTHORITY-CHECK OBJECT 语句来做权限检查。权限对象就起作用了。
 
-权限对象包含了若干权限字段、允许的操作和允许的值：在透明表`AGR_1251`中体现了Role/Object/Field/Value之间的关系；有一个特殊的权限对象包含若干
-
-事务码。这个权限对象是`S_TCODE`，该权限对象的权限字段为`TCD`，该字段允许的值存放的就是事务代码；在透明表USOBX中，存放了事务码与权限对 象的对应关系。 
+权限对象包含了若干权限字段、允许的操作和允许的值：在透明表`AGR_1251`中体现了 Role/Object/Field/Value 之间的关系；有一个特殊的权限对象包含若干事务码。这个权限对象是 `S_TCODE`，该权限对象的权限字段为 `TCD`，该字段允许的值存放的就是事务代码；在透明表 `USOBX` 中，存放了事务码与权限对 象的对应关系。 
 
 ```ABAP
 AUTHORITY-CHECK OBJECT 'S_TCODE'
@@ -73,30 +71,31 @@ IF sy-subrc = 0.
 ENDIF.
 ```
 
-权限字段(Authorization Field)： 分配取值 
+权限字段 (Authorization Field)： 分配取值 
 
-- ACTVT:该字段存放的就是允许操作的代码。
+- ACTVT：该字段存放的就是允许操作的代码。
   
-- TCD: 存放该权限角色所包含的事物代码。
+- TCD：存放该权限角色所包含的事物代码。
 
-- 允许的操作(Activity):  维护具体的选项操作。
+- 允许的操作(Activity)：维护具体的选项操作。
 
-- 允许的值(Field Value): 值代表每个选型的功能。
+- 允许的值(Field Value)：值代表每个选型的功能。
   
 - 保存并激活后使该权限参数文件生效。
 
 ### 权限授权解决
 
-SU01: 输入 UserID 查看和编辑 Role
+SU01：输入 UserID 查看和编辑 Role
 
 - Role: menu(T-Code)、Authorization(Display Authori)、Organization levels
 
-SU53: 当前用户权限不足的原因
+SU53：当前用户权限不足的原因
 
-SUIM: 查找用户及Role等的具体信息，确定问题点，及可以解决的方法
+SUIM：查找用户及Role等的具体信息，确定问题点，及可以解决的方法
 
-PFCG: 维护Role、Menu修改
-Role 
+PFCG：维护Role、Menu修改
+
+Role 分类： 
 
 - `SAP_(SAP 标准)` 
 - `Z_XXX_ALL(用户无关)` 
@@ -107,9 +106,9 @@ Role
 
 #### 创建程序，引入权限对象
 
-一个权限对象中最多可以定义 10 个字段。
+一个权限对象中最多可以定义 10 个字段。权限对象类似一个大致的权限矩阵，纵向是操作人（ID），横向是某些权限对象，权限对象再细分成若干事务代码、允许动作、权限字段及其允许的值等。
 
-```JS
+```ABAP
 AUTHORITY-CHECK OBJECT 'XXX'
   ID 'XXX1' FIELD field
   ID 'XXX2' DUMMY
@@ -119,13 +118,11 @@ AUTHORITY-CHECK OBJECT 'XXX'
 IF SY-SUBRC <> 0.
   MESSAGE 'XXXXX' TYPE 'S' DISPLAY 'E'.
 ENDIF.
-*类似一个大致的权限矩阵，纵向是操作人（ID），横向是某些权限对象，权限对象再细分成若干事务代码、
-允许动作、权限字段及其允许的值等。
 ```
-- OBJECT: 表示具体的权限对象；
-- ID： 表示权限字段，可以同时检查权限对象中的一个或多个权限字段；
-- FIELD： 权限字段所检查的权限值，将该字段改为屏幕元素，可检查该字段所输入的值是否符合要求；
-- ACTVT: Create / 01、Change / 02、Display / 03；
+- OBJECT：表示具体的权限对象；
+- ID：表示权限字段，可以同时检查权限对象中的一个或多个权限字段；
+- FIELD：权限字段所检查的权限值，将该字段改为屏幕元素，可检查该字段所输入的值是否符合要求；
+- ACTVT：Create / 01、Change / 02、Display / 03；
 - DUMMY：关键字用来绕过某个字段的检查。
 
 #### 给Tcode分配权限对象

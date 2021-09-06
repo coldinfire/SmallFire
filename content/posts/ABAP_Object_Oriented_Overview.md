@@ -33,7 +33,7 @@ ABAP Object Oriented 的年代史：
 
 ### 面向过程和面向对象的区别
 
- 随着 ABAP OO 的发布，ABAP 运行时支持面向过程和面向对象两种模式
+ 随着 ABAP OO 的发布，ABAP 运行时支持面向过程和面向对象两种模式。
 
 #### 面向过程编程
 
@@ -47,13 +47,13 @@ ABAP Object Oriented 的年代史：
 
 面向对象编程里唯一的结构单位就是类(Class)，这里类的实例对象取代了全局变量。这些对象封装了应用的状态和行为。
 
-- 应用的状态：是用属性来代表的它取代了面向过程中的全局变量。
+- 应用的状态：是用属性来代表的，它取代了面向过程中的全局变量。
 
 - 应用的行为：是通过方法来实现的，他们用来改变应用的属性或者调用其它对象的方法。
 
-ABAP OO 支持 Object Oriented 和面向过程的两种模式，这样在传统的 ABAP 程序（比如报表，模块池，功能池等）中你也可以使用 ABAP 对象类。在这些程序里你也就可以使用基于面向对象的新技术了，比如一些用户界面，避免了要想使用这些新技术必须重新编写程序。
+ABAP OO 支持 Object Oriented 和面向过程的两种模式，这样在传统的 ABAP 程序（比如报表，模块池，功能池等）中你也可以使用 ABAP 对象类。在这些程序里也就可以使用基于面向对象的新技术了，比如一些用户界面，避免了要想使用这些新技术必须重新编写程序。
 
-纯粹的 ABAP OO 模式，所有的代码都封装在类中。你的应用中并不直接触presentation layer(SAP Gui , Business Server Pages etc.),persistent data(database table,system file)。他们是通过类库中的相应服务类来提供的。
+纯粹的 ABAP OO 模式，所有的代码都封装在类中。你的应用中并不直接触presentation layer(SAP Gui , Business Server Pages etc.)、persistent data(database table,system file)。他们是通过类库中的相应服务类来提供的。
 比如 SAP Control Framework、Desktop Office Integration，and Business Pages提供了与表现层的接口。
 
 对于 SAP Web Application 6.10 以上提供了与数据库层接口的服务对象。虽然纯粹的OO模式技术上是可行的，但是现实中还存在着大量的两种模式的混合体。
