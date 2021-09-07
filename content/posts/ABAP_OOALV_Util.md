@@ -1,5 +1,5 @@
 ---
-title: "报表开发<OO ALV工具>"
+title: "OO ALV 工具"
 date: 2018-07-15
 draft: false
 author: Small Fire
