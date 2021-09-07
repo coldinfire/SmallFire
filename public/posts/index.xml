@@ -674,15 +674,6 @@
     </item>
     
     <item>
-      <title>收货或者货物移动(MIGO,MB11,MB1A)增强</title>
-      <link>https://coldinfire.github.io/2019/MM_BADI_MaterialDocument/</link>
-      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MM_BADI_MaterialDocument/</guid>
-      <description>BADI：MB_DOCUMENT_BADI 使用 特别要注意的是假如你是想在点击保存按钮的时候根据生成的凭证号（即表示这个增强点处凭证号已经生成</description>
-    </item>
-    
-    <item>
       <title>BAPI 操作生产订单</title>
       <link>https://coldinfire.github.io/2019/PP_BAPI_ProductOrder_Menu/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
@@ -725,6 +716,15 @@
       
       <guid>https://coldinfire.github.io/2019/ABAP_MixedCalculate/</guid>
       <description>使用 在ABAP程序中将数值与表达式分别存放，通过表达式计算对应的结果。 一、调用BAPI：EVAL_FORMULA TYPES:BEGIN OF TY_VAL, OPERAND TYPE C, VALUE TYPE STRING, END OF TY_VAL. TYPES:BEGIN OF</description>
+    </item>
+    
+    <item>
+      <title>收货或者货物移动(MIGO,MB11,MB1A)增强</title>
+      <link>https://coldinfire.github.io/2019/MM_BADI_MaterialDocument/</link>
+      <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_BADI_MaterialDocument/</guid>
+      <description>BADI：MB_DOCUMENT_BADI 使用 该 BADI 有两个方法：MB_DOCUMENT_BEFORE_UPDATE、MB_DOCUMENT_U</description>
     </item>
     
     <item>
@@ -2029,7 +2029,7 @@
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Diff_Containers/</guid>
-      <description>1.Custom container Custom container can be created with a class CL_GUI_CUSTOM_CONTAINER, but it needs a parent container in which it could be placed or it needs an custom control area to be created in custom screen . This solution is mainly used by me in the applications I develop now. But it’s also common that you’ll mix custom containers with other in</description>
+      <description>1.Custom container 自定义容器可以使用类 CL_GUI_CUSTOM_CONTAINER 创建，但它需要一个可以放置它的父容器，或者需要在自定义 Screen 中创建一个自定义控制区域。 这个解决方案主要是我现在开发的应</description>
     </item>
     
     <item>
@@ -2038,7 +2038,7 @@
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Demo/</guid>
-      <description>OO ALV 简单实例：其中屏幕的创建， 和对应PAI,PBO 以及 Status title 等可以自定调整。 REPORT zoo_alv. TYPE-POOLS: slis. *-- Global data Decleration. TYPES:BEGIN OF ty_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE ebelp, matnr TYPE matnr, werks TYPE werks_d, menge TYPE bstmg, meins</description>
+      <description>OO ALV 简单实例 其中屏幕的创建， 和对应PAI、PBO 以及 Status title 等可以自定调整。 REPORT zoo_alv. TYPE-POOLS: slis. *-- Global data Decleration. TYPES:BEGIN OF ty_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE ebelp, matnr TYPE matnr, werks TYPE werks_d, menge TYPE bstmg, meins TYPE</description>
     </item>
     
     <item>

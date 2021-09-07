@@ -1,6 +1,6 @@
 ---
 title: "收货或者货物移动(MIGO,MB11,MB1A)增强"
-date: 2019-09-11
+date: 2019-08-08
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -17,14 +17,22 @@ tags:
 
 ### BADI：MB_DOCUMENT_BADI 使用
 
-![MB_DOCUMENT_BADI](/images/MM/BADI-MB_DOCUMENT_BADI_1.png)
+![MB_DOCUMENT_BADI](/images/MM/BADI-MB_DOCUMENT_BADI_0.png)
 
-特别要注意的是假如你是想在点击保存按钮的时候根据生成的凭证号（即表示这个增强点处凭证号已经生成），把某些数据更新到你的自建表的话，要用第二个方法 MB_DOCUMENT_UPDATE，调试可以在第一个方法 MB_DOCUMENT_BEFORE_UPDATE 里面调试，特别注意不能在方法MB_DOCUMENT_BEFORE_UPDATE 里面写 COMMIT WORK，因为两个方法的参数完全一样，所以可以在第一个方法那边调试，然后直接把所有的代码拷贝到第二个，要注意第二个方法打断点是无法进去的，但是他确实有执行，所以说只能在第一个方法那边调试。
+该 BADI 有两个方法：MB_DOCUMENT_BEFORE_UPDATE、MB_DOCUMENT_UPDATE。
+
+- 假如想在点击保存按钮的时候根据生成的凭证号（即表示这个增强点处凭证号已经生成），把某些数据更新到你的自建表的话，要用第二个方法 MB_DOCUMENT_UPDATE。
+- 调试可以在第一个方法 MB_DOCUMENT_BEFORE_UPDATE 里面调试。第二个方法打断点是无法进入的，但是这个方法确实有执行，所以说只能在第一个方法那边调试。
+- 注意不能在方法 MB_DOCUMENT_BEFORE_UPDATE 里面写 COMMIT WORK。
+
+### 实现该 BADI 接口，并重写其方法
+
+![MB_DOCUMENT_BADI](/images/MM/BADI-MB_DOCUMENT_BADI_1.png)
 
 ```ABAP
  method if_ex_mb_document_badi~mb_document_update. 
  data: gs_mseg type  mseg. 
- data: gt_gdfh type table of ztmm_gdfh. 
+ datal: gt_gdfh type table of ztmm_gdfh. 
  data: gs_gdfh type ztmm_gdfh. 
  data: gt_gdth type table of ztmm_gdth. 
  data: gs_gdth type ztmm_gdth. 

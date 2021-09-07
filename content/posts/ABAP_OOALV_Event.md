@@ -29,7 +29,7 @@ tags:
 
 ......
 
-**定义事件**
+#### 事件类定义
 
 ```ABAP
 CLASS cl_event_receiver DEFINITION.
@@ -53,7 +53,7 @@ CLASS cl_event_receiver DEFINITION.
 ENDCLASS.                    "cl_event_receiver DEFINITION"
 ```
 
-**事件执行的方法代码**
+#### 事件类实现
 
 ```ABAP
 CLASS cl_event_receiver IMPLEMENTATION.
@@ -94,12 +94,12 @@ CLASS cl_event_receiver IMPLEMENTATION.
 ENDCLASS.                    "cl_event_receiver IMPLEMENTATION"
 ```
 
-**注册事件**
+#### 注册事件
 
-在创建GRID实例后注册事件：
+在创建 ALV GRID 实例后注册事件
 
 ```ABAP
-CREATE OBJECT event_receiver.
+CREATE OBJECT event_receiver. "创建事件"
   "注册事件 handler 方法"
    SET HANDLER event_receiver->handle_hotspot_click  FOR g_grid01.
    SET HANDLER event_receiver->handle_double_click   FOR g_grid01.
@@ -107,15 +107,15 @@ CREATE OBJECT event_receiver.
    SET HANDLER event_receiver->handle_command FOR g_grid01.
 ```
 
-**单元格编辑**
+单元格编辑时：除了设置 FIELDCAT 的 EDIT 属性。还需要在显示ALV后添加触发数据改变事件，否则不会触发数据更新事件。
 
-设置FIELDCAT的 EDIT 属性。还需要在显示ALV前添加触发数据改变事件：
+- ```ABAP
+  "注册编辑事件，否则不会触发更新事件"
+  CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
+    EXPORTING
+      I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_MODIFIED. "必须设置一种触发方式"
+  ```
 
-```ABAP
-CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
-  EXPORTING
-    I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_MODIFIED. "必须设置一种触发方式"
-```
 
 - 按回车触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.
 - 单元格失去焦点触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.

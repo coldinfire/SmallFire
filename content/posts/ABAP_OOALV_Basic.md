@@ -277,8 +277,8 @@ FORM prepare_filter_table CHANGING pt_filt TYPE lvc_t_filt .
   ls_filt-fieldname = 'FLDATE' .
   ls_filt-sign = 'E' .
   ls_filt-option = 'BT' .
-  ls_filt-low = '20030101' .
-  ls_filt-high = '20031231' .
+  ls_filt-low = '20180101' .
+  ls_filt-high = '20181231' .
   APPEND ls_filt TO pt_filt .
   CLEAR ls_filt.
 ENDFORM.  " prepare_filter_table "

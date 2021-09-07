@@ -12,9 +12,11 @@ tags:
 
 ---
 
-OO ALV 简单实例：其中屏幕的创建， 和对应PAI,PBO 以及 Status title 等可以自定调整。
+### OO ALV 简单实例
 
-```JS
+其中屏幕的创建， 和对应PAI、PBO 以及 Status title 等可以自定调整。
+
+```ABAP
 REPORT  zoo_alv.
 TYPE-POOLS: slis.
 *-- Global data Decleration.
