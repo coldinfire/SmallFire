@@ -2006,12 +2006,21 @@
     </item>
     
     <item>
+      <title>报表开发&lt;OO ALV工具&gt;</title>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Util/</link>
+      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Util/</guid>
+      <description>显示后，修改字段目录和布局 在运行期间，可以在首次显示列表后设置新的布局或新字段目录。 这些组件具有 get/set 方法来完成此操作。 Field Catalog GET_FRONTEND_FIELDCATALOG SET_FRONTEND_FIELDCATALOG Layout GET_FRONTEND_LAYOUT SET_FRONTEND_LAYOUT 代码示例 DATA</description>
+    </item>
+    
+    <item>
       <title>OO ALV 事件管理</title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Event/</link>
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Event/</guid>
-      <description></description>
+      <description>ALV 对象注册事件 如果我们想处理由 ALV Grid 实例触发的事件，我们应该定义并实现一个事件处理程序类。 创建 ALV Grid 实例后，我们必须注册此事件处理程序类的实例来</description>
     </item>
     
     <item>
@@ -2024,7 +2033,7 @@
     </item>
     
     <item>
-      <title>OO ALV 实例程序</title>
+      <title>OO ALV Demo</title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Demo/</link>
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
@@ -2033,20 +2042,11 @@
     </item>
     
     <item>
-      <title>报表开发&lt;OO ALV工具&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basic2/</link>
-      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basic2/</guid>
-      <description>显示后，修改字段目录和布局 在运行期间，可以在首次显示列表后设置新的布局或新字段目录。 这些组件具有 get/set 方法来完成此操作。 Field Catalog GET_FRONTEND_FIELDCATALOG SET_FRONTEND_FIELDCATALOG Layout GET_FRONTEND_LAYOUT SET_FRONTEND_LAYOUT 代码示例 DATA</description>
-    </item>
-    
-    <item>
       <title>报表开发&lt;OO ALV&gt;</title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basic1/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basic1/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</guid>
       <description>OO ALV ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作。 使用了 ABAP 的对象以</description>
     </item>
     

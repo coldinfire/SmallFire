@@ -3740,6 +3740,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_OOALV_Util/</loc>
+      
+      <lastmod>2018-07-15T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_OOALV_Event/</loc>
       
       <lastmod>2018-07-10T00:00:00+00:00</lastmod>
@@ -3782,21 +3796,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_OOALV_Basic2/</loc>
-      
-      <lastmod>2018-07-05T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_OOALV_Basic1/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</loc>
       
       <lastmod>2018-07-04T00:00:00+00:00</lastmod>
       

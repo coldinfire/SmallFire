@@ -49,7 +49,7 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 
 作为控件对象，ALV Grid 实例需要一个容器来链接到屏幕。 
 
-一般步骤为：先在屏幕绘制一个用户自定义控件区域，然后以自定义控件区域为基础创建  CL_GUI_CUSTOM_CONTAINER 容器实例，最后以此容器实例来创建  CL_GUI_ALV_GRID 实例。
+先在屏幕绘制一个用户自定义控件区域，然后以自定义控件区域为基础创建  CL_GUI_CUSTOM_CONTAINER 容器实例，最后以此容器实例来创建  CL_GUI_ALV_GRID 实例。
 
 #### 在屏幕中定义 Customer Control
 
@@ -60,14 +60,14 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 ```ABAP
 DATA: obj_container TYPE REF TO cl_gui_custom_container, "控制容器类"
       obj_alv     TYPE REF TO cl_gui_alv_grid, "ALV Grid控制类"
-      gt_fieldcat TYPE lvc_t_fcat,
-      gs_fieldcat TYPE lvc_s_fcat,
-      gs_layout   TYPE lvc_s_layo,
-      gt_sort     TYPE lvc_t_sort,
-      gt_filt     TYPE lvc_t_filt,
+      gt_fieldcat TYPE lvc_t_fcat,   "字段目录内表"
+      gs_fieldcat TYPE lvc_s_fcat,   "字段目录结构"
+      gs_layout   TYPE lvc_s_layo,   "Layout 设置"
+      gt_sort     TYPE lvc_t_sort,   "排序内表"
+      gt_filt     TYPE lvc_t_filt,   "过滤内表"
       gt_exclude  TYPE ui_functions. 
 * Creating custom container instance
-IF obj_alv IS INITIAL.
+IF obj_container IS INITIAL.
   CREATE OBJECT obj_container
     EXPORTING
       container_name  =  'USER_CONTAINER'. "自定义控件名称"
@@ -89,18 +89,20 @@ ENDIF.
 
 ```ABAP
 * Creating ALV Grid instance
-CREATE OBJECT obj_alv
-  EXPORTING
-    i_parent  = obj_container. "Parent为Container容器"
-  EXCEPTIONS
-    error_cntl_create = 1
-    error_cntl_init   = 2
-    error_cntl_link   = 3
-    error_dp_create   = 4
-    OTHERS            = 5.
-IF sy-subrc <> 0.
-  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+IF obj_alv IS INITIAL.
+  CREATE OBJECT obj_alv
+    EXPORTING
+      i_parent  = obj_container. "Parent为Container容器"
+    EXCEPTIONS
+      error_cntl_create = 1
+      error_cntl_init   = 2
+      error_cntl_link   = 3
+      error_dp_create   = 4
+      OTHERS            = 5.
+  IF sy-subrc <> 0.
+    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+      WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  ENDIF.
 ENDIF.
 * Preparing field catalog
 PERFORM prepare_field_catalog CHANGING gt_fieldcat .
@@ -113,11 +115,11 @@ PERFORM prepare_sort_table CHANGING gt_sort .
 
 ### FieldCat 字段目录
 
-使用另一个内表来定义有关如何显示列表字段的规范。 这个内表被称为“字段目录”。 字段目录必须包含有关要显示的每一列的显示选项的一些技术和附加信息。 
+使用一个内表来定义有关如何显示列表字段的规范。 这个内表被称为“字段目录”。 字段目录必须包含有关要显示的每一列的显示选项的一些技术和附加信息。 
 
-字段目录的生成分为“自动生成”、“半自动生成”、“手动生成”三个步骤。
+字段目录的生成分为：自动生成、半自动生成、手动生成。
 
-字段目录的内表必须引用字典类型 “LVC_T_FCAT”。
+字段目录的内表需要参照字典类型 `LVC_T_FCAT`。
 
 #### 手动生成：宏定义
 
@@ -171,9 +173,15 @@ FORM prepare_field_catalog CHANGING pt_fieldcat TYPE lvc_t_fcat .
 ENDFORM .
 ```
 
+#### 自动生成
+
+在调用显示 ALV 方法 set_table_for_first_display 时在输入参数 i_structure_name 中指点参数，将自动生成字段目录。**此参数的优先级最高**。 
+
+- i_structure_name = 'XXXX'：指定输出表中数据的 DDIC 结构的名称。
+
 ### Layout 布局
 
-定义 ALV Grid 的一般外观，需要填充了一个 "LVC_S_LAYO" 类型的结构。 这是包含此调整所服务的字段及其功能的表格。
+定义 ALV Grid 的一般外观，需要在 `LVC_S_LAYO` 类型的结构中设置参数。 该结构包含此调整所服务的字段及其功能。
 
 #### 设置布局
 
@@ -258,7 +266,7 @@ ENDFORM. "prepare_sort_table"
 
 ### Filtering 设置过滤条件
 
-过滤和排序的使用类似。 使用过滤条件时，必须填写的内表参照类型是 `LVC_T_FILT`。 填充此类型内表类似于填充 RANGES 变量。
+过滤和排序的使用类似。 使用过滤条件时，必须填写参照类型 `LVC_T_FILT` 生成的内表。 填充此类型内表类似于填充 RANGES 变量。
 
 可以分别使用 `GET_FILTER_CRITERIA` 和 `SET_FILTER_CRITERIA` 方法获取和设置应用的过滤条件。
 
@@ -287,7 +295,7 @@ CL_GUI_ALV_GRID 重要方法： `set_table_for_first_display`。
 ```ABAP
 CALL METHOD obj_alv->set_table_for_first_display 
    EXPORTING 
-     i_structure_name              = 'XXXX'      "输出表中数据的DDIC结构的名称。如果指定此参数，将自动生成字段目录。"
+     i_structure_name              = 'XXXX'      "输出表中数据的DDIC结构的名称，自动生成字段目录。"
      is_variant                    = ls_variant  "指定布局变式"
      is_layout                     = gs_layout   "布局设置"
      i_save                        = 'A'         "保存表格布局(X) & User-Spec(U)"
