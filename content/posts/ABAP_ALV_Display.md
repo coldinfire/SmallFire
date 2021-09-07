@@ -20,7 +20,7 @@ tags:
 
 **REUSE_ALV_GRID_DISPLAY**：Grid 格式的 ALV 报表有栏位选择按钮功能，允许用户直接输出格式，操作更为灵活。
 
-**REUSE_ALV_GRID_DISPLAY_LVC**：以 LVC 结尾的 ALV 函数，此函数中引用到的类型大部分都不再从类型池 slis 中来引用，而是直接引用字典中已定义好的表或结构类型，这种函数与面向对象的 CL_GUI_ALV_GRID 生成的 ALV 参数类型上基本相同，所以以后一般如果使用函数方式来产生 ALV，推荐使用 REUSE_ALV_GRID_DISPLAY_LVC 函数，因为这样方便修改面向对象方式的 ALV。
+**REUSE_ALV_GRID_DISPLAY_LVC**：以 LVC 结尾的 Grid 格式的 ALV 报表，此函数中引用到的类型大部分都不再从类型池 slis 中来引用，而是直接引用字典中已定义好的表或结构类型，这种函数与面向对象的 CL_GUI_ALV_GRID 生成的 ALV 参数类型上基本相同，所以以后一般如果使用函数方式来产生 ALV，推荐使用 REUSE_ALV_GRID_DISPLAY_LVC 函数，因为这样方便修改面向对象方式的 ALV。
 
 ### 字段目录生成的 FM
 
@@ -28,7 +28,7 @@ tags:
 
 **LVC_FIELDCATALOG_MERGE**：针对 LVC 结尾的函数，自动生成 FIELDCAT 字段结构信信息。
 
-对于 **SLIS**_开头的，可以在类型池 SLIS 中查看详细信息，**LVC** 开头的可以在数据字典（**SE11**）中查看结构参数。
+对于 **SLIS** 开头的内表或结构，可以在类型池 SLIS 中查看详细信息；**LVC** 开头的可以在数据字典（**SE11**）中查看结构参数。
 
 ```JS
 TYPE-POOLS:SLIS.
@@ -42,6 +42,8 @@ REUSE_ALV_GRID_DISPLAY_LVC:
         wa_fieldcat TYPE lvc_s_fcat,
         gt_layout   TYPE lvc_s_layo.
 ```
+
+### 字段目录和布局
 
 在 ALV 开发中有两个重要的对象： **LAYOUT** 和 **FIELDCAT** 。
 
@@ -94,9 +96,11 @@ REUSE_ALV_GRID_DISPLAY_LVC:
 | NO_CONVEXT(1)               | 设置转换规则，对应于Domain中的转换规则                | X-不设置，space-设置     |
 | LOWERCASE(1)                | 是否允许小写字母                                      | X-允许，space-不允许     |
 
-#### Method 1:自定义FIELDCAT字段结构
+### 定义字段目录
 
-定义宏来设置FIELDAT属性 &1 &2 &3分别为参数
+#### 手动生成： FIELDCAT 字段结构
+
+通过宏来设置 FIELDCAT 属性 &1 &2 &3 分别为参数。
 
 ```JS
 DATA: slis_alv_fieldcat TYPE SLIS_T_FIELDCAT_ALV WITH HEADER LINE. 
@@ -113,39 +117,39 @@ END-OF-DEFINITION.
 fieldcatset 'CARRID' '航线承运人' SY-TABIX.
 ```
 
-#### Method 2:半自动创建,直接参考数据字典中的现有透明表
+#### 半自动创建：参考数据字典中的现有透明表
 
-调用 **REUSE_ALV_FIELDCATALOG_MERGE** 函数来对相应的Fieldcat 进行匹配。
+调用 FM： **REUSE_ALV_FIELDCATALOG_MERGE** 来对相应的Fieldcat 进行匹配。
 
-使用数据字典中的透明表或视图时:
+使用数据字典中的透明表或视图时
 
-- 直接使用，生成和透明表和视图定义字段相同类型的Fieldcat
+- 直接使用，生成和透明表和视图定义字段相同类型的 Fieldcat。
 
-使用结构或则内表时:
+使用结构或则内表时
 
-- 必须保证该结构或内表中的每个字段的定义只能使用 LIKE 操作符
-- 使用 TYPE 时，该字段在使用 REUSE_ALV_FIELDCATALOG_MERGE函数时将被忽略，不参照字典类型直接定义类型的除外。
+- 必须保证该结构或内表中的每个字段的定义只能使用 LIKE 操作符。
+- 使用 TYPE 时，该字段在使用 REUSE_ALV_FIELDCATALOG_MERGE 函数时将被忽略，不参照字典类型直接定义类型的除外。
 
 ```JS
 TYPE-POOLS: SLIS.
 DATA:gt_fieldcat TYPE TYPE slis_t_fieldcat_alv WITH HEADER LINE,
      gs_fieldcat TYPE slis_fieldcat_alv.
 CALL function 'REUSE_ALV_FIELDCATALOG_MERGE'
- exporting
-  I_PROGRAM_NAME        =  SY-REPID
-  I_INTERNAL_TABNAME     = 'INTERNAL_TABNAME' "显示输出的内表名，要大写"
+  EXPORTING
+    I_PROGRAM_NAME         =  SY-REPID
+    I_INTERNAL_TABNAME     = 'INTERNAL_TABNAME' "显示输出的内表名，要大写"
 " 如果定义的显示输出内表是参照的字典中的structure, table, view时，才需要指定 Structure"
-  I_structure_name       = 'ZALV_FEED'  "ALV需要显示的字段结构"
-  I_CLIENT_NEVER_DISPLAY = 'X'
+    I_STRUCTURE_NAME       = 'ZALV_TB'  "ALV需要显示的字段结构"
+    I_CLIENT_NEVER_DISPLAY = 'X'
   "I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER"
   "I_BUFFER_ACTIVE        = ' '"
  changing
-      ct_fieldcat         = gt_fieldcat  "对应ALV显示的字段结构"
+      ct_fieldcat          = gt_fieldcat  "对应ALV显示的字段结构"
  exceptions
-  inconsistent_interface = 1
-  program_error          = 2
-  others                 = 3.
-*若对gt_fieldcat中某些字段有特殊设置，可LOOP内表按照要求更改参数值，Modify此内表。
+  inconsistent_interface  = 1
+  program_error           = 2
+  others                  = 3.
+* 若对gt_fieldcat中某些字段有特殊设置，可循环内表按照要求更改参数值。
  LOOP AT gt_fieldcat INTO gs_fieldcat.
     CASE gs_fieldcat-fieldname.
       WHEN 'MATNR'.
@@ -156,9 +160,9 @@ CALL function 'REUSE_ALV_FIELDCATALOG_MERGE'
   ENDLOOP.
 ```
 
-### LVC_S_FCAT: Field Catalog
+### LVC_S_FCAT: 字段参数
 
-大部分和 **SLIS_** 一致，下面列出不一致的。
+大部分和 **SLIS** 中定义的一致，下面列出部分不一致的字段。
 
 | 字段名称                | 描述                            | 输入值 |
 | ----------------------- | ------------------------------- | ------ |
@@ -166,9 +170,7 @@ CALL function 'REUSE_ALV_FIELDCATALOG_MERGE'
 | REF_TABLE               | 参考表名称，配合REF_FIELD使用   |        |
 | SCRTEXT_L/M/S(40/20/10) | 设置字段名称描述长/中/短        |        |
 
-#### 自定义FIELDCAT字段结构
-
-定义宏来创建FIELDCAT字段属性
+#### 手动生成： FIELDCAT 字段结构
 
 ```JS
 DATA: lvc_alv_fieldcat TYPE LVC_T_FCAT WITH HEADER LINE. 
@@ -193,23 +195,22 @@ fieldcatset 'CARRID' '航线承运人' SY-TABIX.
 DATA:gt_fieldcat TYPE LVC_T_FCAT,
      gs_fieldcat TYPE LVC_S_FCAT.
 CALL function 'LVC_FIELDCATALOG_MERGE'
- exporting
-  "I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE"
-  I_structure_name       = 'ZALV_FEED'  "ALV需要显示的字段结构"
-  I_CLIENT_NEVER_DISPLAY = 'X'
-  "I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER"
-  "I_INTERNAL_TABNAME     = 'INTERNAL_TABNAME' 
- changing
-      ct_fieldcat         = gt_fieldcat  "对应ALV显示的字段结构"
- exceptions
-  inconsistent_interface = 1
-  program_error          = 2.
-*若对gt_fieldcat中某些字段有特殊设置，可LOOP内表按照要求更改参数值，Modify此内表。
+  EXPORTING
+    "I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE"
+    I_STRUCTURE_NAME       = 'ZALV_TB'  "ALV需要显示的字段结构"
+    I_CLIENT_NEVER_DISPLAY = 'X'
+    "I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER"
+    "I_INTERNAL_TABNAME     = 'INTERNAL_TABNAME' 
+  CHANGING
+    ct_fieldcat            = gt_fieldcat  "对应ALV显示的字段结构"
+  EXCEPTIONS
+    inconsistent_interface = 1
+    program_error          = 2.
 ```
 
 ## Layout 字段
 
-### SLIS Layout常用参数列表
+### SLIS Layout 常用参数列表
 
 | 字段名称                 | 描述                                         | 输入值                              |
 | ------------------------ | -------------------------------------------- | ----------------------------------- |
@@ -250,39 +251,12 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
 | BOX_FIELDNAME            | 指定数据内表中哪列以选择按钮形式显示         | slis_fieldname                      |
 | CONFIRMATION_PROMPT(1)   | 当退出ALV报表展示界面时，是否需要提示用户    | X-提示，space-不提示                |
 | DETAIL_POPUP(1)          | 右键中有 Detail 菜单，是否弹出详细信息窗口   | X-弹出，space-不弹出                |
+| INFO_FIELDNAME           | 设置ALV输出报表行颜色                        |                                     |
+| COLTAB_FIELDNAME         | 设置单元格颜色                               |                                     |
 
-```JS
-INFO_FIELDNAME：用于设置ALV输出报表每一行的颜色，其参数为输出内表的字段名称，
-   要注意的是使用该属性需要同时在内表中定义一个与该参数所定义字段名相同的字段，例如：
-   LAYOUT-INFO_FIELDNAME = 'COLOR'.倘若其数据输出内表名为LT_OUT,则需要在该内表增加一字段
-   “COLOR”，并为其内表每行复制，颜色参数范围C000~C999，例如：LT_OUT-COLOR = 'C012'.
-COLTAB_FIELDNAME: 设置单元格颜色
-```
-**【颜色】**
+**INFO_FIELDNAME**：用于设置ALV输出报表每一行的颜色，其参数为输出内表的字段名称，要注意的是使用该属性需要同时在内表中定义一个与该参数所定义字段名相同的字段。
 
-​	[颜色设置](http://blog.sina.com.cn/s/blog_3f2c03e30100mk1s.html)
-
-- 行颜色:gs_layout-<color_fieldname> = 'COLOR'
-
-  - ALV 中的每行数据颜色是通过 LayOut 来控制的。需要在显示输出内表结构中增加一列字段，用来存储数据行的颜色
-
-  - 颜色值定义为 4 位字符，首位固定为字母 “C”，第 2 位为颜色，由 0~7 表示，不同的数字表示不同的颜色属性，如：
-
-    0 = background color     1 = Gray-blue     2 = Light gray    3 = yellow   4 = blue-gray        5 = green       6 = red      7 = orange
-
-    第 3 位表示输出文字是否高亮显示，由 0~1 表示，为 1 时表示高亮显示。第 4 位测试了一下，基本上 0~9 颜色都差不多，唯一就是当取值为 1 时，底色又回到了灰色（且只是在第 3 位为 0 时才有此效果）。
-
-- 列颜色:gt_fieldcat-emphasize = 'C510'.[1：C固定，2：颜色值0~7,3：高亮0、1(X)，4：颜色反转，0、1]
-
-- 单元格颜色:gs_layout-<coltab_fieldname>='COLORTABLE'.
-
-**【可编辑】**
-
-​	整体可编辑：layout-edit = 'X' 
-
-​	某列可编辑：fieldcat-edit = 'X'
-
-​	单元格可编辑：需要通过OO方式实现
+- LAYOUT-INFO_FIELDNAME = 'COLOR'. 倘若其数据输出内表名为LT_OUT，则需要在该内表增加一字段“COLOR”，并为其内表每行复制，颜色参数范围C000~C999。例如：LT_OUT-COLOR = 'C012'.
 
 ### LVC常用参数列表
 
@@ -309,15 +283,49 @@ COLTAB_FIELDNAME: 设置单元格颜色
 | NO_TOOLBAR        | 隐藏工具栏                           |                                |
 | GRID_TITLE        | 标题栏文本                           |                                |
 
+### I_SAVE 保存布局选项字段的作用
+
+| Value          | Descript                         |              |                           |
+| -------------- | -------------------------------- | ------------ | ------------------------- |
+| I_SAVE = SPACE | 无法保存 Layout                  | I_SAVE = 'U' | 只能保存用户定义的 Layout |
+| I_SAVE = 'A'   | 用户定义和全局 Layout 都可以保存 | I_SAVE = 'X' | 只能保存全局 Layout       |
+
+### [颜色设置](http://blog.sina.com.cn/s/blog_3f2c03e30100mk1s.html)
+
+**行颜色**：`gs_layout-<color_fieldname> = 'COLOR'.`
+
+- ALV 中的每行数据颜色是通过 Layout 来控制的。需要在输出内表结构中增加一列字段，用来存储数据行的颜色值。
+
+- 颜色值定义为 4 位字符
+
+  - 第 1 位固定为字母 “C”
+  - 第 2 位为颜色，由 0~7 表示，不同的数字表示不同的颜色。如：0 = background color、1 = Gray-blue、2 = Light gray、3 = yellow、4 = blue-gray、5 = green、6 = red、7 = orange
+  - 第 3 位表示输出文字是否高亮显示，由 0~1 表示。为 1 时表示高亮显示。
+  - 第 4 位表示颜色反转。测试了一下，基本上 0~9 颜色都差不多，唯一就是当取值为 1 时，底色又回到了灰色（且只是在第 3 位为 0 时才有此效果）。
+
+  
+
+**列颜色**：`gt_fieldcat-emphasize = 'C510'.`
+
+**单元格颜色**：`gs_layout-<coltab_fieldname>='COLORTABLE'.`
+
+### ALV 可编辑
+
+**整体可编辑**：layout-edit = 'X' 
+
+**某列可编辑**：fieldcat-edit = 'X'
+
+**单元格可编辑**：需要通过OO方式实现
+
 ## 设置工具导航栏 GUI Status
 
-#### Copy SAP标准GUI Status
+#### Copy SAP 标准 GUI Status
 
 - SE80 -> SALV -> STANDARD -> Copy到自定义程序的GUI Status
 
 ![GUI](/images/ABAP/CopyGUI.png)
 
-GUI Status参数设置共包括3个部分：
+GUI Status 参数设置共包括3个部分：
 
 1. 菜单栏(Menu Bar)：用于设置主菜单选项。
 
@@ -325,7 +333,7 @@ GUI Status参数设置共包括3个部分：
 
 3. 功能键(Function Key)：为按钮分配功能键代码，包括系统标题按钮(如返回、退出、关闭等)及通过Application ToolBar所定义的客制化按钮。
 
- **在ALV函数中使用**
+####  在ALV函数中使用 GUI Status
 
 ```jsp
 call function 'REUSE_ALV_GRID_DISPLAY_LVC'
@@ -350,11 +358,10 @@ GUI TITLE设置：
    SET TITLEBAR 'TITLE_BAR' WITH SY-DATUM 'IFENER' 'BAR TEST'."设置TITLEBAR，并赋参数列表 
 ```
 
-**自定义状态栏**
+#### 自定义状态栏
 
 ```JS
-form frm_set_status using excluding .
-  form frm_set_status using extab type slis_t_extab.
+FORM frm_set_status using extab TYPE slis_t_extab.
   data: ls_slis_extab type slis_extab.
   "排除按钮不显示"
   ls_slis_extab-fcode = '&ABC'.
@@ -362,7 +369,7 @@ form frm_set_status using excluding .
   ......
   SET TITLEBAR 'TITLE' WITH text-t01.          "输入标题栏名称"
   SET PF-STATUS <STATUS_NAME> EXCLUDING extab. "输入自定义按钮工具的名称,并排除指定按钮"
-endform.                    "frm_set_status"
+ENDFORM.                    "frm_set_status"
 ```
 
 **按钮处理** 
@@ -409,24 +416,12 @@ endform.
 AT USER-COMMAND.   "当单击某个按钮时，触发该事件
   CASE sy-ucomm.  "获取所操作按钮的功能代码(FUNCTION Code)
 ```
--   调用显示，应用于START-OF-SELECTION事件
+-   调用显示，应用于START-OF-SELECTION事件`SET PF-STATUS <STATUS_NAME>.`  
     
-
-​	`SET PF-STATUS <STATUS_NAME>.
-   `  
 
 ​	不显示某些按钮：`SET PF-STATUS <STATUS_NAME> EXCLUDING <extab>.`
 
 ### 文本增强
 
-- T-CODE:CMOD->转到->文本增强->关键字->更改
-
-### I_SAVE 保存布局选项字段的作用
-
-| Value          | Descript                         |              |                           |
-| -------------- | -------------------------------- | ------------ | ------------------------- |
-| I_SAVE = SPACE | 无法保存 Layout                  | I_SAVE = 'U' | 只能保存用户定义的 Layout |
-| I_SAVE = 'A'   | 用户定义和全局 Layout 都可以保存 | I_SAVE = 'X' | 只能保存全局 Layout       |
-
-
+- 事物码：CMOD -> 转到 -> 文本增强 -> 关键字 -> 更改
 

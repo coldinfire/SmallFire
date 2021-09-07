@@ -50,11 +50,11 @@ AT SELECTION-SCREEN.
 
 当 n=1 时，其按钮描述保存在字段 SSCRFIELDS-FUNCTXT_01 中，其按钮对象命名为"FC01"，保存在字段SSCRFIELDS-UCOMM 中。
 
-**实例：**
+#### 示例代码
 
-```html
+```ABAP
 TABLES SSCRFIELDS. "引用词典对象"
-TYPE-POOLS ICON. "Program Icon Library"
+TYPE-POOLS ICON.   "Program Icon Library"
 DATA functxt TYPE SMP_DYNTXT. "SMP_DYNTXT(菜单制作器:动态文本的程序接口)"
 PARAMETERS: p_carrid TYPE s_carr_id,
             p_cityfr TYPE s_from_cit.

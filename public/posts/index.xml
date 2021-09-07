@@ -530,7 +530,7 @@
     </item>
     
     <item>
-      <title>ALV添加执行进度功能</title>
+      <title>ALV 添加执行进度功能</title>
       <link>https://coldinfire.github.io/2020/ABAP_ALV_Progress/</link>
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
@@ -1997,15 +1997,6 @@
     </item>
     
     <item>
-      <title>ALV添加复选框，并添加全选，不全选功能</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_CheckBox/</link>
-      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_CheckBox/</guid>
-      <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT添加并定义CheckBox &amp;#34;$. Region ALV_Data&amp;#34; TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &amp;#39;CHECKBOX&amp;#39;. alv_fieldcat-scrtext_m = &amp;#39;Choose&amp;#39;. alv_fieldcat-checkbox =</description>
-    </item>
-    
-    <item>
       <title>OO ALV 工具</title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Util/</link>
       <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
@@ -2083,7 +2074,7 @@
       <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_ListDemo/</guid>
-      <description>程序实例 *&amp;amp;--------------------------------------- *&amp;amp; Report ZWR_PI_LOG *&amp;amp;--------------------------------------- REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;#34;ALV Data&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, lw_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS: p_chk2 RADIOBUTTON</description>
+      <description>List ALV 程序实例 *&amp;amp;--------------------------------------- *&amp;amp; Report ZWR_PI_LOG *&amp;amp;--------------------------------------- REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;#34;ALV Data&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, gs_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS:</description>
     </item>
     
     <item>
@@ -2147,6 +2138,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_TrafficLight/</guid>
       <description>定义 TYPE-POOLS:icon,sym,slis,col. DATA: l_alv_filed TYPE slis_fieldcat_alv, l_alv_filedcat TYPE slis_t_fieldcat_alv. TYPES:BEGIN OF str_alv, id TYPE char25, xxx TYPE xxx, xxx TYPE xxx, xxx TYPE xxx, xxx TYPE string, END OF str_alv. DATA:it_alv TYPE STANDARD TABLE OF str_alv WITH HEADER LINE. CONSTANTS: c_green TYPE icon-id VALUE &amp;#39;@08@&amp;#39;, c_yellow TYPE icon-id VALUE &amp;#39;@09@&amp;#39;, c_red TYPE icon-id VALUE &amp;#39;@0A@&amp;#39;. 赋值 IF it_return-type = &amp;#39;E&amp;#39;. it_alv-id = c_red. CALL FUNCTION &amp;#39;BAPI_TRANSACTION_ROLLBACK&amp;#39;. ELSE. it_alv-id</description>
+    </item>
+    
+    <item>
+      <title>ALV添加复选框，并添加全选，不全选功能</title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_CheckBox/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_CheckBox/</guid>
+      <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT添加并定义CheckBox &amp;#34;$. Region ALV_Data&amp;#34; TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &amp;#39;CHECKBOX&amp;#39;. alv_fieldcat-scrtext_m = &amp;#39;Choose&amp;#39;. alv_fieldcat-checkbox =</description>
     </item>
     
     <item>

@@ -12,9 +12,9 @@ tags:
 
 ---
 
-### 程序实例
+### List ALV 程序实例
 
-```JS
+```ABAP
 *&---------------------------------------
 *& Report  ZWR_PI_LOG
 *&---------------------------------------
@@ -26,7 +26,7 @@ DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc,
 "ALV Data"
 DATA: gt_fieldcat TYPE lvc_t_fcat,
       gs_fieldcat TYPE lvc_s_fcat,
-      lw_layout TYPE lvc_s_layo.
+      gs_layout   TYPE lvc_s_layo.
 "Select screen"
 SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN POSITION 1.
@@ -84,19 +84,19 @@ AT SELECTION-SCREEN OUTPUT.
     ENDIF.
   ENDLOOP.
 
-"Event"
+"Screen Event"
 START-OF-SELECTION .
   "Pre-check"
   PERFORM frm_pre_check.
   "Extract data"
   PERFORM frm_extract_data.
-  "ALV"
+  "Display alv"
   PERFORM frm_display.
 END-OF-SELECTION.
 *&---------------------------------------------------------------------*
 *&      Form  FRM_PRE_CHECK
 *&---------------------------------------------------------------------*
-  FORM frm_pre_check .
+FORM frm_pre_check .
   DATA:e_message TYPE char100.
   AUTHORITY-CHECK OBJECT 'XXXX'
            "ID 'ACTVT' FIELD '03'"
@@ -106,50 +106,51 @@ END-OF-SELECTION.
     MESSAGE e_message TYPE 'S' DISPLAY LIKE 'E'.
     LEAVE LIST-PROCESSING.
   ENDIF.
-  ENDFORM.                    " FRM_PRE_CHECK"
-  *&---------------------------------------------------------------------*
-  *&      Form  FRM_EXTRACT_DATA
-  *&---------------------------------------------------------------------*
-  FORM frm_extract_data .
-   SELECT *
+ENDFORM.                    " FRM_PRE_CHECK"
+*&---------------------------------------------------------------------*
+*&      Form  FRM_EXTRACT_DATA
+*&---------------------------------------------------------------------*
+FORM frm_extract_data .
+  SELECT *
     FROM zpidoc
-     INTO TABLE lt_pidoc
-     WHERE lgnum EQ p_lgnum
-      AND PIDOC  IN s_PIDOC.
+    INTO TABLE lt_pidoc
+   WHERE lgnum EQ p_lgnum
+     AND PIDOC  IN s_PIDOC.
   IF lt_pidoc IS INITIAL.
     MESSAGE 'No data.' TYPE 'S' DISPLAY LIKE 'E'.
     LEAVE LIST-PROCESSING.
   ENDIF.
-  ENDFORM.                    " FRM_EXTRACT_DATA"
-  *&---------------------------------------------------------------------*
-  *&      Form  FRM_DISPLAY
-  *&---------------------------------------------------------------------*
-  FORM frm_display .
-
-  lw_layout-zebra = 'X'.
-  lw_layout-col_opt = 'X'.
-  lw_layout-cwidth_opt = 'X'.
-
+ENDFORM.                    " FRM_EXTRACT_DATA"
+*&---------------------------------------------------------------------*
+*&      Form  FRM_DISPLAY
+*&---------------------------------------------------------------------*
+FORM frm_display .
+  CLEAR gs_layout.
+  gs_layout-zebra = 'X'.
+  gs_layout-col_opt = 'X'.
+  gs_layout-cwidth_opt = 'X'.
+  CLEAR gt_fieldcat.
   CALL FUNCTION 'LVC_FIELDCATALOG_MERGE'
     EXPORTING
       i_structure_name       = 'ZPIDOC_STRUCTURE'
-  CHANGING
-    ct_fieldcat            = gt_fieldcat
-  EXCEPTIONS
-    inconsistent_interface = 1
-    program_error          = 2
-    OTHERS                 = 3.
+    CHANGING
+      ct_fieldcat            = gt_fieldcat
+    EXCEPTIONS
+      inconsistent_interface = 1
+      program_error          = 2
+      OTHERS                 = 3.
   IF sy-subrc <> 0.
     MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
             WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   ENDIF.
   DELETE gt_fieldcat WHERE fieldname EQ 'STATUS'.
+  "显示 ALV"
   CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY_LVC'
     EXPORTING
       i_callback_program       = sy-repid
       i_callback_pf_status_set = 'FRM_SET_STATUS'
       i_callback_user_command  = 'FRM_USER_COMMAND'
-      is_layout_lvc            = lw_layout
+      is_layout_lvc            = gs_layout
       it_fieldcat_lvc          = gt_fieldcat
       i_default                = 'X'
       i_save                   = 'X'
@@ -157,24 +158,27 @@ END-OF-SELECTION.
       t_outtab                 = lt_pidoc
     EXCEPTIONS
       program_error            = 1.
-
+  IF sy-subrc <> 0.
+    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+            WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  ENDIF.
 ENDFORM.                    " FRM_DISPLAY"
 *&---------------------------------------------------------------------*
 *&      Form  frm_set_status
 *&---------------------------------------------------------------------*
-  FORM frm_set_status USING extab TYPE slis_t_extab.
+FORM frm_set_status USING extab TYPE slis_t_extab.
   DATA: lt_fcode TYPE STANDARD TABLE OF sy-ucomm.
+  CLEAR lt_fcode.
     APPEND '&CHNG' TO lt_fcode.
     APPEND '&MODI' TO lt_fcode.
     APPEND '&XDPL' TO lt_fcode.
   SET PF-STATUS 'STANDARD_COPY' EXCLUDING LT_FCODE.
-
 ENDFORM.                    "frm_set_status"
 *&---------------------------------------------------------------------*
 *&      Form  frm_user_command
 *&---------------------------------------------------------------------*
-  FORM frm_user_command USING r_ucomm     LIKE sy-ucomm
-                       rs_selfield TYPE slis_selfield.
+FORM frm_user_command USING r_ucomm LIKE sy-ucomm
+                        rs_selfield TYPE slis_selfield.
   CASE r_ucomm.
     WHEN '&F03'.
       RETURN.
