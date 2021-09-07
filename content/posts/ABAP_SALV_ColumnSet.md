@@ -1,5 +1,5 @@
 ---
-title: " SALV Fieldcat设置 "
+title: " SALV 字段目录设置 "
 date: 2019-06-06
 draft: false
 author: Small Fire

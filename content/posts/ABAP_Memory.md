@@ -1,5 +1,5 @@
 ---
-title: "SAP memory使用"
+title: "SAP Memory 使用"
 date: 2019-02-25
 draft: false
 author: Small Fire
@@ -12,7 +12,7 @@ tags:
 
 ---
 
-### SAP memory和ABAP memory ###
+### SAP Memory 和 ABAP Memory ###
 #### 使用的语句不同
 
 SAP memory使用SET/GET parameters

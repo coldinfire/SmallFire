@@ -1766,7 +1766,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVCheckBox/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_CheckBox/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1780,7 +1780,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVColor/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Color/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1794,7 +1794,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVDisplaySet/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_DisplaySet/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1808,7 +1808,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVEvent/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Layout/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1822,7 +1822,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVColumnSet/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Status/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1836,7 +1836,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVFilter/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Event/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1850,7 +1850,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVLayout/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Create/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1864,7 +1864,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVSorts/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_IConsTooltips/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1878,7 +1878,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVStatus/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1892,7 +1892,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVIConsTooltips/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Sorts/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1906,7 +1906,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVColumnSum/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSum/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1920,7 +1920,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVPageTopEnd/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Filter/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -1934,7 +1934,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALVCreate/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_PageTopEnd/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -3558,7 +3558,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_PopUpBox/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Util_PopUpBox/</loc>
       
       <lastmod>2018-08-10T00:00:00+00:00</lastmod>
       
@@ -3838,9 +3838,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</loc>
       
       <lastmod>2018-06-29T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</loc>
+      
+      <lastmod>2018-06-27T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

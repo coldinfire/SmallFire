@@ -530,120 +530,120 @@
     </item>
     
     <item>
-      <title> SALV CheckBox设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVCheckBox/</link>
+      <title> SALV CheckBox 设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_CheckBox/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVCheckBox/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_CheckBox/</guid>
       <description>添加复选框功能 要获得可选（可编辑）复选框，我们需要从 column 对象中获取特定的列。此后，我们需要使用方法 SET_CELL_TYPE 将单元格类型设置为 IF_SALV_C_CELL_TYPE =&amp;gt; CHECKBOX_H</description>
     </item>
     
     <item>
-      <title> SALV Color设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVColor/</link>
+      <title> SALV Color 设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Color/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVColor/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Color/</guid>
       <description>ALV颜色设置 整行：在记录中在需要设置COLOR的数据中添加详细信息 整列：从COLUMNS获得对应的列，设置特定列的颜色 单元格：在每条记录的</description>
     </item>
     
     <item>
-      <title> SALV Display设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVDisplaySet/</link>
+      <title> SALV Display 设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_DisplaySet/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVDisplaySet/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_DisplaySet/</guid>
       <description>Display设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_display_setting CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_display_setting CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_display_setting. DATA: lo_display TYPE REF TO cl_salv_display_settings. *Get display object lo_display = co_alv-&amp;gt;get_display_settings( ). *Set ZEBRA pattern lo_display-&amp;gt;set_striped_pattern( &amp;#39;X&amp;#39; ). *Title to ALV lo_display-&amp;gt;set_list_header( &amp;#39;ALV Test for Display</description>
     </item>
     
     <item>
-      <title> SALV Event处理 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVEvent/</link>
+      <title> SALV Layout 设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Layout/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVEvent/</guid>
-      <description>Event 处理 CLASS lcl_event_handler DEFINITION. PUBLIC SECTION. METHODS: on_link_click FOR EVENT link_click OF cl_salv_events_table IMPORTING row column. ENDCLASS. &amp;#34;lcl_event_handler DEFINITION&amp;#34; *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD generate_output. DATA: lx_msg TYPE REF TO cx_salv_msg. TRY. cl_salv_table=&amp;gt;factory( IMPORTING r_salv_table = o_alv CHANGING t_table = t_vbak ). CATCH cx_salv_msg INTO lx_msg. ENDTRY. *Get the event object DATA: lo_events TYPE REF TO cl_salv_events_table. lo_events = o_alv-&amp;gt;get_event( ). *Instantiate the event handler object DATA: lo_event_handler TYPE</description>
-    </item>
-    
-    <item>
-      <title> SALV Fieldcat设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVColumnSet/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVColumnSet/</guid>
-      <description>Fieldcat设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. *Set the various column properties METHODS: set_columns CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Setting up the Columns CALL METHOD me-&amp;gt;set_columns CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_columns. *Get all the Columns DATA: lo_cols TYPE REF TO cl_salv_columns. lo_cols = o_alv-&amp;gt;get_columns( ). *set the Column</description>
-    </item>
-    
-    <item>
-      <title> SALV Filter设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVFilter/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVFilter/</guid>
-      <description>过滤设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_filters CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Set Filters CALL METHOD set_filters CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_filters. DATA: lo_filters TYPE REF TO cl_salv_filters. lo_filters = co_alv-&amp;gt;get_filters( ). *Set the filter for the column ERDAT the filter criteria works exactly same as any *RANGE or SELECT-OPTIONS works. TRY.</description>
-    </item>
-    
-    <item>
-      <title> SALV Layout设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVLayout/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVLayout/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Layout/</guid>
       <description>Layout设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_layout CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_layout CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_layout. DATA: lo_layout TYPE REF TO cl_salv_layout, lf_variant TYPE slis_vari, ls_key TYPE salv_s_layout_key. *Get layout object lo_layout = co_alv-&amp;gt;get_layout( ). *Set Layout save restriction * 1. Set Layout Key</description>
     </item>
     
     <item>
-      <title> SALV Sorts设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVSorts/</link>
+      <title> SALV Status 设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Status/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVSorts/</guid>
-      <description>Sorts设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_sorts CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* * Set SORT CALL METHOD set_sorts CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_sorts. DATA: lo_sort TYPE REF TO cl_salv_sorts. *Get Sort object lo_sort = co_alv-&amp;gt;get_sorts( ). *Set the SORT on the AUART with Subtotal TRY. CALL METHOD lo_sort-&amp;gt;add_sort EXPORTING</description>
-    </item>
-    
-    <item>
-      <title> SALV Status设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVStatus/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVStatus/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Status/</guid>
       <description>设置Status *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_pf_status CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_pf_status CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_pf_status. DATA: lo_functions TYPE REF TO cl_salv_functions_list. lo_functions = co_alv-&amp;gt;get_functions( ). lo_functions-&amp;gt;set_default( abap_true ). &amp;#34;lo_functions-&amp;gt;set_all( abap_true ).&amp;#34; ENDMETHOD. &amp;#34;set_pf_status&amp;#34; *$*$*.....CODE_ADD_3 - End....................................3..*$*$* 自定义Stat</description>
     </item>
     
     <item>
-      <title> SALV 图标设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVIConsTooltips/</link>
+      <title> SALV 事件处理 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Event/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVIConsTooltips/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Event/</guid>
+      <description>Event 处理 CLASS lcl_event_handler DEFINITION. PUBLIC SECTION. METHODS: on_link_click FOR EVENT link_click OF cl_salv_events_table IMPORTING row column. ENDCLASS. &amp;#34;lcl_event_handler DEFINITION&amp;#34; *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD generate_output. DATA: lx_msg TYPE REF TO cx_salv_msg. TRY. cl_salv_table=&amp;gt;factory( IMPORTING r_salv_table = o_alv CHANGING t_table = t_vbak ). CATCH cx_salv_msg INTO lx_msg. ENDTRY. *Get the event object DATA: lo_events TYPE REF TO cl_salv_events_table. lo_events = o_alv-&amp;gt;get_event( ). *Instantiate the event handler object DATA: lo_event_handler TYPE</description>
+    </item>
+    
+    <item>
+      <title> SALV 创建ALV </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Create/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Create/</guid>
+      <description>创建和显示 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; This code snippet will show how to use the CL_SALV_TABLE to *&amp;amp; generate the ALV *&amp;amp;---------------------------------------------------------------------* REPORT ztest_oo_alv_main. *----------------------------------------------------------------------* * CLASS lcl_report DEFINITION *----------------------------------------------------------------------* CLASS lcl_report DEFINITION. PUBLIC SECTION. * Final output table TYPES: BEGIN OF ty_vbak, vbeln TYPE vbak-vbeln, erdat TYPE erdat, auart TYPE auart, kunnr TYPE kunnr, netwr TYPE netwr, check TYPE flag, &amp;#34;复选框</description>
+    </item>
+    
+    <item>
+      <title> SALV 图标设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_IConsTooltips/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_IConsTooltips/</guid>
       <description>图标设置 为了能够在 SALV 上添加 ICON 和工具提示，需要： 列值作为 ICON 值– 在输出表中，需要添加 ICON 作为值。这样就可以将 ICON_GREEN_LIGHT 用作交通绿灯 将 SALV 的 ICON 列设置为 ICON – 从 SALV</description>
     </item>
     
     <item>
-      <title> SALV 汇总设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVColumnSum/</link>
+      <title> SALV 字段目录设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVColumnSum/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</guid>
+      <description>Fieldcat设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. *Set the various column properties METHODS: set_columns CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Setting up the Columns CALL METHOD me-&amp;gt;set_columns CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_columns. *Get all the Columns DATA: lo_cols TYPE REF TO cl_salv_columns. lo_cols = o_alv-&amp;gt;get_columns( ). *set the Column</description>
+    </item>
+    
+    <item>
+      <title> SALV 排序设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Sorts/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Sorts/</guid>
+      <description>Sorts设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_sorts CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* * Set SORT CALL METHOD set_sorts CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_sorts. DATA: lo_sort TYPE REF TO cl_salv_sorts. *Get Sort object lo_sort = co_alv-&amp;gt;get_sorts( ). *Set the SORT on the AUART with Subtotal TRY. CALL METHOD lo_sort-&amp;gt;add_sort EXPORTING</description>
+    </item>
+    
+    <item>
+      <title> SALV 汇总设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSum/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSum/</guid>
       <description>Apply Aggregations *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_aggregations CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_aggregations CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_aggregations. DATA: lo_aggrs TYPE REF TO cl_salv_aggregations. lo_aggrs = co_alv-&amp;gt;get_aggregations( ). *Add TOTAL for COLUMN NETWR TRY. CALL METHOD lo_aggrs-&amp;gt;add_aggregation EXPORTING columnname = &amp;#39;NETWR&amp;#39; aggregation = if_salv_c_aggregation=&amp;gt;total. CATCH cx_salv_data_error . &amp;#34;#EC NO_HANDLER&amp;#34; CATCH cx_salv_not_found .</description>
     </item>
     
     <item>
-      <title> SALV 页头和页尾设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVPageTopEnd/</link>
+      <title> SALV 过滤设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Filter/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVPageTopEnd/</guid>
-      <description>添加页头(Top of page)和页脚(End of page) *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. *Set Top of page METHODS: set_top_of_page CHANGING co_alv TYPE REF TO cl_salv_table. *Set End of page METHODS: set_end_of_page CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Calling the top of page method CALL METHOD me-&amp;gt;set_top_of_page CHANGING co_alv =</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Filter/</guid>
+      <description>过滤设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_filters CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Set Filters CALL METHOD set_filters CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_filters. DATA: lo_filters TYPE REF TO cl_salv_filters. lo_filters = co_alv-&amp;gt;get_filters( ). *Set the filter for the column ERDAT the filter criteria works exactly same as any *RANGE or SELECT-OPTIONS works. TRY.</description>
     </item>
     
     <item>
-      <title> SALV创建ALV </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALVCreate/</link>
+      <title> SALV 页头和页尾设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_PageTopEnd/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALVCreate/</guid>
-      <description>创建和显示 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; This code snippet will show how to use the CL_SALV_TABLE to *&amp;amp; generate the ALV *&amp;amp;---------------------------------------------------------------------* REPORT ztest_oo_alv_main. *----------------------------------------------------------------------* * CLASS lcl_report DEFINITION *----------------------------------------------------------------------* CLASS lcl_report DEFINITION. PUBLIC SECTION. * Final output table TYPES: BEGIN OF ty_vbak, vbeln TYPE vbak-vbeln, erdat TYPE erdat, auart TYPE auart, kunnr TYPE kunnr, netwr TYPE netwr, check TYPE flag, &amp;#34;复选框</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_PageTopEnd/</guid>
+      <description>添加页头(Top of page)和页脚(End of page) *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. *Set Top of page METHODS: set_top_of_page CHANGING co_alv TYPE REF TO cl_salv_table. *Set End of page METHODS: set_end_of_page CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Calling the top of page method CALL METHOD me-&amp;gt;set_top_of_page CHANGING co_alv =</description>
     </item>
     
     <item>
@@ -737,12 +737,12 @@
     </item>
     
     <item>
-      <title>SAP memory使用</title>
+      <title>SAP Memory 使用</title>
       <link>https://coldinfire.github.io/2019/ABAP_Memory/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_Memory/</guid>
-      <description>SAP memory和ABAP memory 使用的语句不同 SAP memory使用SET/GET parameters SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. ABAP Memory使用EXPORT 和IMPOR</description>
+      <description>SAP Memory 和 ABAP Memory 使用的语句不同 SAP memory使用SET/GET parameters SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. ABAP Memory使用EXPORT 和IMPORT EXPORT p_matnr = var_matnr TO MEMORY ID</description>
     </item>
     
     <item>
@@ -1188,10 +1188,10 @@
     
     <item>
       <title>ABAP 弹出框设置</title>
-      <link>https://coldinfire.github.io/2018/ABAP_PopUpBox/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Util_PopUpBox/</link>
       <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_PopUpBox/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Util_PopUpBox/</guid>
       <description>可输入弹出框：POPUP_GET_VALUES_USER_HELP &amp;#34;输入表格，SVAL相应的字段信息决定显示的效果：&amp;#34; tabname = &amp;#39;AFKO&amp;#39;.</description>
     </item>
     
@@ -1367,21 +1367,30 @@
     </item>
     
     <item>
+      <title>ALV 屏幕其它功能设置</title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</link>
+      <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</guid>
+      <description>屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &amp;lt;pos(len)&amp;gt; &amp;lt;name&amp;gt; USER-COMMAND &amp;lt;ucom&amp;gt; [MODIF ID &amp;lt;key&amp;gt;]. /n :按钮初始时距离屏幕左边的位置 &amp;lt;pos(len)&amp;gt;：PUSHBUTTON按钮在屏幕生成的位置</description>
+    </item>
+    
+    <item>
       <title>Field Catalog 字段排坑</title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</link>
-      <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</guid>
       <description>原文链接：https://blog.csdn.net/zhongguomao/article/details/77774206 对于初写 ALV 的 A</description>
     </item>
     
     <item>
-      <title>报表开发&lt;ALV FieldCatalog设置&gt;</title>
+      <title>报表开发&lt;ALV 显示设置&gt;</title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Display/</link>
       <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display/</guid>
-      <description>ALV Display相关的FM &amp;lt;1&amp;gt; REUSE_ALV_FIELDCATALOG_MERGE：根据内表结构自动生成FIELDCAT字段结构信息。 &amp;lt;2&amp;gt; R</description>
+      <description>ALV Display ALV 显示相关的 FM REUSE_ALV_LIST_DISPLAY：List 格式的 ALV 模式为固定格式，应用于较严格的标准报表。 REUSE_ALV_</description>
     </item>
     
     <item>
@@ -1408,11 +1417,11 @@
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</guid>
-      <description>报表格式 程序说明：包括程序名称，实现的业务功能等信息 数据定义：定义报表依赖的表，定义全局变量、内表、ALV 变量、宏定义等。 Include 内容：可以通过 include</description>
+      <description>ALV (SAP List Viewer) 是 SAP 常用的屏幕显示列表控件对象，通过传递数据内表方式显示数据； ALV 显示格式分为 Grid 和 List 两种模式。 Grid 模式有栏位选择按钮功能，允许用户直接输</description>
     </item>
     
     <item>
-      <title> ABAP截取中文字符串 </title>
+      <title> ABAP 截取中文字符串 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Util_StrCNChina/</link>
       <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>
       

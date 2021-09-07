@@ -1,5 +1,5 @@
 ---
-title: "报表开发<ALV FieldCatalog设置>"
+title: "报表开发<ALV 显示设置>"
 date: 2018-06-25
 draft: false
 author: Small Fire
@@ -12,19 +12,23 @@ tags:
 
 ---
 
-##  ALV Display相关的FM
+##  ALV Display
 
-<1> REUSE_ALV_FIELDCATALOG_MERGE：根据内表结构自动生成FIELDCAT字段结构信息。
+### ALV 显示相关的 FM
 
-<2> REUSE_ALV_LIST_DISPLAY：List格式的ALV模式为固定格式，应用于较严格的标准报表。
+**REUSE_ALV_LIST_DISPLAY**：List 格式的 ALV 模式为固定格式，应用于较严格的标准报表。
 
-<3> REUSE_ALV_GRID_DISPLAY：Grid格式的ALV报表有栏位选择按钮功能，允许用户直接输出格式，操作更为灵活。
+**REUSE_ALV_GRID_DISPLAY**：Grid 格式的 ALV 报表有栏位选择按钮功能，允许用户直接输出格式，操作更为灵活。
 
-<4> REUSE_ALV_GRID_DISPLAY_LVC：以 LVC结尾的ALV函数，此函数中引用到的类型大部分都不再从类型池slis 中来引用，而是直接引用字典中已定义好的表或结构类型，这种函数与面向对象的CL_GUI_ALV_GRID生成的ALV参数类型上基本相同，所以以后一般如果使用函数方式来产生ALV，推荐使用REUSE_ALV_GRID_DISPLAY_LVC函数，因为这样方便修改面向对象方式的ALV。
+**REUSE_ALV_GRID_DISPLAY_LVC**：以 LVC 结尾的 ALV 函数，此函数中引用到的类型大部分都不再从类型池 slis 中来引用，而是直接引用字典中已定义好的表或结构类型，这种函数与面向对象的 CL_GUI_ALV_GRID 生成的 ALV 参数类型上基本相同，所以以后一般如果使用函数方式来产生 ALV，推荐使用 REUSE_ALV_GRID_DISPLAY_LVC 函数，因为这样方便修改面向对象方式的 ALV。
 
-<5> LVC_FIELDCATALOG_MERGE：针对LVC结尾的函数，自动生成FIELDCAT字段结构信信息。
+### 字段目录生成的 FM
 
-对于 **SLIS**_开头的，可以在类型池 SLIS 中查看，**LVC** 开头的可以在数据字典（**SE11**）中查看。
+**REUSE_ALV_FIELDCATALOG_MERGE**：根据内表结构自动生成 FIELDCAT 字段结构信息。
+
+**LVC_FIELDCATALOG_MERGE**：针对 LVC 结尾的函数，自动生成 FIELDCAT 字段结构信信息。
+
+对于 **SLIS**_开头的，可以在类型池 SLIS 中查看详细信息，**LVC** 开头的可以在数据字典（**SE11**）中查看结构参数。
 
 ```JS
 TYPE-POOLS:SLIS.

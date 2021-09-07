@@ -1,5 +1,5 @@
 ---
-title: " SALV CheckBox设置 "
+title: " SALV CheckBox 设置 "
 date: 2019-06-06
 draft: false
 author: Small Fire
