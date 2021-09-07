@@ -28,7 +28,7 @@ tags:
 
 | BADI                                                         | Description                                                 |
 | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| [ME_PROCESS_PO_CUST](https://coldinfire.github.io/2019/MM_PurchaseOrder_Enhance/) | PO BADI                                                     |
+| [ME_PROCESS_PO_CUST](https://coldinfire.github.io/2019/MM_BADI_PurchaseOrder/) | PO BADI                                                     |
 | ME_PROCESS_PO_CUST                                           | Enhancements for Processing Enjoy Purchase Order: Customer  |
 | ME_PROCESS_PO                                                | Enhancements for Processing Enjoy Purchase Order: Intern.   |
 | ME_PROCESS_COMP                                              | Processing of Component Default Data at Time of GR: Custome |
@@ -46,7 +46,7 @@ tags:
 
 #### BADI
 
-MB_DOCUMENT_BADI
+ [MB_DOCUMENT_BADI](https://coldinfire.github.io/2019/MM_BADI_MaterialDocument/)
 
 #### User Exit
 

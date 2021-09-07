@@ -373,7 +373,7 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/</guid>
-      <description>通过 BAPI 操作 Purchase Order 通过BAPI创建PO FUNCTION zcreate_po. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local interface: *&amp;#34; IMPORTING *&amp;#34; VALUE(CALLNO) TYPE ZCALLNO *&amp;#34; VALUE(DOC_TYPE) LIKE BAPIMEPOHEADER-DOC_TYPE DEFAULT &amp;#39;ZIPR&amp;#39; *&amp;#34; VALUE(PURCH_ORG) LIKE BAPIMEPOHEADER-PURCH_ORG DEFAULT &amp;#39;POIC&amp;#39; *&amp;#34; VALUE(PUR_GROUP) LIKE BAPIMEPOHEADER-PUR_GROUP *&amp;#34; VALUE(VENDOR) LIKE BAPIMEPOHEADER-VENDOR *&amp;#34; VALUE(COMP_CODE) LIKE BAPIMEPOHEADER-COMP_CODE DEFAULT &amp;#39;GF50&amp;#39; *&amp;#34; VALUE(DZTERM) TYPE DZTERM DEFAULT &amp;#39;0001&amp;#39; *&amp;#34; EXPORTING *&amp;#34; VALUE(PO_NUMBER) LIKE BAPIMEPOHEADER-PO_NUMBER *&amp;#34; VALUE(FLAG) LIKE BAPIRET2-TYPE</description>
+      <description>通过 BAPI 操作 Purchase Order 通过 BAPI：BAPI_PO_CREATE1 创建 PO TABLE 中的行项目参数 poitem 的货币字段 poitem-orderpr_un ：行项目的货币类型是根据供应商自动带出，不需要</description>
     </item>
     
     <item>
@@ -666,11 +666,20 @@
     
     <item>
       <title>Purchase Order 增强</title>
-      <link>https://coldinfire.github.io/2019/MM_PurchaseOrder_Enhance/</link>
+      <link>https://coldinfire.github.io/2019/MM_BADI_PurchaseOrder/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_PurchaseOrder_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BADI_PurchaseOrder/</guid>
       <description>创建采购订单(Purchase Order)时可以通过增强做一些控制。 BADI:ME_PROCESS_PO_CUST PROCESS_HEADER：对PO抬头数据进行检查 PROCESS_I</description>
+    </item>
+    
+    <item>
+      <title>收货或者货物移动(MIGO,MB11,MB1A)增强</title>
+      <link>https://coldinfire.github.io/2019/MM_BADI_MaterialDocument/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_BADI_MaterialDocument/</guid>
+      <description>BADI：MB_DOCUMENT_BADI 使用 特别要注意的是假如你是想在点击保存按钮的时候根据生成的凭证号（即表示这个增强点处凭证号已经生成</description>
     </item>
     
     <item>
@@ -877,7 +886,7 @@
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</guid>
-      <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的RFC函数。 BAPI函数及函数参数参考的结</description>
+      <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的 RFC 函数。 BAPI 函数及函数参数参考的结构类型名，</description>
     </item>
     
     <item>

@@ -14,7 +14,11 @@ tags:
 
 ## 通过 BAPI  操作 Purchase Order
 
-### 通过BAPI创建PO
+### 通过 BAPI：BAPI_PO_CREATE1 创建 PO
+
+TABLE 中的行项目参数 poitem 的货币字段 poitem-orderpr_un ：行项目的货币类型是根据供应商自动带出，不需要传入。
+
+实际业务中有可能创建 PO 的人员会变换货币的类型，通过设置抬头参数 poheader 的货币字段：poheader-currency = ‘货币’，这样即可实现对新建 PO 的货币类型的强制修改。
 
 ```ABAP
 FUNCTION zcreate_po.
@@ -47,10 +51,9 @@ DATA: quantity(18),
       l_lifnr   TYPE lfa1-lifnr,
       lv_datano TYPE zdatano.
 DATA: lt_eskl TYPE TABLE OF eskl WITH HEADER LINE.
-CLEAR:gs_poheader,    gs_poheaderx,  gv_po_number,  gt_return,      gs_return,     gt_poitem,
-      gs_poitem,      gt_poitemx,    gs_poitemx,    gt_poschedule,  gs_poschedule, gt_poschedulex,
-      gs_poschedulex, gt_poaccount,  gs_poaccount,  gt_poaccountx,  gs_poaccountx, gt_polimits,
-      gs_polimits.
+CLEAR:gs_poheader,gs_poheaderx,gv_po_number,  gt_return,gs_return,gt_poitem,gs_poitem,gt_poitemx,
+   gs_poitemx,gt_poschedule,gs_poschedule,gt_poschedulex,gs_poschedulex,gt_poaccount,gs_poaccount,
+   gt_poaccountx,gs_poaccountx,gt_polimits,gs_polimits.
 *数据检查.
 PERFORM frm_check_data USING doc_type purch_org pur_group vendor comp_code poitem[]
                        CHANGING flag message.

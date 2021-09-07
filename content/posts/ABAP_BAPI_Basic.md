@@ -14,10 +14,12 @@ tags:
 
 ### BAPI 简介
 
-BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的RFC函数。
-- BAPI函数及函数参数参考的结构类型名，都要以ZBAPI开头
-- BAPI函数参数只能是传值，不能有Change与Exception参数
-- BAPI函数需要有Return返回参数
+BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的 RFC 函数。
+- BAPI 函数及函数参数参考的结构类型名，都要以 ZBAPI 开头
+- BAPI 函数参数只能是传值，不能有 Change 与 Exception 参数
+- BAPI 函数需要有 Return 返回参数
+
+往往调用一个 BAPI 的时候不知道哪里赋值，怎么赋值，赋什么值。
 
 ### 查找Tcode对应的BAPI
 

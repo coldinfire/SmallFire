@@ -22,10 +22,18 @@ DATA gs_bapi_mara   TYPE bapi_mara.   " MARA数据-基本视图数据 "
 DATA gs_bapi_marax  TYPE bapi_marax.  " 变更数据标识 "
 DATA gs_bapi_mvke   TYPE bapi_mvke.   " 销售视图 "
 DATA gs_bapi_mvkex  TYPE bapi_mvkex.
-DATA gs_bapi_marc   TYPE bapi_marc.   " MRP视图数据 "
+DATA gs_bapi_marc   TYPE bapi_marc.   " 工厂级别数据 "
 DATA gs_bapi_marcx  TYPE bapi_marcx.
+DATA gs_bapi_mpgd   TYPE bapi_mpgd.   " 计划数据 "
+DATA gs_bapi_mpgdx  TYPE bapi_mpgdx.
 DATA gs_bapi_mbew   TYPE bapi_mbew.   " 会计成本视图 "
 DATA gs_bapi_mbewx  TYPE bapi_mbewx.
+DATA gs_bapi_mard   TYPE bapi_mard.   " 存储位置 "
+DATA gs_bapi_mardx  TYPE bapi_mardx. 
+DATA gs_bapi_mlgn   TYPE bapi_mlgn.   " 仓库数据 "
+DATA gs_bapi_mlgnx  TYPE bapi_mlgnx.
+DATA gs_bapi_mlgt   TYPE bapi_mlgt.   " 存储类型数据 "
+DATA gs_bapi_mlgtx  TYPE bapi_mlgtx.
 DATA gs_return      TYPE bapiret2.    " 返回参数 "
 
 DATA gt_bapi_makt   LIKE TABLE OF bapi_makt WITH HEADER LINE.   " 物料描述 "
@@ -68,6 +76,66 @@ DATA:BEGIN OF itab OCCURS 0,
   zz_color TYPE char20,          " 屏幕增强字段 "
 END OF itab.
 DATA itab1 TYPE itab OCCURS 0 WITH HEADER LINE.
+* 原材料
+DATA: BEGIN OF str_material,
+  marc_plant TYPE werks_d,   "工厂"
+  mard_stge_loc TYPE lgort_d,"库存地点
+  mvke_sales_org TYPE vkorg, "销售组织
+  mvke_distr_chan TYPE vtweg,"分销渠道
+  head_material TYPE matnr,  "物料号
+  head_ind_sector TYPE mbrsh,"行业领域
+  head_matl_type TYPE mtart, "物料类型
+  t_makt_matl_desc TYPE maktx,"物料描述
+  mara_base_uom TYPE meins,  "基本计量单位
+  mara_matl_group TYPE matkl,"物料组
+  mara_extmatlgrp TYPE extwg,"外部物料组
+  mara_item_cat TYPE mtpos_mara,"普通项目组类别
+  t_marm_gross_wt TYPE brgew,"毛重
+  t_marm_unit_of_wt TYPE gewei,"重量单位
+  mara_net_weight TYPE ntgew,"净重
+  t_marm_volume TYPE volum,  "标准箱
+   t_marm_volumeunit TYPE voleh,"体积单位
+  mvke_sales_unit TYPE vrkme,"销售单位 
+
+  t_mlan_taxclass1 TYPE taxkm,  "税分类1
+  t_mlan_taxclass2 TYPE taxkm,  "税分类2
+  mvke_matl_stats TYPE stgma,   "物料统计组
+  mvke_acct_assgt TYPE ktgrm,   "科目设置组
+  mvke_item_cat TYPE mtpos,     "来自物料主文件的项目主类别
+  marc_availcheck TYPE mtvfp,   "可用性检查
+  mara_trans_grp TYPE tragr,    "运输组
+  marc_loadinggrp TYPE ladgr,   "装载组
+  marc_pur_group TYPE ekgrp,    "采购组
+  marc_batch_mgmt TYPE xchpf,   "批次管理标示
+  marc_auto_p_ord TYPE kautb,   "自动采购订单
+  marc_ind_post_to_insp_stock TYPE insmk_mat,"过账到检验库存
+  marc_quotausage TYPE usequ,   "配额安排
+  marc_sourcelist TYPE kordb,   "源清单
+  marc_mrp_group TYPE disgr,    "MRP组
+  marc_mrp_type TYPE dismm,     "MRP类型
+  marc_mrp_ctrler TYPE dispo,   "MRP控制者
+  marc_lotsizekey TYPE disls,   "批量
+  marc_minlotsize TYPE bstmi,   "最小批量
+  marc_maxlotsize TYPE bstma,   "最大批量
+  marc_round_val TYPE bstrf,    "舍入值
+  marc_proc_type TYPE beskz,    "采购类型
+  marc_backflush TYPE rgekm,    "反冲
+  marc_plnd_delry TYPE plifz,   "计划交货时间
+  marc_gr_pr_time TYPE webaz,   "收货处理时间
+  marc_safety_stk TYPE eisbe,   "安全库存
+  marc_sm_key TYPE fhori,       "计划边际码
+  marc_plan_strgp TYPE strgp,   "策略组
+  marc_alt_bom_id TYPE altsl,   "选择方法
+  stge_loc TYPE lgort_d,        "库存地点,占位，不用取出赋值，同上边库存地点
+  mbew_val_class TYPE bklas,    "评估类
+  mbew_price_ctrl TYPE vprsv,   "价格控制
+  mbew_price_unit TYPE peinh,   "价格单位
+  mbew_moving_pr TYPE verpr_bapi,"移动平均价
+  mbew_std_price TYPE stprs_bapi,"标准价格
+  mbew_qty_struct TYPE ck_ekalrel,"用QS的成本估算
+  mbew_orig_mat TYPE hkmat,      "物料来源
+  END OF str_material.
+DATA: it_material LIKE TABLE OF str_material.
 "$. Endregion Structure"
 START-OF-SELECTION.
   PERFORM prepare_data.
