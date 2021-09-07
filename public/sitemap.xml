@@ -3488,20 +3488,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALV_ListDemo/</loc>
-      
-      <lastmod>2018-08-24T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2018/SAP_VOFM/</loc>
       
       <lastmod>2018-08-19T00:00:00+00:00</lastmod>
@@ -3855,6 +3841,20 @@
       <loc>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</loc>
       
       <lastmod>2018-06-27T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_ListDemo/</loc>
+      
+      <lastmod>2018-06-26T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
