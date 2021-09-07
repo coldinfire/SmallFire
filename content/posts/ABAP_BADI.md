@@ -1,6 +1,6 @@
 ---
 title: "BADI 维护"
-date: 2019-06-30
+date: 2019-07-01
 draft: false
 author: Small Fire
 isCJKLanguage: true

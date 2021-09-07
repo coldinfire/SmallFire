@@ -1656,7 +1656,35 @@
     <url>
       <loc>https://coldinfire.github.io/2019/ABAP_BADI/</loc>
       
-      <lastmod>2019-06-30T00:00:00+00:00</lastmod>
+      <lastmod>2019-07-01T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_Object_Oriented_Basic/</loc>
+      
+      <lastmod>2019-06-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_Object_Oriented_Overview/</loc>
+      
+      <lastmod>2019-06-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1670,7 +1698,7 @@
     <url>
       <loc>https://coldinfire.github.io/2019/ABAP_ALV_TreeDemo/</loc>
       
-      <lastmod>2019-06-26T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-19T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1684,7 +1712,7 @@
     <url>
       <loc>https://coldinfire.github.io/2019/ABAP_ALV_Tree/</loc>
       
-      <lastmod>2019-06-22T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-18T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3393,34 +3421,6 @@
       <loc>https://coldinfire.github.io/2018/ABAP_TableCopyFields/</loc>
       
       <lastmod>2018-09-10T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Object_Oriented_Basic/</loc>
-      
-      <lastmod>2018-09-08T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Object_Oriented_Overview/</loc>
-      
-      <lastmod>2018-09-06T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

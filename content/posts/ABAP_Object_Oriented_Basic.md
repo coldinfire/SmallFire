@@ -1,6 +1,6 @@
 ---
 title: "ABAP Object Oriented 语法"
-date: 2018-09-08
+date: 2019-06-23
 draft: false
 author: Small Fire
 isCJKLanguage: true
