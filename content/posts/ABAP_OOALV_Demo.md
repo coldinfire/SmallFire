@@ -17,7 +17,7 @@ tags:
 其中屏幕的创建， 和对应PAI、PBO 以及 Status title 等可以自定调整。
 
 ```ABAP
-REPORT  zoo_alv.
+REPORT  zoo_alv_demo.
 TYPE-POOLS: slis.
 *-- Global data Decleration.
 TYPES:BEGIN OF ty_output,
@@ -31,23 +31,28 @@ TYPES:BEGIN OF ty_output,
       meins TYPE bstme,
       netwr TYPE bwert,
       END OF ty_output.
-DATA: lt_ekko TYPE TABLE OF ekko,
-      ls_ekko TYPE ekko,
-      lt_ekpo TYPE TABLE OF ekpo,
-      ls_ekpo TYPE ekpo,
-      lt_output TYPE TABLE OF ty_output,
-      ls_output TYPE ty_output.
+DATA: gt_ekko TYPE TABLE OF ekko,
+      gs_ekko TYPE ekko,
+      gt_ekpo TYPE TABLE OF ekpo,
+      gs_ekpo TYPE ekpo,
+      gt_output TYPE TABLE OF ty_output,
+      gs_output TYPE ty_output.
 "Global Data Definitions for ALV"
 "$. Region ALV_Data"
-DATA container   TYPE REF TO cl_gui_custom_container .  " Custom container instance reference"
-DATA grid        TYPE REF TO cl_gui_alv_grid .        " ALV Grid instance reference"
-DATA lt_fieldcat TYPE lvc_t_fcat.  "-- Field catalog table"
-DATA lw_fieldcat TYPE lvc_s_fcat.
-DATA lw_layout   TYPE lvc_s_layo .  "-- Layout structure"
-DATA lt_exclude  TYPE ui_functions. "-- Button Exclude"
-DATA lt_variant  TYPE disvariant.   "-- Variant"
-DATA lt_sort     TYPE lvc_t_sort.   "-- Sotrt table"
-DATA lt_filt     TYPE lvc_t_filt.   "-- Filter table"
+DATA container   TYPE REF TO cl_gui_custom_container."Custom container instance reference"
+DATA grid        TYPE REF TO cl_gui_alv_grid.        "ALV Grid instance reference"
+DATA gt_fieldcat TYPE lvc_t_fcat.   "Field catalog table"
+DATA gs_fieldcat TYPE lvc_s_fcat.
+DATA gs_layout   TYPE lvc_s_layo.   "Layout structure"
+DATA gt_exclude  TYPE ui_functions. "Button Exclude"
+DATA gt_variant  TYPE disvariant.   "Variant"
+DATA gt_sort     TYPE lvc_t_sort.   "Sotrt table"
+DATA gt_filt     TYPE lvc_t_filt.   "Filter table"
+DATA gt_select   TYPE lvc_t_cell.   "选中单元格方法参数"
+DATA gt_selrow   TYPE lvc_t_row.    "选中行方法参数"
+"Event "
+CLASS cl_event_receiver DEFINITION DEFERRED.
+DATA event_receiver TYPE REF TO cl_event_receiver.
 "$. Endregion ALV_Data"
 START-OF-SELECTION.
   PERFORM get_data.
@@ -63,29 +68,29 @@ START-OF-SELECTION.
 *  <--  p2        text
 *----------------------------------------------------------------------*
 FORM get_data .
-  SELECT * FROM ekko INTO TABLE lt_ekko UP TO 20 ROWS.
-  IF lt_ekko IS NOT INITIAL.
-    SELECT *
-       FROM ekpo
-       INTO TABLE lt_ekpo
-       FOR ALL ENTRIES IN lt_ekko
-       WHERE ebeln = lt_ekko-ebeln.
+  CLEAR gt_ekko.
+  SELECT * FROM ekko INTO TABLE gt_ekko UP TO 20 ROWS.
+  IF gt_ekko IS NOT INITIAL.
+    CLEAR gt_ekpo
+    SELECT * FROM ekpo INTO TABLE gt_ekpo
+       FOR ALL ENTRIES IN gt_ekko
+       WHERE ebeln = gt_ekko-ebeln.
   ENDIF.
-  LOOP AT lt_ekpo INTO ls_ekpo.
-    ls_output-ebeln = ls_ekpo-ebeln.
-    ls_output-ebelp = ls_ekpo-ebelp.
-    ls_output-matnr = ls_ekpo-matnr.
-    ls_output-werks = ls_ekpo-werks.
-    ls_output-menge = ls_ekpo-menge.
-    ls_output-meins = ls_ekpo-meins.
-    ls_output-netwr = ls_ekpo-netwr.
-    READ TABLE lt_ekko INTO ls_ekko WITH KEY ebeln = ls_ekpo-ebeln.
+  LOOP AT gt_ekpo INTO gs_ekpo.
+    gs_output-ebeln = gs_ekpo-ebeln.
+    gs_output-ebelp = gs_ekpo-ebelp.
+    gs_output-matnr = gs_ekpo-matnr.
+    gs_output-werks = gs_ekpo-werks.
+    gs_output-menge = gs_ekpo-menge.
+    gs_output-meins = gs_ekpo-meins.
+    gs_output-netwr = gs_ekpo-netwr.
+    READ TABLE gt_ekko INTO gs_ekko WITH KEY ebeln = gs_ekpo-ebeln.
     IF sy-subrc IS INITIAL.
-      ls_output-aedat = ls_ekko-aedat.
-      ls_output-ernam = ls_ekko-ernam.
+      gs_output-aedat = gs_ekko-aedat.
+      gs_output-ernam = gs_ekko-ernam.
     ENDIF.
-    APPEND ls_output TO lt_output.
-    CLEAR ls_output.
+    APPEND gs_output TO gt_output.
+    CLEAR: gs_output,gs_ekpo,gs_ekko.
   ENDLOOP.
 ENDFORM.                    " GET_DATA "
 *&---------------------------------------------------------------------*
@@ -94,10 +99,10 @@ ENDFORM.                    " GET_DATA "
 *       text
 *----------------------------------------------------------------------*
 MODULE status_0100 OUTPUT.
-  SET PF-STATUS 'PF_1000'.
-  SET TITLEBAR 'TIT_100'.
-  PERFORM prepare_field_catalog CHANGING lt_fieldcat.
-  PERFORM prepare_layout CHANGING lw_layout.
+  SET PF-STATUS 'STATS_100'.
+  SET TITLEBAR  'TITLE_100'.
+  PERFORM prepare_field_catalog CHANGING gt_fieldcat.
+  PERFORM prepare_layout CHANGING gw_layout.
   IF grid IS INITIAL .
 *----Creating custom container instance
     CREATE OBJECT container
@@ -114,7 +119,7 @@ MODULE status_0100 OUTPUT.
       MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
             WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
-*----creating alv grid instance
+*----Creating alv grid instance
     CREATE OBJECT grid
       EXPORTING
         i_parent          = container
@@ -129,8 +134,8 @@ MODULE status_0100 OUTPUT.
         WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
 *----Here will be additional preparations
-*--e.g. initial sorting criteria, initial filtering criteria, excluding
-*--functions
+*--e.g. initial sorting criteria, initial filtering criteria, excluding functions
+*----Display ALV 
     CALL METHOD grid->set_table_for_first_display
       EXPORTING
 *      i_buffer_active               =
@@ -139,9 +144,9 @@ MODULE status_0100 OUTPUT.
 *      i_structure_name              =      
           "Name of the DDIC structure, the catalog is generated automatically (Have priority)"
 *      is_variant                    =
-        i_save                        = 'X'
+        i_save                        = 'A'
         i_default                     = 'X'
-        is_layout                     = lw_layout
+        is_layout                     = gs_layout
 *      is_print                      =
 *      it_special_groups             =
 *      it_toolbar_excluding          =
@@ -150,8 +155,8 @@ MODULE status_0100 OUTPUT.
 *      it_except_qinfo               =
 *      ir_salv_adapter               =
       CHANGING
-        it_outtab                     = lt_output
-        it_fieldcatalog               = lt_fieldcat
+        it_outtab                     = gt_output
+        it_fieldcatalog               = gt_fieldcat
 *      it_sort                       =
 *      it_filter                     =
       EXCEPTIONS
@@ -162,19 +167,30 @@ MODULE status_0100 OUTPUT.
               .
     IF sy-subrc <> 0.
       MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-      WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+        WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
   ELSE .
     CALL METHOD grid->refresh_table_display
 *     EXPORTING
 *     IS_STABLE =
 *     I_SOFT_REFRESH =
-     EXCEPTIONS
-      finished = 1
-      OTHERS = 2 .
+      EXCEPTIONS
+        finished = 1
+        OTHERS = 2 .
     IF sy-subrc <> 0.
     ENDIF.
   ENDIF.
+*---- Event Create
+CREATE OBJECT EVENT_RECEIVER.
+SET HANDLER EVENT_RECEIVER->HANDLE_DOUBLE_CLICK FOR grid. "双击事件"
+SET HANDLER EVENT_RECEIVER->HANDLE_DOUBLE_CLICK FOR grid. "双击事件"
+SET HANDLER EVENT_RECEIVER->HANDLE_DOUBLE_CLICK FOR grid. "双击事件"
+SET HANDLER EVENT_RECEIVER->HANDLE_DOUBLE_CLICK FOR grid. "双击事件"
+SET HANDLER EVENT_RECEIVER->HANDLE_DOUBLE_CLICK FOR grid. "双击事件"
+CALL METHOD grid->REGISTER_EDIT_EVENT "注册编辑事件，否则不会触发更新事件"
+  EXPORTING
+    I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_MODIFIED.
+ 
 ENDMODULE.                 " STATUS_0100  OUTPUT "
 *&---------------------------------------------------------------------*
 *&      Module  USER_COMMAND_0100  INPUT
@@ -252,8 +268,8 @@ FORM prepare_field_catalog  CHANGING pt_fieldcat TYPE lvc_t_fcat.
   ls_fcat-col_pos = 8.
   ls_fcat-outputlen = 18.
   APPEND ls_fcat TO pt_fieldcat.
-  CLEAR ls_fcat.
 
+  CLEAR ls_fcat.
   ls_fcat-fieldname = 'ERNAM'.
   ls_fcat-seltext = 'Create By'.
   ls_fcat-col_pos = 9.
@@ -275,5 +291,13 @@ FORM prepare_layout  CHANGING ps_layout TYPE lvc_s_layo.
   ps_layout-smalltitle = 'X' .
 *  ps_layout-info_fname  = 'ROWCOLOR'.
 ENDFORM.                    " PREPARE_LAYOUT "
+CLASS cl_event_receiver DEFINITION.
+  METHODS handle_double_click FOR EVENT double_click OF cl_gui_alv_grid 
+      IMPORTING e_row e_column es_row_no.
+ENDCLASS. "CL_EVENT_RECEIVER"
+CLASS cl_event_receiver IMPLEMENTATION.
+  METHODS handle_double_click.
+  ENDMETHOD.
+ENDCLASS. "CL_EVENT_RECEIVER"
 ```
 

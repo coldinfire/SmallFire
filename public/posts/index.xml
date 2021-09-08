@@ -2020,7 +2020,7 @@
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Event/</guid>
-      <description>ALV 对象注册事件 如果我们想处理由 ALV Grid 实例触发的事件，我们应该定义并实现一个事件处理程序类。 创建 ALV Grid 实例后，我们必须注册此事件处理程序类的实例来</description>
+      <description>ALV 对象注册事件 如果我们想处理 ALV Grid 实例触发的事件，我们应该定义并实现一个事件处理程序类。 创建 ALV Grid 实例后，我们必须注册此事件处理程序类的实例来处</description>
     </item>
     
     <item>
@@ -2038,7 +2038,7 @@
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Demo/</guid>
-      <description>OO ALV 简单实例 其中屏幕的创建， 和对应PAI、PBO 以及 Status title 等可以自定调整。 REPORT zoo_alv. TYPE-POOLS: slis. *-- Global data Decleration. TYPES:BEGIN OF ty_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE ebelp, matnr TYPE matnr, werks TYPE werks_d, menge TYPE bstmg, meins TYPE</description>
+      <description>OO ALV 简单实例 其中屏幕的创建， 和对应PAI、PBO 以及 Status title 等可以自定调整。 REPORT zoo_alv_demo. TYPE-POOLS: slis. *-- Global data Decleration. TYPES:BEGIN OF ty_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE ebelp, matnr TYPE matnr, werks TYPE werks_d, menge TYPE bstmg, meins TYPE</description>
     </item>
     
     <item>

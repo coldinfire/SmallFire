@@ -13,7 +13,7 @@ tags:
 
 ### ALV 对象注册事件
 
-如果我们想处理由 ALV Grid 实例触发的事件，我们应该定义并实现一个事件处理程序类。 创建 ALV Grid 实例后，我们必须注册此事件处理程序类的实例来处理 ALV Grid 事件。
+如果我们想处理 ALV Grid 实例触发的事件，我们应该定义并实现一个事件处理程序类。 创建 ALV Grid 实例后，我们必须注册此事件处理程序类的实例来处理 ALV Grid 事件。
 
 (1) HANDLE_TOOLBAR：这个事件用于给ALV加自定义工具条按钮。
 
@@ -99,6 +99,8 @@ ENDCLASS.                    "cl_event_receiver IMPLEMENTATION"
 在创建 ALV GRID 实例后注册事件
 
 ```ABAP
+CLASS cl_event_receiver DEFINITION DEFERRED.
+DATA event_receiver TYPE REF TO cl_event_receiver.
 CREATE OBJECT event_receiver. "创建事件"
   "注册事件 handler 方法"
    SET HANDLER event_receiver->handle_hotspot_click  FOR g_grid01.

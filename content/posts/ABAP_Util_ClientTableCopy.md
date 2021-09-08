@@ -18,9 +18,9 @@ tags:
 
 ### 功能实现
 
-####  BAPI:RFC_READ_TABLE
+####  BAPI：RFC_READ_TABLE
 
-```html
+```ABAP
 DATA: SO_OPTION TYPE TABLE OF rfc_db_opt WITH HEADER LINE,
       SO_FIELDS TYPE TABLE OF rfc_db_fld,
       WA_FIELDS TYPE rfc_db_fld,
@@ -28,13 +28,12 @@ DATA: SO_OPTION TYPE TABLE OF rfc_db_opt WITH HEADER LINE,
       WA_SO_DATA TYPE tab512.
 DATA: T_FIELDS TYPE TABLE OF DDSHSELOPT WITH HEADER LINE.
 DATA: LV_WHERE TYPE STRING.
-
+"Screen Define"
 PARAMETERS: p_table TYPE dd02l-tabname DEFAULT 'RSEG'.
 PARAMETERS: p_dest TYPE rfcdes-rfcdest.
-
+"Begin Business"
 START-OF-SELECTION.
 REFRESH:T_RSEG1,I_WHERE,I_FIELDS.
-
 CLEAR T_FIELDS.
 T_FIELDS-SHLPFIELD = 'BELNR'.
 T_FIELDS-SIGN      = 'I'.
@@ -42,7 +41,6 @@ T_FIELDS-OPTION    = 'BT'.
 T_FIELDS-LOW       = '5100000009'.
 T_FIELDS-HIGH      = '5100000019'.
 APPEND T_FIELDS.
-
 * Convert selopt into string               *
 CALL FUNCTION 'F4_CONV_SELOPT_TO_WHERECLAUSE'
 *   EXPORTING
@@ -52,7 +50,6 @@ CALL FUNCTION 'F4_CONV_SELOPT_TO_WHERECLAUSE'
     WHERE_CLAUSE          = LV_WHERE
   TABLES
     SELOPT_TAB            = T_FIELDS.
-
 SO_OPTIONS-TEXT = LV_WHERE.
 APPEND SO_OPTIONS.
 
@@ -63,7 +60,6 @@ T_FIELDS-SIGN      = 'I'.
 T_FIELDS-OPTION    = 'EQ'.
 T_FIELDS-LOW       = '2020'.
 APPEND T_FIELDS.
-
 CLEAR LV_WHERE.
 * Convert selopt into string               *
 CALL FUNCTION 'F4_CONV_SELOPT_TO_WHERECLAUSE'
@@ -111,7 +107,13 @@ ELSE.
 ENDIF.
 ```
 
-#### BAPI:RFC_READ_TABLE使用限制
+#### 跨 Client 获取数据
+
+RFC_READ_TABLE 获取其它 Client 的数据时，需要增加 `DESTINATION dest_client` 选项。
+
+- dest_client：SM59 中维护的远端功能呼叫目的地
+
+#### BAPI：RFC_READ_TABLE 使用限制
 
 - 行数限制：RFC_READ_TABLE的行数限制为512个字符；也就是说，每行数据不能超过 512 个字符
 - OPTION 保留查询条件： 查询的长度限制为 75 个字符
