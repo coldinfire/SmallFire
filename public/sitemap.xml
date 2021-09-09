@@ -2048,7 +2048,7 @@
     <url>
       <loc>https://coldinfire.github.io/2019/ABAP_EmailText/</loc>
       
-      <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -2062,7 +2062,7 @@
     <url>
       <loc>https://coldinfire.github.io/2019/ABAP_EmailExcel/</loc>
       
-      <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-05-19T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -2396,9 +2396,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_Email/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_Email_FM/</loc>
       
       <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_Email/</loc>
+      
+      <lastmod>2019-04-07T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

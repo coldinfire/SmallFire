@@ -1054,7 +1054,7 @@
     <item>
       <title> 发送带文本的 Email </title>
       <link>https://coldinfire.github.io/2019/ABAP_EmailText/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_EmailText/</guid>
       <description>转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html 程序实例 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z14841_TEST010 *&amp;amp;---------------------------------------------------------------------* REPORT z14841_test010. TYPES: BEGIN OF stru_master, kunnr TYPE kunnr, &amp;#34; 客户编号 1&amp;#34; bukrs TYPE bukrs, &amp;#34; 公司代码&amp;#34; pro_mill TYPE werks_d, &amp;#34; 工厂&amp;#34; *quota TYPE zcdfquota, &amp;#34; 额度&amp;#34; *account TYPE char10, &amp;#34; 帐期&amp;#</description>
@@ -1063,7 +1063,7 @@
     <item>
       <title> 发送带附件(Excel)的 Email </title>
       <link>https://coldinfire.github.io/2019/ABAP_EmailExcel/</link>
-      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 19 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_EmailExcel/</guid>
       <description>转自 http://blog.chinaunix.net/uid-20591812-id-1918813.html 程序实例 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZTEST_EMAIL_EXCEL *&amp;amp;---------------------------------------------------------------------* REPORT ztest_email_excel. TABLES: ekko. PARAMETERS: p_email TYPE somlreci1-receiver DEFAULT &amp;#39;coldfire@163.com&amp;#39;. TYPES: BEGIN OF t_ekpo, ebeln TYPE ekpo-ebeln, ebelp TYPE ekpo-ebelp, aedat TYPE ekpo-aedat, matnr TYPE ekpo-matnr, END OF t_ekpo. DATA: it_ekpo TYPE STANDARD TABLE OF t_ekpo INITIAL SIZE 0, wa_ekpo TYPE t_ekpo. TYPES: BEGIN OF t_charekpo, ebeln(10) TYPE c, ebelp(5) TYPE c, aedat(8) TYPE c, matnr(18) TYPE c,</description>
@@ -1241,12 +1241,21 @@
     </item>
     
     <item>
-      <title> SAP 发送 Email </title>
-      <link>https://coldinfire.github.io/2019/ABAP_Email/</link>
+      <title> SAP 通过程序收发邮件 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_Email_FM/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
+      <guid>https://coldinfire.github.io/2019/ABAP_Email_FM/</guid>
+      <description>程序所需 CLASS 和 FM CLASS CL_BCS CL_DOCUMENT_BCS Function Module SO_DOCUMENT_SEND_API1 SO_NEW_DOCUMENT_ATT_SEND_API1 SO_NEW_DOCUMENT_SEND_API1 示例程序 DATA:l_send_request TYPE REF TO CL_BCS VALUE IS INITIAL. DATA:l_document TYPE REF TO CL_DOCUMENT_BCS VALUE IS INITIAL, i_text TYPE BCSY_TEXT, &amp;#34; Table for body &amp;#34; w_text LIKE LINE OF i_text, l_subject TYPE SO_OBJ_DES. DATA:l_sender TYPE REF TO IF_SENDER_BCS VALUE IS INITIAL, l_uname TYPE sy-uname. DATA:l_recipient TYPE REF TO IF_RECIPIENT_BCS VALUE IS INITIAL,</description>
+    </item>
+    
+    <item>
+      <title> SAP 发送 Email </title>
+      <link>https://coldinfire.github.io/2019/ABAP_Email/</link>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      
       <guid>https://coldinfire.github.io/2019/ABAP_Email/</guid>
-      <description>SAP 发送邮件 邮件功能可以配置参数，使用系统标准的邮件工作台收发邮件，还可以调用邮件API接口函数收发邮件。 Tcode RZ10：设置Profile参数 1</description>
+      <description>SAP 的邮件功能可以使用系统标准的邮件工作台收发邮件，也可以调用邮件 API 接口函数进行收发邮件。 标准邮件工作台收发邮件 RZ10：设置 Profile 参数 1、运行事</description>
     </item>
     
     <item>
