@@ -6,11 +6,11 @@
     <description>Recent content in JS on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/JS/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/JS/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ECMAScript 6 知识了解</title>
       <link>https://coldinfire.github.io/2021/WEB_H5_ECS6/</link>
-      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/WEB_H5_ECS6/</guid>
       <description>新增变量声明 let 命令 let命令，用来声明变量。它的用法类似于 var，但是所声明的变量，只在 let 命令所在的代码块内有效。 var arr = [1,&amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;]; for (let i = 0; i &amp;lt; arr.length; i++)</description>

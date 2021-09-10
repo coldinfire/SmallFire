@@ -89,6 +89,15 @@
     </item>
     
     <item>
+      <title> ABAP 调用HTTP请求 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Util_HttpFunction/</link>
+      <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Util_HttpFunction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>ABAP Json 转换</title>
       <link>https://coldinfire.github.io/2021/ABAP_JSON/</link>
       <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
@@ -287,12 +296,12 @@
     </item>
     
     <item>
-      <title>ALV复制内容到剪贴板</title>
-      <link>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</link>
+      <title>ALV 复制内容到剪贴板</title>
+      <link>https://coldinfire.github.io/2020/ABAP_ALV_ItabToClip/</link>
       <pubDate>Wed, 04 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_ALV_COPYPASE/</guid>
-      <description>引用链接：ALV复制内容到剪贴板 使用场景 用在ALV的USER_COMMAND里面；复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负</description>
+      <guid>https://coldinfire.github.io/2020/ABAP_ALV_ItabToClip/</guid>
+      <description>引用链接：ALV复制内容到剪贴板 使用场景 用在 ALV 的 USER_COMMAND 里面；复制 ALV 内容到剪贴板，已经考虑了 ALV 的列隐藏、筛选，负号已经提前；如果有选中的列，则复制</description>
     </item>
     
     <item>
@@ -742,7 +751,7 @@
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_Email_FM/</guid>
-      <description>程序所需 CLASS 和 FM CLASS CL_BCS CL_DOCUMENT_BCS Function Module SO_DOCUMENT_SEND_API1 SO_NEW_DOCUMENT_ATT_SEND_API1 SO_NEW_DOCUMENT_SEND_API1 示例程序 DATA:l_send_request TYPE REF TO CL_BCS VALUE IS INITIAL. DATA:l_document TYPE REF TO CL_DOCUMENT_BCS VALUE IS INITIAL, i_text TYPE BCSY_TEXT, &amp;#34; Table for body &amp;#34; w_text LIKE LINE OF i_text, l_subject TYPE SO_OBJ_DES. DATA:l_sender TYPE REF TO IF_SENDER_BCS VALUE IS INITIAL, l_uname TYPE sy-uname. DATA:l_recipient TYPE REF TO IF_RECIPIENT_BCS VALUE IS INITIAL,</description>
+      <description>程序所需 CLASS 和 FM CLASS CL_BCS：发送邮件的主要功能类，创建发送请求，添加发送内容，添加发送人等，最后发送指令的发出 CL_DOCUMENT_BC</description>
     </item>
     
     <item>
@@ -1386,10 +1395,10 @@
     
     <item>
       <title> List ALV Demo </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_ListDemo/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_LVCGridDemo/</link>
       <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_ListDemo/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_LVCGridDemo/</guid>
       <description>List ALV 程序实例 *&amp;amp;--------------------------------------- *&amp;amp; Report ZWR_PI_LOG *&amp;amp;--------------------------------------- REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;#34;ALV Data&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, gs_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS:</description>
     </item>
     

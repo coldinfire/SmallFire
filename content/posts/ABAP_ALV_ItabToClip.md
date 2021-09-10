@@ -1,5 +1,5 @@
 ---
-title: "ALV复制内容到剪贴板"
+title: "ALV 复制内容到剪贴板"
 date: 2020-03-04
 draft: false
 author: Small Fire
@@ -17,11 +17,11 @@ tags:
 
 ### 使用场景
 
-用在ALV的USER_COMMAND里面；复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前；如果有选中的列，则复制选中的列，如果没有选中的列，复制所有可见的列 。
+用在 ALV 的 USER_COMMAND 里面；复制 ALV 内容到剪贴板，已经考虑了 ALV 的列隐藏、筛选，负号已经提前；如果有选中的列，则复制选中的列，如果没有选中的列，复制所有可见的列 。
 
-如果要保存ALV的数据到Excel，可以先复制，然后到Excel粘贴。
+如果要保存 ALV 的数据到 Excel，可以先复制，然后到 Excel 粘贴。
 
-```JS
+```ABAP
 FORM user_command USING r_ucomm LIKE sy-ucomm
                         rs_selfield TYPE slis_selfield.
   CASE r_ucomm.
@@ -33,7 +33,7 @@ ENDFORM.
 
 ### 程序实例
 
-```JS
+```ABAP
 *&--------------------------------------
 *&  用在ALV的USER_COMMAND里面
 *&  复制ALV内容到剪贴板，已经考虑了ALV的列隐藏、筛选，负号已经提前
@@ -93,7 +93,6 @@ FORM itabtoclip_alv TABLES itab.
     SHIFT lt_clip.
     APPEND lt_clip.
   ENDLOOP.
-
   CHECK lt_clip[] IS NOT INITIAL.
   CALL FUNCTION 'CLPB_EXPORT'
     TABLES
@@ -106,6 +105,6 @@ FORM itabtoclip_alv TABLES itab.
   ELSE.
     MESSAGE e000(00) WITH '导出到剪切板错误'.
   ENDIF.
-ENDFORM.                    "itabtoclip_alv
+ENDFORM.                    "itabtoclip_alv"
 ```
 

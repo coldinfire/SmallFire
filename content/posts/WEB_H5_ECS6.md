@@ -1,6 +1,6 @@
 ---
 title: "ECMAScript 6 知识了解"
-date: 2021-03-18
+date: 2021-03-28
 draft: false
 author: Small Fire
 isCJKLanguage: true
