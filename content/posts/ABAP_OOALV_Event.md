@@ -9,6 +9,7 @@ categories:
 
 tags: 
   - ALV
+
 ---
 
 ### ALV 对象注册事件
@@ -32,7 +33,7 @@ tags:
 #### 事件类定义
 
 ```ABAP
-CLASS cl_event_receiver DEFINITION.
+CLASS lcl_event_receiver DEFINITION.
   PUBLIC SECTION.
     "声明单击事件的方法"
     METHODS handle_hotspot_click
@@ -56,7 +57,7 @@ ENDCLASS.                    "cl_event_receiver DEFINITION"
 #### 事件类实现
 
 ```ABAP
-CLASS cl_event_receiver IMPLEMENTATION.
+CLASS lcl_event_receiver IMPLEMENTATION.
   "单击事件方法的实现"
   METHOD handle_hotspot_click.
     CONDENSE e_row_id     NO-GAPS.
@@ -99,8 +100,8 @@ ENDCLASS.                    "cl_event_receiver IMPLEMENTATION"
 在创建 ALV GRID 实例后注册事件
 
 ```ABAP
-CLASS cl_event_receiver DEFINITION DEFERRED.
-DATA event_receiver TYPE REF TO cl_event_receiver.
+CLASS lcl_event_receiver DEFINITION DEFERRED.
+DATA event_receiver TYPE REF TO lcl_event_receiver.
 CREATE OBJECT event_receiver. "创建事件"
   "注册事件 handler 方法"
    SET HANDLER event_receiver->handle_hotspot_click  FOR g_grid01.
@@ -121,3 +122,6 @@ CREATE OBJECT event_receiver. "创建事件"
 
 - 按回车触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.
 - 单元格失去焦点触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.
+
+
+

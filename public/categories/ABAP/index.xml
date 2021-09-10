@@ -1322,6 +1322,15 @@
     </item>
     
     <item>
+      <title>OO ALV 事件类工具</title>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_EventUtil/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_EventUtil/</guid>
+      <description>为了更加方便的使用 cl_gui_alv_grid 的事件功能，将一些基本事件的定义和实现放到一个 inclue 中，Report 程序中包含就可以使用。 事件的方法实际功能需要定义对应的 F</description>
+    </item>
+    
+    <item>
       <title> OO ALV 不同Container </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Diff_Containers/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
