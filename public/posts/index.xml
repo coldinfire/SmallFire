@@ -148,7 +148,7 @@
       <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_Util_HttpFunction/</guid>
-      <description></description>
+      <description>SAP 使用HTTP 示例程序 REPORT ZZ_SEND_HTTP. * Selection Screen SELECTION-SCREEN BEGIN OF BLOCK bk01 WITH FRAME TITLE text-001. PARAMETER p_fname TYPE RS38L_FNAM. PARAMETER p_json TYPE string. SELECTION-SCREEN END OF BLOCK bk01. * Message TYPE: BEGIN OF str_message, type TYPE bapi_mtype, message TYPE bapi_msg, END OF str_message. DATA: e_data TYPE str_message. * Connection Parameter DATA:lt_setting TYPE TABLE OF zws_http_url WITH HEADER LINE. DATA:lv_url TYPE</description>
     </item>
     
     <item>
