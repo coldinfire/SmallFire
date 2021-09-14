@@ -54,19 +54,19 @@
     
     <item>
       <title> BABI-BADI-RFC-BDC 区别 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_FunctionDiff/</link>
       <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_FunctionDiff/</guid>
       <description>BAPI 介绍 BAPI (Business Application Programming Interface) 代表业务应用程序编程接口。 BAPI 是存储在 SAP 系统的 BOR（业务对象库）中以执行特定业务任务的特定方法。 它支持 SAP 组件之间以及 SAP 和非 SAP</description>
     </item>
     
     <item>
       <title> ABAP 数值四舍五入函数 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Utils_ROUNDING_DECIMALS/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_RoundDecimals/</link>
       <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Utils_ROUNDING_DECIMALS/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_RoundDecimals/</guid>
       <description>ABAP 保留指定小数位 ROUND函数 INT_SORT-MENGE = ROUND( VAL = LTB-EMENG * P_QPA DEC = 3 MODE = 1 ). mode代表着小数省略的规则， 1： 默认值，这个值总是从 0 四舍五入到更大的绝对值 5</description>
     </item>
     
@@ -81,19 +81,19 @@
     
     <item>
       <title>ABAP 获取FM参数结果</title>
-      <link>https://coldinfire.github.io/2021/ABAP_Utils_FM_Reflection/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionFM/</link>
       <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Utils_FM_Reflection/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionFM/</guid>
       <description>获取FM的参数 REPORT zz_get_fm_detail. DATA: ls_trans_callstack TYPE sys_calls, lt_trans_callstack TYPE sys_callst. DATA: lv_trans_funtion_name TYPE string. DATA: ls_trans_fupararef TYPE fupararef, lt_trans_fupararef TYPE TABLE OF fupararef. CLEAR lt_trans_callstack[]. CALL FUNCTION &amp;#39;SYSTEM_CALLSTACK&amp;#39; IMPORTING * callstack = callstack et_callstack = lt_trans_callstack. CLEAR: ls_trans_callstack. READ TABLE lt_trans_callstack INTO ls_trans_callstack WITH KEY eventtype = &amp;#39;FUNC&amp;#39;. IF ls_trans_callstack IS INITIAL. EXIT. ENDIF. &amp;#34;获取FM的</description>
     </item>
     
     <item>
       <title> BAPI:VIEW_MAINTENANCE_CALL 使用 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_TABLE_Maintenance_BAPI/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_TABLE_BAPI_Maintenance/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_TABLE_Maintenance_BAPI/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_TABLE_BAPI_Maintenance/</guid>
       <description>BAPI: VIEW_MAINTENANCE_CALL DATA:LT_SELLIST LIKE TABLE OF VIMSELLIST WITH HEADER LINE. CLEAR:LT_SELLIST. REFRESH: LT_SELLIST. LT_SELLIST-VIEWFIELD = &amp;#39;BUKRS&amp;#39;. LT_SELLIST-OPERATOR = &amp;#39;EQ&amp;#39;. LT_SELLIST-VALUE = P_BUKRS. LT_SELLIST-AND_OR = &amp;#39;AND&amp;#39;. APPEND LT_SELLIST. CALL FUNCTION &amp;#39;VIEW_MAINTENANCE_CALL&amp;#39; EXPORTING ACTION = &amp;#39;U&amp;#39;&amp;#34;S = Display U = Change T = Transport VIEW_NAME = &amp;#39;ZCO002&amp;#39; TABLES DBA_SELLIST = LT_SELLIST EXCEPTIONS CLIENT_REFERENCE = 1 FOREIGN_LOCK = 2 INVALID_ACTION = 3 NO_CLIENTINDEPENDENT_AUTH = 4 NO_DATABASE_FUNCTION = 5 NO_EDITOR_FUNCTION = 6 NO_SHOW_AUTH =</description>
     </item>
     
@@ -513,19 +513,19 @@
     
     <item>
       <title>ABAP Object Oriented 语法</title>
-      <link>https://coldinfire.github.io/2019/ABAP_Object_Oriented_Basic/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Basic/</link>
       <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Object_Oriented_Basic/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Basic/</guid>
       <description>类声明和实现 类具有属性和方法；对象是类的实例；对象是通过指针变量来访问的；对象有独立的 interface。 &amp;#34;Class Declarations&amp;#34; CLASS application DEFINITION. PUBLIC SECTION. &amp;#34;公有属性定</description>
     </item>
     
     <item>
       <title>ABAP Object Oriented 概述</title>
-      <link>https://coldinfire.github.io/2019/ABAP_Object_Oriented_Overview/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Overview/</link>
       <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Object_Oriented_Overview/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Overview/</guid>
       <description>ABAP Object Oriented 通过使用面向对象技术可以减少错误发生的隐患以及增强代码的可维护性。 ABAP Object Oriented 的年代史： SAP Basis Release 4.5 发布了 ABAP OO 的一个版本，引入了类接口的概念，并</description>
     </item>
     
@@ -684,10 +684,10 @@
     
     <item>
       <title> 使用SALV功能创建ALV </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALV/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALV/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</guid>
       <description>引用自：https://www.cnblogs.com/jiangzhengjun/p/4291387.html 简介 SALV 可以像使用函数方式生成</description>
     </item>
     
@@ -1278,10 +1278,10 @@
     
     <item>
       <title>Smartforms调用模板</title>
-      <link>https://coldinfire.github.io/2018/ABAP_SmartfomrsDemo/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_Demo/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_SmartfomrsDemo/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartfomrs_Demo/</guid>
       <description>程序中使用 Smartform 模板 &amp;#34;SMARTFORMS变量定义&amp;#34; DATA: form_name TYPE tdsfname VALUE &amp;#39;ZZ_TEST&amp;#39;, &amp;#34;Smartforms Name&amp;#34; fm_name type rs38l_fnam, &amp;#34;Function Name&amp;#34; control type ssfctrlop, &amp;#34;Control structure&amp;#34; option type ssfcompop, &amp;#34;Smart Composer (transfer) options&amp;#34; ssfcrescl type ssfcrescl. &amp;#34;Return value at end of form printing&amp;#34; &amp;#3</description>
     </item>
     
@@ -1341,19 +1341,19 @@
     
     <item>
       <title>OO ALV 事件类工具</title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV_EventUtil/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_EventUtils/</link>
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_EventUtil/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_EventUtils/</guid>
       <description>为了更加方便的使用 cl_gui_alv_grid 的事件功能，将一些基本事件的定义和实现放到一个 inclue 中，Report 程序中包含就可以使用。 事件的方法实际功能需要定义对应的 F</description>
     </item>
     
     <item>
       <title> OO ALV 不同Container </title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Diff_Containers/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_DiffContainers/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Diff_Containers/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_DiffContainers/</guid>
       <description>1.Custom container 自定义容器可以使用类 CL_GUI_CUSTOM_CONTAINER 创建，但它需要一个可以放置它的父容器，或者需要在自定义 Screen 中创建一个自定义控制区域。 这个解决方案主要是我现在开发的应</description>
     </item>
     
@@ -1494,10 +1494,10 @@
     
     <item>
       <title> 表维护添加修改人信息 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Table_Maintenance_AddUser/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Table_MaintenanceAddUser/</link>
       <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Table_Maintenance_AddUser/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Table_MaintenanceAddUser/</guid>
       <description>添加修改人信息 可以根据TCode进行相应的判断： 创建人信息: l_wa_head-ernam = sy-uname. l_wa_head-erdat = sy-datum. l_wa_head-erzet = sy-uzeit. call function &amp;#39;TERMINAL_ID_GET&amp;#39; exporting username = sy-uname importing terminal = l_wa_head-eterminal exceptions multiple_terminal_id = 1 no_terminal_found = 2 others = 3. 修改人信息： l_wa_head-urnam = sy-uname. l_wa_head-urdat</description>
     </item>
     
