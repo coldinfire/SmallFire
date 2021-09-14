@@ -9,19 +9,19 @@
     <lastBuildDate>Sat, 28 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SAP RFC Function 日志工具</title>
-      <link>https://coldinfire.github.io/2021/ABAP_Util_RFC_Log/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</link>
       <pubDate>Sat, 28 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Util_RFC_Log/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</guid>
       <description>SAP 与外部系统接口日志记录 工具结构设计 表设计 程序结构设计 程序使用</description>
     </item>
     
     <item>
       <title> SAP全局宏设置和使用 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Util_GlobalMacro/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_GlobalMacro/</link>
       <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Util_GlobalMacro/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_GlobalMacro/</guid>
       <description>宏定义和使用 在 ABAP 代码的开发中通过使用DEFINE ... END-OF-DEFINITION. 来创建局部的宏变量，通过局部宏变量的设定可以让代码变得更加简单，同时也避免了代码冗余。 最</description>
     </item>
     
@@ -54,28 +54,28 @@
     
     <item>
       <title> BABI-BADI-RFC-BDC 区别 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Util_Function_Diff/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</link>
       <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Util_Function_Diff/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</guid>
       <description>BAPI 介绍 BAPI (Business Application Programming Interface) 代表业务应用程序编程接口。 BAPI 是存储在 SAP 系统的 BOR（业务对象库）中以执行特定业务任务的特定方法。 它支持 SAP 组件之间以及 SAP 和非 SAP</description>
     </item>
     
     <item>
       <title> ABAP 数值四舍五入函数 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_ROUNDING_DECIMALS/</link>
       <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_ROUNDING_DECIMALS/</guid>
       <description>ABAP 保留指定小数位 ROUND函数 INT_SORT-MENGE = ROUND( VAL = LTB-EMENG * P_QPA DEC = 3 MODE = 1 ). mode代表着小数省略的规则， 1： 默认值，这个值总是从 0 四舍五入到更大的绝对值 5</description>
     </item>
     
     <item>
       <title>ABAP 将数字金额转为大写</title>
-      <link>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_AmountToUpcase/</link>
       <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_AmountToUpcase/</guid>
       <description>SAP 实际业务中可能会有将金额、重量等数字格式转换为中文大写或则英文大写的银行金额内容。可以使用标准的函数 SPELL_AMOUNT 来进行处理，但是要注意该函数可能出现</description>
     </item>
     
@@ -116,6 +116,15 @@
     </item>
     
     <item>
+      <title>ABAP 获取FM参数结果</title>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_FM_Reflection/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_FM_Reflection/</guid>
+      <description>获取FM的参数 REPORT zz_get_fm_detail. DATA: ls_trans_callstack TYPE sys_calls, lt_trans_callstack TYPE sys_callst. DATA: lv_trans_funtion_name TYPE string. DATA: ls_trans_fupararef TYPE fupararef, lt_trans_fupararef TYPE TABLE OF fupararef. CLEAR lt_trans_callstack[]. CALL FUNCTION &amp;#39;SYSTEM_CALLSTACK&amp;#39; IMPORTING * callstack = callstack et_callstack = lt_trans_callstack. CLEAR: ls_trans_callstack. READ TABLE lt_trans_callstack INTO ls_trans_callstack WITH KEY eventtype = &amp;#39;FUNC&amp;#39;. IF ls_trans_callstack IS INITIAL. EXIT. ENDIF. &amp;#34;获取FM的</description>
+    </item>
+    
+    <item>
       <title>COOIS 添加字段</title>
       <link>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</link>
       <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
@@ -144,10 +153,10 @@
     
     <item>
       <title> ABAP 调用HTTP请求 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Util_HttpFunction/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_HttpFunction/</link>
       <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Util_HttpFunction/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_HttpFunction/</guid>
       <description>SAP 使用HTTP 示例程序 REPORT ZZ_SEND_HTTP. * Selection Screen SELECTION-SCREEN BEGIN OF BLOCK bk01 WITH FRAME TITLE text-001. PARAMETER p_fname TYPE RS38L_FNAM. PARAMETER p_json TYPE string. SELECTION-SCREEN END OF BLOCK bk01. * Message TYPE: BEGIN OF str_message, type TYPE bapi_mtype, message TYPE bapi_msg, END OF str_message. DATA: e_data TYPE str_message. * Connection Parameter DATA:lt_setting TYPE TABLE OF zws_http_url WITH HEADER LINE. DATA:lv_url TYPE</description>
     </item>
     
@@ -198,10 +207,10 @@
     
     <item>
       <title> SAP系统间数据表的Copy </title>
-      <link>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_Utils_ClientTableCopy/</link>
       <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_Utils_ClientTableCopy/</guid>
       <description>需求场景 在功能开发完成后，需要使用一些测试数据来进行测试，有时可能需要将一些比较新的生产数据复制到测试系统，为了完成数据表的复制，需要使用一</description>
     </item>
     
@@ -657,10 +666,10 @@
     
     <item>
       <title>ABAP 字符串处理</title>
-      <link>https://coldinfire.github.io/2019/ABAP_Util_String/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_Utils_String/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Util_String/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_Utils_String/</guid>
       <description>字符串的处理在程序中的使用十分常见，在这里结合自己日常的使用对ABAP的字符串常用操作进行总结，以便后续使用。 1.获取字符串长度 var1 = strlen( str );</description>
     </item>
     
@@ -693,10 +702,10 @@
     
     <item>
       <title>SAP 长文本</title>
-      <link>https://coldinfire.github.io/2019/ABAP_Util_LongTexts/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_Utils_LongText/</link>
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Util_LongTexts/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_Utils_LongText/</guid>
       <description>介绍 长文本是用于在 SAP 系统中包含长文本的容器，通常将它们附加到业务对象上，用户可以输入自由注释。 长文本只能通过与其相连的业务对象的维护事务来维</description>
     </item>
     
@@ -1458,10 +1467,10 @@
     
     <item>
       <title>STVARV使用详情</title>
-      <link>https://coldinfire.github.io/2019/ABAP_Util_Stvarv/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Util_Stvarv/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</guid>
       <description>STVARV 使用 该配置不能跨 Client 因此需要在每个 Client 单独配置；使用事物码STVARV进入配置界面，可以新建、修改、删除记录。 程序内使用 程序内只是取出配置的值</description>
     </item>
     
@@ -1521,19 +1530,19 @@
     
     <item>
       <title> 日期操作 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Util_Date/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_Date/</link>
       <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Util_Date/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_Date/</guid>
       <description>日期格式转换 系统标准Function CONVERSION_EXIT_IDATE_OUTPUT INPUT: 20080203 OUTPUT: 03FEB2008 CONVERT_DATE_TO_EXTERNAL INPUT: 20080203 OUTPUT: 02/03/2008 &amp;#34;According to user&amp;#39;s default setting. CONVERT_DATE_TO_INTERNAL INPUT: 02/03/2008 &amp;#34;Should be same as the user&amp;#39;s default setting OUPUT: 20080203 自定义工具 FUNCTION ZCONVERT_DATE_FORMAT. *&amp;#34;---------------------------------------------------------------------- *&amp;#34;*&amp;#34;Local interface: *&amp;#34; IMPORTING *&amp;#34; REFERENCE(ZNAME) LIKE USR01-BNAME *&amp;#34; CHANGING *&amp;#34; REFERENCE(ZDATE) TYPE C *&amp;#34;---------------------------------------------------------------------- DATA:</description>
     </item>
     
     <item>
       <title>时间戳操作</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Util_Timestamp/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_Timestamp/</link>
       <pubDate>Sat, 08 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Util_Timestamp/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_Timestamp/</guid>
       <description>SAP 时间戳 获取时间戳方法 GET TIME STAMP FIELD time_stamp. DATA time_stamp TYPE tzntstmps. &amp;#34;UTC Time Stamp in Short Form (YYYYMMDDhhmmss)&amp;#34; GET TIME STAMP FIELD time_stamp. BAPI：IB_CONVERT_INTO_TIMESTAMP CALL FUNCTION &amp;#39;IB_CONVERT_INTO_TIMESTAMP&amp;#39; EXPORTING i_datlo = sy-datum i_timlo</description>
     </item>
     
@@ -1611,10 +1620,10 @@
     
     <item>
       <title> ALV tree 显示BOM结构 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Util_BOMTree/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_BOMTree/</link>
       <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Util_BOMTree/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_BOMTree/</guid>
       <description>实例代码 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo. TABLES: stpox. INCLUDE &amp;lt;icon&amp;gt;. CLASS: cl_gui_column_tree DEFINITION LOAD, cl_gui_cfw DEFINITION LOAD . DATA: tree1 TYPE REF TO cl_gui_alv_tree , mr_toolbar TYPE REF TO cl_gui_toolbar . DATA: gs_stpox TYPE stpox, gt_stpox TYPE stpox OCCURS 0, gt_fieldcatalog TYPE lvc_t_fcat, gt_item_layout TYPE lvc_t_laci, gs_item_layout TYPE lvc_s_laci, okcode LIKE sy-ucomm . TYPES: BEGIN OF gs_f. INCLUDE STRUCTURE stpox. TYPES: node_key TYPE lvc_nkey, END OF gs_f. DATA:</description>
     </item>
     
@@ -1908,10 +1917,10 @@
     
     <item>
       <title>ABAP 弹出框设置</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Util_PopUpBox/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_PopUpBox/</link>
       <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Util_PopUpBox/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_PopUpBox/</guid>
       <description>可输入弹出框：POPUP_GET_VALUES_USER_HELP &amp;#34;输入表格，SVAL相应的字段信息决定显示的效果：&amp;#34; tabname = &amp;#39;AFKO&amp;#39;.</description>
     </item>
     
@@ -1944,10 +1953,10 @@
     
     <item>
       <title> 修改文件所属 Package </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Util_PackageChange/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Util_PackageChange/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</guid>
       <description>创建 ABAP 程序的时候都要选择一个 Package，当后续需要修改程序所属的Package时可以使用以下方法： 通过SE38或则SE80打开对应的程序</description>
     </item>
     
@@ -2151,19 +2160,19 @@
     
     <item>
       <title> ABAP 截取中文字符串 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Util_StrCNChina/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_StrCNChina/</link>
       <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Util_StrCNChina/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_StrCNChina/</guid>
       <description>截取包含中文字符串 strlen() 只能计算包含英文字符串的长度，不能计算中文字符串的长度。 可以通过cl_abap_list_utilities=&amp;gt;d</description>
     </item>
     
     <item>
       <title> ABAP 通过字段找表程序 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Util_FieldFindProgram/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_FieldFindProgram/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Util_FieldFindProgram/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_FieldFindProgram/</guid>
       <description>获取数据保存在哪个表 前台对指定栏位 使用 F1 帮助找表 ST05 跟踪业务操作过程，检索需要的数据表.（此方法找表很高效） 对于文本字段找表，可以找到前台维护</description>
     </item>
     
@@ -2205,10 +2214,10 @@
     
     <item>
       <title>数据输入输出转换</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Util_DataConversion/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_DataConversion/</link>
       <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Util_DataConversion/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_DataConversion/</guid>
       <description>输入输出转换 如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。 通过转换规则输</description>
     </item>
     
@@ -2218,7 +2227,7 @@
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ProgramCall/</guid>
-      <description>同步调用 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function]. SUBMIT [program] AND RETURN. CALL TRANSACTION [TCode]. CALL FUNCTION [Fucntion] 使用CALL FUNCTION &amp;lsquo;AAA&amp;r</description>
+      <description>同步调用 同步调用的实质：程序进行单线程执行。 中断执行 调用程序被打断，当被调用程序执行完毕之后，调用程序继续执行。 CALL FUNCTION [function]. SUBMIT [program] AND RETURN. CALL TRANSACTION [TCode]. CALL FUNCTION [function] 使</description>
     </item>
     
     <item>

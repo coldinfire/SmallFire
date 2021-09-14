@@ -16,8 +16,6 @@ tags:
 
 ### SAP 使用HTTP
 
-#### 
-
 ### 示例程序
 
 ```ABAP
@@ -128,7 +126,10 @@ REPORT ZZ_SEND_HTTP.
 * SET content type
   CALL METHOD lo_http_client->request->set_content_type
     EXPORTING
-      content_type = 'application/json'.
+      content_type = 'application/json; charset=utf-8'.
+  CALL METNOD lo_http_client->request->set_method
+    EXPORTING
+      method = if_http_request=>co_request_method_post
 * data->json
  IF p_json IS INITIAL.
     e_data-type = 'E'.
@@ -140,6 +141,7 @@ REPORT ZZ_SEND_HTTP.
   CALL METHOD lo_http_client->request->set_cdata
     EXPORTING
       data   = p_json
+      offset = 0
       length = lv_len.
 * send data
   DO 2 TIMES.

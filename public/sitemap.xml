@@ -86,7 +86,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/ABAP_Util_RFC_Log/</loc>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</loc>
       
       <lastmod>2021-08-28T00:00:00+00:00</lastmod>
       
@@ -128,7 +128,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/ABAP_Util_GlobalMacro/</loc>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_GlobalMacro/</loc>
       
       <lastmod>2021-08-27T00:00:00+00:00</lastmod>
       
@@ -212,7 +212,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/ABAP_Util_Function_Diff/</loc>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_Function_Diff/</loc>
       
       <lastmod>2021-06-23T00:00:00+00:00</lastmod>
       
@@ -226,7 +226,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/ABAP_Util_ROUNDING_DECIMALS/</loc>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_ROUNDING_DECIMALS/</loc>
       
       <lastmod>2021-06-12T00:00:00+00:00</lastmod>
       
@@ -240,7 +240,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/ABAP_Util_AmountToUpcase/</loc>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_AmountToUpcase/</loc>
       
       <lastmod>2021-06-07T00:00:00+00:00</lastmod>
       
@@ -338,6 +338,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_FM_Reflection/</loc>
+      
+      <lastmod>2021-04-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/categories/business/</loc>
       
       <lastmod>2021-04-15T00:00:00+00:00</lastmod>
@@ -422,7 +436,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/ABAP_Util_HttpFunction/</loc>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_HttpFunction/</loc>
       
       <lastmod>2021-03-13T00:00:00+00:00</lastmod>
       
@@ -548,7 +562,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/ABAP_Util_ClientTableCopy/</loc>
+      <loc>https://coldinfire.github.io/2020/ABAP_Utils_ClientTableCopy/</loc>
       
       <lastmod>2020-10-14T00:00:00+00:00</lastmod>
       
@@ -1374,7 +1388,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_Util_String/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_Utils_String/</loc>
       
       <lastmod>2019-09-18T00:00:00+00:00</lastmod>
       
@@ -1444,7 +1458,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_Util_LongTexts/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_Utils_LongText/</loc>
       
       <lastmod>2019-09-03T00:00:00+00:00</lastmod>
       
@@ -2774,7 +2788,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_Util_Stvarv/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</loc>
       
       <lastmod>2019-02-14T00:00:00+00:00</lastmod>
       
@@ -2928,7 +2942,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Util_Date/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_Date/</loc>
       
       <lastmod>2018-12-10T00:00:00+00:00</lastmod>
       
@@ -2942,7 +2956,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Util_Timestamp/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_Timestamp/</loc>
       
       <lastmod>2018-12-08T00:00:00+00:00</lastmod>
       
@@ -3096,7 +3110,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Util_BOMTree/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_BOMTree/</loc>
       
       <lastmod>2018-11-08T00:00:00+00:00</lastmod>
       
@@ -3586,7 +3600,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Util_PopUpBox/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_PopUpBox/</loc>
       
       <lastmod>2018-08-10T00:00:00+00:00</lastmod>
       
@@ -3642,7 +3656,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Util_PackageChange/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</loc>
       
       <lastmod>2018-08-01T00:00:00+00:00</lastmod>
       
@@ -3964,7 +3978,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Util_StrCNChina/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_StrCNChina/</loc>
       
       <lastmod>2018-06-16T00:00:00+00:00</lastmod>
       
@@ -3978,7 +3992,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Util_FieldFindProgram/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_FieldFindProgram/</loc>
       
       <lastmod>2018-06-15T00:00:00+00:00</lastmod>
       
@@ -4048,7 +4062,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Util_DataConversion/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_DataConversion/</loc>
       
       <lastmod>2018-06-08T00:00:00+00:00</lastmod>
       
