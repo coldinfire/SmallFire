@@ -14,15 +14,15 @@ tags:
 
 ### 配置连接方式
 
-DBCO：查看数据库连接信息
+**DBCO**：查看数据库连接信息
 
 ![DBCO](/images/ABAP/DBCO1.png)
 
-DB02：DBA Cockpit 系统配置维护
+**DB02**：DBA Cockpit 系统配置维护
 
-![DB02](/images/ABAP/DBC11.png)
+![DB02](/images/ABAP/DBCO11.png)
 
-两种方式都是维护同一个配置表：**DBCON** 。
+**两种方式都是维护同一个配置表：DBCON** 。
 
 #### 测试连通性
 

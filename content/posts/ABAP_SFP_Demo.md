@@ -14,7 +14,7 @@ tags:
 
 ## Adobe Form调用
 
-画好了对应的Form格式与数据绑定，就可以在Report程序中通过具体代码进行调用了。
+画好了对应的 Form 格式与数据绑定，就可以在 Report 程序中通过具体代码进行调用了。
 
 ### SFPOUTPUTPARAMS 参数介绍
 
