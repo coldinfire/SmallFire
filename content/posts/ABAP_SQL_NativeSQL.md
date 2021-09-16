@@ -12,9 +12,9 @@ tags:
 
 ---
 
-## Native SQL
-
 EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。
+
+### EXEC SQL
 
 #### 连接外部的数据库
 
@@ -50,13 +50,15 @@ DATA: sql_error TYPE REF TO cx_sy_native_sql_error,
 ...
 " 连接数据库 "
 TRY. 
-  EXEC SQL. 
-    CONNECT TO :CON_NAME
-  ENDEXEC.
   EXEC SQL.
     SET CONNECTION 'CON_NAME'
   ENDEXEC.
-  IF SY-SUBRC NE 0.
+  IF sy-subrc <> 0. "如果连接没有打开，打开连接"
+    EXEC SQL. 
+      CONNECT TO :CON_NAME
+    ENDEXEC.
+  ENDIF.
+  IF sy-subrc <> 0.
     error_text = 'Open Database Connection Error'.
     STOP.
   ENDIF.
@@ -66,7 +68,7 @@ ENDTRY.
 #### 查询语句
 
 ```ABAP
-"执行SQL"
+"执行SQL：非游标方式"
 LOOP demo_datas.
   TRY.
     EXEC SQL PERFORMING frm_download_data.
@@ -79,6 +81,9 @@ LOOP demo_datas.
       CLEAR: wa_emp.
   ENDTRY.
 ENDLOOP.
+FORM frm_download_data.
+  APPEND wa_emp TO lt_emp.
+ENDFORM.
 ```
 
 #### 插入语句
@@ -112,36 +117,45 @@ ELSE.
 ENDIF.
 "断开连接"
 EXEC SQL. 
-  DISCONNECT :p_dbname 
+  DISCONNECT :CON_NAME
 ENDEXEC.
 ```
 
-### 游标使用
+#### 游标使用
 
 ```ABAP
 DATA: arg1 TYPE string VALUE '800'.
-TABLES: t001.
+DATA: ls_data TYPE t001,
+      lt_data TYPE TABLE t001.
+" 打开游标 "
 EXEC SQL.
-  OPEN c1 FOR  " 打开游标 "
+  OPEN c1 FOR  
   SELECT MANDT, BUKRS FROM T001   " 远程数据库表 "
-    WHERE MANDT = :arg1 AND BUKRS >= 'ZA01'
+    WHERE MANDT = :arg1
 ENDEXEC.
+"循环通过游标读取记录"
+"1.按字段顺序赋值，select 字段与 into 字段顺序必须一致"
+"2.按结构整体赋值，select 字段必须与结构字段顺序一致且字段长度一致"
 DO.
   EXEC SQL.
-    FETCH NEXT c1 INTO :t001-mandt, :t001-bukrs  "读取游标"
+    FETCH NEXT c1 INTO :ls_data-mandt, :ls_data-bukrs
+    "FETCH NEXT c1 INTO :ls_data"
   ENDEXEC.
   IF sy-subrc <> 0.
     EXIT.
   ELSE.
-    WRITE: / t001-mandt, t001-bukrs.
+    APPEND ls_data TO lt_data.
   ENDIF.
 ENDDO.
+"关闭游标"
 EXEC SQL.
-  CLOSE c1     "关闭游标"
+  CLOSE c1     
 ENDEXEC.
 ```
 
-### 使用类调用  Native SQL
+### 使用 ADBC 执行 Native SQL
+
+ABAP 标准 DEMO 程序：`ADBC_DEMO` 。
 
 #### 程序实例
 

@@ -359,12 +359,12 @@
     </item>
     
     <item>
-      <title> SO10创建标准文本 </title>
+      <title> SO10 创建标准文本 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SO10/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SO10/</guid>
-      <description>创建标准文本 通过 Tcode SO10 可以创建标准文本： 在标准文本中输入文本内容，文本内容可以加入其他的文本，可以实现文本嵌套。 Smartforms中使用 St</description>
+      <description>创建标准文本 通过事物码 SO10 可以创建标准文本： 在标准文本中输入文本内容，文本内容可以加入其他的文本，可以实现文本嵌套。 Smartforms 中使用 Step1：Cre</description>
     </item>
     
     <item>
@@ -828,10 +828,10 @@
     
     <item>
       <title> 将Smartforms转换成PDF发送到FTP服务器 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_SmartformsToftp/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_SmartformsToftp/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/</guid>
       <description>Send pdf file to ftp server REPORT zpdfsendtoftp. DATA : BEGIN OF t_vbak OCCURS 0, vbeln TYPE vbrk-vbeln, vkorg TYPE vbak-vkorg, vkbur TYPE vbak-vkbur, END OF t_vbak. DATA: function_name TYPE rs38l_fnam, form_name TYPE tdsfname VALUE &amp;#39;ZTEST1&amp;#39;. DATA: carr_id TYPE sbook-carrid, ctrlop TYPE ssfctrlop, compop TYPE ssfcompop, tab_otf_data TYPE ssfcrescl. DATA: pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE, tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE, bin_filesize TYPE i, pdf_xstring</description>
     </item>
     
@@ -1552,7 +1552,7 @@
       <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SQL_NativeSQL/</guid>
-      <description>Native SQL EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql</description>
+      <description>EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这</description>
     </item>
     
     <item>
@@ -1561,7 +1561,7 @@
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SQL_OpenSQL/</guid>
-      <description>Open SQL ABAP可以通过两种方式与数据库交互 Native SQL：数据库自身的 SQL，可以直接访问数据库，不够安全。 Open SQL：集成到ABAP中的标准 SQL 子集，</description>
+      <description>Open SQL ABAP可以通过两种方式与数据库交互 Native SQL：数据库自身的 SQL，可以直接访问数据库，不够安全。 Open SQL：集成到 ABAP 中的标准 SQL 子集，通过 SAP</description>
     </item>
     
     <item>

@@ -1,5 +1,5 @@
 ---
-title: " SO10创建标准文本 "
+title: " SO10 创建标准文本 "
 date: 2019-10-18
 draft: false
 author: Small Fire
@@ -14,7 +14,7 @@ tags:
 
 ### 创建标准文本
 
-通过 Tcode SO10 可以创建标准文本：
+通过事物码 SO10 可以创建标准文本：
 
 ![SO10](/images/ABAP/SO10.png)
 
@@ -22,7 +22,7 @@ tags:
 
 ![SO10 Text](/images/ABAP/SO10_1.png)
 
-### Smartforms中使用
+### Smartforms 中使用
 
 ![SO10 User1](/images/ABAP/SO10_2.png)
 
