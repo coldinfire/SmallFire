@@ -116,7 +116,16 @@
     </item>
     
     <item>
-      <title>ABAP 获取FM参数结果</title>
+      <title> ABAP 获取CLASS参数结果 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionClass/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionClass/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> ABAP 获取FM参数结果 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionFM/</link>
       <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
       
@@ -135,10 +144,10 @@
     
     <item>
       <title> BAPI:VIEW_MAINTENANCE_CALL 使用 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_TABLE_BAPI_Maintenance/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Table_BAPI_Maintenance/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_TABLE_BAPI_Maintenance/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Table_BAPI_Maintenance/</guid>
       <description>BAPI: VIEW_MAINTENANCE_CALL DATA:LT_SELLIST LIKE TABLE OF VIMSELLIST WITH HEADER LINE. CLEAR:LT_SELLIST. REFRESH: LT_SELLIST. LT_SELLIST-VIEWFIELD = &amp;#39;BUKRS&amp;#39;. LT_SELLIST-OPERATOR = &amp;#39;EQ&amp;#39;. LT_SELLIST-VALUE = P_BUKRS. LT_SELLIST-AND_OR = &amp;#39;AND&amp;#39;. APPEND LT_SELLIST. CALL FUNCTION &amp;#39;VIEW_MAINTENANCE_CALL&amp;#39; EXPORTING ACTION = &amp;#39;U&amp;#39;&amp;#34;S = Display U = Change T = Transport VIEW_NAME = &amp;#39;ZCO002&amp;#39; TABLES DBA_SELLIST = LT_SELLIST EXCEPTIONS CLIENT_REFERENCE = 1 FOREIGN_LOCK = 2 INVALID_ACTION = 3 NO_CLIENTINDEPENDENT_AUTH = 4 NO_DATABASE_FUNCTION = 5 NO_EDITOR_FUNCTION = 6 NO_SHOW_AUTH =</description>
     </item>
     
@@ -665,7 +674,7 @@
     </item>
     
     <item>
-      <title>ABAP 字符串处理</title>
+      <title> ABAP 字符串处理 </title>
       <link>https://coldinfire.github.io/2019/ABAP_Utils_String/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -819,10 +828,10 @@
     
     <item>
       <title>SAP 异常处理</title>
-      <link>https://coldinfire.github.io/2019/ABAP_TryCatch/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_Utils_TryCatch/</link>
       <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_TryCatch/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_Utils_TryCatch/</guid>
       <description>SAP 异常处理 异常是在程序执行期间出现的问题。 当异常发生时，程序的正常流程中断，程序应用程序异常终止，这是不推荐的，因此这些异常将被处理。 异常处</description>
     </item>
     
@@ -1466,7 +1475,7 @@
     </item>
     
     <item>
-      <title>STVARV使用详情</title>
+      <title>STVARV 使用详情</title>
       <link>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</link>
       <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -1845,10 +1854,10 @@
     
     <item>
       <title>复制其他的内表/结构到当前表/结构</title>
-      <link>https://coldinfire.github.io/2018/ABAP_TableCopyFields/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Table_CopyFields/</link>
       <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_TableCopyFields/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Table_CopyFields/</guid>
       <description>有时需要创建一个结构，但是字段和其他表或则结构类似，就可以采用复制的方式快速创建，而不用一个一个字段去输入。 1.SE11选择需要添加字段的表</description>
     </item>
     
@@ -2975,15 +2984,6 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/</guid>
       <description>HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;, 书写时实现层次分明的缩进； 所有编码均遵循 XHTML 标准，标签</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://coldinfire.github.io/1/ABAP_Utils_ReflectionClass/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/1/ABAP_Utils_ReflectionClass/</guid>
-      <description></description>
     </item>
     
   </channel>

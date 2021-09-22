@@ -1,5 +1,5 @@
 ---
-title: "ABAP 获取FM参数结果"
+title: " ABAP 获取FM参数结果 "
 date: 2021-04-21
 draft: false
 author: Small Fire
@@ -45,8 +45,7 @@ PERFORM frm_get_detail.
 
 ### 通过反射的方式获取结构详细数据
 
-```
-
+```ABAP
 LOOP AT lt_zz_trans_fupararef INTO ls_zz_trans_fupararef WHERE paramtype NE 'E'.
   IF ls_zz_trans_fupararef-paramtype = 'I' AND ls_zz_trans_fupararef-reference = 'X'."非值传递的传入值，不修改例程
     CONTINUE.
