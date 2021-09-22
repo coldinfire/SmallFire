@@ -35,7 +35,7 @@
     </item>
     
     <item>
-      <title> 查询 DBCO 执行结果 </title>
+      <title> DBCO 执行结果查询 </title>
       <link>https://coldinfire.github.io/2021/ABAP_EXCEL_ALV/</link>
       <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
@@ -512,7 +512,7 @@
     </item>
     
     <item>
-      <title>OLE下载数据到EXCEL模板及速度优化</title>
+      <title>OLE 下载数据到EXCEL模板及速度优化</title>
       <link>https://coldinfire.github.io/2020/ABAP_EXCEL_OLE/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
@@ -710,7 +710,7 @@
     </item>
     
     <item>
-      <title>SQVI-创建一张简易的报表</title>
+      <title>SQVI 创建一张简易的报表</title>
       <link>https://coldinfire.github.io/2019/ABAP_ALV_SQVI/</link>
       <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
       
@@ -1943,7 +1943,7 @@
     </item>
     
     <item>
-      <title>ALV控制单元格不可编辑</title>
+      <title>ALV 控制单元格不可编辑</title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_EditControl/</link>
       <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -2060,12 +2060,12 @@
     </item>
     
     <item>
-      <title> OO ALV 不同Container </title>
+      <title> OOALV 不同Container </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_DiffContainers/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_DiffContainers/</guid>
-      <description>1.Custom container 自定义容器可以使用类 CL_GUI_CUSTOM_CONTAINER 创建，但它需要一个可以放置它的父容器，或者需要在自定义 Screen 中创建一个自定义控制区域。 这个解决方案主要是我现在开发的应</description>
+      <description>1.Custom container 自定义容器可以使用类 CL_GUI_CUSTOM_CONTAINER 创建，但它需要一个可以放置它的父容器，或者需要在自定义 Screen 中创建一个自定义控制区域。 这个解决方案是我现在开发的应用程</description>
     </item>
     
     <item>

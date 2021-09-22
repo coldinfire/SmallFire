@@ -1,5 +1,5 @@
 ---
-title: " 查询 DBCO 执行结果 "
+title: " DBCO 执行结果查询 "
 date: 2021-07-23
 draft: false
 author: Small Fire
