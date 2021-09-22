@@ -121,7 +121,7 @@
       <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionClass/</guid>
-      <description></description>
+      <description>Read Class Data data: i_class type klah-class. data: i_classtype type klah-klart. data: i_key_date type sy-datum default sy-datum. data: e_structure type ref to cl_abap_structdescr, et_data type ref to data, e_table type ref to cl_abap_tabledescr. field-symbols: &amp;lt;char&amp;gt; type bapi1003_charact_r. data: mt_classdescriptions type standard table of bapi1003_catch_r. data: mt_classlongtexts type standard table of bapi1003_longtext_r. data: mt_classcharacteristics type standard table of bapi1003_charact_r. data: mt_classcharactvalues type standard table of bapi1003_char_val_r. data: mt_return type standard table</description>
     </item>
     
     <item>
