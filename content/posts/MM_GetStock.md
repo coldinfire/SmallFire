@@ -1,5 +1,5 @@
 ---
-title: "SAP获取库存函数"
+title: "SAP 获取库存函数"
 date: 2020-12-20
 draft: false
 author: Small Fire
@@ -16,15 +16,15 @@ SAP的库存种类有很多中取数逻辑，这里整理下，汇总成的一�
 
 ### 库存类型
 
-非批次管理库存：MARD
+非批次管理库存：**MARD**
 
-批次库存：MCHB
+批次库存：**MCHB**
 
-销售库存：MSKA
+销售库存：**MSKA**
 
-项目库存：MSPR
+项目库存：**MSPR**
 
-已发货数量：LIPS
+已发货数量：**LIPS、LIKP**
 
 ### 程序代码
 

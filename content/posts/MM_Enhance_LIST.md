@@ -32,11 +32,11 @@ tags:
 | ME_PROCESS_PO_CUST                                           | Enhancements for Processing Enjoy Purchase Order: Customer  |
 | ME_PROCESS_PO                                                | Enhancements for Processing Enjoy Purchase Order: Intern.   |
 | ME_PROCESS_COMP                                              | Processing of Component Default Data at Time of GR: Custome |
-| ME_PO_SC_SRV                                                 | BAdI: Service Tab Page for Subcontracting                   |
+| ME_PO_SC_SRV                                                 | BADI：Service Tab Page for Subcontracting                   |
 | ME_PO_PRICING_CUST                                           | Enhancements to Price Determination: Customer               |
 | ME_PO_PRICING                                                | Enhancements to Price Determination: Internal               |
 | ME_INFOREC_SEND                                              | Capture/Send Purchase Info Record Changes - Internal Use    |
-| ME_HOLD_PO                                                   | Hold Enjoy Purchase Orders: Activation/Deactivation         |
+| ME_HOLD_PO                                                   | Hold Enjoy Purchase Orders：Activation/Deactivation         |
 | ME_GUI_PO_CUST                                               | Customer's Own Screens in Enjoy Purchase Order              |
 | ME_FIELDSTATUS_STOCK                                         | FM Account Assignment Behavior for Stock PR/PO              |
 | ME_COMMTMNT_PO_REL_C                                         | Check for Commitment-Relevance of Purchase Orders           |
