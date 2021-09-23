@@ -14,7 +14,9 @@ tags:
 ---
 
 ## SAP Excel模板操作
-**上传模板**：文档是通过**SMW0**上传的。
+### 上传模板
+
+EXCEL 文档是通过 **SMW0** 上传的。
 
 - 选择模板类型
 
@@ -32,9 +34,11 @@ tags:
 
   ![SMW0](/images/ABAP/ABAP_SMW0_4.png)
 
-**下载模板**：调用METHOD / BAPI下载服务器上的模板文件到本地
+### 下载模板
 
-### 使用类操作文件
+通过 METHOD 或则 BAPI 的方法下载服务器上的模板文件到本地。
+
+#### 使用类操作文件
 
 **CL_GUI_FRONTEND_SERVICES**：该类提供了大量对操作系统文件的操作，如拷贝、列出文件名、打开文件、下载文件等。
 
@@ -44,30 +48,35 @@ tags:
 - GUI_DOWNLOAD：下载文本文件到本地PC
 -  GUI_UPLOAD：从本地文本文件读取数据
 
-### 使用BAPI操作文件
+#### 使用 BAPI 操作文件
 
-```html
-1. F4获取文件路径
-  KD_GET_FILENAME_ON_F4：打开选择框，并获取本地文件路径
-  WS_FILENAME_GET：打开选择框，并获取本地文件路径
-2. 判断文件是否存在
-  CALL FUNCTION 'WS_QUERY'：本地文件是否存在
-  CALL FUNCTION 'WWWDATA_IMPORT'：判断服务器是否存在该模板,并返回模板数据
-3. 内表数据下载到文件:
-  CALL FUNCTION 'DOWNLOAD'：提示保存
-  CALL FUNCTION 'WS_DOWNLOAD'：不提示直接保存
-  CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'：提示保存
-4. 文件数据读取到内表
-  CALL FUNCTION 'UPLOAD'：提示读入内表
-  CALL FUNCTION 'WS_UPLOAD'：不提示直接读入内表
-  CALL FUNCTION 'GUI_UPLOAD'：读取Txt模板文件
-```
+F4获取文件路径
 
-### 上传文件并转换为内表
+- KD_GET_FILENAME_ON_F4：打开选择框，并获取本地文件路径
+- WS_FILENAME_GET：打开选择框，并获取本地文件路径
 
-#### GUI输入框选择文件(F4)
+判断文件是否存在
 
-```HTML
+- CALL FUNCTION 'WS_QUERY'：本地文件是否存在
+- CALL FUNCTION 'WWWDATA_IMPORT'：判断服务器是否存在该模板,并返回模板数据
+
+内表数据下载到文件
+
+- CALL FUNCTION 'DOWNLOAD'：提示保存
+- CALL FUNCTION 'WS_DOWNLOAD'：不提示直接保存
+- CALL FUNCTION 'DOWNLOAD_WEB_OBJECT'：提示保存
+
+文件数据读取到内表
+
+- CALL FUNCTION 'UPLOAD'：提示读入内表
+- CALL FUNCTION 'WS_UPLOAD'：不提示直接读入内表
+- CALL FUNCTION 'GUI_UPLOAD'：读取Txt模板文件
+
+### 读取本地文件并转换为内表
+
+#### GUI 输入框选择文件 (F4)
+
+```ABAP
 TABLES: sscrfields.
 TYPE-POOLS: slis.
 SELECTION-SCREEN BEGIN OF BLOCK file_name WITH FRAME TITLE text-000.
@@ -76,10 +85,8 @@ SELECTION-SCREEN COMMENT 1(31) text-001 FOR FIELD p_file.
 PARAMETERS: p_file LIKE rlgrap-filename .
 SELECTION-SCREEN END OF LINE.
 SELECTION-SCREEN END OF BLOCK file_name.
-
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_file.
     PERFORM frm_get_filename CHANGING p_file.
-
 " Method 1 "
 FORM frm_get_filename CHANGING cv_file.
   CALL FUNCTION 'KD_GET_FILENAME_ON_F4'
@@ -91,7 +98,6 @@ FORM frm_get_filename CHANGING cv_file.
     EXIT.
   ENDIF.
 ENDFORM.              
-
 " Method 2 "
 FORM frm_get_filename  CHANGING cv_file.
   DATA: lt_file TYPE filetable,
@@ -113,12 +119,10 @@ FORM frm_get_filename  CHANGING cv_file.
       error_no_gui            = 3
       not_supported_by_gui    = 4
       OTHERS                  = 5.
-
   IF sy-subrc EQ 0 AND lv_rc EQ 1.
     READ TABLE lt_file INDEX 1 INTO cv_file.
   ENDIF.
 ENDFORM.                    " FRM_GET_FILENAME "
-
 " METHOD 3 "
 FORM frm_get_filename CHANGING cv_file.
   CALL FUNCTION 'WS_FILENAME_GET'
@@ -162,7 +166,7 @@ IF l_file_exist <> 1 OR l_file_exist IS INITIAL.
 ENDIF.        
 ```
 
-#### 调用METHOD 读取文件内容到内表
+#### 调用 METHOD 读取文件内容到内表
 
 ```html
 CALL FUNCTION 'GUI_UPLOAD'
