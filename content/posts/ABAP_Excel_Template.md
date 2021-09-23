@@ -52,8 +52,8 @@ FORM frm_download_excel_template .
   CALL METHOD cl_gui_frontend_services=>file_open_dialog
     EXPORTING
       default_filename     = '*.xlsx'
-      initial_directory    = 'C:\'
-      multiselection       = ''
+     " initial_directory    = 'C:\' "
+     " multiselection       = ''"
     CHANGING
       file_table           = lt_filetab
       rc                   = lv_rc

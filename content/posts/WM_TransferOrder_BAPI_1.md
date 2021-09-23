@@ -9,10 +9,11 @@ categories:
 
 tags: 
   - MM
+  - BAPI
 
 ---
 
-#### L_TO_CREATE_SINGLE 
+### L_TO_CREATE_SINGLE  使用
 
 Create a transfer order with one item.
 

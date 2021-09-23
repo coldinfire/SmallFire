@@ -1,5 +1,5 @@
 ---
-title: "SAP WM 常用表"
+title: "WM 常用表"
 date: 2020-05-28
 draft: false
 author: Small Fire
@@ -12,7 +12,7 @@ tags:
 
 ---
 
-#### WM 常用Table的功能划分
+#### WM 常用表的功能划分
 
 - Transfer requirement
 

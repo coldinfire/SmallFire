@@ -413,12 +413,12 @@
     </item>
     
     <item>
-      <title>SAP WM 常用表</title>
+      <title>WM 常用表</title>
       <link>https://coldinfire.github.io/2020/WM_Table/</link>
       <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/WM_Table/</guid>
-      <description>WM 常用Table的功能划分 Transfer requirement Transfer order Inventory Documents Storage Locations Storage Stocks SAP WM Tables for Transfer requirement 主要用于使用仓库管理系统（WMS）计划货物移动。 通过区分货物移动的计划和执行，您可</description>
+      <description>WM 常用表的功能划分 Transfer requirement Transfer order Inventory Documents Storage Locations Storage Stocks SAP WM Tables for Transfer requirement 主要用于使用仓库管理系统（WMS）计划货物移动。 通过区分货物移动的计划和执行，您可以立即识</description>
     </item>
     
     <item>
@@ -450,20 +450,20 @@
     
     <item>
       <title>Transfer Order(L_TO_CREATE_SINGLE)</title>
-      <link>https://coldinfire.github.io/2020/WM_TransferOrder_BAPI/</link>
+      <link>https://coldinfire.github.io/2020/WM_TransferOrder_BAPI_1/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/WM_TransferOrder_BAPI/</guid>
-      <description>L_TO_CREATE_SINGLE Create a transfer order with one item. You can call this FM more than once if you want to transfer more items. CALL FUNCTION &amp;#39;L_TO_CREATE_SINGLE&amp;#39; exporting i_lgnum = wh_number &amp;#34;Warehouse number&amp;#34; i_bwlvs = &amp;#39;999&amp;#39; &amp;#34;MvT999&amp;#34; i_matnr = lqua-matnr &amp;#34;Material no.&amp;#34; i_werks = lqua-werks &amp;#34;Plant&amp;#34; i_lgort = lqua-lgort &amp;#34;Storage location&amp;#34; i_anfme = lqua-verme &amp;#34;Requested Qty&amp;#34; i_altme = lqua-meins &amp;#34;Unit of measure&amp;#34; i_letyp = ltap-letyp &amp;#34;SU Type&amp;#34; i_vlpla = lqua-lgpla &amp;#34;Source</description>
+      <guid>https://coldinfire.github.io/2020/WM_TransferOrder_BAPI_1/</guid>
+      <description>L_TO_CREATE_SINGLE 使用 Create a transfer order with one item. You can call this FM more than once if you want to transfer more items. CALL FUNCTION &amp;#39;L_TO_CREATE_SINGLE&amp;#39; exporting i_lgnum = wh_number &amp;#34;Warehouse number&amp;#34; i_bwlvs = &amp;#39;999&amp;#39; &amp;#34;MvT999&amp;#34; i_matnr = lqua-matnr &amp;#34;Material no.&amp;#34; i_werks = lqua-werks &amp;#34;Plant&amp;#34; i_lgort = lqua-lgort &amp;#34;Storage location&amp;#34; i_anfme = lqua-verme &amp;#34;Requested Qty&amp;#34; i_altme = lqua-meins &amp;#34;Unit of measure&amp;#34; i_letyp = ltap-letyp &amp;#34;SU Type&amp;#34; i_vlpla =</description>
     </item>
     
     <item>
-      <title>Transfer Order(TO)</title>
+      <title>Transfer Order(TO) 使用</title>
       <link>https://coldinfire.github.io/2020/WM_TransferOrder/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/WM_TransferOrder/</guid>
-      <description>Transfer Order 启用WM管理后，在BIN位间进行转移，通过Transfer Order 方式进行。 LT01:Create Transfer Order LT03:Create Transfer Order for Delivery Note LT06:Create Transfer Order for Material Document LT1A:Change Transfer Order LT11:Confirm Transfer Order Item LT12:Confirm Transfer Order LT15:Cancelling transfer order LT21:Display Transfer Order BAPI&amp;rsquo;s List</description>
+      <description>Transfer Order 启用 WM 管理后，在 BIN 位间进行转移，通过 Transfer Order 方式进行。 LT01：Create Transfer Order LT03：Create Transfer Order for Delivery Note LT06：Create Transfer Order for</description>
     </item>
     
     <item>
