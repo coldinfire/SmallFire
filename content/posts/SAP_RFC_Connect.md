@@ -18,11 +18,9 @@ tags:
 
 SAP配置的RFC Connection都保存在表**RFCDES**中
 
-### Step1:Procedure to steup an RFC connection
+### Step1：Procedure to steup an RFC connection
 
-使用**Tcode:SM59**配置RFC connection
-
-在SM59中，可以浏览已经创建的RFC连接。
+使用事物码**SM59**配置 RFC connection。在SM59中，可以浏览已经创建的RFC连接。
 
 ![SM59](/images/SAPUtils/SAP_RFC_CONNECTION_1.png)
 

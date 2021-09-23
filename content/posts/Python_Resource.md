@@ -18,8 +18,6 @@ tags:
 
 [Python 官网](https://docs.python.org/3/tutorial/classes.html)
 
-
-
 1. [包含了 Python 框架、Python 库和软件的 awesome 列表](https://github.com/vinta/awesome-python)
 2. [Python 神书，里面有若干个项目，每个项目都是由业内大神所写，每个项目代码在 500 行左右](https://github.com/aosabook/500lines)
 3. [介绍 Python3 中的标准库](https://pymotw.com/3/#python-3-module-of-the-week)

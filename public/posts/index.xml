@@ -36,10 +36,10 @@
     
     <item>
       <title> DBCO 执行结果查询 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_EXCEL_ALV/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_SQL_DBCO_Result/</link>
       <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_EXCEL_ALV/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_SQL_DBCO_Result/</guid>
       <description>查询 DBCO 执行结果 Step1：执行程序 ADBC_QUERY DB Connection Name：DBCO 中配置的数据库连接名称 Table Name：DBCO 配置连接的数据库对应数据表的表名称 Ste</description>
     </item>
     
@@ -328,7 +328,7 @@
       <pubDate>Sun, 26 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/SAP_RFC_Connect/</guid>
-      <description>原文链接 SAP配置RFC连接-SM59 SAP配置的RFC Connection都保存在表RFCDES中 Step1:Procedure to steup an RFC connection 使用Tcode:SM59配置</description>
+      <description>原文链接 SAP配置RFC连接-SM59 SAP配置的RFC Connection都保存在表RFCDES中 Step1：Procedure to steup an RFC connection</description>
     </item>
     
     <item>
@@ -1224,10 +1224,10 @@
     
     <item>
       <title> SAPUI5 概述 </title>
-      <link>https://coldinfire.github.io/2019/SAPUI5/</link>
+      <link>https://coldinfire.github.io/2019/SAPUI5_Basic/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPUI5/</guid>
+      <guid>https://coldinfire.github.io/2019/SAPUI5_Basic/</guid>
       <description>SAPUI5概述 SAPUI5:一套基于HTML5,CSS3,JavaScript的开发框架 SAPUI5包括内容 重构的JavaScript语法</description>
     </item>
     
@@ -1619,7 +1619,7 @@
     </item>
     
     <item>
-      <title>SAP Excel 上传和下载</title>
+      <title>SAP 上传和下载Excel</title>
       <link>https://coldinfire.github.io/2018/ABAP_Excel/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -1808,12 +1808,12 @@
     </item>
     
     <item>
-      <title> 财务凭证冲销 </title>
-      <link>https://coldinfire.github.io/2018/FI_VoucherReversal/</link>
+      <title> SAP 凭证冲销 </title>
+      <link>https://coldinfire.github.io/2018/SAP_VoucherReversal/</link>
       <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/FI_VoucherReversal/</guid>
-      <description>凭证的更改 1：已经过帐的 TCODE：FB02. 过完帐的允许更改的地方有限，只有凭证抬头文本，参照，分配，文本，原因代码等 2：预制凭证的更改.</description>
+      <guid>https://coldinfire.github.io/2018/SAP_VoucherReversal/</guid>
+      <description>凭证的更改 已经过帐的凭证更改 TCODE：FB02 过完帐的允许更改的地方有限，只有凭证抬头文本，参照，分配，文本，原因代码等可以更改。 预制凭证</description>
     </item>
     
     <item>
@@ -1894,7 +1894,7 @@
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAP_VOFM/</guid>
-      <description>例程介绍 ​ SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以</description>
+      <description>例程介绍 SAP ERP 实施中，经常会用到例程开发 (TCODE:VOFM)。这个开发目前我用到的是影响 SD 和 MM 的定价过程。创建例程需要 ACCESS KEY，这个可以通</description>
     </item>
     
     <item>
