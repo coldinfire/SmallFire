@@ -16,7 +16,7 @@ tags:
 
 ### sap.m.MessageBox
 
-​    SAPUI5 提供的对话框，可以显示信息、警告、错误等等。MessageBox 类是静态类，在使用之前必须执行 `jQuery.sap.require("sap.m.MessageBox")` 语句 SAPUI5 包含 jQuery 包，`jQuery.sap.require(vModuleName)` 方法的作用是加载指定的模块并且执行，这样 MessageBox 的 show() 方法才能运行。
+SAPUI5 提供的对话框，可以显示信息、警告、错误等等。MessageBox 类是静态类，在使用之前必须执行 `jQuery.sap.require("sap.m.MessageBox")` 语句 SAPUI5 包含 jQuery 包，`jQuery.sap.require(vModuleName)` 方法的作用是加载指定的模块并且执行，这样 MessageBox 的 show() 方法才能运行。
 
 > `sap.m.MessageBox.alert(vMessage, mOptions*?*) `对话框显示消息，有一个OK按钮（“确定”），没有图标
 >

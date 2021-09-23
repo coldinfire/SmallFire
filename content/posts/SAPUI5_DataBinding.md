@@ -16,75 +16,75 @@ tags:
 
 ### 单数据绑定
 
-1. 使用数据绑定前，需要先实例化Model.构造函数获取实例的URL或则数据本身作为第一个参数。
+#### 使用数据绑定前
 
-   ​    JSON-Model:
+需要先实例化Model。构造函数获取实例的 URL 或则数据本身作为第一个参数。
 
-   ​        `var oModel = new sap.ui.model.json.JSONModel(dataUrlOrData);`
+JSON-Model:
 
-   ​    XML-Model:
+- `var oModel = new sap.ui.model.json.JSONModel(dataUrlOrData);`
 
-   ​        `var oModel = new sap.ui.model.xml.XMLModel(dataUrlOrData);`
+XML-Model:
 
-   ​    OData-Model:
+-  `var oModel = new sap.ui.model.xml.XMLModel(dataUrlOrData);`
 
-   ​        `var oModel = new sap.ui.model.odata.ODataModel(dataUrl[,userJSON,user,pass]);`
 
-2. 给Model设置值
+OData-Model:
 
-   oModel.setData(data);  绑定定义的数据
+- `var oModel = new sap.ui.model.odata.ODataModel(dataUrl[,userJSON,user,pass]);`
 
-   oModel.loadData("models/suppliers.json"); 从文件中读取数据绑定
+#### 给 Model 设置值
 
-3. 将Model分配给Core或则其他的控制器（setModel）方法。
+oModel.setData(data);：绑定定义的数据
 
-   - Global model:
+oModel.loadData("models/suppliers.json");：从文件中读取数据绑定
 
-   ​        `sap.ui.getCore().setModel(oModel) ` : 这样oModel对整个应用程序可见
+#### 将 Model 分配给 Core 或则其他的控制器（setModel）方法
 
-   - Bind a model to a view
+Global model:
 
-   ​       `var oView = sap.ui.view({type:sap.ui.core.mvc.ViewType.JS,viewName:"text.view"})`          
+- `sap.ui.getCore().setModel(oModel) ` : 这样oModel对整个应用程序可见
 
-   ​	 `oView.setModel(oModel);`
+Bind a model to a view
 
-   - Bind a model to a specific control
+- `var oView = sap.ui.view({type:sap.ui.core.mvc.ViewType.JS,viewName:"text.view"})`          
 
-   ​        `var oTable = sap.ui.getCore().byId("table");`
+- `oView.setModel(oModel);`
 
-   ​        `oTable.setModel(oModel);`
+Bind a model to a specific control
 
-4. Model属性绑定方法（{ } curly braces，bindProperty()）
+- `var oTable = sap.ui.getCore().byId("table");`
 
-   ​    控件的大多数属性都可以绑定到模型属性。
+- `oTable.setModel(oModel);`
 
-   - bindProperty  method: [extend : sap.ui.base.ManagedObject]
+#### Model属性绑定方法（{ } curly braces，bindProperty()）
 
-   ​        `oControl.bindProperty("sName","oBindingInfo");`
+控件的大多数属性都可以绑定到模型属性。
 
-   ​			oBindingInfo attributes : path、model、formatter等
+bindProperty  method: [extend : sap.ui.base.ManagedObject]
 
-   ​				path : 指定绑定的数据路径
+- `oControl.bindProperty("sName","oBindingInfo");`
 
-   ​				model : sap.ui.model.BindingMode.OneWay、sap.ui.model.BindingMode.TwoWay
+- oBindingInfo attributes : path、model、formatter等
+  - path : 指定绑定的数据路径
+  - model : sap.ui.model.BindingMode.OneWay、sap.ui.model.BindingMode.TwoWay
+  - formatter : 
 
-   ​				formatter : 
+花括号:{ }
 
-   - 花括号:{ }
+- `var oControl = new sap.ui.commons.TextView({controlProperty:"{/modelProperty}"});`
 
-   ​        `var oControl = new sap.ui.commons.TextView({controlProperty:"{/modelProperty}"});`
+alternatively
 
-   - alternatively：
+- `var oControl = new sap.ui.commons.TextView({controlProperty:{path:"/modelProperty"}});`
 
-   ​        `var oControl = new sap.ui.commons.TextView({controlProperty:{path:"/modelProperty"}});`
+#### Model属性的获取
 
-5. Model属性的获取。
-
-   - oModel.getProperty("/sName");    根据JSON数据属性名获取对应的值
+- oModel.getProperty("/sName"); ：根据JSON数据属性名获取对应的值
 
 ### 多数据绑定 
 
-​    用于绑定集合数据，如绑定多行数据到一个表格中。使用模板:所有行都用同样的方法显示数据。
+用于绑定集合数据，如绑定多行数据到一个表格中。
 
 - 使用模板:所有行都用同样的方法显示数据
 
@@ -101,21 +101,21 @@ var oComboBox = new sap.ui.commons.ComboBox({
 
 - 工厂函数实现聚合绑定
 
+  ```js
   oTable.bindAggregation("items","/modelData",function(sId,oContext){
-
-  ​	return oColumnListItem;	//通过工厂函数，定义数据并返回
-
+    return oColumnListItem;	//通过工厂函数，定义数据并返回
   });
+  ```
 
 ### 元素绑定
 
-​	元素绑定指根据上下文(binding context)使用相对绑定的方式绑定到model数据的某一具体对象。尤其适用于**主从数据显示(master-detail data)**的情况。
+元素绑定指根据上下文(binding context)使用相对绑定的方式绑定到model数据的某一具体对象。尤其适用于**主从数据显示(master-detail data)**的情况。
 
 ​	sap.m.List(sId?, mSettings?) : List控件适用于显示行项目，所有类型都可以。
 
-​	sap.m.ObjectListItem(sId?, mSettings?) : 适用于显示行项目的信息，主要使用**title**属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。
+sap.m.ObjectListItem(sId?, mSettings?) : 适用于显示行项目的信息，主要使用title属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。
 
-​	sap.m.Panel().bindElement({path:sPath}) : 将显示的明细与Model绑定。
+sap.m.Panel().bindElement({path:sPath}) : 将显示的明细与Model绑定。
 
 1. 左边是一个List控件，右边在Panel中放置几个控件组合。当选择左边某个产品的时候，右边相应显示该产品的信息。
 
@@ -139,7 +139,7 @@ var oComboBox = new sap.ui.commons.ComboBox({
 
 1. 绝对绑定
 
-   将value属性绑定到json model根目录下对应的字段title/attr。
+   将 value 属性绑定到 json model 根目录下对应的字段 title/attr。
 
 2. 相对绑定
 

@@ -12,28 +12,28 @@ tags:
 
 ---
 
-### SAPUI5概述
+### SAPUI5 概述
 
-SAPUI5:一套基于HTML5,CSS3,JavaScript的开发框架
+SAPUI5：一套基于 HTML5、CSS3、JavaScript 的开发框架。
 
-#### SAPUI5包括内容
+#### SAPUI5 内容
 
-- 重构的JavaScript语法规范，帮助用户使用一致的、规范的语法使用JavaScript
-- 帮助用户构建大型应用的框架，包括MVC、数据绑定、路由控制、缓存、组件化、模块化
-- 丰富的基于桌面和移动端的基础UI控件
-- SAP在开发Fiori App过程中积累的可复用的高度封装的UI控件
+- 重构的 JavaScript 语法规范，帮助用户使用一致的、规范的语法使用 JavaScript
+- 帮助用户构建大型应用的框架，包括 MVC、数据绑定、路由控制、缓存、组件化、模块化
+- 丰富的基于桌面和移动端的基础 UI 控件
+- SAP 在开发 Fiori App 过程中积累的可复用的高度封装的 UI 控件
 - 便于页面排版的布局控件
 - 创建自定义控件和整合第三方控件的组件
-- 基于LESS框架和主题设计器的CSS架构
+- 基于 LESS 框架和主题设计器的 CSS 架构
 
-#### SAP核心优势
+#### SAP 核心优势
 
-- 基于Web端开发的一站式解决方案
+- 基于 Web 端开发的一站式解决方案
 - 快速开发，相对高效运行
-- 作为SAP未来标准产品使用的UI技术，已经经过大量实践验证，稳定可靠
-- 具有大量的参考示例程序，可以快速的编写与SAP标准风格类似的应用程序
+- 作为 SAP 未来标准产品使用的 UI 技术，已经经过大量实践验证，稳定可靠
+- 具有大量的参考示例程序，可以快速的编写与 SAP 标准风格类似的应用程序
 - 具有编写大型应用程序所需要的框架和技术
-- 能够完美的整合第三方的JavaScript库
+- 能够完美的整合第三方的 JavaScript 库
 
 #### 开发工具：WebIDE
 
@@ -47,103 +47,103 @@ SAPUI5:一套基于HTML5,CSS3,JavaScript的开发框架
 
 - 具有预先定义的样例程序
 
-#### SAP支持的控件
+#### SAP 支持的控件
 
 - 桌面控件库
-- UX3控件库
+- UX3 控件库
 - 表格控件库
 - 移动端控件库
 
-### MVC模式
+### MVC 模式
 
-​     MVC是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。
+MVC 是程序设计的思想实现，通过将界面展示，用户操作，程序数据进行分离，降低模块间的耦合性，有利于项目的开发和维护。
 
-​    M : Model 代表应用程序的数据
+- M : Model 代表应用程序的数据
 
-​    V : View 通过界面展示应用程序的数据和其它界面元素
 
-​    C : Controller 处理应用程序的数据，以及处理用户的交互
+- V : View 通过界面展示应用程序的数据和其它界面元素
+
+
+- C : Controller 处理应用程序的数据，以及处理用户的交互
+
 
 ![MVC](/images/SAPUI5/MVC.png)
 
-   ● Model & View : SAPUI5 有单向绑定和双向绑定两种。通过绑定，当 model 变更时，UI 自动更新。
+   ● Model & View：SAPUI5 有单向绑定和双向绑定两种。通过绑定，当 model 变更时，UI 自动更新。
 
-   ● Controlle &View : View 通知 Controller，或者 Controller使用API来修改 View。
+   ● Controlle &View：View 通知 Controller，或者 Controller 使用 API 来修改 View。
 
-   ● Controller & Model : Model 通知 Controller或者 Controller 修改 Model。
+   ● Controller & Model：Model 通知 Controller 或者 Controller 修改 Model。
 
-SAPUI5提供了JSView、XMLView、JSONView和HTMLView。主要使用XMLView 和 JSView。
+SAPUI5提供了JSView、XMLView、JSONView 和 HTMLView。主要使用 XMLView 和 JSView。
 
 ### 核心类库 
 
-​	查看`Resource`版本：Cttl+Shift+Alt+P在对应的App界面或则LunchPad.
+查看`Resource`版本：Cttl+Shift+Alt+P 在对应的 App 界面或则 LunchPad.
 
-   ` sap.m: `主要用于移动设备的响应式组件，并支持很多移动设备特性检测，比如检测touch等，此库下面List, Table等组件使用比较广泛，而且包含了下拉刷新的功能，非常完善，并自动适应不同尺寸平台
+` sap.m`：主要用于移动设备的响应式组件，并支持很多移动设备特性检测，比如检测touch等，此库下面List, Table等组件使用比较广泛，而且包含了下拉刷新的功能，非常完善，并自动适应不同尺寸平台。
 
-` sap.ui:` UI库包含的组件是最为丰富的，主要用于适应桌面平台，同样可以支持响应式的设计，比如sap.ui.table等组件
+` sap.ui`：UI库包含的组件是最为丰富的，主要用于适应桌面平台，同样可以支持响应式的设计，比如sap.ui.table等组件。
 
-`sap.ui.core:`核心功能：加载和管理所有的附加资源，并包含模型和渲染管理器，一个负责处理渲染视图和控制的单例，写入DOM
+`sap.ui.core`：核心功能：加载和管理所有的附加资源，并包含模型和渲染管理器，一个负责处理渲染视图和控制的单例，写入DOM。
 
-`sap.ui.layout:` 构建视图中元素的特殊控件
+`sap.ui.layout`：构建视图中元素的特殊控件。
 
-`sap.ui.vk:` 包含3D模型的功能和控件
+`sap.ui.vk`：包含 3D 模型的功能和控件。
 
-`sap.ui.unified:` 包含用于移动和桌面应用程序的附加控件
+`sap.ui.unified`：包含用于移动和桌面应用程序的附加控件。
 
-`sap.ui.table:` 不适用于手机屏幕，处理大量数据应用而构建的
+`sap.ui.table`：不适用于手机屏幕，处理大量数据应用而构建的。
 
-`sap.ui.comp:` 包含SmartField,SmartFilterBar,SmartTable,ValueHelpDialog等智能控件
+`sap.ui.comp`：包含 SmartField、SmartFilterBar、SmartTable、ValueHelpDialog 等智能控件。
 
-`sap.uxap:` 包含更多控件，包括页面标题
+`sap.uxap`：包含更多控件，包括页面标题。
 
-`sap.ushell:` 包含几个库包，含有所有统一的与shell服务相关的功能
+`sap.ushell`：包含几个库包，含有所有统一的与 shell 服务相关的功能。
 
-   `sap.ca:` 是官方标准app的常用类库，如果在实际开发过程当中想要拓展标准应用，必须要了解此类库的一些特性，否则拓展起来会有很大问题。
+`sap.ca`：是官方标准 app 的常用类库，如果在实际开发过程当中想要拓展标准应用，必须要了解此类库的一些特性，否则拓展起来会有很大问题。
 
 ### 核心函数
 
-   `sap.ui.getCore()` : 获取核心的实例
+`sap.ui.getCore()`：获取核心的实例
 
-   ` sap.ui.getCore().byId(id)` : 根据组件id获取其控制；可用于获取已经删除的组件
+` sap.ui.getCore().byId(id)`：根据组件 id 获取其控制；可用于获取已经删除的组件
 
-   `sap.ui.getCore().applyChanges()` : 在系统运行前修改UI5组件属性
+`sap.ui.getCore().applyChanges()`：在系统运行前修改 UI5 组件属性
 
-   ` jQuery.sap.domById(id)` : 根据ID获取HTML元素;如果UI5也存在该ID返回HTML最顶层的元素;和 document.getElementById 类似
+` jQuery.sap.domById(id)`：根据 ID 获取 HTML 元素；如果 UI5 也存在该 ID 返回 HTML 最顶层的元素；和 document.getElementById() 类似
 
-   `jQuery.sap.byId(id)` : 根据ID获取JQuery对象的DOM元素; $(,,#myId)
+`jQuery.sap.byId(id)`：根据 ID 获取 JQuery 对象的 DOM 元素；$(,,#myId)
 
-  ` sap.m.MessageBox` : SAPUI5风格对话框显示
+` sap.m.MessageBox`：SAPUI5 风格对话框显示
 
-`sap.m.URLHelper.redirect("http://www.jd.com", true);`重定向
+`sap.m.URLHelper.redirect("http://www.jd.com", true);`：重定向
 
 ### 常用组件
 
 #### SplitApp
 
-​    SplitApp : 这是一个Master Detail形式的结构，可以在移动，桌面不同尺寸的设备上自适应，也是大部分app需要采用的一种架构形式。
+SplitApp：这是一个 Master Detail 形式的结构，可以在移动，桌面不同尺寸的设备上自适应，也是大部分 app 需要采用的一种架构形式。
 
 #### List
 
-   List : 列表在任何应用中是比较常见的，List在SAPUI5定义功能比较完善，支持分批加载数据，提高运行效率，支持下拉等功能，并提供给我们丰富的标准Item, 可以简单配置使用，更可以根据自身需求定义item。
+List : 列表在任何应用中是比较常见的，List 在 SAPUI5 定义功能比较完善，支持分批加载数据，提高运行效率，支持下拉等功能，并提供给我们丰富的标准 Item, 可以简单配置使用，更可以根据自身需求定义 item。
 
-​	对于移动设备来说，出于性能考虑，不要超过100行。使用**growing**特性可以加速内部的渲染。
+对于移动设备来说，出于性能考虑，不要超过100行。使用 **growing** 特性可以加速内部的渲染。
 
-​	List控件继承自`sap.m.ListBase`，ListBase的items聚合属性(类型：`sap.m.ListeItemBase[]`) 设置行项目的模板。
+List控件继承自`sap.m.ListBase`，ListBase 的 items 聚合属性(类型：`sap.m.ListeItemBase[]`) 设置行项目的模板。
 
 - sap.m.List
 
   - new sap.m.List({items:{path:"/path",template:oTemplate}});
 
   - new sap.m.List().bindItems({path:"/path",template:oTemplate});
-
 - sap.m.ObjectListItem
-
-
-ObjectListItem适用于显示行项目的信息，主要使用title属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。继承自sap.m.ObjectListItem，可定义press事件对用户的点击做出回应。
+  - ObjectListItem 适用于显示行项目的信息，主要使用 title 属性进行标识，text、icon、atrributes 和 statuses等属性可以用于提供对象更多信息。继承自sap.m.ObjectListItem，可定义 press 事件对用户的点击做出回应。
 
 #### Table
 
-​    Table : 这是一个表单性质的的组件，支持响应式，很多是够我们做一个表单展示需要此控件的支持。自身也携带了丰富的property供我们选择。
+Table：这是一个表单性质的的组件，支持响应式，很多是够我们做一个表单展示需要此控件的支持。自身也携带了丰富的 property 供我们选择。
 
 ##### sap.ui.table.Table 
 
@@ -221,27 +221,34 @@ ObjectListItem适用于显示行项目的信息，主要使用title属性进行�
  <ObjectIdentifier text="{ID}"></ObjectIdentifier> : cell元素。
 ```
 
-
-
 ### 主题设置
 
-​    SAPUI5 默认提供了一些主题，并在组件添加新的主题。    
+SAPUI5 默认提供了一些主题，并在组件添加新的主题。    
 
-​        \- Blue crystal (常用)    
+- Blue crystal (常用)    
 
-​        \- Platium     
 
-​        \- Gold Reflection (常用)    
+- Platium     
 
-​        \- High Contast Black     
 
-​        \- Belize (常用)    - …
+- Gold Reflection (常用)    
 
-​    设置主题：    
 
-​        1.在Header中设置 : `data-sap-ui-theme="sap_bluecrystal"   ` 
+- High Contast Black     
 
-​        2.在程序中设定样式 :` sap.ui.getCore().applyTheme(sThemeName, sThemeBaseUrl?)`
+
+- Belize (常用)    - …
+
+
+#### 设置主题    
+
+在 Header 中设置
+
+- `data-sap-ui-theme="sap_bluecrystal"   ` 
+
+在程序中设定样式
+
+- ` sap.ui.getCore().applyTheme(sThemeName, sThemeBaseUrl?)`
 
 ### 文件模块介绍
 

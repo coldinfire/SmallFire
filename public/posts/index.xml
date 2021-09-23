@@ -1147,7 +1147,7 @@
       <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5_Message/</guid>
-      <description>消息设置 sap.m.MessageBox ​ SAPUI5 提供的对话框，可以显示信息、警告、错误等等。MessageBox 类是静态类，在使用之前必须执行 jQuery.sap.require(&amp;quot;sap.m.MessageBox&amp;quot;) 语句 SAPUI5 包含 jQuery 包，jQuery.</description>
+      <description>消息设置 sap.m.MessageBox SAPUI5 提供的对话框，可以显示信息、警告、错误等等。MessageBox 类是静态类，在使用之前必须执行 jQuery.sap.require(&amp;quot;sap.m.MessageBox&amp;quot;) 语句 SAPUI5 包含 jQuery 包，jQuery.s</description>
     </item>
     
     <item>
@@ -1183,7 +1183,7 @@
       <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5_DataBinding/</guid>
-      <description>Model Binding 单数据绑定 使用数据绑定前，需要先实例化Model.构造函数获取实例的URL或则数据本身作为第一个参数。 ​ JSON-Model: ​ var oModel = new sap.ui.model.json.JSONModel(dataUrlOrData); ​ XML-Model: ​ var oModel = new sap.ui.model.xml.XMLModel(dataUrlOrData); ​</description>
+      <description>Model Binding 单数据绑定 使用数据绑定前 需要先实例化Model。构造函数获取实例的 URL 或则数据本身作为第一个参数。 JSON-Model: var oModel = new sap.ui.model.json.JSONModel(dataUrlOrData); XML-Model: var oModel = new sap.ui.model.xml.XMLModel(dataUrlOrData); OData-Model: var oModel = new sap.ui.model.odata.ODataModel(dataUrl[,userJSON,user,pass]); 给 Model</description>
     </item>
     
     <item>
@@ -1201,7 +1201,7 @@
       <pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5_DataOption/</guid>
-      <description>数据类型和操作 基本数据类型 ​ sap.ui.model.type.Integer(oFormatOptions?, oConstraints?):支持minimum,maximum ​ sap.ui.model.type.Float(oFormatOptions?, oConstraints?):decima</description>
+      <description>数据类型和操作 基本数据类型 sap.ui.model.type.Integer(oFormatOptions?, oConstraints?):支持minimum,maximum sap.ui.model.type.Float(oFormatOptions?, oConstraints?):decimalS</description>
     </item>
     
     <item>
@@ -1219,7 +1219,7 @@
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5_Layout/</guid>
-      <description>Layout设置 多页面显示和跳转 ​ sap.m.App : 是一个全局对象，可以通过 app.to(sPageId) 跳转到另一个页面。 ​ to(sPageId, sTransitionName ? , oData ? , oTransitionParameters ? ): [sap.m.NavContainer] ​ app.back()则跳回到刚才</description>
+      <description>Layout设置 多页面显示和跳转 sap.m.App : 是一个全局对象，可以通过 app.to(sPageId) 跳转到另一个页面。 to(sPageId, sTransitionName ? , oData ? , oTransitionParameters ? ): [sap.m.NavContainer] app.back()则跳回到刚才的pa</description>
     </item>
     
     <item>
@@ -1228,7 +1228,7 @@
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5_Basic/</guid>
-      <description>SAPUI5概述 SAPUI5:一套基于HTML5,CSS3,JavaScript的开发框架 SAPUI5包括内容 重构的JavaScript语法</description>
+      <description>SAPUI5 概述 SAPUI5：一套基于 HTML5、CSS3、JavaScript 的开发框架。 SAPUI5 内容 重构的 JavaScript 语法规范，帮助用户使用一致的、规范的语法使用</description>
     </item>
     
     <item>
@@ -1255,7 +1255,7 @@
       <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/WM_Q1/</guid>
-      <description>Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU XXXXXX(Error BS001 when posting goods movment)? A：需要每次进行移库前刷新数据： 调用BAPI进行</description>
+      <description>Q：当进行移库操作时，同一个程序中执行多次移库动作会产生Error Message:No status object is available for HU XXXXXX(Error BS001 when posting goods movment)? A：需要每次进行移库前刷新数据： 调用 BAPI 进行移库操</description>
     </item>
     
     <item>

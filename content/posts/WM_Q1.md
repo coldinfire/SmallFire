@@ -15,7 +15,7 @@ Q：当进行移库操作时，同一个程序中执行多次移库动作会产�
 
 A：需要每次进行移库前刷新数据：
 
-调用BAPI进行移库操作
+调用 BAPI 进行移库操作
 
 - CALL FUNCTION 'HU_PACKING_REFRESH'.
   

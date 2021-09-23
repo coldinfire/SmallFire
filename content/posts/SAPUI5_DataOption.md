@@ -16,21 +16,19 @@ tags:
 
 ### 基本数据类型
 
-> ​	sap.ui.model.type.Integer(oFormatOptions?, oConstraints?):支持minimum,maximum
+> sap.ui.model.type.Integer(oFormatOptions?, oConstraints?):支持minimum,maximum
 >
-> ​	sap.ui.model.type.Float(oFormatOptions?, oConstraints?):`decimalSeparator`定义小数位的分隔符
+> sap.ui.model.type.Float(oFormatOptions?, oConstraints?):`decimalSeparator`定义小数位的分隔符
 >
-> ​	sap.ui.model.type.String(.........)
+> sap.ui.model.type.String(.........)
 >
-> ​	sap.ui.model.type.Boolean
+> sap.ui.model.type.Boolean
 >
-> ​	sap.ui.model.type.Date : ui5支持原数据为JavaScript和原数据为String的日期数据进行格式输出
+> sap.ui.model.type.Date : ui5支持原数据为JavaScript和原数据为String的日期数据进行格式输出
 >
-> ​	sap.ui.model.type.Time : Time也支持原数据为Time类型或者字符串类型
+> sap.ui.model.type.Time : Time也支持原数据为Time类型或者字符串类型
 >
-> ​	sap.ui.model.type.DateTime
-
-
+> sap.ui.model.type.DateTime
 
 ### 属性设置
 
@@ -55,39 +53,44 @@ tags:
 
 ### 数据校验
 
-1. 基本使用
+#### 基本使用
 
-   ​	sap.ui.core.message.MessageManager();
+sap.ui.core.message.MessageManager();
 
-   ​	registerObject(oObject,bHandelValidation) : 第一个参数是ManagedObject对象的实例，第二个参数是boolean类型变量，为true时执行数据校验。
+registerObject(oObject,bHandelValidation)：第一个参数是 ManagedObject 对象的实例；第二个参数是 boolean 类型变量，为 true 时执行数据校验。
 
-   ​	attachValidationError(this,function(){}) : 控件都有该方法，用于校验失败时的处理。
+- attachValidationError(this,function(){})：控件都有该方法，用于校验失败时的处理。
 
-   ​	attachValidationSuccess(this,function(){}) : 用于校验成功时的处理。
 
-   ValueState 种类:setValueState()
+- attachValidationSuccess(this,function(){})：用于校验成功时的处理。
 
-   ​	sap.ui.core.ValueState.Error
 
-   ​	sap.ui.core.ValueState.None
+ValueState 种类：setValueState()
 
-   ​	sap.ui.core.ValueState.Success
+- sap.ui.core.ValueState.Error
 
-   ​	sap.ui.core.ValueState.Warning	
 
-2. 集中处理数据校验:
+- sap.ui.core.ValueState.None
 
-   sap.ui.core.Core也可添加attachValidationError().
 
-3. 自定义数据类型校验:
+- sap.ui.core.ValueState.Success
 
-   sap.ui.model.SimpleType.extend()自定义数据类型，可以使用formatValue(),parseValue(),validateValue()实现自定义的校验规则和提示消息。
 
-   抛出异常信息：throw new sap.ui.model.ValidationException("Message");
+- sap.ui.core.ValueState.Warning	
 
-   截取异常消息，使用该类型的控件通过`oEvent.getParameter("message")`获取该错误消息。
+#### 集中处理数据校验
 
-   
+sap.ui.core.Core 也可添加 attachValidationError().
+
+#### 自定义数据类型校验
+
+sap.ui.model.SimpleType.extend() 自定义数据类型，可以使用 formatValue()、parseValue()
+
+validateValue() 实现自定义的校验规则和提示消息。
+
+抛出异常信息：throw new sap.ui.model.ValidationException("Message");
+
+截取异常消息：使用该类型的控件通过`oEvent.getParameter("message")`获取该错误消息。
 
 ### Formart设置
 
