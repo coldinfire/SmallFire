@@ -3110,9 +3110,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Excel/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Excel_TemplateOperate/</loc>
       
       <lastmod>2018-11-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Excel_Template/</loc>
+      
+      <lastmod>2018-11-10T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
