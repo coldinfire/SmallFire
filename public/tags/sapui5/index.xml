@@ -17,12 +17,12 @@
     </item>
     
     <item>
-      <title> SAP OData  </title>
-      <link>https://coldinfire.github.io/2019/SAPOData/</link>
+      <title> SAP OData 概述 </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_OData/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPOData/</guid>
-      <description>OData(开放数据协议) 概述 概述: OData 用于定义构建和使用 RESTful API 所需的最佳实践 OData 提供扩展功能，以满足 RESTful API 的任何自定义需求。 REST 代表 Representational State Transf</description>
+      <guid>https://coldinfire.github.io/2019/SAPUI5_OData/</guid>
+      <description>OData (开放数据协议) OData 用于定义构建和使用 RESTful API 所需的最佳实践 OData 提供扩展功能，以满足 RESTful API 的任何自定义需求。 REST 代表 Representational State Transfer。 它依赖于无状</description>
     </item>
     
     <item>

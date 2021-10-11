@@ -382,7 +382,7 @@
       <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/SAP_Query/</guid>
-      <description>SAP Query Tutorial in SAP: SQ01, SQ02, SQ03 ABAP Query用于创建 SAP 系统中尚不存在的Report。 它是为几乎不了解 ABAP 编程的用户而设计的。 ABAP Query 为用户提供了广泛的方式来定义报</description>
+      <description>SAP Query 简介 ABAP Query 用于创建 SAP 系统中尚不存在的 Report。它是为不了解 ABAP 编程的用户而设计的。 ABAP Query 为用户提供了广泛的方式来定义报告和创建不同类型的报</description>
     </item>
     
     <item>
@@ -1133,12 +1133,12 @@
     </item>
     
     <item>
-      <title> SAP OData  </title>
-      <link>https://coldinfire.github.io/2019/SAPOData/</link>
+      <title> SAP OData 概述 </title>
+      <link>https://coldinfire.github.io/2019/SAPUI5_OData/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPOData/</guid>
-      <description>OData(开放数据协议) 概述 概述: OData 用于定义构建和使用 RESTful API 所需的最佳实践 OData 提供扩展功能，以满足 RESTful API 的任何自定义需求。 REST 代表 Representational State Transf</description>
+      <guid>https://coldinfire.github.io/2019/SAPUI5_OData/</guid>
+      <description>OData (开放数据协议) OData 用于定义构建和使用 RESTful API 所需的最佳实践 OData 提供扩展功能，以满足 RESTful API 的任何自定义需求。 REST 代表 Representational State Transfer。 它依赖于无状</description>
     </item>
     
     <item>
@@ -1422,10 +1422,10 @@
     
     <item>
       <title>MM 配置流程</title>
-      <link>https://coldinfire.github.io/2019/MMConfirg/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basic_Confirg/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMConfirg/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basic_Confirg/</guid>
       <description>MM 模块主要配置流程 创建工厂、公司代码 创建库存地点 创建采购组织 创建采购组 MRP Controller 分配工厂到公司 分配采购组织到公司 分配工厂到采购组织 定义物料 定义计划</description>
     </item>
     
@@ -1592,12 +1592,12 @@
     </item>
     
     <item>
-      <title>ABAP 工作流</title>
-      <link>https://coldinfire.github.io/2018/ABAP_WorkFlow/</link>
+      <title>SAP 工作流</title>
+      <link>https://coldinfire.github.io/2018/SAP_WorkFlow/</link>
       <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_WorkFlow/</guid>
-      <description>SAP工作流介绍 工作流是一个基于某组程序规则所采用的路径。是自动运作的任务的进程中，参与的人、文件、信息或任务，以及各个要素间的传递按照规程</description>
+      <guid>https://coldinfire.github.io/2018/SAP_WorkFlow/</guid>
+      <description>SAP 工作流介绍 工作流是一个基于某组程序规则所采用的路径。是自动运作的任务的进程中，参与的人、文件、信息或任务，以及各个要素间的传递按照规程运转</description>
     </item>
     
     <item>

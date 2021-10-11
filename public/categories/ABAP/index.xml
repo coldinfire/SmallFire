@@ -899,12 +899,12 @@
     </item>
     
     <item>
-      <title>ABAP 工作流</title>
-      <link>https://coldinfire.github.io/2018/ABAP_WorkFlow/</link>
+      <title>SAP 工作流</title>
+      <link>https://coldinfire.github.io/2018/SAP_WorkFlow/</link>
       <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_WorkFlow/</guid>
-      <description>SAP工作流介绍 工作流是一个基于某组程序规则所采用的路径。是自动运作的任务的进程中，参与的人、文件、信息或任务，以及各个要素间的传递按照规程</description>
+      <guid>https://coldinfire.github.io/2018/SAP_WorkFlow/</guid>
+      <description>SAP 工作流介绍 工作流是一个基于某组程序规则所采用的路径。是自动运作的任务的进程中，参与的人、文件、信息或任务，以及各个要素间的传递按照规程运转</description>
     </item>
     
     <item>
