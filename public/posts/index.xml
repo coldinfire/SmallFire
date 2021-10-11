@@ -53,12 +53,12 @@
     </item>
     
     <item>
-      <title> BABI-BADI-RFC-BDC 区别 </title>
+      <title> RFC-BAPI-BADI-BDC 区别 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_FunctionDiff/</link>
       <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_Utils_FunctionDiff/</guid>
-      <description>BAPI 介绍 BAPI (Business Application Programming Interface) 代表业务应用程序编程接口。 BAPI 是存储在 SAP 系统的 BOR（业务对象库）中以执行特定业务任务的特定方法。 它支持 SAP 组件之间以及 SAP 和非 SAP</description>
+      <description>RFC RFC 代表远程函数调用。 它是 SAP 环境中不同系统应用程序之间通信的协议，包括 SAP 系统之间以及 SAP 系统与非 SAP 系统之间的连接。 它是用于不同 SAP 系统之间通信的</description>
     </item>
     
     <item>
