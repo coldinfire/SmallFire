@@ -87,7 +87,8 @@ From 内容
 - 输出参数：用于记录 Smartform 执行的结果，和执行状态的一些参数汇总
 - 异常参数：Smartform 执行时遇到异常情况的捕捉
 
-Tables 主要用来传递调用 Smartform 时用来展示的内表数据。
+- Tables 参数：主要用来传递调用 Smartform 时用来展示的内表数据
+
 
 #### Global Definitions
 
@@ -173,11 +174,34 @@ CALL FUNCTION lc_fmnam
     OTHERS             = 5.
 IF sy-subrc <> 0.
   MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
 ENDIF.
 ```
 
+### Smartforms  调用异常信息获取
 
+```ABAP
+IF sy-subrc <> 0.
+  DATA lt_errortab TYPE tsferror.
+  FIELD-SYMBOLS: <fs_errortab>  TYPE LINE OF tsferror.
+  CALL FUNCTION 'SSF_READ_ERRORS'
+    IMPORTING
+      errortab = lt_errortab.
+  LOOP AT lt_errortab ASSIGNING <fs_errortab>.
+    CALL FUNCTION 'NAST_PROTOCOL_UPDATE'
+      EXPORTING
+        msg_arbgb = <fs_errortab>-msgid
+        msg_nr    = <fs_errortab>-msgno
+        msg_ty    = <fs_errortab>-msgty
+        msg_v1    = <fs_errortab>-msgv1
+        msg_v2    = <fs_errortab>-msgv2
+        msg_v3    = <fs_errortab>-msgv3
+        msg_v4    = <fs_errortab>-msgv4
+      EXCEPTIONS
+        OTHERS    = 1.
+  ENDLOOP.
+ENDIF.
+```
 
 
 
