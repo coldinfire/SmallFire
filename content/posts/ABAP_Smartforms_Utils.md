@@ -16,21 +16,20 @@ tags:
 
 如果预览时中文正常，打印出来是乱码的情况，可以尝试在中文环境下重新维护并激活。再次打印应该可以解决。如果还有问题，则检查语言包是否支持中文(或则其他需要使用的语言)。
 
-### Table和Template区别：
+### Table 和 Template 区别：
 
 - 1、`Table` 行为动态，数据输出时会根据列宽自动换行，可以固定列宽，
-  但是默认情况下控制不了行高，如果要想 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （还是 table 控件）的高度来自动翻页.
-- 2、`Template` 为静态，固定列宽、行高，当输出数据过长时会自动截断，通常被用于静态表单开发。
-  template 跟 loop 嵌套使用，可以实现固定行高、列宽的表单开发。需要手动翻页，并程序中计算页码；（或则在程序中设计好固定行数+计算页码）.
+  但是默认情况下控制不了行高，如果要想 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （ table 控件）的高度来自动翻页.
+- 2、`Template` 为静态，固定列宽、行高，当输出数据过长时会自动截断，通常被用于静态表单开发。Template 跟 loop 嵌套使用，可以实现固定行高、列宽的表单开发。需要手动翻页，并程序中计算页码；（或则在程序中设计好固定行数+计算页码）.
 
-### Smartforms Debug
+### Smartform Debug
 
-1. 使用 TCode:Smartforms 进入，输入 smartform name或则同个 NACE 查找到 smartform
+1. 使用事物码 Smartforms 进入，输入 form name 或则通过事物码 NACE 查找到 smartform
 2. 在 smartform 中找到需要 Debug 的一段代码，打上相应的断点
 3. 在导航栏中通过 Environment –> Function Module Name 获取 Function module
-4. 在 SE37 中打开该 Function Module,进入 Main program 找到 Perform GLOBAL_INIT
+4. 在 SE37 中打开该 Function Module，进入 Main program 找到 Perform GLOBAL_INIT
 5. 该 FORM 中进行所有的程序数据初始化，所有 smartform 中的程序行在此处定义，可以打断点
-6. 或则在 Main program 中找到想要打断点的代码位置，运行 Smartform，会进入断点，进行查错
+6. 或则在 Main program 中找到想要打断点的代码位置，运行 Smartform，会进入断点，进行 Debug
 
 ### 输出格式设置
 
