@@ -30,17 +30,17 @@ tags:
 
 对于 **SLIS** 开头的内表或结构，可以在类型池 SLIS 中查看详细信息；**LVC** 开头的可以在数据字典（**SE11**）中查看结构参数。
 
-```JS
+```ABAP
 TYPE-POOLS:SLIS.
 REUSE_ALV_GRID_DISPLAY:
   DATA: gt_fieldcat TYPE slis_t_fieldcat_alv,
-        wa_fieldcat TYPE slis_fieldcat_alv,
-        gt_layout   TYPE slis_layout_alv.
+        gs_fieldcat TYPE slis_fieldcat_alv,
+        layout   TYPE slis_layout_alv.
 
 REUSE_ALV_GRID_DISPLAY_LVC:
-  DATA: gt_fieldcat TYPE lvc_t_fcat,
-        wa_fieldcat TYPE lvc_s_fcat,
-        gt_layout   TYPE lvc_s_layo.
+  DATA: gt_lvc_fieldcat TYPE lvc_t_fcat,
+        gs_lvc_fieldcat TYPE lvc_s_fcat,
+        lvc_layout   TYPE lvc_s_layo.
 ```
 
 ### 字段目录和布局
@@ -103,23 +103,22 @@ REUSE_ALV_GRID_DISPLAY_LVC:
 通过宏来设置 FIELDCAT 属性 &1 &2 &3 分别为参数。
 
 ```JS
-DATA: slis_alv_fieldcat TYPE SLIS_T_FIELDCAT_ALV WITH HEADER LINE. 
-DEFINE fieldcatset.
-   slis_alv_fieldcat-REF_TABNAME ='LSPFLI'.
-   slis_alv_fieldcat-FIELDNAME = &1.
-   slis_alv_fieldcat-SELTEXT_L = &2.
-   slis_alv_fieldcat-SELTEXT_M = &2.
-   slis_alv_fieldcat-SELTEXT_S = &2.
-   slis_alv_fieldcat-COL_POS = &3.
-   APPEND slis_alv_fieldcat.
-   CLEAR slis_alv_fieldcat.
+DEFINE fieldcat.
+  clear gs_fieldcat.
+  gs_fieldcat-fieldname = &1.
+  gs_fieldcat-seltext_l = &2.
+  gs_fieldcat-seltext_m = &2.
+  gs_fieldcat-seltext_s = &2.
+  gs_fieldcat-col_pos = &3.
+  gs_fieldcat-ref_tabname ='LSPFLI'.
+  APPEND gs_fieldcat TO gt_fieldcat.
 END-OF-DEFINITION.
-fieldcatset 'CARRID' '航线承运人' SY-TABIX.
+fieldcat 'CARRID' '航线承运人' SY-TABIX.
 ```
 
 #### 半自动创建：参考数据字典中的现有透明表
 
-调用 FM： **REUSE_ALV_FIELDCATALOG_MERGE** 来对相应的Fieldcat 进行匹配。
+调用 FM： **REUSE_ALV_FIELDCATALOG_MERGE** 来对相应的 Fieldcat 进行匹配。
 
 使用数据字典中的透明表或视图时
 
@@ -130,10 +129,11 @@ fieldcatset 'CARRID' '航线承运人' SY-TABIX.
 - 必须保证该结构或内表中的每个字段的定义只能使用 LIKE 操作符。
 - 使用 TYPE 时，该字段在使用 REUSE_ALV_FIELDCATALOG_MERGE 函数时将被忽略，不参照字典类型直接定义类型的除外。
 
-```JS
+```ABAP
 TYPE-POOLS: SLIS.
-DATA:gt_fieldcat TYPE TYPE slis_t_fieldcat_alv WITH HEADER LINE,
+DATA:gt_fieldcat TYPE TYPE slis_t_fieldcat_alv,
      gs_fieldcat TYPE slis_fieldcat_alv.
+CLEAR gt_fieldcat.
 CALL function 'REUSE_ALV_FIELDCATALOG_MERGE'
   EXPORTING
     I_PROGRAM_NAME         =  SY-REPID
@@ -157,6 +157,7 @@ CALL function 'REUSE_ALV_FIELDCATALOG_MERGE'
         MODIFY gt_fieldcat FROM gs_fieldcat.
         ......
     ENDCASE.
+    CLEAR gs_fieldcat.
   ENDLOOP.
 ```
 
@@ -173,18 +174,17 @@ CALL function 'REUSE_ALV_FIELDCATALOG_MERGE'
 #### 手动生成： FIELDCAT 字段结构
 
 ```JS
-DATA: lvc_alv_fieldcat TYPE LVC_T_FCAT WITH HEADER LINE. 
-DEFINE fieldcatset.
-   lvc_alv_fieldcat-REF_TABLE ='LSPFLI'.
-   lvc_alv_fieldcat-FIELDNAME = &1.
-   lvc_alv_fieldcat-SCRTEXT_L = &2.
-   lvc_alv_fieldcat-SCRTEXT_M = &2.
-   lvc_alv_fieldcat-SCRTEXT_S = &2.
-   lvc_alv_fieldcat-COL_POS = &3.
-   APPEND lvc_alv_fieldcat.
-   CLEAR lvc_alv_fieldcat.
+DEFINE fieldcat.
+   CLEAR gs_lvc_fieldcat.
+   gs_lvc_fieldcat-REF_TABLE ='LSPFLI'.
+   gs_lvc_fieldcat-FIELDNAME = &1.
+   gs_lvc_fieldcat-SCRTEXT_L = &2.
+   gs_lvc_fieldcat-SCRTEXT_M = &2.
+   gs_lvc_fieldcat-SCRTEXT_S = &2.
+   gs_lvc_fieldcat-COL_POS = &3.
+   APPEND gs_lvc_fieldcat TO gt_lvc_fieldcat.
 END-OF-DEFINITION.
-fieldcatset 'CARRID' '航线承运人' SY-TABIX.
+fieldcat 'CARRID' '航线承运人' SY-TABIX.
 ```
 
 #### 半自动创建：直接参考数据字典中的现有透明表
@@ -192,8 +192,9 @@ fieldcatset 'CARRID' '航线承运人' SY-TABIX.
 既可以根据定义的内表，也可以根据数据字典存在的结构或表，视图创建。
 
 ```js
-DATA:gt_fieldcat TYPE LVC_T_FCAT,
-     gs_fieldcat TYPE LVC_S_FCAT.
+DATA:gt_lvc_fieldcat TYPE LVC_T_FCAT,
+     gs_lvc_fieldcat TYPE LVC_S_FCAT.
+CLEAR gt_lvc_fieldcat.
 CALL function 'LVC_FIELDCATALOG_MERGE'
   EXPORTING
     "I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE"
@@ -202,7 +203,7 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
     "I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER"
     "I_INTERNAL_TABNAME     = 'INTERNAL_TABNAME' 
   CHANGING
-    ct_fieldcat            = gt_fieldcat  "对应ALV显示的字段结构"
+    ct_fieldcat            = gt_lvc_fieldcat  "对应ALV显示的字段结构"
   EXCEPTIONS
     inconsistent_interface = 1
     program_error          = 2.
