@@ -336,13 +336,13 @@ GUI Status 参数设置共包括3个部分：
 
 ####  在ALV函数中使用 GUI Status
 
-```jsp
+```ABAP
 call function 'REUSE_ALV_GRID_DISPLAY_LVC'
   exporting
     i_callback_program       = sy-repid 
-    i_callback_pf_status_set = 'FRM_SET_STATUS'
-    i_callback_user_command  = 'FRM_USER_COMMAND'
-    is_layout_lvc            = lw_layout
+    i_callback_pf_status_set = 'PF_STATUS_SET'
+    i_callback_user_command  = 'USER_COMMAND'
+    is_layout_lvc            = layout
     it_fieldcat_lvc          = gt_fieldcat
     i_default                = 'X'
     i_save                   = 'X'
@@ -361,8 +361,8 @@ GUI TITLE设置：
 
 #### 自定义状态栏
 
-```JS
-FORM frm_set_status using extab TYPE slis_t_extab.
+```ABAP
+FORM pf_status_set using extab TYPE slis_t_extab.
   data: ls_slis_extab type slis_extab.
   "排除按钮不显示"
   ls_slis_extab-fcode = '&ABC'.
@@ -370,14 +370,14 @@ FORM frm_set_status using extab TYPE slis_t_extab.
   ......
   SET TITLEBAR 'TITLE' WITH text-t01.          "输入标题栏名称"
   SET PF-STATUS <STATUS_NAME> EXCLUDING extab. "输入自定义按钮工具的名称,并排除指定按钮"
-ENDFORM.                    "frm_set_status"
+ENDFORM.                    "pf_status_set"
 ```
 
-**按钮处理** 
+#### 按钮处理 
 
-```JS
-Form frm_set_command using p_ucomm type sy-ucomm
-                           i_selfield type slis_selfield.
+```ABAP
+Form user_command using p_ucomm type sy-ucomm
+                     i_selfield type slis_selfield.
   data:ls_stable type lvc_s_stbl.
   data:lr_grid type ref to cl_gui_alv_grid.
   call function 'GET_GLOBALS_FROM_SLVC_FULLSCR'
@@ -406,16 +406,16 @@ Form frm_set_command using p_ucomm type sy-ucomm
       ENDIF.
   endcase.
  call method lr_grid->refresh_table_display.
-endform.
+ENDFORM.                    "user_command"
 ```
 
-**自定义按钮**
+#### 自定义按钮
 
 对于定义的按钮，我们可以通过系统变量SY-UCOMM来获取它的功能代码。
 
-```js
-AT USER-COMMAND.   "当单击某个按钮时，触发该事件
-  CASE sy-ucomm.  "获取所操作按钮的功能代码(FUNCTION Code)
+```ABAP
+AT USER-COMMAND.  "当单击某个按钮时，触发该事件"
+  CASE sy-ucomm.  "获取所操作按钮的功能代码(FUNCTION Code)"
 ```
 -   调用显示，应用于START-OF-SELECTION事件`SET PF-STATUS <STATUS_NAME>.`  
     
