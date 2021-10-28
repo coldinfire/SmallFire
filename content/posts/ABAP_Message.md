@@ -22,7 +22,7 @@ tags:
 
 #### 消息类的操作
 
-使用 T-CODE:SE91 对 Message 定义，还能够对 Message 进行创建，修改及删除等维护操作。
+使用事物码 SE91 对 Message 定义，还能够对 Message 进行创建，修改及删除等维护操作。
 
 Message Short Text 字段为类描述，可以定义输入参数&，通过‘&’定义多个占位符，如"1&2&3&"表示有三个输入参数。
 
@@ -38,20 +38,37 @@ MESSAGE E001(ZTEST).
 
 - ZTEST：自定义的消息类
 
+#### 系统消息组成完整文本
 
-#### 获取标准错误信息
+使用 MESSAGE INOT text：
 
-```javascript
+```ABAP
 DATA msgtext TYPE string.
-CALL BAPI .... 
+"CALL BAPI"
 IF sy-subrc <> 0.
   MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-          INTO msgtext
-          WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    INTO msgtext
+    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
 ENDIF. 
 ```
 
-#### MESSAGE显示
+调用函数将消息组成文本：
+
+```ABAP
+DATA msgtext TYPE string.
+CALL FUNCTION 'MESSAGE_TEXT_BUILD'
+  EXPORTING
+    msgid = sy-msgid
+    msgnr = sy-msgno
+    msgv1 = sy-msgv1
+    msgv2 = sy-msgv2
+    msgv3 = sy-msgv3
+    msgv4 = sy-msgv4
+  IMPORTING
+    message_text_output = msgtext.
+```
+
+#### MESSAGE 显示
 
 - `MESSAGE e001(00) WITH '12345678'. `：利用定义的参数
 -  `MESSAGE 'XXXXXXXXXX' TYPE 'X'. `：直接附加消息
@@ -59,7 +76,7 @@ ENDIF.
 
 #### 增强的 Warning Message 不显示
 
-我在 ME22N 的增强面临这些样的问题。 我使用以下方法显示警告消息并将其附加到在检查文档时获得的日志中的警告消息。
+在 ME22N 的增强面临这样的问题。 使用以下方法显示警告消息并将其附加到在检查文档时获得的日志中的警告消息。
 
 ```ABAP
 DATA: msgv1 TYPE symsgv,
@@ -79,13 +96,13 @@ CALL METHOD cl_message_mm=>create
 
 #### 用函数方式返回消息显示
 
-- MESSAGES_INITIALIZE:Message init
+- MESSAGES_INITIALIZE：Message init
 
-- MESSAGE_STORE:Store message
-- MESSAGES_GIVE:Message show
+- MESSAGE_STORE：Store message
+- MESSAGES_GIVE：Message show
 - MESSAGES_SHOW
 
-```html
+```ABAP
 DATA: lt_mesg TYPE TABLE OF mesg WITH HEADER LINE.
 LOOP AT message.
   lt_mesg-zeile = message-row.
@@ -148,10 +165,10 @@ CALL FUNCTION 'MESSAGES_SHOW'
 
 #### 获取消息内容的BAPI
 
-```JS
-DATA l_msgid     TYPE bapiret2-id.
-DATA l_msgnr     TYPE bapiret2-number.
-DATA l_message   TYPE bapiret2-message.
+```ABAP
+DATA l_msgid    TYPE bapiret2-id.
+DATA l_msgnr    TYPE bapiret2-number.
+DATA l_message  TYPE bapiret2-message.
 CALL FUNCTION 'BAPI_MESSAGE_GETDETAIL'
         EXPORTING
           id                 = l_msgid
@@ -170,3 +187,4 @@ CALL FUNCTION 'BAPI_MESSAGE_GETDETAIL'
 *       TABLES
 *         TEXT               =    .
 ```
+
