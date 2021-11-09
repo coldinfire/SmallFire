@@ -1421,21 +1421,21 @@
     </item>
     
     <item>
-      <title> GRID ALV Demo </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</link>
+      <title> GRID LVC ALV Demo </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV_LVC/</link>
       <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</guid>
-      <description>GRID ALV 程序实例 REPORT zgrid_demo. TYPE-POOLS: slis. TABLES: lqua,aufk,afpo,zdemo,rlgrap. &amp;#34;ALV Data&amp;#34; DATA: gt_demo TYPE STANDARD TABLE OF zdemo, gs_dmeo TYPE zdmeo. &amp;#34;ALV Parameter&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, gs_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS: p_chk2 RADIOBUTTON GROUP zr01. &amp;#34;</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV_LVC/</guid>
+      <description>GRID LVC ALV 程序实例 REPORT zgrid_lvc_demo. TYPE-POOLS: slis. TABLES: lqua,aufk,afpo,zdemo,rlgrap. &amp;#34;ALV Data&amp;#34; DATA: gt_demo TYPE STANDARD TABLE OF zdemo, gs_dmeo TYPE zdmeo. &amp;#34;ALV Parameter&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, gs_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS: p_chk2 RADIOBUTTON GROUP zr01.</description>
     </item>
     
     <item>
-      <title> List ALV Demo </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_Demo_ListALV/</link>
+      <title> GRID ALV Demo </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</link>
       <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_ListALV/</guid>
-      <description>List ALV 程序实例</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</guid>
+      <description>GRID ALV 程序实例 REPORT zgrid_demo. TYPE-POOLS: slis. TABLES: lqua,aufk,afpo,zdemo,rlgrap. &amp;#34;ALV Data&amp;#34; DATA: gt_demo TYPE STANDARD TABLE OF zdemo, gs_dmeo TYPE zdmeo. &amp;#34;ALV Parameter&amp;#34; DATA: gt_fieldcat TYPE slis_t_fieldcat_alv, gs_fieldcat TYPE slis_fieldcat_alv, gt_events TYPE slis_alv_event, gs_events TYPE slis_t_event, layout TYPE slis_layout_alv. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12.</description>
     </item>
     
     <item>

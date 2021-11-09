@@ -1,6 +1,6 @@
 ---
-title: " GRID ALV Demo "
-date: 2018-06-26
+title: " GRID LVC ALV Demo "
+date: 2018-06-27
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -9,23 +9,22 @@ categories:
 
 tags: 
   - ALV
+
 ---
 
-### GRID ALV 程序实例
+### GRID LVC ALV 程序实例
 
 ```ABAP
-REPORT  zgrid_demo.
+REPORT  zgrid_lvc_demo.
 TYPE-POOLS: slis.
 TABLES: lqua,aufk,afpo,zdemo,rlgrap.
 "ALV Data"
 DATA: gt_demo TYPE STANDARD TABLE OF zdemo,
       gs_dmeo TYPE zdmeo.
 "ALV Parameter"
-DATA: gt_fieldcat TYPE slis_t_fieldcat_alv,
-      gs_fieldcat TYPE slis_fieldcat_alv,
-      gt_events TYPE slis_alv_event,
-      gs_events TYPE slis_t_event,
-      layout   TYPE slis_layout_alv.
+DATA: gt_fieldcat TYPE lvc_t_fcat,
+      gs_fieldcat TYPE lvc_s_fcat,
+      gs_layout   TYPE lvc_s_layo.
 "Select screen"
 SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN POSITION 1.
@@ -47,23 +46,6 @@ SELECT-OPTIONS: s_matnr FOR matnr MODIF ID z02,
                 s_seqnr FOR aufk-seqnr MODIF ID z02,
                 s_kdpos FOR afpo-kdpos MODIF ID z02.
 SELECTION-SCREEN END OF BLOCK blk2.
-"Marco Define
-DEFINE mro_fcat.
-  clear: ls_fcat.
-  ls_fcat-fieldname = &1.
-  translate ls_fcat-fieldname to upper case.
-  ls_fcat-reptext_ddic = &2.
-  ls_fcat-seltext_l = &2.
-  ls_fcat-seltext_m = &2.
-  ls_fcat-seltext_s = &2.
-  ls_fcat-no_zero = 'X'.
-  if ls_fcat-fieldname eq 'CHECKBOX'.
-    ls_fcat-checkbox = 'X'.
-    ls_fcat-edit     = 'X'.
-    ls_fcat-just     = 'C'.
-  endif.
-  append ls_fcat to gt_fieldcat.
-END-OF-DEFINITION.
 " Screen Group control "
 AT SELECTION-SCREEN OUTPUT.
   LOOP AT SCREEN.
@@ -89,6 +71,7 @@ AT SELECTION-SCREEN OUTPUT.
       ENDIF.
     ENDIF.
   ENDLOOP.
+
 "Screen Event"
 START-OF-SELECTION .
   "Extract data"
@@ -113,86 +96,12 @@ ENDFORM.                    " FRM_EXTRACT_DATA"
 *&      Form  FRM_DISPLAY
 *&---------------------------------------------------------------------*
 FORM frm_display .
-  CLEAR layout.
-  layout-zebra = 'X'.
-  layout-colwidth_optimize = 'X'.
+  CLEAR gs_layout.
+  gs_layout-zebra = 'X'.
+  gs_layout-col_opt = 'X'.
+  gs_layout-cwidth_opt = 'X'.
   CLEAR gt_fieldcat.
-  PERFORM frm_init_fcat.
-  PERFORM frm_event.
-  "显示 ALV"
-  CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'
-    EXPORTING
-      i_callback_program       = sy-repid
-      it_events                = gt_events
-      i_callback_pf_status_set = 'ALV_USER_PF_STATUS'
-      i_callback_user_command  = 'ALV_USER_COMMAND'
-      is_layout                = layout
-      it_fieldcat              = gt_fieldcat
-      i_save                   = 'A'
-    TABLES
-      t_outtab                 = gt_demo.
-  IF sy-subrc <> 0.
-    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-            WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  ENDIF.
-ENDFORM.                    " FRM_DISPLAY"
-*&---------------------------------------------------------------------*
-*&      Form  frm_set_status
-*&---------------------------------------------------------------------*
-FORM alv_user_pf_status USING extab TYPE slis_t_extab.
-  DATA: lt_fcode TYPE STANDARD TABLE OF sy-ucomm.
-  CLEAR lt_fcode.
-    APPEND '&CHNG' TO lt_fcode.
-    APPEND '&MODI' TO lt_fcode.
-    APPEND '&XDPL' TO lt_fcode.
-  SET PF-STATUS 'STATUS' EXCLUDING LT_FCODE.
-ENDFORM.                    "frm_set_status"
-*&---------------------------------------------------------------------*
-*&      Form  frm_user_command
-*&---------------------------------------------------------------------*
-FORM alv_user_command USING r_ucomm LIKE sy-ucomm
-                        rs_selfield TYPE slis_selfield.
-  CASE r_ucomm.
-    WHEN '&F03'.
-      RETURN.
-    WHEN  '&F15'.
-      RETURN.
-    WHEN  '&F15'.
-      RETURN.
-    WHEN OTHERS.
-  ENDCASE.
-  rs_selfield-refresh = 'X'.
-ENDFORM.                    "frm_user_command"
-*&---------------------------------------------------------------------*
-*&      Form  FRM_INIT_FCAT
-*&---------------------------------------------------------------------*
-*       text
-*----------------------------------------------------------------------*
-*  -->  p1        text
-*  <--  p2        text
-*----------------------------------------------------------------------*
-FORM frm_init_fcat .
-  DATA: ls_fcat TYPE slis_fieldcat_alv.
-  mro_fcat 'checkbox'       'Choose'.
-  mro_fcat 'index'          'Index'.
-  mro_fcat 'id'             'Icon'                   .
-  mro_fcat 'message'        'Message'                .
-  mro_fcat 'date'           'Request Date'           .
-  mro_fcat 'werks'          'Plant'                 .
-  mro_fcat 'matnr'          'P/N'                   .
-  mro_fcat 'dismm'          'MRP TYpe'              .
-  mro_fcat 'fxhor'          'Time Fence'            .
-  mro_fcat 'ekgrp'          'Pur.Group'             .
-  mro_fcat 'dispo'          'MRP Controller'        .
-  mro_fcat 'ausss'          'Assembly Scrap'        .
-  mro_fcat 'lgpro'          'Prod Stor Location'    .
-  mro_fcat 'lgfsb'          'Storage Loc For EP'    .
-  mro_fcat 'ueeto'          'Overdely Tol.'         .
-  mro_fcat 'disls'          'Lot Size'              .
-  mro_fcat 'webaz'          'GR Time'               .
-  mro_fcat 'bstmi'          'Min Log Size'          .
-"半自动创建"
-  CALL FUNCTION 'REUSE_ALV_FIELDCATALOG_MERGE'
+  CALL FUNCTION 'LVC_FIELDCATALOG_MERGE'
     EXPORTING
       i_structure_name       = 'ZDEMO_STRUCTURE'
     CHANGING
@@ -205,30 +114,52 @@ FORM frm_init_fcat .
     MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
             WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   ENDIF.
-ENDFORM.                    " FRM_INIT_FCAT
-FORM frm_event.
-  CLEAR gt_events.
-  CALL FUNCTION 'REUSE_ALV_EVENTS_GET'
+  DELETE gt_fieldcat WHERE fieldname EQ 'STATUS'.
+  "显示 ALV"
+  CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY_LVC'
     EXPORTING
-      i_list_type = 0
-    IMPORTING
-      et_events   = gt_events.
-  CLEAR gs_events.
-  READ TABLE gt_events
-    WITH KEY name = slis_ev_user_command
-      INTO gs_events.
-  IF sy-subrc = 0.
-    gs_events-form = 'USER_COMMAND'.
-    APPEND gs_events TO gt_events.
+      i_callback_program       = sy-repid
+      i_callback_pf_status_set = 'FRM_SET_STATUS'
+      i_callback_user_command  = 'FRM_USER_COMMAND'
+      is_layout_lvc            = gs_layout
+      it_fieldcat_lvc          = gt_fieldcat
+      i_default                = 'X'
+      i_save                   = 'X'
+    TABLES
+      t_outtab                 = gt_demo
+    EXCEPTIONS
+      program_error            = 1.
+  IF sy-subrc <> 0.
+    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+            WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   ENDIF.
-  CLEAR gs_events.
-  READ TABLE gt_events
-    WITH KEY name = slis_ev_pf_status_set
-      INTO gs_events.
-  IF sy-subrc = 0.
-    gs-form = 'STATUS'.
-    APPEND gs_events TO gs_events.
-  ENDIF.
-ENDFORM.
+ENDFORM.                    " FRM_DISPLAY"
+*&---------------------------------------------------------------------*
+*&      Form  frm_set_status
+*&---------------------------------------------------------------------*
+FORM frm_set_status USING extab TYPE slis_t_extab.
+  DATA: lt_fcode TYPE STANDARD TABLE OF sy-ucomm.
+  CLEAR lt_fcode.
+    APPEND '&CHNG' TO lt_fcode.
+    APPEND '&MODI' TO lt_fcode.
+    APPEND '&XDPL' TO lt_fcode.
+  SET PF-STATUS 'STATUS' EXCLUDING LT_FCODE.
+ENDFORM.                    "frm_set_status"
+*&---------------------------------------------------------------------*
+*&      Form  frm_user_command
+*&---------------------------------------------------------------------*
+FORM frm_user_command USING r_ucomm LIKE sy-ucomm
+                        rs_selfield TYPE slis_selfield.
+  CASE r_ucomm.
+    WHEN '&F03'.
+      RETURN.
+    WHEN  '&F15'.
+      RETURN.
+    WHEN  '&F15'.
+      RETURN.
+    WHEN OTHERS.
+  ENDCASE.
+  rs_selfield-refresh = 'X'.
+ENDFORM.                    "frm_user_command"
 ```
 
