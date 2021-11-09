@@ -21,7 +21,7 @@ DATA: BEGIN OF gt_print OCCURS 10,
 DATA: END OF gt_print.
 ```
 
-#### FIELDCAT添加并定义CheckBox
+#### FIELDCAT 添加 CheckBox
 
 ```JS
 "$. Region ALV_Data"
