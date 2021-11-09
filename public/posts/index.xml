@@ -647,12 +647,12 @@
     </item>
     
     <item>
-      <title> ABAP搜索帮助 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SearchHelp/</link>
+      <title> SAP 搜索帮助 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_Table_SearchHelp/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SearchHelp/</guid>
-      <description>使用搜索帮助对象 1、在命令字段中输入事务代码 SE11。 2、选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 3、在下一个</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_Table_SearchHelp/</guid>
+      <description>使用搜索帮助对象 定义 Search Help 在命令字段中输入事务代码 SE11；选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 1、在下一个</description>
     </item>
     
     <item>
@@ -2116,7 +2116,7 @@
     <item>
       <title>ALV 屏幕其它功能设置</title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</link>
-      <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</guid>
       <description>屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &amp;lt;pos(len)&amp;gt; &amp;lt;name&amp;gt; USER-COMMAND &amp;lt;ucom&amp;gt; [MODIF ID &amp;lt;key&amp;gt;]. /n :按钮初始时距离屏幕左边的位置 &amp;lt;pos(len)&amp;gt;：PUSHBUTTON按钮在屏幕生成的位置</description>
@@ -2125,19 +2125,28 @@
     <item>
       <title>Field Catalog 字段排坑</title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</link>
-      <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</guid>
       <description>原文链接：https://blog.csdn.net/zhongguomao/article/details/77774206 对于初写 ALV 的 A</description>
     </item>
     
     <item>
+      <title> GRID ALV Demo </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</link>
+      <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</guid>
+      <description>GRID ALV 程序实例 REPORT zgrid_demo. TYPE-POOLS: slis. TABLES: lqua,aufk,afpo,zdemo,rlgrap. &amp;#34;ALV Data&amp;#34; DATA: gt_demo TYPE STANDARD TABLE OF zdemo, gs_dmeo TYPE zdmeo. &amp;#34;ALV Parameter&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, gs_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS: p_chk2 RADIOBUTTON GROUP zr01. &amp;#34;</description>
+    </item>
+    
+    <item>
       <title> List ALV Demo </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_LVCGridDemo/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Demo_ListALV/</link>
       <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_LVCGridDemo/</guid>
-      <description>List ALV 程序实例 *&amp;amp;--------------------------------------- *&amp;amp; Report ZWR_PI_LOG *&amp;amp;--------------------------------------- REPORT zwr_pi_log. TABLES: lqua ,zpidoc. TYPE-POOLS: slis. DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc, ls_pidoc TYPE zpidoc . &amp;#34;ALV Data&amp;#34; DATA: gt_fieldcat TYPE lvc_t_fcat, gs_fieldcat TYPE lvc_s_fcat, gs_layout TYPE lvc_s_layo. &amp;#34;Select screen&amp;#34; SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN POSITION 1. PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT &amp;#39;X&amp;#39; USER-COMMAND zchg. SELECTION-SCREEN COMMENT 3(8) text-002 FOR FIELD p_chk1. SELECTION-SCREEN POSITION 12. PARAMETERS:</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_ListALV/</guid>
+      <description>List ALV 程序实例</description>
     </item>
     
     <item>
@@ -2294,7 +2303,7 @@
     </item>
     
     <item>
-      <title>ABAP Form和Function</title>
+      <title>ABAP Form &amp; Function</title>
       <link>https://coldinfire.github.io/2018/ABAP_SubRoutines/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
@@ -2308,7 +2317,7 @@
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Table_InnerTable/</guid>
-      <description>内表定义 工作区域 工作区域可以存放多个变量数据，相当于一维数组。 间接定义：通过 Type 定义结构类型，然后通过DATA赋值 TYPES: BEGIN OF str_order. aufnr TYPE afko-aufnr, dauat TYPE afpo-dauat, END OF str_order. &amp;#34;</description>
+      <description>内表定义 工作区域 工作区域可以存放多个变量数据，相当于一维数组。 间接定义：通过 TYPES 定义结构类型，然后通过 DATA 赋值 TYPES: BEGIN OF str_order. aufnr TYPE afko-aufnr, dauat TYPE afpo-dauat, END OF str_order. &amp;#34; TYP</description>
     </item>
     
     <item>

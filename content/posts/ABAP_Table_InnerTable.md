@@ -18,7 +18,7 @@ tags:
 
 工作区域可以存放多个变量数据，相当于一维数组。
 
-间接定义：通过 Type 定义结构类型，然后通过DATA赋值
+*间接定义*：通过 TYPES 定义结构类型，然后通过 DATA 赋值
 
 ```ABAP
 TYPES: BEGIN OF str_order.
@@ -30,7 +30,7 @@ DATA: lt_table TYPE TABLE OF str_order,
       ls_table TYPE str_order.
 ```
 
-直接定义：直接使用 DATA 声明一个结构对象，可以在后续程序中直接使用该工作区
+*直接定义*：直接使用 DATA 声明一个结构对象，可以在后续程序中直接使用该工作区
 
 ```ABAP
 DATA: BEGIN OF str_matnr,   
@@ -39,11 +39,11 @@ DATA: BEGIN OF str_matnr,
 END OF str_matnr.
 ```
 
-参照DB或则结构创建工作区：`DATA <wa> TYPE <dbtab>|<str>.`
+参照 DB 或结构创建工作区：`DATA <wa> TYPE <dbtab>|<str>.`
 
-参照内表创建工作区：`DATA  <wa>  LIKE LINE OF <dbtab>.`
+参照内表创建工作区：`DATA <wa> LIKE LINE OF <dbtab>.`
 
-继承结构：结构复用，作用是将结构类型 structure_type 与结构变量 structure 的所有组件字段拷贝到当前结构定义的指定位置。
+*继承结构*：结构复用，作用是将结构类型 structure_type 与结构变量 structure 的所有组件字段拷贝到当前结构定义的指定位置。
 
 
 - `INCLUDE { {TYPE struc_type} | {STRUCTURE struc} }
@@ -51,29 +51,28 @@ END OF str_matnr.
       
 - 结构对象复用
 
-     - ```javascript
-       DATA: BEGIN OF gt_result OCCURS 0,
-         endcount TYPE zz_final_count,
-         enddiffs TYPE zz_final_diffs. "直接定义组件字段，但前面语句后面使用逗号"
-         INCLUDE STRUCTURE str_matnr.  "直接将结构对象包括进来,也可以是已经定义的结构"
-         INCLUDE TYPE str_order.   "直接将结构类型包括进来"
-         DATA:comm LIKE ztest_str. "直接参照"
-       DATA: END OF gt_result.
-       ```
+     ```ABAP
+     DATA: BEGIN OF gt_result OCCURS 0,
+       endcount TYPE zz_final_count,
+       enddiffs TYPE zz_final_diffs. "直接定义组件字段，但前面语句后面使用逗号"
+       INCLUDE STRUCTURE str_matnr.  "直接将结构对象包括进来,也可以是已经定义的结构"
+       INCLUDE TYPE str_order.   "直接将结构类型包括进来"
+       DATA:comm LIKE ztest_str. "直接参照"
+     DATA: END OF gt_result.
+     ```
 
 - 结构类型复用
 
-
-  - ```ABAP
-    TYPES: BEGIN OF str_result,
-      endcount TYPE zz_final_count,
-      enddiffs TYPE zz_final_diffs. "直接定义字段，但是保留前面的逗号"
-      INCLUDE STRUCTURE str_matnr.  "直接将结构对象包括进来"
-      INCLUDE TYPE str_order.       "直接将结构类型包括进来"
-      TYPES: uname type c,
-        ustatus type c.
-    TYPES: END OF str_pidoc.
-    ```
+     ```ABAP
+     TYPES: BEGIN OF str_result,
+       endcount TYPE zz_final_count,
+       enddiffs TYPE zz_final_diffs. "直接定义字段，但是保留前面的逗号"
+       INCLUDE STRUCTURE str_matnr.  "直接将结构对象包括进来"
+       INCLUDE TYPE str_order.       "直接将结构类型包括进来"
+       TYPES: uname type c,
+         ustatus type c.
+     TYPES: END OF str_pidoc.
+     ```
 
 #### 内表类型
 
@@ -115,9 +114,9 @@ END OF str_matnr.
   
 -    `FREE itab`：清空内表数据存储空间，对工作区不影响。
 
-#### APPEND(增加，内表赋值)
+#### APPEND：增加，内表赋值
 
-有 HEADER LINE 的内表，数据被赋给内表 HEADER LINE后再 APPEND 到表中最后一行。
+有 HEADER LINE 的内表，数据被赋给内表 HEADER LINE 后再 APPEND 到表中最后一行。
 
 - `APPEND itab.`    
 
@@ -127,21 +126,21 @@ END OF str_matnr.
 
 - `APPEND LINES OF itab1 [FROM idx1] [TO idx2]  TO itab2.`
 
-#### INSERT(向内表插入数据)
+#### INSERT：向内表插入数据
 
 
 - `INSERT wa INTO TABLE itab.`：将结构体中数据新增到内表
 - `INSERT wa INTO TABLE itab INDEX index.` ：将结构体中数据插入到内表指定位置
 
 
-- `INSERT LINES OF itab1 [FROM idx1] [TO idx2] INTO itab2 [INDEX idx3].`：将 itab1 指定范围数据插入到 itab2 中
+- `INSERT LINES OF itab1 [FROM idx1] [TO idx2] INTO itab2 [INDEX idx3].`：将 itab1 指定范围数据插入到 itab2 
 
-#### DELETE(删除数据)
+#### DELETE：删除数据
 
 - `DELETE TABLE itab WITH TABLE KEY k1=v1...kn=vn.`：删除单条。多条时只删除第一条，条件为表关键字。
 
 
-- `DELETE TABLE itab [FROM wa].`：删除单条。多条数据时，只删除第一条。条件为所有关键字段，值来自 wa。
+- `DELETE TABLE itab [FROM wa].`：删除单条。多条数据时，只删除第一条。条件为所有关键字段，值来自工作区。
 - `DELETE itab INDEX idx.`：根据索引删除具体行数据。
 - `DELETE itab [FROM n1] [TO n2] WHERE cond1 AND cond2 .`: 根据条件删除多条数据
 
@@ -150,18 +149,17 @@ END OF str_matnr.
 
 
 - `DELETE ADJACENT DUPLICATES FROM itab [COMPARING f1 f2 | ALL FIELDS].`：删除重复数据，仅保留第一条。执行此条件前必须先按照内表关键字声明的顺序进行排序。
+- 如果指定了 COMPARING 选项，则需要根据指定的比较字段顺序进行排序，才能删除所有重复数据
 
-  - 如果指定了COMPARING 选项，则需要根据指定的比较字段顺序进行排序，才能删除所有重复数据
-
-#### MODIFY:(修改内表数据)
+#### MODIFY：修改内表数据
 
 按内表位置或者具体内表字段值相等条件修改内表数据。
 
-- `MODIFY itab [INDEX idx] FROM wa  [TRANSPORTING f1...fn] WHERE condition.`
+- `MODIFY itab [INDEX idx] FROM wa [TRANSPORTING f1...fn] WHERE condition.`
 
-#### READ:(从内表中读取数据)
+#### READ：从内表中读取数据
 
-- `READ TABLE itab [INTO wa] FROM wa.`：以表关键字为查找条件，条件来自 wa。
+- `READ TABLE itab [INTO wa] FROM wa.`：以表关键字为查找条件，条件来自 工作区。
 
 
 - `READ TABLE itab [INTO wa] WITH KEY k1=v1...kn=vn [BINARY SEARCH].`
@@ -170,7 +168,7 @@ END OF str_matnr.
 
 - `READ TABLE itab [INTO wa] INDEX index.`
 
-#### LOOP....ENDLOOP：（循环读取内表数据)
+#### LOOP...ENDLOOP：循环读取内表数据
 
 循环读取内表数据，在循环中使用系统变量SY-TABIX可获取当前所执行的行数。
 
@@ -180,7 +178,7 @@ END OF str_matnr.
 - `LOOP AT ITAB [INTO WA] WHERE cond.`：按具体字段条件读取内表。
 - `LOOP AT ITAB [ASSIGNING wa ] WHERE cond.`：根据查询条件循环内表数据并分配给字段符号。
 
-#### AT...ENDAT（设置内表循环触发条件）
+#### AT...ENDAT：设置内表循环触发条件
 
 该语法为事件控制函数，应用于LOOP循环语句中，用于获取内表的数据变化事件。
 
@@ -200,18 +198,18 @@ Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 wo
 
 - `AT LAST.`：当执行内表最后一行时触发该事件。
 
-#### COLLECT（内表数据分类汇总）
+#### COLLECT：内表数据分类汇总
 
  将内表中相同的字段合并，若有类型为`I`的字段，则将其值加总。
 
 - `COLLECT [wa INTO] itab.`
 
-#### DESCRIBE（获取内表具体属性）
+#### DESCRIBE：获取内表具体属性
 
 - `DESCRIBE TABLE itab LINES n.`：获取内表当前总行数，n 为整型 i。
 - `n = lines (itab). `
 
-#### SORT（内表排序操作）
+#### SORT：内表排序操作
 
 - `SORT itab ASCENDING|DESCENDING BY field1 field2 field3.`
   - 指示符在 BY 在前面，表示后面的字段都用这个升降序，作用范围是后面 BY 所有的字段

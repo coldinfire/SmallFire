@@ -1,6 +1,6 @@
 ---
-title: " List ALV Demo "
-date: 2018-06-26
+title: " GRID ALV Demo "
+date: 2018-06-27
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -12,18 +12,16 @@ tags:
 
 ---
 
-### List ALV 程序实例
+### GRID ALV 程序实例
 
 ```ABAP
-*&---------------------------------------
-*& Report  ZWR_PI_LOG
-*&---------------------------------------
-REPORT  zwr_pi_log.
-TABLES: lqua ,zpidoc.
+REPORT  zgrid_demo.
 TYPE-POOLS: slis.
-DATA: lt_pidoc TYPE STANDARD TABLE OF zpidoc,
-      ls_pidoc TYPE zpidoc .
+TABLES: lqua,aufk,afpo,zdemo,rlgrap.
 "ALV Data"
+DATA: gt_demo TYPE STANDARD TABLE OF zdemo,
+      gs_dmeo TYPE zdmeo.
+"ALV Parameter"
 DATA: gt_fieldcat TYPE lvc_t_fcat,
       gs_fieldcat TYPE lvc_s_fcat,
       gs_layout   TYPE lvc_s_layo.
@@ -39,23 +37,13 @@ SELECTION-SCREEN END OF LINE.
 
 SELECTION-SCREEN BEGIN OF BLOCK blk1 WITH FRAME TITLE text-001.
 PARAMETERS: p_lgnum TYPE lqua-lgnum OBLIGATORY.
-PARAMETERS: p_status TYPE zpidoc-STATUS.
-PARAMETERS: p_file LIKE rlgrap-filename MODIF ID z01.
+PARAMETERS: p_file  LIKE rlgrap-filename MODIF ID z01.
 SELECTION-SCREEN END OF BLOCK blk1.
 
 SELECTION-SCREEN BEGIN OF BLOCK blk2 WITH FRAME TITLE text-004.
-PARAMETERS: p_werks TYPE aufk-werks DEFAULT '1040' MODIF ID z02.
+PARAMETERS: p_werks TYPE aufk-werks MODIF ID z02.
 SELECT-OPTIONS: s_matnr FOR matnr MODIF ID z02,
                 s_seqnr FOR aufk-seqnr MODIF ID z02,
-                s_ablad FOR afpo-ablad MODIF ID z02,
-                s_plnbez FOR afko-plnbez MODIF ID z02,
-                s_fevor FOR afko-fevor MODIF ID z02,
-                s_dispo FOR afko-dispo MODIF ID z02,
-                s_arbpl FOR /sapcem/kla_arb-arbpl MODIF ID z02,
-                s_gstrp FOR afko-gstrp MODIF ID z02,
-                s_gltrp FOR afko-gltrp MODIF ID z02,
-                s_auart FOR aufk-auart MODIF ID z02,
-                s_kdauf FOR afpo-kdauf MODIF ID z02,
                 s_kdpos FOR afpo-kdpos MODIF ID z02.
 SELECTION-SCREEN END OF BLOCK blk2.
 " Screen Group control "
@@ -86,37 +74,20 @@ AT SELECTION-SCREEN OUTPUT.
 
 "Screen Event"
 START-OF-SELECTION .
-  "Pre-check"
-  PERFORM frm_pre_check.
   "Extract data"
   PERFORM frm_extract_data.
   "Display alv"
   PERFORM frm_display.
-END-OF-SELECTION.
-*&---------------------------------------------------------------------*
-*&      Form  FRM_PRE_CHECK
-*&---------------------------------------------------------------------*
-FORM frm_pre_check .
-  DATA:e_message TYPE char100.
-  AUTHORITY-CHECK OBJECT 'XXXX'
-           "ID 'ACTVT' FIELD '03'"
-           ID 'LGNUM' FIELD p_lgnum.
-  IF sy-subrc <> 0.
-    CONCATENATE 'You have no authorization ' p_lgnum INTO e_message RESPECTING BLANKS.
-    MESSAGE e_message TYPE 'S' DISPLAY LIKE 'E'.
-    LEAVE LIST-PROCESSING.
-  ENDIF.
-ENDFORM.                    " FRM_PRE_CHECK"
 *&---------------------------------------------------------------------*
 *&      Form  FRM_EXTRACT_DATA
 *&---------------------------------------------------------------------*
 FORM frm_extract_data .
   SELECT *
-    FROM zpidoc
-    INTO TABLE lt_pidoc
+    FROM zdemo
+    INTO CORRESPONDING TABLE gt_demo
    WHERE lgnum EQ p_lgnum
-     AND PIDOC  IN s_PIDOC.
-  IF lt_pidoc IS INITIAL.
+     AND matnr IN s_matnr.
+  IF gt_demo IS INITIAL.
     MESSAGE 'No data.' TYPE 'S' DISPLAY LIKE 'E'.
     LEAVE LIST-PROCESSING.
   ENDIF.
@@ -132,7 +103,7 @@ FORM frm_display .
   CLEAR gt_fieldcat.
   CALL FUNCTION 'LVC_FIELDCATALOG_MERGE'
     EXPORTING
-      i_structure_name       = 'ZPIDOC_STRUCTURE'
+      i_structure_name       = 'ZDEMO_STRUCTURE'
     CHANGING
       ct_fieldcat            = gt_fieldcat
     EXCEPTIONS
@@ -155,7 +126,7 @@ FORM frm_display .
       i_default                = 'X'
       i_save                   = 'X'
     TABLES
-      t_outtab                 = lt_pidoc
+      t_outtab                 = gt_demo
     EXCEPTIONS
       program_error            = 1.
   IF sy-subrc <> 0.
@@ -172,7 +143,7 @@ FORM frm_set_status USING extab TYPE slis_t_extab.
     APPEND '&CHNG' TO lt_fcode.
     APPEND '&MODI' TO lt_fcode.
     APPEND '&XDPL' TO lt_fcode.
-  SET PF-STATUS 'STANDARD_COPY' EXCLUDING LT_FCODE.
+  SET PF-STATUS 'STATUS' EXCLUDING LT_FCODE.
 ENDFORM.                    "frm_set_status"
 *&---------------------------------------------------------------------*
 *&      Form  frm_user_command

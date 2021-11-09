@@ -1346,7 +1346,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SearchHelp/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_Table_SearchHelp/</loc>
       
       <lastmod>2019-10-12T00:00:00+00:00</lastmod>
       
@@ -3910,7 +3910,7 @@
     <url>
       <loc>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</loc>
       
-      <lastmod>2018-06-29T00:00:00+00:00</lastmod>
+      <lastmod>2018-06-30T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3924,6 +3924,20 @@
     <url>
       <loc>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</loc>
       
+      <lastmod>2018-06-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</loc>
+      
       <lastmod>2018-06-27T00:00:00+00:00</lastmod>
       
       
@@ -3936,7 +3950,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_ALV_LVCGridDemo/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_ALV_Demo_ListALV/</loc>
       
       <lastmod>2018-06-26T00:00:00+00:00</lastmod>
       

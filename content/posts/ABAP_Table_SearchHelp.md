@@ -1,5 +1,5 @@
 ---
-title: " ABAP搜索帮助 "
+title: " SAP 搜索帮助 "
 date: 2019-10-12
 draft: false
 author: Small Fire
@@ -14,37 +14,37 @@ tags:
 
 ### 使用搜索帮助对象
 
-1、在命令字段中输入事务代码 SE11。
+#### 定义 Search Help
 
-2、选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 
+在命令字段中输入事务代码 SE11；选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 
 
-3、在下一个屏幕上，选择 “基本搜索帮助” 选项。
+1、在下一个屏幕上，选择 “基本搜索帮助” 选项。
 
-4、给出一些搜索帮助的描述。
+![Search Help](/images/ABAP/SearchHelp1.png)
 
-5、在选择方法字段中，应输入数据库表名称。该表是我们将从中选择信息类型编号字段的值的表。表 T157D 可用于此目的。
+2、输入搜索帮助的描述。在选择方法字段中，应输入数据库表名称。该表是我们将从中选择信息类型编号字段的值的表。表 T157D 可用于此目的。
 
-6、选择对话框类型：Display values immediately
+![Search Help](/images/ABAP/SearchHelp.png)
 
-7、下面的 “参数” 结构中，输入选择条件所需的字段并显示在值帮助上。
+3、选择对话框类型：Display values immediately
 
-8、本节中的各种选项是：
+4、下面的 “参数” 结构中，输入选择条件所需的字段并显示在值帮助上。参数的各种选项包括：
 
 | 属性                 | 描述                                                         |
 | -------------------- | ------------------------------------------------------------ |
-| **Search help para** | 选择条件所需的字段                                           |
+| **Search help para** | 来自数据源的字段，选择条件所需的字段                         |
 | **IMP**              | 选中此框以指示该字段是输入字段，即将传递给搜索帮助           |
-| **EXP**              | 选中此框以指示该字段是输出字段，即将从 搜索帮助传递到屏幕    |
-| **LPOS**             | 出现在匹配列表中的位置                                       |
-| **SPOS**             | 字段在选择屏幕中显示的位置                                   |
+| **EXP**              | 选中此框以指示该字段是输出字段，即将从搜索帮助传递到屏幕     |
+| **LPOS**             | 控制选择列表中搜索帮助参数或字段出现在匹配列表中的位置       |
+| **SPOS**             | 控制限制性对话框中的搜索帮助参数或字段显示的位置             |
 | **SDIS**             | 使该字段在选择屏幕中 “仅显示”                                |
 | **Data element**     | 设置搜索帮助参数的属性。通常由 系统填写                      |
 | **MOD**              | 选中此框可以分配与系统提供的数据元素不同的数据元素           |
 | **Default**          | 以以下三种方式之一指定默认值："文字"(带引号)，参数ID（ZRD）或系统字段(SY-UNAME) |
 
-9、搜索帮助准备就绪后，将其选中并激活。
+6、搜索帮助准备就绪后，将其选中并激活。
 
-示例代码：Z_MIN_Z21
+#### 示例代码：Z_MIN_Z21
 
 ```JS
 SELECTION-SCREEN BEGIN OF LINE.
@@ -57,7 +57,9 @@ INITIALIZATION.
 
 ![SE11 Serch help](/images/ABAP/SearchHelp2.png)
 
-10、搜索帮助出口 ：`Z_REASON_CODE_MIN_Z21`
+#### 搜索帮助出口 
+
+`Z_REASON_CODE_MIN_Z21`
 
 ```ABAP
 FUNCTION Z_REASON_CODE_MIN_Z21.
@@ -101,9 +103,9 @@ DATA:BEGIN OF l_it_t157d OCCURS 0,
     it_shlpfld-fieldname = it_ddshfprops-fieldname.
     APPEND it_shlpfld.
   ENDLOOP.
-  "DISP ： 在命中清单显示之前调用 ，表示数据已经查出，下一步就该显示了。"
+  "DISP：在命中清单显示之前调用,表示数据已经查出,下一步就该显示了。"
   CHECK callcontrol-step = 'DISP'. 
-  " shlp-selopt 存储的是经过映射转换后选择屏幕上字段的值，而不是直接为选择屏幕字段名，而是转映射为 Help 参数 "
+  "shlp-selopt存储的是经过映射转换后选择屏幕上字段的值，而不是直接为选择屏幕字段名，而是转映射为Help参数"
   " 名后再存储到 selopt 内表中，屏幕字段到 Help 参数映射是通过 shlp-interface 来映射的。"
   it_ddshselopt[] = shlp-selopt.
   LOOP AT it_ddshselopt WHERE shlpfield = 'BWART'.
@@ -157,18 +159,15 @@ DATA:BEGIN OF l_it_t157d OCCURS 0,
 ENDFUNCTION.
 ```
 
-![SE11 Serch help](/images/ABAP/SearchHelp.png)
-
 ### FM：F4IF_INT_TABLE_VALUE_REQUEST
 
-在程序运行时,将某个内表动态的用作 **Search help** 的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果。
+在程序运行时，将某个内表动态的用作 **Search help**  的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果。
 
 ```ABAP
 parameters: p_bname LIKE usr02-bname,
             p_class LIKE usr02-class.
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_bname.
 	PERFORM frm_valuereq_bwart.
-
 FORM frm_valuereq_bwart.
 " 需要显示的结果集 "
 DATA: BEGIN OF t_data OCCURS 1,
@@ -213,20 +212,20 @@ ENDFORM.
 
 FORM f_fieldinfo_get USING fu_tabname fu_fieldname
                      CHANGING fwa_field_tab.
-CALL FUNCTION 'DDIF_FIELDINFO_GET'
-  EXPORTING
-    TABNAME = fu_tabname
-    FIELDNAME = fu_fieldname
-    LANGU     = sy-langu
-    LFIELDNAME = fu_fieldname
-  IMPORTING
-    DFIES_WA = fwa_field_tab
-  EXCEPTIONS
-    NOT_FOUND = 1
-    INTERNAL_ERROR = 2
-    OTHERS = 3.
+  CALL FUNCTION 'DDIF_FIELDINFO_GET'
+    EXPORTING
+      TABNAME = fu_tabname
+      FIELDNAME = fu_fieldname
+      LANGU     = sy-langu
+      LFIELDNAME = fu_fieldname
+    IMPORTING
+      DFIES_WA = fwa_field_tab
+    EXCEPTIONS
+      NOT_FOUND = 1
+      INTERNAL_ERROR = 2
+      OTHERS = 3.
   IF SY-SUBRC <> 0.
-	MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
+    MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
     WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
   ENDIF.
 ENDFORM.
@@ -240,6 +239,6 @@ ENDFORM.
 
 - 先  Check Table、再表（或 结构 ）字段是否绑定了 **搜索帮助**
 
-- 先 Data element 是否绑定了帮助 ，再Domain是否存在Fixed values
+- 先 Data element 是否绑定了帮助 ，再 Domain 是否存在 Fixed values
 
 - 最后才是DATS、TIMS.

@@ -1,6 +1,6 @@
 ---
 title: "ALV 屏幕其它功能设置"
-date: 2018-06-29
+date: 2018-06-30
 draft: false
 author: Small Fire
 isCJKLanguage: true
