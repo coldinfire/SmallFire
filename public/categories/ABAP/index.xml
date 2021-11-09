@@ -1494,10 +1494,10 @@
     
     <item>
       <title>ALV添加复选框，并添加全选，不全选功能</title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_CheckBOX/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_CHECKBOX/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_CheckBOX/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_CHECKBOX/</guid>
       <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT 添加 CheckBox &amp;#34;$. Region ALV_Data&amp;#34; TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &amp;#39;CHECKBOX&amp;#39;. alv_fieldcat-scrtext_m = &amp;#39;Choose&amp;#39;. alv_fieldcat-checkbox = &amp;#39;X&amp;#39;. alv_fieldcat-edit = &amp;#39;X&amp;#39;. alv_fieldcat-just = &amp;#39;C&amp;#39;. APPEND alv_fieldcat. 自定义按钮 FORM f_alv_user_command USING</description>
     </item>
     
