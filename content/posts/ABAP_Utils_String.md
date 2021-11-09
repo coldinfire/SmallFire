@@ -91,16 +91,16 @@ WRITE: len.
 判断是否包含特定值
 
 - IF field CN '0123456789'.
-- IF field CN 'ABCDEFG*' 
+- IF field CO 'ABCDEFG*' 
 - IF field CN 'abcdefg*'
 - IF field CN '/' .....
 
-| 表达式                                     | 表达式                                    |
-| ------------------------------------------ | :---------------------------------------- |
-| **CN：Contains Not Only (包含，不仅包含)** | **CO：Contains Only（仅包含）**           |
-| **CS：Contains String (包含字符串)**       | **NS：Contains No String (不包含字符串)** |
-| **NP：No Pattern （不包含记号）**          | **NA：Contains Not Only(不包含任何)**     |
-| **CA：Contains Any（包含任何）**           | **CP：Covers Pattern (包含记号)**         |
+| 表达式 | 描述                                           | 表达式 | 描述                              |
+| :----- | :--------------------------------------------- | :----- | :-------------------------------- |
+| **CO** | Contains Only(仅包含，A是否仅由B中字符组成)    | **CN** | Contains Not Only (不仅包含)      |
+| **CS** | Contains String (包含字符串，A是否包含字符串B) | **NS** | Contains No String (不包含字符串) |
+| **CP** | Covers Pattern (包含模式，A是否包含B中的模式)  | **NP** | No Pattern(不包含记号)            |
+| **CA** | Contains Any(包含任何，A是否至少包含一个B)     | **NA** | Contains Not Only(不包含任何)     |
 
 #### 10.大小写转换
 
