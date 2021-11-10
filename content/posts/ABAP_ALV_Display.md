@@ -40,7 +40,7 @@ REUSE_ALV_GRID_DISPLAY:
 REUSE_ALV_GRID_DISPLAY_LVC:
   DATA: gt_lvc_fieldcat TYPE lvc_t_fcat,
         gs_lvc_fieldcat TYPE lvc_s_fcat,
-        lvc_layout   TYPE lvc_s_layo.
+        layout   TYPE lvc_s_layo.
 ```
 
 ### 字段目录和布局
@@ -55,46 +55,46 @@ REUSE_ALV_GRID_DISPLAY_LVC:
 
 ### SLIS Field Catalog 常用参数列表
 
-| 字段名称                    | 描述                                                  | 输入值                   |
-| --------------------------- | ----------------------------------------------------- | ------------------------ |
-| ROW_POS(10)                 | 行输出位置                                            | 1….n                     |
-| COL_POS(10)                 | 列输出位置                                            | 1….n                     |
-| **FIELDNAME**(30)           | 针对输出内表列进行设置，只有设置了的列才会显示在ALV中 |                          |
-| **TABNAME** (30)            | fieldname字段对应的内表名称                           |                          |
-| **CURRENCY**(5)             | 货币单位                                              |                          |
-| **CFIELDNAME**(30)          | 当前输出内表中的货币单位字段的字段名称                |                          |
-| **CTABNAME**(30)            | Cfieldname字段值对应的内表名称，(仅 SLIS 有)          |                          |
-| **QUANTITY**(3)             | 计量单位                                              |                          |
-| **QFIELDNAME**(30)          | 参考计量单位的字段名称                                |                          |
-| **QTABNAME**(30)            | Qfieldname对应的输出内表名，(仅 SLIS 有)              |                          |
-| REF_TABNAME                 | 参考表名称，配合REF_FIELDNAME使用，(仅 SLIS 有)       |                          |
-| REF_FIELDNAME               | 参考字段名称，配合REF_TABNAME使用，单元格生成F4帮助   |                          |
-| **SELTEXT_L/M/S**(40/20/10) | 设置字段名称描述长/中/短                              |                          |
-| **DDICTXT**(1)              | 直接指定列标题描述格式，指定后则保持固定不变          | (S)hort (M)iddle (L)ong  |
-| DDIC_OUTPUTLEN              | 数据字典输出长度                                      |                          |
-| **NO_OUT**(1)               | 当前列隐藏输出                                        | X-隐藏，space-不隐藏     |
-| **KEY**(1)                  | 将定义字段设置为KEY值                                 | X-设置，space-不设置     |
-| ICON(1)                     | 将定义字段以ICON的形式显示,INCLUDE <list>             | X-设置，space-不设置     |
-| CHECKBOX(1)                 | 将定义字段以CHECKBOX的形式显示                        | X-设置，space-不设置     |
-| EDIT(1)                     | 是否可编辑                                            | X-可编辑，space-不可编辑 |
-| INPUT(1)                    | 输入                                                  | X-设置，space-不设置     |
-| OUTPUTLEN(6)                | 列的字符输出宽度                                      | 1….n                     |
-| OFFSET(6)                   | 设置偏移量                                            |                          |
-| **TEXT_FIELDNAME**          | 文本字段名称                                          |                          |
-| **REPTEXT_DDIC**            | 与数据元素的主标题类似                                |                          |
-| FIX_COLUMN(1)               | 列固定不滚动，颜色不会发生变化                        | X-设置，space-不设置     |
-| JUST(1)                     | 定义字段对齐方式                                      | (R)IGHT(L)EFT(C)ENTER    |
-| **TECH**(1)                 | 置为技术列的列将不会再显示出来                        | X-设置，space-不设置     |
-| LZERO(1)                    | 将定义字段以前导"0"的形式显示                         | X-设置，space-不设置     |
-| NO_SIGN(1)                  | 将定义字段符号设置为不显示                            | X-设置，space-不设置     |
-| NO_ZERO(1)                  | 如果取值为零，则为空，既不输出零                      | X-设置，space-不设置     |
-| NO_SUM(1)                   | 设置当前列输出时不自动求和                            | X-设置，space-不设置     |
-| HOTSPOT(1)                  | 设置字段是否有热点，热点字段显示有下划线              | X-设置，FCode “**&IC1**“ |
-| **ROUND**(I)                | 四舍五入保留位数                                      |                          |
-| DECIMALS_OUT(6)             | 控制小数点的位数                                      |                          |
-| EMPHASIZE                   | 设置字段的颜色(列颜色)                                |                          |
-| NO_CONVEXT(1)               | 设置转换规则，对应于Domain中的转换规则                | X-不设置，space-设置     |
-| LOWERCASE(1)                | 是否允许小写字母                                      | X-允许，space-不允许     |
+| 字段名称                    | 描述                                                  | 输入值                                 |
+| --------------------------- | ----------------------------------------------------- | -------------------------------------- |
+| ROW_POS(10)                 | 行输出位置                                            | 1….n                                   |
+| COL_POS(10)                 | 列输出位置                                            | 1….n                                   |
+| **FIELDNAME**(30)           | 针对输出内表列进行设置，只有设置了的列才会显示在ALV中 | 内表中定义的字段名                     |
+| **TABNAME** (30)            | Fieldname字段对应的内表名称                           | 内表名称                               |
+| **CURRENCY**(5)             | 货币单位                                              |                                        |
+| **CFIELDNAME**(30)          | 货币单位字段名 Currency unit field name               | 当前输出内表中的货币单位字段的字段名称 |
+| **CTABNAME**(30)            | 货币单位表名 Currency unit table name                 | CFIELDNAME字段值对应的内表名称         |
+| **QUANTITY**(3)             | 计量单位                                              |                                        |
+| **QFIELDNAME**(30)          | 参考计量单位的字段名称                                | 当前输出内表中的计量单位字段名         |
+| **QTABNAME**(30)            | 计量单位表名                                          | QFIELDNAME对应的输出内表名             |
+| **REF_TABNAME**             | 参考表名称                                            | 内部表字段的参考字段名称               |
+| **REF_FIELDNAME**           | 参考字段名称，单元格生成F4帮助                        | 内部表字段的参考字段名称               |
+| **SELTEXT_L/M/S**(40/20/10) | 设置字段名称描述长/中/短                              | 字段描述                               |
+| **DDICTXT**(1)              | 直接指定列标题描述格式，指定后则保持固定不变          | 取值为S、M、L                          |
+| DDIC_OUTPUTLEN              | 数据字典输出长度                                      |                                        |
+| **NO_OUT**(1)               | 当前列隐藏输出                                        | X-隐藏，space-不隐藏                   |
+| **KEY**(1)                  | 将定义字段设置为KEY值                                 | X-设置，space-不设置                   |
+| ICON(1)                     | 将定义字段以ICON的形式显示,INCLUDE  list              | X-设置，space-不设置                   |
+| CHECKBOX(1)                 | 将定义字段以CHECKBOX的形式显示                        | X-设置，space-不设置                   |
+| EDIT(1)                     | 是否可编辑                                            | X-可编辑，space-不可编辑               |
+| INPUT(1)                    | 输入                                                  | X-设置，space-不设置                   |
+| OUTPUTLEN(6)                | 列的字符输出宽度                                      | 1….n                                   |
+| OFFSET(6)                   | 设置偏移量                                            |                                        |
+| **TEXT_FIELDNAME**          | 文本字段名称                                          |                                        |
+| **REPTEXT_DDIC**            | 与数据元素的主标题类似                                |                                        |
+| FIX_COLUMN(1)               | 列固定不滚动，颜色不会发生变化                        | X-设置，space-不设置                   |
+| JUST(1)                     | 定义字段对齐方式                                      | 取值为R、L、C                          |
+| **TECH**(1)                 | 置为技术列的列将不会再显示出来                        | X-设置，space-不设置                   |
+| LZERO(1)                    | 输出前导零，仅NUMC类型字段有效                        | X-设置，space-不设置                   |
+| NO_SIGN(1)                  | 将定义字段符号设置为不显示                            | X-设置，space-不设置                   |
+| NO_ZERO(1)                  | 如果取值为零，则输出为空                              | X-设置，space-不设置                   |
+| NO_SUM(1)                   | 设置当前列输出时不自动求和                            | X-设置，space-不设置                   |
+| HOTSPOT(1)                  | 设置字段是否有热点，热点字段显示有下划线              | X-设置，FCode “**&IC1**“               |
+| **ROUND**(I)                | 四舍五入保留位数                                      |                                        |
+| DECIMALS_OUT(6)             | 控制小数点的位数                                      |                                        |
+| EMPHASIZE                   | 设置字段的颜色(列颜色)                                | C(1-7)(0-1)(0-1)                       |
+| NO_CONVEXT(1)               | 设置转换规则，对应于Domain中的转换规则                | X-不设置，space-设置                   |
+| LOWERCASE(1)                | 是否允许小写字母                                      | X-允许，space-不允许                   |
 
 ### 定义字段目录
 
@@ -165,11 +165,13 @@ CALL function 'REUSE_ALV_FIELDCATALOG_MERGE'
 
 大部分和 **SLIS** 中定义的一致，下面列出部分不一致的字段。
 
-| 字段名称                | 描述                            | 输入值 |
-| ----------------------- | ------------------------------- | ------ |
-| REF_FIELD               | 参考字段名称，配合REF_TABLE使用 |        |
-| REF_TABLE               | 参考表名称，配合REF_FIELD使用   |        |
-| SCRTEXT_L/M/S(40/20/10) | 设置字段名称描述长/中/短        |        |
+| 字段名称                | 描述                            |
+| ----------------------- | ------------------------------- |
+| REF_FIELD               | 参考字段名称，配合REF_TABLE使用 |
+| REF_TABLE               | 参考表名称，配合REF_FIELD使用   |
+| COLTEXT                 | ALV control: 列标题             |
+| REPTEXT                 | 字段标题                        |
+| SCRTEXT_L/M/S(40/20/10) | 设置字段名称描述长/中/短        |
 
 #### 手动生成： FIELDCAT 字段结构
 
@@ -261,28 +263,28 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
 
 ### LVC常用参数列表
 
-| 字段名称          | 描述                                 | 输入值                         |
-| ----------------- | ------------------------------------ | ------------------------------ |
-| **ZEBRA**(1)      | 使ALV表格按斑马线间隔条码方式显示    | X-设置，space-不设置           |
-| **EDIT**(1)       | 设置ALV为可编辑模式                  | X-可编辑，space-不可编辑       |
-| **CWIDTH_OPT**(1) | 自动优化列宽                         | X-优化，space-不自动优化       |
-| NO_KEYFIX(1)      | 关键字不固定，可以随滚动条滚动       | X-不固定，space-固定           |
-| NO_HGRIDLN(1)     | 是否隐藏水平网格线                   | X-不显示，space-显示           |
-| NO_VGRIDLN(1)     | 是否隐藏垂直网格线                   | X-不显示，space-显示           |
-| NO_HEADERS(1)     | 隐藏列抬头                           | X-不显示，space-显示           |
-| NO_MERGING(1)     | 禁用单元格合并                       | X-禁用，space-不禁用           |
-| NO_F4(1)          | 屏蔽F4搜索帮助                       | X-不显示，space-显示           |
-| STYLEFNAME        | 用来传输格表，以便把单元格显示为按钮 | LVC_FNAME                      |
-| **SEL_MODE**(1)   | 选择模式                             | A-最左端有选择按钮，space-空白 |
-| KEYHOT(1)         | 关键列作为热点                       | X-设置，space-不设置           |
-| NUMC_TOTAL(1)     | 禁止 NUMC 字段总计                   | X-禁止，space-不禁止           |
-| NO_TOTLINE(1)     | 不输出总计行                         | X-不输出，space-输出           |
-| NO_UTSPLIT(1)     | 按单元拆分总计行                     | X-不拆分，space-拆分           |
-| INFO_FNAME        | 带有简单行彩色代码的字段名称         |                                |
-| CTAB_FNAME        | 代表颜色信息的字段名                 |                                |
-| NO_ROWMARK        | 禁用行选择                           |                                |
-| NO_TOOLBAR        | 隐藏工具栏                           |                                |
-| GRID_TITLE        | 标题栏文本                           |                                |
+| 字段名称          | 描述                                 | 输入值                                       |
+| ----------------- | ------------------------------------ | -------------------------------------------- |
+| **ZEBRA**(1)      | 使ALV表格按斑马线间隔条码方式显示    | X-设置，space-不设置                         |
+| **EDIT**(1)       | 设置ALV为可编辑模式                  | X-可编辑，space-不可编辑                     |
+| **CWIDTH_OPT**(1) | 自动优化列宽                         | X-优化，space-不自动优化                     |
+| NO_KEYFIX(1)      | 关键字不固定，可以随滚动条滚动       | X-不固定，space-固定                         |
+| NO_HGRIDLN(1)     | 是否隐藏水平网格线                   | X-不显示，space-显示                         |
+| NO_VGRIDLN(1)     | 是否隐藏垂直网格线                   | X-不显示，space-显示                         |
+| NO_HEADERS(1)     | 隐藏列抬头                           | X-不显示，space-显示                         |
+| NO_MERGING(1)     | 禁用单元格合并                       | X-禁用，space-不禁用                         |
+| NO_F4(1)          | 屏蔽F4搜索帮助                       | X-不显示，space-显示                         |
+| STYLEFNAME        | 用来传输格表，以便把单元格显示为按钮 | LVC_FNAME                                    |
+| **SEL_MODE**(1)   | 选择模式                             | A-B-单选，C多选不包含单元格，D多选包含单元格 |
+| KEYHOT(1)         | 关键列作为热点                       | X-设置，space-不设置                         |
+| NUMC_TOTAL(1)     | 禁止 NUMC 字段总计                   | X-禁止，space-不禁止                         |
+| NO_TOTLINE(1)     | 不输出总计行                         | X-不输出，space-输出                         |
+| NO_UTSPLIT(1)     | 按单元拆分总计行                     | X-不拆分，space-拆分                         |
+| INFO_FNAME        | 带有简单行彩色代码的字段名称         |                                              |
+| CTAB_FNAME        | 代表颜色信息的字段名                 |                                              |
+| NO_ROWMARK        | 禁用行选择                           |                                              |
+| NO_TOOLBAR        | 隐藏工具栏                           |                                              |
+| GRID_TITLE        | 标题栏文本                           |                                              |
 
 ### I_SAVE 保存布局选项字段的作用
 
@@ -304,7 +306,6 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
   - 第 3 位表示输出文字是否高亮显示，由 0~1 表示。为 1 时表示高亮显示。
   - 第 4 位表示颜色反转。测试了一下，基本上 0~9 颜色都差不多，唯一就是当取值为 1 时，底色又回到了灰色（且只是在第 3 位为 0 时才有此效果）。
 
-  
 
 **列颜色**：`gt_fieldcat-emphasize = 'C510'.`
 

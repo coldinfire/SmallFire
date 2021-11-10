@@ -14,21 +14,23 @@ tags:
 
 ## 单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中
 
-方法一：通过对 REUSE_ALV_GRID_DISPLAY 函数参数 i_grid_settings-edt_cll_cb 进行设置
+方法一：通过对 REUSE_ALV_GRID_DISPLAY 函数参数 `i_grid_settings-edt_cll_cb` 进行设置
 
-```JS
-i_grid_settings-edt_cll_cb  = 'X' .
+```ABAP
+DATA:gs_grid_settings TYPE lv_s_glay. 
+gs_grid_settings-edt_cll_cb  = 'X'.
 CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'
-EXPORTING i_grid_settings = i_grid_settings
+  EXPORTING 
+    i_grid_settings = gs_grid_settings
 ```
 
 方法二：通过函数参数 I_CALLBACK_USER_COMMAND 指定的回调 Form 的参数 slis_selfield 进行设置
 
-```JS
-FORM user_command USING ucomm LIKE sy-ucomm
-                        selfield TYPE slis_selfield.
-  selfield-refresh = 'X'.
-  CASE ucomm.
+```ABAP
+FORM user_command USING r_ucomm LIKE sy-ucomm
+                    rs_selfield TYPE slis_selfield.
+  rs_selfield-refresh = 'X'.
+  CASE r_ucomm.
     WHEN 'UPDATE'.
     PERFORM frm_update.
   ENDCASE.
@@ -37,7 +39,7 @@ ENDFORM.
 
 ## 按钮使用后刷新ALV
 
-```jS
+```ABAP
 FORM frm_user_command USING r_ucomm  LIKE sy-ucomm
                          rs_selfield TYPE slis_selfield.
  CASE r_ucomm.
@@ -45,7 +47,7 @@ FORM frm_user_command USING r_ucomm  LIKE sy-ucomm
     perform frm_cycle_count_profit.
   WHEN others.
  ENDCASE.
-   rs_selfield-refresh = 'X'.
+ rs_selfield-refresh = 'X'.
 ENDFORM.
 ```
 
@@ -55,13 +57,13 @@ ENDFORM.
 
 如果使用 "REFRESH_TABLE_DISPLAY" 刷新 ALV 后，记录会跳到第一行，以下代码可以使记录仍然定位在当前行 
 
-```html
-DATA ls_stable TYPE lvc_s_stbl.
-  ls_stable-row = 'X'.
-  ls_stable-col = 'X'.
-CALL METHOD gr_alvgrid->refresh_table_display
+```ABAP
+DATA gs_stable TYPE lvc_s_stbl.
+  gs_stable-row = 'X'.
+  gs_stable-col = 'X'.
+CALL METHOD go_grid->refresh_table_display
   EXPORTING
-    is_stable = ls_stable
+    is_stable = gs_stable
   EXCEPTIONS
     finished = 1
     OTHERS = 2.
@@ -73,23 +75,23 @@ ENDIF.
 
 使用类似的方法，但是要先把当前 ALV 网格 “对象化”。
 
-**注意：** FUNCTION ALV 中一般是在 frm_user_command 中加上 rs_selfield-refresh = 'X'. 来刷新 ALV 的，所以当使用稳定刷新以后，不能再用该语句了。
+**注意：** FUNCTION ALV 中一般是在 user_command 中加上 `rs_selfield-refresh = 'X'.` 来刷新 ALV 的，所以当使用稳定刷新以后，不能再用该语句了。
 
-```html
-DATA l_guid TYPE REF TO cl_gui_alv_grid.
-"把当前网格赋给对象 l_guid"
+```ABAP
+DATA go_grid TYPE REF TO cl_gui_alv_grid.
+DATA gs_stbl TYPE lvc_s_stbl.
+"把当前网格赋给对象 go_grid"
 CALL FUNCTION 'GET_GLOBALS_FROM_SLVC_FULLSCR'
   IMPORTING
-    e_grid = l_guid.
+    e_grid = go_grid.
 " 调用 CHECK_CHANGED_DATA 可以使被修改的数据自动更新到内表中去 "
-CALL METHOD l_guid->check_changed_data.
-" 稳定刷新
-DATA stbl TYPE lvc_s_stbl.
-stbl-row = 'X'." 基于行的稳定刷新
-stbl-col = 'X'." 基于列稳定刷新
+CALL METHOD go_grid->check_changed_data.
+" 稳定刷新 "
+gs_stbl-row = 'X'." 基于行的稳定刷新
+gs_stbl-col = 'X'." 基于列稳定刷新
 CALL METHOD l_guid->refresh_table_display
   EXPORTING
-    is_stable      = stbl
+    is_stable      = gs_stbl
     i_soft_refresh = 'X'
   EXCEPTIONS
     finished       = 1
@@ -110,7 +112,6 @@ CALL METHOD l_guid->refresh_table_display
 
 ```ABAP
 PARAMETERS: p_date TYPE sy-datum.
-
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_date.
   CALL FUNCTION 'F4_DATE'
     EXPORTING
@@ -185,15 +186,17 @@ ENDFORM.                    "FRM_F4CALLBACK"
 
 ```ABAP
 FORM frm_user_command USING r_ucomm LIKE sy-ucomm
-                        rs_selfield TYPE slis_selfield.                  
+                        rs_selfield TYPE slis_selfield. 
+  DATA lv_index TYPE i.
   IF r_ucomm = '&IC1'.
-    myindex = rs_selfield-tabindex.
-    READ it_table INDEX myindex.
+    lv_index = rs_selfield-tabindex.
+    READ it_table INDEX lv_index.
+    "程序调用传参"
     SUBMIT z_pro AND RETURN WITH p_param1 = it_table-param1
                             WITH p_param2 = it_table-param2.
     "如果是TCode - CALL Transation"
     "传入输入参数值并调用其他TCode"
-    SET PARAMETER ID 'ANR' FIELD ls_upload-aufnr.
+    SET PARAMETER ID 'ANR' FIELD it_table-aufnr.
     CALL TRANSACTION 'CO03' AND SKIP FIRST SCREEN. "跳过第一屏屏幕"
    ENDIF.
 ENDFORM.
