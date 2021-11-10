@@ -1,14 +1,15 @@
 # <head> 里面的 baseurl 信息，填你的博客地址
 baseURL = "https://coldinfire.github.io" 
-# 浏览器的标题
-title = "Small Fire`s Blog" 
-# 语言
+# 语言 [en, zh-cn, ...]
 languageCode = "en" 
 defaultContentLanguage = "en"
 # 开启可以让「字数统计」统计汉字
 hasCJKLanguage = true 
 # 主题     
 theme = "KeepIt" 
+#theme = "LoveIt"
+# 网站标题
+title = "Small Fire`s Blog" 
 
 ## 是否禁止URL Path转小写
 disablePathToLower = true
