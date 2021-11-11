@@ -16,19 +16,17 @@ tags:
 
 如果我们想处理 ALV Grid 实例触发的事件，我们应该定义并实现一个事件处理程序类。 创建 ALV Grid 实例后，我们必须注册此事件处理程序类的实例来处理 ALV Grid 事件。
 
-(1) HANDLE_TOOLBAR：这个事件用于给ALV加自定义工具条按钮。
+(1) HANDLE_TOOLBAR：这个事件用于给 ALV 加自定义工具条按钮。
 
-(2) HANDLE_CLICK：用于给ALV点击其中一行后处理代码段。
+(2) HANDLE_CLICK：用于给 ALV 点击其中一行后处理代码段。
 
 (3) HANDLE_COMMAND：事件用于接收用户按了自定义按钮后，触发的代码段。
 
-(4) HANDLE_DOUBLE_CLICK：双击事件
+(4) HANDLE_DOUBLE_CLICK：双击事件处理。
 
-(5) DATA_CHANGED：可编辑字段的数据发生变化时触发，可用来检查数据的输入正确性
+(5) DATA_CHANGED：可编辑字段的数据发生变化时触发，可用来检查数据的输入正确性。
 
-(6) DATA_CHANGED_FINISHED：当数据修改完成后触发，数据没有被修改，当失去焦点或回车时触发
-
-......
+(6) DATA_CHANGED_FINISHED：当数据修改完成后触发，数据没有被修改，当失去焦点或回车时触发。
 
 #### 事件类定义
 

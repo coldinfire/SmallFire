@@ -14,13 +14,13 @@ tags:
 ### GRID ALV 程序实例
 
 ```ABAP
-*&---------------------------------------------------------------------*
+*&-----------------------------------------------------------*
 *& Report  ZGRID_ALV_DEMO
-*&---------------------------------------------------------------------*
+*&-----------------------------------------------------------*
 REPORT  zgrid_alv_demo.
 TYPE-POOLS: slis.
 TABLES: mara,marc,rlgrap.
-"ALV Data"
+"Internal Table Data"
 TYPES: BEGIN OF str_demo,
   sel TYPE flag,
   id TYPE char25,         " Red Green color "
@@ -129,7 +129,7 @@ FORM frm_display .
   CLEAR layout.
   layout-zebra = 'X'.
   layout-colwidth_optimize = 'X'.
-  layout-box_fieldname = 'SEL'. "设置选择列"
+  layout-box_fieldname = 'SEL'. "设置选择列字段"
   CLEAR gt_fieldcat.
   PERFORM frm_init_fcat.
   PERFORM frm_event.
@@ -161,7 +161,6 @@ FORM pf_status_set USING rt_extab TYPE slis_t_extab.
   CLEAR lt_fcode.
 *  APPEND '&CHNG' TO lt_fcode.
   SET PF-STATUS 'STATUS' EXCLUDING lt_fcode.
-
 ENDFORM.                    "frm_set_status"
 *&---------------------------------------------------------------------*
 *&      Form  frm_user_command
@@ -176,7 +175,8 @@ FORM user_command USING r_ucomm LIKE sy-ucomm
       LEAVE PROGRAM.
     WHEN OTHERS.
   ENDCASE.
-  rs_selfield-refresh = 'X'.
+  "ALV被修改时会自动刷新，没有修改不进行刷新"
+  rs_selfield-refresh = 'X'. 
 ENDFORM.                    "frm_user_command"
 *&---------------------------------------------------------------------*
 *&      Form  FRM_INIT_FCAT

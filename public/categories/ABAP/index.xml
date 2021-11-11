@@ -1381,7 +1381,7 @@
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Demo/</guid>
-      <description>OO ALV 简单实例 其中屏幕的创建， 和对应PAI、PBO 以及 Status title 等可以自定调整。 REPORT zoo_alv_demo. TYPE-POOLS: slis. *-- Global data Decleration. TYPES:BEGIN OF ty_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE ebelp, matnr TYPE matnr, werks TYPE werks_d, menge TYPE bstmg, meins TYPE</description>
+      <description>OO ALV 简单实例 其中屏幕的创建， 和对应PAI、PBO 以及 Status title 等可以自定调整。 REPORT zoo_alv_demo. TYPE-POOLS: slis. &amp;#34; Global data Decleration. &amp;#34; TYPES:BEGIN OF str_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE ebelp, matnr TYPE matnr, werks TYPE werks_d, menge TYPE bstmg, meins</description>
     </item>
     
     <item>
@@ -1426,7 +1426,7 @@
       <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV_LVC/</guid>
-      <description>GRID LVC ALV 程序实例 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_LVC_DEMO *&amp;amp;---------------------------------------------------------------------* REPORT zgrid_alv_lvc_demo. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_DEMO *&amp;amp;---------------------------------------------------------------------* REPORT zgrid_alv_demo. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. &amp;#34;ALV Data&amp;#34; TYPES: BEGIN OF str_demo, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_demo. DATA: gt_demo TYPE STANDARD</description>
+      <description>GRID LVC ALV 程序实例 *&amp;amp;-----------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_LVC_DEMO *&amp;amp;-----------------------------------------------------------* REPORT zgrid_alv_lvc_demo. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. &amp;#34;Internal Table Data&amp;#34; TYPES: BEGIN OF str_demo, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_demo. DATA: gt_demo TYPE STANDARD TABLE OF str_demo, gs_dmeo TYPE str_demo.</description>
     </item>
     
     <item>
@@ -1435,7 +1435,7 @@
       <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</guid>
-      <description>GRID ALV 程序实例 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_DEMO *&amp;amp;---------------------------------------------------------------------* REPORT zgrid_alv_demo. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. &amp;#34;ALV Data&amp;#34; TYPES: BEGIN OF str_demo, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_demo. DATA: gt_demo TYPE STANDARD TABLE OF str_demo, gs_dmeo TYPE str_demo. &amp;#34;ALV Parameter&amp;#34;</description>
+      <description>GRID ALV 程序实例 *&amp;amp;-----------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_DEMO *&amp;amp;-----------------------------------------------------------* REPORT zgrid_alv_demo. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. &amp;#34;Internal Table Data&amp;#34; TYPES: BEGIN OF str_demo, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_demo. DATA: gt_demo TYPE STANDARD TABLE OF str_demo, gs_dmeo TYPE str_demo. &amp;#34;ALV</description>
     </item>
     
     <item>
@@ -1444,7 +1444,7 @@
       <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display/</guid>
-      <description>ALV Display ALV 显示相关的 FM REUSE_ALV_LIST_DISPLAY：List 格式的 ALV 模式为固定格式，应用于较严格的标准报表。 REUSE_ALV_</description>
+      <description>ALV 显示 ALV 显示相关的 FM REUSE_ALV_LIST_DISPLAY：List 格式的 ALV 模式为固定格式，应用于较严格的标准报表。 REUSE_ALV</description>
     </item>
     
     <item>
@@ -1462,7 +1462,7 @@
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</guid>
-      <description>选择屏幕 屏幕触发事件 选择屏幕触发的是：AT SELECTION-SCREEN 对话屏幕触发的是：PAI 列表屏幕触发的是：AT USER-COMMAND SELECT-SCREEN SELECT-SCREEN 语句用于创建屏幕的框架结构，主要包括屏幕元素</description>
+      <description>选择屏幕 屏幕事件处理 ABAP 开发属于事件驱动开发，这句话也清晰的解释了 SAP 程序的必然结构。程序是按照以下的事件块的顺序去依次执行的。它的事件块的顺序</description>
     </item>
     
     <item>

@@ -12,7 +12,7 @@ tags:
 
 ---
 
-##  ALV Display
+##  ALV 显示
 
 ### ALV 显示相关的 FM
 
@@ -22,34 +22,34 @@ tags:
 
 **REUSE_ALV_GRID_DISPLAY_LVC**：以 LVC 结尾的 Grid 格式的 ALV 报表，此函数中引用到的类型大部分都不再从类型池 slis 中来引用，而是直接引用字典中已定义好的表或结构类型，这种函数与面向对象的 CL_GUI_ALV_GRID 生成的 ALV 参数类型上基本相同，所以以后一般如果使用函数方式来产生 ALV，推荐使用 REUSE_ALV_GRID_DISPLAY_LVC 函数，因为这样方便修改面向对象方式的 ALV。
 
-### 字段目录生成的 FM
+### FIELDCATALOG 创建的函数
 
-**REUSE_ALV_FIELDCATALOG_MERGE**：根据内表结构自动生成 FIELDCAT 字段结构信息。
+如果 ALV 所要展示的列过多时，建议先在数据字典系统中创建相应的Structure，这样可免去对输出列表头信息的繁琐编辑处理，代码行也会缩短。
 
-**LVC_FIELDCATALOG_MERGE**：针对 LVC 结尾的函数，自动生成 FIELDCAT 字段结构信信息。
+**REUSE_ALV_FIELDCATALOG_MERGE**：根据定义的结构生成 FIELDCAT 字段结构信息。
+
+**LVC_FIELDCATALOG_MERGE**：针对 REUSE_ALV_GRID_DISPLAY_LVC 函数，生成 FIELDCAT 字段结构信信息。
 
 对于 **SLIS** 开头的内表或结构，可以在类型池 SLIS 中查看详细信息；**LVC** 开头的可以在数据字典（**SE11**）中查看结构参数。
 
-```ABAP
-TYPE-POOLS:SLIS.
-REUSE_ALV_GRID_DISPLAY:
-  DATA: gt_fieldcat TYPE slis_t_fieldcat_alv,
-        gs_fieldcat TYPE slis_fieldcat_alv,
-        layout   TYPE slis_layout_alv.
-
-REUSE_ALV_GRID_DISPLAY_LVC:
-  DATA: gt_lvc_fieldcat TYPE lvc_t_fcat,
-        gs_lvc_fieldcat TYPE lvc_s_fcat,
-        layout   TYPE lvc_s_layo.
-```
-
 ### 字段目录和布局
 
-在 ALV 开发中有两个重要的对象： **LAYOUT** 和 **FIELDCAT** 。
+在 ALV 开发中有两个重要的对象： **LAYOUT** 和 **FIELDCATALOG** 。
 
 - LAYOUT：主要用于设置 ALV 的输出格式，如输出字段的颜色、表格中的线条等，为 ALV 输出的可选项。
+- FIELDCATALOG：主要用于 ALV 结构定义，包括具体字段的名称、类型、格式等属性，与 Layout 不一样的是输出格式只针对某个字段。为 ALV 输出的必选项。
 
-- FIELDCAT：主要用于 ALV 结构定义，包括具体字段的名称、类型、格式等属性，与 Layout 不一样的是输出格式只针对某个字段。为 ALV 输出的必选项。
+```ABAP
+TYPE-POOLS:SLIS.
+"REUSE_ALV_GRID_DISPLAY"
+DATA: gt_fieldcat TYPE slis_t_fieldcat_alv,
+      gs_fieldcat TYPE slis_fieldcat_alv,
+      layout   TYPE slis_layout_alv.
+"REUSE_ALV_GRID_DISPLAY_LVC"
+DATA: gt_lvc_fieldcat TYPE lvc_t_fcat,
+      gs_lvc_fieldcat TYPE lvc_s_fcat,
+      layout   TYPE lvc_s_layo.
+```
 
 ## Field Catalog 字段
 
@@ -98,11 +98,11 @@ REUSE_ALV_GRID_DISPLAY_LVC:
 
 ### 定义字段目录
 
-#### 手动生成： FIELDCAT 字段结构
+#### 手动生成：宏定义
 
-通过宏来设置 FIELDCAT 属性 &1 &2 &3 分别为参数。
+通过宏来设置 FIELDCATALOG 字段属性。
 
-```JS
+```ABAP
 DEFINE fieldcat.
   clear gs_fieldcat.
   gs_fieldcat-fieldname = &1.
@@ -116,18 +116,18 @@ END-OF-DEFINITION.
 fieldcat 'CARRID' '航线承运人' SY-TABIX.
 ```
 
-#### 半自动创建：参考数据字典中的现有透明表
+#### 半自动创建：参考数据字典中的结构/透明表
 
-调用 FM： **REUSE_ALV_FIELDCATALOG_MERGE** 来对相应的 Fieldcat 进行匹配。
+调用 FM：REUSE_ALV_FIELDCATALOG_MERGE 根据参数指定的结构或则透明表生成对应的 Field Catalog。
 
-使用数据字典中的透明表或视图时
+使用数据字典中的结构、透明表、视图时
 
-- 直接使用，生成和透明表和视图定义字段相同类型的 Fieldcat。
+- 直接使用，生成和结构、透明表、视图中定义的字段相同类型的  Field Catalog。
 
-使用结构或则内表时
+使用自定义结构或内表时
 
 - 必须保证该结构或内表中的每个字段的定义只能使用 LIKE 操作符。
-- 使用 TYPE 时，该字段在使用 REUSE_ALV_FIELDCATALOG_MERGE 函数时将被忽略，不参照字典类型直接定义类型的除外。
+- 使用 TYPE 操作符时，该字段在使用 REUSE_ALV_FIELDCATALOG_MERGE 函数时将被忽略(不参照字典类型直接定义类型的除外)。
 
 ```ABAP
 TYPE-POOLS: SLIS.
@@ -138,27 +138,28 @@ CALL function 'REUSE_ALV_FIELDCATALOG_MERGE'
   EXPORTING
     I_PROGRAM_NAME         =  SY-REPID
     I_INTERNAL_TABNAME     = 'INTERNAL_TABNAME' "显示输出的内表名，要大写"
-" 如果定义的显示输出内表是参照的字典中的structure, table, view时，才需要指定 Structure"
+" 如果定义的显示输出内表是参照的数据字典中的structure, table, view时，才需要指定 Structure"
     I_STRUCTURE_NAME       = 'ZALV_TB'  "ALV需要显示的字段结构"
     I_CLIENT_NEVER_DISPLAY = 'X'
   "I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER"
   "I_BUFFER_ACTIVE        = ' '"
- changing
+   CHANGING
       ct_fieldcat          = gt_fieldcat  "对应ALV显示的字段结构"
- exceptions
-  inconsistent_interface  = 1
-  program_error           = 2
-  others                  = 3.
-* 若对gt_fieldcat中某些字段有特殊设置，可循环内表按照要求更改参数值。
- LOOP AT gt_fieldcat INTO gs_fieldcat.
-    CASE gs_fieldcat-fieldname.
-      WHEN 'MATNR'.
-        ......
-        MODIFY gt_fieldcat FROM gs_fieldcat.
-        ......
-    ENDCASE.
-    CLEAR gs_fieldcat.
-  ENDLOOP.
+   EXCEPTIONS
+      inconsistent_interface  = 1
+      program_error           = 2
+      others                  = 3.
+* 若对某些字段有特殊设置，可循环内表按照要求更改参数值。
+LOOP AT gt_fieldcat INTO gs_fieldcat.
+  CASE gs_fieldcat-fieldname.
+    WHEN 'MATNR'.
+      ......
+      MODIFY gt_fieldcat FROM gs_fieldcat.
+      ......
+    WHEN OTHERS.
+  ENDCASE.
+  CLEAR gs_fieldcat.
+ENDLOOP.
 ```
 
 ### LVC_S_FCAT: 字段参数
@@ -175,10 +176,9 @@ CALL function 'REUSE_ALV_FIELDCATALOG_MERGE'
 
 #### 手动生成： FIELDCAT 字段结构
 
-```JS
+```ABAP
 DEFINE fieldcat.
    CLEAR gs_lvc_fieldcat.
-   gs_lvc_fieldcat-REF_TABLE ='LSPFLI'.
    gs_lvc_fieldcat-FIELDNAME = &1.
    gs_lvc_fieldcat-SCRTEXT_L = &2.
    gs_lvc_fieldcat-SCRTEXT_M = &2.
@@ -193,14 +193,14 @@ fieldcat 'CARRID' '航线承运人' SY-TABIX.
 
 既可以根据定义的内表，也可以根据数据字典存在的结构或表，视图创建。
 
-```js
+```ABAP
 DATA:gt_lvc_fieldcat TYPE LVC_T_FCAT,
      gs_lvc_fieldcat TYPE LVC_S_FCAT.
 CLEAR gt_lvc_fieldcat.
 CALL function 'LVC_FIELDCATALOG_MERGE'
   EXPORTING
     "I_BUFFER_ACTIVE        = I_BUFFER_ACTIVE"
-    I_STRUCTURE_NAME       = 'ZALV_TB'  "ALV需要显示的字段结构"
+    I_STRUCTURE_NAME       = 'ZALV_ST'  "ALV需要显示的字段结构"
     I_CLIENT_NEVER_DISPLAY = 'X'
     "I_BYPASSING_BUFFER     = I_BYPASSING_BUFFER"
     "I_INTERNAL_TABNAME     = 'INTERNAL_TABNAME' 

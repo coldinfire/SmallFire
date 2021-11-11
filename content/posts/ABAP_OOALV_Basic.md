@@ -18,11 +18,17 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 
 使用了 ABAP 的对象以后，列表是通过 ALV 的一个实例 (INSTANCE) 来显示的，可以使用 ABAP 对象的事件管理。
 
-**ALV GRID继承结构**    
+#### ALV GRID CONTROL 实例
+
+参照 CL_GUI_ALV_GRID 类定义实例
+
+- `DATA go_grid TYPE REF TO cl_gui_alv_grid.`
+
+#### ALV GRID继承结构
 
 ![继承结构](/images/ABAP/OOALV1.png)
 
-### 相关类
+### OO ALV 相关类
 
 #### 容器类
 
@@ -33,7 +39,7 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 - CL_GUI_DOCKING_CONTAINER：动态创建容器，不需要在创建时绑定到预先绘制好的自定义控件中
 
 
-- CL_GUI_SPLITTER_CONTAINER：可在同一屏幕创建多个ALV显示
+- CL_GUI_SPLITTER_CONTAINER：可拆分的容器，可在同一屏幕创建多个 ALV 显示
 
 #### ALV Grid 类
 
@@ -47,35 +53,51 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 
 ### 控制区域、Container、ALV Grid 之间关系
 
-作为控件对象，ALV Grid 实例需要一个容器来链接到屏幕。 
+OO 的 ALV GRID 必须存在于一个容器当中，就是 FUNCTION 的 ALV 其实也是一样的，底层也是使用 CL_GUI_ALV_GRID 这个类的。作为控件对象，ALV Grid 实例需要一个容器来链接到屏幕。 
 
-先在屏幕绘制一个用户自定义控件区域，然后以自定义控件区域为基础创建  CL_GUI_CUSTOM_CONTAINER 容器实例，最后以此容器实例来创建  CL_GUI_ALV_GRID 实例。
+先在屏幕绘制一个用户自定义控件区域；然后以自定义控件区域为基础创建  CL_GUI_CUSTOM_CONTAINER 容器实例；最后以此容器实例来创建  CL_GUI_ALV_GRID 实例。
+
+#### 程序变量声明
+
+```ABAP
+DATA: go_container TYPE REF TO cl_gui_custom_container, "控制容器类"
+      go_grid      TYPE REF TO cl_gui_alv_grid, "ALV Grid控制类"
+      gt_fieldcat TYPE lvc_t_fcat,   "字段目录内表"
+      gs_fieldcat TYPE lvc_s_fcat,   "字段目录结构"
+      layout      TYPE lvc_s_layo,   "Layout 设置"
+      gt_sort     TYPE lvc_t_sort,   "排序内表"
+      gt_filt     TYPE lvc_t_filt,   "过滤内表"
+      gt_exclude  TYPE ui_functions.
+START-OF-SELECTION .
+  CALL SCREEN 1000.
+```
 
 #### 在屏幕中定义 Customer Control
 
-![屏幕定义](/images/ABAP/OOALV2.png)
+![Customer Control](/images/ABAP/OOALV2.png)
+
+屏幕的 PBO 和 PAI 定义：
+
+```ABAP
+PROCESS BEFORE OUTPUT.
+  MODULE display_alv.
+PROCESS AFTER INPUT.
+  MODULE user_command.
+```
 
 #### 创建 SAP Container 实例
 
 ```ABAP
-DATA: obj_container TYPE REF TO cl_gui_custom_container, "控制容器类"
-      obj_alv     TYPE REF TO cl_gui_alv_grid, "ALV Grid控制类"
-      gt_fieldcat TYPE lvc_t_fcat,   "字段目录内表"
-      gs_fieldcat TYPE lvc_s_fcat,   "字段目录结构"
-      gs_layout   TYPE lvc_s_layo,   "Layout 设置"
-      gt_sort     TYPE lvc_t_sort,   "排序内表"
-      gt_filt     TYPE lvc_t_filt,   "过滤内表"
-      gt_exclude  TYPE ui_functions. 
 * Creating custom container instance
-IF obj_container IS INITIAL.
-  CREATE OBJECT obj_container
+IF go_container IS INITIAL.
+  CREATE OBJECT go_container
     EXPORTING
-      container_name  =  'USER_CONTAINER'. "自定义控件名称"
-    EXCEPTONS
-      cntl_error      = 1
+      container_name    =  'USER_CONTAINER'. "自定义控件名称"
+    EXCEPTIONS
+      cntl_error        = 1
       cntl_system_error = 2
-      create_error = 3
-      lifetime_error = 4
+      create_error      = 3
+      lifetime_error    = 4
       lifetime_dynpro_dynpro_link = 5
       others = 6 .
   IF sy-subrc <> 0.
@@ -89,10 +111,10 @@ ENDIF.
 
 ```ABAP
 * Creating ALV Grid instance
-IF obj_alv IS INITIAL.
-  CREATE OBJECT obj_alv
+IF go_grid IS INITIAL.
+  CREATE OBJECT go_grid
     EXPORTING
-      i_parent  = obj_container. "Parent为Container容器"
+      i_parent  = go_container. "Parent为Container容器"
     EXCEPTIONS
       error_cntl_create = 1
       error_cntl_init   = 2
@@ -107,15 +129,15 @@ ENDIF.
 * Preparing field catalog
 PERFORM prepare_field_catalog CHANGING gt_fieldcat .
 * Preparing layout structure
-PERFORM prepare_layout CHANGING gs_layout .
+PERFORM prepare_layout CHANGING layout .
 * Preparing sort conditions
 PERFORM prepare_sort_table CHANGING gt_sort .
 * Additional preparations
 ```
 
-### FieldCat 字段目录
+### Field Catalog
 
-使用一个内表来定义有关如何显示列表字段的规范。 这个内表被称为“字段目录”。 字段目录必须包含有关要显示的每一列的显示选项的一些技术和附加信息。 
+字段目录必须包含有关要显示的每一列的显示选项的一些技术和附加信息。 
 
 字段目录的生成分为：自动生成、半自动生成、手动生成。
 
@@ -124,7 +146,7 @@ PERFORM prepare_sort_table CHANGING gt_sort .
 #### 手动生成：宏定义
 
 ```ABAP
-DEFINE M_FIELDCAT.
+DEFINE mro_fieldcat.
   CLEAR: gs_fieldcat.
   gs_fieldcat-fieldname = &1 .
   gs_fieldcat-coltext   = &2 .
@@ -134,7 +156,7 @@ DEFINE M_FIELDCAT.
   gs_fieldcat-edit      = &6 .
   APPEND gs_fieldcat TO gt_fieldcat.
 END-OF-DEFINITION.
-M_FIELDCAT:
+mro_fieldcat:
   'DATUM'  'Plan.Date' 'Plan.Date' '' '' '' ,
   'UZEIT'  'Plan.Time' 'Plan.Time' '' '' '' ,
   'STATUS' 'Status'    'Status'    '' '' '' .
@@ -143,7 +165,7 @@ M_FIELDCAT:
 #### 半自动：通过调用 Function Module 生成
 
 ```ABAP
-FORM prepare_field_catalog CHANGING pt_fieldcat TYPE lvc_t_fcat .
+FORM prepare_field_catalog CHANGING pt_fieldcat TYPE lvc_t_fcat.
   DATA ls_fcat type lvc_s_fcat . 
   CALL FUNCTION 'LVC_FIELDCATALOG_MERGE' 
     EXPORTING
@@ -186,25 +208,28 @@ ENDFORM .
 #### 设置布局
 
 ```ABAP
-FORM prepare_layout CHANGING ps_layout TYPE lvc_s_layo.     
+FORM prepare_layout CHANGING ps_layout TYPE lvc_s_layo.
   ps_layout-zebra = 'X' .
   ps_layout-cwidth_opt = 'X' .
   ps_layout-grid_title = 'Flights' .
   ps_layout-smalltitle = 'X' .
+  ps_layout-no_toolbar = 'X' . "隐藏全部工具条"
 ENDFORM. "prepare_layout"
 ```
 
-#### 排除不需要的按钮
+#### GUI Status：排除不需要的按钮
 
 自定义按钮
 
 ```ABAP
-DATA: lt_excl TYPE slis_t_extab.
-  APPEND 'CLOSE' TO lt_excl.
-  APPEND 'SALL.PUL' TO lt_excl.
-  APPEND 'UALL.PUL' TO lt_excl.
-SET PF-STATUS 'STATUS' EXCLUDING lt_excl .
-SET TITLEBAR 'TITLE'.
+FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .   
+  DATA: lt_excl TYPE slis_t_extab.
+    APPEND 'CLOSE' TO lt_excl.
+    APPEND 'SALL'  TO lt_excl.
+    APPEND 'USAL'  TO lt_excl.
+  SET PF-STATUS 'STATUS' EXCLUDING lt_excl .
+  SET TITLEBAR 'TITLE'.
+ENDFORM .
 ```
 
 系统标准按钮
@@ -293,11 +318,11 @@ ENDFORM.  " prepare_filter_table "
 CL_GUI_ALV_GRID 重要方法： `set_table_for_first_display`。
 
 ```ABAP
-CALL METHOD obj_alv->set_table_for_first_display 
+CALL METHOD go_grid->set_table_for_first_display 
    EXPORTING 
      i_structure_name              = 'XXXX'      "输出表中数据的DDIC结构的名称，自动生成字段目录。"
      is_variant                    = ls_variant  "指定布局变式"
-     is_layout                     = gs_layout   "布局设置"
+     is_layout                     = layout   "布局设置"
      i_save                        = 'A'         "保存表格布局(X) & User-Spec(U)"
      i_default                     = 'X'         "是否允许用户定义默认布局"
      it_toolbar_excluding          = lt_exclude  "排除的按钮"
@@ -323,7 +348,7 @@ CL_GUI_ALV_GRID 重要方法：`REFRESH_TABLE_DISPLAY`
 - I_SOFT_REFRESH：软刷新。此参数仅在特殊情况下使用。 如果设置此参数，则刷新网格控件时，创建的任何总计、定义的任何排序顺序以及为显示的数据设置的任何过滤器都保持不变。 
 
 ```ABAP
-CALL METHOD obj_alv->refresh_table_display 
+CALL METHOD go_grid->refresh_table_display 
   EXPORTING
 *   IS_STABLE = 
     I_SOFT_REFRESH = 'X'

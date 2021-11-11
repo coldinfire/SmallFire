@@ -14,6 +14,67 @@ tags:
 
 ## 选择屏幕 
 
+###  屏幕事件处理
+
+ABAP 开发属于事件驱动开发，这句话也清晰的解释了 SAP 程序的必然结构。程序是按照以下的事件块的顺序去依次执行的。它的事件块的顺序是指定好的。
+
+#### INITIALIZATION.
+
+程序初始化事件，该事件在程序屏幕未显示之前执行。对程序设置值及屏幕元素进行初始化，只运行一次的事件块。
+
+#### AT SELECTION-SCREEN OUTPUT.
+
+屏幕输出前事件块(PBO)，在选择屏幕显示之前就被调用；用于屏幕输出时的各屏幕元素值的管控（响应屏幕上的事件，用户回车或 F8 后也被调用），通过 Modify screen可以修改选择屏幕字段。
+
+设置屏幕选择框不可输入和必输控制：
+
+```ABAP
+AT SELECTION-SCREEN OUTPUT.
+  LOOP AT SCREEN.
+	IF screen-name = 'X_NORM' OR screen-name = 'X_PARK'.
+	  screen-input = 0.
+	  MODIFY SCREEN.
+	ENDIF.
+    IF screen-name = 'X_NORM' OR screen-name = 'X_PARK'.
+      screen-required = 2.
+      MODIFY SCREEN.
+    ENDIF.
+    ...
+  ENDLOOP.
+```
+
+- REQUIRED：控制必输属性，使用后会忽略OBLIGATORY。
+  - 0：不必输 
+  - 1：必输，系统自动校验 
+  - 2：不必输，但是会提示必输标志
+- INPUT：控制屏幕元素的可输入性
+- ACTIVE：控制屏幕的可见性 (0:不可见  1:不可见)
+
+#### AT SELECTION-SCREEN ON ...
+
+选择屏幕显示之后，用来响应回车，F1，F4等事件。
+
+可选参数：
+
+- `ON field`：检查具体输入字段（SELECTION-OPTIONS或PARAMETERS）是否完整或正确
+- `ON VALUE-REQUEST FOR <field low/high>`：SELECT-OPTIONS 点击选择帮助F4键时触发该事件
+- `ON HELP-REQUEST FOR <field low/high>`：SELECTION-OPTIONS 按选择帮助F1键时键发该事件
+- `ON RADIOBUTTON GROUP <radio>`：单选按钮事件，必须进行整体输入检查
+- `ON BLOCK <block>`：Block 的触发事件（控制框架中的屏幕元素值的输入）
+- `ON EXIT-COMMAND`：用于 BACK、CANCEL、EXIT 等事件 
+
+#### AT SELECTION-SCREEN
+
+PAI事件块，即屏幕操作后事件块。
+
+#### START-OF-SELECTION
+
+该事件在单击按钮后触发。
+
+#### END-OF-SELECTION
+
+该事件应用于所有数据处理完成，即 START-OF-SELECTION 相关执行事件执行完成。但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
+
 ### 屏幕触发事件
 
 选择屏幕触发的是：AT SELECTION-SCREEN
@@ -22,7 +83,7 @@ tags:
 
 列表屏幕触发的是：AT USER-COMMAND
 
-### SELECT-SCREEN
+### SELECT-SCREEN 语句解析
 
 SELECT-SCREEN 语句用于创建屏幕的框架结构，主要包括屏幕元素的创建、子屏幕的创建等。
 
@@ -239,63 +300,7 @@ SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过 8 �
 
 - 图标符号：可以在 Text Symbols 通过@符号来进行引用，如"@01@",可通过程序RSTXICON查看所有的图标。
 
-
-#### 可进行多语言显示的维护：GOTO -->Translation
-
-###  屏幕事件处理
-
-#### INITIALIZATION.
-
-程序初始化事件，该事件在程序屏幕未显示之前执行。对程序设置值及屏幕元素进行初始化，只运行一次的事件块。
-
-#### AT SELECTION-SCREEN OUTPUT.
-
-屏幕输出前事件块(PBO)，在选择屏幕显示之前就被调用；用于屏幕输出时的各屏幕元素值的管控（响应屏幕上的事件，用户回车或 F8 后也被调用），通过 Modify screen可以修改选择屏幕字段。
-
-设置屏幕选择框不可输入和必输控制：
-
-```ABAP
-AT SELECTION-SCREEN OUTPUT.
-  LOOP AT SCREEN.
-	IF screen-name = 'X_NORM' OR screen-name = 'X_PARK'.
-	  screen-input = 0.
-	  MODIFY SCREEN.
-	ENDIF.
-    IF screen-name = 'X_NORM' OR screen-name = 'X_PARK'.
-      screen-required = 2.
-      MODIFY SCREEN.
-    ENDIF.
-    ...
-  ENDLOOP.
-```
-
-- REQUIRED：控制必输属性，使用后会忽略OBLIGATORY。
-  - 0：不必输 
-  - 1：必输，系统自动校验 
-  - 2：不必输，但是会提示必输标志
-- INPUT：控制屏幕元素的可输入性
-- ACTIVE：控制屏幕的可见性 (0:不可见  1:不可见)
-
-#### AT SELECTION-SCREEN ON ...
-
-选择屏幕显示之后，用来响应回车，F1，F4等事件。
-
-可选参数：
-
-- `ON field`：检查具体输入字段（SELECTION-OPTIONS或PARAMETERS）是否完整或正确
-- `ON VALUE-REQUEST FOR <field low/high>`：SELECT-OPTIONS 点击选择帮助F4键时触发该事件
-- `ON HELP-REQUEST FOR <field low/high>`：SELECTION-OPTIONS 按选择帮助F1键时键发该事件
-- `ON RADIOBUTTON GROUP <radio>`：单选按钮事件，必须进行整体输入检查
-- `ON BLOCK <block>`：Block 的触发事件（控制框架中的屏幕元素值的输入）
-- `ON EXIT-COMMAND`：用于 BACK、CANCEL、EXIT 等事件 
-
-#### START-OF-SELECTION
-
-该事件在单击按钮后触发
-
-#### END-OF-SELECTION
-
-该事件应用于所有数据处理完成，即 START-OF-SELECTION 相关执行事件执行完成。但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
+**多语言显示的维护**：GOTO -->Translation
 
 #### 参考链接
 

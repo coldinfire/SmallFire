@@ -15,17 +15,13 @@ tags:
 ### GRID LVC ALV 程序实例
 
 ```ABAP
-*&---------------------------------------------------------------------*
+*&-----------------------------------------------------------*
 *& Report  ZGRID_ALV_LVC_DEMO
-*&---------------------------------------------------------------------*
+*&-----------------------------------------------------------*
 REPORT  zgrid_alv_lvc_demo.
-*&---------------------------------------------------------------------*
-*& Report  ZGRID_ALV_DEMO
-*&---------------------------------------------------------------------*
-REPORT  zgrid_alv_demo.
 TYPE-POOLS: slis.
 TABLES: mara,marc,rlgrap.
-"ALV Data"
+"Internal Table Data"
 TYPES: BEGIN OF str_demo,
   sel TYPE flag,
   id TYPE char25,         " Red Green color "
@@ -132,7 +128,7 @@ FORM frm_display .
   layout-zebra   = 'X'.
   layout-col_opt = 'X'.
   layout-cwidth_opt = 'X'.
-  layout-box_fname  = 'SEL'.
+  layout-box_fname  = 'SEL'. "设置选择列字段"
   CLEAR gt_lvc_fieldcat.
   PERFORM frm_init_fcat.
   "修改后刷新数据到内表"
