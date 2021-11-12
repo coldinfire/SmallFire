@@ -1387,7 +1387,7 @@
     <item>
       <title>OO ALV Demo</title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Demo/</link>
-      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Demo/</guid>
       <description>OO ALV 简单实例 其中屏幕的创建， 和对应PAI、PBO 以及 Status title 等可以自定调整。 REPORT zoo_alv_demo. TYPE-POOLS: slis. &amp;#34; Global data Decleration. &amp;#34; TYPES:BEGIN OF str_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE ebelp, matnr TYPE matnr, werks TYPE werks_d, menge TYPE bstmg, meins</description>
@@ -1396,7 +1396,7 @@
     <item>
       <title>OO ALV 使用</title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</link>
-      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</guid>
       <description>OO ALV ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作。 使用了 ABAP 的对象以</description>
