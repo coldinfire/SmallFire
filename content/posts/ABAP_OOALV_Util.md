@@ -1,5 +1,5 @@
 ---
-title: "OO ALV 工具"
+title: "OO ALV修改Layou和FieldCatalog"
 date: 2018-07-15
 draft: false
 author: Small Fire
@@ -31,7 +31,7 @@ DATA ls_fcat TYPE lvc_s_fcat .
 DATA lt_fcat TYPE lvc_t_fcat .
 DATA ls_layout TYPE lvc_s_layo .
 "Field Cattalog"
-CALL METHOD obj_alv->get_frontend_fieldcatalog
+CALL METHOD go_grid->get_frontend_fieldcatalog
   IMPORTING
     et_fieldcatalog = lt_fcat[] .
 LOOP AT lt_fcat INTO ls_fcat .
@@ -41,7 +41,7 @@ LOOP AT lt_fcat INTO ls_fcat .
   ENDIF .
   CLEAR ls_fcat .
 ENDLOOP .
-CALL METHOD obj_alv->set_frontend_fieldcatalog
+CALL METHOD go_grid->set_frontend_fieldcatalog
   EXPORTING
     it_fieldcatalog = lt_fcat[] .
 "Layout"
