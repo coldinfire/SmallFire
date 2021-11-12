@@ -41,36 +41,39 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 
 - CL_GUI_SPLITTER_CONTAINER：可拆分的容器，可在同一屏幕创建多个 ALV 显示
 
-#### ALV Grid 类
+#### 使用到的类和参数
 
 
 - CL_GUI_ALV_GRID：ALV控制类
+
 - LVC_T_FCAT：ALV显示参照字段表
+
 - LVC_S_FCAT：ALV显示参照字段结构
+
 - LVC_S_LAYO：ALV显示布局结构
+
 - LVC_T_SORT：排序条件字段
+
 - LVC_T_FILT：过滤条件字段
 
-### 控制区域、Container、ALV Grid 之间关系
+  ```ABAP
+  DATA: go_container TYPE REF TO cl_gui_custom_container, "控制容器类"
+        go_grid      TYPE REF TO cl_gui_alv_grid, "ALV Grid控制类"
+        gt_fieldcat TYPE lvc_t_fcat,   "字段目录内表"
+        gs_fieldcat TYPE lvc_s_fcat,   "字段目录结构"
+        layout      TYPE lvc_s_layo,   "Layout 设置"
+        gt_sort     TYPE lvc_t_sort,   "排序内表"
+        gt_filt     TYPE lvc_t_filt,   "过滤内表"
+        gt_exclude  TYPE ui_functions.
+  START-OF-SELECTION .
+    CALL SCREEN 1000.
+  ```
+
+### 控件区域、Container、ALV Grid 之间关系
 
 OO 的 ALV GRID 必须存在于一个容器当中，就是 FUNCTION 的 ALV 其实也是一样的，底层也是使用 CL_GUI_ALV_GRID 这个类的。作为控件对象，ALV Grid 实例需要一个容器来链接到屏幕。 
 
 先在屏幕绘制一个用户自定义控件区域；然后以自定义控件区域为基础创建  CL_GUI_CUSTOM_CONTAINER 容器实例；最后以此容器实例来创建  CL_GUI_ALV_GRID 实例。
-
-#### 程序变量声明
-
-```ABAP
-DATA: go_container TYPE REF TO cl_gui_custom_container, "控制容器类"
-      go_grid      TYPE REF TO cl_gui_alv_grid, "ALV Grid控制类"
-      gt_fieldcat TYPE lvc_t_fcat,   "字段目录内表"
-      gs_fieldcat TYPE lvc_s_fcat,   "字段目录结构"
-      layout      TYPE lvc_s_layo,   "Layout 设置"
-      gt_sort     TYPE lvc_t_sort,   "排序内表"
-      gt_filt     TYPE lvc_t_filt,   "过滤内表"
-      gt_exclude  TYPE ui_functions.
-START-OF-SELECTION .
-  CALL SCREEN 1000.
-```
 
 #### 在屏幕中定义 Customer Control
 
@@ -184,7 +187,7 @@ FORM prepare_field_catalog CHANGING pt_fieldcat TYPE lvc_t_fcat.
 	  WHEN 'CARRID' . 
 		ls_fcat-outpulen = '10' . 
 		ls_fcat-coltext = 'Airline Carrier ID' . 
-		ls_fcat-edit = 'X'.
+		ls_fcat-edit = 'X' .
 	    MODIFY pt_fieldcat FROM ls_fcat . 
 	  WHEN 'PAYMENTSUM' . 
 		ls_fcat-no_out = 'X' . 
@@ -235,79 +238,30 @@ ENDFORM .
 系统标准按钮
 
 - 以 MC_FC_ 开头的名称是直接功能的名称。
+
 - 以 MC_MB_ 开头的名称是包含一些子功能作为菜单项的功能菜单。
--  通过从后一种类型中排除一个，您可以排除其下的所有功能。
 
-```ABAP
-FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
-  DATA ls_exclude TYPE ui_func.      
-  ls_exclude = cl_gui_alv_grid=>mc_fc_maximum .      
-  APPEND ls_exclude TO pt_exclude.      
-  ls_exclude = cl_gui_alv_grid=>mc_fc_minimum .    
-  APPEND ls_exclude TO pt_exclude.     
-  ls_exclude = cl_gui_alv_grid=>mc_fc_subtot .    
-  APPEND ls_exclude TO pt_exclude.     
-  ls_exclude = cl_gui_alv_grid=>mc_fc_sum .      
-  APPEND ls_exclude TO pt_exclude.      
-  ls_exclude = cl_gui_alv_grid=>mc_fc_average .     
-  APPEND ls_exclude TO pt_exclude.      
-  ls_exclude = cl_gui_alv_grid=>mc_mb_sum .     
-  APPEND ls_exclude TO pt_exclude.      
-  ls_exclude = cl_gui_alv_grid=>mc_mb_subtot .
-  APPEND ls_exclude TO pt_exclude.
-ENDFORM .
-```
+- 通过从后一种类型中排除一个，您可以排除其下的所有功能。
 
-### Sort 设置排序条件
-
-可以为 ALV 数据设置排序条件。 初始化排序功能，在方法 set_table_for_first_display 中添加由系统标准的排序结构 `LVC_T_SORT` 生成的内表`GT_SORT`。
-
-可以分别使用 `GET_SORT_CRITERIA` 和 `SET_SORT_CRITERIA` 方法获取和设置应用的排序标准。
-
-```ABAP
-FORM prepare_sort_table CHANGING pt_sort TYPE lvc_t_sort .
-  DATA ls_sort TYPE lvc_s_sort .
-  CLEAR: ls_sort,pt_sort.
-  ls_sort-spos = '1' .
-  ls_sort-fieldname = 'XXXX' .
-  ls_sort-up = 'X' . "A to Z"
-  ls_sort-down = space .
-  APPEND ls_sort TO pt_sort .
-  CLEAR ls_sort.
-  ls_sort-spos = '2' .
-  ls_sort-fieldname = 'XXXX' .
-  ls_sort-up = space .
-  ls_sort-down = 'X' . "Z to A"
-  APPEND ls_sort TO pt_sort .
-  CLEAR ls_sort.
-ENDFORM. "prepare_sort_table"
-```
-
-#### 排序注意问题
-
-- 如果要排序的任何一个字段不在字段目录中，程序会 Dump。
-
-- 当使用 ALV Grid 对数据进行排序时，默认情况下它会垂直合并具有相同内容的字段。 为了避免所有的列都执行默认情况，可以设置布局结构的 `no_merging = 'X'`。 如果只想对某些列禁用合并，设置该列对应的字段目录行的 no_merging 字段即可。
-
-### Filtering 设置过滤条件
-
-过滤和排序的使用类似。 使用过滤条件时，必须填写参照类型 `LVC_T_FILT` 生成的内表。 填充此类型内表类似于填充 RANGES 变量。
-
-可以分别使用 `GET_FILTER_CRITERIA` 和 `SET_FILTER_CRITERIA` 方法获取和设置应用的过滤条件。
-
-```ABAP
-FORM prepare_filter_table CHANGING pt_filt TYPE lvc_t_filt .
-  DATA ls_filt TYPE lvc_s_filt .
-  CLEAR: ls_filt,pt_filt .
-  ls_filt-fieldname = 'FLDATE' .
-  ls_filt-sign = 'E' .
-  ls_filt-option = 'BT' .
-  ls_filt-low = '20180101' .
-  ls_filt-high = '20181231' .
-  APPEND ls_filt TO pt_filt .
-  CLEAR ls_filt.
-ENDFORM.  " prepare_filter_table "
-```
+  ```ABAP
+  FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
+    DATA ls_exclude TYPE ui_func.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_maximum .      
+    APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_minimum .    
+    APPEND ls_exclude TO pt_exclude.     
+    ls_exclude = cl_gui_alv_grid=>mc_fc_subtot .    
+    APPEND ls_exclude TO pt_exclude.     
+    ls_exclude = cl_gui_alv_grid=>mc_fc_sum .      
+    APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_average .     
+    APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_mb_sum .     
+    APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_mb_subtot .
+    APPEND ls_exclude TO pt_exclude.
+  ENDFORM .
+  ```
 
 ### ALV显示
 

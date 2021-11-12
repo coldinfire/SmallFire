@@ -1340,6 +1340,15 @@
     </item>
     
     <item>
+      <title>OO ALV 排序和过滤</title>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_SortFilter/</link>
+      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_SortFilter/</guid>
+      <description>Sort 设置排序条件 可以为 ALV 数据设置排序条件。 初始化排序功能，在方法 set_table_for_first_display 中添加由系统标准的排序结构 LVC_T_SORT 生成的内表GT_SORT。 可以分别使用 GET_SORT_CRITERIA 和 SET_SORT_CRITERIA 方法</description>
+    </item>
+    
+    <item>
       <title>OO ALV修改Layou和FieldCatalog</title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Util/</link>
       <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
@@ -1367,12 +1376,12 @@
     </item>
     
     <item>
-      <title> OOALV 不同Container </title>
+      <title> OOALV 不同 Container 使用 </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_DiffContainers/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_DiffContainers/</guid>
-      <description>1.Custom container 自定义容器可以使用类 CL_GUI_CUSTOM_CONTAINER 创建，但它需要一个可以放置它的父容器，或者需要在自定义 Screen 中创建一个自定义控制区域。 这个解决方案是我现在开发的应用程</description>
+      <description>1.Custom container 自定义容器可以使用类 CL_GUI_CUSTOM_CONTAINER 创建，但它需要一个可以放置它的父容器，或者需要在自定义 Screen 中创建一个自定义控制区域。 这个解决方案是现在开发的应用程序</description>
     </item>
     
     <item>

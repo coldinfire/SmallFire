@@ -49,6 +49,10 @@ CLASS lcl_event_receiver DEFINITION.
     METHODS handle_command
       FOR EVENT user_command OF cl_gui_alv_grid
       IMPORTING e_ucomm.
+    "声明数据修改事件"
+    METHODS handle_data_changed 
+      FOR EVENT data_changed OF cl_gui_alv_grid
+      IMPORTING er_data_changed.
 ENDCLASS.                    "cl_event_receiver DEFINITION"
 ```
 
@@ -101,14 +105,17 @@ ENDCLASS.                    "cl_event_receiver IMPLEMENTATION"
 CLASS lcl_event_receiver DEFINITION DEFERRED.
 DATA event_receiver TYPE REF TO lcl_event_receiver.
 CREATE OBJECT event_receiver. "创建事件"
-  "注册事件 handler 方法"
-   SET HANDLER event_receiver->handle_hotspot_click  FOR g_grid01.
-   SET HANDLER event_receiver->handle_double_click   FOR g_grid01.
-   SET HANDLER event_receiver->handle_toolbar FOR g_grid01.
-   SET HANDLER event_receiver->handle_command FOR g_grid01.
+"注册事件 handler 方法"
+SET HANDLER event_receiver->handle_hotspot_click  FOR go_grid.
+SET HANDLER event_receiver->handle_double_click   FOR go_grid.
+SET HANDLER event_receiver->handle_toolbar        FOR go_grid.
+SET HANDLER event_receiver->handle_command        FOR go_grid.
+SET HANDLER event_receiver->handle_data_changed   FOR go_grid.
 ```
 
-单元格编辑时：除了设置 FIELDCAT 的 EDIT 属性。还需要在显示ALV后添加触发数据改变事件，否则不会触发数据更新事件。
+单元格编辑事件：
+
+- 除了设置 FIELDCAT 的 EDIT 属性。还需要在显示ALV后添加触发数据改变事件，否则不会触发数据更新事件。
 
 - ```ABAP
   "注册编辑事件，否则不会触发更新事件"
@@ -118,8 +125,8 @@ CREATE OBJECT event_receiver. "创建事件"
   ```
 
 
-- 按回车触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.
-- 单元格失去焦点触发：I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.
+- 按回车触发：`I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.`
+- 单元格失去焦点触发：`I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.`
 
 
 
