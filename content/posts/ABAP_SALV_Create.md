@@ -14,7 +14,7 @@ tags:
 
 ### 创建和显示
 
-```JS
+```ABAP
 *&---------------------------------------------------------------------*
 *& This code snippet will show how to use the CL_SALV_TABLE to
 *&   generate the ALV
@@ -25,7 +25,7 @@ REPORT  ztest_oo_alv_main.
 *----------------------------------------------------------------------*
 CLASS lcl_report DEFINITION.
   PUBLIC SECTION.
-*   Final output table
+    "Final output table"
     TYPES: BEGIN OF ty_vbak,
            vbeln TYPE vbak-vbeln,
            erdat TYPE erdat,
@@ -37,7 +37,7 @@ CLASS lcl_report DEFINITION.
            END OF ty_vbak.
     TYPES: ty_t_vbak TYPE STANDARD TABLE OF ty_vbak.
     DATA: t_vbak TYPE STANDARD TABLE OF ty_vbak.
-*   ALV reference
+    "ALV reference"
     DATA: o_alv TYPE REF TO cl_salv_table.
     
     METHODS:
@@ -96,7 +96,6 @@ CLASS lcl_report IMPLEMENTATION.
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 	
 ENDCLASS.                    "lcl_report IMPLEMENTATION"
-
 ```
 
 ### Contain模式创建SALV
@@ -104,8 +103,6 @@ ENDCLASS.                    "lcl_report IMPLEMENTATION"
 ```JS
 *&---------------------------------------------------------------------*
 REPORT  ztest_oo_alv_main.
-
-* Final output table
   TYPES: BEGIN OF ty_vbak,
          vbeln TYPE vbak-vbeln,
          erdat TYPE erdat,
@@ -119,10 +116,9 @@ REPORT  ztest_oo_alv_main.
   DATA: gr_functions TYPE REF TO cl_salv_functions_list.
   DATA: gr_container TYPE REF TO cl_gui_custom_container.
   DATA: ok_code TYPE syucomm.
-
 START-OF-SELECTION.
   CALL SCREEN 1000. "Screen Number"
-DULE 1000_pbo OUTPUT.
+MODULE 1000_pbo OUTPUT.
     SELECT vbeln erdat auart kunnr
            INTO  TABLE t_vbak
            FROM  vbak
@@ -163,20 +159,20 @@ DULE 1000_pbo OUTPUT.
 ENDMODULE.
 ```
 
-#### 以弹出框显示SALV:
+#### 以弹出框显示 SALV
 
 ```JS
-DATA: gr_table TYPE REF TO cl_salv_table.
+DATA: go_table TYPE REF TO cl_salv_table.
 cl_salv_table=>factory(
-  IMPORTING r_salv_table = gr_table
+  IMPORTING r_salv_table = go_table
   CHANGING t_table = gt_data[] 
 ).
 "设置弹出框属性"
-gr_table->set_screen_popup(
+go_table->set_screen_popup(
   start_column = 1
   end_column = 50
   start_line = 1
   end_line = 5 ).
-gr_table->display( ).
+go_table->display( ).
 ```
 

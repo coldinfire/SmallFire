@@ -949,7 +949,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_Color/</guid>
-      <description>ALV颜色设置 整行：在记录中在需要设置COLOR的数据中添加详细信息 整列：从COLUMNS获得对应的列，设置特定列的颜色 单元格：在每条记录的</description>
+      <description>ALV颜色设置 整行：在记录中在需要设置 COLOR 的数据中添加详细信息 整列：从 COLUMNS 获得对应的列，设置特定列的颜色 单元格：在每条记录的 COLOR 表中添加有关字段和</description>
     </item>
     
     <item>
@@ -958,7 +958,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_DisplaySet/</guid>
-      <description>Display设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_display_setting CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_display_setting CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_display_setting. DATA: lo_display TYPE REF TO cl_salv_display_settings. *Get display object lo_display = co_alv-&amp;gt;get_display_settings( ). *Set ZEBRA pattern lo_display-&amp;gt;set_striped_pattern( &amp;#39;X&amp;#39; ). *Title to ALV lo_display-&amp;gt;set_list_header( &amp;#39;ALV Test for Display</description>
+      <description>Display设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_display_setting CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_display_setting CHANGING co_alv = o_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_display_setting. DATA: lo_display TYPE REF TO cl_salv_display_settings. &amp;#34;Get display object&amp;#34; lo_display = co_alv-&amp;gt;get_display_settings( ). &amp;#34;Set ZEBRA pattern&amp;#34; lo_display-&amp;gt;set_striped_pattern( &amp;#39;X&amp;#39; ). &amp;#34;Title to ALV&amp;#34; lo_display-&amp;gt;set_list_header( &amp;#39;ALV Test for Display</description>
     </item>
     
     <item>
@@ -994,7 +994,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_Create/</guid>
-      <description>创建和显示 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; This code snippet will show how to use the CL_SALV_TABLE to *&amp;amp; generate the ALV *&amp;amp;---------------------------------------------------------------------* REPORT ztest_oo_alv_main. *----------------------------------------------------------------------* * CLASS lcl_report DEFINITION *----------------------------------------------------------------------* CLASS lcl_report DEFINITION. PUBLIC SECTION. * Final output table TYPES: BEGIN OF ty_vbak, vbeln TYPE vbak-vbeln, erdat TYPE erdat, auart TYPE auart, kunnr TYPE kunnr, netwr TYPE netwr, check TYPE flag, &amp;#34;复选框</description>
+      <description>创建和显示 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; This code snippet will show how to use the CL_SALV_TABLE to *&amp;amp; generate the ALV *&amp;amp;---------------------------------------------------------------------* REPORT ztest_oo_alv_main. *----------------------------------------------------------------------* * CLASS lcl_report DEFINITION *----------------------------------------------------------------------* CLASS lcl_report DEFINITION. PUBLIC SECTION. &amp;#34;Final output table&amp;#34; TYPES: BEGIN OF ty_vbak, vbeln TYPE vbak-vbeln, erdat TYPE erdat, auart TYPE auart, kunnr TYPE kunnr, netwr TYPE netwr, check TYPE flag, &amp;#34;复选框&amp;</description>
     </item>
     
     <item>
@@ -1052,7 +1052,7 @@
     </item>
     
     <item>
-      <title> 使用SALV功能创建ALV </title>
+      <title> SALV 创建ALV </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
