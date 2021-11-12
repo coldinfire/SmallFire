@@ -52,7 +52,7 @@ CLASS lcl_event_receiver DEFINITION.
     "声明数据修改事件"
     METHODS handle_data_changed 
       FOR EVENT data_changed OF cl_gui_alv_grid
-      IMPORTING er_data_changed.
+      IMPORTING er_data_changed e_onf4_before e_onf4_after e_ucomm.
 ENDCLASS.                    "cl_event_receiver DEFINITION"
 ```
 
@@ -113,20 +113,89 @@ SET HANDLER event_receiver->handle_command        FOR go_grid.
 SET HANDLER event_receiver->handle_data_changed   FOR go_grid.
 ```
 
-单元格编辑事件：
+### 控制数据变化
 
-- 除了设置 FIELDCAT 的 EDIT 属性。还需要在显示ALV后添加触发数据改变事件，否则不会触发数据更新事件。
+ALV 提供给我们控制数据的输入，有两个事件：**data_changed** 和 **data_changed_finished** 。第一个事件在可编辑字段的数据发生变化时触发，可用来检查数据的输入；第二个事件是当数据修改完成后触发。
 
-- ```ABAP
-  "注册编辑事件，否则不会触发更新事件"
-  CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
-    EXPORTING
-      I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_MODIFIED. "必须设置一种触发方式"
-  ```
+除了设置 FIELDCAT 的 EDIT 属性。还需要在显示 ALV 后添加触发数据改变事件，必须设置一种方式，否则不会触发数据更新事件。
 
-
-- 按回车触发：`I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.`
-- 单元格失去焦点触发：`I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.`
+```ABAP
+CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
+  EXPORTING
+    I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_MODIFIED. 
+```
 
 
+- `I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.`
+- 在单元格修改后回车或者执行其他操作时触发事件,此类型可用于多个单元格修改后一起检查修改的值
+- `I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.`
+
+  - 当光标焦点移开被修改单元格后既触发事件,此类型可用于每个每个单元个的实时更新检查
+
+#### 获取 ALV 字段修改信息
+
+为了获取 ALV 里字段修改的一些信息，DATA_CHANGED 事件会把参考`CL_ALV_CHANGED_DATA_PROTOCOL` 创建的实例通过参数 ER_DATA_CHANGED 传递给 ALV。通过该参数我们可以知道哪些单元格发生了变化。
+
+- 类 CL_ALV_CHANGED_DATA_PROTOCOL 的一些方法
+
+  | Methods             | Desc               |
+  | ------------------- | ------------------ |
+  | GET_CELL_VALUE      | 获取单元格值       |
+  | MODIFY_CELL         | 修改单元格         |
+  | ADD_PROTOCOL_ENTRY  | 增加日志记录       |
+  | PROTOCOL_IS_VISIBLE | 是否允许错误表可见 |
+  | REFRESH_PROTOCOL    | 刷新日志记录       |
+
+- 类 CL_ALV_CHANGED_DATA_PROTOCOL 的一些属性
+
+  | Attributes       | Desc                                     |
+  | :--------------- | :--------------------------------------- |
+  | MT_MOD_CELLS     | 包含带有行和字段名称的已修改单元格的数据 |
+  | MT_MOD_ROWS      | 包含修改的行数据，类型是数字             |
+  | MT_GOOD_CELLS    | 包含当前单元格的值                       |
+  | MT_DELETED_ROWS  | 包含从列表中删除的行                     |
+  | MT_INSERTED_ROWS | 包含列表中新插入的行                     |
+
+实现 DATA Change 事件方法
+
+```ABAP
+METHOD handle_data_changed.
+  DATA: mod_data TYPE lvc_s_modi.
+        ls_output TYPE str_output,
+        lv_menge  TYPE ekpo-netwr,
+        lv_menge_ori TYPE ekpo-netwr.
+  SORT er_data_changed->mt_good_cells BY row_id.
+  LOOP AT er_data_changed->mt_good_cells INTO mod_data.
+    CLEAR: ls_output,lv_menge.
+    IF mod_data-fieldname = 'NETWR'.
+      READ TABLE gt_output INDEX mod_data-row_id INTO ls_output.
+      IF sy-subrc = 0.
+        CALL METHOD er_data_changed->get_cell_value
+          EXPORTING
+            i_row_id    = mod_data-row_id
+            i_fieldname = mod_data-fieldname
+          IMPORTING
+            e_value     = lv_menge.
+        ......
+       lv_menge_ori = mod_data-value.
+       CALL METHOD er_data_changed->add_protocol_entry
+         EXPORTING
+           i_msgid     = '00'
+           i_msgty     = 'E'
+           i_msgno     = '001'
+           i_msgv1     = 'Data Format Error'
+           i_msgv2     = lv_menge
+           i_msgv3     = '.'
+           i_fieldname = mod_data-fieldname.
+        ......
+        CALL METHOD er_data_changed->modify_cell
+          EXPORTING
+            i_row_id    = mod_data-row_id
+            i_fieldname = mod_data-fieldname
+            i_value     = lv_menge.
+      ENDIF.
+    ENDIF.
+  ENDLOOP.
+ENDMETHOD.
+```
 

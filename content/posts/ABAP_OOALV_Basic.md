@@ -220,19 +220,35 @@ FORM prepare_layout CHANGING ps_layout TYPE lvc_s_layo.
 ENDFORM. "prepare_layout"
 ```
 
+#### 选择方式
+
+有时候，我们需要选择一些单元格，行或者列。在布局中，有个参数 SEL_MODE 可以设置我们不同的选择方式。
+
+| Value | Desc                                                         |
+| :---- | :----------------------------------------------------------- |
+| SPACE | 等同于B，默认设置                                            |
+| A     | 行和列的选择；无法选择单元格，多行，多列；用户可以使用最左边的选择按钮来选择多行 |
+| B     | 单选；不可以多选行,不可以多选单元格，多行，多列              |
+| C     | 多选；可以多选行,不可以多选单元格，多行，多列                |
+| D     | 单元格的选择：可以多选单元格，多行，多列；任何单元格多选 用户可以使用最左边的选择按钮来选择多行 |
+
+注意点：
+
+- 如果设置了 ALV 是可编辑的，可能会覆盖在布局中选择方式的设置的
+- 设置了选择方式以后，我们可以使用很多方法来获取用户的选择。比如GET_SELECTED_CELLS、GET_SELECTED_CELLS_ID、GET_SELECTED_ROWS、GET_SELECTED_COLUMNS
+- 执行 PAI 以后，用户所选择的单元格、行或者列可能丢失。可以在PBO中，使用对应的 SET 方法来恢复这些选择
+
 #### GUI Status：排除不需要的按钮
 
 自定义按钮
 
 ```ABAP
-FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .   
-  DATA: lt_excl TYPE slis_t_extab.
-    APPEND 'CLOSE' TO lt_excl.
-    APPEND 'SALL'  TO lt_excl.
-    APPEND 'USAL'  TO lt_excl.
-  SET PF-STATUS 'STATUS' EXCLUDING lt_excl .
-  SET TITLEBAR 'TITLE'.
-ENDFORM .
+DATA: lt_excl TYPE slis_t_extab.
+APPEND 'CLOSE' TO lt_excl.
+APPEND 'SALL'  TO lt_excl.
+APPEND 'USAL'  TO lt_excl.
+SET PF-STATUS 'STATUS' EXCLUDING lt_excl .
+SET TITLEBAR 'TITLE'.
 ```
 
 系统标准按钮
@@ -245,21 +261,46 @@ ENDFORM .
 
   ```ABAP
   FORM exclude_tb_functions CHANGING pt_exclude TYPE ui_functions .     
-    DATA ls_exclude TYPE ui_func.      
-    ls_exclude = cl_gui_alv_grid=>mc_fc_maximum .      
-    APPEND ls_exclude TO pt_exclude.      
-    ls_exclude = cl_gui_alv_grid=>mc_fc_minimum .    
-    APPEND ls_exclude TO pt_exclude.     
-    ls_exclude = cl_gui_alv_grid=>mc_fc_subtot .    
-    APPEND ls_exclude TO pt_exclude.     
-    ls_exclude = cl_gui_alv_grid=>mc_fc_sum .      
-    APPEND ls_exclude TO pt_exclude.      
-    ls_exclude = cl_gui_alv_grid=>mc_fc_average .     
-    APPEND ls_exclude TO pt_exclude.      
-    ls_exclude = cl_gui_alv_grid=>mc_mb_sum .     
-    APPEND ls_exclude TO pt_exclude.      
+    ls_exclude = cl_gui_alv_grid=>mc_fc_maximum .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_minimum .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_subtot .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_sum .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_average .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_mb_sum .
+    APPEND ls_exclude TO pt_exclude.
     ls_exclude = cl_gui_alv_grid=>mc_mb_subtot .
     APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_sort_asc.
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_sort_dsc .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_find .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_filter .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_print .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_print_prev .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_mb_export .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_graph .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_mb_view .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_detail .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_help .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_fc_info .
+    APPEND ls_exclude TO pt_exclude.
+    ls_exclude = cl_gui_alv_grid=>mc_mb_variant.
+    APPEND ls_exclude TO pt_exclude. 
   ENDFORM .
   ```
 
@@ -269,7 +310,7 @@ ENDFORM .
 
 #### 显示 ALV
 
-CL_GUI_ALV_GRID 重要方法： `set_table_for_first_display`。
+CL_GUI_ALV_GRID 重要方法： `SET_TABLE_FOR_FIRST_DISPLAY`。
 
 ```ABAP
 CALL METHOD go_grid->set_table_for_first_display 
@@ -279,7 +320,7 @@ CALL METHOD go_grid->set_table_for_first_display
      is_layout                     = layout   "布局设置"
      i_save                        = 'A'         "保存表格布局(X) & User-Spec(U)"
      i_default                     = 'X'         "是否允许用户定义默认布局"
-     it_toolbar_excluding          = lt_exclude  "排除的按钮"
+     it_toolbar_excluding          = gt_exclude  "排除的按钮"
    CHANGING 
      it_outtab                     = gt_list[]   "需要显示的内表数据"
      it_fieldcatalog               = gt_fieldcat "结构字段"
@@ -316,4 +357,4 @@ ENDIF.
 
 ### 其它功能
 
-为了触发 ALV Grid 的一些附加功能，我们可以将一些附加数据作为参数传递。 例如，初始排序标准、要停用的按钮等...
+为了触发 ALV Grid 的一些附加功能，我们可以将一些附加数据作为参数传递。 例如，初始排序标准、要停用的按钮、布局颜色设置等...

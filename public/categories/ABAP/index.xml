@@ -697,7 +697,7 @@
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</guid>
-      <description>引用自：https://www.cnblogs.com/jiangzhengjun/p/4291387.html 简介 SALV 可以像使用函数方式生成</description>
+      <description>引用自：https://www.cnblogs.com/jiangzhengjun/p/4291387.html 简介 SALV 可以使用函数方式生成 ALV</description>
     </item>
     
     <item>
@@ -1250,12 +1250,12 @@
     </item>
     
     <item>
-      <title>ALV 控制单元格不可编辑</title>
+      <title>ALV 单元格编辑设置</title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_EditControl/</link>
       <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_EditControl/</guid>
-      <description>实现 ALV 单元格不可编辑 如果已经把ALV中的整列设为可编辑，而只想让这个列中的某些单元格不可编辑，可以使用以下这种方法。 具体单元格可编辑状态设置</description>
+      <description>单元格级别的可编辑和不可编辑是个非常有用的功能，在很多时候都会使用到。 实现 ALV 单元格不可编辑 如果已经把 ALV 中的整列设为可编辑，而只想让这个列中的</description>
     </item>
     
     <item>
@@ -1363,7 +1363,7 @@
       <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_SortFilter/</guid>
-      <description>Sort 设置排序条件 可以为 ALV 数据设置排序条件。 初始化排序功能，在方法 set_table_for_first_display 中添加由系统标准的排序结构 LVC_T_SORT 生成的内表GT_SORT。 可以分别使用 GET_SORT_CRITERIA 和 SET_SORT_CRITERIA 方法</description>
+      <description>OO ALV 设置排序条件 可以为 ALV 数据设置排序条件。 初始化排序功能，在方法 SET_TABLE_FOR_FIRST_DISPLAY 中的参数 IT_SORT 添加由系统标准的排序结构 LVC_T_SORT 生成的内表来实现。 FORM prepare_sort_table CHANGING pt_sort TYPE lvc_t_sort . DATA ls_sort TYPE</description>
     </item>
     
     <item>

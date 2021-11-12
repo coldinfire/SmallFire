@@ -61,7 +61,7 @@ DATA: gt_lvc_fieldcat TYPE lvc_t_fcat,
 | COL_POS(10)                 | 列输出位置                                            | 1….n                                   |
 | **FIELDNAME**(30)           | 针对输出内表列进行设置，只有设置了的列才会显示在ALV中 | 内表中定义的字段名                     |
 | **TABNAME** (30)            | Fieldname字段对应的内表名称                           | 内表名称                               |
-| **CURRENCY**(5)             | 货币单位                                              |                                        |
+| **CURRENCY**(5)             | 货币单位                                              | 表 TCURX 中的货币名称                  |
 | **CFIELDNAME**(30)          | 货币单位字段名 Currency unit field name               | 当前输出内表中的货币单位字段的字段名称 |
 | **CTABNAME**(30)            | 货币单位表名 Currency unit table name                 | CFIELDNAME字段值对应的内表名称         |
 | **QUANTITY**(3)             | 计量单位                                              |                                        |
@@ -166,13 +166,16 @@ ENDLOOP.
 
 大部分和 **SLIS** 中定义的一致，下面列出部分不一致的字段。
 
-| 字段名称                | 描述                            |
-| ----------------------- | ------------------------------- |
-| REF_FIELD               | 参考字段名称，配合REF_TABLE使用 |
-| REF_TABLE               | 参考表名称，配合REF_FIELD使用   |
-| COLTEXT                 | ALV control: 列标题             |
-| REPTEXT                 | 字段标题                        |
-| SCRTEXT_L/M/S(40/20/10) | 设置字段名称描述长/中/短        |
+| 字段名称                | 描述                                       |
+| ----------------------- | ------------------------------------------ |
+| REF_FIELD               | 参考字段名称，配合REF_TABLE使用            |
+| REF_TABLE               | 参考表名称，配合REF_FIELD使用              |
+| COLTEXT                 | ALV control: 列标题                        |
+| REPTEXT                 | 字段标题                                   |
+| SCRTEXT_L/M/S(40/20/10) | 设置字段名称描述长/中/短                   |
+| DRDN_HNDL               | 自然数，下拉框的句柄                       |
+| DRDN_FIELD              | ALV 控制，内表表字段的字段名称，下拉的字段 |
+| F4AVAILABL              | X：此列有搜索帮助                          |
 
 #### 手动生成： FIELDCAT 字段结构
 
@@ -254,12 +257,12 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
 | BOX_FIELDNAME            | 指定数据内表中哪列以选择按钮形式显示         | slis_fieldname                      |
 | CONFIRMATION_PROMPT(1)   | 当退出ALV报表展示界面时，是否需要提示用户    | X-提示，space-不提示                |
 | DETAIL_POPUP(1)          | 右键中有 Detail 菜单，是否弹出详细信息窗口   | X-弹出，space-不弹出                |
-| INFO_FIELDNAME           | 设置ALV输出报表行颜色                        |                                     |
-| COLTAB_FIELDNAME         | 设置单元格颜色                               |                                     |
+| INFO_FIELDNAME           | 设置ALV输出报表行颜色                        | 颜色字段                            |
+| COLTAB_FIELDNAME         | 设置单元格颜色                               | 颜色表字段                          |
 
-**INFO_FIELDNAME**：用于设置ALV输出报表每一行的颜色，其参数为输出内表的字段名称，要注意的是使用该属性需要同时在内表中定义一个与该参数所定义字段名相同的字段。
+**INFO_FIELDNAME**：用于设置 ALV 输出报表每一行的颜色，其参数为输出内表的字段名称，要注意的是使用该属性需要同时在内表中定义一个与该参数所定义字段名相同的字段。
 
-- LAYOUT-INFO_FIELDNAME = 'COLOR'. 倘若其数据输出内表名为LT_OUT，则需要在该内表增加一字段“COLOR”，并为其内表每行复制，颜色参数范围C000~C999。例如：LT_OUT-COLOR = 'C012'.
+- LAYOUT-INFO_FIELDNAME = 'COLOR'. 倘若其数据输出内表名为LT_OUT，则需要在该内表增加一字段“COLOR”，并为其内表每行设置颜色值，颜色参数范围C000~C999。例如：LT_OUT-COLOR = 'C012'.
 
 ### LVC常用参数列表
 
@@ -280,10 +283,10 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
 | NUMC_TOTAL(1)     | 禁止 NUMC 字段总计                   | X-禁止，space-不禁止                         |
 | NO_TOTLINE(1)     | 不输出总计行                         | X-不输出，space-输出                         |
 | NO_UTSPLIT(1)     | 按单元拆分总计行                     | X-不拆分，space-拆分                         |
-| INFO_FNAME        | 带有简单行彩色代码的字段名称         |                                              |
-| CTAB_FNAME        | 代表颜色信息的字段名                 |                                              |
+| INFO_FNAME        | 简单行颜色代码的字段名称             | 内表对应颜色字段名                           |
+| CTAB_FNAME        | 复杂单元格颜色编码的字段名称         | 内表对应颜色字段表                           |
 | NO_ROWMARK        | 禁用行选择                           |                                              |
-| NO_TOOLBAR        | 隐藏工具栏                           |                                              |
+| NO_TOOLBAR        | 隐藏工具栏                           | X-隐藏，sapce-不隐藏                         |
 | GRID_TITLE        | 标题栏文本                           |                                              |
 
 ### I_SAVE 保存布局选项字段的作用
@@ -295,29 +298,68 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
 
 ### [颜色设置](http://blog.sina.com.cn/s/blog_3f2c03e30100mk1s.html)
 
-**行颜色**：`gs_layout-<color_fieldname> = 'COLOR'.`
+颜色设置中有优先级顺序，单元格--->行--->列。
 
-- ALV 中的每行数据颜色是通过 Layout 来控制的。需要在输出内表结构中增加一列字段，用来存储数据行的颜色值。
+#### 颜色编码
 
-- 颜色值定义为 4 位字符
+颜色值定义为 4 位字符型
 
-  - 第 1 位固定为字母 “C”
-  - 第 2 位为颜色，由 0~7 表示，不同的数字表示不同的颜色。如：0 = background color、1 = Gray-blue、2 = Light gray、3 = yellow、4 = blue-gray、5 = green、6 = red、7 = orange
-  - 第 3 位表示输出文字是否高亮显示，由 0~1 表示。为 1 时表示高亮显示。
-  - 第 4 位表示颜色反转。测试了一下，基本上 0~9 颜色都差不多，唯一就是当取值为 1 时，底色又回到了灰色（且只是在第 3 位为 0 时才有此效果）。
+- 第 1 位固定为字母 C (Color)
 
+- 第 2 位为颜色编码，由 0~7 表示，不同的数字表示不同的颜色。
 
-**列颜色**：`gt_fieldcat-emphasize = 'C510'.`
+  | Value | Color            | Desc                     |
+  | ----- | ---------------- | ------------------------ |
+  | 0     | Background color | Default                  |
+  | 1     | Gray-blue        | Headers                  |
+  | 2     | Light gray       | List bodies              |
+  | 3     | Yellow           | Totals                   |
+  | 4     | Blue-gray        | Key columns              |
+  | 5     | Green            | Positive threshold value |
+  | 6     | Red              | Negative threshold value |
+  | 7     | Orange           | Control levels           |
 
-**单元格颜色**：`gs_layout-<coltab_fieldname>='COLORTABLE'.`
+- 第 3 位表示输出文字是否高亮显示，由 0~1 表示。为 1 时表示高亮显示。
+
+- 第 4 位表示颜色反转。测试了一下，基本上 0~9 颜色都差不多，唯一就是当取值为 1 时，底色又回到了灰色（且只是在第 3 位为 0 时才有此效果）。
+
+#### 列颜色
+
+可以通过字段目录的 emphasize 控制字段来控制某列的颜色，这个字段同样是 4 位的 CHAR 型，传入上述的颜色编码。
+
+- `gs_fieldcat-emphasize = 'C510'.`
+
+如果该列被设置为关键列，就是  LS_FCAT-KEY = 'X' ，那么颜色设置就不会起作用。
+
+#### 行颜色
+
+为某行设置颜色是有点复杂的，需要在 ALV 的数据内表中增加一个字段保存颜色值，这个字段不需要在字段目录中存在。而且该字段也要是 4 位的CHAR 型(rowcolor)，符合颜色编码的定义。
+
+ALV 中的每行数据颜色是通过 Layout 的 `INFO_NAME`来控制的，可以设置这个字段来告诉 ALV 颜色字段是哪个。刷新以后才起作用。
+
+- `layout-info_name = 'ROWCOLOR'.`
+
+#### 单元格颜色
+
+设置单元格和设置行的颜色本质上没有什么大的区别，但是定位单元格需要 2 个参数。我们需要在数据内表中插入一个表类型的字段，这样我们的数据内表就变成了 DEEP 结构了。
+
+表类型字段的类型为 `LVC_T_SCOL`。
+
+- FNAME：指定需要设置的是哪个字段，如果为空则会设置整行
+- COLOR：用来设置颜色值
+- NOKEYCOL：设置为关键列的一些字段，我们的颜色设置可能被覆盖。通过这个字段的设置，可以避免被关键列覆盖
+
+同样，ALV 在布局中有个字段 `CTAB_FNAME` 告诉我们，数据内表中，哪个字段是用来设置单元格的颜色的。
+
+- `layout-ctab_name = 'COLORTABLE'.`
 
 ### ALV 可编辑
 
 **整体可编辑**：layout-edit = 'X' 
 
-**某列可编辑**：fieldcat-edit = 'X'
+**某列可编辑**：gs_fieldcat-edit = 'X'
 
-**单元格可编辑**：需要通过OO方式实现
+**单元格可编辑**：需要通过 OO 方式实现
 
 ## 设置工具导航栏 GUI Status
 

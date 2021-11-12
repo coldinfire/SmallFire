@@ -16,18 +16,18 @@ tags:
 
 ### 简介
 
-SALV 可以像使用函数方式生成 ALV 那样，不用创建屏幕就可以调用的全屏方式显示的 ALV.
+SALV 可以使用函数方式生成 ALV ，不用创建屏幕就可以调用的全屏方式显示的 ALV。
 
-SALV 的 GRID 报表可以在后台运行，但以前函数方式或 OO 方式生成的 GRID 不能.
+SALV 的 GRID 报表可以在后台运行，但以前函数方式或 OO 方式生成的 GRID 不能。
 
-SALV 与现有的方法（Function ALV）相比，为了方便以接口的方式提供更整合及细微的功能.
+SALV 与现有的方法（Function ALV）相比，为了方便以接口的方式提供更整合及细微的功能。
 
-SALV 不提供编辑功能，但可以通过 SALV 适配器调用 CL_GUI_ALV_GRID 修改成编辑模式，就可以在 ALV 中修改数据了.
+SALV 不提供编辑功能，但可以通过 SALV 适配器调用 CL_GUI_ALV_GRID 修改成编辑模式，就可以在 ALV 中修改数据了。
 
 这些新的面向对象的 ALV 模型具有许多优点：
 
-- 简化设计：该模型使用高度集成的面向对象设计，这使程序员可以轻松开发 ALV。
-- 统一对象模型：此模型只有一个主类，该主类将获取并设置整个布局的参数。
+- 简化设计：该模型使用高度集成的面向对象设计，这使程序员可以轻松开发 ALV
+- 统一对象模型：此模型只有一个主类，该主类将获取并设置整个布局的参数
 
 ### 主要的类型和方法
 
@@ -37,7 +37,7 @@ SALV 不提供编辑功能，但可以通过 SALV 适配器调用 CL_GUI_ALV_GRI
 | 分层的ALV显示 | CL_SALV_HIERSEQU_TABLE |
 | 树形的ALV显示 | CL_SALV_TREE           |
 
-**FACTORY**：所有类都有静态方法 FACTORY，该方法将取回 ALV 的实例。就像简单的报表显示一样，我们必须调用方法 `CL_SALV_TABLE => FACTORY `来获取 ALV 的实例。
+**FACTORY**：所有类都有静态方法 FACTORY，该方法将取回 ALV 的实例。就像简单的报表显示一样，我们必须调用方法 `CL_SALV_TABLE => FACTORY( ). `来获取 ALV 的实例。
 
  有三种显示方法可以通过传入参数设置：
 
@@ -49,9 +49,9 @@ SALV 不提供编辑功能，但可以通过 SALV 适配器调用 CL_GUI_ALV_GRI
 
 ```JS
 " 判断是否已分配了一个有效引用 "
-IF gr_container IS NOT BOUND.
+IF go_container IS NOT BOUND.
  " 创建容器 "
- CREATE OBJECT gr_container
+ CREATE OBJECT go_container
    EXPORTING
      container_name = 'CONTAINER_1'. " 屏幕上用户自定义控件名 "
  " 创建 ALV "
