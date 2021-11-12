@@ -56,8 +56,5 @@ CALL METHOD obj_alv->set_frontend_layout
 
 ### 将字段作为下拉菜单
 
-使用内表存放句柄和对应的值，表类型："LVC_T_DROP"
-
-内表通过方法"
-SET_DROP_DOWN_TABLE"
+使用内表存放句柄和对应的值，表类型："LVC_T_DROP"；内表通过方法"SET_DROP_DOWN_TABLE"。
 

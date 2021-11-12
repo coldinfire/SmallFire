@@ -2061,10 +2061,10 @@
     
     <item>
       <title>OO ALV修改Layou和FieldCatalog</title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Util/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_LayoutFcat/</link>
       <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Util/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_LayoutFcat/</guid>
       <description>显示后，修改字段目录和布局 在运行期间，可以在首次显示列表后设置新的布局或新字段目录。 这些组件具有 get/set 方法来完成此操作。 Field Catalog GET_FRONTEND_FIELDCATALOG SET_FRONTEND_FIELDCATALOG Layout GET_FRONTEND_LAYOUT SET_FRONTEND_LAYOUT 代码示例 DATA</description>
     </item>
     
