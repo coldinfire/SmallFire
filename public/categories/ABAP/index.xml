@@ -1396,10 +1396,19 @@
     <item>
       <title>OO ALV 使用</title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</link>
-      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</guid>
       <description>OO ALV ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作。 使用了 ABAP 的对象以</description>
+    </item>
+    
+    <item>
+      <title>动态显示 ALV</title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_DynamicDisplay/</link>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_DynamicDisplay/</guid>
+      <description>Step1：创建动态的 Fieldcat 和普通创建 fieldcat 的方法相同，不过通过循环去创建动态的列。 Step2：创建动态的内表 根据上一步骤创建的 fieldcat 创建动态的内表，使</description>
     </item>
     
     <item>
