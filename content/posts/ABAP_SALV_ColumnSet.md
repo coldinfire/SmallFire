@@ -73,6 +73,9 @@ Function ALV、OO ALV 可通过 Fieldcat 对列进行相关设置，SALV 也有�
         "数值为空时，不显示0"
         lo_column ?= lo_cols->get_column( 'BET01' ).
         lo_column->set_zero( ' ' ).
+        "热点列设置"
+        lo_column ?= lo_cols->get_column( 'AUFNR' ).
+        lo_column->set_cell_type( if_salv_c_cell_type=>hotspot ).
         ...
       CATCH cx_salv_not_found.  "#EC NO_HANDLER"
     ENDTRY.

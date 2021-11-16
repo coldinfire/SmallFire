@@ -1012,7 +1012,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_Event/</guid>
-      <description>Event 处理 CLASS lcl_event_handler DEFINITION. PUBLIC SECTION. METHODS: on_link_click FOR EVENT link_click OF cl_salv_events_table IMPORTING row column. ENDCLASS. &amp;#34;lcl_event_handler DEFINITION&amp;#34; *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD generate_output. DATA: lv_msg TYPE REF TO cx_salv_msg. TRY. cl_salv_table=&amp;gt;factory( IMPORTING r_salv_table = go_alv CHANGING t_table = gt_vbak ). CATCH cx_salv_msg INTO lv_msg. ENDTRY. &amp;#34;Get the event object&amp;#34; DATA: lo_events TYPE REF TO cl_salv_events_table. lo_events = o_alv-&amp;gt;get_event( ). &amp;#34;Instantiate the event handler object&amp;#34; DATA: lo_event_handler TYPE</description>
+      <description>标准事件处理 CLASS lcl_event_handler DEFINITION. PUBLIC SECTION. METHODS: on_link_click FOR EVENT link_click OF cl_salv_events_table IMPORTING row &amp;#34;事件触发所在的行号&amp;#34; column. &amp;#34;事件触发所在的列名&amp;#34; METHODS: on_double_click FOR EVENT double_click OF cl_salv_events_table IMPORTING row column. ENDCLASS.</description>
     </item>
     
     <item>
@@ -1021,7 +1021,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_IConsTooltips/</guid>
-      <description>图标设置 为了能够在 SALV 上添加 ICON 和工具提示，需要： 列值作为 ICON 值– 在输出表中，需要添加 ICON 作为值。这样就可以将 ICON_GREEN_LIGHT 用作交通绿灯 将 SALV 的 ICON 列设置为 ICON – 从 SALV</description>
+      <description>图标设置 为了能够在 SALV 上添加 ICON 和工具提示，需要做以下内容： 列值作为 ICON 值： 在输出表中，需要添加 ICON 作为值。这样就可以将 ICON_GREEN_LIGHT 用作交通绿灯 将 SALV 的 ICON 列设置</description>
     </item>
     
     <item>
@@ -1057,7 +1057,7 @@
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_Create/</guid>
-      <description>创建和显示 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; This code snippet will show how to use the CL_SALV_TABLE to *&amp;amp; generate the ALV *&amp;amp;---------------------------------------------------------------------* REPORT ztest_oo_alv_main. *----------------------------------------------------------------------* * CLASS lcl_report DEFINITION *----------------------------------------------------------------------* CLASS lcl_report DEFINITION. PUBLIC SECTION. TYPES: BEGIN OF str_vbak, vbeln TYPE vbak-vbeln, erdat TYPE erdat, auart TYPE auart, kunnr TYPE kunnr, netwr TYPE netwr, check TYPE flag, &amp;#34;复选框&amp;#34</description>
+      <description>创建和显示 ALV *&amp;amp;---------------------------------------------------------------------* *&amp;amp; This code snippet will show how to use the CL_SALV_TABLE to *&amp;amp; generate the ALV *&amp;amp;---------------------------------------------------------------------* REPORT ztest_oo_alv_main. *----------------------------------------------------------------------* * CLASS lcl_report DEFINITION *----------------------------------------------------------------------* CLASS lcl_report DEFINITION. PUBLIC SECTION. TYPES: BEGIN OF str_vbak, vbeln TYPE vbak-vbeln, erdat TYPE erdat, auart TYPE auart, kunnr TYPE kunnr, netwr TYPE netwr, check TYPE flag, &amp;#34;复选框&amp;#3</description>
     </item>
     
     <item>
