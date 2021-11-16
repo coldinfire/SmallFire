@@ -14,7 +14,7 @@ tags:
 
 ### Event 处理
 
-```JS
+```ABAP
 CLASS lcl_event_handler DEFINITION.
   PUBLIC SECTION.
     METHODS:
@@ -28,22 +28,22 @@ ENDCLASS.                    "lcl_event_handler DEFINITION"
     TRY.
         cl_salv_table=>factory(
           IMPORTING
-            r_salv_table = o_alv
+            r_salv_table = go_alv
           CHANGING
-            t_table      = t_vbak ).
+            t_table      = gt_vbak ).
       CATCH cx_salv_msg INTO lx_msg.
     ENDTRY.
     
-*Get the event object
+    "Get the event object"
     DATA: lo_events TYPE REF TO cl_salv_events_table.
     lo_events = o_alv->get_event( ).
-*Instantiate the event handler object
+    "Instantiate the event handler object"
     DATA: lo_event_handler TYPE REF TO lcl_event_handler.
     CREATE OBJECT lo_event_handler.
-*Event handler
+    "Event handler"
     SET HANDLER lo_event_handler->on_link_click FOR lo_events.
-*Displaying the ALV
-    o_alv->display( ).
+    "Displaying the ALV"
+    go_alv->display( ).
   ENDMETHOD.                    "generate_output"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
     
@@ -62,3 +62,4 @@ FORM show_cell_info USING p_row TYPE i
   MESSAGE i001(00) WITH p_text.
 ENDFORM.
 ```
+

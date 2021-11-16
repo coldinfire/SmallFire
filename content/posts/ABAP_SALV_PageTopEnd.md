@@ -14,17 +14,15 @@ tags:
 
 ### 添加页头(Top of page)和页脚(End of page)
 
-```JS
+```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
 *Set Top of page
-    METHODS:
-      set_top_of_page
+    METHODS: set_top_of_page
         CHANGING
           co_alv TYPE REF TO cl_salv_table.
 *Set End of page
-    METHODS:
-      set_end_of_page
+    METHODS: set_end_of_page
         CHANGING
           co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
@@ -33,11 +31,11 @@ tags:
 *Calling the top of page method
     CALL METHOD me->set_top_of_page
       CHANGING
-        co_alv = o_alv.
+        co_alv = go_alv.
 *Calling the End of Page method
     CALL METHOD me->set_end_of_page
       CHANGING
-        co_alv = o_alv.
+        co_alv = go_alv.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
@@ -88,3 +86,4 @@ tags:
   ENDMETHOD.                    "set_end_of_page"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
+

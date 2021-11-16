@@ -74,14 +74,17 @@ IF go_splitter IS INITIAL.
     go_splitter->set_row_height( id = 1 height = 20 ).
     go_splitter->set_row_height( id = 2 height = 80 ).
 ENDIF.
-go_grid = new cl_gui_alv_grid(
-  i_parent = go_container_2000l
-).
+IF go_grid IS INITIAL.
+  go_grid = new cl_gui_alv_grid(
+    i_parent = go_container_2000l
+  ).
+ENDIF.
 go_grid->set_table_for_first_display(
   exporting
-    i_structure_name    =   'SPFLI'
+    i_structure_name    =  'SPFLI'
+    i_save              =  'X'
   changing
-    it_outtab           =    flights
+    it_outtab           =  flights
   exceptions
     invalid_parameter_combination = 1
     program_error                 = 2

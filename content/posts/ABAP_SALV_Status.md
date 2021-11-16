@@ -12,13 +12,12 @@ tags:
  
 ---
 
-### 设置Status
+### Status 设置
 
-```JS
+```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
-    METHODS:
-      set_pf_status
+    METHODS:set_pf_status
         CHANGING 
           co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
@@ -26,7 +25,7 @@ tags:
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
     CALL METHOD set_pf_status
       CHANGING
-        co_alv = o_alv.
+        co_alv = go_alv.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
@@ -39,13 +38,12 @@ tags:
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
 
-### 自定义Status：不适用于CONTAINER模式
+### 自定义 Status：不适用于 CONTAINER 模式
 
-```JS
+```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
-    METHODS:
-      set_pf_status
+    METHODS:set_pf_status
         CHANGING
           co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
@@ -53,7 +51,7 @@ tags:
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
     CALL METHOD set_pf_status
       CHANGING
-        co_alv = o_alv.
+        co_alv = go_alv.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
@@ -68,13 +66,12 @@ tags:
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
 
-### 在预设工具栏上附加按钮：只适用于CONTAINER模式
+### 在预设工具栏上附加按钮：只适用于 CONTAINER 模式
 
-```JS
+```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
-    METHODS:
-      set_pf_status
+    METHODS:set_pf_status
         CHANGING
           co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
@@ -82,7 +79,7 @@ tags:
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
     CALL METHOD set_pf_status
       CHANGING
-        co_alv = o_alv.
+        co_alv = go_alv.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*

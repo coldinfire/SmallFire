@@ -1824,7 +1824,7 @@
     <url>
       <loc>https://coldinfire.github.io/2019/SD_FunctionSum/</loc>
       
-      <lastmod>2019-06-08T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-11T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1837,6 +1837,34 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/SD/</loc>
+      
+      <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Demo/</loc>
+      
+      <lastmod>2019-06-08T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/SALV/</loc>
       
       <lastmod>2019-06-08T00:00:00+00:00</lastmod>
       
@@ -1976,7 +2004,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Sorts/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_SortsFilter/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       
@@ -2019,20 +2047,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2019/ABAP_SALV_PageTopEnd/</loc>
-      
-      <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/SALV/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       

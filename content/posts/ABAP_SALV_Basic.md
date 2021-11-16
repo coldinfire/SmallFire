@@ -63,7 +63,7 @@ SALV 不提供编辑功能，但可以通过 SALV 适配器调用 CL_GUI_ALV_GRI
 参数定义
 
 ```ABAP
-DATA: go_table TYPE REF TO cl_salv_table.
+DATA: go_alv TYPE REF TO cl_salv_table.
 DATA: go_functions TYPE REF TO cl_salv_functions_list.
 DATA: go_container TYPE REF TO cl_gui_custom_container.
 ```
@@ -84,15 +84,15 @@ IF go_container IS NOT BOUND.
 *     list_display = abap_true "以列表形式显示"
       container_name = 'CONTAINER_1'
     IMPORTING
-      r_salv_table = go_table
+      r_salv_table = go_alv
     CHANGING
       t_table = gt_data[] ).
   "设置工具栏"
-  go_functions = go_table->get_functions( ).
+  go_functions = go_alv->get_functions( ).
   "将激活所有的ALV内置通用按钮"
-  go_functions->set_all( abap_true). 
+  go_functions->set_all( abap_true ). 
   "显示"
-  go_table->display( ).
+  go_alv->display( ).
 ENDIF.
 ```
 #### DISPLAY 方法显示 ALV
@@ -108,3 +108,4 @@ ENDIF.
 如对样式的设置，需要先通过 CL_SALV_TABLE 对象的 GET_LAYOUT( ) 方法拿到 CL_SALV_LAYOUT 对象，实后通过该对象相关方法对 SALV 进行设置；除样式外，如排序、工具栏设置、事件等，都是先通过某个 GET 方法拿到相应对象，再通过该对象相关方法对 SALV 进行设置，这与以前 Function ALV、及 OO ALV 不太一样。（如上面的设置工具栏代码所示）
 
 ![CL_SALV_TABLE GET](/images/ABAP/SALV2.png)
+

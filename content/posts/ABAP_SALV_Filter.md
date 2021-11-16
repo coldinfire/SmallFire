@@ -14,7 +14,7 @@ tags:
 
 ### 过滤设置
 
-```JS
+```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
     METHODS:
@@ -27,7 +27,7 @@ tags:
 *Set Filters
     CALL METHOD set_filters
       CHANGING
-        co_alv = o_alv.
+        co_alv = go_alv.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
@@ -52,3 +52,4 @@ tags:
   ENDMETHOD.                    "set_filters"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
+

@@ -12,7 +12,15 @@ tags:
  
 ---
 
-### Display设置
+### Display 设置
+
+![CL_SALV_DISPLAY_SETTINGS](/images/ABAP/SALV3.png)
+
+- SET_VERTICAL_LINES：设置是否显示垂直线
+- SET_HORIZONTAL_LINES：设置是否显示水平线
+- SET_STRIPED_PATTERN：斑马条纹（行颜色交替）
+- SET_LIST_HEADER_SIZE：报表头
+- SET_FIT_COLUMN_TO_TABLE_SIZE：列自适应表格宽度
 
 ```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
@@ -26,7 +34,7 @@ tags:
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
     CALL METHOD set_display_setting
       CHANGING
-        co_alv = o_alv.
+        co_alv = go_alv.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
