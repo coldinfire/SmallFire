@@ -14,6 +14,12 @@ tags:
 
 ### Status 设置
 
+CL_SALV_TABLE 中提供了方法 `get_functions`，`set_default`；通过这两个方法可以创建 Status。
+
+![cl_salv_functions_list](/images/ABAP/SALV8.png)
+
+![cl_salv_functions_list](/images/ABAP/SALV9.png)
+
 ```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
@@ -33,12 +39,16 @@ tags:
     DATA: lo_functions TYPE REF TO cl_salv_functions_list.
     lo_functions = co_alv->get_functions( ).
     lo_functions->set_default( abap_true ).
-    "lo_functions->set_all( abap_true )."
+    "lo_functions->set_all( abap_true )." "Activate All Generic ALV Functions"
   ENDMETHOD.     "set_pf_status"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
 
 ### 设置自定义 Status：不适用于 CONTAINER 模式
+
+有时默认的标准 GUI Status 并不能完全满足我们的需求，需要在状态栏中添加自定义的按钮，这时要创建一个自定义的状态栏添加到SALV上。
+
+CL_SALV_TABLE 的方法 `SET_SCREEN_STATUS` 可以指定自定义的 Status。
 
 ```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
@@ -58,14 +68,14 @@ tags:
   METHOD set_pf_status.
     "系统提示的标准Status为SAPLSALV_METADATA_STATUS"
     co_alv->set_screen_status(
-      pfstatus      =  'T001'
+      pfstatus      =  'STATUS'
       report        =  sy-repid
       "此参数只对SALV标准的预设保留按钮起作用，也就是说当T001 GUI Status是从系统中"
       "提供的标准Gui Status拷贝时才起作用，即通过此参数来屏蔽或显示某些预置按钮"
-      "对自己完全新创建的GUI Status按钮（实质上是根据 FunCode来判断的）不起作用"
-      set_functions = co_alv->c_functions_all ). "显示所有通用的预设按钮
-    "set_functions = co_alv->c_functions_default). "显示基本默认选择性的预设按钮
-    "set_functions = co_alv->c_functions_none). "所有预设按钮都不显示"
+      "对自己完全新创建的GUI Status按钮（实质上是根据FunCode来判断的）不起作用"
+      set_functions = co_alv->c_functions_all ). "显示所有通用的预设按钮"
+    "set_functions = co_alv->c_functions_default)." "显示基本默认选择性的预设按钮"
+    "set_functions = co_alv->c_functions_none)." "所有预设按钮都不显示"
   ENDMETHOD.                    "set_pf_status"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```

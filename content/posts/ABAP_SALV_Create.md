@@ -33,6 +33,7 @@ CLASS lcl_report DEFINITION.
            netwr TYPE netwr,
            check TYPE flag,   "复选框"
            t_color TYPE lvc_t_scol,"单元格颜色设置"
+           t_celltype TYPE salv_t_int4_column,  "设置单元格style使用"
         END OF str_vbak.
     TYPES: ty_t_vbak TYPE STANDARD TABLE OF str_vbak.
     DATA: gt_vbak TYPE STANDARD TABLE OF str_vbak.
@@ -48,13 +49,7 @@ CLASS lcl_report DEFINITION.
 *    to set the properties of the ALV and can be called in the generate_output
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 ENDCLASS.                    "lcl_report DEFINITION"
-
-START-OF-SELECTION.
-  DATA: lo_report TYPE REF TO lcl_report.
-  CREATE OBJECT lo_report.
-  lo_report->get_data( ).
-  lo_report->generate_output( ).
-  
+ 
 *----------------------------------------------------------------------*
 *       CLASS lcl_report IMPLEMENTATION
 *----------------------------------------------------------------------*
@@ -84,12 +79,19 @@ CLASS lcl_report IMPLEMENTATION.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
    "Displaying the ALV"
     go_alv->display( ).
+    go_alv->refresh( ).
   ENDMETHOD.                    "generate_output"
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
 *    In this area we will implement the methods which are defined in
 *      the class definition
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ENDCLASS.                    "lcl_report IMPLEMENTATION"
+
+START-OF-SELECTION.
+  DATA: lo_report TYPE REF TO lcl_report.
+  CREATE OBJECT lo_report.
+  lo_report->get_data( ).
+  lo_report->generate_output( ).
 ```
 
 ### CONTAINER 模式创建 SALV

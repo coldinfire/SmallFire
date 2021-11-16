@@ -14,15 +14,25 @@ tags:
 
 ### 添加复选框功能
 
-要获得可选（可编辑）复选框，我们需要从 column 对象中获取特定的列。此后，我们需要使用方法 SET_CELL_TYPE 将单元格类型设置为 IF_SALV_C_CELL_TYPE => CHECKBOX_HOTSPOT。要更新复选框中的值，我们需要处理事件 LINK_CLICK。
+要获得可编辑的复选框，首先我们需要从 column 对象中获取显示内表中定义的 checkbox 字段列。
 
-当单击启用热点的复选框时，将触发 LINK_CLICK 事件。在事件处理程序方法中，需要更改复选框字段的值并调用 REFRESH 方法以刷新 ALV 上的值。
+此后，我们需要使用方法 SET_CELL_TYPE 将单元格类型设置为 IF_SALV_C_CELL_TYPE => CHECKBOX_HOTSPOT。
+
+更新复选框中的值，需要处理事件 ON_LINK_CLICK。当单击启用热点的复选框时，将触发 LINK_CLICK 事件。在事件处理程序方法中，需要更改复选框字段的值并调用 REFRESH 方法以刷新 ALV 上的值。
 
 ```ABAP
 *&---------------------------------------------------------------------*
 *& SALV Table, editable checkbox
 *&---------------------------------------------------------------------*
 REPORT  zsalv_editable_checkbox.
+
+CLASS lcl_event_handler DEFINITION.
+  PUBLIC SECTION.
+    METHODS:
+      on_link_click FOR EVENT link_click OF cl_salv_events_table
+        IMPORTING row column.
+ENDCLASS.                    "lcl_event_handler DEFINITION"
+
 CLASS lcl_report DEFINITION.
   PUBLIC SECTION.
     TYPES: BEGIN OF str_vbak,
@@ -39,19 +49,6 @@ CLASS lcl_report DEFINITION.
       get_data,
       generate_output.
 ENDCLASS.                    "lcl_report DEFINITION"
-
-CLASS lcl_event_handler DEFINITION.
-  PUBLIC SECTION.
-    METHODS:
-      on_link_click FOR EVENT link_click OF cl_salv_events_table
-        IMPORTING row column.
-ENDCLASS.                    "lcl_event_handler DEFINITION"
-
-START-OF-SELECTION.
-  DATA: lo_report TYPE REF TO lcl_report.
-  CREATE OBJECT lo_report.
-  lo_report->get_data( ).
-  lo_report->generate_output( ).
 *----------------------------------------------------------------------*
 *       CLASS lcl_report IMPLEMENTATION
 *----------------------------------------------------------------------*
@@ -73,9 +70,9 @@ CLASS lcl_report IMPLEMENTATION.
       CATCH cx_salv_msg INTO lv_msg.
     ENDTRY.
     DATA: lo_cols TYPE REF TO cl_salv_columns_table.
+    DATA: lo_column TYPE REF TO cl_salv_column_table.
     lo_cols ?= go_alv->get_columns( ).
     lo_cols->set_optimize( 'X' ).
-    DATA: lo_column TYPE REF TO cl_salv_column_table.
     "Change the properties of the Columns KUNNR"
     TRY.
         lo_column ?= lo_cols->get_column( 'CHECK' ).
@@ -95,9 +92,13 @@ CLASS lcl_report IMPLEMENTATION.
     go_alv->display( ).
   ENDMETHOD.               "generate_output"
 ENDCLASS.                  "lcl_report IMPLEMENTATION"
-*----------------------------------------------------------------------*
-*       CLASS lcl_event_handler IMPLEMENTATION
-*----------------------------------------------------------------------*
+
+START-OF-SELECTION.
+  DATA: lo_report TYPE REF TO lcl_report.
+  CREATE OBJECT lo_report.
+  lo_report->get_data( ).
+  lo_report->generate_output( ).
+  
 CLASS lcl_event_handler IMPLEMENTATION.
   METHOD on_link_click.
     "Get the value of the checkbox and set the value accordingly refersh the table"

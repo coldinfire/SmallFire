@@ -99,6 +99,18 @@ ENDIF.
 
 实例方法，调用此方法显示 ALV。
 
+- SALV 的列数最多只能显示 90 列
+
+- SALV 每个单元格最长输出 128 个字符
+
+- 排序和小记(sort 和 subtotals)最多 9 层或 9 列
+
+- 合计或小记的字段长度一定要够长，防止溢出
+- SALV 中的小记(subtotals)和合计(totals)的值不能返回到程序中
+
+- SALV 显示的字段一定要是 flat 的不能是 deep 的，也就是字段不能是表和结构。
+- SALV 如果用了 grid 网格形式显示，是不支持后台 job 的
+
 ![CL_SALV_TABLE](/images/ABAP/SALV1.png)
 
 ### 设置相关属性方法

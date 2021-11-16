@@ -994,7 +994,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_Layout/</guid>
-      <description>Layout 设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_layout CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_layout CHANGING co_alv = go_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_layout. DATA: lo_layout TYPE REF TO cl_salv_layout, lf_variant TYPE slis_vari, ls_key TYPE salv_s_layout_key. &amp;#34;该结构包含了布局变式所属程序名&amp;</description>
+      <description>Layout 设置 set_key： set_initial_layout set_save_restriction *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_layout CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_layout CHANGING co_alv = go_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_layout. DATA: lo_layout TYPE REF TO cl_salv_layout, lf_variant TYPE slis_vari, ls_key TYPE salv_s_layout_key. &amp;#34;该结构包含了</description>
     </item>
     
     <item>
@@ -1003,7 +1003,7 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_Status/</guid>
-      <description>Status 设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS:set_pf_status CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_pf_status CHANGING co_alv = go_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_pf_status. DATA: lo_functions TYPE REF TO cl_salv_functions_list. lo_functions = co_alv-&amp;gt;get_functions( ). lo_functions-&amp;gt;set_default( abap_true ). &amp;#34;lo_functions-&amp;gt;set_all( abap_true ).&amp;#34; ENDMETHOD. &amp;#34;set_pf_status&amp;#34; *$*$*.....CODE_ADD_3 - End....................................3..*$*$* 设置自定义 Status：不</description>
+      <description>Status 设置 CL_SALV_TABLE 中提供了方法 get_functions，set_default；通过这两个方法可以创建 Status。 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS:set_pf_status CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2</description>
     </item>
     
     <item>

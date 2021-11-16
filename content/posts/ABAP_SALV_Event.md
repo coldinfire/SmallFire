@@ -8,11 +8,13 @@ categories:
   - ABAP
 
 tags: 
-  - ALV
+  - SALV
  
 ---
 
 ### 标准事件处理
+
+![CL_SALV_EVENTS_TABLE](/images/ABAP/SALV12.png)
 
 ```ABAP
 CLASS lcl_event_handler DEFINITION.
@@ -37,7 +39,7 @@ ENDCLASS.                     "lcl_event_handler IMPLEMENTATION"
  METHOD generate_output.
     "Get the event object"
     DATA: lo_events TYPE REF TO cl_salv_events_table.
-    lo_events = co_alv->get_event( ).
+    lo_events = go_alv->get_event( ).
     "Instantiate the event handler object"
     DATA: lo_event_handler TYPE REF TO lcl_event_handler.
     CREATE OBJECT lo_event_handler.
@@ -49,15 +51,17 @@ ENDCLASS.                     "lcl_event_handler IMPLEMENTATION"
     
 FORM show_cell_info USING p_row TYPE i
                           p_column TYPE lvc_fname.
-  DATA: lv_row TYPE char10,
-        lv_text TYPE char50.
-  WRITE p_row TO lv_row LEFT-JUSTIFIED.
-  CONCATENATE lv_row 'Line,' p_column 'Column is selected.' INTO lv_text SEPARATED BY space.
-  MESSAGE i001(00) WITH lv_text.
+  DATA: ls_vbak TYPE str_vbak.
+  READ TABLE me->gt_vbak INTO ls_vbak INDEX p_row.
+    IF ls_vbak-vbeln IS NOT INITIAL.
+      MESSAGE i398(00) WITH 'You have selected' ls_vbak-vbeln.
+    ENDIF.
 ENDFORM.
 ```
 
-### 附加按钮事件
+### 自定义按钮事件
+
+在 GUI Status 加入自定义按钮后，可以通过注册事件 added_function，并且在对应的 handler method 中写入相关逻辑，来实现点击按钮后的逻辑。
 
 ```ABAP
 CLASS lcl_event_handler DEFINITION.
@@ -80,7 +84,7 @@ ENDCLASS.                     "lcl_event_handler IMPLEMENTATION"
     DATA: lo_event_handler TYPE REF TO lcl_event_handler.
     CREATE OBJECT lo_event_handler.
     "Event handler register"
-    SET HANDLER lo_handle_event->on_user_command FOR lo_events.
+    SET HANDLER lo_event_handler->on_user_command FOR lo_events.
   ENDMETHOD.                    "generate_output"
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 

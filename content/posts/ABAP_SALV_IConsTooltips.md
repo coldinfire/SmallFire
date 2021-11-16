@@ -8,17 +8,17 @@ categories:
   - ABAP
 
 tags: 
-  - ALV
+  - SALV
  
 ---
 
 ### 图标设置
 
-为了能够在 SALV 上添加 ICON 和工具提示，需要做以下内容：
+为了能够在 SALV 上添加 ICON 和提示信息，需要做以下内容：
 
 - **列值作为 ICON 值**： 在输出表中，需要添加 **ICON** 作为值。这样就可以将 ICON_GREEN_LIGHT 用作交通绿灯
 - **将 SALV 的 ICON 列设置为 ICON**： 从 SALV 获取 COLUMNS 对象，获取特定的列对象，调用方法 SET_ICON 将列注册为 ICON
-- **设置工具提示**： 工具提示对象是 “功能设置” 的一部分。首先获取功能对象。从中获取工具提示对象。调用方法 ADD_TOOLTIP 添加工具提示
+- **设置提示信息**： Tooltip 对象是 Functions_List 的一部分。首先获取功能对象。从中获取工具提示对象。调用方法 ADD_TOOLTIP 添加提示信息
 
 ```ABAP
 REPORT  ZTEST_NP_SALV_ICON_TOOLTIP.

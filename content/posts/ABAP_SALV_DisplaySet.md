@@ -8,11 +8,13 @@ categories:
   - ABAP
 
 tags: 
-  - ALV
+  - SALV
  
 ---
 
 ### Display 设置
+
+可以通过类 CL_SALV_DISPLAY_SETTINGS 中的一些方法进行 SALV 显示的设置。
 
 ![CL_SALV_DISPLAY_SETTINGS](/images/ABAP/SALV3.png)
 
@@ -25,8 +27,7 @@ tags:
 ```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
-    METHODS:
-      set_display_setting
+    METHODS: set_display_setting
         CHANGING
           co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
@@ -42,8 +43,9 @@ tags:
     DATA: lo_display TYPE REF TO cl_salv_display_settings.
     "Get display object"
     lo_display = co_alv->get_display_settings( ).
-    "Set ZEBRA pattern"
+    "Set attributes"
     lo_display->set_striped_pattern( 'X' ).
+    lo_display->set_fit_column_to_table_size( 'X' ).
     "Title to ALV"
     lo_display->set_list_header( 'ALV Test for Display Settings' ).
   ENDMETHOD.                    "SET_DISPLAY_SETTING"
