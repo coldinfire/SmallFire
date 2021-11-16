@@ -1,6 +1,6 @@
 ---
 title: " SALV ALV结果读取 "
-date: 2019-06-10
+date: 2019-06-08
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -14,7 +14,7 @@ tags:
 
 ### ALV 结果读取
 
-通过类 CL_SALV_BS_RUNTIME_INFO 来实现直接获取 submit 其他 SALV 程序后显示的结果。\
+通过类 CL_SALV_BS_RUNTIME_INFO 来实现直接获取 submit 其他 SALV 程序后显示的结果。
 
 通过这种方法也可以得到某些标准程序ALV的显示结果，很方便。
 
@@ -30,7 +30,7 @@ DATA go_data TYPE REF TO data.
 "设定SALV运行模式"
 cl_salv_bs_runtime_info=>set(
   EXPORTING
-    display  = abap_false  "不显示
+    display  = abap_false  "不显示"
     metadata = abap_false
     data     = abap_true 
   ).
