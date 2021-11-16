@@ -22,9 +22,9 @@ Function ALV、OO ALV 可通过 Fieldcat 对列进行相关设置，SALV 也有�
 
 ![CL_SALV_COLUMNS_TABLE](/images/ABAP/SALV6.png)
 
-#### CL_SALV_COLUMN
+#### CL_SALV_COLUMN_TABLE
 
-![CL_SALV_COLUMN](/images/ABAP/SALV7.png)
+![CL_SALV_COLUMN_TABLE](/images/ABAP/SALV7.png)
 
 #### 示例代码
 

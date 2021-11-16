@@ -24,14 +24,14 @@ ENDCLASS.                    "lcl_event_handler DEFINITION"
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
  METHOD generate_output.
-    DATA: lx_msg TYPE REF TO cx_salv_msg.
+    DATA: lv_msg TYPE REF TO cx_salv_msg.
     TRY.
         cl_salv_table=>factory(
           IMPORTING
             r_salv_table = go_alv
           CHANGING
             t_table      = gt_vbak ).
-      CATCH cx_salv_msg INTO lx_msg.
+      CATCH cx_salv_msg INTO lv_msg.
     ENDTRY.
     
     "Get the event object"

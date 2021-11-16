@@ -38,7 +38,7 @@ tags:
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
 
-### 自定义 Status：不适用于 CONTAINER 模式
+### 设置自定义 Status：不适用于 CONTAINER 模式
 
 ```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
@@ -56,10 +56,14 @@ tags:
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
   METHOD set_pf_status.
+    "系统提示的标准Status为SAPLSALV_METADATA_STATUS"
     co_alv->set_screen_status(
-      pfstatus      =  'SALV_STANDARD'
-      report        =  'SALV_DEMO_TABLE_SELECTIONS'
-      set_functions = co_alv->c_functions_all). "显示所有通用的预设按钮
+      pfstatus      =  'T001'
+      report        =  sy-repid
+      "此参数只对SALV标准的预设保留按钮起作用，也就是说当T001 GUI Status是从系统中"
+      "提供的标准Gui Status拷贝时才起作用，即通过此参数来屏蔽或显示某些预置按钮"
+      "对自己完全新创建的GUI Status按钮（实质上是根据 FunCode来判断的）不起作用"
+      set_functions = co_alv->c_functions_all ). "显示所有通用的预设按钮
     "set_functions = co_alv->c_functions_default). "显示基本默认选择性的预设按钮
     "set_functions = co_alv->c_functions_none). "所有预设按钮都不显示"
   ENDMETHOD.                    "set_pf_status"
@@ -84,6 +88,21 @@ tags:
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
   METHOD set_pf_status.
+    "附加刷新按钮"
+    DATA: lo_functions TYPE REF TO cl_salv_functions_list.
+    lo_functions = go_alv->get_functions( ).
+    lo_functions->set_all( abap_true ). "激活所有的ALV内置通用按钮"
+    INCLUDE <icon>.
+    DATA: lv_icon TYPE string.
+    lv_icon = icon_refresh.
+    "附加按钮，只适用于‘可控模式’下的 SALV"
+    lo_functions->add_function(
+      name = 'refresh'
+      icon = lv_icon
+      text = '刷新按钮'
+      tooltip = '刷新数据'
+      "按钮存放的位置：这里在右边附加。该参数的取值信息可查看方法源码"
+      position = if_salv_c_function_position=>right_of_salv_functions ).
   ENDMETHOD.                    "set_pf_status"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
