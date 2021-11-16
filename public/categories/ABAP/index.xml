@@ -80,6 +80,24 @@
     </item>
     
     <item>
+      <title> BAPI 创建和修改 ECN </title>
+      <link>https://coldinfire.github.io/2021/MM_BAPI_ECNCreate/</link>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/MM_BAPI_ECNCreate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> 物料主数据更新 </title>
+      <link>https://coldinfire.github.io/2021/MM_BAPI_BOM_Update/</link>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/MM_BAPI_BOM_Update/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title> ABAP 获取CLASS参数结果 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionClass/</link>
       <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
@@ -665,30 +683,12 @@
     </item>
     
     <item>
-      <title> SALV 排序设置 </title>
+      <title> SALV 排序&amp;分类汇总&amp;过滤 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALV_SortsFilter/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_SortsFilter/</guid>
-      <description>Sorts 设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_sorts CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* * Set SORT CALL METHOD set_sorts CHANGING co_alv = go_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_sorts. DATA: lo_sort TYPE REF TO cl_salv_sorts. &amp;#34;Get Sort object&amp;#34; lo_sort = co_alv-&amp;gt;get_sorts( ). &amp;#34;Set the SORT on the AUART with Subtotal&amp;#34; TRY. CALL METHOD lo_sort-&amp;gt;add_sort EXPORTING columnname = &amp;#39;AUART&amp;#39; subtotal</description>
-    </item>
-    
-    <item>
-      <title> SALV 汇总设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSum/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSum/</guid>
-      <description>Apply Aggregations *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_aggregations CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_aggregations CHANGING co_alv = go_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_aggregations. DATA: lo_aggrs TYPE REF TO cl_salv_aggregations. lo_aggrs = co_alv-&amp;gt;get_aggregations( ). *Add TOTAL for COLUMN NETWR TRY. CALL METHOD lo_aggrs-&amp;gt;add_aggregation EXPORTING columnname = &amp;#39;NETWR&amp;#39; aggregation = if_salv_c_aggregation=&amp;gt;total. CATCH cx_salv_data_error . &amp;#34;#EC NO_HANDLER&amp;#34; CATCH cx_salv_not_found .</description>
-    </item>
-    
-    <item>
-      <title> SALV 过滤设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALV_Filter/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Filter/</guid>
-      <description>过滤设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_filters CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* *Set Filters CALL METHOD set_filters CHANGING co_alv = go_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_filters. DATA: lo_filters TYPE REF TO cl_salv_filters. lo_filters = co_alv-&amp;gt;get_filters( ). *Set the filter for the column ERDAT the filter criteria works exactly same as any *RANGE or SELECT-OPTIONS works. TRY.</description>
+      <description>排序设置 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS: set_sort CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$* CALL METHOD set_sort CHANGING co_alv = go_alv. *$*$*.....CODE_ADD_2 - End....................................2..*$*$* *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$* METHOD set_sort. DATA: lo_sort TYPE REF TO cl_salv_sorts. &amp;#34;Get Sort object&amp;#34; lo_sort = co_alv-&amp;gt;get_sorts( ). &amp;#34;Set the SORT on the AUART with Subtotal&amp;#34; TRY. CALL METHOD lo_sort-&amp;gt;add_sort EXPORTING columnname = &amp;#39;AUART&amp;#39; position = 1</description>
     </item>
     
     <item>
