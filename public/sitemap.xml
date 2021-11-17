@@ -3726,6 +3726,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Smartform_page2/</loc>
+      
+      <lastmod>2018-08-07T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Tcode/</loc>
       
       <lastmod>2018-08-05T00:00:00+00:00</lastmod>
@@ -3755,20 +3769,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</loc>
-      
-      <lastmod>2018-08-01T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Smartform_page2/</loc>
       
       <lastmod>2018-08-01T00:00:00+00:00</lastmod>
       

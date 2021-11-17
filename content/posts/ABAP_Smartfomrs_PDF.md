@@ -14,7 +14,7 @@ tags:
 
 ### 1.程序中使用 Smartform 模板
 
-```JS
+```ABAP
 "SMARTFORMS变量定义"
 DATA: form_name TYPE tdsfname VALUE 'ZZ_TEST', "Smartforms Name"
       function_name   type rs38l_fnam, "Function Name"
@@ -94,7 +94,7 @@ CALL FUNCTION function_name
 
 ### 2.打印成 PDF
 
-```JS
+```ABAP
 DATA:
   bin_filesize TYPE i, 
   " Internal table to hold the OTF data "

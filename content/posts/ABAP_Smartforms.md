@@ -12,7 +12,7 @@ tags:
 
 ---
 
-### Smartforms 使用
+### Smartforms 简介
 
 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。
 
@@ -20,13 +20,13 @@ tags:
 
 我们也可以在 SmartForms 内部写取数据的逻辑，但是在 SmartForms 中编程不是很方便，而且有时我们的数据需要首先以 List 或者 ALV List 的方式显示，然后再打印，所以在 smartforms 中书写取数据逻辑只能对一些要求非常简单的场合适用。
 
-Smartforms的执行顺序是根据左边菜单从上到下执行的。
+Smartforms 的执行顺序是根据左边菜单从上到下执行的。
 
 ### 查找 Smartforms
 
-#### Method 1
+#### 方法 1
 
-查找表格名称和打印程序名称的最佳方法是使用 SE38，输入程序 RSNAST00。 在以下语句处保留断点
+查找表格名称和打印程序名称的最佳方法是使用 SE38，输入程序 RSNAST00。 在以下语句处保留断点。
 
 ```ABAP
 PERFORM (TNAPR-RONAM) IN PROGRAM (TNAPR-PGNAM) 
@@ -34,15 +34,17 @@ PERFORM (TNAPR-RONAM) IN PROGRAM (TNAPR-PGNAM)
                          IF FOUND.
 ```
 
-TNAPR-FONAM的值为表格名称，TNAPR-PGNAM的值为驱动程序名称。
+- TNAPR-FONAM 的值为表格名称
 
-#### Method 2
+- TNAPR-PGNAM 的值为驱动程序名称
 
-**TCode : NACE** 可以查找 (例如。采购订单，销售订单等)
+#### 方法 2
+
+事物码 `NACE` 可以查找 (例如。采购订单，销售订单等)
 
 - NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加的脚本表单或 Smartforms）的 Tcode。
 
-**Table : TNAPR** 根据smartform名字查找对应的smartform程序
+`TNAPR` 表可以根据 smartform 名字查找对应的 smartform 程序。
 
 #### 事物码 smartforms
 
@@ -100,11 +102,9 @@ Global definitions 包含可以在整个表单中使用的数据，可进行数�
 
 Form 内容显示为树形结构，在树结构中，为每个节点定义了一个选项卡，每个节点都可以链接到一个条件。当表单中满足条件时，系统将处理该节点，如果不满足，则系统不处理该节点。
 
-同过对树的节点布局，已经节点内部详细的信息处理可以实现复杂的 Form 内容设置。
+通过对树的节点布局，以及节点内部详细的信息处理可以实现复杂的 Form 内容设置。
 
-在一般情况下，树结构中的节点从上到下处理。
-
-每页上的分页数取决于当前页面上剩余的空间。
+在一般情况下，树结构中的节点从上到下处理。每页上的分页数取决于当前页面上剩余的空间。
 
 ### Style 样式制作
 

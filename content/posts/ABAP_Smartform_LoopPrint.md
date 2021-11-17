@@ -16,7 +16,7 @@ tags:
 
 在 smartform 的使用中，偶尔会遇到用户要求按某一条件进行数据的分组打印，并进行页码的统计和区分，这里记录下自己使用的方法。
 
-```JS
+```ABAP
 FORM sub_data_print .
   SORT itab_total BY matkl budat zcdnr.
   SORT s_fenlei BY low.
@@ -111,3 +111,4 @@ FORM sub_data_print .
   ENDIF.
 ENDFORM.                    " SUB_DATA_PRINT
 ```
+

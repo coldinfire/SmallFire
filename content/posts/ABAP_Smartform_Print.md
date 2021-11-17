@@ -16,7 +16,7 @@ tags:
 
 调用 smartforms 时直接调用打印机打印，不出现打印预览窗口
 
-```html
+```ABAP
 DATA: fm_name TYPE rs38l_fnam.
 DATA: control_param TYPE ssfctrlop .
 DATA: composer_param TYPE ssfcompop .

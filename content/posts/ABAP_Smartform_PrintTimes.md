@@ -16,7 +16,7 @@ tags:
 
 通过参数控制和对调用 Smart forms 完成后返回的参数值，判断用户是否完成Form打印。
 
-```html
+```ABAP
 DATA: fm_name TYPE rs38l_fnam.
 DATA: control_param TYPE ssfctrlop .
 DATA: composer_param TYPE ssfcompop .

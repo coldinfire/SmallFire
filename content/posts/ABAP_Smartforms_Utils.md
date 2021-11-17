@@ -16,16 +16,16 @@ tags:
 
 如果预览时中文正常，打印出来是乱码的情况，可以尝试在中文环境下重新维护并激活。再次打印应该可以解决。如果还有问题，则检查语言包是否支持中文(或则其他需要使用的语言)。
 
-### Table 和 Template 区别：
+### Table 和 Template 区别
 
-- 1、`Table` 行为动态，数据输出时会根据列宽自动换行，可以固定列宽，
+- `Table` 行为动态，数据输出时会根据列宽自动换行，可以固定列宽，
   但是默认情况下控制不了行高，如果要想 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （ table 控件）的高度来自动翻页.
-- 2、`Template` 为静态，固定列宽、行高，当输出数据过长时会自动截断，通常被用于静态表单开发。Template 跟 loop 嵌套使用，可以实现固定行高、列宽的表单开发。需要手动翻页，并程序中计算页码；（或则在程序中设计好固定行数+计算页码）.
+- `Template` 为静态，固定列宽、行高，当输出数据过长时会自动截断，通常被用于静态表单开发。Template 跟 loop 嵌套使用，可以实现固定行高、列宽的表单开发。需要手动翻页，并程序中计算页码；（或则在程序中设计好固定行数+计算页码）.
 
 ### Smartform Debug
 
-1. 使用事物码 Smartforms 进入，输入 form name 或则通过事物码 NACE 查找到 smartform
-2. 在 smartform 中找到需要 Debug 的一段代码，打上相应的断点
+1. 使用事物码 Smartforms 进入，输入 Form name 或则通过事物码 NACE 查找到的表单
+2. 在表单中找到需要 Debug 的一段代码，将代码复制，后续在该位置设断点
 3. 在导航栏中通过 Environment –> Function Module Name 获取 Function module
 4. 在 SE37 中打开该 Function Module，进入 Main program 找到 Perform GLOBAL_INIT
 5. 该 FORM 中进行所有的程序数据初始化，所有 smartform 中的程序行在此处定义，可以打断点
@@ -54,60 +54,12 @@ tags:
 
 如果金额或者数量字段显示不出来的话，可以在 “货币 / 数量字段” 标签中指定相应的数据类型。
 
-### 数据传输方式
+### Smartforms 系统字段
 
-```ABAP
-DATA: wf_name TYPE rs38l_fnam.
-DATA: lv_stp TYPE timestampl,
-      lv_stp2(22).
-DATA: lv_buffid1(18), "header
-      lv_buffid2(18). "detail
-
-DEFINE savebuffer.
-  perform save_to_buffer using &1 &2.
-END-OF-DEFINITION.
-
-GET TIME STAMP FIELD lv_stp.
-lv_stp2 = lv_stp.
-CONCATENATE 'HEADER' lv_stp2+8(14) INTO lv_buffid1.
-CONCATENATE 'DETAIL' lv_stp2+8(14) INTO lv_buffid2.
-savebuffer it_header[] lv_buffid1.
-savebuffer it_detail[] lv_buffid2.
-
-CALL FUNCTION 'SSF_FUNCTION_MODULE_NAME'
-  EXPORTING
-    formname           = 'Form_name'
-  IMPORTING
-    fm_name            = wf_name
-  EXCEPTIONS
-    no_form            = 1
-    no_function_module = 2
-    OTHERS             = 3.
-CALL FUNCTION wf_name
-  EXPORTING
-    user_settings      = ''
-    id_header          = vl_buffid1
-    id_detail          = vl_buffid2
-    control_parameters = lwa_control
-    output_options     = lwa_options
-  EXCEPTIONS
-    formatting_error   = 1
-    internal_error     = 2
-    send_error         = 3
-    user_canceled      = 4
-    OTHERS             = 5.
-" Perform "    
-FORM save_to_buffer USING t TYPE table typeid TYPE c .
-  wa_indx-aedat = sy-datum.
-  wa_indx-usera = sy-uname.
-  wa_indx-pgmid = sy-repid.
-  EXPORT t TO DATABASE indx(hk) ID typeid from wa_indx.
-ENDFORM.                    "Save_To_Buffer
-FORM clear_buffer USING buffid TYPE c.
-  DELETE FROM DATABASE indx(hk) ID buffid.
-ENDFORM.                    "Clear_Buffer
-FORM restor_buffer using typeid type c changing t type table.
-  IMPORT t FROM DATABASE indx(hk) ID typeid.
-ENDFORM. 
-```
+| Field            | Description        | Field             | Description                      |
+| :--------------- | :----------------- | :---------------- | :------------------------------- |
+| &SFSY-DATE&      | 日期显示           | &SFSY-PAGENAME&   | 当前页的名字                     |
+| &SFSY-TIME&      | 时间格式为HH:MM:SS | &SFSY-USERNAME&   | 当前用户的名字                   |
+| &SFSY-PAGE&      | 当前打印页的页号   | &SFSY-WINDOWNAME& | 返回当前窗口的名字               |
+| &SFSY-FORMPAGES& | 当前文档的总页数   | &SFSY-JOBPAGES&   | 当前打印请求中所有文档的合计页数 |
 

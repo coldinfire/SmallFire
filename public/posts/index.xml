@@ -1997,6 +1997,15 @@
     </item>
     
     <item>
+      <title>Smartforms 强制分页打印</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartform_page2/</link>
+      <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartform_page2/</guid>
+      <description>强制分页注意事项： 如果是模板，强制分页命令要放在循环中 如果是表格，强制分页命令要放在表的主要区域循环中(main) 强制分页可以控制 Form 每页固定</description>
+    </item>
+    
+    <item>
       <title>开发常用Tcode汇总</title>
       <link>https://coldinfire.github.io/2018/ABAP_Tcode/</link>
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
@@ -2024,15 +2033,6 @@
     </item>
     
     <item>
-      <title>Smartforms 强制分页打印</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Smartform_page2/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Smartform_page2/</guid>
-      <description>强制分页注意事项： 如果是模板，强制分页命令要放在循环中 如果是表格，强制分页命令要放在表的主要区域循环中(main) 强制分页可以控制 Form 每页固定</description>
-    </item>
-    
-    <item>
       <title>Smartform 循环打印，页码统计</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartform_LoopPrint/</link>
       <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
@@ -2051,7 +2051,7 @@
     </item>
     
     <item>
-      <title>Smartforms调用模板</title>
+      <title>Smartforms 调用模板</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_Demo/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
@@ -2083,7 +2083,7 @@
       <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_DataTransfer/</guid>
-      <description></description>
+      <description>数据传输到Smart forms DATA: wf_name TYPE rs38l_fnam. DATA: lv_stp TYPE timestampl, lv_stp2(22). DATA: lv_buffid1(18), &amp;#34;header lv_buffid2(18). &amp;#34;detail DEFINE savebuffer. perform save_to_buffer using &amp;amp;1 &amp;amp;2. END-OF-DEFINITION. GET TIME STAMP FIELD lv_stp. lv_stp2 = lv_stp. CONCATENATE &amp;#39;HEADER&amp;#39; lv_stp2+8(14) INTO lv_buffid1. CONCATENATE &amp;#39;DETAIL&amp;#39; lv_stp2+8(14) INTO lv_buffid2. savebuffer it_header[] lv_buffid1. savebuffer it_detail[] lv_buffid2. CALL FUNCTION &amp;#39;SSF_FUNCTION_MODULE_NAME&amp;#39; EXPORTING formname = &amp;#39;Form_name&amp;#39; IMPORTING fm_name = wf_name EXCEPTIONS no_form</description>
     </item>
     
     <item>
@@ -2101,7 +2101,7 @@
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
-      <description>Smartforms 使用 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。 但是 SmartForms 是一</description>
+      <description>Smartforms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。 但是 SmartForms 是一</description>
     </item>
     
     <item>
