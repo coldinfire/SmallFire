@@ -119,5 +119,5 @@ ENDIF.
 
 如对样式的设置，需要先通过 CL_SALV_TABLE 对象的 GET_LAYOUT( ) 方法拿到 CL_SALV_LAYOUT 对象，实后通过该对象相关方法对 SALV 进行设置；除样式外，如排序、工具栏设置、事件等，都是先通过某个 GET 方法拿到相应对象，再通过该对象相关方法对 SALV 进行设置，这与以前 Function ALV、及 OO ALV 不太一样。（如上面的设置工具栏代码所示）
 
-![CL_SALV_TABLE GET](/images/ABAP/SALV2.png)
+![CL_SALV_TABLE Methods](/images/ABAP/SALV2.png)
 

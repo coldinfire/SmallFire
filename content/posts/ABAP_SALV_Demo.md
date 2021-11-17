@@ -48,17 +48,17 @@ SELECTION-SCREEN END OF BLOCK blk1 .
 CLASS lcl_handle_events DEFINITION.
   PUBLIC SECTION.
     METHODS:
-    on_user_command FOR EVENT added_function OF cl_salv_events
-    IMPORTING e_salv_function,
+      on_user_command FOR EVENT added_function OF cl_salv_events
+         IMPORTING e_salv_function,
       on_before_salv_function FOR EVENT before_salv_function OF cl_salv_events
-    IMPORTING e_salv_function,
+         IMPORTING e_salv_function,
       on_after_salv_function FOR EVENT after_salv_function OF cl_salv_events
-    IMPORTING e_salv_function,
+         IMPORTING e_salv_function,
       on_double_click FOR EVENT double_click OF cl_salv_events_table
-    IMPORTING row column,
+         IMPORTING row column,
       on_link_click FOR EVENT link_click OF cl_salv_events_table
-    IMPORTING row column.
-ENDCLASS.                    " lcl_handle_events DEFINITION "
+         IMPORTING row column.
+ENDCLASS.             " lcl_handle_events DEFINITION "
 *----------------------------------------------------------------------*
 *       CLASS lcl_handle_events IMPLEMENTATION
 *----------------------------------------------------------------------*
@@ -82,7 +82,7 @@ CLASS lcl_handle_events IMPLEMENTATION.
   ENDMETHOD.                    "on_double_click"
   METHOD on_link_click.
   ENDMETHOD.                    "on_single_click"
-ENDCLASS.                    "lcl_handle_events IMPLEMENTATION"
+ENDCLASS.            " lcl_handle_events IMPLEMENTATION "
 
 START-OF-SELECTION.
   PERFORM get_data.
@@ -94,11 +94,10 @@ START-OF-SELECTION.
 FORM get_data .
   CLEAR gt_alv.
   SELECT *
-  FROM mara INNER JOIN marc
-  ON mara~matnr = marc~matnr
-  INTO CORRESPONDING FIELDS OF TABLE gt_alv
-  WHERE mara~matnr IN s_matnr
-  AND werks EQ p_werks.
+    FROM mara INNER JOIN marc ON mara~matnr = marc~matnr
+    INTO CORRESPONDING FIELDS OF TABLE gt_alv
+   WHERE mara~matnr IN s_matnr
+     AND werks EQ p_werks.
   IF gt_alv IS INITIAL.
     MESSAGE 'No data.' TYPE 'S' DISPLAY LIKE 'E'.
     LEAVE LIST-PROCESSING.
@@ -118,8 +117,8 @@ FORM show_alv USING gt_output.
       cl_salv_table=>factory(
         EXPORTING
           list_display   = list_display
-*         R_CONTAINER    =
-*         CONTAINER_NAME =
+         "R_CONTAINER    = "
+         "CONTAINER_NAME = "
         IMPORTING
           r_salv_table   = go_alv
         CHANGING
@@ -132,7 +131,7 @@ FORM show_alv USING gt_output.
   lo_functions->set_all( if_salv_c_bool_sap=>true ).
   "define settings"
   PERFORM define_settings USING go_alv.
-  "Display ALV"
+  "display ALV"
   go_alv->display( ).
 ENDFORM.                    " show_alv "
 *&---------------------------------------------------------------------*
@@ -140,28 +139,32 @@ ENDFORM.                    " show_alv "
 *&---------------------------------------------------------------------*
 FORM define_settings USING co_alv TYPE REF TO cl_salv_table.
   PERFORM: set_display USING co_alv,
-  set_columns USING co_alv,
-  set_sorts USING co_alv,
-  set_aggregs USING co_alv,
-  set_handler USING co_alv,
-  set_selections USING co_alv,
-  set_layout USING co_alv.
+           set_columns USING co_alv,
+           set_sorts USING co_alv,
+           set_aggregs USING co_alv,
+           set_filter USING co_alv,
+           set_layout USING co_alv
+           set_handler USING co_alv.
 ENDFORM.                    " define_settings "
 *&---------------------------------------------------------------------*
 *&      Form  set_display
 *&---------------------------------------------------------------------*
 FORM set_display USING p_alv TYPE REF TO cl_salv_table.
   DATA: lo_display TYPE REF TO cl_salv_display_settings,
+        lo_selections TYPE REF TO cl_salv_selections,
         lv_title   TYPE lvc_title.
   "get display settings object"
   lo_display = p_alv->get_display_settings( ).
   "set header"
   lv_title = 'SALV Demo'.
   lo_display->set_list_header( value = lv_title ).
-  "set horizontal lines off“
+  "set horizontal lines off"
   lo_display->set_horizontal_lines( value = ' ' ).
   "set striped pattern"
   lo_display->set_striped_pattern( value = 'X' ).
+  "set the selection mode"
+  lo_selections = p_alv->get_selections( ).
+  lo_selections->set_selection_mode( value  = if_salv_c_selection_mode=>cell ).
 ENDFORM.                    " set_display "
 *&---------------------------------------------------------------------*
 *&      Form  set_columns
@@ -173,7 +176,6 @@ FORM set_columns USING p_alv TYPE REF TO cl_salv_table.
   DATA: l_lvc_tip TYPE lvc_tip.
   "help field for column position"
   DATA: l_pos TYPE i.
-
   lo_columns = p_alv->get_columns( ).
   "optimize columns' width"
   lo_columns->set_optimize( 'X' ).
@@ -205,16 +207,12 @@ FORM set_aggregs  USING p_alv TYPE REF TO cl_salv_table.
   lo_aggregs = p_alv->get_aggregations( ).
 ENDFORM.                    " set_aggregs "
 *&---------------------------------------------------------------------*
-*&      Form  set_selections
+*&      Form  set_filter
 *&---------------------------------------------------------------------*
-FORM set_selections  USING p_alv TYPE REF TO cl_salv_table.
-  DATA: lo_selections TYPE REF TO cl_salv_selections.
-  lo_selections = p_alv->get_selections( ).
-  "set the selection mode"
-  lo_selections->set_selection_mode(
-  value  = if_salv_c_selection_mode=>cell
-  ).
-ENDFORM.                    " set_selections "
+FORM set_filter USING  p_alv TYPE REF TO cl_salv_table.
+  DATA: lo_filter TYPE REF TO cl_salv_filters.
+  lo_filter = p_alv->get_filters( ).
+ENDFORM.                    " set_sorts "
 *&---------------------------------------------------------------------*
 *&      Form  set_layout
 *&---------------------------------------------------------------------*
@@ -225,6 +223,7 @@ FORM set_layout USING p_alv TYPE REF TO cl_salv_table.
   "set the layout key"
   ls_key-report = sy-cprog.
   lo_layout->set_key( value = ls_key ).
+  lo_layout->set_save_restriction( if_salv_c_layout=>restrict_none ).
   "allow setting a default layout"
   lo_layout->set_default( value = 'X' ).
   "Customized Toolbar"

@@ -611,21 +611,21 @@
     </item>
     
     <item>
+      <title> SALV ALV结果读取 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_ResultRead/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_ResultRead/</guid>
+      <description>ALV 结果读取 通过类 CL_SALV_BS_RUNTIME_INFO 来实现直接获取 submit 其他 SALV 程序后显示的结果。 通过这种方法也可以得到某些标准程序ALV的显示结果，很方便。 将 Submit 的 salv 设置为不显示模</description>
+    </item>
+    
+    <item>
       <title> SALV 布局列分组 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSpecificGroup/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSpecificGroup/</guid>
       <description>布局列分组 (Columns Specific Grouping) 通常情况下 ALV 的布局(Layout)下是没有列分组的(可以把列分组理解成过滤器)，列分组就是为了方便大家在布局中选择字段轻而易</description>
-    </item>
-    
-    <item>
-      <title> SALV ALV结果读取 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALV_ResultRead/</link>
-      <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_SALV_ResultRead/</guid>
-      <description>ALV 结果读取 通过类 CL_SALV_BS_RUNTIME_INFO 来实现直接获取 submit 其他 SALV 程序后显示的结果。 通过这种方法也可以得到某些标准程序ALV的显示结果，很方便。 将 Submit 的 salv 设置为不显示模</description>
     </item>
     
     <item>

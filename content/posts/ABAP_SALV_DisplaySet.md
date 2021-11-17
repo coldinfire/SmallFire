@@ -51,3 +51,38 @@ tags:
   ENDMETHOD.                    "SET_DISPLAY_SETTING"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
+
+### SALV 选择模式
+
+![CL_SALV_DISPLAY_SETTINGS](/images/ABAP/SALV14.png)
+
+- SINGLE：单行选择
+- MULTIPLE：多行选择
+- CELL：单元格选择
+- ROW_COLUMN：行，列选择
+- NONE：无，不能选择
+
+```ABAP
+*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
+  PRIVATE SECTION.
+    METHODS: set_selection
+        CHANGING
+          co_alv TYPE REF TO cl_salv_table.
+*$*$*.....CODE_ADD_1 - End....................................1..*$*$*
+
+*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
+  CALL METHOD set_selection
+    CHANGING
+      co_alv = go_alv.
+*$*$*.....CODE_ADD_2 - End....................................2..*$*$*
+
+*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
+  METHOD set_selection.
+    DATA: lo_selections TYPE REF TO cl_salv_selections.
+    lo_selections = co_alv->get_selections( ).
+    "set selection mode"
+    lo_selections->set_selection_mode( if_salv_c_selection_mode=>row_column ).
+  ENDMETHOD.                    "set_selection"
+*$*$*.....CODE_ADD_3 - End....................................3..*$*$*
+```
+

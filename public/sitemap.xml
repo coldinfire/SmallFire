@@ -1920,7 +1920,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSpecificGroup/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_ResultRead/</loc>
       
       <lastmod>2019-06-09T00:00:00+00:00</lastmod>
       
@@ -1934,9 +1934,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALV_ResultRead/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSpecificGroup/</loc>
       
-      <lastmod>2019-06-08T00:00:00+00:00</lastmod>
+      <lastmod>2019-06-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
