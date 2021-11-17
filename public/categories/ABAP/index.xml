@@ -260,12 +260,12 @@
     </item>
     
     <item>
-      <title> SAP Adobe Form Demo </title>
-      <link>https://coldinfire.github.io/2020/ABAP_SFP_Demo/</link>
+      <title> SAP Adobe Form 工具 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_SFP_Utils/</link>
       <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Demo/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Utils/</guid>
+      <description>单元格加边框 在 adobe forms 中通过菜单 palettes-&amp;gt;border 可以给单元格添加或删除边框。 Text field 的 caption 位置设置 Text field 是 adobe form 中的一种布局对象，它的 caption(相当于字段文本标签</description>
     </item>
     
     <item>
