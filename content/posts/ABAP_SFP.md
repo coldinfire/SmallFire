@@ -12,7 +12,7 @@ tags:
 
 ---
 
-SAP 中关于 Form 的设计有三种工具：Script Form，Smart Form 和 Adobe Form.
+SAP 中关于 Form 的设计有三种工具：Script Form，Smart Form 和 Interactive Form(Adobe Form).
 
 要在 SAP 系统中展示 Adobe Form 需要 SAP 版本在 **ECC6.0以上** ，而且要开发自定义的 Adobe Form 还需要在 PC 上安装  **Adobe Life Cycle Desinger**  的工具。在满足以上两个条件后就可以开发自己想要使用的 Adobe Form。
 
@@ -27,7 +27,7 @@ Adobe Form 相对于 Smartforms 可以让 Form 程序的开发设计更简单：
 
 ## 设计Adobe Form
 
-#### Form设计好的方法
+#### Form 设计好的方法
 
 - 尽量不要只用一个 Master Page 去管理整个 Form(除非非常简单)
 - 在使用嵌套 subform 的时候注意，不要嵌套在不同页的两个 subform
@@ -38,7 +38,7 @@ Adobe Form 相对于 Smartforms 可以让 Form 程序的开发设计更简单：
 
 这里的 Interface 的概念其实比较好解释，它就是相当于一个后台数据的接口，可以为前台各种 Adobe Form 提供对应的数据。不同形式的 Adobe Form 可以调用相同的 Interface。
 
-在 Interface 中可以定义一些参数和进行一些数据处理。
+在 Interface 中可以定义一些参数和进行一些数据处理。包括import、export、tables 以及 exceptions，有点像Function Module 的定义。当然在里面也可以定义一些全局变量，以及可以写些初始化代码以及 sub routine。
 
 #### 接口类型
 
@@ -114,6 +114,8 @@ Context 主工作区可以创建各种元素类型，也可以决定是否激活
 #### Layout
 
 Layout 进行 Form 主体的绘制，主要在于控件的应用，它可以决定该 Form 的整体格式与相关的页面设置 (翻页设置，页面结构，页码，页边间距等等)。其中最关键的是数据绑定的内容，在 Layout 进行数据绑定就可以将 Interface 中的数据展示到该 Form 中对应的字段中。
+
+使用 Adobe LiveCycle Designer：
 
 - 静态元素控件
   - 图片容器

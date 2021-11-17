@@ -495,10 +495,19 @@
     
     <item>
       <title> SAP Adobe Form Demo </title>
-      <link>https://coldinfire.github.io/2020/ABAP_SFP_Demo/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_SFP_DEMO/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_SFP_DEMO/</guid>
+      <description>Adobe Form Demo 创建 Interface：事物码 SFP</description>
+    </item>
+    
+    <item>
+      <title> SAP Adobe 使用 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_SFP_Detail/</link>
       <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Demo/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Detail/</guid>
       <description>Adobe Form调用 画好了对应的 Form 格式与数据绑定，就可以在 Report 程序中通过具体代码进行调用了。 SFPOUTPUTPARAMS 参数介绍 nodialog: 是否弹出打印对话框 noprint: 不打印，能预览 nopdf: 不会产生</description>
     </item>
     
@@ -508,7 +517,7 @@
       <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_SFP/</guid>
-      <description>SAP 中关于 Form 的设计有三种工具：Script Form，Smart Form 和 Adobe Form. 要在 SAP 系统中展示 Adobe Form 需要 SAP 版本在 ECC6.0以上 ，而且要开发自定义的 Adobe Form</description>
+      <description>SAP 中关于 Form 的设计有三种工具：Script Form，Smart Form 和 Interactive Form(Adobe Form). 要在 SAP 系统中展示 Adobe Form 需要 SAP 版本在 ECC6.0以上 ，而且要开发自定义的 Adobe</description>
     </item>
     
     <item>
