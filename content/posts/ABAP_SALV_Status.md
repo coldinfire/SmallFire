@@ -38,8 +38,10 @@ CL_SALV_TABLE 中提供了方法 `get_functions`，`set_default`；通过这两�
   METHOD set_pf_status.
     DATA: lo_functions TYPE REF TO cl_salv_functions_list.
     lo_functions = co_alv->get_functions( ).
+    "Setting a default status"
     lo_functions->set_default( abap_true ).
-    "lo_functions->set_all( abap_true )." "Activate All Generic ALV Functions"
+    "Activate All Generic ALV Functions"
+    "lo_functions->set_all( abap_true )." 
   ENDMETHOD.     "set_pf_status"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
@@ -68,7 +70,7 @@ CL_SALV_TABLE 的方法 `SET_SCREEN_STATUS` 可以指定自定义的 Status。
   METHOD set_pf_status.
     "系统提示的标准Status为SAPLSALV_METADATA_STATUS"
     co_alv->set_screen_status(
-      pfstatus      =  'STATUS'
+      pfstatus      =  'STANDARD_STATUS'
       report        =  sy-repid
       "此参数只对SALV标准的预设保留按钮起作用，也就是说当T001 GUI Status是从系统中"
       "提供的标准Gui Status拷贝时才起作用，即通过此参数来屏蔽或显示某些预置按钮"

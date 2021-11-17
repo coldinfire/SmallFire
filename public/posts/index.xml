@@ -647,6 +647,24 @@
     </item>
     
     <item>
+      <title>业务流程</title>
+      <link>https://coldinfire.github.io/2019/SAP_Business_Workflow/</link>
+      <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAP_Business_Workflow/</guid>
+      <description>PP流程 MM01(Material)-&amp;gt;CS01(BOM)-&amp;gt;CR01(WORKCENTERY)-&amp;gt;CA01(ROUTING)-&amp;gt;MD11(PLANNED ORDER)-&amp;gt; COO1(PRODUCTION ORDERS)也可通过CO41/CO40转换计划单得来. COMAC:对生产订单进行可用性检查 COHVOMPRINT:打印订单 M</description>
+    </item>
+    
+    <item>
+      <title> SD Function module</title>
+      <link>https://coldinfire.github.io/2019/SD_FunctionSum/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SD_FunctionSum/</guid>
+      <description>Function Modules RV_ORDER_FLOW_INFORMATION - Reads sales document flow of sales document after delivery and billing Don&amp;rsquo;t forget also check direct reference documents for the both starting document # and preceding/following document types that you are searching for (For example, if you search delivery for the given SO, check also LIPS-VGBEL and LIPS-VGPOS, if it&amp;rsquo;s possible with regard to performance). SD_SALES_DOCUMENT_READ - Reads sales document header and business data: tables VBAK,</description>
+    </item>
+    
+    <item>
       <title>ABAP 科学计数法问题</title>
       <link>https://coldinfire.github.io/2019/ABAP_NumberQAS/</link>
       <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
@@ -881,6 +899,15 @@
     </item>
     
     <item>
+      <title> ABAP 学习网站记录 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</guid>
+      <description>http://www.saptechnical.com/index.htm：需要检索关键信息 https://sapcodes.com/：包含</description>
+    </item>
+    
+    <item>
       <title>ABAP Object Oriented 语法</title>
       <link>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Basic/</link>
       <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
@@ -917,15 +944,6 @@
     </item>
     
     <item>
-      <title>业务流程</title>
-      <link>https://coldinfire.github.io/2019/SAP_Business_Workflow/</link>
-      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_Business_Workflow/</guid>
-      <description>PP流程 MM01(Material)-&amp;gt;CS01(BOM)-&amp;gt;CR01(WORKCENTERY)-&amp;gt;CA01(ROUTING)-&amp;gt;MD11(PLANNED ORDER)-&amp;gt; COO1(PRODUCTION ORDERS)也可通过CO41/CO40转换计划单得来. COMAC:对生产订单进行可用性检查 COHVOMPRINT:打印订单 M</description>
-    </item>
-    
-    <item>
       <title>BAPI 使用</title>
       <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
@@ -935,21 +953,12 @@
     </item>
     
     <item>
-      <title> ABAP 学习网站记录 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
+      <title> SALV ALV Demo</title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Demo/</link>
       <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</guid>
-      <description>http://www.saptechnical.com/index.htm：需要检索关键信息 https://sapcodes.com/：包含</description>
-    </item>
-    
-    <item>
-      <title> SD Function module</title>
-      <link>https://coldinfire.github.io/2019/SD_FunctionSum/</link>
-      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SD_FunctionSum/</guid>
-      <description>Function Modules RV_ORDER_FLOW_INFORMATION - Reads sales document flow of sales document after delivery and billing Don&amp;rsquo;t forget also check direct reference documents for the both starting document # and preceding/following document types that you are searching for (For example, if you search delivery for the given SO, check also LIPS-VGBEL and LIPS-VGPOS, if it&amp;rsquo;s possible with regard to performance). SD_SALES_DOCUMENT_READ - Reads sales document header and business data: tables VBAK,</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Demo/</guid>
+      <description>SALV 框架代码 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZSALV_DEMO *&amp;amp;---------------------------------------------------------------------* REPORT zsalv_demo. TABLES: mara,marc,rlgrap. TYPES: BEGIN OF str_demo, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_demo. DATA: gt_alv TYPE STANDARD TABLE OF str_demo, gs_alv TYPE str_demo. &amp;#34;SALV Data&amp;#34; DATA: list_display TYPE sap_bool. DATA: go_container TYPE REF TO cl_gui_custom_container. DATA: go_alv TYPE REF TO cl_salv_table. DATA: go_error TYPE REF TO cx_salv_error. DATA: go_message TYPE</description>
     </item>
     
     <item>
@@ -998,6 +1007,15 @@
     </item>
     
     <item>
+      <title> SALV Columns设置字段目录 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</guid>
+      <description>Fieldcat 设置 Function ALV、OO ALV 可通过 Fieldcat 对列进行相关设置，SALV 也有类似于这样的东西，只不过不是 Fieldcat，而是通过 CL_SALV_COLUMN 对象来实现的。可以修改列</description>
+    </item>
+    
+    <item>
       <title> SALV Display 设置 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALV_DisplaySet/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
@@ -1040,15 +1058,6 @@
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_IConsTooltips/</guid>
       <description>图标设置 为了能够在 SALV 上添加 ICON 和提示信息，需要做以下内容： 列值作为 ICON 值： 在输出表中，需要添加 ICON 作为值。这样就可以将 ICON_GREEN_LIGHT 用作交通绿灯 将 SALV 的 ICON 列设置</description>
-    </item>
-    
-    <item>
-      <title> SALV 字段目录设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</guid>
-      <description>Fieldcat 设置 Function ALV、OO ALV 可通过 Fieldcat 对列进行相关设置，SALV 也有类似于这样的东西，只不过不是 Fieldcat，而是通过 CL_SALV_COLUMN 对象来实现的。可以修改列</description>
     </item>
     
     <item>

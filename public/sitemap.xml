@@ -1360,6 +1360,48 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/SAP_Business_Workflow/</loc>
+      
+      <lastmod>2019-11-04T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/SD_FunctionSum/</loc>
+      
+      <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/SD/</loc>
+      
+      <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_NumberQAS/</loc>
       
       <lastmod>2019-10-20T00:00:00+00:00</lastmod>
@@ -1766,6 +1808,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</loc>
+      
+      <lastmod>2019-06-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Basic/</loc>
       
       <lastmod>2019-06-23T00:00:00+00:00</lastmod>
@@ -1822,20 +1878,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/SAP_Business_Workflow/</loc>
-      
-      <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</loc>
       
       <lastmod>2019-06-16T00:00:00+00:00</lastmod>
@@ -1850,37 +1892,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_Demo/</loc>
       
       <lastmod>2019-06-13T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2019/SD_FunctionSum/</loc>
-      
-      <lastmod>2019-06-11T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/SD/</loc>
-      
-      <lastmod>2019-06-11T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -1962,6 +1976,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</loc>
+      
+      <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2019/ABAP_SALV_DisplaySet/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
@@ -2019,20 +2047,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2019/ABAP_SALV_IConsTooltips/</loc>
-      
-      <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</loc>
       
       <lastmod>2019-06-06T00:00:00+00:00</lastmod>
       

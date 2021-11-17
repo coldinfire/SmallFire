@@ -20,6 +20,7 @@ tags:
 
 - SET_KEY：Set Layout Key，Logical Group Name
 - SET_INITIAL_LAYOUT：设置初始布局
+- SET_DEFAULT：设置默认布局
 - SET_SAVE_RESTRICTION：设置布局保存
 
 ```ABAP
@@ -48,9 +49,10 @@ tags:
     "2.设置保存Layout按钮"
     lo_layout->set_save_restriction( if_salv_c_layout=>restrict_none ).
     "3.允许保存布局为变式"
+    lo_layout->set_default( abap_true ).
     lv_variant = 'DEFAULT'.
     lo_layout->set_initial_layout( lv_variant ).
-  ENDMETHOD.                    "set_layout"
+  ENDMETHOD.                    " set_layout "
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
 

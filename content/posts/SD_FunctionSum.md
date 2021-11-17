@@ -1,6 +1,6 @@
 ---
 title: " SD Function module"
-date: 2019-06-11
+date: 2019-10-23
 draft: false
 author: Small Fire
 isCJKLanguage: true
