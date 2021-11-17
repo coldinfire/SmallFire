@@ -261,11 +261,11 @@
     
     <item>
       <title> SAP Adobe Form Demo </title>
-      <link>https://coldinfire.github.io/2020/ABAP_SFP_DEMO/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_SFP_Demo/</link>
       <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_SFP_DEMO/</guid>
-      <description>Adobe Form Demo 创建 Interface：事物码 SFP</description>
+      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Demo/</guid>
+      <description>Adobe Form Demo 创建 Interface：事物码 SFP 接口参数传递 在接口中添加自定义参数</description>
     </item>
     
     <item>

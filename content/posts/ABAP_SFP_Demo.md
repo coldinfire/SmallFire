@@ -16,4 +16,10 @@ tags:
 
 #### 创建 Interface：事物码 SFP
 
-![Interface](/images/ABAP/ABAP_SFP11.png)
+![SFP](/images/ABAP/ABAP_SFP0.png)
+
+![SFP](/images/ABAP/ABAP_SFP1.png)
+
+#### 接口参数传递
+
+在接口中添加自定义参数
