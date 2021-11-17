@@ -12,31 +12,19 @@ tags:
 
 ---
 
-## Adobe Form调用
+## Adobe Form 程序调用
 
 画好了对应的 Form 格式与数据绑定，就可以在 Report 程序中通过具体代码进行调用了。
 
 ### SFPOUTPUTPARAMS 参数介绍
 
-**nodialog:** 是否弹出打印对话框
-
-**noprint:** 不打印，能预览
-
-**nopdf:** 不会产生PDF文档
-
-**getpdf:** 得到PDF文档
-
-**dest:** 打印终端指定
-
-**copies:** 打印多少份
-
-**reqnew:** 新开启一个SPOOL请求
-
-**reqfinal:** SPOOL请求结束
-
-**connection:** ADSRFC的
-
-**xfp:** 外部程序可以调用，得到xml文件，该文件只包含内容，没有layout
+| Parameter | Desc                                                        | Parameter  | Desc                |
+| --------- | ----------------------------------------------------------- | ---------- | ------------------- |
+| nodialog  | 是否弹出打印对话框                                          | dest       | 打印终端指定        |
+| noprint   | 不打印，能预览                                              | copies     | 打印多少份          |
+| nopdf     | 不会产生PDF文档                                             | reqnew     | 新开启一个SPOOL请求 |
+| getpdf    | 得到PDF文档                                                 | reqfinal   | SPOOL请求结束       |
+| xfp       | 外部程序可以调用，得到xml文件，该文件只包含内容，没有layout | connection | ADSRFC的            |
 
 ### 程序内容
 

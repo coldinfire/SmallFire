@@ -40,6 +40,12 @@ Adobe Form 相对于 Smartforms 可以让 Form 程序的开发设计更简单：
 
 在 Interface 中可以定义一些参数和进行一些数据处理。包括import、export、tables 以及 exceptions，有点像Function Module 的定义。当然在里面也可以定义一些全局变量，以及可以写些初始化代码以及 sub routine。
 
+#### 创建 Interface
+
+进入事务代码：SFP，输入 Interface 名字，点击创建。
+
+![SFP Interface](/images/ABAP/ABAP_SFP0.png)
+
 #### 接口类型
 
 不同的接口类型适用于不同业务场景。
@@ -53,6 +59,8 @@ Adobe Form 相对于 Smartforms 可以让 Form 程序的开发设计更简单：
   - XML Schema: 这个一般是自动生成，也可以选择手工上传一个 **XSD** 文件
 
 #### 接口参数
+
+在接口中添加需要使用的自定义参数。
 
 ![Interface](/images/ABAP/ABAP_SFP1.png)
 
@@ -79,19 +87,26 @@ Adobe Form 相对于 Smartforms 可以让 Form 程序的开发设计更简单：
 
 *Currency/Quantity Fields：货币和单位字段的设置*
 
-通过这里的设置，决定了表单中数字或货币的显示方式。
+- 通过这里的设置，决定了表单中数字或货币的显示方式。
 
 ### Form
 
-#### Form属性
+#### 创建 Form
+
+进入事务代码：SFP，在 Form 中输入要创建的 form 名字，点击创建，在弹出框中输入之前创建的 Interface。
+
+![SFP Form](/images/ABAP/ABAP_SFP2.png)
+
+#### Form Properties
 
 ![Form properties](/images/ABAP/ABAP_SFP5.png)
 
 Layout Type : 需要使用脚本做交互式报表时使用
 
-- ZCI Layout：对 Adobe Reader 的版本有要求，note 号：955795
-- Standard Layout：标准的 Layout type
 - xACF Layout：现在基本使用 ZCI 而不是使用 xACF
+- Standard Layout：标准的 Layout type
+
+- ZCI Layout：对 Adobe Reader 的版本有要求，note 号：955795
 
 Interface : 需要调用的接口名字
 
@@ -101,19 +116,19 @@ Interface : 需要调用的接口名字
 
 ![Context](/images/ABAP/ABAP_SFP4.png)
 
-*1、Interface*：包括我们设计接口的字段以及系统字段(System Fields)
+- Interface：包括我们设计接口的字段以及系统字段(System Fields)
 
-*2、Interface Property*：接口字段的属性
 
-*3、Context Property*：Context 字段属性
+- Interface Property：接口字段的属性
+- Context：在 Form 中用到的字段列表
 
-*4、Context*：在 Form 中用到的字段列表
+- Context Property：Context 字段属性
+
+Context 主工作区可以创建各种元素类型，也可以决定是否激活某个元素(Set to Active/Deactivate)。
 
 ![Context](/images/ABAP/ABAP_SFP7.png)
 
-Context 主工作区可以创建各种元素类型，也可以决定是否激活某个元素(Set to Active/Deactivate)
-
-#### Layout
+#### Layout 设置
 
 Layout 进行 Form 主体的绘制，主要在于控件的应用，它可以决定该 Form 的整体格式与相关的页面设置 (翻页设置，页面结构，页码，页边间距等等)。其中最关键的是数据绑定的内容，在 Layout 进行数据绑定就可以将 Interface 中的数据展示到该 Form 中对应的字段中。
 
