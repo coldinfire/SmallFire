@@ -56,28 +56,30 @@ Adobe Form 相对于 Smartforms 可以让 Form 程序的开发设计更简单：
 
 ![Interface](/images/ABAP/ABAP_SFP1.png)
 
-*传递参数*
+*Form Interface：传递参数*
 
 注意：参数定义用 TYPE，只有兼容 Smart Form 的接口类型才能用 LIKE。
 
 - Import
 - Export
-- Tables (Smart Form Type)
+- Tables (Only Smart Form Type)
 - Exceptions
 
-*全局变量* : 定义 Form 中需要使用到的全局变量
+*Global Definitions：全局变量* ：定义 Form 中需要使用到的全局变量
 
 - Global Data
 - Types
 - Field Symbols
 
-*初始化*
+*Initialization：初始化*
 
 - Code Initialization：如果不是 Smart Form 兼容的接口类型，那么这里是你唯一可以写 ABAP 代码的地方，在未真正调用 Form 之前执行
 
 - Form Routines：这里可以写子程序供 Code 初始化调用
 
-*货币和单位字段的设置* : 通过这里的设置，决定了表单中数字或货币的显示方式
+*Currency/Quantity Fields：货币和单位字段的设置*
+
+通过这里的设置，决定了表单中数字或货币的显示方式。
 
 ### Form
 
