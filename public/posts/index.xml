@@ -395,6 +395,15 @@
     </item>
     
     <item>
+      <title>Smartforms 纸张格式设置</title>
+      <link>https://coldinfire.github.io/2020/ABAP_Smartforms_PaperFormat/</link>
+      <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_Smartforms_PaperFormat/</guid>
+      <description>自定义打印纸张格式 当系统标准的纸张格式并不符合要求时，就需要自定义一种纸张格式了。 定义页格式 事物码：SPAD 创建一个新的页格式(page fo</description>
+    </item>
+    
+    <item>
       <title>SAP Query 使用介绍</title>
       <link>https://coldinfire.github.io/2020/SAP_Query/</link>
       <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
@@ -469,7 +478,7 @@
     <item>
       <title>Transfer Order(L_TO_CREATE_SINGLE)</title>
       <link>https://coldinfire.github.io/2020/WM_TransferOrder_BAPI_1/</link>
-      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/WM_TransferOrder_BAPI_1/</guid>
       <description>L_TO_CREATE_SINGLE 使用 Create a transfer order with one item. You can call this FM more than once if you want to transfer more items. CALL FUNCTION &amp;#39;L_TO_CREATE_SINGLE&amp;#39; exporting i_lgnum = wh_number &amp;#34;Warehouse number&amp;#34; i_bwlvs = &amp;#39;999&amp;#39; &amp;#34;MvT999&amp;#34; i_matnr = lqua-matnr &amp;#34;Material no.&amp;#34; i_werks = lqua-werks &amp;#34;Plant&amp;#34; i_lgort = lqua-lgort &amp;#34;Storage location&amp;#34; i_anfme = lqua-verme &amp;#34;Requested Qty&amp;#34; i_altme = lqua-meins &amp;#34;Unit of measure&amp;#34; i_letyp = ltap-letyp &amp;#34;SU Type&amp;#34; i_vlpla =</description>
@@ -478,7 +487,7 @@
     <item>
       <title>Transfer Order(TO) 使用</title>
       <link>https://coldinfire.github.io/2020/WM_TransferOrder/</link>
-      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/WM_TransferOrder/</guid>
       <description>Transfer Order 启用 WM 管理后，在 BIN 位间进行转移，通过 Transfer Order 方式进行。 LT01：Create Transfer Order LT03：Create Transfer Order for Delivery Note LT06：Create Transfer Order for</description>
@@ -2087,7 +2096,7 @@
     </item>
     
     <item>
-      <title>Smartforms 常见问题</title>
+      <title>Smartforms 工具集合</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</link>
       <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
       

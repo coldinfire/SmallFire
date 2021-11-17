@@ -251,6 +251,15 @@
     </item>
     
     <item>
+      <title>Smartforms 纸张格式设置</title>
+      <link>https://coldinfire.github.io/2020/ABAP_Smartforms_PaperFormat/</link>
+      <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_Smartforms_PaperFormat/</guid>
+      <description>自定义打印纸张格式 当系统标准的纸张格式并不符合要求时，就需要自定义一种纸张格式了。 定义页格式 事物码：SPAD 创建一个新的页格式(page fo</description>
+    </item>
+    
+    <item>
       <title>SAP 数据库连接配置</title>
       <link>https://coldinfire.github.io/2020/ABAP_SQL_DBConnect/</link>
       <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
@@ -1376,7 +1385,7 @@
     </item>
     
     <item>
-      <title>Smartforms 常见问题</title>
+      <title>Smartforms 工具集合</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</link>
       <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
       
