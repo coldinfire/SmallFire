@@ -2060,6 +2060,15 @@
     </item>
     
     <item>
+      <title>Smartforms 统计打印次数</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartform_PrintTimes/</link>
+      <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartform_PrintTimes/</guid>
+      <description>打印次数的记录 通过参数控制和对调用 Smart forms 完成后返回的参数值，判断用户是否完成Form打印。 DATA: fm_name TYPE rs38l_fnam. DATA: control_param TYPE ssfctrlop . DATA: composer_param TYPE ssfcompop . DATA: output_info TYPE ssfcrescl. composer_param-tdiexit = &amp;#39;X&amp;#39;. &amp;#34; 预览打印</description>
+    </item>
+    
+    <item>
       <title>Smartforms 连续打印</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartform_Print/</link>
       <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
@@ -2069,27 +2078,27 @@
     </item>
     
     <item>
-      <title>Smart forms统计打印次数</title>
-      <link>https://coldinfire.github.io/2018/ABAP_Smartform_PrintTimes/</link>
-      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
+      <title>Smartforms 数据传输</title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartforms_DataTransfer/</link>
+      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Smartform_PrintTimes/</guid>
-      <description>打印次数的记录 通过参数控制和对调用 Smart forms 完成后返回的参数值，判断用户是否完成Form打印。 DATA: fm_name TYPE rs38l_fnam. DATA: control_param TYPE ssfctrlop . DATA: composer_param TYPE ssfcompop . DATA: output_info TYPE ssfcrescl. composer_param-tdiexit = &amp;#39;X&amp;#39;. &amp;#34; 预览打印</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_DataTransfer/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Smartforms常见问题</title>
+      <title>Smartforms 常见问题</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</guid>
       <description>中文乱码问题 如果预览时中文正常，打印出来是乱码的情况，可以尝试在中文环境下重新维护并激活。再次打印应该可以解决。如果还有问题，则检查语言包是</description>
     </item>
     
     <item>
-      <title>Smartforms</title>
+      <title>Smartforms 使用</title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartforms/</link>
-      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
       <description>Smartforms 使用 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。 但是 SmartForms 是一</description>

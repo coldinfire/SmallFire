@@ -3824,6 +3824,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Smartform_PrintTimes/</loc>
+      
+      <lastmod>2018-07-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Smartform_Print/</loc>
       
       <lastmod>2018-07-26T00:00:00+00:00</lastmod>
@@ -3838,9 +3852,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Smartform_PrintTimes/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Smartforms_DataTransfer/</loc>
       
-      <lastmod>2018-07-22T00:00:00+00:00</lastmod>
+      <lastmod>2018-07-24T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3854,7 +3868,7 @@
     <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</loc>
       
-      <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+      <lastmod>2018-07-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3868,7 +3882,7 @@
     <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Smartforms/</loc>
       
-      <lastmod>2018-07-18T00:00:00+00:00</lastmod>
+      <lastmod>2018-07-20T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

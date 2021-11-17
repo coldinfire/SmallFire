@@ -1,6 +1,6 @@
 ---
-title: "Smart forms统计打印次数"
-date: 2018-07-22
+title: "Smartforms 统计打印次数"
+date: 2018-07-26
 draft: false
 author: Small Fire
 isCJKLanguage: true

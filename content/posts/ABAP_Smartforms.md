@@ -1,6 +1,6 @@
 ---
-title: "Smartforms"
-date: 2018-07-18
+title: "Smartforms 使用"
+date: 2018-07-20
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -44,7 +44,7 @@ TNAPR-FONAM的值为表格名称，TNAPR-PGNAM的值为驱动程序名称。
 
 **Table : TNAPR** 根据smartform名字查找对应的smartform程序
 
-#### TCode : smartforms
+#### 事物码 smartforms
 
 ![smartforms](/images/ABAP/smartform0.png)
 
