@@ -94,7 +94,7 @@ CLASS cl_event_receiver IMPLEMENTATION.
         CALL TRANSACTION 'MM03' AND SKIP FIRST SCREEN.
       WHEN OTHERS.
     ENDCASE.
-  ENDMETHOD.                    "cl_event_receiver
+  ENDMETHOD.                    "cl_event_receiver"
   METHOD handle_data_changed.
     DATA: ls_output TYPE str_output,
           ls_good   TYPE lvc_s_modi,
@@ -119,7 +119,7 @@ CLASS cl_event_receiver IMPLEMENTATION.
         ENDIF.
       ENDIF.
     ENDLOOP.
-  ENDMETHOD.                    "handle_data_changed
+  ENDMETHOD.                    "handle_data_changed"
 ENDCLASS. "CL_EVENT_RECEIVER"
 
 START-OF-SELECTION.
@@ -171,7 +171,7 @@ MODULE status_1000 OUTPUT.
 *  SET TITLEBAR  'TITLE_100'.
   CLEAR gt_fieldcat.
   PERFORM prepare_field_catalog.
-  PERFORM prepare_layout CHANGING layout.
+  PERFORM prepare_layout.
   IF go_grid IS INITIAL .
 *----Creating custom container instance
     CREATE OBJECT go_container
@@ -256,7 +256,7 @@ MODULE status_1000 OUTPUT.
   EXPORTING
     i_event_id = cl_gui_alv_grid=>mc_evt_modified.
 
-ENDMODULE.                 " STATUS_1000  OUTPUT
+ENDMODULE.                 " STATUS_1000  OUTPUT "
 *&---------------------------------------------------------------------*
 *&      Module  USER_COMMAND_1000  INPUT
 *&---------------------------------------------------------------------*
@@ -267,7 +267,7 @@ MODULE user_command_1000 INPUT.
     WHEN '&F03' OR '&F12' OR '&F15'.
       LEAVE PROGRAM.
   ENDCASE.
-ENDMODULE.                 " USER_COMMAND_1000  INPUT
+ENDMODULE.                 " USER_COMMAND_1000  INPUT "
 *&---------------------------------------------------------------------*
 *&      Form  prepare_field_catalog
 *&---------------------------------------------------------------------*
@@ -293,12 +293,12 @@ ENDFORM.                    " PREPARE_FIELD_CATALOG "
 *----------------------------------------------------------------------*
 *      <--P_GS_LAYOUT  text
 *----------------------------------------------------------------------*
-FORM prepare_layout  CHANGING ps_layout TYPE lvc_s_layo.
-  ps_layout-zebra = 'X' .
-  ps_layout-cwidth_opt  = 'X'.
-  ps_layout-grid_title = 'Material Document List' .
-*  ps_layout-smalltitle = 'X' .
-*  ps_layout-info_fname  = 'ROWCOLOR'.
+FORM prepare_layout.
+  layout-zebra = 'X' .
+  layout-cwidth_opt  = 'X'.
+  layout-grid_title = 'Material Document List' .
+* layout-smalltitle = 'X' .
+* layout-info_fname  = 'ROWCOLOR'.
 ENDFORM.                    " PREPARE_LAYOUT "
 ```
 
