@@ -408,9 +408,23 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_Reflection/</loc>
+      
+      <lastmod>2021-04-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/categories/business/</loc>
       
-      <lastmod>2021-04-15T00:00:00+00:00</lastmod>
+      <lastmod>2021-04-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -424,7 +438,7 @@
     <url>
       <loc>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</loc>
       
-      <lastmod>2021-04-15T00:00:00+00:00</lastmod>
+      <lastmod>2021-04-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -438,7 +452,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/PP/</loc>
       
-      <lastmod>2021-04-15T00:00:00+00:00</lastmod>
+      <lastmod>2021-04-09T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

@@ -116,6 +116,15 @@
     </item>
     
     <item>
+      <title> ABAP 反射 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_Reflection/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_Reflection/</guid>
+      <description>RTTS(Runtime Type Services) 使用 在 ABAP 中，反射是通过运行时类型服务 (RTTS) 提供的。该服务提供了两个主要功能：在运行时识别类型和描述，以及动态创建类型。更具体地说，RTTS</description>
+    </item>
+    
+    <item>
       <title> BAPI:VIEW_MAINTENANCE_CALL 使用 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Table_BAPI_Maintenance/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>

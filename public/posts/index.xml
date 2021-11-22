@@ -152,9 +152,18 @@
     </item>
     
     <item>
+      <title> ABAP 反射 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_Reflection/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_Reflection/</guid>
+      <description>RTTS(Runtime Type Services) 使用 在 ABAP 中，反射是通过运行时类型服务 (RTTS) 提供的。该服务提供了两个主要功能：在运行时识别类型和描述，以及动态创建类型。更具体地说，RTTS</description>
+    </item>
+    
+    <item>
       <title>COOIS 添加字段</title>
       <link>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</link>
-      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</guid>
       <description>参考文档 :Add New or Custom Fields to COOIS Output COOIS 添加并显示自定义字段 要在订单信息系统的 ALV OUTPUT 中增强/添加/显示其他字段或列，而 COOIS ALV 输出中的标准系统中未提供这些字段或</description>
