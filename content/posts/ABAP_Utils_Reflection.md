@@ -27,7 +27,7 @@ tags:
 
 - describe_by_data：从内表变量中获取的方法
 
-  ![ABAP Reflection](/images/ABAP/ABAP_Reflection_1.png)
+  ![ABAP Reflection](/images/ABAP/ABAP_Reflection.png)
 
 ### 动态获取结构/透明表结构
 
