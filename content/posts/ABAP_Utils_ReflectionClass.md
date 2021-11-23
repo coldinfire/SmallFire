@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 ### Read Class Data
 
 ```ABAP
