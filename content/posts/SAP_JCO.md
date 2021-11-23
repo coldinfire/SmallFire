@@ -14,9 +14,9 @@ tags:
 
 ### SAP JCO简介
 
-为了在 R/3 系统和 JAVA 平台之间进行实时的交换数据。SAP 提供了一套高效的基于 RFC 的 ABAP 和 JAVA 进程间通讯组件：SAP JAV Connector.
+为了在 R/3 系统和 JAVA 平台之间进行实时的交换数据。SAP 提供了一套高效的基于 RFC 的 ABAP 和 JAVA 进程间通讯组件：SAP JAV Connector。
 
-Jco 库提供了可以直接在 JAVA 程序中使用的 API.该 API 通过 JNI 调用部署在客户端的 SAP 的 RFC 库。
+Jco 库提供了可以直接在 JAVA 程序中使用的 API。该 API 通过 JNI 调用部署在客户端的 SAP 的 RFC 库。
 
 ### 安装与配置
 
@@ -35,23 +35,22 @@ Jco 库提供了可以直接在 JAVA 程序中使用的 API.该 API 通过 JNI �
                                        "PassWord",   //password
                                        "EN",         //Language
                                        "ClientIP",   //application server host name
-                                       "ClientID")   //system number
+                                       "ClientID");   //system number
   ```
 
 - 使用JAVA 配置文件
 
   ```JS
   Properties properties = new Properties();
-  properties.put("jco.client.ashost","HostIP");
-  properties.put("jco.client.client","client");
-  properties.put("jco.client.user","user");
-  properties.put("jco.client.passwd","passwd");
+  properties.put("jco.client.ashost","10.1.3.5");
+  properties.put("jco.client.client","400");
   properties.put("jco.client.sysnr","00");
   properties.put("jco.client.lange","EN");
-  
+  properties.put("jco.client.user","user");
+  properties.put("jco.client.passwd","passwd");
   JCO.Client myCont = JCO.createClient(properties);
   ```
-
+  
 - 建立从当前JAVA进程到SAP服务器的连接:	`this.myCont.connect();`
 
 
@@ -115,6 +114,7 @@ Jco 库使用 RFC 的方式来调用 ABAP 中的函数，所以被调用的函�
   table.appendRow();
   table.setRow(n);
   table.setValue("Value","FIELD_NAME");
+  int row = table.getNumRows();
   ```
   
 - 第三步：执行
@@ -127,9 +127,12 @@ Jco 库使用 RFC 的方式来调用 ABAP 中的函数，所以被调用的函�
 - 第五步：获取输出参数
 
   ```JS
+  // GET export value
+  String message = function.getExportParameterList.getValue("E_MESSAGE").
   // GET export structure
   JCO.Structure struct = function.getExportParameterList.getStructure("RETURN");
-  //GET table parameter
+  String type = struct.getString("TYPE").
+  // GET table parameter
   JCO.Table table = function.getTableParameterList().getTable("TABLE_NAME");
   ```
 
