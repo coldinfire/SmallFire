@@ -1,5 +1,5 @@
 ---
-title: "Smartforms 分页打印"
+title: " Smartforms 分页打印 "
 date: 2018-07-29
 draft: false
 author: Small Fire

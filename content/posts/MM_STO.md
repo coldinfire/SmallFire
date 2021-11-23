@@ -1,5 +1,5 @@
 ---
-title: "STO 详解"
+title: " STO 详解 "
 date: 2019-04-01
 draft: false
 author: Small Fire

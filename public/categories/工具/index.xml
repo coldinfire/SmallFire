@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Gradle 使用</title>
+      <title> Gradle 使用 </title>
       <link>https://coldinfire.github.io/2018/WEB_Build_Gradle/</link>
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -17,7 +17,7 @@
     </item>
     
     <item>
-      <title> Hugo添加搜索功能(Algolia)  </title>
+      <title> Hugo添加搜索功能(Algolia) </title>
       <link>https://coldinfire.github.io/2018/Utils_hugo2/</link>
       <pubDate>Tue, 03 Apr 2018 00:00:00 +0000</pubDate>
       
@@ -26,7 +26,7 @@
     </item>
     
     <item>
-      <title> 使用Hugo&#43;GitHub Pages快速搭建博客  </title>
+      <title> 使用Hugo&#43;GitHub Pages快速搭建博客 </title>
       <link>https://coldinfire.github.io/2018/Utils_hugo1/</link>
       <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
       
@@ -35,7 +35,7 @@
     </item>
     
     <item>
-      <title>Git学习与总结</title>
+      <title> Git 学习与总结 </title>
       <link>https://coldinfire.github.io/2018/Utils_Git/</link>
       <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
       
@@ -44,7 +44,7 @@
     </item>
     
     <item>
-      <title>Jenkins 使用</title>
+      <title> Jenkins 使用 </title>
       <link>https://coldinfire.github.io/2018/WEB_CI_Jenkins/</link>
       <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
       
@@ -53,7 +53,7 @@
     </item>
     
     <item>
-      <title>Maven Plugin Goal</title>
+      <title> Maven Plugin Goal </title>
       <link>https://coldinfire.github.io/2017/WEB_Build_Maven_Plugin/</link>
       <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
       
@@ -62,7 +62,7 @@
     </item>
     
     <item>
-      <title>Maven构建生命周期</title>
+      <title> Maven 构建生命周期 </title>
       <link>https://coldinfire.github.io/2017/WEB_Build_Maven_LifeCycle/</link>
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
       
@@ -71,7 +71,7 @@
     </item>
     
     <item>
-      <title>Maven依赖管理</title>
+      <title> Maven 依赖管理 </title>
       <link>https://coldinfire.github.io/2017/WEB_Build_Maven_Dependency/</link>
       <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
       
@@ -80,7 +80,7 @@
     </item>
     
     <item>
-      <title>Maven-POM标签大全详解</title>
+      <title> Maven POM标签大全详解 </title>
       <link>https://coldinfire.github.io/2017/WEB_Build_Maven_POM/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
       
@@ -89,7 +89,7 @@
     </item>
     
     <item>
-      <title>Maven使用</title>
+      <title> Maven 使用 </title>
       <link>https://coldinfire.github.io/2017/WEB_Build_Maven_Basic/</link>
       <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
       
@@ -98,7 +98,7 @@
     </item>
     
     <item>
-      <title>Tomcat 使用</title>
+      <title> Tomcat 使用 </title>
       <link>https://coldinfire.github.io/2017/WEB_Tomcat/</link>
       <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
       
@@ -107,7 +107,7 @@
     </item>
     
     <item>
-      <title>JSON和JAVA对象的转换</title>
+      <title> JSON和JAVA对象的转换 </title>
       <link>https://coldinfire.github.io/2017/WEB_JSON_JAVA/</link>
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
       
@@ -116,7 +116,7 @@
     </item>
     
     <item>
-      <title>JSON 详解</title>
+      <title> JSON 详解 </title>
       <link>https://coldinfire.github.io/2017/WEB_JSON/</link>
       <pubDate>Sat, 28 Oct 2017 00:00:00 +0000</pubDate>
       

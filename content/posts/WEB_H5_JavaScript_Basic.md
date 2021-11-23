@@ -1,5 +1,5 @@
 ---
-title: "JavaScript基础"
+title: " JavaScript 基础 "
 date: 2017-09-19
 draft: false
 author: Small Fire

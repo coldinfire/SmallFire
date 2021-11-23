@@ -1,5 +1,5 @@
 ---
-title: "日志使用"
+title: " 日志使用 "
 date: 2018-01-24
 draft: false
 author: Small Fire
@@ -11,8 +11,6 @@ tags:
   - Log
 
 ---
-
-
 
 1.log4j 是Apache为java提供日志管理的工具
         作用：可以调试程序，就像输出一样

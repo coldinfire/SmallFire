@@ -1,5 +1,5 @@
 ---
-title: "Smartforms 数据传输"
+title: " Smartforms 数据传输 "
 date: 2018-07-24
 draft: false
 author: Small Fire
@@ -11,8 +11,6 @@ tags:
   - smartforms
 
 ---
-
-
 
 ### 数据传输到Smart forms
 

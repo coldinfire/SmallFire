@@ -1,5 +1,5 @@
 ---
-title: "数据输入输出转换"
+title: " 数据输入输出转换 "
 date: 2018-06-08
 draft: false
 author: Small Fire

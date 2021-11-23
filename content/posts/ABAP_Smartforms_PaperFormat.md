@@ -1,5 +1,5 @@
 ---
-title: "Smartforms 纸张格式设置"
+title: " Smartforms 纸张格式设置 "
 date: 2020-06-26
 draft: false
 author: Small Fire

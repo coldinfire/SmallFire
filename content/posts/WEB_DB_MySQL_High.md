@@ -1,5 +1,5 @@
 ---
-title: " MySQL高级操作 "
+title: " MySQL 高级操作 "
 date: 2017-11-26
 draft: false
 author: Small Fire

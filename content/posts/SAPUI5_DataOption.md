@@ -1,5 +1,5 @@
 ---
-title: " SAPUI5 数据类型和操作  "
+title: " SAPUI5 数据类型和操作 "
 date: 2019-04-21
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "Maven构建生命周期"
+title: " Maven 构建生命周期 "
 date: 2017-12-27
 draft: false
 author: Small Fire

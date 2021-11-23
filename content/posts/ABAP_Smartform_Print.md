@@ -1,5 +1,5 @@
 ---
-title: "Smartforms 连续打印"
+title: " Smartforms 连续打印 "
 date: 2018-07-26
 draft: false
 author: Small Fire

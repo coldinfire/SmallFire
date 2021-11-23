@@ -1,5 +1,5 @@
 ---
-title: "ABAP Open SQL"
+title: " ABAP Open SQL "
 date: 2018-05-24
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "Git学习与总结"
+title: " Git 学习与总结 "
 date: 2018-03-22
 draft: false
 author: Small Fire

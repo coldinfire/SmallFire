@@ -1,5 +1,5 @@
 ---
-title: " Linux链接和网络管理 "
+title: " Linux 链接和网络管理 "
 date: 2018-04-22
 draft: false
 author: Small Fire

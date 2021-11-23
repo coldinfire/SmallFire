@@ -1,5 +1,5 @@
 ---
-title: "Smartforms 使用"
+title: " Smartforms 使用 "
 date: 2018-07-20
 draft: false
 author: Small Fire
@@ -35,10 +35,13 @@ PERFORM (TNAPR-RONAM) IN PROGRAM (TNAPR-PGNAM)
 ```
 
 - TNAPR-FONAM 的值为表格名称
-
 - TNAPR-PGNAM 的值为驱动程序名称
 
 #### 方法 2
+
+Run `SE03`, choose "Search For Object in the request/transport"：Here run the report for the hit：R3TR SSFO.
+
+#### 方法 3
 
 事物码 `NACE` 可以查找 (例如。采购订单，销售订单等)
 

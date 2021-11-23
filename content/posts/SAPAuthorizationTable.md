@@ -1,5 +1,5 @@
 ---
-title: "SAP Authorization table"
+title: " SAP Authorization table "
 date: 2020-03-16
 draft: false
 author: Small Fire

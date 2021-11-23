@@ -1,5 +1,5 @@
 ---
-title: "SAP 长文本"
+title: " SAP 长文本 "
 date: 2019-09-03
 draft: false
 author: Small Fire

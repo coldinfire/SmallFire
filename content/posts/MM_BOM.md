@@ -1,5 +1,5 @@
 ---
-title: "BOM了解"
+title: " BOM 了解 "
 date: 2019-05-25
 draft: false
 author: Small Fire

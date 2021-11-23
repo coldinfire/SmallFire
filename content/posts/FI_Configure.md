@@ -1,5 +1,5 @@
 ---
-title: "FI 配置流程"
+title: " FI 配置流程 "
 date: 2019-03-04
 draft: false
 author: Small Fire

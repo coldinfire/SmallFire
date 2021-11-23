@@ -1,5 +1,5 @@
 ---
-title: "供应商(Vendor)管理"
+title: " 供应商(Vendor)管理 "
 date: 2019-03-13
 draft: false
 author: Small Fire

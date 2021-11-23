@@ -1,5 +1,5 @@
 ---
-title: "SAP MM01 屏幕增强"
+title: " MM01 屏幕增强 "
 date: 2019-05-16
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "SQVI 创建一张简易的报表"
+title: " SQVI 创建一张简易的报表 "
 date: 2019-08-28
 draft: false
 author: Small Fire

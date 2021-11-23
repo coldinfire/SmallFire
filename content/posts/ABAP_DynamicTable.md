@@ -18,7 +18,6 @@ tags:
 
 ```ABAP
 REPORT  zdyn_test. 
-
 DATA: dyn_table TYPE REF TO data, 
       dyn_line  TYPE REF TO data,
 FIELD-SYMBOLS: <dyn_table> TYPE STANDARD TABLE.

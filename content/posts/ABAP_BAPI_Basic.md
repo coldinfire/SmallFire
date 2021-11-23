@@ -1,5 +1,5 @@
 ---
-title: "BAPI 使用"
+title: " BAPI 使用 "
 date: 2019-06-16
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: " SAPUI5 Mock Server  "
+title: " SAPUI5 Mock Server "
 date: 2019-04-26
 draft: false
 author: Small Fire

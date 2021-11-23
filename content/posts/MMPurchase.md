@@ -1,5 +1,5 @@
 ---
-title: "有库存的采购流程解析"
+title: " 有库存的采购流程解析 "
 date: 2019-03-16
 draft: false
 author: Small Fire

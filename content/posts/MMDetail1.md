@@ -1,5 +1,5 @@
 ---
-title: "MM概述(一)"
+title: " MM概述(一) "
 date: 2019-03-10
 draft: false
 author: Small Fire

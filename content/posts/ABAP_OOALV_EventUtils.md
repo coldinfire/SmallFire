@@ -1,5 +1,5 @@
 ---
-title: "OO ALV 事件类工具"
+title: " OO ALV 事件类工具 "
 date: 2018-07-17
 draft: false
 author: Small Fire

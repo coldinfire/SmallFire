@@ -1,5 +1,5 @@
 ---
-title: "MM 物料主数据管理"
+title: " MM 物料主数据管理 "
 date: 2019-03-12
 draft: false
 author: Small Fire

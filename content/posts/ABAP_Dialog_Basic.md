@@ -1,5 +1,5 @@
 ---
-title: "Dialog 程序简介"
+title: " Dialog 程序简介 "
 date: 2018-08-28
 draft: false
 author: Small Fire
@@ -95,14 +95,15 @@ ENDCHAIN.
 
 #### CHAIN中有字段不是初始值检查
 
-```JS
+注意：CHAIN_INPUT表示FLD1,FLD2,FLD3,FLD4不是初始值是执行MDL1检查。
+
+```ABAP
 CHAIN.
   FIELD<FLD1>.
   FIELD<FLD2>,<FLD3>,<FLD4>.
   MODULE<MDL1>ON CHAIN_INPUT.
   MODULE<MDL2>.
 ENDCHAIN.
-注意：CHAIN_INPUT表示FLD1,FLD2,FLD3,FLD4不是初始值是执行MDL1检查。
 ```
 
 PBO：`CALL SUBSCREEN <SUBAREA> INCLUDING <PROGRAM_NAME> <DYNPRO_NUMBER>.`

@@ -99,14 +99,14 @@ RFC有同步通信(Synchronous RFC)和异步通信(Asynchronous RFC)两种方式
 
 #### RFC调用方式
 
-**调用同步RFC**
+*调用同步RFC*
 
-```html
+```ABAP
 CALL FUNCTION func [DESTINATION dest]
   EXPORTING
     F1 = a1
     F2 = a2
-  INPORTING
+  IMPORTING
     F3 = a3
   CHANGING
     F4 = a4
@@ -117,36 +117,45 @@ CALL FUNCTION func [DESTINATION dest]
  . 
 ```
 
-**异步RFC**
+*调用异步RFC*
 
-调用异步RFC
-
-```html
-CALL FUNCTION Remotefunction STARTING NEW TASK Taskname
-DESTINATION ...
-PERFORMING RETURN_FLIGHT ON END OF TASK  "接收异步调用结果"
-EXPORTING...
-TABLES ...
-EXCEPTIONS...
+```ABAP
+CALL FUNCTION 'RFC_SYSTEM_INFO' 
+     STARTING NEW TASK 'AAAAAA'
+     DESTINATION 'NONE'
+     PERFORMING RETURN_INFO ON END OF TASK  "接收异步调用结果"
+  EXPORTING...
+  TABLES
+    E_RETURN = L_IT_RETURN[]
+  EXCEPTIONS
+    COMMUNICATION_FAILURE = 1 MESSAGE MSG
+    SYSTEM_FAILURE        = 2 MESSAGE MSG.
 IF SY-SUBRC = 0.
   WRITE: 'Wait for response'.
+  WAIT UNTIL SEMAPHORE = 'X'.
 ELSE.
-  WRITE MSG
+  WRITE MSG.
+  MESSAGE 'Synchronize Failed' TYPE 'A'.
 ENDIF. 
 ```
 
-从异步调用的函数接收结果，请使用以下语法
+从异步调用的函数接收结果，可以使用以下语法：
 
-```html
+```ABAP
 FORM RETURN_FLIGHT USING TASKNAME.
-  RECEIVE RESULTS FROM FUNCTION Remotefunction
+  RECEIVE RESULTS FROM FUNCTION 'RFC_SYSTEM_INFO'
     IMPORTING 
-      F1 = a1
+      RFCSI_EXPORT = AAA
+    TABLES 
+      E_RETURN  = GV_IT_RETURN[]
     EXCEPTIONS 
-      SYSTEM_FAILURE
+      COMMUNICATION_FAILURE = 1
+      SYSTEM_FAILURE        = 2
     MESSAGE 
        SYSTEM_MSG
     [KEEPING TASK].
+  SEMAPHORE = 'X'.
+  "Refresh Screen"
   SET USER-COMMAND 'OKCD'.
 ENDFORM. 
 ```

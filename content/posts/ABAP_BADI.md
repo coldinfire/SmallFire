@@ -1,5 +1,5 @@
 ---
-title: "BADI 维护"
+title: " BADI 维护 "
 date: 2019-07-01
 draft: false
 author: Small Fire

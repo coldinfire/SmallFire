@@ -1,5 +1,5 @@
 ---
-title: "Jenkins 使用"
+title: " Jenkins 使用 "
 date: 2018-03-07
 draft: false
 author: Small Fire
@@ -11,8 +11,6 @@ tags:
   - Jenkins
 
 ---
-
-
 
 ### Jenkins 简介
 

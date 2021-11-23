@@ -1,5 +1,5 @@
 ---
-title: "MIRO根据物料创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE"
+title: " MIRO 根据物料创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE "
 date: 2020-02-16
 draft: false
 author: Small Fire

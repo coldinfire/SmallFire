@@ -1,5 +1,5 @@
 ---
-title: "JavaScript其它技术点汇总"
+title: " JavaScript 其它技术点汇总 "
 date: 2017-09-29
 draft: false
 author: Small Fire

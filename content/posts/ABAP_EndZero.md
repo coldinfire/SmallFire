@@ -1,5 +1,5 @@
 ---
-title: "小数后面去除后缀0"
+title: " 小数后面去除后缀0 "
 date: 2018-06-13
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "凭证冲销 BAPI_ACC_DOCUMENT_REV_POST"
+title: " 凭证冲销 BAPI_ACC_DOCUMENT_REV_POST "
 date: 2020-02-24
 draft: false
 author: Small Fire

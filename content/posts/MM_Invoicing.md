@@ -1,5 +1,5 @@
 ---
-title: "SAP 进销存难点分析及对策"
+title: " SAP 进销存难点分析及对策 "
 date: 2019-05-29
 draft: false
 author: Small Fire

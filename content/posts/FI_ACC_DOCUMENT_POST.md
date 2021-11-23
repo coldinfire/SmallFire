@@ -1,5 +1,5 @@
 ---
-title: "创建固定资产凭证 BAPI_ACC_DOCUMENT_POST"
+title: " 创建固定资产凭证 BAPI_ACC_DOCUMENT_POST "
 date: 2020-02-22
 draft: false
 author: Small Fire

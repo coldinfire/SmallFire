@@ -1,5 +1,5 @@
 ---
-title: "ABAP 内表使用"
+title: " ABAP 内表使用 "
 date: 2018-05-16
 draft: false
 author: Small Fire

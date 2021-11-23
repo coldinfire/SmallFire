@@ -1,5 +1,5 @@
 ---
-title: "SAP 获取库存函数"
+title: " SAP 获取库存函数 "
 date: 2020-12-20
 draft: false
 author: Small Fire

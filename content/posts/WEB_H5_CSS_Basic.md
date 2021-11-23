@@ -1,5 +1,5 @@
 ---
-title: "CSS基础知识"
+title: " CSS 基础知识 "
 date: 2017-09-05
 draft: false
 author: Small Fire

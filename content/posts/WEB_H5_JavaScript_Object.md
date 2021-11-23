@@ -1,5 +1,5 @@
 ---
-title: "JavaScript对象"
+title: " JavaScript 对象 "
 date: 2017-09-21
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "Smartforms 统计打印次数"
+title: " Smartforms 统计打印次数 "
 date: 2018-07-26
 draft: false
 author: Small Fire

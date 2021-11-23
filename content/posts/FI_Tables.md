@@ -1,5 +1,5 @@
 ---
-title: "SAP FI tables"
+title: " SAP FI Tables "
 date: 2020-07-05
 draft: false
 author: Small Fire

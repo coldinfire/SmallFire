@@ -1,5 +1,5 @@
 ---
-title: "函数创建用户并分配权限"
+title: " 函数创建用户并分配权限 "
 date: 2020-09-15
 draft: false
 author: Small Fire
@@ -14,7 +14,7 @@ tags:
 
 ### 函数创建用户并分配权限
 
-```html
+```ABAP
 REPORT ZCREATE_USER.
 DATA:LS_DATA   TYPE BAPILOGOND,
      LS_ADDR   TYPE BAPIADDR3,
@@ -25,7 +25,6 @@ DATA:LS_DATA   TYPE BAPILOGOND,
      GV_DEST   TYPE RFCDEST,
      GT_FILE   TYPE TABLE OF BAPIPROF,
      GW_FILE   LIKE LINE OF GT_FILE.
-
 CALL FUNCTION 'CRM_OFI_GET_RFCDEST'
   IMPORTING
     EV_RFCDEST       = GV_DEST
@@ -35,22 +34,21 @@ CALL FUNCTION 'CRM_OFI_GET_RFCDEST'
     OTHERS           = 3.
 IF SY-SUBRC <> 0.
 ENDIF.
-
-"LOGON DATA
+"LOGON DATA"
 LS_DATA-GLTGV = SY-DATUM - 1.
 LS_DATA-GLTGB = SY-DATUM + 1.
 LS_DATA-USTYP = 'A'.
-"set default data
+"set default data"
 LS_DEFU-LANGU = 'E'.
 LS_DEFU-SPLD = 'LP01'.
 LS_DEFU-DATFM = '4'.
 LS_DEFU-DCPFM = 'X'.
 LS_DEFU-TIMEFM = '0'.
-"set password
+"set password"
 LS_PWD-BAPIPWD = '123456'.
-"set name
+"set name"
 LS_ADDR-LASTNAME = 'XXX'.
-"call func create user
+"call func create user"
 CALL FUNCTION 'BAPI_USER_CREATE1' DESTINATION GV_DEST
   EXPORTING
     USERNAME  = 'ANDY01'
@@ -74,7 +72,7 @@ ELSE.
   GW_FILE-BAPITYPE = 'C'.
   GW_FILE-BAPIAKTPS = 'X'.
   APPEND GW_FILE TO GT_FILE.
-  "assign sap_all to user
+  "assign sap_all to user"
   CALL FUNCTION 'BAPI_USER_PROFILES_ASSIGN' DESTINATION GV_DEST
     EXPORTING
       USERNAME = 'ANDY01'

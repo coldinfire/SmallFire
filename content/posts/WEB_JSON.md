@@ -1,5 +1,5 @@
 ---
-title: "JSON 详解"
+title: " JSON 详解 "
 date: 2017-10-28
 draft: false
 author: Small Fire

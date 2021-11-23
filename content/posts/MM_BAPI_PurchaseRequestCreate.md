@@ -1,5 +1,5 @@
 ---
-title: "使用BAPI创建Purchase Request"
+title: " BAPI创建Purchase Request "
 date: 2020-06-04
 draft: false
 author: Small Fire

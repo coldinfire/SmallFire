@@ -1,5 +1,5 @@
 ---
-title: "ABAP 科学计数法问题"
+title: " ABAP 科学计数法问题 "
 date: 2019-10-20
 draft: false
 author: Small Fire

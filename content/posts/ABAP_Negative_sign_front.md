@@ -1,5 +1,5 @@
 ---
-title: "负号前置"
+title: " 负号前置 "
 date: 2018-08-13
 draft: false
 author: Small Fire

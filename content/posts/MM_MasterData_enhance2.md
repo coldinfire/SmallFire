@@ -1,5 +1,5 @@
 ---
-title: "物料主数据增强自定义字段"
+title: " 物料主数据增强自定义字段 "
 date: 2019-03-15
 draft: false
 author: Small Fire

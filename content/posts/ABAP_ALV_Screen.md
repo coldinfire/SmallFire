@@ -1,5 +1,5 @@
 ---
-title: "报表开发<屏幕设置>"
+title: " 报表开发<屏幕设置> "
 date: 2018-06-19
 draft: false
 author: Small Fire

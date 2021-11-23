@@ -1,5 +1,5 @@
 ---
-title: "BOM 展开"
+title: " BOM 展开 "
 date: 2018-11-25
 draft: false
 author: Small Fire
@@ -38,14 +38,14 @@ tags:
 可用函数：CSAP_MAT_BOM_READ
 
 ### 读取逻辑 ###
-```JS
+```ABAP
 1.查找Material,Plant,Material Desc [Table:MARA,MARC,MAKT]
-   MARA-MATNR    
-   MARC-WERKS   
-   MARA-MTART (Material type)
-   Note: Proceeding to Step 2 or 3 or 4 depends on the input radio button for 
-       Production or Engineering or ALL BOM option.
-2. Search for BOM – Engineering   [Table:MAST]
+  MARA-MATNR    
+  MARC-WERKS   
+  MARA-MTART (Material type)
+  Note: Proceeding to Step 2 or 3 or 4 depends on the input radio button for 
+        Production or Engineering or ALL BOM option.
+2.Search for BOM – Engineering   [Table:MAST]
    Material (MAST-MATNR) = Materials selected above
    AND Plant (MAST–WERKS) = As in input 
    AND BOM usage (MAST-STLAN) = 2 (Engineering usage).
@@ -82,7 +82,7 @@ Note:
         Material (MAST-MATNR) = Materials selected above and
         Plant (MAST–WERKS) = As in input.
     ● Read BOM Header and Item
-  	Read BOM Header from table [STKO]。
+  	Read BOM Header from table [STKO].
     	  BOM Number (STKO-STLNR) = BOM number got in previous step and
     	  BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
   	Read BOM Item details from [STOP].
@@ -93,27 +93,26 @@ Note:
 
 ### 顺查BOM（CS12）
 
-```JS
+```ABAP
 CALL FUNCTION 'CS_BOM_EXPL_MAT_V2'
   EXPORTING
-     capid = pm_capid     "BOM应用程序，应用程序一般为PP01"
-     datuv = pm_datuv     "有效开始日通常为系统的当前日期"
-     emeng = menge        "需求数量"
-     mtnrv = pm_mtnrv     "物料专用号，要展开BOM的物料"
-     mehrs = 'X'          "x表示多层展开﹐space表示只展开第一层"
-     werks = pm_werks     "工厂"
-     stlan = xxx          "BOM用途"
-     stlal = xxxx         "BOM可选"
-   IMPORTING
-     topmat = selpool     "抬头明细"
-     dstst = dstst_flg
-    TABLES
-      stb = stb           "展开的BOM存放在该内表"
-      matcat = matcat     "下面含有元件的物料存放在该内表"
-
+    capid = pm_capid     "BOM应用程序，应用程序一般为PP01"
+    datuv = pm_datuv     "有效开始日通常为系统的当前日期"
+    emeng = menge        "需求数量"
+    mtnrv = pm_mtnrv     "物料专用号，要展开BOM的物料"
+    mehrs = 'X'          "x表示多层展开﹐space表示只展开第一层"
+    werks = pm_werks     "工厂"
+    stlan = xxx          "BOM用途"
+    stlal = xxxx         "BOM可选"
+  IMPORTING
+    topmat = selpool     "抬头明细"
+    dstst = dstst_flg
+  TABLES
+    stb = stb           "展开的BOM存放在该内表"
+    matcat = matcat     "下面含有元件的物料存放在该内表"
 "获取物料BOM清单 Items"
-call function 'CSAP_MAT_BOM_ITEM_SELECT'
-  exporting
+CALL FUNCTION 'CSAP_MAT_BOM_ITEM_SELECT'
+  EXPORTING
     i_stpo                     = ls_i_stpo
     material                   = lv_i_matnr
     plant                      = lv_i_plant
@@ -123,42 +122,42 @@ call function 'CSAP_MAT_BOM_ITEM_SELECT'
     fl_foreign_key_check       = lc_check
     valid_from                 = lv_i_datuv
     valid_to                   = lv_i_datub
-  tables
+  TABLES
     t_stpo                     = lt_e_stpo
-  exceptions
-    error                      =
-    others                     =   .
+  EXCEPTIONS
+    error                      = error_msg
+    others                     = error_other.
 ```
 
 ### 逆查BOM(CS15)
 
-```JS
+```ABAP
 DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
-  IT_EQUICAT LIKE CSCEQUI OCCURS 0 WITH HEADER LINE,
-  IT_KNDCAT LIKE CSCKND OCCURS 0 WITH HEADER LINE,
-  IT_MATCAT LIKE CSCMAT OCCURS 0 WITH HEADER LINE,
-  IT_STDCAT LIKE CSCSTD OCCURS 0 WITH HEADER LINE,
-  IT_TPLCAT LIKE CSCTPL OCCURS 0 WITH HEADER LINE,
-  IT_PRJCAT LIKE CSCPRJ OCCURS 0 WITH HEADER LINE.
+      IT_EQUICAT LIKE CSCEQUI OCCURS 0 WITH HEADER LINE,
+      IT_KNDCAT LIKE CSCKND OCCURS 0 WITH HEADER LINE,
+      IT_MATCAT LIKE CSCMAT OCCURS 0 WITH HEADER LINE,
+      IT_STDCAT LIKE CSCSTD OCCURS 0 WITH HEADER LINE,
+      IT_TPLCAT LIKE CSCTPL OCCURS 0 WITH HEADER LINE,
+      IT_PRJCAT LIKE CSCPRJ OCCURS 0 WITH HEADER LINE.
   CLEAR:IT_WULTB,IT_WULTB[].
-  CALL  FUNCTION  'CS_WHERE_USED_MAT'
+  CALL FUNCTION 'CS_WHERE_USED_MAT'
     EXPORTING
       DATUB        = SY-DATUM    "有效日期至"
       DATUV        = SY-DATUM    "有效日期从"
       MATNR        = P_C_MATNR   "物料号"
 *     POSTP        = ' '
 *     RETCODE_ONLY = ' '
-*     STLAN        = ' '         "BOM用途
+*     STLAN        = ' '         "BOM用途"
       MCLMT        = '00000000'
       WERKS        = S2_WERKS
 *    IMPORTING
 *    TOPMAT        =
     TABLES
-       WULTB       = IT_WULTB    "反查出的子件上层物料明细，包含上层编码、
-                                 "上层编码描述、上层需求数量（默认是 BOM抬头基本数量）、子件需求数量等。
+       WULTB       = IT_WULTB    "反查出的子件上层物料明细，包含上层编码、"
+                                 "上层编码描述、上层需求数量（默认是 BOM抬头基本数量）、子件需求数量等。"
        EQUICAT     = IT_EQUICAT
        KNDCAT      = IT_KNDCAT
-       MATCAT      = IT_MATCAT   "反查出的子件上层物料明细（按物料号汇总后的结果）
+       MATCAT      = IT_MATCAT   "反查出的子件上层物料明细（按物料号汇总后的结果）"
        STDCAT      = IT_STDCAT
        TPLCAT      = IT_TPLCAT
     EXCEPTIONS
@@ -174,7 +173,7 @@ DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
 
 ### 批量删除BOM分配
 
-```JS
+```ABAP
 CALL FUNCTION 'CSAP_MAT_BOM_ALLOC_DELETE'
   EXPORTING
     MATERIAL                 = ITAB-MATNR

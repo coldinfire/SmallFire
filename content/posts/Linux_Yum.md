@@ -1,5 +1,5 @@
 ---
-title: " Linux软件包管理 "
+title: " Linux 软件包管理 "
 date: 2018-04-23
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "Mybatis 配置文件"
+title: " Mybatis CRUD 操作"
 date: 2018-01-08
 draft: false
 author: Small Fire

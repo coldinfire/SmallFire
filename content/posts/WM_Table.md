@@ -1,5 +1,5 @@
 ---
-title: "WM 常用表"
+title: " WM 常用表 "
 date: 2020-05-28
 draft: false
 author: Small Fire

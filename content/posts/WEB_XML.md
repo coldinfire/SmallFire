@@ -1,5 +1,5 @@
 ---
-title: "XML 基础知识"
+title: " XML 基础知识 "
 date: 2017-10-25
 draft: false
 author: Small Fire

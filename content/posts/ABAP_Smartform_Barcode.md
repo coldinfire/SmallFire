@@ -1,5 +1,5 @@
 ---
-title: "Smartforms Barcode"
+title: " Smartforms Barcode "
 date: 2018-08-14
 draft: false
 author: Small Fire

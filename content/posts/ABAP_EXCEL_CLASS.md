@@ -1,5 +1,5 @@
 ---
-title: "SAP Excel 操作实例(CLASS)"
+title: " SAP Excel 操作实例(CLASS) "
 date: 2018-12-02
 draft: false
 author: Small Fire

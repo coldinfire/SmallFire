@@ -1,5 +1,5 @@
 ---
-title: "Text Enhancements"
+title: " Text Enhancements "
 date: 2020-12-26
 draft: false
 author: Small Fire

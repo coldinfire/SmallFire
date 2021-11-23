@@ -12,7 +12,7 @@ tags:
 
 ---
 
-#### Tcode：CS12的执行程序查看
+#### 事物码 CS12：的执行程序查看
 
 ![CS12](/images/ABAP/BOM_Enhance1.png)
 
@@ -22,11 +22,11 @@ tags:
 
 #### 执行的程序：
 
-- RCS11001 Display BOM Level by Level
+- RCS11001：Display BOM Level by Level
 
-- RCS12001 Display Multilevel BOM
+- RCS12001：Display Multilevel BOM
 
-- RCS13001 Summarized BOM - Multilevel
+- RCS13001：Summarized BOM - Multilevel
 
 #### User Exits:
 

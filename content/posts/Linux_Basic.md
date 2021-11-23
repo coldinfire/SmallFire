@@ -1,5 +1,5 @@
 ---
-title: " Linux基础 "
+title: " Linux 基础 "
 date: 2018-04-06
 draft: false
 author: Small Fire

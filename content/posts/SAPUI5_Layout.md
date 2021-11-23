@@ -1,5 +1,5 @@
 ---
-title: " SAPUI5 Layout  "
+title: " SAPUI5 Layout "
 date: 2019-04-19
 draft: false
 author: Small Fire

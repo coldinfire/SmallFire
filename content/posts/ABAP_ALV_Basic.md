@@ -1,5 +1,5 @@
 ---
-title: "报表开发<概述>"
+title: " 报表开发<概述> "
 date: 2018-06-18
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "Smartform 循环打印，页码统计"
+title: " Smartform 循环打印&页码统计 "
 date: 2018-07-31
 draft: false
 author: Small Fire
@@ -72,29 +72,27 @@ FORM sub_data_print .
     LOOP AT itab_total INTO wand WHERE fenlei = s_fenlei-low.
       APPEND wand TO itab_print.
     ENDLOOP.
-
     IF itab_print IS INITIAL.
       CONTINUE.
     ENDIF.
    CONCATENATE sy-uname sy-uzeit INTO mid.
-* 将内表数据存入 ABAP 内存
-    EXPORT a = itab_print TO DATABASE indx(hk) ID mid.
-
-    CALL FUNCTION fm_name
-      EXPORTING
-        control_parameters = ls_control_param
-        output_options     = ls_composer_param
-      EXCEPTIONS
-        formatting_error   = 1
-        internal_error     = 2
-        send_error         = 3
-        user_canceled      = 4
-        OTHERS             = 5.
-    IF sy-subrc <> 0.
-      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-              WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-    ENDIF.
-* 删除内存数据
+   "将内表数据存入 ABAP 内存"
+   EXPORT a = itab_print TO DATABASE indx(hk) ID mid.
+   CALL FUNCTION fm_name
+     EXPORTING
+       control_parameters = ls_control_param
+       output_options     = ls_composer_param
+     EXCEPTIONS
+       formatting_error   = 1
+       internal_error     = 2
+       send_error         = 3
+       user_canceled      = 4
+       OTHERS             = 5.
+   IF sy-subrc <> 0.
+     MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+             WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+   ENDIF.
+   "删除内存数据"
     DELETE FROM DATABASE indx(hk) ID mid.
   ENDLOOP.
   CALL FUNCTION 'SSF_CLOSE'
@@ -107,8 +105,8 @@ FORM sub_data_print .
       OTHERS           = 4.
   IF sy-subrc <> 0.
     MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+            WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   ENDIF.
-ENDFORM.                    " SUB_DATA_PRINT
+ENDFORM.                    " SUB_DATA_PRINT "
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: "SAP Fiori Launch Pad"
+title: " Fiori Launch Pad "
 date: 2019-04-16
 draft: false
 author: Small Fire

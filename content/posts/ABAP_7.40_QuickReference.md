@@ -1,5 +1,5 @@
 ---
-title: "ABAP 7.40 Quick Reference"
+title: " ABAP 7.40 Quick Reference "
 date: 2020-07-14
 draft: false
 author: Small Fire

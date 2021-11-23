@@ -1,5 +1,5 @@
 ---
-title: "网页 BOM 知识汇总"
+title: " 网页BOM知识汇总 "
 date: 2017-09-26
 draft: false
 author: Small Fire

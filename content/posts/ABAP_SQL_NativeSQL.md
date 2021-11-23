@@ -1,5 +1,5 @@
 ---
-title: "ABAP Native SQL"
+title: " ABAP Native SQL "
 date: 2018-05-26
 draft: false
 author: Small Fire
@@ -155,9 +155,21 @@ ENDEXEC.
 
 ### 使用 ADBC 执行 Native SQL
 
-ABAP 标准 DEMO 程序：`ADBC_DEMO` 。
+SAP 提供了对原生 sql 的操作，主要有以下几个类组成：
+
+- CL_SQL_STATEMENT - Execution of SQL Statements
+- CL_SQL_PREPARED_STATEMENT - Prepared SQL Statements
+- CL_SQL_CONNECTION - Administration of Database Connections
+- CX_SQL_EXCEPTION - Exception Class for SQL Error
+
+还会用到：
+
+- CL_SQL_RESULT_SET - Resulting Set of an SQL Query
+- CX_PARAMETER_INVALID - Superclass for Parameter Error
 
 #### 程序实例
+
+ABAP 标准 DEMO 程序：`ADBC_DEMO` 。
 
 ```ABAP
 REPORT z_sql_demo.
@@ -165,7 +177,8 @@ REPORT z_sql_demo.
 "Excute data"
 DATA: index TYPE i.
 DATA: sql(100) TYPE c.
-DATA: retcode  TYPE i.
+DATA: retcode  TYPE i,
+      message  TYPE bapi_msg.
 TYPES: BEGIN OF sql_data,
     sql(300) TYPE c,
 END OF sql_data.
@@ -191,6 +204,7 @@ LOOP AT datas.
       dbconn = 'CONN_NAME'
     IMPORTING
       result = retcode
+      msg    = message
     TABLES
       sql    = sql_datas.
   IF retcode = 0.
@@ -209,6 +223,7 @@ FUNCTION ZUU_EXEC_SQL .
 *"     REFERENCE(DBCONN) TYPE  C
 *"  EXPORTING
 *"     REFERENCE(RESULT) TYPE  I
+*"     REFERENCE(MSG)    TYPE BAPI_MSG
 *"  TABLES
 *"      SQL
 *"---------------------------------------------------------------
@@ -238,7 +253,7 @@ FUNCTION ZUU_EXEC_SQL .
   CATCH cx_sql_exception INTO lr_cxsql.
     lv_root_message = lr_cxsql->get_text( ).
     lv_sql_message = lr_cxsql->sql_message.
-    WRITE: / lv_root_message, / lv_sql_message.
+    CONCATENATE msg lv_root_message lv_sql_message INTO msg SEPARATED BY '/'.
   ENDTRY.
   result = 0.
   LOOP AT sql INTO lv_stmt.
@@ -255,25 +270,26 @@ FUNCTION ZUU_EXEC_SQL .
       result = 1.
       lv_root_message = lr_cxsql->get_text( ).
       lv_sql_message = lr_cxsql->sql_message.
-      WRITE: / lv_root_message, / lv_sql_message.
-      MESSAGE lv_stmt TYPE 'I'.
+      CONCATENATE msg lv_root_message lv_sql_message INTO msg SEPARATED BY '/'.
+      MESSAGE msg TYPE 'I'.
       EXIT.
     CATCH cx_parameter_invalid INTO lr_cxpar.
       result = 1.
       lv_root_message = lr_cxpar->get_text( ).
       lv_param_message = lr_cxpar->parameter.
-      WRITE: / lv_root_message, / lv_param_message.
+      CONCATENATE msg lv_root_message lv_sql_message INTO msg SEPARATED BY '/'.
       EXIT.
     ENDTRY.
   ENDLOOP.
   IF result = 1.
-    CALL METHOD l_con_ref->ROLLBACK.
+    CALL METHOD l_con_ref->rollback.
   ELSE.
-    CALL METHOD l_con_ref->COMMIT.
+    CALL METHOD l_con_ref->commit.
   ENDIF.
+  
   GET REFERENCE OF ls_sp_test INTO l_dref.
   IF DBCONN <> 'DEFAULT'.
-    CALL METHOD l_con_ref->CLOSE.
+    CALL METHOD l_con_ref->close.
   ENDIF.
 ENDFUNCTION.
 ```

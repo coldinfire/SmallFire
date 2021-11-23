@@ -1,5 +1,5 @@
 ---
-title: "SAP 移动类型详解"
+title: " SAP 移动类型详解 "
 date: 2020-05-20
 draft: false
 author: Small Fire

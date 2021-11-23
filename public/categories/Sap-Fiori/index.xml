@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/Sap-Fiori/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title> SAP HANA 知识链接</title>
+      <title> SAP HANA 知识链接 </title>
       <link>https://coldinfire.github.io/2019/SAPHANA1/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
@@ -17,7 +17,7 @@
     </item>
     
     <item>
-      <title> SAP HANA 结构分析</title>
+      <title> SAP HANA 结构分析 </title>
       <link>https://coldinfire.github.io/2019/SAPHANA_APP1/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
@@ -44,7 +44,7 @@
     </item>
     
     <item>
-      <title> SAPUI5 Message  </title>
+      <title> SAPUI5 Message </title>
       <link>https://coldinfire.github.io/2019/SAPUI5_Message/</link>
       <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -53,7 +53,7 @@
     </item>
     
     <item>
-      <title> SAPUI5 Mock Server  </title>
+      <title> SAPUI5 Mock Server </title>
       <link>https://coldinfire.github.io/2019/SAPUI5_MockServer/</link>
       <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -62,7 +62,7 @@
     </item>
     
     <item>
-      <title> SAPUI5 Routing导航  </title>
+      <title> SAPUI5 Routing导航 </title>
       <link>https://coldinfire.github.io/2019/SAPUI5_Routing/</link>
       <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -71,7 +71,7 @@
     </item>
     
     <item>
-      <title> SAPUI5 数据绑定  </title>
+      <title> SAPUI5 数据绑定 </title>
       <link>https://coldinfire.github.io/2019/SAPUI5_DataBinding/</link>
       <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -80,7 +80,7 @@
     </item>
     
     <item>
-      <title> SAPUI5 模块化  </title>
+      <title> SAPUI5 模块化 </title>
       <link>https://coldinfire.github.io/2019/SAPUI5_Module/</link>
       <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -89,7 +89,7 @@
     </item>
     
     <item>
-      <title> SAPUI5 数据类型和操作  </title>
+      <title> SAPUI5 数据类型和操作 </title>
       <link>https://coldinfire.github.io/2019/SAPUI5_DataOption/</link>
       <pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -98,7 +98,7 @@
     </item>
     
     <item>
-      <title> SAPUI5 Dialog and Fragment  </title>
+      <title> SAPUI5 Dialog and Fragment </title>
       <link>https://coldinfire.github.io/2019/SAPUI5_DialogAndFragment/</link>
       <pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -107,7 +107,7 @@
     </item>
     
     <item>
-      <title> SAPUI5 Layout  </title>
+      <title> SAPUI5 Layout </title>
       <link>https://coldinfire.github.io/2019/SAPUI5_Layout/</link>
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -125,21 +125,21 @@
     </item>
     
     <item>
-      <title> Fiori简介 </title>
-      <link>https://coldinfire.github.io/2019/SAPFiori_AllOverview/</link>
-      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAPFiori_AllOverview/</guid>
-      <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
-    </item>
-    
-    <item>
-      <title>SAP Fiori Launch Pad</title>
+      <title> Fiori Launch Pad </title>
       <link>https://coldinfire.github.io/2019/SAPFiori_LaunchPad/</link>
       <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPFiori_LaunchPad/</guid>
       <description>Fiori Launch Pad SAP Fiori Launch Pad 包含内容: 应用以磁贴形式展示在首页 首页磁贴包括静态磁贴、动态磁贴、新闻磁贴 Tile Catalog：用户可以运行的所有程序的集合 Tile Gr</description>
+    </item>
+    
+    <item>
+      <title> Fiori 简介 </title>
+      <link>https://coldinfire.github.io/2019/SAPFiori_AllOverview/</link>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPFiori_AllOverview/</guid>
+      <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
     </item>
     
   </channel>

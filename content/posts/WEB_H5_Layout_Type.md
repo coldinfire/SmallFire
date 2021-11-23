@@ -1,5 +1,5 @@
 ---
-title: "页面布局方式汇总"
+title: " 页面布局方式汇总 "
 date: 2017-09-15
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "ABAP Message 处理"
+title: " ABAP Message 处理 "
 date: 2018-05-28
 draft: false
 author: Small Fire

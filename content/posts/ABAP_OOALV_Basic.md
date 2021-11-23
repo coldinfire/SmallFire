@@ -1,5 +1,5 @@
 ---
-title: "OO ALV 使用"
+title: " OO ALV 使用 "
 date: 2018-07-04
 draft: false
 author: Small Fire

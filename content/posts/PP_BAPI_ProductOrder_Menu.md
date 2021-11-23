@@ -1,5 +1,5 @@
 ---
-title: "BAPI 操作生产订单"
+title: " BAPI 操作生产订单 "
 date: 2019-09-07
 draft: false
 author: Small Fire

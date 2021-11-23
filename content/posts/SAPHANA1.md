@@ -1,5 +1,5 @@
 ---
-title: " SAP HANA 知识链接"
+title: " SAP HANA 知识链接 "
 date: 2019-05-12
 draft: false
 author: Small Fire

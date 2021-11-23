@@ -1,5 +1,5 @@
 ---
-title: "MM 常用表"
+title: " MM 常用表 "
 date: 2019-03-03
 draft: false
 author: Small Fire

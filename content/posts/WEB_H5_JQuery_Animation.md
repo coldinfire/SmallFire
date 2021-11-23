@@ -1,5 +1,5 @@
 ---
-title: "JQuery动画"
+title: " JQuery 动画 "
 date: 2017-12-08
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "批量创建/修改物料主数据"
+title: " 批量创建/修改物料主数据 "
 date: 2020-08-06
 draft: false
 author: Small Fire

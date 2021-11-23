@@ -1,5 +1,5 @@
 ---
-title: "物料单位转换"
+title: " 物料单位转换 "
 date: 2018-08-09
 draft: false
 author: Small Fire
@@ -14,7 +14,7 @@ tags:
 
 ### MARM物料单位转换
 
-```JS
+```ABAP
 CALL function 'MD_CONVERT_MATERIAL_UNIT'
   exporting
     i_matnr                    = matnr
@@ -55,7 +55,7 @@ ENDIF.
 
 ### 取字段简短描述
 
-```JS
+```ABAP
 DATA inttab LIKE STANDARD TABLE OF dfies WITH HEADER LINE.
 CALL FUNCTION 'DDIF_FIELDINFO_GET'
   EXPORTING

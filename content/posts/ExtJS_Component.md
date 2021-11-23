@@ -1,5 +1,5 @@
 ---
-title: "Ext.js 组件"
+title: " Ext.js 组件 "
 date: 2021-05-25
 draft: false
 author: Small Fire

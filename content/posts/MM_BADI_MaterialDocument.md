@@ -1,5 +1,5 @@
 ---
-title: "收货或者货物移动(MIGO,MB11,MB1A)增强"
+title: " 收货或者货物移动(MIGO,MB11,MB1A)增强 "
 date: 2019-08-08
 draft: false
 author: Small Fire

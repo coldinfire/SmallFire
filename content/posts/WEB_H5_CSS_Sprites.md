@@ -1,5 +1,5 @@
 ---
-title: "CSS精灵图"
+title: " CSS 精灵图 "
 date: 2017-09-11
 draft: false
 author: Small Fire

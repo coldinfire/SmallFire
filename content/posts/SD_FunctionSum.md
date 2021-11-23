@@ -1,5 +1,5 @@
 ---
-title: " SD Function module"
+title: " SD Function module "
 date: 2019-10-23
 draft: false
 author: Small Fire

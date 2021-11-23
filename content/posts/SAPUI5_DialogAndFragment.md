@@ -1,5 +1,5 @@
 ---
-title: " SAPUI5 Dialog and Fragment  "
+title: " SAPUI5 Dialog and Fragment "
 date: 2019-04-20
 draft: false
 author: Small Fire

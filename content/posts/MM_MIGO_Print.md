@@ -1,5 +1,5 @@
 ---
-title: "MIGO 收货后自动打印功能"
+title: " MIGO 收货后自动打印功能 "
 date: 2020-05-18
 draft: false
 author: Small Fire

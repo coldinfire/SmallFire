@@ -1,5 +1,5 @@
 ---
-title: "DOM 知识汇总"
+title: " DOM 知识汇总 "
 date: 2017-09-25
 draft: false
 author: Small Fire

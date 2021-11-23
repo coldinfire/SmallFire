@@ -1,5 +1,5 @@
 ---
-title: " SAPUI5 Message  "
+title: " SAPUI5 Message "
 date: 2019-04-27
 draft: false
 author: Small Fire

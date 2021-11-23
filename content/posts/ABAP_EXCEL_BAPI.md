@@ -1,5 +1,5 @@
 ---
-title: "SAP Excel 操作实例(BAPI)"
+title: " SAP Excel 操作实例(BAPI) "
 date: 2018-11-28
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "G/L Account 主要Tcode和tables"
+title: " G/L Account 主要Tcode和tables "
 date: 2020-07-02
 draft: false
 author: Small Fire

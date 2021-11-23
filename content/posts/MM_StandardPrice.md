@@ -1,5 +1,5 @@
 ---
-title: "移动平均价和标准价"
+title: " 移动平均价和标准价 "
 date: 2020-03-08
 draft: false
 author: Small Fire

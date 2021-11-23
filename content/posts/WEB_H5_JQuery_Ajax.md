@@ -1,5 +1,5 @@
 ---
-title: "JQuery Ajax"
+title: " JQuery Ajax "
 date: 2017-12-14
 draft: false
 author: Small Fire

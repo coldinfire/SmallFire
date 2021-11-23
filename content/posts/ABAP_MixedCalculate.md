@@ -1,5 +1,5 @@
 ---
-title: "ABAP混合算术运算"
+title: " ABAP 混合算术运算 "
 date: 2019-08-12
 draft: false
 author: Small Fire

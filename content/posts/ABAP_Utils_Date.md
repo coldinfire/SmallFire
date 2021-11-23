@@ -76,6 +76,15 @@ DATA: date_format LIKE usr01-datfm,
 ENDFUNCTION.
 ```
 
+### F4 Help for Month
+
+```ABAP
+INCLUDE rmcs0f0m.
+s_month FOR s001-spmon NO-EXTENSION NO INTERVALS OBLIGATORY.
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR s_month-low.
+   PERFORM monat_f4.
+```
+
 ### 常用的日期函数
 
 #### 日期有效性检查 

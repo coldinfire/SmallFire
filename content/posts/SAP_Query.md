@@ -1,5 +1,5 @@
 ---
-title: "SAP Query 使用介绍"
+title: " SAP Query 使用介绍 "
 date: 2020-06-23
 draft: false
 author: Small Fire

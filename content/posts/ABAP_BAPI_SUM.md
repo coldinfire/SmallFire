@@ -1,5 +1,5 @@
 ---
-title: "BAPI 总结列表"
+title: " BAPI 总结列表 "
 date: 2018-10-14
 draft: false
 author: Small Fire

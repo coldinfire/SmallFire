@@ -1,5 +1,5 @@
 ---
-title: "Mybatis 使用"
+title: " Mybatis 使用 "
 date: 2018-01-05
 draft: false
 author: Small Fire
@@ -11,10 +11,6 @@ tags:
   - Mybatis
 
 ---
-
-
-
-
 
 Mybatis 官方文档：[https://mybatis.org/mybatis-3/zh/configuration.html](https://mybatis.org/mybatis-3/zh/configuration.html)
 

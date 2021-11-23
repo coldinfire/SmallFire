@@ -1,5 +1,5 @@
 ---
-title: " Linux文件操作 "
+title: " Linux 文件操作 "
 date: 2018-04-10
 draft: false
 author: Small Fire

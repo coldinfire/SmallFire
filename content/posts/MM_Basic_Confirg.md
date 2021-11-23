@@ -1,5 +1,5 @@
 ---
-title: "MM 配置流程"
+title: " MM 配置流程 "
 date: 2019-03-04
 draft: false
 author: Small Fire

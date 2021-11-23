@@ -1,5 +1,5 @@
 ---
-title: "复制其他的内表/结构到当前表/结构"
+title: " 复制其他的内表/结构到当前表/结构 "
 date: 2018-09-10
 draft: false
 author: Small Fire

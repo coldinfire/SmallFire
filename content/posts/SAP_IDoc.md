@@ -1,5 +1,5 @@
 ---
-title: "IDoc 操作"
+title: " IDoc 操作 "
 date: 2019-09-22
 draft: false
 author: Small Fire

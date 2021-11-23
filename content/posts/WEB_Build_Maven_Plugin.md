@@ -1,5 +1,5 @@
 ---
-title: "Maven Plugin Goal"
+title: " Maven Plugin Goal "
 date: 2017-12-30
 draft: false
 author: Small Fire

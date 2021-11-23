@@ -1,5 +1,5 @@
 ---
-title: "Smartforms 强制分页打印"
+title: " Smartforms 强制分页打印 "
 date: 2018-08-07
 draft: false
 author: Small Fire

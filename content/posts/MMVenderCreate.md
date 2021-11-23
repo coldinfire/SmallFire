@@ -1,5 +1,5 @@
 ---
-title: "供应商主数据创建"
+title: " 供应商主数据创建 "
 date: 2019-03-14
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "库存管理"
+title: " 库存管理 "
 date: 2019-03-23
 draft: false
 author: Small Fire

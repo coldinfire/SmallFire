@@ -1,5 +1,5 @@
 ---
-title: " Shell 脚本-流程控制"
+title: " Shell 脚本-流程控制 "
 date: 2018-04-27
 draft: false
 author: Small Fire

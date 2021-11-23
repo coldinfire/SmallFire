@@ -1,5 +1,5 @@
 ---
-title: " Shell 脚本"
+title: " Shell 脚本 "
 date: 2018-04-25
 draft: false
 author: Small Fire

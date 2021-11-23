@@ -1,5 +1,5 @@
 ---
-title: "Smartforms 调用模板"
+title: " Smartforms 调用模板 "
 date: 2018-07-28
 draft: false
 author: Small Fire
@@ -14,7 +14,7 @@ tags:
 
 ### 程序中使用 Smartform 模板
 
-```JS
+```ABAP
 "SMARTFORMS变量定义"
 DATA: form_name TYPE tdsfname VALUE 'ZZ_TEST', "Smartforms Name"
       fm_name   type rs38l_fnam, "Function Name"
@@ -101,3 +101,4 @@ IF sy-subrc ne 0.
   "Error"
 ENDIF.
 ```
+

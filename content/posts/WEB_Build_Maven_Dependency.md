@@ -1,5 +1,5 @@
 ---
-title: "Maven依赖管理"
+title: " Maven 依赖管理 "
 date: 2017-12-26
 draft: false
 author: Small Fire

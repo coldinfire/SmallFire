@@ -1,5 +1,5 @@
 ---
-title: " SAPUI5 数据绑定  "
+title: " SAPUI5 数据绑定 "
 date: 2019-04-23
 draft: false
 author: Small Fire
