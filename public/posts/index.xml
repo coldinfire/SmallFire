@@ -377,12 +377,21 @@
     </item>
     
     <item>
-      <title> ABAP 7.40 Quick Reference </title>
-      <link>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference/</link>
+      <title> ABAP 7.40 Quick Reference Part2 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_2/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_2/</guid>
+      <description>Strings String Templates 字符串模板由两个字符&amp;quot;|&amp;ldquo;括起来并创建一个字符串。 文字文本由不在大括号&amp;rdquo;{}&amp;ldquo;中的所有字</description>
+    </item>
+    
+    <item>
+      <title> ABAP 7.40 Quick Reference Part1 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_1/</link>
       <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference/</guid>
-      <description>Inline Declarations 注意@DATA(ITAB)语句的强大，有了它，我们在访问数据库的时候，直接写SELECT就好了，不需要构建各式各样的內表和表类型了。注意</description>
+      <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_1/</guid>
+      <description>Inline Declarations 注意 @DATA(ITAB) 语句的强大，有了它，我们在访问数据库的时候，直接写 SELECT 就好了，不需要构建各式各样的內表和表类型了。注意在使用 FOR ALL ENTRIES 语句的时候，管理的</description>
     </item>
     
     <item>
