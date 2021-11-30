@@ -382,7 +382,7 @@
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_2/</guid>
-      <description>Strings String Templates 字符串模板由两个字符&amp;quot;|&amp;ldquo;括起来并创建一个字符串。 文字文本由不在大括号&amp;rdquo;{}&amp;ldquo;中的所有字</description>
+      <description>Strings String Templates 字符串模板由两个字符&amp;quot;|&amp;ldquo;括起来并创建一个字符串。 文字文本由不在大括号&amp;rdquo;{ }&amp;ldquo;中的所有字</description>
     </item>
     
     <item>
@@ -391,7 +391,7 @@
       <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_1/</guid>
-      <description>Inline Declarations 注意 @DATA(ITAB) 语句的强大，有了它，我们在访问数据库的时候，直接写 SELECT 就好了，不需要构建各式各样的內表和表类型了。注意在使用 FOR ALL ENTRIES 语句的时候，管理的</description>
+      <description>Inline Declarations - 内联声明 @DATA(...) 语句非常的强大，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。注意在使用 FOR ALL ENTRIES 语句</description>
     </item>
     
     <item>
@@ -2245,7 +2245,7 @@
       <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV_LVC/</guid>
-      <description>GRID LVC ALV 程序实例 *&amp;amp;-----------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_LVC_DEMO *&amp;amp;-----------------------------------------------------------* REPORT zgrid_alv_lvc_demo. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. &amp;#34;Internal Table Data&amp;#34; TYPES: BEGIN OF str_demo, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_demo. DATA: gt_demo TYPE STANDARD TABLE OF str_demo, gs_dmeo TYPE str_demo.</description>
+      <description>GRID LVC ALV 程序实例 *&amp;amp;-----------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_LVC_DEMO *&amp;amp;-----------------------------------------------------------* REPORT zgrid_alv_lvc_demo. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. &amp;#34;Internal Table Data&amp;#34; TYPES: BEGIN OF str_alv, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_alv. DATA: gt_alv TYPE STANDARD TABLE OF str_alv, gs_alv TYPE str_alv.</description>
     </item>
     
     <item>
@@ -2254,7 +2254,7 @@
       <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</guid>
-      <description>GRID ALV 程序实例 *&amp;amp;-----------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_DEMO *&amp;amp;-----------------------------------------------------------* REPORT zgrid_alv_demo. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. &amp;#34;Internal Table Data&amp;#34; TYPES: BEGIN OF str_demo, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_demo. DATA: gt_demo TYPE STANDARD TABLE OF str_demo, gs_dmeo TYPE str_demo. &amp;#34;ALV</description>
+      <description>GRID ALV 程序实例 *&amp;amp;-----------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_DEMO *&amp;amp;-----------------------------------------------------------* REPORT zgrid_alv_demo. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. &amp;#34;Internal Table Data&amp;#34; TYPES: BEGIN OF str_alv, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_alv. DATA: gt_alv TYPE STANDARD TABLE OF str_alv, gs_alv TYPE str_alv. &amp;#34;ALV</description>
     </item>
     
     <item>
@@ -2389,7 +2389,7 @@
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Message/</guid>
-      <description>MESSAGE ：SE91 消息存储的内表：T100/T100C/T100S/T100U/T160M T100：该表包括所有的消息 T100C：通常包括修改后的</description>
+      <description>MESSAGE 简单操作 SAP Message 存储的内表 T100、T100C、T100S、T100U、T160M T100：该表包括所有的消息 T100C：通常包括修改后的消息</description>
     </item>
     
     <item>

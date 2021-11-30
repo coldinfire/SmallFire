@@ -21,7 +21,7 @@ REPORT  zgrid_alv_demo.
 TYPE-POOLS: slis.
 TABLES: mara,marc,rlgrap.
 "Internal Table Data"
-TYPES: BEGIN OF str_demo,
+TYPES: BEGIN OF str_alv,
   sel TYPE flag,
   id TYPE char25,         " Red Green color "
   message TYPE string,    " Message "
@@ -30,9 +30,9 @@ TYPES: BEGIN OF str_demo,
   werks TYPE marc-werks,
   dismm TYPE marc-dismm,
   dispo TYPE marc-dispo,
-END OF str_demo.
-DATA: gt_demo TYPE STANDARD TABLE OF str_demo,
-      gs_dmeo TYPE str_demo.
+END OF str_alv.
+DATA: gt_alv TYPE STANDARD TABLE OF str_alv,
+      gs_alv TYPE str_alv.
 "ALV Parameter"
 DATA: gt_fieldcat TYPE slis_t_fieldcat_alv,
       gs_fieldcat TYPE slis_fieldcat_alv,
@@ -114,10 +114,10 @@ FORM frm_extract_data .
   SELECT *
   FROM mara INNER JOIN marc
   ON mara~matnr = marc~matnr
-  INTO CORRESPONDING FIELDS OF TABLE gt_demo
+  INTO CORRESPONDING FIELDS OF TABLE gt_alv
   WHERE mara~matnr IN s_matnr
   AND werks EQ p_werks.
-  IF gt_demo IS INITIAL.
+  IF gt_alv IS INITIAL.
     MESSAGE 'No data.' TYPE 'S' DISPLAY LIKE 'E'.
     LEAVE LIST-PROCESSING.
   ENDIF.
@@ -147,7 +147,7 @@ FORM frm_display .
       i_grid_settings          = gs_grid_settings
       i_save                   = 'A'
     TABLES
-      t_outtab                 = gt_demo.
+      t_outtab                 = gt_alv.
   IF sy-subrc <> 0.
     MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
     WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.

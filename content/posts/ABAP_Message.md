@@ -12,9 +12,11 @@ tags:
 
 ---
 
-### MESSAGE ：SE91
+### MESSAGE 简单操作
 
-**消息存储的内表**：T100/T100C/T100S/T100U/T160M
+#### SAP Message 存储的内表
+
+T100、T100C、T100S、T100U、T160M
 
 - T100：该表包括所有的消息
 - T100C：通常包括修改后的消息，即修改默认消息类型后的值存在该表中
@@ -39,6 +41,8 @@ MESSAGE E001(ZTEST).
 - ZTEST：自定义的消息类
 
 #### 系统消息组成完整文本
+
+ 函数模块调用后的 sy-subrc：如果未引发异常，则调用会将 sy-subrc 设置为 0；这也适用于方法调用。
 
 使用 MESSAGE INOT text：
 
@@ -70,9 +74,13 @@ CALL FUNCTION 'MESSAGE_TEXT_BUILD'
 
 #### MESSAGE 显示
 
-- `MESSAGE e001(00) WITH '12345678'. `：利用定义的参数
--  `MESSAGE 'XXXXXXXXXX' TYPE 'X'. `：直接附加消息
-- `MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'`
+利用定义的参数：`MESSAGE e001(00) WITH '12345678'. `
+
+直接添加消息文本：`MESSAGE 'XXXXXXXXXX' TYPE 'X'. `
+
+Display Like 使用：`MESSAGE s001(00) WITH 'No data' DISPLAY LIKE 'E'.`
+
+### 其它方式处理 Message
 
 #### 增强的 Warning Message 不显示
 
@@ -96,11 +104,11 @@ CALL METHOD cl_message_mm=>create
 
 #### 用函数方式返回消息显示
 
-- MESSAGES_INITIALIZE：Message init
+Message init：MESSAGES_INITIALIZE
 
-- MESSAGE_STORE：Store message
-- MESSAGES_GIVE：Message show
-- MESSAGES_SHOW
+Sotrage message：MESSAGE_STORE
+
+Message show：MESSAGES_GIVE、MESSAGES_SHOW
 
 ```ABAP
 DATA: lt_mesg TYPE TABLE OF mesg WITH HEADER LINE.
@@ -170,21 +178,48 @@ DATA l_msgid    TYPE bapiret2-id.
 DATA l_msgnr    TYPE bapiret2-number.
 DATA l_message  TYPE bapiret2-message.
 CALL FUNCTION 'BAPI_MESSAGE_GETDETAIL'
-        EXPORTING
-          id                 = l_msgid
-          number             = l_msgnr
-          language           = sy-langu
-          textformat         = 'HTM'
-*         LINKPATTERN        =
-*         MESSAGE_V1         =
-*         MESSAGE_V2         =
-*         MESSAGE_V3         =
-*         MESSAGE_V4         =
-*         LANGUAGE_ISO       =
-       IMPORTING
-         message            = l_message.
-*         RETURN             =
-*       TABLES
-*         TEXT               =    .
+  EXPORTING
+    id                 = l_msgid
+    number             = l_msgnr
+    language           = sy-langu
+    textformat         = 'HTM'
+*   LINKPATTERN        =
+*   MESSAGE_V1         =
+*   MESSAGE_V2         =
+*   MESSAGE_V3         =
+*   MESSAGE_V4         =
+*   LANGUAGE_ISO       =
+  IMPORTING
+    message            = l_message.
+*   RETURN             =
+* TABLES
+*   TEXT               =    .
+```
+
+### 处理 CALL Function 的错误
+
+当我们调用系统 Function 执行业务出现错误时，程序运行将停止，Function 会抛出对话框消息。
+
+当我们需要批量处理业务，并且如果其中一个调用出现错误，但是我们仍需继续处理时，要如何处理？SAP 为我们提供了一个隐藏功能：预定义异常 ERROR_MESSAGE 。此异常将捕获所有 E 和 A 类型的消息，并且可以在 SY 结构中访问消息详细信息 。
+
+```ABAP
+CALL FUNCTION 'RV_INVOICE_CREATE'
+  EXPORTING
+    vbsk_i        = vbsk_i
+  TABLES
+    xkomfk        = xkomfk
+    xkomv         = xkomv
+    xthead        = xthead
+    xvbfs         = xvbfs
+    xvbpa         = xvbpa
+    xvbrk         = xvbrk
+    xvbrp         = xvbrp
+    xvbss         = xvbss
+  EXCEPTIONS
+    error_message = 1.
+IF sy-subrc <> 0.
+  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+ENDIF.
 ```
 

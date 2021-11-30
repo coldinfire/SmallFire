@@ -40,14 +40,14 @@ ABAP可以通过两种方式与数据库交互
 ### SELECT 语法 
 
 ```JS
-SELECT [SINGLE] <result> FROM <dbtab> "SINGLE 表示查询单行数据"
-  CLIENT SPECIFIED      "避免 CLIENT 不同"
-  INTO [TABLE] <target> "内表或结构"
-  [INTO <f1>...<fn>]    "将查询结果赋值到具体字段"
+SELECT [SINGLE v1 v2] <result> FROM <dbtab> "SINGLE 表示查询单行数据"
+  CLIENT SPECIFIED       "避免 CLIENT 不同"
+  INTO [TABLE] <target>  "内表或结构"
+  [INTO (<f1>,...,<fn>)] "将查询结果赋值到具体字段"
   [INTO CORRESPONDING FILES OF TABLE <itab>] "将查询结果按字段匹配赋值给具体的表或者结构体"
-  WHERE <condition>     "查询条件"
-  GROUP BY <fields>     "分组查询条件"
-  ORDER BY <fields>.    "排序条件"
+  WHERE <condition>      "查询条件"
+  GROUP BY <fields>      "分组查询条件"
+  ORDER BY <fields>.     "排序条件"
 ```
 
 #### 表连接

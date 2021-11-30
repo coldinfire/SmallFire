@@ -18,7 +18,7 @@ tags:
 
 字符串模板由两个字符"|"括起来并创建一个字符串。 
 
-文字文本由不在大括号"{}"中的所有字符组成。
+文字文本由不在大括号"{ }"中的所有字符组成。
 
 大括号可以包含：
 
@@ -28,34 +28,36 @@ tags:
 - 表表达式
 - 预定义功能，或 功能方法和方法链
 
-```html
-// Before 7.40
-DATA itab TYPE TABLE OF scarr.
-DATA wa LIKE LINE OF itab.
+```ABAP
+*Before 7.40
+DATA: itab TYPE TABLE OF scarr,
+      wa LIKE LINE OF itab.
 DATA output TYPE string.
 SELECT * FROM scarr INTO TABLE itab.
-READ TABLE itab WITH KEY carrid = ‘LH’ INTO wa.
-CONCATENATE ‘Carrier:’ wa-carrname INTO output SEPARATED BY space.
+READ TABLE itab WITH KEY carrid = 'LH' INTO wa.
+IF sy-subrc = 0.
+  CONCATENATE ‘Carrier:’ wa-carrname INTO output SEPARATED BY space.
+ENDIF.
 cl_demo_output=>display( output ).
-// With 7.40
+*With 7.40
 SELECT * FROM scarr INTO TABLE @DATA(lt_scarr).
-cl_demo_output=>display( |Carrier: { lt_scarr[ carrid = ‘LH’ ]–carrname }|  ).
+cl_demo_output=>display( |Carrier: { lt_scarr[ carrid = ‘LH’ ]–carrname }| ).
 ```
 
 #### Conacatenation
 
-```html
-// Before 7.40
+```ABAP
+*Before 7.40
 DATA lv_output TYPE string.
 CONCATENATE ‘Hello’ ‘world’ INTO lv_output SEPARATED BY space.
-// With 7.40
+*With 7.40
 DATA(lv_out) = |Hello| & | | & |world|.
 ```
 
 #### Width/Alignment/Padding
 
-```html
-// With 7.40
+```ABAP
+*With 7.40
 WRITE / |{ 'Left'   WIDTH = 20 ALIGN = LEFT   PAD = '0' }|.
 WRITE / |{ 'Center' WIDTH = 20 ALIGN = CENTER PAD = '0' }|.
 WRITE / |{ 'Right'  WIDTH = 20 ALIGN = RIGHT  PAD = '0' }|.
@@ -63,34 +65,62 @@ WRITE / |{ 'Right'  WIDTH = 20 ALIGN = RIGHT  PAD = '0' }|.
 
 #### Case
 
-```html
-WRITE / |{ ‘Text’ CASE = (cl_abap_format=>c_raw) }|.
-WRITE / |{ ‘Text’ CASE = (cl_abap_format=>c_upper) }|.
-WRITE / |{ ‘Text’ CASE = (cl_abap_format=>c_lower) }|.
+```ABAP
+*With 7.40
+WRITE / |{ 'Text' CASE = (cl_abap_format=>c_raw) }|.
+WRITE / |{ 'Text' CASE = (cl_abap_format=>c_upper) }|.
+WRITE / |{ 'Text' CASE = (cl_abap_format=>c_lower) }|.
 ```
 
 #### ALPHA conversion
 
-```html
+```ABAP
+*With 7.40
 DATA(lv_vbeln) = ‘0000012345’.
-WRITE / |{ lv_vbeln  ALPHA = OUT }|.     
-// OR use "ALPHA = IN" to go in other direction
+WRITE / |{ lv_vbeln  ALPHA = OUT }|. 
+WRITE / |{ lv_vbeln  ALPHA = IN }|.
 ```
 
 #### Date conversion
 
-```html
+```ABAP
+*With 7.40
 DATA(pa_date) = sy-datum.
-WRITE / |{ pa_date DATE = ISO }|.           “Date Format YYYY-MM-DD
-WRITE / |{ pa_date DATE = User }|.          “As per user settings
-WRITE / |{ pa_date DATE = Environment }|.   “Formatting setting of language environment
+WRITE / |{ pa_date DATE = ISO }|.         "Date Format YYYY-MM-DD"
+WRITE / |{ pa_date DATE = User }|.        "As per user settings"
+WRITE / |{ pa_date DATE = Environment }|. "Formatting setting of language environment"
+*environment对应的值是CL_ABAP_FORMAT=>D_ENVIRONMENT
+```
+
+### Conversion Operator - CONV
+
+#### Definition
+
+CONV dtype|# ( ... )
+
+#### Example
+
+方法 cl_abap_codepage=>convert_to 需要一个字符串。
+
+```ABAP
+*Before 7.40
+DATA text   TYPE c LENGTH 255.
+DATA helper TYPE string.
+DATA xstr   TYPE xstring.
+helper = text.
+xstr = cl_abap_codepage=>convert_to( source = helper ).
+*With 7.40
+DATA text TYPE c LENGTH 255.
+DATA(xstr) = cl_abap_codepage=>convert_to( source = CONV string( text ) ).
+"或则使用"
+DATA(xstr) = cl_abap_codepage=>convert_to( source = CONV #( text ) ).
 ```
 
 ### Loop at group by
 
 #### Definition
 
-```html
+```ABAP
 LOOP AT itab result [cond] GROUP BY key ( key1 = dobj1 key2 = dobj2 ...
     [gs = GROUP SIZE] [gi = GROUP INDEX] )
     [ASCENDING|DESCENDING [AS TEXT]]
@@ -108,11 +138,11 @@ ENDLOOP.
 
 #### Example
 
-```html
+```ABAP
 TYPES: BEGIN OF ty_employee,
   name TYPE char30,
-  role    TYPE char30,
-  age    TYPE i,
+  role TYPE char30,
+  age  TYPE i,
 END OF ty_employee,
 ty_employee_t TYPE STANDARD TABLE OF ty_employee WITH KEY name.
 DATA(gt_employee) = VALUE ty_employee_t(
@@ -166,26 +196,26 @@ Average age: 64
 
 #### Referencing fields within returned structures
 
-```html
-// Before 7.40
+```ABAP
+*Before 7.40
 DATA: ls_lfa1  TYPE lfa1,
       lv_name1 TYPE lfa1-name1.
 ls_lfa1  = my_class=>get_lfa1( ).
 lv_name1 = ls_lfa1-name1.
-// With 7.40
+*With 7.40
 DATA(lv_name1) = my_class=>get_lfa1( )-name1.
 ```
 
 #### Methods that return a type BOOLEAN
 
-类型BOOLEAN不是真正的布尔值，而是具有允许值"X"，"-"和"blank"的char1。使用“ FLAG”或“ WDY_BOOLEAN”类型也可以。
+类型 BOOLEAN 不是真正的布尔值，而是具有允许值 X、- 、blank 的 char1。使用 FLAG 或 WDY_BOOLEAN 类型也可以。
 
-```html
-// Before 7.40
+```ABAP
+*Before 7.40
 IF my_class=>return_boolean( ) = abap_true.
   ...
 ENDIF.
-// With 7.40
+*With 7.40
 IF my_class=>return_boolean( ).
   ...
 ENDIF.
@@ -193,49 +223,27 @@ ENDIF.
 
 #### New Operator
 
-```html
-// Before 7.40
+NEW 可以创建匿名的数据对象或者类的实例。
+
+#### Definition
+
+`... NEW dtype( value ) ...`：创建一个类型为 dtype 的匿名数据对象，然后传值给创建的对象。
+
+`... NEW class( p1 = a1 p2 = a2 ... ) ...`：创建一个名为 class 类的实例，并且传参到实例的构造函数。
+
+`... NEW #( ... ) ...`：根据操作数类型创建一个匿名数据对象或者一个类的实例。
+
+#### Example
+
+```ABAP
+*Before 7.40
 DATA: lo_delivs TYPE REF TO zcl_sd_delivs,
       lo_deliv  TYPE REF TO zcl_sd_deliv.
 CREATE OBJECT lo_delivs.
 CREATE OBJECT lo_deliv.
+DATA: lv_vbeln TYPE vbeln VALUE '00123488'.
 lo_deliv = lo_delivs->get_deliv( lv_vbeln ).
-// With 7.40
+*With 7.40
 DATA(lo_deliv) = new zcl_sd_delivs->get_deliv( lv_vbeln ).
-```
-
-### Filter
-
-基于一个表中的记录过滤另一个表中的记录。
-
-#### Definition
-
-```html
-FILTER ptype|#( itab [EXCEPT] [IN ftab] [USING KEY keyname]
-           WHERE c1 op f1 [AND c2 op f2 […]] )
-```
-
-#### Solution
-
-```html
-TYPES: BEGIN OF ty_filter,
-    cityfrom TYPE spfli–cityfrom,
-    cityto   TYPE spfli–cityto,
-    f3       TYPE i,
-END OF ty_filter,
-ty_filter_tab TYPE HASHED TABLE OF ty_filter WITH UNIQUE KEY cityfrom cityto.
-DATA: lt_splfi TYPE STANDARD TABLE OF spfli.
-SELECT * FROM spfli APPENDING TABLE lt_splfi.
-DATA(lt_filter) = VALUE ty_filter_tab( f3 = 2
-    ( cityfrom = ‘NEW YORK’  cityto  = ‘SAN FRANCISCO’ )
-    ( cityfrom = ‘FRANKFURT’ cityto  = ‘NEW YORK’ )  ).
-DATA(lt_myrecs) = FILTER #( lt_splfi IN lt_filter
-                  WHERE cityfrom = cityfrom 
-                  AND cityto = cityto ).
-“Output filtered records
-LOOP AT lt_myrecs ASSIGNING FIELD–SYMBOL(<ls_rec>).
-  WRITE: / <ls_rec>–carrid,8 <ls_rec>–cityfrom,30
-           <ls_rec>–cityto,45 <ls_rec>–deptime.
-ENDLOOP.
 ```
 
