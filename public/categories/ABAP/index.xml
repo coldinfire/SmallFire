@@ -485,6 +485,15 @@
     </item>
     
     <item>
+      <title> ABAP 学习网站记录 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
+      <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</guid>
+      <description>http://www.saptechnical.com/index.htm：需要检索关键信息 https://sapcodes.com/：包含</description>
+    </item>
+    
+    <item>
       <title> ABAP 混合算术运算 </title>
       <link>https://coldinfire.github.io/2019/ABAP_MixedCalculate/</link>
       <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
@@ -575,12 +584,21 @@
     </item>
     
     <item>
-      <title> ABAP 学习网站记录 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
-      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      <title> ABAP Object Oriented 模板 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Template/</link>
+      <pubDate>Thu, 27 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</guid>
-      <description>http://www.saptechnical.com/index.htm：需要检索关键信息 https://sapcodes.com/：包含</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> ABAP Object Oriented 特性 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Features/</link>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Features/</guid>
+      <description>对象创建与引用 ABAP 对象的创建和访问需要通过对象引用进行，引用类型是 ABAP 基本类型之一，其中包括&amp;quot;数据引用&amp;quot;和&amp;quot;对象引</description>
     </item>
     
     <item>
