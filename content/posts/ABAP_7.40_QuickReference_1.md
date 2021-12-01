@@ -445,49 +445,6 @@ MOVE-CORRESPONDING ls_line2 TO ls_line3.
 cl_demo_output=>display( ls_line3 ).
 ```
 
-### Conditional operators COND and SWITCH
-
-根据逻辑表达式或情况的不同确定指定变量的结果。THEN 后面都是返回的结果。
-
-#### Definition
-
-```ABAP
-"COND"
-COND dtype|#( WHEN log_exp1 THEN result1
-  [ WHEN log_exp2 THEN result2 ]
-  ...
-  [ ELSE resultn ] ) .
-"SWITCH"
-SWITCH dtype|#( operand WHEN const1 THEN result1
-  [ WHEN const2 THEN result2 ]
-  ...
-  [ ELSE resultn ] ) .
-```
-
-#### Example for COND
-
-```ABAP
-DATA(time) = COND string(
-    WHEN sy-timlo < '120000' THEN |{ sy-timlo TIME = ISO } AM|
-    WHEN sy-timlo > '120000' THEN
-      |{ CONV t( sy-timlo - 12 * 3600 ) TIME = ISO } PM|
-    WHEN sy-timlo = '120000' THEN |High Noon|
-    ELSE
-      THROW cx_cant_be( ) 
-).
-```
-
-#### Example for SWITCH
-
-```ABAP
-DATA(text) = SWITCH #( sy-langu
-    WHEN 'D' THEN 'DE'
-    WHEN 'E' THEN 'EN'
-    ELSE 
-      THROW cx_langu_not_supported( )
-).
-```
-
 ### Filter
 
 基于一个表中的记录过滤另一个表中的记录。

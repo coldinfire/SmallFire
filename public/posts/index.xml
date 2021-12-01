@@ -382,7 +382,7 @@
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_2/</guid>
-      <description>Strings String Templates 字符串模板由两个字符&amp;quot;|&amp;ldquo;括起来并创建一个字符串。 文字文本由不在大括号&amp;rdquo;{ }&amp;ldquo;中的所有字</description>
+      <description>Conditional operators - COND &amp;amp; SWITCH 根据逻辑表达式或情况的不同确定指定变量的结果。THEN 后面都是返回的结果。 Definition &amp;#34;COND&amp;#34; COND dtype|#( WHEN log_exp1 THEN result1 [ WHEN log_exp2 THEN result2 ] ... [ ELSE resultn ] ) . &amp;#34;SWITCH&amp;#34; SWITCH dtype|#( operand WHEN const1</description>
     </item>
     
     <item>
