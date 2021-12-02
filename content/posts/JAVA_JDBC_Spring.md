@@ -1,5 +1,5 @@
 ---
-title: " Spring JDBC连接 "
+title: " Spring JDBC 连接 "
 date: 2017-11-29
 draft: false
 author: Small Fire

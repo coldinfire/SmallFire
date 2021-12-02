@@ -1,5 +1,5 @@
 ---
-title: " 创建固定资产凭证 BAPI_ACC_DOCUMENT_POST "
+title: " BAPI:BAPI_ACC_DOCUMENT_POST 创建固定资产凭证 "
 date: 2020-02-22
 draft: false
 author: Small Fire
@@ -28,11 +28,11 @@ TCode : F-02 (固定资产)
 
 和其他常规标准增强一样：创建自定义结构 ZLM_ENHANCE_ACC_DOC  (ACC_DOCUMENT)
 
-SE19创建增强实例:ACC_DOCUMENT（大部分项目应该有已经实现的增强实例，不见得需要新建）。
+SE19 创建增强实例：ACC_DOCUMENT（大部分项目应该有已经实现的增强实例，不见得需要新建）。
 
 #### 自定义程序：
 
-```JS
+```ABAP
 REPORT ZLM_DEMO_F02_ANLN1.
 PARAMETERS: P_BUKRS TYPE BUKRS DEFAULT '9160'.
 DATA:GS_HEADER TYPE BAPIACHE09.

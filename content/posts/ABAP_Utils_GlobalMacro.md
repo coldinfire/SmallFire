@@ -1,5 +1,5 @@
 ---
-title: " SAP全局宏设置和使用 "
+title: " SAP 全局宏设置和使用 "
 date: 2021-08-27
 draft: false
 author: Small Fire

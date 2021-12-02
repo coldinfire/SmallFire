@@ -1,5 +1,5 @@
 ---
-title: " Web Dynpro ABAP - View Details "
+title: " Web Dynpro ABAP:View Details "
 date: 2018-10-19
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: " Maven POM标签大全详解 "
+title: " Maven POM 标签大全详解 "
 date: 2017-12-24
 draft: false
 author: Small Fire

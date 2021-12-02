@@ -45,7 +45,7 @@ MMBE:查看物料的所有库存信息。
 | MMB1         | Create Semifinished Product          | 创建半成品                 |
 | MMBE         | Stock Overview                       | 库存总览                   |
 
-#### SAP WM 库存查看Tcodes
+#### SAP WM 库存查看
 
 | WM Stock Tcodes | Desc                            | 中文描述               |
 | --------------- | ------------------------------- | ---------------------- |

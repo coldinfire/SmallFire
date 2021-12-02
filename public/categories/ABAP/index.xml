@@ -6,7 +6,16 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 28 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> SAP Note 使用 </title>
+      <link>https://coldinfire.github.io/2021/SAP_Note/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/SAP_Note/</guid>
+      <description>为什么使用 SAP Note SAP Note 对产品代码或文档中出现的问题进行了澄清。 可以使用它们来找出如何解决影响特定版本的问题。 什么时候使用 在考虑是否升级系统时。 查</description>
+    </item>
+    
     <item>
       <title> SAP RFC Function 日志工具 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</link>
@@ -17,7 +26,7 @@
     </item>
     
     <item>
-      <title> SAP全局宏设置和使用 </title>
+      <title> SAP 全局宏设置和使用 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_GlobalMacro/</link>
       <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
       
@@ -26,7 +35,7 @@
     </item>
     
     <item>
-      <title> BAPI和Tcode执行之间的差异 </title>
+      <title> BAPI&amp;Tcode 执行之间的差异 </title>
       <link>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
@@ -62,7 +71,7 @@
     </item>
     
     <item>
-      <title> 选择屏幕添加Layout选择 </title>
+      <title> 选择屏幕添加 Layout 选择 </title>
       <link>https://coldinfire.github.io/2021/ABAP_ALV_Screen_Layout/</link>
       <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
       
@@ -89,7 +98,7 @@
     </item>
     
     <item>
-      <title> ABAP将数字金额转为大写 </title>
+      <title> ABAP 数字金额转为大写 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_AmountToUpcase/</link>
       <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
       
@@ -152,7 +161,7 @@
     </item>
     
     <item>
-      <title> ABAP&amp;Json转换Methods </title>
+      <title> ABAP&amp;Json 转换 Methods </title>
       <link>https://coldinfire.github.io/2021/ABAP_JSON_Methods/</link>
       <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
       
@@ -170,7 +179,7 @@
     </item>
     
     <item>
-      <title> SAP系统间数据表的Copy </title>
+      <title> SAP 系统间数据表的复制 </title>
       <link>https://coldinfire.github.io/2020/ABAP_Utils_ClientTableCopy/</link>
       <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
       
@@ -197,7 +206,7 @@
     </item>
     
     <item>
-      <title> Web Dynpro ABAP - ALV Image Light </title>
+      <title> Web Dynpro ABAP:ALV Image Light </title>
       <link>https://coldinfire.github.io/2020/SAPWebDynproABAP_Light/</link>
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -224,7 +233,7 @@
     </item>
     
     <item>
-      <title> Web Dynpro ABAP - ALV dropdown </title>
+      <title> Web Dynpro ABAP:ALV dropdown </title>
       <link>https://coldinfire.github.io/2020/SAPWebDynproABAP_DropList/</link>
       <pubDate>Wed, 26 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -242,7 +251,7 @@
     </item>
     
     <item>
-      <title> SAP配置RFC连接-SM59 </title>
+      <title> SAP 配置RFC连接(SM59) </title>
       <link>https://coldinfire.github.io/2020/SAP_RFC_Connect/</link>
       <pubDate>Sun, 26 Jul 2020 00:00:00 +0000</pubDate>
       
@@ -395,7 +404,7 @@
     </item>
     
     <item>
-      <title> CS12 ALV 的增强 </title>
+      <title> CS12 ALV 增强 </title>
       <link>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
       
@@ -607,7 +616,7 @@
       <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Basic/</guid>
-      <description>类声明和实现 类具有属性和方法；对象是类的实例；对象是通过指针变量来访问的；对象有独立的 interface。 &amp;#34;Class Declarations&amp;#34; CLASS application DEFINITION. PUBLIC SECTION. &amp;#34;公有属性定</description>
+      <description>类声明和实现 类具有属性和方法；对象是类的实例；对象是通过指针变量来访问的；对象有独立的 interface。 属性 类内定义的数据对象。 实例属性：</description>
     </item>
     
     <item>
@@ -629,12 +638,12 @@
     </item>
     
     <item>
-      <title> ALV Tree 标准Demo </title>
+      <title> ALV Tree 系统标准程序 </title>
       <link>https://coldinfire.github.io/2019/ABAP_ALV_Tree/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_ALV_Tree/</guid>
-      <description>Demo列表 BCALV_TREE_01 ALV 树控制：构建层次树 BCALV_TREE_02 ALV 树控制：事件处理 BCALV_TREE_03 ALV 树控制：使用自己的上下文菜单 BCALV_TREE_04 ALV 树控制：添加按钮到工具栏 BCALV_TREE_05 ALV 树控制：添加菜单到工具</description>
+      <description>SAP 示例 Program Description BCALV_TREE_01 ALV 树控制：构建层次树 BCALV_TREE_02 ALV 树控制：事件处理 BCALV_TREE_03 ALV 树控制：使用自己的上下文菜单 BCALV_TREE_04 ALV 树控制：添加按钮到工具栏 BCALV_TREE_05 ALV 树控制：添加菜单到工具栏</description>
     </item>
     
     <item>
@@ -665,7 +674,7 @@
     </item>
     
     <item>
-      <title> SALV ALV结果读取 </title>
+      <title> SALV ALV 结果读取 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALV_ResultRead/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -701,7 +710,7 @@
     </item>
     
     <item>
-      <title> SALV Columns设置字段目录 </title>
+      <title> SALV Columns 设置字段目录 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -773,7 +782,7 @@
     </item>
     
     <item>
-      <title> SALV 创建ALV </title>
+      <title> SALV 创建 ALV </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALV_Create/</link>
       <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -827,7 +836,7 @@
     </item>
     
     <item>
-      <title> SAP开发文档撰写 </title>
+      <title> SAP 开发文档撰写 </title>
       <link>https://coldinfire.github.io/2019/SAP_TechWord/</link>
       <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -872,7 +881,7 @@
     </item>
     
     <item>
-      <title> SAP后台JOB </title>
+      <title> SAP 后台 JOB </title>
       <link>https://coldinfire.github.io/2019/SAP_JOB/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -926,7 +935,7 @@
     </item>
     
     <item>
-      <title> 将Smartforms转换成PDF发送到FTP服务器 </title>
+      <title> Smartforms 转换成PDF发送到FTP服务器 </title>
       <link>https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -953,7 +962,7 @@
     </item>
     
     <item>
-      <title> Smartforms 打印成PDF </title>
+      <title> Smartforms 打印成 PDF </title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartfomrs_PDF/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -998,7 +1007,7 @@
     </item>
     
     <item>
-      <title> SAP锁机制 </title>
+      <title> SAP 锁机制 </title>
       <link>https://coldinfire.github.io/2018/SAP_Lock/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -1007,7 +1016,7 @@
     </item>
     
     <item>
-      <title> SAP 操作Excel文件 </title>
+      <title> SAP Excel 文件操作 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Excel_TemplateOperate/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -1016,7 +1025,7 @@
     </item>
     
     <item>
-      <title> SAP 上传和下载Excel </title>
+      <title> SAP 上传和下载 Excel </title>
       <link>https://coldinfire.github.io/2018/ABAP_Excel_Template/</link>
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -1034,7 +1043,7 @@
     </item>
     
     <item>
-      <title> Web Dynpro在Portal上传输 </title>
+      <title> Web Dynpro 在Portal上传输 </title>
       <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_ClintTransfer/</link>
       <pubDate>Sun, 04 Nov 2018 00:00:00 +0000</pubDate>
       
@@ -1052,7 +1061,7 @@
     </item>
     
     <item>
-      <title> Web Dynpro ABAP - OVS搜索帮助 </title>
+      <title> Web Dynpro ABAP:OVS搜索帮助 </title>
       <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_SearchOVS/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       
@@ -1061,7 +1070,7 @@
     </item>
     
     <item>
-      <title> Web Dynpro ABAP - Trigger ALV Events </title>
+      <title> Web Dynpro ABAP:Trigger ALV Events </title>
       <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_TriggerEvents/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
       
@@ -1106,7 +1115,7 @@
     </item>
     
     <item>
-      <title> 创建一个Web Dynpro ABAP程序实例 </title>
+      <title> Web Dynpro ABAP 程序实例 </title>
       <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_Demo/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       
@@ -1115,7 +1124,7 @@
     </item>
     
     <item>
-      <title> Web Dynpro ABAP - View Details </title>
+      <title> Web Dynpro ABAP:View Details </title>
       <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_View/</link>
       <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
       
@@ -1124,7 +1133,7 @@
     </item>
     
     <item>
-      <title> Web Dynpro ABAP - Structure </title>
+      <title> Web Dynpro ABAP:Structure </title>
       <link>https://coldinfire.github.io/2018/SAPWebDynproABAP_Structure/</link>
       <pubDate>Thu, 18 Oct 2018 00:00:00 +0000</pubDate>
       
@@ -1187,7 +1196,7 @@
     </item>
     
     <item>
-      <title> SAP ABAP中自定义权限对象 </title>
+      <title> SAP 自定义权限对象并使用 </title>
       <link>https://coldinfire.github.io/2018/SAPAuthorization_details/</link>
       <pubDate>Sun, 23 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -1205,7 +1214,7 @@
     </item>
     
     <item>
-      <title> 查找增强程序3 </title>
+      <title> 查找增强程序(3) </title>
       <link>https://coldinfire.github.io/2018/ABAP_Enhance3/</link>
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -1214,7 +1223,7 @@
     </item>
     
     <item>
-      <title> 查找增强程序2 </title>
+      <title> 查找增强程序(2) </title>
       <link>https://coldinfire.github.io/2018/ABAP_Enhance2/</link>
       <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -1223,7 +1232,7 @@
     </item>
     
     <item>
-      <title> 查找增强程序1 </title>
+      <title> 查找增强程序(1) </title>
       <link>https://coldinfire.github.io/2018/ABAP_Enhance1/</link>
       <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -1251,10 +1260,10 @@
     
     <item>
       <title> Dialog 程序实例 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Temp/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Template/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Temp/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Template/</guid>
       <description></description>
     </item>
     
@@ -1277,7 +1286,7 @@
     </item>
     
     <item>
-      <title> VOFM使用 (例程开发) </title>
+      <title> VOFM 使用(例程开发) </title>
       <link>https://coldinfire.github.io/2018/SAP_VOFM/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -1286,7 +1295,7 @@
     </item>
     
     <item>
-      <title> ABAP 定义Range </title>
+      <title> ABAP Range 定义 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Range/</link>
       <pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -1340,7 +1349,7 @@
     </item>
     
     <item>
-      <title> 开发常用Tcode汇总 </title>
+      <title> 开发常用事物码汇总 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Tcode/</link>
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -1448,7 +1457,7 @@
     </item>
     
     <item>
-      <title> OO ALV修改Layou和FieldCatalog </title>
+      <title> OO ALV 修改Layou和FieldCatalog </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_LayoutFcat/</link>
       <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
       
@@ -1619,7 +1628,7 @@
     </item>
     
     <item>
-      <title> ALV添加复选框，并添加全选，不全选功能 </title>
+      <title> ALV 添加复选框，并添加全选，不全选 </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_CHECKBOX/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
@@ -1709,7 +1718,7 @@
     </item>
     
     <item>
-      <title> ABAP Form &amp; Function </title>
+      <title> ABAP Form&amp;Function </title>
       <link>https://coldinfire.github.io/2018/ABAP_SubRoutines/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       

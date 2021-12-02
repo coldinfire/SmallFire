@@ -1,5 +1,5 @@
 ---
-title: " MIRO 根据退货PO创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE "
+title: " BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据退货PO创建贷项凭证 "
 date: 2020-02-18
 draft: false
 author: Small Fire
@@ -23,7 +23,7 @@ tags:
 
 或者不勾选计算税额，手动输入税额。
 
-```JS
+```ABAP
 *&---------------------------------------------------------------------*
 *& Report  ZLM_MIRO_2
 *& SAP干货铺

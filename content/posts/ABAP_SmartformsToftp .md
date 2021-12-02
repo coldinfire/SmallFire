@@ -1,5 +1,5 @@
 ---
-title: " 将Smartforms转换成PDF发送到FTP服务器 "
+title: " Smartforms 转换成PDF发送到FTP服务器 "
 date: 2018-12-15
 draft: false
 author: Small Fire

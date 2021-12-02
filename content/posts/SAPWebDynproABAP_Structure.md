@@ -1,5 +1,5 @@
 ---
-title: " Web Dynpro ABAP - Structure "
+title: " Web Dynpro ABAP:Structure "
 date: 2018-10-18
 draft: false
 author: Small Fire

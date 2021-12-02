@@ -1,5 +1,5 @@
 ---
-title: " Linux Vim使用 "
+title: " Vim 使用 "
 date: 2018-04-13
 draft: false
 author: Small Fire

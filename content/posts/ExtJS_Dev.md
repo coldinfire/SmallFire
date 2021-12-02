@@ -1,5 +1,5 @@
 ---
-title: " Extjs 应用程序创建 "
+title: " ExtJS 应用程序创建 "
 date: 2021-05-15
 draft: false
 author: Small Fire

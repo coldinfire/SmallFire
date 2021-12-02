@@ -1,5 +1,5 @@
 ---
-title: " Web Dynpro ABAP - ALV Image Light "
+title: " Web Dynpro ABAP:ALV Image Light "
 date: 2020-09-08
 draft: false
 author: Small Fire

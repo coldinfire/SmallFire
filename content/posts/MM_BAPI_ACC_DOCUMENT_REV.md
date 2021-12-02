@@ -1,5 +1,5 @@
 ---
-title: " 凭证冲销 BAPI_ACC_DOCUMENT_REV_POST "
+title: " BAPI:BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 "
 date: 2020-02-24
 draft: false
 author: Small Fire
@@ -27,7 +27,7 @@ tags:
 
 自定义程序：
 
-```JS
+```ABAP
 *&---------------------------------------------------------------------*
 *& Report  ZLM_DEMO_REVERSE
 *&---------------------------------------------------------------------*
@@ -67,7 +67,6 @@ CALL FUNCTION 'BAPI_ACC_DOCUMENT_REV_POST'
     OBJ_SYS  = LV_OBJ_SYS
   TABLES
     RETURN   = LT_RETURN.
-
 LOOP AT LT_RETURN WHERE TYPE = 'E'.
   WRITE LT_RETURN-MESSAGE.
 ENDLOOP.

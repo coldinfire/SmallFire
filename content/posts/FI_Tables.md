@@ -116,28 +116,28 @@ tags:
 
 #### SAP公司代码表
 
-| **COMPANY CODE TABLES** | DESCRIPTION                  | 中文描述         |
-| ----------------------- | ---------------------------- | ---------------- |
-| T004                    | Chart of accounts            | 会计科目表       |
-| T007S                   | Account group (G/L accounts) | 帐户组(G/L 帐户) |
-| T009                    | Fiscal year variants         | 会计年度变式     |
-| T880                    | Global company data          | 全球公司数据     |
-| T014                    | Credit control area          | 信用控制区       |
+| COMPANY CODE TABLES | DESCRIPTION                  | 中文描述         |
+| :------------------ | :--------------------------- | :--------------- |
+| T004                | Chart of accounts            | 会计科目表       |
+| T007S               | Account group (G/L accounts) | 帐户组(G/L 帐户) |
+| T009                | Fiscal year variants         | 会计年度变式     |
+| T880                | Global company data          | 全球公司数据     |
+| T014                | Credit control area          | 信用控制区       |
 
 #### SAP FI 文档定制表
 
-|       | DESCRIPTION                  | 中文描述         |
-| ----- | ---------------------------- | ---------------- |
-| T010O | Posting Period Variants      | 过帐期间变式     |
-| T010P | Posting Period Variant Names | 过帐期间变体名称 |
-| T001B | Permitted Posting Periods    | 允许的过帐期间   |
-| T003  | Document Types               | 文件类型         |
-| T012  | House Banks                  | 房屋银行         |
+| TABLES | DESCRIPTION                  | 中文描述         |
+| :----- | :--------------------------- | :--------------- |
+| T010O  | Posting Period Variants      | 过帐期间变式     |
+| T010P  | Posting Period Variant Names | 过帐期间变体名称 |
+| T001B  | Permitted Posting Periods    | 允许的过帐期间   |
+| T003   | Document Types               | 文件类型         |
+| T012   | House Banks                  | 房屋银行         |
 
 ### SAP 税收表
 
-| SAP TAX TABLES | DESCRIPTION                                                 |                                       |
-| -------------- | ----------------------------------------------------------- | ------------------------------------- |
+| SAP TAX TABLES | DESCRIPTION                                                 | 中文描述                              |
+| :------------- | :---------------------------------------------------------- | :------------------------------------ |
 | T059A          | Type of Recipient for Vendors                               | 供应商的收件人类型                    |
 | T059B          | Withholding Tax Classes for Vendors: Names                  | 供应商的预扣税类别：名称              |
 | T059C          | Type of Recipient for Vendors per Withholding Tax Type      | 每个预扣税类型的供应商收件人类型      |

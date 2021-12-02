@@ -1,5 +1,5 @@
 ---
-title: " Web Dynpro在Portal上传输 "
+title: " Web Dynpro 在Portal上传输 "
 date: 2018-11-04
 draft: false
 author: Small Fire

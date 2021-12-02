@@ -15,7 +15,7 @@ tags:
 
 ### 创建Product Order：BAPI_PRODORD_CREATE
 
-```jsp
+```ABAP
 *---------------------------------------------------------------------*
 *      Form  FRM_ORDER_CREATE
 *---------------------------------------------------------------------*
@@ -84,12 +84,12 @@ FORM frm_order_create .
     ENDIF .
     MODIFY gt_upload FROM ls_upload INDEX lv_index.
   ENDLOOP.
-  ENDFORM.                    " FRM_ORDER_CREATE
+  ENDFORM.                    " FRM_ORDER_CREATE "
 ```
 
 ### 修改Product Order：BAPI_PRODORD_CHANGE
 
-```JS
+```ABAP
 *&---------------------------------------------------------------------*
 *&      Form  frm_order_change
 *&---------------------------------------------------------------------*
@@ -160,7 +160,7 @@ ENDFORM.                    "frm_order_change"
 
 ### Product Order Release：BAPI_PRODORD_RELEASE
 
-```JS
+```ABAP
 *&---------------------------------------------------------------------*
 *&      Form  frm_order_RELEASE
 *&---------------------------------------------------------------------*
@@ -212,6 +212,6 @@ FORM frm_order_release.
     MODIFY gt_upload FROM ls_upload INDEX lv_index.
   ENDLOOP.
 
-ENDFORM.                    "frm_order_RELEASE
+ENDFORM.                    "frm_order_RELEASE"
 ```
 

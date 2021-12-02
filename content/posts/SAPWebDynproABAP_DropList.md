@@ -1,5 +1,5 @@
 ---
-title: " Web Dynpro ABAP - ALV dropdown "
+title: " Web Dynpro ABAP:ALV dropdown "
 date: 2020-08-26
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: " Hugo添加搜索功能(Algolia) "
+title: " Hugo 添加搜索功能(Algolia) "
 date: 2018-04-03
 draft: false
 author: Small Fire

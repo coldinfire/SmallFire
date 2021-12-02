@@ -1,5 +1,5 @@
 ---
-title: " BAPI操作Purchase Order "
+title: " BAPI 操作 Purchase Order "
 date: 2020-06-16
 draft: false
 author: Small Fire

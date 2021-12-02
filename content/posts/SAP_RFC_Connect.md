@@ -1,5 +1,5 @@
 ---
-title: " SAP配置RFC连接-SM59 "
+title: " SAP 配置RFC连接(SM59) "
 date: 2020-07-26
 draft: false
 author: Small Fire

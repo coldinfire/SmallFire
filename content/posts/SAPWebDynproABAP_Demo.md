@@ -1,5 +1,5 @@
 ---
-title: " 创建一个Web Dynpro ABAP程序实例 "
+title: " Web Dynpro ABAP 程序实例 "
 date: 2018-10-20
 draft: false
 author: Small Fire

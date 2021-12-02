@@ -1,5 +1,5 @@
 ---
-title: " 开发常用Tcode汇总 "
+title: " 开发常用事物码汇总 "
 date: 2018-08-05
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: " SAPUI5 Routing导航 "
+title: " SAPUI5 Routing 导航 "
 date: 2019-04-24
 draft: false
 author: Small Fire

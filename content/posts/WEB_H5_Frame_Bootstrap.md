@@ -1,5 +1,5 @@
 ---
-title: "Bootstrap学习与总结"
+title: " Bootstrap 学习与总结 "
 date: 2017-10-10
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: " CS12 ALV 的增强 "
+title: " CS12 ALV 增强 "
 date: 2019-11-19
 draft: false
 author: Small Fire

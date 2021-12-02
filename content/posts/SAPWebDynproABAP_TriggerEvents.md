@@ -1,5 +1,5 @@
 ---
-title: " Web Dynpro ABAP - Trigger ALV Events "
+title: " Web Dynpro ABAP:Trigger ALV Events "
 date: 2018-10-23
 draft: false
 author: Small Fire

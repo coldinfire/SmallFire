@@ -1,5 +1,5 @@
 ---
-title: " JAVA IO流 "
+title: " JAVA IO "
 date: 2017-10-18
 draft: false
 author: Small Fire
@@ -12,7 +12,7 @@ tags:
 
 ---
 
-### JAVA IO 流
+### IO 流简介
 
 `Java.io` 包几乎包含了所有操作输入、输出需要的类。所有这些流类代表了输入源和输出目标。
 
@@ -133,7 +133,6 @@ public class FileInputStreamDemo {
         }
     }
 }
-
 ```
 
 #### 输出字节流 OutputStream

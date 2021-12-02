@@ -13,8 +13,6 @@ tags:
 
 ---
 
-
-
 ### BADI：MB_DOCUMENT_BADI 使用
 
 ![MB_DOCUMENT_BADI](/images/MM/BADI-MB_DOCUMENT_BADI_0.png)

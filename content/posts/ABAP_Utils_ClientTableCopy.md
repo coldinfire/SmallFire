@@ -1,5 +1,5 @@
 ---
-title: " SAP系统间数据表的Copy "
+title: " SAP 系统间数据表的复制 "
 date: 2020-10-14
 draft: false
 author: Small Fire

@@ -1,5 +1,5 @@
 ---
-title: "Bootstrap API学习总结"
+title: " Bootstrap API 学习总结 "
 date: 2017-10-11
 draft: false
 author: Small Fire

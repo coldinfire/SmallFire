@@ -1,5 +1,5 @@
 ---
-title: " VOFM使用 (例程开发) "
+title: " VOFM 使用(例程开发) "
 date: 2018-08-19
 draft: false
 author: Small Fire

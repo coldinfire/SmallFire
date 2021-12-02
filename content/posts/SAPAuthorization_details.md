@@ -1,5 +1,5 @@
 ---
-title: " SAP ABAP中自定义权限对象 "
+title: " SAP 自定义权限对象并使用 "
 date: 2018-09-23
 draft: false
 author: Small Fire

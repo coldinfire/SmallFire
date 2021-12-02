@@ -1,5 +1,5 @@
 ---
-title: " MIRO 根据物料创建贷项凭证:BAPI_INCOMINGINVOICE_CREATE "
+title: " BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 "
 date: 2020-02-16
 draft: false
 author: Small Fire
@@ -15,11 +15,9 @@ tags:
 
 引用链接：[https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw](https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw)
 
+### BAPI_INCOMINGINVOICE_CREATE
 
-
-MIRO根据物料创建贷项凭证: BAPI_INCOMINGINVOICE_CREATE
-
-```JS
+```ABAP
 *&---------------------------------------------------------------------*
 *& Report  ZLM_MIRO
 *&
@@ -79,7 +77,7 @@ IF P_CA_TAX IS INITIAL.
   LS_HEADERDATA-CALC_TAX_IND = ' '.
   CLEAR LS_TAXDATA.
   LS_TAXDATA-TAX_CODE = 'J1'.
-  LS_TAXDATA-TAX_AMOUNT = P_AMOUNT  * 17 / 100." demo 默认17%"
+  LS_TAXDATA-TAX_AMOUNT = P_AMOUNT  * 17 / 100."默认17%"
   LS_TAXDATA-ITEMNO_TAX = 1.
   APPEND LS_TAXDATA TO LT_TAXDATA.
 ENDIF.

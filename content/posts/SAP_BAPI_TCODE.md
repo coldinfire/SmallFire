@@ -1,5 +1,5 @@
 ---
-title: " BAPI和Tcode执行之间的差异 "
+title: " BAPI&Tcode 执行之间的差异 "
 date: 2021-08-12
 draft: false
 author: Small Fire

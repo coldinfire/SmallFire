@@ -19,7 +19,7 @@ Create a transfer order with one item.
 
 You can call this FM more than once if you want to transfer more items.
 
-```JS
+```ABAP
 CALL FUNCTION 'L_TO_CREATE_SINGLE'
   exporting
 	i_lgnum = wh_number  "Warehouse number"

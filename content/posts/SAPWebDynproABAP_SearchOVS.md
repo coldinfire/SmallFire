@@ -1,5 +1,5 @@
 ---
-title: " Web Dynpro ABAP - OVS搜索帮助 "
+title: " Web Dynpro ABAP:OVS搜索帮助 "
 date: 2018-10-27
 draft: false
 author: Small Fire

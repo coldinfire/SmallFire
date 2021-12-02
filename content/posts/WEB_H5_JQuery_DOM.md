@@ -1,5 +1,5 @@
 ---
-title: " JQuery 操作DOM "
+title: " JQuery 操作 DOM "
 date: 2017-12-05
 draft: false
 author: Small Fire
