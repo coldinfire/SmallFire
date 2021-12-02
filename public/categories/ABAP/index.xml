@@ -1746,10 +1746,10 @@
     
     <item>
       <title> ABAP 数据类型和变量 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis_1/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_3/</link>
       <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis_1/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_3/</guid>
       <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 字符串(定义文字，数字</description>
     </item>
     
@@ -1764,10 +1764,10 @@
     
     <item>
       <title> ABAP 技能树 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Goal_Setting/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_1/</link>
       <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Goal_Setting/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_1/</guid>
       <description>ABAP 学习 ABAP语法详解 全面掌握 SAP 的开发环境，ABAP 语法等基础知识。 报表开发全面总结 全面总结 SAP 系统中各种类型报表的实现方案和技术细节，开发者</description>
     </item>
     
