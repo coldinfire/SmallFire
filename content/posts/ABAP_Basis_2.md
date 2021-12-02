@@ -1,6 +1,6 @@
 ---
-title: " ABAP 编程基础 "
-date: 2018-05-15
+title: " ABAP 简介 "
+date: 2018-05-11
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -11,6 +11,12 @@ tags:
   - abapbasis
 
 ---
+
+### 什么是 ABAP
+
+ABAP (Advanced Business Application) 是由 SAP 创建的高级编程语言，可帮助企业定制 SAP ERP。 ABAP 可以帮助定制财务会计、物料管理、资产管理和 SAP 的所有其他模块的工作流。
+
+SAP 目前的开发平台 NetWeaver 也同时支持 ABAP 和 Java。 
 
 ### ABAP 运行时环境
 

@@ -4440,20 +4440,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basic_2/</loc>
-      
-      <lastmod>2018-05-15T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Table_Basic/</loc>
       
       <lastmod>2018-05-14T00:00:00+00:00</lastmod>
@@ -4468,9 +4454,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Basic_1/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Basis_1/</loc>
       
       <lastmod>2018-05-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Basis_2/</loc>
+      
+      <lastmod>2018-05-11T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
