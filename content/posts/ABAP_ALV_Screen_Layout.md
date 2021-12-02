@@ -1,5 +1,5 @@
 ---
-title: " 选择屏幕添加Layout选择 "
+title: " 选择屏幕添加 Layout 选择 "
 date: 2021-07-12
 draft: false
 author: Small Fire

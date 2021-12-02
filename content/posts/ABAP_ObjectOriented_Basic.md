@@ -12,19 +12,66 @@ tags:
 
 ---
 
-## 类声明和实现
+### 类声明和实现
 
 类具有属性和方法；对象是类的实例；对象是通过指针变量来访问的；对象有独立的 **interface**。
 
+#### 属性
+
+类内定义的数据对象。
+
+- 实例属性：使用 DATA 定义
+- 静态属性：使用 CLASS-DATA 定义，在类声明的时候定义
+- 常量属性：使用 CONSTANT 定义类常量，必须在类定义时指定其值
+
+#### 方法
+
+需要在类声明和实现两部分进行定义，声明部分说明方法的参数接口；实现部分通过代码完成方法的具体功能。有两中种方法类型：
+
+- 实例方法：使用 METHODS 定义
+- 静态方法：使用 CLASS-METHODS 定义，在类声明的时候定义
+
+*方法定义*
+
 ```ABAP
-"Class Declarations"
+[CLASS-]METHODS method
+  IMPORTING  VALUE(i1)|i1 TYPE type|LIKE dobj DEFAULT def1
+  EXPORTING  VALUE(e1)|e1 TYPE type|LIKE dobj
+  CHANGING   VALUE(c1)|c1 TYPE type|LIKE dobj DEFAULT def2
+  EXCEPTIONS ... x1 TYPE ...
+```
+
+*方法调用*：调用方法传参时，除去指定为可选的参数之外，所有的参数都必须传递相应的实参值。a1 ~ an 为实际参数值。
+
+```ABAP
+oref->method|class=>method(
+  [EXPOTING i1 = a1 ... in = an]
+  [IMPOTING e1 = a1 ... in = an]
+  [CHANGING c1 = a1 ... in = an]
+  [EXCEPTION x1 = r1 ... Other = rn]
+).
+```
+
+#### 构造器
+
+每个类只有一个构造器，程序运行时在 Create object 语句中自动调用构造器。
+
+- 必须在 public section 中定义和应用构造器
+
+#### Class Declarations
+
+- PUBLIC SECTION：可被所有对象使用
+- PROTECTED SECTION：只能被类本身及其派生类中的方法使用
+- PRIVATE SECTION：只能被类本身的方法使用
+
+```ABAP
 CLASS application DEFINITION.
   PUBLIC SECTION.       "公有属性定义"
     DATA: attr1.        "实例属性 obj_name->attr1"
     METHODS: show_text. "实例方法"
     EVENTS: event1.     "实例事件"
-    "静态属性定义 class_name=>cla_attr1."
-    CLASS-DATA: cla_attr1.    "静态属性"
+    "静态属性 class_name=>cla_attr1."
+    CLASS-DATA: cls_attr1.    "静态属性"
     CLASS-METHODS: cls_methd. "静态方法"
     CLASS-EVENTS: cls_event.  "静态事件"
     CONSTANTS: con1.          "常量定义"
@@ -33,58 +80,17 @@ CLASS application DEFINITION.
   PRIVATE SECTION. "定义类私有属性"
     DATA text(100) TYPE c VALUE 'This is my first ABAP Object.'.
 ENDCLASS.
-"Class Implementation"
+```
+
+#### Class Implementation
+
+```ABAP
 CLASS application IMPLEMENTATION.
   METHOD show_text.
-    WRITE text.
+    WRITE / text.
   ENDMETHOD.
 ENDCLASS.
 ```
-
-- PUBLIC SECTION：可被所有对象使用
-
-- PROTECTED SECTION：只能被类本身及其派生类中的方法使用
-- PRIVATE SECTION：只能被类本身的方法使用
-
-### 类组成结构
-
-#### 属性
-
-类内表定义的数据对象。
-
-- 实例属性：使用 DATA 定义
-- 静态属性：使用 CLASS-DATA 定义，在类声明的时候定义
-- CONSTANT 语句定义类常量，必须在类定义时指定其值
-
-#### 方法
-
-需要在类声明和实现两部分进行定义，声明部分说明方法的参数接口；实现部分通过代码完成 od_1 具体功能。有两中种方法类型 METHODS、CLASS-METHODS。
-
-*方法定义*
-
-```ABAP
-[CLASS-]METHODS method1
-  IMPORTING  VALUE(i1) / i1 TYPE type / LIKE dobj DEFAULT def1
-  EXPORTING  VALUE(e1) / e1 TYPE type / LIKE dobj
-  CHANGING   VALUE(c1) / c1 TYPE type / LIKE dobj DEFAULT def2
-  EXCEPTIONS ... x1 TYPE ...
-```
-
-*方法调用*：调用方法传参时，除去指定为可选的参数之外，所有的参数都必须传递相应的实参值。a1 ~ an 为实际参数值。
-
-```ABAP
-CALL METHODS [oref->|class=>]method1
-  [EXPOTING i1 = a1 ... in = an]
-  [IMPOTING e1 = a1 ... in = an]
-  [CHANGING c1 = a1 ... in = an]
-  [EXCEPTION x1 = r1 ... Other = rn]
-```
-
-### 构造器
-
-每个类只有一个构造器，程序运行时在 Create object 语句中自动调用构造器。
-
-- 必须在 public section 中定义和应用构造器
 
 ### 事件
 
@@ -197,12 +203,11 @@ ENDCLASS.
 CALL METHOD 已经是不推荐使用的 Statement，使用 `class->method( ).`。
 
 ```ABAP
-DATA: ob_veh1 TYPE REF TO z_cl_test.
+DATA: go_veh1 TYPE REF TO z_cl_test.
 START-OF-SELECTION.
-CREATE OBJECT ob_veh1.
-*CALL METHOD ob_veh1->add.
-ob_veh1->add().
+CREATE OBJECT go_veh1.
+*CALL METHOD go_veh1->add.
+go_veh1->add( ).
 ```
 
 
- 
