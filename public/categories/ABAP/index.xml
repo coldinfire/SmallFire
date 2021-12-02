@@ -1736,6 +1736,15 @@
     </item>
     
     <item>
+      <title> ABAP 编程基础 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Basic_2/</link>
+      <pubDate>Tue, 15 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Basic_2/</guid>
+      <description>ABAP 运行时环境 所有 ABAP 程序都存储在 SAP 数据库中。 在数据库中，所有代码都是用 ABAP 编写的，以两种不同的形式存在： 源代码：可以在 ABAP Workbench 工具的帮助下查看和编辑</description>
+    </item>
+    
+    <item>
       <title> SAP 数据表 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Table_Basic/</link>
       <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
@@ -1746,10 +1755,10 @@
     
     <item>
       <title> ABAP 数据类型和变量 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basic_1/</link>
       <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basic_1/</guid>
       <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 字符串(定义文字，数字</description>
     </item>
     
