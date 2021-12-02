@@ -1718,7 +1718,7 @@
     </item>
     
     <item>
-      <title> ABAP 模块化 </title>
+      <title> ABAP 模块化使用 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Basis_Modularization/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
@@ -1746,28 +1746,28 @@
     
     <item>
       <title> ABAP 数据类型和变量 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis_3/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</link>
       <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis_3/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</guid>
       <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 文本字段（字母数字字符</description>
     </item>
     
     <item>
       <title> ABAP 简介 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis_2/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_Introduction/</link>
       <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis_2/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Introduction/</guid>
       <description>什么是 ABAP ABAP (Advanced Business Application) 是由 SAP 创建的高级编程语言，可帮助企业定制 SAP ERP。 ABAP 可以帮助定制财务会计、物料管理、资产管理和 SAP 的所有其他模块的工作流。 SAP 目</description>
     </item>
     
     <item>
       <title> ABAP 技能树 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis_1/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</link>
       <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis_1/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</guid>
       <description>ABAP 学习 ABAP语法详解 全面掌握 SAP 的开发环境，ABAP 语法等基础知识。 报表开发全面总结 全面总结 SAP 系统中各种类型报表的实现方案和技术细节，开发者</description>
     </item>
     
