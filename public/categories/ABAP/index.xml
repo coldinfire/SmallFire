@@ -1736,12 +1736,12 @@
     </item>
     
     <item>
-      <title> SAP 数据表 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Table_Basic/</link>
+      <title> SAP 数据字典 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Table_Basis/</link>
       <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Table_Basic/</guid>
-      <description>数据表类型 透明表 (Transparent table)： 和数据库具有相同结构的表存储结构，数据库中有一个相应的物理表。 结构 (Structure)： 结构在数据库不存在</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Table_Basis/</guid>
+      <description>数据字典(Data Dictionary )是信息管理系统中数据的中央信息源。 它的主要功能是支持数据定义（或“元数据”）的创建和管理。 数据表的组成元素 ABAP 数据字典中</description>
     </item>
     
     <item>
@@ -1750,7 +1750,7 @@
       <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis_3/</guid>
-      <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 字符串(定义文字，数字</description>
+      <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 文本字段（字母数字字符</description>
     </item>
     
     <item>
