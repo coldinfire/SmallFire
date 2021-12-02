@@ -26,7 +26,7 @@ tags:
 
 实例：
 
-```JS
+```ABAP
 TABLES SSCRFIELDS. "引用词典对象"
 INCLUDE:<icon>.  "按钮中加入图标必须调用该类型库,图标请参考T-CODE：ICON"
 SELECTION-SCREEN PUSHBUTTON /1(20) PUBU1 USER-COMMAND ABCD.

@@ -14,7 +14,7 @@ tags:
 
 #### 定义结构中定义该字段
 
-```JS
+```ABAP
 DATA: BEGIN OF gt_print OCCURS 10,
         CHECKBOX TYPE flag,
         ......
@@ -23,7 +23,7 @@ DATA: END OF gt_print.
 
 #### FIELDCAT 添加 CheckBox
 
-```JS
+```ABAP
 "$. Region ALV_Data"
 TYPE-POOLS:slis.
 DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE,
@@ -38,7 +38,7 @@ APPEND alv_fieldcat.
 
 #### 自定义按钮
 
-```JS
+```ABAP
 FORM f_alv_user_command USING r_ucomm LIKE sy-ucomm
                               rs_selfield TYPE slis_selfield.
   CASE r_ucomm.

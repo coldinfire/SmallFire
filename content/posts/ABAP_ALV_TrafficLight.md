@@ -14,7 +14,7 @@ tags:
 ---
 
 ### 定义 ###
-```JS
+```ABAP
 TYPE-POOLS:icon,sym,slis,col.
 DATA: l_alv_filed     TYPE slis_fieldcat_alv,
       l_alv_filedcat  TYPE slis_t_fieldcat_alv.
@@ -31,7 +31,7 @@ CONSTANTS: c_green  TYPE icon-id VALUE '@08@',
            c_red    TYPE icon-id VALUE '@0A@'.
 ```
 ### 赋值 ###
-```JS
+```ABAP
 IF it_return-type = 'E'.
    it_alv-id = c_red.
   CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'.
@@ -48,7 +48,7 @@ it_alv-mes   = it_return-message.
 APPEND it_alv.
 ```
 ### 显示 ###
-```JS
+```ABAP
 clear l_alv_filed.
 l_alv_filed-col_pos = 1.
 l_alv_filed-fieldname = 'ID'.

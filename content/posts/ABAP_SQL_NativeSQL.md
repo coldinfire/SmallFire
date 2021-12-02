@@ -217,16 +217,16 @@ ENDLOOP.
 
 ```ABAP
 FUNCTION ZUU_EXEC_SQL .
-*"-------------------------------------------------------------
-*"*"Local Interface:
-*"  IMPORTING
-*"     REFERENCE(DBCONN) TYPE  C
-*"  EXPORTING
-*"     REFERENCE(RESULT) TYPE  I
-*"     REFERENCE(MSG)    TYPE BAPI_MSG
-*"  TABLES
-*"      SQL
-*"---------------------------------------------------------------
+*-------------------------------------------------------------
+**Local Interface:
+*  IMPORTING
+*     REFERENCE(DBCONN) TYPE  C
+*  EXPORTING
+*     REFERENCE(RESULT) TYPE  I
+*     REFERENCE(MSG)    TYPE BAPI_MSG
+*  TABLES
+*      SQL
+*---------------------------------------------------------------
   TYPES: BEGIN OF t_sp_test,
     a TYPE char10,
   END OF t_sp_test,

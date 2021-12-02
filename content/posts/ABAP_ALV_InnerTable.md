@@ -12,25 +12,25 @@ tags:
 
 ---
 
-## 内表操作 
-
 ### SQL 语句的执行顺序
 
 书写顺序：SELECT [DISTINCT]-->FROM-->WHERE-->GROUP BY-->HAVING-->UNION-->ORDER BY
 
 其执行顺序为：FROM-->WHERE-->GROUP BY-->HAVING-->SELECT-->DISTINCT-->UNION->ORDER BY
 
-1、FROM 才是 SQL 语句执行的第一步，并非 SELECT 
+- FROM 才是 SQL 语句执行的第一步，并非 SELECT 
 
-2、SELECT 是在大部分语句执行了之后才执行的，严格的说是在 FROM 和 GROUP BY 之后执行的。
 
-3、无论在语法上还是在执行顺序上， UNION 总是排在在 ORDER BY 之前。
+- SELECT 是在大部分语句执行了之后才执行的，严格的说是在 FROM 和 GROUP BY 之后执行的。
+
+
+- 无论在语法上还是在执行顺序上， UNION 总是排在在 ORDER BY 之前。
 
 ### 清空:字段、内表、结构
 
 使用字段，内表，结构前需要清空其内容，以避免在程序内使用时产生数据的混乱。
 
-循环结束后，循环开始前需要根据程序需求选择是否需要清空内表内容，对于带有Headline 的内表要注意。
+循环结束后，循环开始前需要根据程序需求选择是否需要清空内表内容，对于带有 HEAD LINE 的内表要注意。
 
 ### 增、删、改
 
@@ -87,7 +87,17 @@ FOR ALLENTRIES:
 
 ### 事务处理
 
-```JS
+#### 直接执行
+
+- `COMMIT WORK.`：异步更新
+
+- `COMMIT WORK AND WAIT.`：同步更新，执行结果可通过 sy-subrc 判断是否提交成功
+
+- `ROLLBACK WORK.`：回滚
+
+#### 调用函数
+
+```ABAP
 "Commit"
 CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
   EXPORTING
@@ -98,13 +108,9 @@ CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
 CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'
   IMPORTING
      return = commback.
-"直接使用"
-COMMIT WORK.          // 异步更新。
-COMMIT WORK AND WAIT. // 同步跟新，执行结果可通过sy-subrc判断是否提交成功。
-ROLLBACK WORK.
 ```
 
-## Focus
+### Focus
 
 1. 多表的结合的查询，首先进行各自的关键字查询，然后进行表与表转换可以提升效率
 2. 表相应字段非关键字时，寻找有该关键字的相对应的关联表进行查询并合并表数据

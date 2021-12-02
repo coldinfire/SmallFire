@@ -43,7 +43,7 @@ BAPI内部不包含COMMIT WORK,ROLLBACK WORK
 
 根据BAPI函数的返回数据进行判断：
 
-```JS
+```ABAP
 IF return-type <> 'S'.
   CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'.
 ELSE.

@@ -1,5 +1,5 @@
 ---
-title: " ABAP Form&Function "
+title: " ABAP 模块化 "
 date: 2018-05-20
 draft: false
 author: Small Fire
@@ -12,14 +12,59 @@ tags:
 
 ---
 
+### 代码模块化
+
+当模块化源代码时，可以将一个完整功能的 ABAP 语句放置在一个模块中。 然后在后续编写程序时，不必将所有语句都放在主程序中，而只需调用模块。生成程序时，模块化单元中的源代码被视为实际存在于主程序中。
+
+#### 模块化的优点
+
+- 改进程序的结构
+- 易于阅读的代码
+- 易于维护和更新代码
+- 避免冗余并促进代码重用
+
+#### 各种模块化技术
+
+- Macros：宏的使用
+- Include：包含文件的使用
+- Subroutines：Form 子程序的使用
+- Function Modules：功能模块的使用
+
 ### 全局变量，局部变量
-局部变量：报表程序中选择屏幕事件块(AT SELECTION-SCREEN)、逻辑数据库事件块，以及methods、subroutines (FORM子过程)、Function Modules 中声明的变量为局部变量。
+
+局部变量：报表程序中选择屏幕事件块(AT SELECTION-SCREEN)、逻辑数据库事件块，以及 macro、methods、subroutines (FORM子过程)、Function Modules 中声明的变量为局部变量。
 
 全局变量：其他功能块里声明的变量属于全局变量（报表事件块、列表事件块、对话 module），效果与在程序开头定义的变量一样。
+
+### ABAP Macro
+
+如果要在程序中多次重复使用同一组语句，可以将它们包含在宏中。
+
+只能在定义它的程序中使用宏，并且只能在其定义之后的程序行中调用它。
+
+通过宏来设置 FIELDCATALOG 字段属性，可以：
+
+```ABAP
+DEFINE fieldcat.  
+  clear gs_fieldcat.  
+  gs_fieldcat-fieldname = &1.  
+  gs_fieldcat-seltext_l = &2.  
+  gs_fieldcat-seltext_m = &2.  
+  gs_fieldcat-seltext_s = &2.
+  APPEND gs_fieldcat TO gt_fieldcat.
+END-OF-DEFINITION.
+fieldcat 'CARRID' '航线承运人'.
+```
 
 ### Form & Function
 
 #### Form中的参数解析
+
+可以通过功能区分不同类型的参数。 输入参数用于向子程序传递数据，而输出参数用于从子程序传递数据。
+
+形式参数：在定义子程序时用 FORM 语句定义。
+
+实际参数：在使用 PERFORM 语句调用子程序期间指定。
 
 TABLES：Type 和 like 只能参照标准内表类型或标准内表对象
 

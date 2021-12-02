@@ -12,25 +12,27 @@ tags:
 
 ---
 
-### 内表定义
-
-#### 工作区域
+### 工作区域
 
 工作区域可以存放多个变量数据，相当于一维数组。
 
-*间接定义*：通过 TYPES 定义结构类型，然后通过 DATA 赋值
+#### 间接定义
+
+通过 TYPES 定义结构类型，然后通过 DATA 赋值。
 
 ```ABAP
 TYPES: BEGIN OF str_order.
   aufnr  TYPE afko-aufnr,
   dauat  TYPE afpo-dauat,
  END OF str_order.
-" TYPE定义的只是一个类型，不可以在程序中直接使用，必须用DATA赋值 "
+"TYPE定义的只是一个类型，不可以在程序中直接使用，必须用DATA赋值"
 DATA: lt_table TYPE TABLE OF str_order,
       ls_table TYPE str_order.
 ```
 
-*直接定义*：直接使用 DATA 声明一个结构对象，可以在后续程序中直接使用该工作区
+#### 直接定义
+
+直接使用 DATA 声明一个结构对象，可以在后续程序中直接使用该工作区。
 
 ```ABAP
 DATA: BEGIN OF str_matnr,   
@@ -43,12 +45,13 @@ END OF str_matnr.
 
 参照内表创建工作区：`DATA <wa> LIKE LINE OF <dbtab>.`
 
-*继承结构*：结构复用，作用是将结构类型 structure_type 与结构变量 structure 的所有组件字段拷贝到当前结构定义的指定位置。
+#### 结构复用
+
+作用是将结构类型 structure_type 与结构变量 structure 的所有组件字段拷贝到当前结构定义的指定位置。
+
+`INCLUDE { {TYPE struc_type} | {STRUCTURE struc} } [AS name [RENAMING WITH SUFFIX suffix]].`
 
 
-- `INCLUDE { {TYPE struc_type} | {STRUCTURE struc} }
-          [AS name [RENAMING WITH SUFFIX suffix]]`.
-      
 - 结构对象复用
 
      ```ABAP
@@ -74,12 +77,16 @@ END OF str_matnr.
      TYPES: END OF str_pidoc.
      ```
 
+### 内表
+
+内部表仅在程序运行时存在。 它用于对数据库表的子集执行表计算，也用于根据用户需要重新组织数据库表的内容。
+
 #### 内表类型
 
-- 索引内表：标准内表(Standard table)、排序表(Sorted table)
+- 索引表：标准表(Standard table)、排序表(Sorted table)
 
 
-- 标准内表：每一行数据都有关键字和系统生成的逻辑索引。
+- 标准表：每一行数据都有关键字和系统生成的逻辑索引。
 
 
 - 排序表：排序表按照关键字升序排序后再进行存储。

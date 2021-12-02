@@ -18,7 +18,7 @@ tags:
 
 #### 一、调用BAPI：EVAL_FORMULA
 
-```js
+```ABAP
 TYPES:BEGIN OF TY_VAL,
       OPERAND TYPE C,
       VALUE TYPE STRING,
@@ -109,7 +109,7 @@ ENDLOOP.
 
 #### 二、通过直接调用表达式完成计算
 
-```js
+```ABAP
 DATA: MESSAGE TYPE STRING,
       SOURCE TYPE STRING,
       RETURN_VALUE TYPE P LENGTH 15 DECIMALS 2,

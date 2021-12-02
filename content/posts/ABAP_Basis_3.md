@@ -71,9 +71,7 @@ ABAP 数据字典数据类型和系统变量，无需声明可在系统中直接
 
 `DATA var_name(len) TYPE var_type [VALUE value] [DECIMALS n].`
 
-参考字段定义变量
-
-`DATA <var1> like <var2>.`  & `DATA <var1> TYPE <var2>.`
+参考字段定义变量：`DATA <var1> like <var2>.`  & `DATA <var1> TYPE <var2>.`
 
 - 透明表、结构、数据字典：既是类型又是对象，可用 TYPE 和 LIKE
 - 只能使用 LIKE 引用另一自定义变量的类型，不可以使用 TYPE
@@ -85,6 +83,16 @@ ABAP 数据字典数据类型和系统变量，无需声明可在系统中直接
 `DATA <var> LIKE TABLE OF xxx.`
 
 - 后面参照结构，表示该变量是一个和参照结构一样的内表，这个内表和后面参照的结构一样
+
+**使用 Type 和 Like 的区别**
+
+- TYPE：在声明时直接将数据类型分配给数据对象。
+
+
+- LIKE：将另一个对象的数据类型分配给声明的数据对象。
+
+
+- Type 指的是现有数据类型，而 Like 指的是现有数据对象。
 
 #### 参考变量
 

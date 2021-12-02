@@ -16,135 +16,138 @@ tags:
 
 BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输.  
 
-### 基本流程
+### 使用 BDC 的基本流程
 
-#### Step1 获取源数据
+#### Step1：获取源数据
 
-一般情况下，在进行传输之前要把外部的数据源(Txt,Excel 等)放入内表
+一般情况下，在进行传输之前要把外部的数据源(Txt,Excel 等)放入内部表中。
 
 - 从系统内部获取
 - 从系统外部获取
 
-#### Step2 生成BDC程序框架
+#### Step2：生成BDC程序框架
 
-通过 Tcode:**SHDB** 录制工具录制事务，生成程序框架
+通过事物码 SHDB 录制工具录制事务，生成程序框架。
 
 - 可以把保存号的程序导出到本地文件
 - 让系统自动生成代码
 
-#### Step3 数据转换
+#### Step3：数据转换
 
-把要输入的数据转换为 BDCDATA 的格式。循环内表，把内表字段赋值给BDCDATA作为输入数据集
+把要输入的数据转换为 BDCDATA 的格式。循环内表，把内表字段赋值给 BDCDATA 作为输入数据集
 
 - 如有需要，可以调整修改已生成的BDC程序代码
 
-#### Step4 执行BDC
+#### Step4：执行 BDC
 
-两种通用写法：
-
-<1> Call Transaction:直接调用BDC进行数据批量导入。
+*Method 1：Call Transaction* 直接调用 BDC 进行数据批量导入。
 
 - 优点：方便快捷，程序处理方便
-- 缺点：日志管理能力差，需要自己建立透明表来维护数据。
+- 缺点：日志管理能力差，需要自己建立透明表来维护数据
 
 CALL TRANSACTION 语法：
 
-```JS
+```ABAP
 CALL TRANSACTION <TCode> USING <BDCDATA>
-                         MODE <CTUMODE>
+                         MODE  <CTUMODE>
                          UPDATE <CPUDATE>
                          MESSAGES INTO <MESSTAB>.
-TCode:相应的事务代码
-BDCDATA:需要的BDC传入数据
-MODE:显示模式
-UPDATE:更新模式
-MESSAGE:用于存放消息
 ```
 
-MODE 字段解析：
+- TCode：需要执行的事务代码
 
-| Mode | Description                                                  |
-| ---- | ------------------------------------------------------------ |
-| A    | (默认)显示所有输入屏幕，如果在 bdc_tab 中包含该屏幕的功能码，则会出现小窗口显示这个功能码 |
-| E    | 只有在出现错误时才显示屏幕，用户可以修正数据，修正后程序可以继续处理 |
-| N    | 不显示屏幕的静默模式。如果到达被调用事务的断点，则系统处理终止 |
-| P    | 不显示屏幕的调试模式。如果到达被调用事务的断点，则系统自动转到ABAP调试器，主要用于调试过程 |
+- BDCDATA：BDC 的传入数据
 
-Update 字段解析
+- MODE：BDC 执行时的显示模式
 
-| Mode | Description                                                  |
-| ---- | ------------------------------------------------------------ |
-| S    | Synchronously (这种方式比较适 合于数据一致性要求比较高，多个不同事务码的连续处理。) |
-| A    | Asynchronously（这种 方式比较适合于用一个事务码大量更新指定数据，比如维护主数据等。） |
-| L    | 数据更新在主程序所在的进程中完成，主程序必定等到被调用事务完成才继续执行。） |
+  | Mode | Description                                                  |
+  | :--- | :----------------------------------------------------------- |
+  | A    | (默认)显示所有输入屏幕，如果在 bdc_tab 中包含该屏幕的功能码，则会出现小窗口显示这个功能码 |
+  | E    | 只有在出现错误时才显示屏幕，用户可以修正数据，修正后程序可以继续处理 |
+  | N    | 不显示屏幕的静默模式。如果到达被调用事务的断点，则系统处理终止 |
+  | P    | 不显示屏幕的调试模式。如果到达被调用事务的断点，则系统自动转到ABAP调试器，主要用于调试过程 |
 
-<2> BDC Insert:不直接运行，而是将BDC程序生成Session，间接运行的一种方法。
+- UPDATE：更新模式
+
+  | Mode | Description                                                  |
+  | :--- | :----------------------------------------------------------- |
+  | S    | Synchronously (这种方式比较适 合于数据一致性要求比较高，多个不同事务码的连续处理。) |
+  | A    | Asynchronously（这种 方式比较适合于用一个事务码大量更新指定数据，比如维护主数据等。） |
+  | L    | 数据更新在主程序所在的进程中完成，主程序必定等到被调用事务完成才继续执行。） |
+
+- MESSAGES：用于存放 BDC 执行过程中的消息
+
+*Method2：BDC_INSERT* 不直接运行，而是将 BDC 程序生成 Session，间接运行的一种方法。
 
 - 优点：通过Tcode - SM35可以进行运行管理和日志管理，方便查错。
 - 缺点：方法相对来说比较繁琐。
 
-功能
+使用步骤：
 
-- 在程序中调用Function 'BDC_INSERT'把BDCDATA生成Session.
+- 在程序中调用 Function 'BDC_INSERT' 把 BDCDATA 生成 Session。
 
-- 程序RSBDCSUB是执行Session的专用程序，要建立相应的VARIANT,供JOB中使用
+- 程序 RSBDCSUB 是执行 Session 的专用程序，要建立相应的 VARIANT，供 JOB 中使用。
 
-- 建立BATCH JOB来执行RSBDCSUB，从而实现Session自动执行的目的；不使用REBDCSUNB和JOB，每次手工在SM35中执行Session也可以。
+- 建立 BATCH JOB 来执行 RSBDCSUB，从而实现 Session 自动执行的目的；不使用 REBDCSUNB 和 JOB，每次手工在 SM35 中执行 Session 也可以。
 
 ### 录制，更新 BDC
 
-使用SHDB/SM35事务录制BDC，SE35 Upoload BDC
+使用事务码 SHDB/SM35 录制 BDC，SE35：Upoload BDC。
 
-<1>SHDB：查看创建过的BDC信息，创建 New Recording
+#### 创建 BDC
+
+输入事物码 SHDB 创建 New Recording，也可以查看创建过的 BDC 记录。
 
 ![SHDB](/images/ABAP/BDC1.png)
 
-- 输入Record Name,和需要进行BDC录制的TCode,然后执行，程序会自动跳到输入的TCode界面。
+输入需要创建的 Recording Name 和需要进行录制的 TCode 然后执行。程序会自动跳到输入的 TCode 界面。
 
-  ![SHDB](/images/ABAP/BDC2.png)
+![Create Recording](/images/ABAP/BDC2.png)
 
-- 根据需求进行对应的录制，完成后保存或则返回结束录屏。录制中不要乱动键盘,尽量使用鼠标点击。
+根据实际业务需求进行对应的录制，完成后保存或则返回结束录屏。录制中不要使用键盘操作，尽量使用鼠标点击。
 
-  ![SHDB](/images/ABAP/BDC4.png)
+![Record Result](/images/ABAP/BDC4.png)
 
-<2> 选择记录，创建程序，放到本地。记录的所有东西都保存在程序中了
+#### 创建程序
 
-![SHDB](/images/ABAP/BDC3.png)
+ 选择录制好的 BDC，创建程序，放到本地。记录中的所有信息都保存在程序中。也可以通过导出 BDC Record，然后在其他 Client 导入 BDC Record 后创建程序。
 
-<3> 也可以通过导出BDC Record,然后在其他Client导入BDC,再创建程序。
+![BDC Program](/images/ABAP/BDC3.png)
 
-<4> 对系统自动生成的程序进行修改，达到想要的目的   	
+#### 修改生成的标准 BDC
 
-```js
-parameters: dataset(132) lower case default 'Program_name'.
+对系统自动生成的程序进行修改，达到实际业务的需求。   	
+
+```ABAP
+PARAMETERS: dataset(132) LOWER CASE DEFAULT 'Program_name'.
 " BDC attribute define "
-DATA:BDCDATA LIKE BDCDATA  OCCURS 0 WITH HEADER LINE. "保存录屏过程中的变量及常量数据"
-DATA:MESSTAB LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE. "记录BDC执行返回数据" 
-DATA:CTU_PARAMS LIKE CTU_PARAMS.   "调事务代码时带的一些参数，是否前台执行，报错停止等"
-
+DATA:bdcdata LIKE BDCDATA OCCURS 0 WITH HEADER LINE.    "保存录屏过程中的变量及常量数据"
+DATA:messtab LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE. "记录BDC执行返回数据" 
+DATA:ctu_params LIKE CTU_PARAMS.   "调事务代码时带的一些参数，是否前台执行，报错停止等"
 CLEAR ctu_params.
 ctu_params-dismode  = 'N'.
 ctu_params-updmode  = 'S'.
 ctu_params-racommit = 'X'.
+"循环调用 BDC"
 LOOP AT <DYN_TABLE> ASSIGNING <DYN_WA>.
-	CLEAR :bdcdata,messtab.
-    REFRESH: bdcdata,messtab.
-    PERFORM BDC_DYNPRO USING  'SAPLCOKO1'        '0110'.
-    PERFORM BDC_FIELD  USING: 'BDC_CURSOR'       'CAUFVD-AUFNR',
-                              'BDC_OKCODE'       '/00',
-                              'CAUFVD-AUFNR'     L_AUFNR,
-                              'R62CLORD-FLG_OVIEW' 'X'.
-    PERFORM BDC_DYNPRO USING  'SAPLCOKO1'        '0115'.
-    PERFORM BDC_FIELD  USING: 'BDC_OKCODE'       '=BU',
-                              'BDC_CURSOR'       'CAUFVD-GSTRS',
-                              'CAUFVD-GLTRS'     L_ENDDA_S,
-                              'CAUFVD-GLUZS'     '23:40',
-                              'CAUFVD-GSTRS'     L_BEGDA_S,
-                              'CAUFVD-GSUZS'     '23:01',
-                              'CAUFVD-TERKZ'     '3' .
-    CALL TRANSACTION 'CO02' USING BDCDATA
-                   OPTIONS FROM CTU_PARAMS
-                   MESSAGES INTO MESSTAB.
+  CLEAR :bdcdata,messtab.
+  REFRESH: bdcdata,messtab.
+  PERFORM BDC_DYNPRO USING  'SAPLCOKO1'        '0110'.
+  PERFORM BDC_FIELD  USING: 'BDC_CURSOR'       'CAUFVD-AUFNR',
+                            'BDC_OKCODE'       '/00',
+                            'CAUFVD-AUFNR'     lv_aufnr,
+                            'R62CLORD-FLG_OVIEW' 'X'.
+  PERFORM BDC_DYNPRO USING  'SAPLCOKO1'        '0115'.
+  PERFORM BDC_FIELD  USING: 'BDC_OKCODE'       '=BU',
+                            'BDC_CURSOR'       'CAUFVD-GSTRS',
+                            'CAUFVD-GLTRS'     lv_endda,
+                            'CAUFVD-GLUZS'     '23:40',
+                            'CAUFVD-GSTRS'     lv_begda,
+                            'CAUFVD-GSUZS'     '23:01',
+                            'CAUFVD-TERKZ'     '3' .
+  CALL TRANSACTION 'CO02' USING bdcdata
+                          OPTIONS FROM ctu_params
+                          MESSAGES INTO messtab.
 ENDLOOP.
 ```
 
@@ -155,20 +158,20 @@ ENDLOOP.
 
 Batch inputdata of single transaction：输入数据表
 
-- `data: BDCDATA like bdcdata occurs 0 with header line.`
+- `DATA:bdcdata LIKE BDCDATA OCCURS 0 WITH HEADER LINE.`
 
 Messages of call transaction：返回信息
 
-- `data: MESSTAB like bdcmsgcoll occurs 0 with header line.`
+- `DATA:messtab LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE.`
 
-#### 两个固定Form：尽量不要对这两个form中的内容进行修改。
+#### 两个固定 Form：尽量不要对其中的内容进行修改
 
-bdc_dynpro : 指定 bdc_dynpro 的实参，告知系统 dialog 程序名称以及 Screen number。
+BDC_DYNPRO：指定 bdc_dynpro 的实参，告知系统 dialog 程序名称以及 Screen number。
 
-```JS
-*----------------------------------------------------------------------*
-*        Start new screen                                              *
-*----------------------------------------------------------------------*
+```ABAP
+*----------------------------------------------------------------*
+*        Start new screen                                        *
+*----------------------------------------------------------------*
 FORM BDC_DYNPRO USING PROGRAM DYNPRO.
   CLEAR BDCDATA.
   BDCDATA-PROGRAM  = PROGRAM.
@@ -178,12 +181,12 @@ FORM BDC_DYNPRO USING PROGRAM DYNPRO.
 ENDFORM.
 ```
 
-bdc_field：指定bdc_field的实参，告知系统把光标放在哪个字段。
+BDC_FIELD：指定 bdc_field 的实参，告知系统把光标放在哪个字段。
 
-```JS
-*----------------------------------------------------------------------*
-*        Insert field                                                  *
-*----------------------------------------------------------------------*
+```ABAP
+*----------------------------------------------------------------*
+*        Insert field                                            *
+*----------------------------------------------------------------*
 FORM BDC_FIELD USING FNAM FVAL.
   IF FVAL <> NODATA.
     CLEAR BDCDATA.
@@ -194,25 +197,37 @@ FORM BDC_FIELD USING FNAM FVAL.
 ENDFORM.
 ```
 
-### BDC执行类型
+### BDC中按顺序使用的功能模块
 
-(1)跳转类的：开头定义的地方加两个变量
+三个功能模块依次使用，使用BDC编程成功进行数据传输。
 
-```JS
-DATA:BDCDATA LIKE BDCDATA  OCCURS 0 WITH HEADER LINE. "保存录屏过程中的变量及常量数据"
-DATA:MESSTAB LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE. "记录BDC执行返回数据" 
-DATA:CTU_PARAM TYPE CTU_PARAMS. "调事务代码时带的一些参数，是否前台执行，报错停止等"
+- BDC_OPEN_GROUP
+
+
+- BDC_INSERT
+
+
+- BDC_CLOSE_GROUP
+
+### BDC 执行类型
+
+#### 跳转类的
+
+定义变量时需要添加两个变量。
+
+```ABAP
+DATA:bdcdata LIKE BDCDATA OCCURS 0 WITH HEADER LINE.    "保存录屏过程中的变量及常量数据"
+DATA:messtab LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE. "记录BDC执行返回数据" 
+DATA:ctu_params LIKE CTU_PARAMS.   "调事务代码时带的一些参数，是否前台执行，报错停止等"
 " 从程序中选一些dynpro和field的BDC行，不需要的字段或则屏幕，可以直接删除对应的代码。"
-CLEAR bdcdata.
-REFRESH bdcdata.
 CLEAR ctu_params.
 ctu_params-updmode = 'S'.
 ctu_params-dismode = 'E'.
-ctu_params-defsize = ''."设置窗口非默认大小
-"调用BDC执行 T-code COOIS 显示订单抬头
+ctu_params-defsize = ''. "设置窗口非默认大小"
+"调用BDC执行 T-code COOIS 显示订单抬头"
 CALL TRANSACTION 'COOIS' USING bdcdata
                          OPTIONS FROM ctu_params
-                         MESSAGE INTO MESSTAB.
+                         MESSAGE INTO messtab.
 ```
 
 `OPTIONS FROM [opt]`：参考ABAP字典结构类型 `CTU_PARAMS` 的结构数据对象来传递参数。
@@ -234,5 +249,7 @@ CALL TRANSACTION 'COOIS' USING bdcdata
   - ""：在被调用事务执行后，系统字段 sy-binpt 的值为"X"；
   - "X"：在被调用事务执行后，系统字段 sy-binpt 的值为" "。
 
-(2)执行类的录屏和上面同样的方法生成程序。然后选择需要的代码段。不需要的可以注释，或者删除。
+#### 执行类的
+
+录屏和上面同样的方法生成程序。然后选择需要的代码段。不需要的可以注释，或者删除。直接执行 BDC。
 

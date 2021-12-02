@@ -71,7 +71,7 @@ ALV 显示也是这样，如果不给指定单位或者货币字段，显示的�
 
 通用设置：
 
-```JS
+```ABAP
 CASE ls_fldct-fieldname.
   WHEN 'BSTMG' OR 'BDMNG' OR 'MENGE'.
     ls_fldct-qfieldname = 'MEINS'.
