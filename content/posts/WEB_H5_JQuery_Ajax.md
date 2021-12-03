@@ -1,6 +1,6 @@
 ---
 title: " JQuery Ajax "
-date: 2017-12-14
+date: 2017-12-09
 draft: false
 author: Small Fire
 isCJKLanguage: true

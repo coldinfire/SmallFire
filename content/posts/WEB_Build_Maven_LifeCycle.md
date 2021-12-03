@@ -1,6 +1,6 @@
 ---
 title: " Maven 构建生命周期 "
-date: 2017-12-27
+date: 2017-12-16
 draft: false
 author: Small Fire
 isCJKLanguage: true

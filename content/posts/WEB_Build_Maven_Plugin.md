@@ -1,6 +1,6 @@
 ---
 title: " Maven Plugin Goal "
-date: 2017-12-30
+date: 2017-12-16
 draft: false
 author: Small Fire
 isCJKLanguage: true
