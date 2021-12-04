@@ -22,14 +22,13 @@ tags:
 
 #### 间接定义
 
-通过 TYPES 定义结构类型，然后通过 DATA 赋值。
+通过 TYPES 定义并创建结构行，不能再程序中直接使用，需要通过 DATA 定义对应的工作区或内表 。
 
 ```ABAP
 TYPES: BEGIN OF str_order.
   aufnr  TYPE afko-aufnr,
   dauat  TYPE afpo-dauat,
  END OF str_order.
-"TYPE定义的只是一个类型，不可以在程序中直接使用，必须用DATA赋值"
 DATA: lt_table TYPE TABLE OF str_order,
       ls_table TYPE str_order.
 ```
@@ -47,7 +46,7 @@ END OF str_matnr.
 
 参照 DB 或结构创建工作区：`DATA <wa> TYPE <dbtab>|<str>.`
 
-参照内表创建工作区：`DATA <wa> LIKE LINE OF <dbtab>.`
+参照内表创建工作区：`DATA <wa> LIKE LINE OF <itab>.`
 
 #### 结构复用
 
@@ -100,14 +99,15 @@ INTERNAL TABLE 用于对数据库表的子集执行表计算，也用于根据�
 
 #### 内表定义
 
-可以参考结构体、其他内表、透明表等方式定义内表。
+可以通过引用现有表来创建内表。 现有表可以是标准 SAP 表、Z 表或其它内表。
 
-参考结构：`DATA table_name TYPE TABLE OF structure [WITH HEADER LINE].`  
+- `DATA table_name TYPE TABLE OF sap_table|ztable|itab [WITH HEADER LINE].`
+- LIKE LINE OF 后面接一个内表，表示一个 data 参数具有和内表一样的结构，可当做 Work Area 使用
 
-参考内表：`DATA table_name TYPE TABLE OF 内表或透明表 [WITH HEADER LINE].`
+可以通过引用现有结构来创建内表。现有结构可以是 SAP 结构，Z 结构或程序内定义的结构。
 
-   - LIKE LINE OF 后面接一个内表，表示一个 data 参数具有和内表一样的结构，可当做 Work Area 使用
-   - LIKE TABLE OF 后面接一个结构，表示一个 data 参数是一个内表，这个内表和后面接的结构一样
+- `DATA table_name TYPE TABLE OF structure [WITH HEADER LINE].`
+- `DATA table_name LIKE TABLE OF structure [WITH HEADER LINE].` ：定义内表，该内表和后面的结构字段一致
 
 WITH HEADER LINE 作用：
 
@@ -137,8 +137,11 @@ WITH HEADER LINE 作用：
 对于没有 HEADER LINE 的内表，只能通表外部工作区来传递数据。
 
 - `APPEND wa TO itab.`
+- `APPEND LINES OF itab1 [FROM idx1] [TO idx2] TO itab2.`
 
-- `APPEND LINES OF itab1 [FROM idx1] [TO idx2]  TO itab2.`
+添加初始行，初始行向表中添加一条用其类型的初始值初始化的行。
+
+- `APPEND INITIAL LINE TO itab.`
 
 #### INSERT：向内表插入数据
 
@@ -147,7 +150,13 @@ WITH HEADER LINE 作用：
 - `INSERT wa INTO TABLE itab INDEX index.` ：将结构体中数据插入到内表指定位置
 
 
+- `INSERT INITIAL LINE INTO itab.`：向内表中插入一条空行数据
+
+复制内表
+
 - `INSERT LINES OF itab1 [FROM idx1] [TO idx2] INTO itab2 [INDEX idx3].`：将 itab1 指定范围数据插入到 itab2 
+- `MOVE itab1 TO itab2. ` & `itab2 = itab1.` 
+- 如果有表头行，则需要使用 `itab2[] = itab1[].` 
 
 #### DELETE：删除数据
 
@@ -171,7 +180,9 @@ WITH HEADER LINE 作用：
 
 - `MODIFY itab [INDEX idx] FROM wa [TRANSPORTING f1...fn] WHERE condition.`
 
-#### READ：从内表中读取数据
+#### 从内表中读取数据
+
+READ：使用 READ 读取数据，如果找到具有指定索引的条目，则将 SY-SUBRC 设置为 0。如果指定的索引小于 0，则会发生运行时错误。如果指定的索引超过表大小，则 SY-SUBRC 设置为 4。
 
 - `READ TABLE itab [INTO wa] FROM wa.`：以表关键字为查找条件，条件来自 工作区。
 
@@ -182,9 +193,7 @@ WITH HEADER LINE 作用：
 
 - `READ TABLE itab [INTO wa] INDEX index.`
 
-#### LOOP...ENDLOOP：循环读取内表数据
-
-循环读取内表数据，在循环中使用系统变量SY-TABIX可获取当前所执行的行数。
+LOOP ... ENDLOOP：循环读取内表数据，在循环中使用系统变量 SY-TABIX 可获取当前所执行的行数。
 
 - `LOOP AT ITAB [INTO WA] FROM n1 TO n2.`：读取内表具体索引行数之间的数据。
 
@@ -192,9 +201,17 @@ WITH HEADER LINE 作用：
 - `LOOP AT ITAB [INTO WA] WHERE cond.`：按具体字段条件读取内表。
 - `LOOP AT ITAB [ASSIGNING wa ] WHERE cond.`：根据查询条件循环内表数据并分配给字段符号。
 
+#### COLLECT：内表数据分类汇总
+
+COLLECT 是另一种用于填充内部表的语句。 通常在将行插入具有唯一标准键的内部表时使用 COLLECT。
+
+- `COLLECT [wa INTO] itab.`
+
+如果内表带有标题行，则省略 INTO 选项。 假设已经有一个条目与尝试添加的条目具有相同的键，那么不会在表中添加新行，会汇总了两个条目的数字字段，并且仅存在与该键对应的一个条目。
+
 #### AT...ENDAT：设置内表循环触发条件
 
-该语法为事件控制函数，应用于LOOP循环语句中，用于获取内表的数据变化事件。
+该语法为事件控制函数，应用于 LOOP 循环语句中，用于获取内表的数据变化事件。需要在声明结构时按调用顺序排序。
 
 Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 working area。
 
@@ -211,12 +228,6 @@ Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 wo
 
 
 - `AT LAST.`：当执行内表最后一行时触发该事件。
-
-#### COLLECT：内表数据分类汇总
-
- 将内表中相同的字段合并，若有类型为`I`的字段，则将其值加总。
-
-- `COLLECT [wa INTO] itab.`
 
 #### DESCRIBE：获取内表具体属性
 

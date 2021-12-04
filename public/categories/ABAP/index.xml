@@ -1655,6 +1655,15 @@
     </item>
     
     <item>
+      <title> ABAP 事件终止 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_EventTerminated/</link>
+      <pubDate>Sat, 09 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_EventTerminated/</guid>
+      <description>事件终止 RETURN 用来退出当前执行的程序块，而不仅仅是退出循环。如FORM，METHOD，报表事件块 STOP INITIALIZATION 中 STOP 会导致跳转到 AT SELECTION-SCREEN OUTPUT 事件块 如果 STOP 在 AT SELECTION-SCREEN OUTPUT 块</description>
+    </item>
+    
+    <item>
       <title> 数据输入输出转换 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Utils_DataConversion/</link>
       <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
@@ -1732,7 +1741,7 @@
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Table_InnerTable/</guid>
-      <description>工作区和内表的关系 工作区 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 间接定义 通过 TYPES 定义结构</description>
+      <description>工作区和内表的关系 工作区 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 间接定义 通过 TYPES 定义并创</description>
     </item>
     
     <item>
