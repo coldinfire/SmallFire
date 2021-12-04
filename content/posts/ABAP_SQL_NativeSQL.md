@@ -31,10 +31,15 @@ EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据
 - Native SQL 语句不能有结尾符号
 
 
-- EXEC SQL ... ENDEXEC 间不能有注释
+- `EXEC SQL ... ENDEXEC.` 间不能有注释
+- 需要确定使用的第三方数据库中的表名和字段名是否区分大小写
 
 
-- 参数占位符是冒号`:para_value`
+- Native SQL 参数占位符是冒号`:para_value`
+
+#### Native SQL 返回码
+
+与 Open SQL 中一样，在 ENDEXEC 语句之后。SY-DBCNT 包含已处理的行数。 在几乎所有情况下，SY-SUBRC 在 ENDEXEC 语句之后的值都是 0。
 
 
 ### 程序调用
@@ -65,7 +70,7 @@ TRY.
 ENDTRY. 
 ```
 
-#### 查询语句
+#### SELECT
 
 ```ABAP
 "执行SQL：非游标方式"
@@ -86,7 +91,7 @@ FORM frm_download_data.
 ENDFORM.
 ```
 
-#### 插入语句
+#### INSERT
 
 ```ABAP
 TRY. 
@@ -157,15 +162,13 @@ ENDEXEC.
 
 SAP 提供了对原生 sql 的操作，主要有以下几个类组成：
 
-- CL_SQL_STATEMENT - Execution of SQL Statements
-- CL_SQL_PREPARED_STATEMENT - Prepared SQL Statements
-- CL_SQL_CONNECTION - Administration of Database Connections
-- CX_SQL_EXCEPTION - Exception Class for SQL Error
+- `CL_SQL_STATEMENT`：Execution of SQL Statements
+- `CL_SQL_PREPARED_STATEMENT`：Prepared SQL Statements
+- `CL_SQL_CONNECTION`：Administration of Database Connections
+- `CX_SQL_EXCEPTION`：Exception Class for SQL Error
 
-还会用到：
-
-- CL_SQL_RESULT_SET - Resulting Set of an SQL Query
-- CX_PARAMETER_INVALID - Superclass for Parameter Error
+- `CL_SQL_RESULT_SET`：Resulting Set of an SQL Query
+- `CX_PARAMETER_INVALID`：Superclass for Parameter Error
 
 #### 程序实例
 
