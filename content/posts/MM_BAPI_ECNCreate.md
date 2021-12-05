@@ -8,7 +8,8 @@ categories:
   - ABAP
 
 tags: 
-  - SALV
+  - MM
+  - BAPI
  
 ---
 

@@ -1043,12 +1043,12 @@
     </item>
     
     <item>
-      <title> SALV ALV 结果读取 </title>
+      <title> ALV 结果读取 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALV_ResultRead/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_SALV_ResultRead/</guid>
-      <description>ALV 结果读取 通过类 CL_SALV_BS_RUNTIME_INFO 来实现直接获取 submit 其他 SALV 程序后显示的结果。 通过这种方法也可以得到某些标准程序ALV的显示结果，很方便。 将 Submit 的 salv 设置为不显示模</description>
+      <description>传递 ALV 内表数据到被调用的程序 使用 SAP MEMORY 或者 ABAP MEMORY 在调用的程序中：EXPORT it_tab TO MEMORY &amp;lsquo;Z_SUBMIT_MEMORY&amp;rsquo;. 在被调用的程序中：IMPORT T_ITAB FROM MEMORY &amp;lsquo;Z_SUBMIT_MEMORY&amp;rsquo;. 使用类 CL_SALV_BS_RUNTIME_INFO 这个是 SAP 提供的</description>
     </item>
     
     <item>
@@ -1620,10 +1620,10 @@
     
     <item>
       <title> ABAP Submit 实现程序间互相调用 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Submit/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Submit/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</guid>
       <description>ABAP 代码中通过 Submit 实现程序的调用以及调用时数据参数的传递。 程序准备 将要被调用的 Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line TYPE i. lv_line = LINES( s1_matnr ). WRITE: / &amp;#39;S1_MATNR&amp;#39;,lv_line. lv_line</description>
     </item>
     
@@ -1979,24 +1979,6 @@
     </item>
     
     <item>
-      <title> Dialog 程序知识汇总 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title> Dialog 程序简介 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</link>
-      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</guid>
-      <description>TCode SE51：屏幕操作器 SE41：菜单编辑器 ABAP与Dialog交互方式 ABAP 程序与 Dialog 屏幕进行数据交换的方式，通过在程序中定义一个与 Dialog 中同名的全</description>
-    </item>
-    
-    <item>
       <title> 报表开发常用工具 </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</link>
       <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
@@ -2168,6 +2150,24 @@
     </item>
     
     <item>
+      <title> 动态显示 ALV </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_DynamicDisplay/</link>
+      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_DynamicDisplay/</guid>
+      <description>Step1：创建动态的 Fieldcat 和普通创建 fieldcat 的方法相同，不过通过循环去创建动态的列。 Step2：创建动态的内表 根据上一步骤创建的 fieldcat 创建动态的内表，使</description>
+    </item>
+    
+    <item>
+      <title> OO ALV 事件管理 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Event/</link>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Event/</guid>
+      <description>ALV 对象注册事件 如果我们想处理 ALV Grid 实例触发的事件，我们应该定义并实现一个事件处理程序类。 创建 ALV Grid 实例后，我们必须注册此事件处理程序类的实例来处</description>
+    </item>
+    
+    <item>
       <title> OO ALV 事件类工具 </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_EventUtils/</link>
       <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
@@ -2188,25 +2188,16 @@
     <item>
       <title> OO ALV 排序和过滤 </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_SortFilter/</link>
-      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_SortFilter/</guid>
       <description>OO ALV 设置排序条件 可以为 ALV 数据设置排序条件。 初始化排序功能，在方法 SET_TABLE_FOR_FIRST_DISPLAY 中的参数 IT_SORT 添加由系统标准的排序结构 LVC_T_SORT 生成的内表来实现。 FORM prepare_sort_table CHANGING pt_sort TYPE lvc_t_sort . DATA ls_sort TYPE</description>
     </item>
     
     <item>
-      <title> OO ALV 事件管理 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Event/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Event/</guid>
-      <description>ALV 对象注册事件 如果我们想处理 ALV Grid 实例触发的事件，我们应该定义并实现一个事件处理程序类。 创建 ALV Grid 实例后，我们必须注册此事件处理程序类的实例来处</description>
-    </item>
-    
-    <item>
       <title> OO ALV 不同 Container 使用 </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_DiffContainers/</link>
-      <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_DiffContainers/</guid>
       <description>1.Custom container 自定义容器可以使用类 CL_GUI_CUSTOM_CONTAINER 创建，但它需要一个可以放置它的父容器，或者需要在自定义 Screen 中创建一个自定义控制区域。 这个解决方案是现在开发的应用程序</description>
@@ -2215,7 +2206,7 @@
     <item>
       <title> OO ALV Demo </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Demo/</link>
-      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Demo/</guid>
       <description>OO ALV 简单实例 其中屏幕的创建， 和对应PAI、PBO 以及 Status title 等可以自定调整。 REPORT zoo_alv_demo. TYPE-POOLS: slis. &amp;#34; Global data Decleration. &amp;#34; TYPES:BEGIN OF str_output, ebeln TYPE ebeln, aedat TYPE erdat, ernam TYPE ernam, ebelp TYPE ebelp, matnr TYPE matnr, werks TYPE werks_d, menge TYPE bstmg, meins</description>
@@ -2224,19 +2215,28 @@
     <item>
       <title> OO ALV 使用 </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</link>
-      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</guid>
       <description>OO ALV ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作。 使用了 ABAP 的对象以</description>
     </item>
     
     <item>
-      <title> 动态显示 ALV </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_DynamicDisplay/</link>
+      <title> Dialog 逻辑控制 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</guid>
+      <description>Dialog 屏幕操作 语法 Module ... END MODULE. SET screen xxxx . CALL screen xxxx. LEAVE screen. CALL screen xxx [starting at lc ur] [ending at rc lr]. (Modal dialog box类型) SET CURSOR FIELD &amp;lt;f&amp;gt; [offset &amp;lt;o&amp;gt;]. MODULE EXIT AT EXIT-COMMAND. Static Attributes Attribute Attribute Attribute Attribute Attribute Attribute screen-name screen-active screen-invisible screen-input screen-group1 screen-group3 screen-length screen-required screen-intensified screen-output screen-group2 screen-group4 字</description>
+    </item>
+    
+    <item>
+      <title> Dialog 程序简介 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</link>
       <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_DynamicDisplay/</guid>
-      <description>Step1：创建动态的 Fieldcat 和普通创建 fieldcat 的方法相同，不过通过循环去创建动态的列。 Step2：创建动态的内表 根据上一步骤创建的 fieldcat 创建动态的内表，使</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</guid>
+      <description>SAP-ABAP 支持两种类型的程序：Report 和 Dialog。如果 ABAP 程序需要用户输入或则当我们需要在屏幕之间来回导航时，则使用 Dialog 编程。 对话程序的创建类型</description>
     </item>
     
     <item>
@@ -2251,7 +2251,7 @@
     <item>
       <title> ALV 屏幕其它功能设置 </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</link>
-      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</guid>
       <description>屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &amp;lt;pos(len)&amp;gt; &amp;lt;name&amp;gt; USER-COMMAND &amp;lt;ucom&amp;gt; [MODIF ID &amp;lt;key&amp;gt;]. /n :按钮初始时距离屏幕左边的位置 &amp;lt;pos(len)&amp;gt;：PUSHBUTTON按钮在屏幕生成的位置</description>
