@@ -5,7 +5,7 @@ draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-  -  SAP Fiori
+  - SAP Fiori
 
 tags: 
   - sapui5
