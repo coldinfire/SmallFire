@@ -1,6 +1,6 @@
 ---
 title: " 报表开发<屏幕设置> "
-date: 2018-06-19
+date: 2018-06-21
 draft: false
 author: Small Fire
 isCJKLanguage: true

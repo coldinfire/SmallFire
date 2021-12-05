@@ -1,6 +1,6 @@
 ---
-title: " SAP 数据字典 "
-date: 2018-05-14
+title: " ABAP 数据字典 "
+date: 2018-05-19
 draft: false
 author: Small Fire
 isCJKLanguage: true

@@ -2240,6 +2240,15 @@
     </item>
     
     <item>
+      <title> ABAP 性能优化(程序逻辑) </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ProgramOpt/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ProgramOpt/</guid>
+      <description>性能分析工具 ​ SE30(旧)；SAT(新)：运行时间分析工具 ​ ST12：Single transaction analysis 程序优化 READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查</description>
+    </item>
+    
+    <item>
       <title> ALV 屏幕其它功能设置 </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</link>
       <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
@@ -2285,21 +2294,21 @@
     </item>
     
     <item>
+      <title> 报表开发&lt;屏幕设置&gt; </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</link>
+      <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</guid>
+      <description>选择屏幕 屏幕触发事件 选择屏幕触发的是：AT SELECTION-SCREEN 对话屏幕触发的是：PAI 列表屏幕触发的是：AT USER-COMMAND 屏幕事件处理 ABAP 开发属于事件驱动开发，这句话也清晰</description>
+    </item>
+    
+    <item>
       <title> 报表开发&lt;内表操作&gt; </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_InnerTable/</link>
       <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_InnerTable/</guid>
       <description>SQL 语句的执行顺序 书写顺序：SELECT [DISTINCT]&amp;ndash;&amp;gt;FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;UNION&amp;ndash;&amp;gt;ORDER BY 其执行顺序为：FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;SELECT&amp;ndash;&amp;gt;DISTINCT&amp;ndash;&amp;gt;UNION-&amp;gt;ORDER BY FROM 才是</description>
-    </item>
-    
-    <item>
-      <title> 报表开发&lt;屏幕设置&gt; </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</link>
-      <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</guid>
-      <description>选择屏幕 屏幕触发事件 选择屏幕触发的是：AT SELECTION-SCREEN 对话屏幕触发的是：PAI 列表屏幕触发的是：AT USER-COMMAND 屏幕事件处理 ABAP 开发属于事件驱动开发，这句话也清晰</description>
     </item>
     
     <item>
@@ -2393,18 +2402,9 @@
     </item>
     
     <item>
-      <title> ABAP 性能优化(程序逻辑) </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ProgramOpt/</link>
-      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_ProgramOpt/</guid>
-      <description>性能分析工具 ​ SE30(旧)；SAT(新)：运行时间分析工具 ​ ST12：Single transaction analysis 程序优化 READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查</description>
-    </item>
-    
-    <item>
       <title> ABAP 性能优化(数据操作) </title>
       <link>https://coldinfire.github.io/2018/ABAP_SQL_DBOpt/</link>
-      <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 31 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SQL_DBOpt/</guid>
       <description>性能分析工具 ST05：性能分析，追踪 SQL，分析哪条 SQL Statement 语句，最耗时间 STAD：得到某个程序或事务运行时的总体分析数据，系统时间，CPU 时间</description>
@@ -2449,10 +2449,28 @@
     <item>
       <title> ABAP 内表使用 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Basis_InnerTable/</link>
-      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis_InnerTable/</guid>
       <description>工作区和内表的关系 工作区 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 间接定义 通过 TYPES 定义并创</description>
+    </item>
+    
+    <item>
+      <title> ABAP 数据字典 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_Table/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Table/</guid>
+      <description>数据字典(Data Dictionary )是信息管理系统中数据的中央信息源。 它的主要功能是支持数据定义（或“元数据”）的创建和管理。 数据表的组成元素 ABAP 数据字典中</description>
+    </item>
+    
+    <item>
+      <title> ABAP 数据类型和变量 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</link>
+      <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</guid>
+      <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 文本字段（字母数字字符</description>
     </item>
     
     <item>
@@ -2465,30 +2483,12 @@
     </item>
     
     <item>
-      <title> ABAP 数据类型和变量 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</link>
-      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</guid>
-      <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 文本字段（字母数字字符</description>
-    </item>
-    
-    <item>
       <title> ABAP 简介 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Basis_Introduction/</link>
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis_Introduction/</guid>
       <description>什么是 ABAP ABAP (Advanced Business Application) 是由 SAP 创建的高级编程语言，可帮助企业定制 SAP ERP。 ABAP 可以帮助定制财务会计、物料管理、资产管理和 SAP 的所有其他模块的工作流。 SAP 目</description>
-    </item>
-    
-    <item>
-      <title> SAP 数据字典 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Table_Basis/</link>
-      <pubDate>Mon, 14 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Table_Basis/</guid>
-      <description>数据字典(Data Dictionary )是信息管理系统中数据的中央信息源。 它的主要功能是支持数据定义（或“元数据”）的创建和管理。 数据表的组成元素 ABAP 数据字典中</description>
     </item>
     
     <item>

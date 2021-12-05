@@ -1,6 +1,6 @@
 ---
 title: " ABAP 数据类型和变量 "
-date: 2018-05-16
+date: 2018-05-18
 draft: false
 author: Small Fire
 isCJKLanguage: true
