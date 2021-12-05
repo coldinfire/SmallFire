@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BAPI on Small Fire`s Blog</title>
+    <link>https://coldinfire.github.io/tags/BAPI/</link>
+    <description>Recent content in BAPI on Small Fire`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/BAPI/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> BAPI&amp;Tcode 执行之间的差异 </title>
+      <link>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</guid>
+      <description>BAPI 和前台 Tcode 操作大部分是相同的，但是仍然会有一些差异。当使用 BAPI 进行操作时，如果遇到问题，可能需要查找一些资料信息或者 Debug 进行参数排查。 Subsequent Debit/Credit 无法使</description>
+    </item>
+    
+    <item>
+      <title> BAPI 创建和修改 ECN </title>
+      <link>https://coldinfire.github.io/2021/MM_BAPI_ECNCreate/</link>
+      <pubDate>Wed, 14 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/MM_BAPI_ECNCreate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> MM BAPI List </title>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_ALL_LIST/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_ALL_LIST/</guid>
+      <description>MM BAPI LIST 整理 BAPI Desc BAPI_MATERIAL_SAVEDATA 创建及更改物料主数据 BAPI_OBJCL_CREATE 分类视图的创建 BAPI_OBJCL_GETCLASSES 分类视图得到详细信息 BAPI_MATERIAL_SAVEREPLICA 物料视图的扩充 BAPI_GOODSMVT_CREATE 创建物料凭证，注意表T158G可以决定goods</description>
+    </item>
+    
+    <item>
+      <title> Transfer Order(L_TO_CREATE_SINGLE) </title>
+      <link>https://coldinfire.github.io/2020/WM_BAPI_TransferOrder_1/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/WM_BAPI_TransferOrder_1/</guid>
+      <description>L_TO_CREATE_SINGLE 使用 Create a transfer order with one item. You can call this FM more than once if you want to transfer more items. CALL FUNCTION &amp;#39;L_TO_CREATE_SINGLE&amp;#39; exporting i_lgnum = wh_number &amp;#34;Warehouse number&amp;#34; i_bwlvs = &amp;#39;999&amp;#39; &amp;#34;MvT999&amp;#34; i_matnr = lqua-matnr &amp;#34;Material no.&amp;#34; i_werks = lqua-werks &amp;#34;Plant&amp;#34; i_lgort = lqua-lgort &amp;#34;Storage location&amp;#34; i_anfme = lqua-verme &amp;#34;Requested Qty&amp;#34; i_altme = lqua-meins &amp;#34;Unit of measure&amp;#34; i_letyp = ltap-letyp &amp;#34;SU Type&amp;#34; i_vlpla =</description>
+    </item>
+    
+    <item>
+      <title> BAPI:BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 </title>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_ACC_DOCUMENT_REV/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_ACC_DOCUMENT_REV/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/0RoUY8nyWfONjKTItjTouA BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 前台操作： FB08 直接点保存</description>
+    </item>
+    
+    <item>
+      <title> BAPI:BAPI_ACC_DOCUMENT_POST 创建固定资产凭证 </title>
+      <link>https://coldinfire.github.io/2020/FI_BAPI_ACC_DOCUMENT_POST/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/FI_BAPI_ACC_DOCUMENT_POST/</guid>
+      <description>引用链接： https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA 固定资产 BAPI_ACC_DOCUMENT_POST 凭证创建 TCode : F-02 (固定资产) 增强创建 和其他常规标准增强一样：创建自定义结构 ZLM_ENHANCE_ACC_DOC (ACC_DOCUMENT) SE19 创建增强实例：ACC_DOCUMENT</description>
+    </item>
+    
+    <item>
+      <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据退货PO创建贷项凭证 </title>
+      <link>https://coldinfire.github.io/2020/MM_MIRO_INCOMINGINVOICE_CREATE/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_MIRO_INCOMINGINVOICE_CREATE/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw MIRO根据退货PO创建贷项凭证</description>
+    </item>
+    
+    <item>
+      <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 </title>
+      <link>https://coldinfire.github.io/2020/FI_MIRO_Matnr/</link>
+      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/FI_MIRO_Matnr/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw BAPI_INCOMINGINVOICE_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZLM_MIRO *&amp;amp; *&amp;amp;---------------------------------------------------------------------* REPORT ZLM_MIRO. DATA: LS_HEADERDATA LIKE BAPI_INCINV_CREATE_HEADER, LT_RETURN LIKE TABLE</description>
+    </item>
+    
+    <item>
+      <title> BAPI 操作生产订单 </title>
+      <link>https://coldinfire.github.io/2019/PP_BAPI_ProductOrder_Menu/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/PP_BAPI_ProductOrder_Menu/</guid>
+      <description>创建Product Order：BAPI_PRODORD_CREATE *---------------------------------------------------------------------* * Form FRM_ORDER_CREATE *---------------------------------------------------------------------* *----------------------------------------------------------------------* * p1 text * p2 text *----------------------------------------------------------------------* FORM frm_order_create . DATA: ls_upload LIKE LINE OF gt_upload, ls_style TYPE lvc_s_styl, lv_index LIKE sy-tabix. DATA: ls_order TYPE bapi_pp_order_create, ls_return TYPE bapiret2, lv_ordnum</description>
+    </item>
+    
+    <item>
+      <title> Goods Movement Cacel </title>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_GoodsMovementCancel/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_GoodsMovementCancel/</guid>
+      <description>全部冲销 (Full reversal) 如果必须取消整个物料凭证，则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。 BAPI 参数 Import MATERIALDOCUMENT：Number of a Material Document MA</description>
+    </item>
+    
+    <item>
+      <title> Goods Movement Create 解析及示例 </title>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</link>
+      <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</guid>
+      <description>Inventory Management 使用的 BAPI 解析 使用到的 BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证的以下信息</description>
+    </item>
+    
+    <item>
+      <title> BAPI 使用 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</guid>
+      <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的 RFC 函数。 BAPI 函数及函数参数参考的结构类型名，</description>
+    </item>
+    
+    <item>
+      <title> BAPI 总结列表 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_BAPI_SUM/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_BAPI_SUM/</guid>
+      <description>本文主要记录一些收集来的BAPI 在SE38环境下的程序名输入栏 输入 DEMO 后按 F4，你可以查到 SAP 所有的 DEMO 示例程序，会学到很多 ABAP 功能的实现方法 输入 BCALV</description>
+    </item>
+    
+  </channel>
+</rss>
