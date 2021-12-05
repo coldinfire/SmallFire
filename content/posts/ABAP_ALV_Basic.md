@@ -18,23 +18,42 @@ tags:
 
 - List 模式则固定格式，应用于较严格的标准报表。
 
-### 报表包含内容
+### 报表组成
 
-**程序说明**：包括程序名称，实现的业务功能等信息。
+#### Report 开头
 
-**数据定义**：定义报表依赖的表，定义全局变量、内表、ALV 变量、宏定义等。
+```ABAP
+REPORT <report_name> no standard page heading
+  line-size <size>
+  line-count <n(n1)>
+  message-id <message_class>.
+```
 
-**Include 内容**：可以通过 include 方式保存报表的功能函数。
+no standard page heading：为了抑制列表标题或程序名称。
 
-**定义选择屏幕**：定义报表的选择屏幕内容。
+line-size：设置报表的行大小。
 
-**定义报表事件**：在报表事件中对选择屏幕内容进行处理。
+line-count：使用加法行数 n(n1) 来设置特定页面的行数。N 是页面的行数，N1 是为页脚保留的行数。
 
-**执行程序业务代码**：在报表事件START-OF-SELECTION 后面实现报表的主要业务逻辑。
+message-id：为了显示程序执行的消息，向程序添加消息类：Message-id <消息类名称>。消息类在 SE91 中维护。
 
-**显示报表**：将处理后的业务数据以指定样式和格式显示。
+#### Report 主体内容
+
+数据定义：定义报表依赖的表，定义全局变量、内表、ALV 变量、宏定义等。
+
+INCLUDE x：可以通过 include 方式保存报表的功能函数。
+
+[选择屏幕](https://coldinfire.github.io/2018/ABAP_ALV_Screen/)：指定程序应运行的输入值的屏幕，Parameters；Select-Options。
+
+报表事件：在报表事件中对选择屏幕内容进行处理。
+
+业务代码：在报表事件START-OF-SELECTION 后面实现报表的主要业务逻辑。
+
+显示报表：将处理后的业务数据以指定样式和格式显示。
 
 ### 执行程序的使用范围，报表事件
+
+报表编程是一种事件驱动的编程。
 
 #### 选择屏幕事件
 

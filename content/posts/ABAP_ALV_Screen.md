@@ -14,13 +14,29 @@ tags:
 
 ## 选择屏幕 
 
+### 屏幕触发事件
+
+选择屏幕触发的是：AT SELECTION-SCREEN
+
+对话屏幕触发的是：PAI
+
+列表屏幕触发的是：AT USER-COMMAND
+
 ###  屏幕事件处理
 
 ABAP 开发属于事件驱动开发，这句话也清晰的解释了 SAP 程序的必然结构。程序是按照以下的事件块的顺序去依次执行的。它的事件块的顺序是指定好的。
 
+#### LOAD-OF-PROGRAM.
+
+在加载类型 1、M、F 或 S 的程序后触发内部会话中的关联事件。
+
+只为每个程序和内部会话运行相关的处理块一次又一次。
+
+处理块 LOAD-OF-PROGRAM 对类型 1、M、F 或 S 的 ABAP 程序的功能与构造函数对 ABAP 对象中的类的功能大致相同。
+
 #### INITIALIZATION.
 
-程序初始化事件，该事件在程序屏幕未显示之前执行。对程序设置值及屏幕元素进行初始化，只运行一次的事件块。
+程序初始化事件，该事件在程序屏幕未显示之前执行；对程序设置值及屏幕元素进行初始化；只运行一次的事件块。
 
 #### AT SELECTION-SCREEN OUTPUT.
 
@@ -65,23 +81,15 @@ AT SELECTION-SCREEN OUTPUT.
 
 #### AT SELECTION-SCREEN
 
-PAI事件块，即屏幕操作后事件块。
+当处理选择屏幕时（在 PAI 结束时）处理事件。即屏幕操作后事件块，输入值的验证和检查发生在这里。
 
 #### START-OF-SELECTION
 
-该事件在单击按钮后触发。
+该事件在单击按钮后触发。此处程序开始从表中选择值。
 
 #### END-OF-SELECTION
 
 该事件应用于所有数据处理完成，即 START-OF-SELECTION 相关执行事件执行完成。但输出屏幕还未显示之前，在实际的应用于一些执行结果的检验等。
-
-### 屏幕触发事件
-
-选择屏幕触发的是：AT SELECTION-SCREEN
-
-对话屏幕触发的是：PAI
-
-列表屏幕触发的是：AT USER-COMMAND
 
 ### SELECT-SCREEN 语句解析
 
@@ -119,14 +127,14 @@ SELECTION-SCREEN END OF BLOCK blk_1.
 
 屏幕块中添加的其它元素：
 
-```JS
-SELECTION-SCREEN INCLUDE BLOCKS <block1>.  调用已存在屏幕元素
-SELECTION-SCREEN ULINE.  划出横线，必须用在BLOCK中才能生效。
-SELECTION-SCREEN SKIP <n>.  在BLOCK中产生换行<n>。
-SELECTION-SCREEN POSITION <pos>. 在BLOCK中产生空格。
+```ABAP
+SELECTION-SCREEN INCLUDE BLOCKS <block1>.  "调用已存在屏幕元素"
+SELECTION-SCREEN ULINE.          "划出横线，必须用在BLOCK中才能生效"
+SELECTION-SCREEN SKIP <n>.       "在BLOCK中产生换行<n>"
+SELECTION-SCREEN POSITION <pos>. "在BLOCK中产生空格"
 SELECTION-SCREEN BEGIN OF LINE.
   ......
-SELECTION-SCREEN END OF LINE. 将所生成的屏幕元素控制在一行.
+SELECTION-SCREEN END OF LINE.    "将所生成的屏幕元素控制在一行"
 ```
 
 #### 屏幕元素单行添加
@@ -146,13 +154,15 @@ SELECTION-SCREEN END OF LINE.
 
 PARAMETERS 参照数据字典具体字段或者自定义数据类型创建单值文本输入域以及单选/复选框等：
 
-```JS
+```ABAP
 PARAMETERS: 
-  <P_1> LIKE <field>      "文本域"
-  TYPE AS CHECKBOX.       "复选框"
-  RADIOBUTTON GROUP GRP1, "单选域"
-  P2 RADIOBUTTON GROUP GRP1 DEFAULT 'X',  "默认选中X"
-  P3 RADIOBUTTON GROUP GRP1. "GRP1单选组"
+  p_id(30) TYPE c.
+  p_id LIKE dbtab-element.   "文本域"
+  p_id AS CHECKBOX.            "复选框"
+  p_id RADIOBUTTON GROUP GRP1. "单选域"
+  p1 RADIOBUTTON GROUP GRP1 DEFAULT 'X',  "默认选中X"
+  p2 RADIOBUTTON GROUP GRP2. "GRP2 单选组"
+  p_id LIKE dbtab-element AS LISTBOX. "下拉框定义"
 ```
 
   可选参数列表：
@@ -200,7 +210,7 @@ PARAMETERS:
 
 定义一个下拉框对象，其可视数据长度一般比输出数据长度大2用于放置下拉图标。
 
-PARAMETERS: p_lang LIKE itab-field AS LISTBOX VISIBLE LENGTH 22 USER-COMMAND onli DEFAULT 'LH'.
+`PARAMETERS: p_lang LIKE itab-field AS LISTBOX [VISIBLE LENGTH 22] [USER-COMMAND onli].`
 
 通过函数：`VRM_SET_VALUES` 为下拉框初始化列表项。
 

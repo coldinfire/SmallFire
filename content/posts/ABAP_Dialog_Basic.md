@@ -20,11 +20,11 @@ SE41：菜单编辑器
 
 ### ABAP与Dialog交互方式
 
-ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中定义一个与Dialog中同名的全局变量或者结构，从而实现数据的自动传递。
+ABAP 程序与 Dialog 屏幕进行数据交换的方式，通过在程序中定义一个与 Dialog 中同名的全局变量或者结构，从而实现数据的自动传递。
 
-- 加载数据：在PBO中实现
+- 加载数据：在 PBO 中实现
 
-- 推送数据：在PAI中控制
+- 推送数据：在 PAI 中控制
 
 - PBO：Before the screen is displayed
   
@@ -71,14 +71,14 @@ Screen Flow Logic 定义了在 screen 上的各种事件，而 Dynpro 定义了�
 
 #### 检查多字段，使用 CHAIN
 
-```JSP
+```ABAP
 CHAIN.
   FIELD<FLD1>.
   FIELD<FLD2>,<FLD3>,<FLD4>.
   MODULE<MDL1>.
   MODULE<MDL2>.
 ENDCHAIN.
-表示FLD1,FLD2,FLD3,FLD4有MDL1与MDL2检查
+"表示FLD1,FLD2,FLD3,FLD4有MDL1与MDL2检查"
 ```
 
 #### 不是初始值检查：

@@ -1,6 +1,6 @@
 ---
 title: " ABAP 内表使用 "
-date: 2018-05-16
+date: 2018-05-19
 draft: false
 author: Small Fire
 isCJKLanguage: true

@@ -1282,7 +1282,16 @@
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</guid>
-      <description>TCode SE51：屏幕操作器 SE41：菜单编辑器 ABAP与Dialog交互方式 ABAP程序与Dialog屏幕进行数据交换的方式，通过在程序中定义一</description>
+      <description>TCode SE51：屏幕操作器 SE41：菜单编辑器 ABAP与Dialog交互方式 ABAP 程序与 Dialog 屏幕进行数据交换的方式，通过在程序中定义一个与 Dialog 中同名的全</description>
+    </item>
+    
+    <item>
+      <title> 报表开发常用工具 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</link>
+      <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</guid>
+      <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对 REUSE_ALV_GRID_DISPLAY 函数参数 i_grid_settings-edt_cll_cb 进行设置 DATA:gs_grid_settings TYPE lv_s_glay. gs_grid_settings-edt_cll_cb = &amp;#39;X&amp;#39;. CALL FUNCTION &amp;#39;REUSE_ALV_GRID_DISPLAY&amp;#39; EXPORTING i_grid_settings = gs_grid_settings 方法</description>
     </item>
     
     <item>
@@ -1520,30 +1529,12 @@
     </item>
     
     <item>
-      <title> 报表开发&lt;常用工具&gt; </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</link>
-      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</guid>
-      <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对 REUSE_ALV_GRID_DISPLAY 函数参数 i_grid_settings-edt_cll_cb 进行设置 DATA:gs_grid_settings TYPE lv_s_glay. gs_grid_settings-edt_cll_cb = &amp;#39;X&amp;#39;. CALL FUNCTION &amp;#39;REUSE_ALV_GRID_DISPLAY&amp;#39; EXPORTING i_grid_settings = gs_grid_settings 方法</description>
-    </item>
-    
-    <item>
       <title> ALV 屏幕其它功能设置 </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</link>
       <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</guid>
       <description>屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &amp;lt;pos(len)&amp;gt; &amp;lt;name&amp;gt; USER-COMMAND &amp;lt;ucom&amp;gt; [MODIF ID &amp;lt;key&amp;gt;]. /n :按钮初始时距离屏幕左边的位置 &amp;lt;pos(len)&amp;gt;：PUSHBUTTON按钮在屏幕生成的位置</description>
-    </item>
-    
-    <item>
-      <title> Field Catalog 字段排坑 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</guid>
-      <description>原文链接：https://blog.csdn.net/zhongguomao/article/details/77774206 对于初写 ALV 的 A</description>
     </item>
     
     <item>
@@ -1565,9 +1556,18 @@
     </item>
     
     <item>
+      <title> Field Catalog 字段排坑 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</guid>
+      <description>原文链接：https://blog.csdn.net/zhongguomao/article/details/77774206 对于初写 ALV 的 A</description>
+    </item>
+    
+    <item>
       <title> 报表开发&lt;ALV 显示设置&gt; </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Display/</link>
-      <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 23 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display/</guid>
       <description>ALV 显示 ALV 显示相关的 FM REUSE_ALV_LIST_DISPLAY：List 格式的 ALV 模式为固定格式，应用于较严格的标准报表。 REUSE_ALV</description>
@@ -1576,7 +1576,7 @@
     <item>
       <title> 报表开发&lt;内表操作&gt; </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_InnerTable/</link>
-      <pubDate>Sat, 23 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_InnerTable/</guid>
       <description>SQL 语句的执行顺序 书写顺序：SELECT [DISTINCT]&amp;ndash;&amp;gt;FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;UNION&amp;ndash;&amp;gt;ORDER BY 其执行顺序为：FROM&amp;ndash;&amp;gt;WHERE&amp;ndash;&amp;gt;GROUP BY&amp;ndash;&amp;gt;HAVING&amp;ndash;&amp;gt;SELECT&amp;ndash;&amp;gt;DISTINCT&amp;ndash;&amp;gt;UNION-&amp;gt;ORDER BY FROM 才是</description>
@@ -1588,7 +1588,7 @@
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen/</guid>
-      <description>选择屏幕 屏幕事件处理 ABAP 开发属于事件驱动开发，这句话也清晰的解释了 SAP 程序的必然结构。程序是按照以下的事件块的顺序去依次执行的。它的事件块的顺序</description>
+      <description>选择屏幕 屏幕触发事件 选择屏幕触发的是：AT SELECTION-SCREEN 对话屏幕触发的是：PAI 列表屏幕触发的是：AT USER-COMMAND 屏幕事件处理 ABAP 开发属于事件驱动开发，这句话也清晰</description>
     </item>
     
     <item>
@@ -1729,7 +1729,7 @@
     <item>
       <title> ABAP 模块化使用 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Basis_Modularization/</link>
-      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis_Modularization/</guid>
       <description>代码模块化 当模块化源代码时，可以将一个完整功能的 ABAP 语句放置在一个模块中。 然后在后续编写程序时，不必将所有语句都放在主程序中，而只需调用模块。</description>
@@ -1737,11 +1737,38 @@
     
     <item>
       <title> ABAP 内表使用 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Table_InnerTable/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_InnerTable/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_InnerTable/</guid>
+      <description>工作区和内表的关系 工作区 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 间接定义 通过 TYPES 定义并创</description>
+    </item>
+    
+    <item>
+      <title> ABAP 技能树 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</link>
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Table_InnerTable/</guid>
-      <description>工作区和内表的关系 工作区 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 间接定义 通过 TYPES 定义并创</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</guid>
+      <description>ABAP 学习 ABAP语法详解 全面掌握 SAP 的开发环境，ABAP 语法等基础知识。 报表开发全面总结 全面总结 SAP 系统中各种类型报表的实现方案和技术细节，开发者</description>
+    </item>
+    
+    <item>
+      <title> ABAP 数据类型和变量 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</guid>
+      <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 文本字段（字母数字字符</description>
+    </item>
+    
+    <item>
+      <title> ABAP 简介 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_Introduction/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Introduction/</guid>
+      <description>什么是 ABAP ABAP (Advanced Business Application) 是由 SAP 创建的高级编程语言，可帮助企业定制 SAP ERP。 ABAP 可以帮助定制财务会计、物料管理、资产管理和 SAP 的所有其他模块的工作流。 SAP 目</description>
     </item>
     
     <item>
@@ -1751,33 +1778,6 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_Table_Basis/</guid>
       <description>数据字典(Data Dictionary )是信息管理系统中数据的中央信息源。 它的主要功能是支持数据定义（或“元数据”）的创建和管理。 数据表的组成元素 ABAP 数据字典中</description>
-    </item>
-    
-    <item>
-      <title> ABAP 数据类型和变量 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</link>
-      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</guid>
-      <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 文本字段（字母数字字符</description>
-    </item>
-    
-    <item>
-      <title> ABAP 简介 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis_Introduction/</link>
-      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Introduction/</guid>
-      <description>什么是 ABAP ABAP (Advanced Business Application) 是由 SAP 创建的高级编程语言，可帮助企业定制 SAP ERP。 ABAP 可以帮助定制财务会计、物料管理、资产管理和 SAP 的所有其他模块的工作流。 SAP 目</description>
-    </item>
-    
-    <item>
-      <title> ABAP 技能树 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</link>
-      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</guid>
-      <description>ABAP 学习 ABAP语法详解 全面掌握 SAP 的开发环境，ABAP 语法等基础知识。 报表开发全面总结 全面总结 SAP 系统中各种类型报表的实现方案和技术细节，开发者</description>
     </item>
     
   </channel>
