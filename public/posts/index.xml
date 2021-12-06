@@ -469,10 +469,19 @@
     <item>
       <title> BAPI 创建 Purchase Request </title>
       <link>https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/</link>
-      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/</guid>
       <description>Purchase Request 内容 PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期 PR Item : 物料编号、短文本、发货日期、采购订单数量、采购订单价格、分类 BAPI: ME51</description>
+    </item>
+    
+    <item>
+      <title> SAP 系统监控和性能检查 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_Utils_MointPerformanceCheck/</link>
+      <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_Utils_MointPerformanceCheck/</guid>
+      <description>系统监控 系统监控是一项日常活动，当需要时我们应该清楚如何查找问题。 检查应用服务器 监控全系统的工作流程 监控单个实例的工作流程 监控锁定条目 CPU 使用</description>
     </item>
     
     <item>
@@ -1939,7 +1948,7 @@
       <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_RFC/</guid>
-      <description>RFC : SAP Hlep Portal 链接 什么是 RFC RFC 是 SAP 系统和其他（SAP 或非 SAP）系统间的一个重要而常用的双向接口技术，也被视为 SAP 与外部通信的基本协议。简单地说，R</description>
+      <description>RFC : SAP Hlep Portal 链接 什么是 RFC RFC(Remote Function Call) 是 SAP 系统和其他（SAP 或非 SAP）系统间的一个重要而常用的双向接口技术，也被视为 SAP 与外部通信的基本协议。 简单地说</description>
     </item>
     
     <item>

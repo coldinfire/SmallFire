@@ -143,6 +143,15 @@
     </item>
     
     <item>
+      <title> SAP 系统监控和性能检查 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_Utils_MointPerformanceCheck/</link>
+      <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_Utils_MointPerformanceCheck/</guid>
+      <description>系统监控 系统监控是一项日常活动，当需要时我们应该清楚如何查找问题。 检查应用服务器 监控全系统的工作流程 监控单个实例的工作流程 监控锁定条目 CPU 使用</description>
+    </item>
+    
+    <item>
       <title> SAP Adobe Form 工具 </title>
       <link>https://coldinfire.github.io/2020/ABAP_SFP_Utils/</link>
       <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>

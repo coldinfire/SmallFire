@@ -31,7 +31,7 @@
       <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_RFC/</guid>
-      <description>RFC : SAP Hlep Portal 链接 什么是 RFC RFC 是 SAP 系统和其他（SAP 或非 SAP）系统间的一个重要而常用的双向接口技术，也被视为 SAP 与外部通信的基本协议。简单地说，R</description>
+      <description>RFC : SAP Hlep Portal 链接 什么是 RFC RFC(Remote Function Call) 是 SAP 系统和其他（SAP 或非 SAP）系统间的一个重要而常用的双向接口技术，也被视为 SAP 与外部通信的基本协议。 简单地说</description>
     </item>
     
     <item>

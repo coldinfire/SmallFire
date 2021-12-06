@@ -1,6 +1,6 @@
 ---
 title: " BAPI 创建 Purchase Request "
-date: 2020-06-04
+date: 2020-06-12
 draft: false
 author: Small Fire
 isCJKLanguage: true
