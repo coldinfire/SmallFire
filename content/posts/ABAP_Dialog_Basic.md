@@ -72,7 +72,7 @@ R/3 系统中的每个屏幕和 GUI 状态都属于一个 ABAP 程序。ABAP 程
 
 #### Screen Flow Logic
 
-Screen Flow Logic 定义了在 screen 上的各种事件，而 Dynpro 定义了这个 Screen 和各种事件。ABAP MODULE POOL 会处理这些 Event，在每次事件时调用一个ABAP program。
+Screen Flow Logic(屏幕流逻辑) 定义了在 screen 上的各种事件，而 Dynpro 定义了这个 Screen 和各种事件。ABAP MODULE POOL 会处理这些 Event，在每次事件时调用一个 ABAP program。
 
 屏幕流逻辑主要分为四个组件。
 

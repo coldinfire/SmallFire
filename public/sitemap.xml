@@ -1514,7 +1514,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_Table_SearchHelp/</loc>
+      <loc>https://coldinfire.github.io/2019/ABAP_ALV_SearchHelp/</loc>
       
       <lastmod>2019-10-12T00:00:00+00:00</lastmod>
       
@@ -2998,9 +2998,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/Python_Basic/</loc>
+      <loc>https://coldinfire.github.io/2018/Python_Resource/</loc>
       
-      <lastmod>2019-01-16T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-24T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3014,7 +3014,7 @@
     <url>
       <loc>https://coldinfire.github.io/categories/Python/</loc>
       
-      <lastmod>2019-01-16T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-24T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3028,7 +3028,7 @@
     <url>
       <loc>https://coldinfire.github.io/tags/python/</loc>
       
-      <lastmod>2019-01-16T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-24T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3040,23 +3040,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/Python_Resource/</loc>
+      <loc>https://coldinfire.github.io/2018/Python_Pycharm/</loc>
       
-      <lastmod>2019-01-14T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2019/Python_Pycharm/</loc>
-      
-      <lastmod>2019-01-03T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-23T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3068,9 +3054,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</loc>
+      <loc>https://coldinfire.github.io/2018/Python_Basic/</loc>
       
-      <lastmod>2018-12-20T00:00:00+00:00</lastmod>
+      <lastmod>2018-12-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3141,6 +3127,20 @@
       <loc>https://coldinfire.github.io/2018/ABAP_EXCEL_CLASS/</loc>
       
       <lastmod>2018-12-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Enhance3/</loc>
+      
+      <lastmod>2018-11-30T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3572,23 +3572,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Enhance3/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</loc>
       
-      <lastmod>2018-09-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Enhance2/</loc>
-      
-      <lastmod>2018-09-16T00:00:00+00:00</lastmod>
+      <lastmod>2018-09-19T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3602,7 +3588,21 @@
     <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Enhance1/</loc>
       
-      <lastmod>2018-09-14T00:00:00+00:00</lastmod>
+      <lastmod>2018-09-15T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Enhance2/</loc>
+      
+      <lastmod>2018-09-15T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3810,20 +3810,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</loc>
-      
-      <lastmod>2018-08-01T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2018/ABAP_Smartform_LoopPrint/</loc>
       
       <lastmod>2018-07-31T00:00:00+00:00</lastmod>
@@ -3841,6 +3827,20 @@
       <loc>https://coldinfire.github.io/2018/ABAP_Smartform_page1/</loc>
       
       <lastmod>2018-07-29T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</loc>
+      
+      <lastmod>2018-07-28T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -3908,7 +3908,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Smartforms/</loc>
       
       <lastmod>2018-07-23T00:00:00+00:00</lastmod>
       
@@ -3922,7 +3922,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Smartforms/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</loc>
       
       <lastmod>2018-07-20T00:00:00+00:00</lastmod>
       
@@ -4048,9 +4048,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</loc>
       
       <lastmod>2018-07-06T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</loc>
+      
+      <lastmod>2018-07-03T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

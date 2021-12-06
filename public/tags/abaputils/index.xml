@@ -234,11 +234,11 @@
     
     <item>
       <title> SAP 搜索帮助 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_Table_SearchHelp/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_ALV_SearchHelp/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Table_SearchHelp/</guid>
-      <description>使用搜索帮助对象 定义 Search Help 在命令字段中输入事务代码 SE11；选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 1、在下一个</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_ALV_SearchHelp/</guid>
+      <description>搜索帮助优先级 先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST 再 PARAMETERS/ SELECT-OPTIONS MATCHCODE OBJECT XXXX 其次是 Check Table、再表（或 结构 ）字段是否绑定了搜索帮助 然后检查 Data element 是否绑定了帮助 ，再 Domain 是否存</description>
     </item>
     
     <item>
@@ -458,15 +458,6 @@
     </item>
     
     <item>
-      <title> ABAP Submit 实现程序间互相调用 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</link>
-      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</guid>
-      <description>ABAP 代码中通过 Submit 实现程序的调用以及调用时数据参数的传递。 程序准备 将要被调用的 Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line TYPE i. lv_line = LINES( s1_matnr ). WRITE: / &amp;#39;S1_MATNR&amp;#39;,lv_line. lv_line</description>
-    </item>
-    
-    <item>
       <title> Smartforms 转换成PDF发送到FTP服务器 </title>
       <link>https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
@@ -566,6 +557,15 @@
     </item>
     
     <item>
+      <title> ABAP Submit 实现程序间互相调用 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</link>
+      <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</guid>
+      <description>ABAP 代码中通过 Submit 实现程序的调用以及调用时数据参数的传递。 程序准备 将要被调用的 Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line TYPE i. lv_line = LINES( s1_matnr ). WRITE: / &amp;#39;S1_MATNR&amp;#39;,lv_line. lv_line</description>
+    </item>
+    
+    <item>
       <title> 复制其他的内表/结构到当前表/结构 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Table_CopyFields/</link>
       <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
@@ -622,7 +622,7 @@
     <item>
       <title> 修改文件所属 Package </title>
       <link>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</guid>
       <description>创建 ABAP 程序的时候都要选择一个 Package，当后续需要修改程序所属的Package时可以使用以下方法： 通过SE38或则SE80打开对应的程序</description>

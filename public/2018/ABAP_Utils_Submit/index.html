@@ -10,8 +10,8 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/" />
-  <link rel="next" href="https://coldinfire.github.io/2019/Python_Pycharm/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP_Enhance1/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/SAP_VoucherReversal/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP_Utils_Submit/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -57,8 +57,8 @@
   "keywords": "abaputils",
   "wordcount":  416 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Utils_Submit\/",
-  "datePublished": "2018-12-20T00:00:00\u002b00:00",
-  "dateModified": "2018-12-20T00:00:00\u002b00:00",
+  "datePublished": "2018-09-19T00:00:00\u002b00:00",
+  "dateModified": "2018-09-19T00:00:00\u002b00:00",
   
   "publisher": {
     "@type": "Organization",
@@ -143,7 +143,7 @@
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
-                    on <time datetime=2018-12-20 >20 December 2018</time>
+                    on <time datetime=2018-09-19 >19 September 2018</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -194,10 +194,10 @@
 <span style="color:#75715e">* 在该代码块实现用不同的方式调用Reprot1</span>
 <span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
 </code></pre></div><p>SUBMIT 使用语法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">SUBMIT</span> {<span style="color:#a6e22e">report</span><span style="color:#f92672">|</span>(<span style="color:#a6e22e">name</span>)} [<span style="color:#a6e22e">selscreen_options</span>]
-    [<span style="color:#a6e22e">list_options</span>]
-	[<span style="color:#a6e22e">job_options</span>]
-	[<span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">RETURN</span>].
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">SUBMIT</span> <span style="color:#960050;background-color:#1e0010">{</span>report<span style="color:#960050;background-color:#1e0010">|</span>(name)<span style="color:#960050;background-color:#1e0010">}</span> [selscreen_options]
+    [list_options]
+	[job_options]
+	[<span style="color:#66d9ef">AND RETURN</span>].
 </code></pre></div><h3 id="不使用参数直接调用">不使用参数直接调用</h3>
 <p><code>SUBMIT ztest_submit1 AND RETURN.</code></p>
 <h3 id="直接使用参数调用">直接使用参数调用</h3>
@@ -238,11 +238,10 @@
     <span style="color:#66d9ef">AND RETURN</span>.
 <span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
 </code></pre></div><h3 id="调用程序显示选择屏幕界面">调用程序，显示选择屏幕界面</h3>
-<p>被调报表程序的选择屏幕会显示。如果此选择打开，并且还使用了其他参数选项来传输值时，这些值也会显示在屏幕中相应的
-输入框中，并且用户可以进一步修改这些值。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#f92672">*</span><span style="color:#a6e22e">$</span><span style="color:#f92672">*</span><span style="color:#a6e22e">$</span><span style="color:#f92672">*</span>.....<span style="color:#a6e22e">CODE_ADD_1</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">Begin</span>.................................<span style="color:#ae81ff">.1</span>..<span style="color:#f92672">*</span><span style="color:#a6e22e">$</span><span style="color:#f92672">*</span><span style="color:#a6e22e">$</span><span style="color:#f92672">*</span>
-<span style="color:#a6e22e">SUBMIT</span> <span style="color:#a6e22e">ztest_submit1</span> <span style="color:#a6e22e">VIA</span> <span style="color:#a6e22e">SELECTION</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SCREEN</span> <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">RETURN</span>.
-<span style="color:#f92672">*</span><span style="color:#a6e22e">$</span><span style="color:#f92672">*</span><span style="color:#a6e22e">$</span><span style="color:#f92672">*</span>.....<span style="color:#a6e22e">CODE_ADD_1</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">End</span>....................................<span style="color:#ae81ff">1.</span>.<span style="color:#f92672">*</span><span style="color:#a6e22e">$</span><span style="color:#f92672">*</span><span style="color:#a6e22e">$</span><span style="color:#f92672">*</span>
+<p>被调报表程序的选择屏幕会显示。如果此选择打开，并且还使用了其他参数选项来传输值时，这些值也会显示在屏幕中相应的输入框中，并且用户可以进一步修改这些值。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
+<span style="color:#66d9ef">SUBMIT</span> ztest_submit1 <span style="color:#66d9ef">VIA</span> SELECTION<span style="color:#f92672">-</span>SCREEN <span style="color:#66d9ef">AND RETURN</span>.
+<span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
 </code></pre></div>
     </div>
 
@@ -285,10 +284,10 @@
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/" class="prev" rel="prev" title=" Smartforms 转换成PDF发送到FTP服务器 "><i class="iconfont icon-dajiantou"></i>&nbsp; Smartforms 转换成PDF发送到FTP服务器 </a>
+        <a href="https://coldinfire.github.io/2018/ABAP_Enhance1/" class="prev" rel="prev" title=" 查找增强程序(1) "><i class="iconfont icon-dajiantou"></i>&nbsp; 查找增强程序(1) </a>
          
         
-        <a href="https://coldinfire.github.io/2019/Python_Pycharm/" class="next" rel="next" title=" Pycharm 使用 "> Pycharm 使用 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/SAP_VoucherReversal/" class="next" rel="next" title=" SAP 凭证冲销 "> SAP 凭证冲销 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -299,7 +298,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-12-20 00:00:00 \u002b0000 UTC',
+        id: '2018-09-19 00:00:00 \u002b0000 UTC',
         title: ' ABAP Submit 实现程序间互相调用 ',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',

@@ -1,6 +1,6 @@
 ---
 title: " ABAP Submit 实现程序间互相调用 "
-date: 2018-12-20
+date: 2018-09-19
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -46,7 +46,7 @@ START-OF-SELECTION.
 
 SUBMIT 使用语法：
 
-```JS
+```ABAP
 SUBMIT {report|(name)} [selscreen_options]
     [list_options]
 	[job_options]
@@ -108,10 +108,9 @@ ENDLOOP.
 
 ### 调用程序，显示选择屏幕界面
 
-被调报表程序的选择屏幕会显示。如果此选择打开，并且还使用了其他参数选项来传输值时，这些值也会显示在屏幕中相应的
-输入框中，并且用户可以进一步修改这些值。
+被调报表程序的选择屏幕会显示。如果此选择打开，并且还使用了其他参数选项来传输值时，这些值也会显示在屏幕中相应的输入框中，并且用户可以进一步修改这些值。
 
-```JS
+```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
 SUBMIT ztest_submit1 VIA SELECTION-SCREEN AND RETURN.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*

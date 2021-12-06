@@ -11,7 +11,7 @@
   
   
   <link rel="prev" href="https://coldinfire.github.io/2018/ABAP_Dialog_Basic/" />
-  <link rel="next" href="https://coldinfire.github.io/2018/ABAP_OOALV_Basic/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP_Dialog_Detail/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -55,10 +55,10 @@
   },
   "genre": "posts",
   "keywords": "Dialog",
-  "wordcount":  506 ,
+  "wordcount":  1061 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Dialog_Detail\/",
-  "datePublished": "2018-07-06T00:00:00\u002b00:00",
-  "dateModified": "2018-07-06T00:00:00\u002b00:00",
+  "datePublished": "2018-07-03T00:00:00\u002b00:00",
+  "dateModified": "2018-07-03T00:00:00\u002b00:00",
   
   "publisher": {
     "@type": "Organization",
@@ -143,7 +143,7 @@
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
-                    on <time datetime=2018-07-06 >6 July 2018</time>
+                    on <time datetime=2018-07-03 >3 July 2018</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                2 min
+                3 min
         </div>
     </header>
     <div class="post-content">
@@ -233,7 +233,7 @@
 <li>单个字段检查： <code>FIELD &lt;FLD1&gt; MODULE &lt;MDL1&gt; .</code></li>
 <li>单个字段多个 MODULE 检查，如 FLD1 有两个 MODULE 检查：
 <ul>
-<li><code> FIELD &lt;FLD1&gt; MODULE&lt;MDL1&gt;. MODULE&lt;MDL2&gt;.</code></li>
+<li><code> FIELD &lt;FLD1&gt; MODULE &lt;MDL1&gt;. MODULE &lt;MDL2&gt;.</code></li>
 </ul>
 </li>
 </ul>
@@ -246,32 +246,71 @@
 ENDCHAIN.
 <span style="color:#75715e">&#34;表示FLD1,FLD2,FLD3,FLD4有MDL1与MDL2检查&#34;
 </span></code></pre></div><h4 id="其它检查">其它检查</h4>
-<p>不是初始值检查 <code>FIELD &lt;FLD1&gt; MODLE &lt;MDL1&gt; ON INPUT.</code></p>
+<p>不是初始值检查： <code>FIELD &lt;FLD1&gt; MODLE &lt;MDL1&gt; ON INPUT.</code></p>
 <ul>
-<li>ON INPUT表示是初始值改变时执行.
-有一个特殊情况：<code> FIELD &lt;FLD1&gt; MODULE &lt;MDL1&gt; ON *-INPUT</code>
+<li>ON INPUT表示是初始值改变时执行。
+<ul>
+<li>有一个特殊情况：<code> FIELD &lt;FLD1&gt; MODULE &lt;MDL1&gt; ON *-INPUT</code>
 表示用户输入字段首先输入'*'，并且输入字段属性，MODULE无效。</li>
 </ul>
-<p>有改变检查：<code>FIELD&lt;FLD1&gt;MODULE&lt;MDL1&gt;ON REQUEST.</code></p>
+</li>
+</ul>
+<p>有改变检查：<code>FIELD &lt;FLD1&gt; MODULE &lt;MDL1&gt; ON REQUEST.</code></p>
 <h4 id="chain-中有字段不是初始值检查">CHAIN 中有字段不是初始值检查</h4>
-<p>注意：CHAIN_INPUT 表示FLD1、FLD2、FLD3、FLD4不是初始值是执行 MDL1 检查。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP">CHAIN.
-  <span style="color:#66d9ef">FIELD</span>&lt;FLD1&gt;.
-  <span style="color:#66d9ef">FIELD</span>&lt;FLD2&gt;,&lt;FLD3&gt;,&lt;FLD4&gt;.
-  <span style="color:#66d9ef">MODULE</span>&lt;MDL1&gt;ON CHAIN_INPUT.
-  <span style="color:#66d9ef">MODULE</span>&lt;MDL2&gt;.
-ENDCHAIN.
-</code></pre></div><p>PBO：<code>CALL SUBSCREEN &lt;SUBAREA&gt; INCLUDING &lt;PROGRAM_NAME&gt; &lt;DYNPRO_NUMBER&gt;.</code></p>
-<p>PAI：<code>CALL SUBSCREEN &lt;SUBAREA&gt;. </code>    <code>&lt;program_name&gt; = sy-cprog </code>: 代表本程序</p>
-<p>ON CHANGE OF : 当指定字段修改才会去读取数据</p>
-<h4 id="exit-command">EXIT-COMMAND</h4>
 <ul>
 <li>
-<p><code>MODULE &lt;mod&gt; AT EXIT-COMMAND.</code> 在对话屏幕中，对于E类型的Function Code触发退出屏幕，其他字段值不会传递到ABAP程序中。</p>
+<p>CHAIN_INPUT： 表示FLD1、FLD2、FLD3、FLD4 不是初始值是执行 MDL1 检查</p>
+</li>
+<li>
+<p>ON CHANGE OF：当指定字段修改才会去读取数据</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP">CHAIN.
+  <span style="color:#66d9ef">FIELD</span> &lt;FLD1&gt;.
+  <span style="color:#66d9ef">FIELD</span> &lt;FLD2&gt;,&lt;FLD3&gt;,&lt;FLD4&gt;.
+  <span style="color:#66d9ef">MODULE</span>&lt;MDL1&gt; <span style="color:#66d9ef">ON</span> CHAIN_INPUT.
+  <span style="color:#66d9ef">MODULE</span>&lt;MDL2&gt; <span style="color:#66d9ef">ON</span> CHANGE <span style="color:#66d9ef">OF</span> ...
+ENDCHAIN.
+</code></pre></div><h4 id="exit-command">EXIT-COMMAND</h4>
+<ul>
+<li>
+<p><code>MODULE &lt;mod&gt; AT EXIT-COMMAND.</code> 在对话屏幕中，对于 E 类型的 Function Code 触发退出屏幕，其他字段值不会传递到 ABAP 程序中。</p>
 </li>
 <li>
 <p><code>AT SELECTION-SCREEN ON EXIT-COMMAND.</code>在选择屏幕中，按钮触发事件。</p>
 </li>
+</ul>
+<h3 id="call-subscreen">CALL Subscreen</h3>
+<p>子屏幕是显示在另一个（“主”）屏幕区域中的独立屏幕。子屏幕允许在运行时将一个屏幕嵌入到另一个屏幕中。 您可以在主屏幕上包含多个子屏幕。</p>
+<p>子屏幕既适用于您嵌入的屏幕，也适用于您放置它的主屏幕上的区域。 如果在屏幕属性中定义，则通过 SE51 事务创建的实际屏幕称为子屏幕屏幕。</p>
+<p>当使用子屏幕时，嵌入屏幕的流逻辑也嵌入到主屏幕的流逻辑中。因此，在屏幕上使用子屏幕就像在 ABAP 程序中使用包含一样。每当调用主屏幕时，都会调用主屏幕的 PBO。但是在显示之前，还调用了主屏幕上附有子屏幕区域的每个屏幕的PBO。</p>
+<p>步骤</p>
+<ul>
+<li>定义屏幕上的子屏幕区域</li>
+<li>定义合适的子屏幕</li>
+<li>在子屏幕区域中包含子屏幕屏幕</li>
+</ul>
+<h4 id="使用子屏幕">使用子屏幕</h4>
+<p>可以在主屏幕的流逻辑中使用 CALL SUBSCREEN 语句包含子屏幕屏幕。</p>
+<p>要在主屏幕的子屏幕区域中包含一个子屏幕屏幕并调用其 PBO 流程逻辑，请在主屏幕的 PBO 事件中使用以下语句：</p>
+<ul>
+<li><code>CALL SUBSCREEN &lt;subarea&gt; INCLUDING [&lt;prog&gt;] &lt;dynp&gt;.</code></li>
+<li><code>&lt;prog&gt; = sy-cprog </code>：代表本程序</li>
+</ul>
+<p>调用子屏幕的 PAI 流逻辑，在主屏的PAI流逻辑中使用如下语句：</p>
+<ul>
+<li><code>CALL SUBSCREEN &lt;subarea&gt;.</code></li>
+</ul>
+<h4 id="注意事项">注意事项</h4>
+<ul>
+<li>一个屏幕内的子屏幕元素的名称应该是唯一的</li>
+<li>不应该将 OK_CODE 或 FCODE 附加到子屏幕。主屏本身的 OK_CODE 就是副屏的 OK_CODE</li>
+<li>子屏幕不能有任何包含 SET TITLEBAR、SET PF-STATUS、SET SCREEN、LEAVE SCREEN 或 LEAVE TO SCREEN 的对话模块，这将导致运行时错误</li>
+<li>子屏幕需要在主屏幕的流逻辑（PBO 和 PAI）中调用</li>
+<li>CHAIN..ENDCHAIN 和 LOOP ENDLOOP 语句中不允许 CALL SUBSCREEN</li>
+<li>不能有 AT EXIT-COMMAND 模块</li>
+<li>使用的字段是全局字段时必须先在顶部声明</li>
+<li>如果使用来自另一个对话程序的子屏幕，除非您添加特定代码，否则不会发生数据传输。</li>
 </ul>
 
     </div>
@@ -286,7 +325,7 @@ ENDCHAIN.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>506</span>
+                   <span>1061</span>
             </p>
             
             <p class="copyright-item">
@@ -318,7 +357,7 @@ ENDCHAIN.
         <a href="https://coldinfire.github.io/2018/ABAP_Dialog_Basic/" class="prev" rel="prev" title=" Dialog 程序简介 "><i class="iconfont icon-dajiantou"></i>&nbsp; Dialog 程序简介 </a>
          
         
-        <a href="https://coldinfire.github.io/2018/ABAP_OOALV_Basic/" class="next" rel="next" title=" OO ALV 使用 "> OO ALV 使用 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/" class="next" rel="next" title=" Dialog POH&amp;POV "> Dialog POH&amp;POV &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
@@ -329,7 +368,7 @@ ENDCHAIN.
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-07-06 00:00:00 \u002b0000 UTC',
+        id: '2018-07-03 00:00:00 \u002b0000 UTC',
         title: ' Dialog 逻辑控制 ',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',

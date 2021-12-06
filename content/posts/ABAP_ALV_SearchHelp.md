@@ -12,6 +12,18 @@ tags:
 
 ---
 
+### 搜索帮助优先级
+
+- 先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST
+
+- 再 PARAMETERS/ SELECT-OPTIONS MATCHCODE OBJECT XXXX
+
+- 其次是  Check Table、再表（或 结构 ）字段是否绑定了搜索帮助
+
+- 然后检查 Data element 是否绑定了帮助 ，再 Domain 是否存在 Fixed values
+
+- 最后才是DATS、TIMS.
+
 ### 使用搜索帮助对象
 
 #### 定义 Search Help
@@ -46,7 +58,7 @@ tags:
 
 #### 示例代码：Z_MIN_Z21
 
-```JS
+```ABAP
 SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN COMMENT 2(15) text1 .
 PARAMETERS: p_bwart(4) MATCHCODE OBJECT z_min_z21.
@@ -230,15 +242,3 @@ FORM f_fieldinfo_get USING fu_tabname fu_fieldname
   ENDIF.
 ENDFORM.
 ```
-
-### 搜索帮助优先级
-
-- 先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST
-
-- 再 PARAMETERS/ SELECT-OPTIONS MATCHCODE OBJECT XXXX
-
-- 先  Check Table、再表（或 结构 ）字段是否绑定了 **搜索帮助**
-
-- 先 Data element 是否绑定了帮助 ，再 Domain 是否存在 Fixed values
-
-- 最后才是DATS、TIMS.

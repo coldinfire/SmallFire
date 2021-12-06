@@ -738,11 +738,11 @@
     
     <item>
       <title> SAP 搜索帮助 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_Table_SearchHelp/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_ALV_SearchHelp/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Table_SearchHelp/</guid>
-      <description>使用搜索帮助对象 定义 Search Help 在命令字段中输入事务代码 SE11；选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 1、在下一个</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_ALV_SearchHelp/</guid>
+      <description>搜索帮助优先级 先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST 再 PARAMETERS/ SELECT-OPTIONS MATCHCODE OBJECT XXXX 其次是 Check Table、再表（或 结构 ）字段是否绑定了搜索帮助 然后检查 Data element 是否绑定了帮助 ，再 Domain 是否存</description>
     </item>
     
     <item>
@@ -1592,39 +1592,30 @@
     </item>
     
     <item>
-      <title> Python 基础 </title>
-      <link>https://coldinfire.github.io/2019/Python_Basic/</link>
-      <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/Python_Basic/</guid>
-      <description>变量定义和数据类型 变量定义 Python的变量命名规则： 硬性规则： 变量由字母、数字和下划线构成，不能以数字开头 大小写敏感 不能跟python的关</description>
-    </item>
-    
-    <item>
       <title> Python 学习资源 </title>
-      <link>https://coldinfire.github.io/2019/Python_Resource/</link>
-      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      <link>https://coldinfire.github.io/2018/Python_Resource/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/Python_Resource/</guid>
+      <guid>https://coldinfire.github.io/2018/Python_Resource/</guid>
       <description>资源 Python 官网 包含了 Python 框架、Python 库和软件的 awesome 列表 Python 神书，里面有若干个项目，每个项目都是由业内大神所写，每个项目代码在 500 行左右 介绍 Python3 中的标</description>
     </item>
     
     <item>
       <title> Pycharm 使用 </title>
-      <link>https://coldinfire.github.io/2019/Python_Pycharm/</link>
-      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      <link>https://coldinfire.github.io/2018/Python_Pycharm/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/Python_Pycharm/</guid>
+      <guid>https://coldinfire.github.io/2018/Python_Pycharm/</guid>
       <description>常用快捷键 1、Ctrl + Enter：在下方新建行但不移动光标 2、Shift + Enter：在下方新建行并移到新行行首 3、Ctrl + /：注释(取</description>
     </item>
     
     <item>
-      <title> ABAP Submit 实现程序间互相调用 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</link>
-      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+      <title> Python 基础 </title>
+      <link>https://coldinfire.github.io/2018/Python_Basic/</link>
+      <pubDate>Fri, 21 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</guid>
-      <description>ABAP 代码中通过 Submit 实现程序的调用以及调用时数据参数的传递。 程序准备 将要被调用的 Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line TYPE i. lv_line = LINES( s1_matnr ). WRITE: / &amp;#39;S1_MATNR&amp;#39;,lv_line. lv_line</description>
+      <guid>https://coldinfire.github.io/2018/Python_Basic/</guid>
+      <description>变量定义和数据类型 变量定义 Python的变量命名规则： 硬性规则： 变量由字母、数字和下划线构成，不能以数字开头 大小写敏感 不能跟python的关</description>
     </item>
     
     <item>
@@ -1670,6 +1661,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_EXCEL_CLASS/</guid>
       <description>SAP Excel 操作实现 (CLASS) *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZEXCEL_CLASS_DEMO *&amp;amp;---------------------------------------------------------------------* REPORT zexcel_class_demo. TABLES: sscrfields,rlgrap. TYPE-POOLS: slis. &amp;#34; TEXT-000 : Select file to upload &amp;#34; &amp;#34; TEXT-001 : Select file &amp;#34; SELECTION-SCREEN BEGIN OF BLOCK file_name WITH FRAME TITLE text-000. SELECTION-SCREEN BEGIN OF LINE. SELECTION-SCREEN COMMENT 1(31) text-001 FOR FIELD p_file. PARAMETERS: p_file LIKE rlgrap-filename . SELECTION-SCREEN END OF LINE. SELECTION-SCREEN END OF BLOCK file_name. SELECTION-SCREEN FUNCTION KEY 1.</description>
+    </item>
+    
+    <item>
+      <title> 查找增强程序(3) </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Enhance3/</link>
+      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Enhance3/</guid>
+      <description>一个功能非常全面的增强出口查找工具 *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Report: zdamon_004 (V9) &amp;amp;* *&amp;amp; PJA Consultancy Services (www.pjas.com) &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; This report attmpts to find Enhancements, Program-Exits, BADIs &amp;amp;* *&amp;amp; and Business Transaction Events in a particular program/tcode. &amp;amp;* *&amp;amp; Last updated: 09 May 2007 &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Selection Texts: *&amp;amp; P_ALV ALV format *&amp;amp; P_AUTH Include authority-check search</description>
     </item>
     
     <item>
@@ -1925,30 +1925,30 @@
     </item>
     
     <item>
-      <title> 查找增强程序(3) </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Enhance3/</link>
-      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
+      <title> ABAP Submit 实现程序间互相调用 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</link>
+      <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Enhance3/</guid>
-      <description>一个功能非常全面的增强出口查找工具 *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Report: zdamon_004 (V9) &amp;amp;* *&amp;amp; PJA Consultancy Services (www.pjas.com) &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; This report attmpts to find Enhancements, Program-Exits, BADIs &amp;amp;* *&amp;amp; and Business Transaction Events in a particular program/tcode. &amp;amp;* *&amp;amp; Last updated: 09 May 2007 &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Selection Texts: *&amp;amp; P_ALV ALV format *&amp;amp; P_AUTH Include authority-check search</description>
-    </item>
-    
-    <item>
-      <title> 查找增强程序(2) </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Enhance2/</link>
-      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Enhance2/</guid>
-      <description>查找增强出口和BADI *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z_FIND_EXIT_AND_BADI *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Enter the transaction code that you want to search through in order *&amp;amp; to find which Standard SAP User Exits and BADIs *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; For field &amp;#39;SUBC&amp;#39; of table &amp;#39;TRDIR&amp;#39;: *&amp;amp; M Module Pool *&amp;amp; F Function group *&amp;amp; S Subroutine</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_Submit/</guid>
+      <description>ABAP 代码中通过 Submit 实现程序的调用以及调用时数据参数的传递。 程序准备 将要被调用的 Report: ZTEST_SUBMIT1 REPORT ZTEST_SUBMIT1. DATA: lv_matnr TYPE matnr. DATA: lv_charg TYPE charg. SELECT-OPTIONS: s1_matnr FOR matnr, s1_lgort FOR lgort. START-OF-SELECTION. DATA: lv_line TYPE i. lv_line = LINES( s1_matnr ). WRITE: / &amp;#39;S1_MATNR&amp;#39;,lv_line. lv_line</description>
     </item>
     
     <item>
       <title> 查找增强程序(1) </title>
       <link>https://coldinfire.github.io/2018/ABAP_Enhance1/</link>
-      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Enhance1/</guid>
       <description>利用t-code查找增强出口的程序工具 REPORT zdamon_005 NO STANDARD PAGE HEADING. TABLES : tstc, tadir, modsapt, modact, trdir, tfdir, enlfdir. TABLES : tstct. DATA : jtab LIKE tadir OCCURS 0 WITH HEADER LINE. DATA : field1(30). DATA : v_devclass LIKE tadir-devclass. PARAMETERS : p_tcode LIKE tstc-tcode OBLIGATORY. SELECT SINGLE * FROM tstc WHERE tcode EQ p_tcode.</description>
+    </item>
+    
+    <item>
+      <title> 查找增强程序(2) </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Enhance2/</link>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Enhance2/</guid>
+      <description>查找增强出口和BADI *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z_FIND_EXIT_AND_BADI *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Enter the transaction code that you want to search through in order *&amp;amp; to find which Standard SAP User Exits and BADIs *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; For field &amp;#39;SUBC&amp;#39; of table &amp;#39;TRDIR&amp;#39;: *&amp;amp; M Module Pool *&amp;amp; F Function group *&amp;amp; S Subroutine</description>
     </item>
     
     <item>
@@ -2069,15 +2069,6 @@
     </item>
     
     <item>
-      <title> 修改文件所属 Package </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</guid>
-      <description>创建 ABAP 程序的时候都要选择一个 Package，当后续需要修改程序所属的Package时可以使用以下方法： 通过SE38或则SE80打开对应的程序</description>
-    </item>
-    
-    <item>
       <title> Smartform 循环打印&amp;页码统计 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartform_LoopPrint/</link>
       <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
@@ -2093,6 +2084,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartform_page1/</guid>
       <description>Smartform 中的 table 节点插入分页 Command Node 在 smartforms 的 Loop 节点中可以插入一个 command node 用来强制分页，那么如何在 table 节点中插入分页的 command node 呢？这要利用到table节点的 sort event. 在 table 节</description>
+    </item>
+    
+    <item>
+      <title> Smartforms 工具集合 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</guid>
+      <description>中文乱码问题 如果预览时中文正常，打印出来是乱码的情况，可以尝试在中文环境下重新维护并激活。再次打印应该可以解决。如果还有问题，则检查语言包是</description>
     </item>
     
     <item>
@@ -2132,21 +2132,21 @@
     </item>
     
     <item>
-      <title> Smartforms 工具集合 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</link>
-      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_Utils/</guid>
-      <description>中文乱码问题 如果预览时中文正常，打印出来是乱码的情况，可以尝试在中文环境下重新维护并激活。再次打印应该可以解决。如果还有问题，则检查语言包是</description>
-    </item>
-    
-    <item>
       <title> Smartforms 使用 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartforms/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
       <description>Smartforms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。 但是 SmartForms 是一</description>
+    </item>
+    
+    <item>
+      <title> 修改文件所属 Package </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_PackageChange/</guid>
+      <description>创建 ABAP 程序的时候都要选择一个 Package，当后续需要修改程序所属的Package时可以使用以下方法： 通过SE38或则SE80打开对应的程序</description>
     </item>
     
     <item>
@@ -2195,7 +2195,7 @@
     </item>
     
     <item>
-      <title> OO ALV 不同 Container 使用 </title>
+      <title> OO ALV 不同Container使用 </title>
       <link>https://coldinfire.github.io/2018/ABAP_OOALV_DiffContainers/</link>
       <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       
@@ -2222,9 +2222,18 @@
     </item>
     
     <item>
+      <title> Dialog POH&amp;POV </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</guid>
+      <description>POH：F1 帮助 当按下 F1 时，就会执行指定数据元素的 POH 事件。 如果屏幕的流程逻辑中不存在 PROCESS ON HELP-REQUEST 事件，则以 ABAP Dictionary 中该字段的文档为基础进行显示。 定义 要</description>
+    </item>
+    
+    <item>
       <title> Dialog 逻辑控制 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</link>
-      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</guid>
       <description>Dialog 屏幕操作 语法 Module ... END MODULE. SET screen xxxx . CALL screen xxxx. LEAVE screen. CALL screen xxx [starting at lc ur] [ending at rc lr]. (Modal dialog box类型) SET CURSOR FIELD &amp;lt;f&amp;gt; [offset &amp;lt;o&amp;gt;]. MODULE EXIT AT EXIT-COMMAND. Static Attributes Attribute Attribute Attribute Attribute Attribute Attribute screen-name screen-active screen-invisible screen-input screen-group1 screen-group3 screen-length screen-required screen-intensified screen-output screen-group2 screen-group4 字</description>
