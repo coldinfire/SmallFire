@@ -1,6 +1,6 @@
 ---
 title: " Linux 文件操作 "
-date: 2018-04-10
+date: 2019-01-07
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -40,7 +40,7 @@ tags:
   - 5、占用内存大小
   - 6、修改时间
 
-#### 修改权限： ####
+#### 修改权限 ####
   ` chmod [xx] file`：修改文件的权限 
 
    - [u=rwx,g=rwx,o=rwx]/[u+r,w,x...] ：修改各自对应的权限
@@ -121,7 +121,7 @@ chown user file:修改文件所有者
 •`ln -s f1 f2`：创建f1的一个符号连接文件f2
 
 ### 压缩解压 ###
-#### 文件后缀代表的文件类型： ####
+#### 文件后缀代表的文件类型 ####
 
 •`.bz2`：用bzip2压缩的文件
 
@@ -141,13 +141,13 @@ chown user file:修改文件所有者
 
 •`.7z`：用7za压缩文件
 
-####  压缩方式： ####
+####  压缩方式 ####
 • `gzip`：流行的GNU gzip数据压缩/解压程序  【 gzip filename 】
 
 • `bzip2`：性能较高   【 bzip2 filename 】
 
 • `tar`：文件打包，归档工具  【 tar -czvf filename 】
-#### 解压方式： ####
+#### 解压方式 ####
 
 • gzip -d filename.gz
 

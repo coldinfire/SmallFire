@@ -1,6 +1,6 @@
 ---
 title: " Linux 链接和网络管理 "
-date: 2018-04-22
+date: 2019-01-12
 draft: false
 author: Small Fire
 isCJKLanguage: true

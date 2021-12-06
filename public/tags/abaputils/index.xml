@@ -422,6 +422,15 @@
     </item>
     
     <item>
+      <title> STVARV 使用详情 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</guid>
+      <description>STVARV 使用 该配置不能跨 Client 因此需要在每个 Client 单独配置；使用事物码STVARV进入配置界面，可以新建、修改、删除记录。 程序内使用 程序内只是取出配置的值</description>
+    </item>
+    
+    <item>
       <title> SAP Memory 使用 </title>
       <link>https://coldinfire.github.io/2019/ABAP_Memory/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
@@ -446,15 +455,6 @@
       
       <guid>https://coldinfire.github.io/2019/ABAP_Webservice/</guid>
       <description>ABAP 调用外部 Webservice 创建代理类 Step1：SE80 选择 package，点击创建 Enterprise Service / Web service-proxy client Step2：参数填写，没有错误的话，会根据指定的 wsdl 文件，产</description>
-    </item>
-    
-    <item>
-      <title> STVARV 使用详情 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</link>
-      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</guid>
-      <description>STVARV 使用 该配置不能跨 Client 因此需要在每个 Client 单独配置；使用事物码STVARV进入配置界面，可以新建、修改、删除记录。 程序内使用 程序内只是取出配置的值</description>
     </item>
     
     <item>

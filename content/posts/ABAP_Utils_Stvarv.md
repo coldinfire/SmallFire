@@ -1,6 +1,6 @@
 ---
 title: " STVARV 使用详情 "
-date: 2019-02-14
+date: 2019-02-27
 draft: false
 author: Small Fire
 isCJKLanguage: true

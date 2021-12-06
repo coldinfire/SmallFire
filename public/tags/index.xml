@@ -251,6 +251,33 @@
     </item>
     
     <item>
+      <title>linux</title>
+      <link>https://coldinfire.github.io/tags/linux/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://coldinfire.github.io/tags/shell/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>https://coldinfire.github.io/tags/Vim/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/Vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>python</title>
       <link>https://coldinfire.github.io/tags/python/</link>
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
@@ -287,42 +314,6 @@
     </item>
     
     <item>
-      <title>linux</title>
-      <link>https://coldinfire.github.io/tags/linux/</link>
-      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shell</title>
-      <link>https://coldinfire.github.io/tags/shell/</link>
-      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/shell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vim</title>
-      <link>https://coldinfire.github.io/tags/Vim/</link>
-      <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/Vim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://coldinfire.github.io/tags/hugo/</link>
-      <pubDate>Tue, 03 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Git</title>
       <link>https://coldinfire.github.io/tags/Git/</link>
       <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
@@ -355,6 +346,15 @@
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/tags/Redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://coldinfire.github.io/tags/hugo/</link>
+      <pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     

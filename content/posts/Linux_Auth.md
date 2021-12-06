@@ -1,6 +1,6 @@
 ---
 title: " Linux 权限管理 "
-date: 2018-04-17
+date: 2019-01-12
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -11,8 +11,6 @@ tags:
   - linux
 
 ---
-## 用户权限
-
 ### 增删改查用户
 #### 增 
    useradd username：创建用户         

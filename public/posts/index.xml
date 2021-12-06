@@ -1556,6 +1556,15 @@
     </item>
     
     <item>
+      <title> STVARV 使用详情 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</guid>
+      <description>STVARV 使用 该配置不能跨 Client 因此需要在每个 Client 单独配置；使用事物码STVARV进入配置界面，可以新建、修改、删除记录。 程序内使用 程序内只是取出配置的值</description>
+    </item>
+    
+    <item>
       <title> SAP Memory 使用 </title>
       <link>https://coldinfire.github.io/2019/ABAP_Memory/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
@@ -1583,12 +1592,75 @@
     </item>
     
     <item>
-      <title> STVARV 使用详情 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</link>
-      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      <title> Shell 脚本-流程控制 </title>
+      <link>https://coldinfire.github.io/2019/Linux_ShellFlow/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</guid>
-      <description>STVARV 使用 该配置不能跨 Client 因此需要在每个 Client 单独配置；使用事物码STVARV进入配置界面，可以新建、修改、删除记录。 程序内使用 程序内只是取出配置的值</description>
+      <guid>https://coldinfire.github.io/2019/Linux_ShellFlow/</guid>
+      <description>退出状态 命令（包括我们编写的脚本和 shell 函数）在终止时向系统发出一个值，称为退出状态。该值是 0 到 255 范围内的整数，表示命令执行成功或失败。按照惯例</description>
+    </item>
+    
+    <item>
+      <title> Shell 脚本 </title>
+      <link>https://coldinfire.github.io/2019/Linux_Shell/</link>
+      <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Linux_Shell/</guid>
+      <description>什么是Shell脚本 简单来说，shell 脚本是包含一系列命令的文件。shell 读取此文件并执行命令，就像它们已直接在命令行上输入一样。she</description>
+    </item>
+    
+    <item>
+      <title> Linux 软件包管理 </title>
+      <link>https://coldinfire.github.io/2019/Linux_Yum/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Linux_Yum/</guid>
+      <description>安装包分类 源码包 源码包：即程序软件的源代码（将软件的源码以 tar 打包后再压缩的资源包）。 RPM 最大的特点就是需要安装的软件已经编译过，并已经打包成 RPM</description>
+    </item>
+    
+    <item>
+      <title> Linux 权限管理 </title>
+      <link>https://coldinfire.github.io/2019/Linux_Auth/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Linux_Auth/</guid>
+      <description>增删改查用户 增 useradd username：创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：修改用户的家目录 -</description>
+    </item>
+    
+    <item>
+      <title> Linux 链接和网络管理 </title>
+      <link>https://coldinfire.github.io/2019/Linux_Ln/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Linux_Ln/</guid>
+      <description>软链接 创建：ln -s 源路径 目标路径 特点：删除链接文件，源文件无影响；删除源文件，链接文件失效；修改其中一个文件，两个内容都改变；可以跨分区 指向</description>
+    </item>
+    
+    <item>
+      <title> Vim 使用 </title>
+      <link>https://coldinfire.github.io/2019/Linux_Vim/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Linux_Vim/</guid>
+      <description>文件编辑：Vim 命令行模式command mode） 控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者 到</description>
+    </item>
+    
+    <item>
+      <title> Linux 文件操作 </title>
+      <link>https://coldinfire.github.io/2019/Linux_File/</link>
+      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Linux_File/</guid>
+      <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： d：目录 -：文件 I：链接文档 b：可随机存储装置 c：串行端口设备 后续文字意义： 1、三个为一组均</description>
+    </item>
+    
+    <item>
+      <title> Linux 基础 </title>
+      <link>https://coldinfire.github.io/2019/Linux_Basic/</link>
+      <pubDate>Fri, 04 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/Linux_Basic/</guid>
+      <description>主要内容 Linux目录组成结构及文件的增删改查，用户，权限管理 Linux软件包管理、磁盘管理 Linux网络基础 Linux状态监控命令 Linu</description>
     </item>
     
     <item>
@@ -2501,96 +2573,6 @@
     </item>
     
     <item>
-      <title> Shell 脚本-流程控制 </title>
-      <link>https://coldinfire.github.io/2018/Linux_ShellFlow/</link>
-      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Linux_ShellFlow/</guid>
-      <description>退出状态 命令（包括我们编写的脚本和 shell 函数）在终止时向系统发出一个值，称为退出状态。该值是 0 到 255 范围内的整数，表示命令执行成功或失败。按照惯例</description>
-    </item>
-    
-    <item>
-      <title> Shell 脚本 </title>
-      <link>https://coldinfire.github.io/2018/Linux_Shell/</link>
-      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Linux_Shell/</guid>
-      <description>什么是Shell脚本 简单来说，shell 脚本是包含一系列命令的文件。shell 读取此文件并执行命令，就像它们已直接在命令行上输入一样。she</description>
-    </item>
-    
-    <item>
-      <title> Linux 软件包管理 </title>
-      <link>https://coldinfire.github.io/2018/Linux_Yum/</link>
-      <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Linux_Yum/</guid>
-      <description>安装包分类 源码包 源码包：即程序软件的源代码（将软件的源码以 tar 打包后再压缩的资源包）。 RPM 最大的特点就是需要安装的软件已经编译过，并已经打包成 RPM</description>
-    </item>
-    
-    <item>
-      <title> Linux 链接和网络管理 </title>
-      <link>https://coldinfire.github.io/2018/Linux_Ln/</link>
-      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Linux_Ln/</guid>
-      <description>软链接 创建：ln -s 源路径 目标路径 特点：删除链接文件，源文件无影响；删除源文件，链接文件失效；修改其中一个文件，两个内容都改变；可以跨分区 指向</description>
-    </item>
-    
-    <item>
-      <title> Linux 权限管理 </title>
-      <link>https://coldinfire.github.io/2018/Linux_Auth/</link>
-      <pubDate>Tue, 17 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Linux_Auth/</guid>
-      <description>用户权限 增删改查用户 增 useradd username：创建用户 passwd username：设置用户密码 -u：指定用户的UID -g：修改用户GID -d：修改用户的</description>
-    </item>
-    
-    <item>
-      <title> Vim 使用 </title>
-      <link>https://coldinfire.github.io/2018/Linux_Vim/</link>
-      <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Linux_Vim/</guid>
-      <description>文件编辑：Vim 1）.命令行模式command mode） 控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，</description>
-    </item>
-    
-    <item>
-      <title> Linux 文件操作 </title>
-      <link>https://coldinfire.github.io/2018/Linux_File/</link>
-      <pubDate>Tue, 10 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Linux_File/</guid>
-      <description>文件 ex: -rw--w-r-- 1 user group day month time text.xx 第一个文件代表意义(0)： d：目录 -：文件 I：链接文档 b：可随机存储装置 c：串行端口设备 后续文字意义： 1、三个为一组均</description>
-    </item>
-    
-    <item>
-      <title> Linux 基础 </title>
-      <link>https://coldinfire.github.io/2018/Linux_Basic/</link>
-      <pubDate>Fri, 06 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Linux_Basic/</guid>
-      <description>主要内容 Linux目录组成结构及文件的增删改查，用户，权限管理 Linux软件包管理、磁盘管理 Linux网络基础 Linux状态监控命令 Linu</description>
-    </item>
-    
-    <item>
-      <title> Hugo 添加搜索功能(Algolia) </title>
-      <link>https://coldinfire.github.io/2018/Utils_hugo2/</link>
-      <pubDate>Tue, 03 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Utils_hugo2/</guid>
-      <description>Algolia：博客框架 https://www.algolia.com/ Algolia配置 ​ ​ 记录API Keys相关信息： Application ID Search-Only API Key Admin API Key Hugo设置 在配置文件config中添加一下内容</description>
-    </item>
-    
-    <item>
-      <title> 使用Hugo&#43;GitHub Pages快速搭建博客 </title>
-      <link>https://coldinfire.github.io/2018/Utils_hugo1/</link>
-      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Utils_hugo1/</guid>
-      <description>工具准备 Hugo：博客框架 https://github.com/gohugoio/hugo Git：用来发布博客内容 https://git-scm.com/ Github：保存和显示博客内容 https://github.com/ MarkDown编辑软件：用来进行博客文章的编辑 Typora C</description>
-    </item>
-    
-    <item>
       <title> Git 学习与总结 </title>
       <link>https://coldinfire.github.io/2018/Utils_Git/</link>
       <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
@@ -2624,6 +2606,24 @@
       
       <guid>https://coldinfire.github.io/2018/WEB_DB_Redis_Basic/</guid>
       <description>Redis 简介 redis 时一款高性能的非关系型数据库(NOSQL)，包含多种数据结构、支持网络、可选持久性的键值对存储数据库。 数据的存储格式是key,val</description>
+    </item>
+    
+    <item>
+      <title> Hugo 添加搜索功能(Algolia) </title>
+      <link>https://coldinfire.github.io/2018/Utils_hugo2/</link>
+      <pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/Utils_hugo2/</guid>
+      <description>Algolia：博客框架 https://www.algolia.com/ Algolia配置 ​ ​ 记录API Keys相关信息： Application ID Search-Only API Key Admin API Key Hugo设置 在配置文件config中添加一下内容</description>
+    </item>
+    
+    <item>
+      <title> 使用Hugo&#43;GitHub Pages快速搭建博客 </title>
+      <link>https://coldinfire.github.io/2018/Utils_hugo1/</link>
+      <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/Utils_hugo1/</guid>
+      <description>工具准备 Hugo：博客框架 https://github.com/gohugoio/hugo Git：用来发布博客内容 https://git-scm.com/ Github：保存和显示博客内容 https://github.com/ MarkDown编辑软件：用来进行博客文章的编辑 Typora C</description>
     </item>
     
     <item>
