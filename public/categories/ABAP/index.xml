@@ -661,7 +661,7 @@
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</guid>
-      <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，它实质上就是一种特殊的 RFC 函数。 BAPI 函数及函数参数参考的结构类型名，</description>
+      <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，是标准化的编程接口（方法），使外部应用程序能够访问 R/3 系统中的业务</description>
     </item>
     
     <item>
