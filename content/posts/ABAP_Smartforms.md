@@ -55,20 +55,9 @@ Run `SE03`, choose "Search For Object in the request/transport"：Here run the r
 
 ![smartforms](/images/ABAP/smartform1.png)
 
-### Smartforms 组成
-
-Smartforms 包括全局设置和 FORM 内容两大部分。
-
-全局设置
-
-- 设置 form 的页面格式
-- 设置 form 将要展示的数据接口参数类型
-- 设置 form 中进行数据处理的内容转换时需要的变量
-
-From 内容
-
-- 一般 form 里包含表头、表身、表尾；
-- 可以单页，也可以有多页内容
+- Navigation window：导航窗口由节点和子节点组成。包含表单的所有元素（文本、窗口等）
+- Maintenance window：维护窗口显示元素的具体属性
+- Form printer：表格打印机窗口显示页面布局
 
 ### Global Settings
 
@@ -103,6 +92,11 @@ Global definitions 包含可以在整个表单中使用的数据，可进行数�
 
 ### Form 内容设置
 
+Pages and Windows
+
+- 一般 Form 里包含表头、表身、表尾；
+- 可以单页，也可以有多页内容
+
 Form 内容显示为树形结构，在树结构中，为每个节点定义了一个选项卡，每个节点都可以链接到一个条件。当表单中满足条件时，系统将处理该节点，如果不满足，则系统不处理该节点。
 
 通过对树的节点布局，以及节点内部详细的信息处理可以实现复杂的 Form 内容设置。
@@ -120,8 +114,8 @@ Style 定义文字类型、大小样式等属性，可在 Text 对象内使用�
 ![Smartforms Style](/images/ABAP/smartform7.png)
 
 Header data：表头数据，定义默认段落属性等参数。 
-Paragraph formats：段落格式，字体类型等，在设定对象时可以选择需要的段落。 
-Character formats：字符格式，定义是否粗体、倾斜、大小等，在一段文字内设置不同的字体、颜色等。
+Paragraph formats：段落格式，字体属性，制表符以及轮廓和编号等，在设定对象时可以选择需要的段落。 
+Character formats：字符格式，定义是否粗体、倾斜、上标、下标、大小等，在一段文字内设置不同的字体、颜色等。
 
 #### 使用 Style
 
@@ -131,11 +125,11 @@ Character formats：字符格式，定义是否粗体、倾斜、大小等，在
 
 ### Smartforms 程序调用
 
-调用方式是通过函数`SSF_FUNCTION_MODULE_NAME` 将 form 生成一个函数，然后调用函数打印 form 。
+打印程序在运行时调用函数`SSF_FUNCTION_MODULE_NAME`可以获取 Smart Forms 生成的 FM，然后调用得到的 Function Module 来执行 smartform 。
 
 - 记录总页数：sfsy-page(当前页数) / sfsy-formpages(总页数)
 
-```JS
+```ABAP
 DATA: fm_name TYPE rs38l_fnam,
       control_param TYPE ssfctrlop,
       composer_param TYPE ssfcompop,	

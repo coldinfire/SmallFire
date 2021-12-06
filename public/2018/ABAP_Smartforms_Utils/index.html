@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "smartforms",
-  "wordcount":  907 ,
+  "wordcount":  897 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Smartforms_Utils\/",
   "datePublished": "2018-07-28T00:00:00\u002b00:00",
   "dateModified": "2018-07-28T00:00:00\u002b00:00",
@@ -174,11 +174,13 @@
           <h3 id="中文乱码问题">中文乱码问题</h3>
 <p>如果预览时中文正常，打印出来是乱码的情况，可以尝试在中文环境下重新维护并激活。再次打印应该可以解决。如果还有问题，则检查语言包是否支持中文(或则其他需要使用的语言)。</p>
 <h3 id="table-和-template-区别">Table 和 Template 区别</h3>
-<ul>
-<li><code>Table</code> 行为动态，数据输出时会根据列宽自动换行，可以固定列宽，
-但是默认情况下控制不了行高，如果要想 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （ table 控件）的高度来自动翻页.</li>
-<li><code>Template</code> 为静态，固定列宽、行高，当输出数据过长时会自动截断，通常被用于静态表单开发。Template 跟 loop 嵌套使用，可以实现固定行高、列宽的表单开发。需要手动翻页，并程序中计算页码；（或则在程序中设计好固定行数+计算页码）.</li>
-</ul>
+<h4 id="table">Table</h4>
+<p><code>Table</code> 行为动态，数据输出时会根据列宽自动换行，可以固定列宽，
+但是默认情况下控制不了行高，如果要想 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （ table 控件）的高度来自动翻页.</p>
+<h4 id="template">Template</h4>
+<p>固定列宽、行高，当输出数据过长时会自动截断，通常被用于静态表单开发。</p>
+<p>Template 跟 loop 嵌套使用，可以实现固定行高、列宽的表单开发。</p>
+<p>需要手动翻页，并程序中计算页码；（或则在程序中设计好固定行数+计算页码）.</p>
 <h3 id="smartform-debug">Smartform Debug</h3>
 <ol>
 <li>使用事物码 Smartforms 进入，输入 Form name 或则通过事物码 NACE 查找到的表单</li>
@@ -293,7 +295,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>907</span>
+                   <span>897</span>
             </p>
             
             <p class="copyright-item">

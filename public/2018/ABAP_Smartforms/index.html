@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "smartforms",
-  "wordcount":  1640 ,
+  "wordcount":  1681 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Smartforms\/",
   "datePublished": "2018-07-23T00:00:00\u002b00:00",
   "dateModified": "2018-07-23T00:00:00\u002b00:00",
@@ -199,18 +199,10 @@
 <h4 id="事物码-smartforms">事物码 smartforms</h4>
 <p><img src="/images/ABAP/smartform0.png" alt="smartforms"></p>
 <p><img src="/images/ABAP/smartform1.png" alt="smartforms"></p>
-<h3 id="smartforms-组成">Smartforms 组成</h3>
-<p>Smartforms 包括全局设置和 FORM 内容两大部分。</p>
-<p>全局设置</p>
 <ul>
-<li>设置 form 的页面格式</li>
-<li>设置 form 将要展示的数据接口参数类型</li>
-<li>设置 form 中进行数据处理的内容转换时需要的变量</li>
-</ul>
-<p>From 内容</p>
-<ul>
-<li>一般 form 里包含表头、表身、表尾；</li>
-<li>可以单页，也可以有多页内容</li>
+<li>Navigation window：导航窗口由节点和子节点组成。包含表单的所有元素（文本、窗口等）</li>
+<li>Maintenance window：维护窗口显示元素的具体属性</li>
+<li>Form printer：表格打印机窗口显示页面布局</li>
 </ul>
 <h3 id="global-settings">Global Settings</h3>
 <h4 id="form-attributes">Form Attributes</h4>
@@ -239,6 +231,11 @@
 <p>Global definitions 包含可以在整个表单中使用的数据，可进行数据定义和初始化。</p>
 <p><img src="/images/ABAP/smartform5.png" alt="smartforms"></p>
 <h3 id="form-内容设置">Form 内容设置</h3>
+<p>Pages and Windows</p>
+<ul>
+<li>一般 Form 里包含表头、表身、表尾；</li>
+<li>可以单页，也可以有多页内容</li>
+</ul>
 <p>Form 内容显示为树形结构，在树结构中，为每个节点定义了一个选项卡，每个节点都可以链接到一个条件。当表单中满足条件时，系统将处理该节点，如果不满足，则系统不处理该节点。</p>
 <p>通过对树的节点布局，以及节点内部详细的信息处理可以实现复杂的 Form 内容设置。</p>
 <p>在一般情况下，树结构中的节点从上到下处理。每页上的分页数取决于当前页面上剩余的空间。</p>
@@ -248,59 +245,59 @@
 <p><img src="/images/ABAP/smartform6.png" alt="Smartforms Style"></p>
 <p><img src="/images/ABAP/smartform7.png" alt="Smartforms Style"></p>
 <p>Header data：表头数据，定义默认段落属性等参数。 
-Paragraph formats：段落格式，字体类型等，在设定对象时可以选择需要的段落。 
-Character formats：字符格式，定义是否粗体、倾斜、大小等，在一段文字内设置不同的字体、颜色等。</p>
+Paragraph formats：段落格式，字体属性，制表符以及轮廓和编号等，在设定对象时可以选择需要的段落。 
+Character formats：字符格式，定义是否粗体、倾斜、上标、下标、大小等，在一段文字内设置不同的字体、颜色等。</p>
 <h4 id="使用-style">使用 Style</h4>
 <p>在 Smartforms 的 Form Attributes 中引入 Style。</p>
 <p><img src="/images/ABAP/smartform8.png" alt="Smartforms Style"></p>
 <h3 id="smartforms-程序调用">Smartforms 程序调用</h3>
-<p>调用方式是通过函数<code>SSF_FUNCTION_MODULE_NAME</code> 将 form 生成一个函数，然后调用函数打印 form 。</p>
+<p>打印程序在运行时调用函数<code>SSF_FUNCTION_MODULE_NAME</code>可以获取 Smart Forms 生成的 FM，然后调用得到的 Function Module 来执行 smartform 。</p>
 <ul>
 <li>记录总页数：sfsy-page(当前页数) / sfsy-formpages(总页数)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fm_name</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">rs38l_fnam</span>,
-      <span style="color:#a6e22e">control_param</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">ssfctrlop</span>,
-      <span style="color:#a6e22e">composer_param</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">ssfcompop</span>,	
-<span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">fm_name</span>.
-<span style="color:#e6db74">&#34;根据Form name将Form生成一个函数&#34;</span>
-<span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;SSF_FUNCTION_MODULE_NAME&#39;</span>
-  <span style="color:#a6e22e">EXPORTING</span>
-    <span style="color:#a6e22e">formname</span>           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Z_FORMNAME&#39;</span>
-  <span style="color:#a6e22e">IMPORTING</span>
-    <span style="color:#a6e22e">fm_name</span>            <span style="color:#f92672">=</span> <span style="color:#a6e22e">fm_name</span>
-  <span style="color:#a6e22e">EXCEPTIONS</span>
-    <span style="color:#a6e22e">no_form</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#a6e22e">no_function_module</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-    <span style="color:#a6e22e">OTHERS</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.</span>
-<span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0.</span>
-  <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">ID</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgid</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgty</span> <span style="color:#a6e22e">NUMBER</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgno</span>
-    <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv1</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv2</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv3</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv4</span>.
-<span style="color:#a6e22e">ENDIF</span>.
-<span style="color:#e6db74">&#34;控制参数设置&#34;</span>
-<span style="color:#a6e22e">control_param</span><span style="color:#f92672">-</span><span style="color:#a6e22e">langu</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">langu</span>.
-<span style="color:#a6e22e">control_param</span><span style="color:#f92672">-</span><span style="color:#a6e22e">no_open</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-<span style="color:#a6e22e">control_param</span><span style="color:#f92672">-</span><span style="color:#a6e22e">no_close</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-<span style="color:#a6e22e">control_param</span><span style="color:#f92672">-</span><span style="color:#a6e22e">no_dialog</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>. <span style="color:#e6db74">&#34; Not show dialog &#34;</span>
-<span style="color:#a6e22e">options</span><span style="color:#f92672">-</span><span style="color:#a6e22e">tddest</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;LP01&#39;</span>. <span style="color:#e6db74">&#34; Printer name &#34;</span>
-<span style="color:#a6e22e">composer_param</span><span style="color:#f92672">-</span><span style="color:#a6e22e">tdimmed</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.   <span style="color:#e6db74">&#34; Print Immediately (Print Parameters) &#34;</span>
-<span style="color:#a6e22e">composer_param</span><span style="color:#f92672">-</span><span style="color:#a6e22e">tddelete</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.  <span style="color:#e6db74">&#34; Delete After Printing (Print Parameters) &#34;</span>   
-<span style="color:#a6e22e">composer_param</span><span style="color:#f92672">-</span><span style="color:#a6e22e">tdcopies</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.</span>    <span style="color:#e6db74">&#34; Repeat printing times &#34;</span>
-<span style="color:#a6e22e">composer_param</span><span style="color:#f92672">-</span><span style="color:#a6e22e">tdpageslct</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1-3&#39;</span>. <span style="color:#e6db74">&#34; Control the printed page number，1,2/1-3 &#34;</span>
-<span style="color:#e6db74">&#34;调用打印服务&#34;</span>
-<span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#a6e22e">lc_fmnam</span>
-  <span style="color:#a6e22e">EXPORTING</span>
-    <span style="color:#a6e22e">control_parameters</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">control_param</span>
-    <span style="color:#a6e22e">output_options</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">composer_param</span>
-  <span style="color:#a6e22e">EXCEPTIONS</span>
-    <span style="color:#a6e22e">formatting_error</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#a6e22e">internal_error</span>     <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-    <span style="color:#a6e22e">send_error</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-    <span style="color:#a6e22e">user_canceled</span>      <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-    <span style="color:#a6e22e">OTHERS</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.</span>
-<span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0.</span>
-  <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">ID</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgid</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgty</span> <span style="color:#a6e22e">NUMBER</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgno</span>
-    <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv1</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv2</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv3</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv4</span>.
-<span style="color:#a6e22e">ENDIF</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: fm_name <span style="color:#66d9ef">TYPE </span>rs38l_fnam,
+      control_param <span style="color:#66d9ef">TYPE </span>ssfctrlop,
+      composer_param <span style="color:#66d9ef">TYPE </span>ssfcompop,	
+<span style="color:#66d9ef">CLEAR</span> fm_name.
+<span style="color:#75715e">&#34;根据Form name将Form生成一个函数&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;SSF_FUNCTION_MODULE_NAME&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    formname           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Z_FORMNAME&#39;</span>
+  <span style="color:#66d9ef">IMPORTING</span>
+    fm_name            <span style="color:#f92672">=</span> fm_name
+  <span style="color:#66d9ef">EXCEPTIONS</span>
+    no_form            <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    no_function_module <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+    <span style="color:#66d9ef">OTHERS</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">MESSAGE</span> <span style="color:#66d9ef">ID</span> sy<span style="color:#f92672">-</span>msgid <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>msgty <span style="color:#66d9ef">NUMBER</span> sy<span style="color:#f92672">-</span>msgno
+    <span style="color:#66d9ef">WITH</span> sy<span style="color:#f92672">-</span>msgv1 sy<span style="color:#f92672">-</span>msgv2 sy<span style="color:#f92672">-</span>msgv3 sy<span style="color:#f92672">-</span>msgv4.
+<span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">&#34;控制参数设置&#34;
+</span><span style="color:#75715e"></span>control_param<span style="color:#f92672">-</span>langu <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>langu.
+control_param<span style="color:#f92672">-</span>no_open <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+control_param<span style="color:#f92672">-</span>no_close <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+control_param<span style="color:#f92672">-</span>no_dialog <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>. <span style="color:#75715e">&#34; Not show dialog &#34;
+</span><span style="color:#75715e"></span>options<span style="color:#f92672">-</span>tddest <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;LP01&#39;</span>. <span style="color:#75715e">&#34; Printer name &#34;
+</span><span style="color:#75715e"></span>composer_param<span style="color:#f92672">-</span>tdimmed <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.   <span style="color:#75715e">&#34; Print Immediately (Print Parameters) &#34;
+</span><span style="color:#75715e"></span>composer_param<span style="color:#f92672">-</span>tddelete <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.  <span style="color:#75715e">&#34; Delete After Printing (Print Parameters) &#34;   
+</span><span style="color:#75715e"></span>composer_param<span style="color:#f92672">-</span>tdcopies <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>.    <span style="color:#75715e">&#34; Repeat printing times &#34;
+</span><span style="color:#75715e"></span>composer_param<span style="color:#f92672">-</span>tdpageslct <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1-3&#39;</span>. <span style="color:#75715e">&#34; Control the printed page number，1,2/1-3 &#34;
+</span><span style="color:#75715e">&#34;调用打印服务&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL FUNCTION</span> lc_fmnam
+  <span style="color:#66d9ef">EXPORTING</span>
+    control_parameters <span style="color:#f92672">=</span> control_param
+    output_options     <span style="color:#f92672">=</span> composer_param
+  <span style="color:#66d9ef">EXCEPTIONS</span>
+    formatting_error   <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    internal_error     <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+    send_error         <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+    user_canceled      <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+    <span style="color:#66d9ef">OTHERS</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">MESSAGE</span> <span style="color:#66d9ef">ID</span> sy<span style="color:#f92672">-</span>msgid <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>msgty <span style="color:#66d9ef">NUMBER</span> sy<span style="color:#f92672">-</span>msgno
+    <span style="color:#66d9ef">WITH</span> sy<span style="color:#f92672">-</span>msgv1 sy<span style="color:#f92672">-</span>msgv2 sy<span style="color:#f92672">-</span>msgv3 sy<span style="color:#f92672">-</span>msgv4.
+<span style="color:#66d9ef">ENDIF</span>.
 </code></pre></div><h3 id="smartforms--调用异常信息获取">Smartforms  调用异常信息获取</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
   <span style="color:#66d9ef">DATA</span> lt_errortab <span style="color:#66d9ef">TYPE </span>tsferror.
@@ -335,7 +332,7 @@ Character formats：字符格式，定义是否粗体、倾斜、大小等，在
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1640</span>
+                   <span>1681</span>
             </p>
             
             <p class="copyright-item">

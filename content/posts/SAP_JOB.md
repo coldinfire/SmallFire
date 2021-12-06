@@ -1,5 +1,5 @@
 ---
-title: " SAP 后台 JOB "
+title: " SAP Background Job "
 date: 2019-04-05
 draft: false
 author: Small Fire
@@ -13,9 +13,9 @@ tags:
 
 ---
 
-### 定义后台 job
+### 定义 Background Job
 
-第一种：SE38执行可执行程序
+#### SE38 执行可执行程序
 
 - 菜单栏‘program’--->'Execute in Background'
 
@@ -29,17 +29,27 @@ tags:
 
   ![时间](/images/ABAP/JOB2.png)
 
-第二种：SM36定义作业名
+#### SM36 定义作业名
 
-- 点击`Start condition`选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.
+- 填写 JOB 名称、优先级（A/B/C）和目标服务器。 一旦在目标服务器上安排了后台作业，就会在该服务器上运行。 定义目标服务器的主要目的是工作负载平衡。然后点击`Start condition`选择 job 开始时间（立刻执行，或定义日期时间，也可周期执行）后保存。
 
   ![Start Condition](/images/ABAP/JOB4.png)
 
-- 再点击`Step`，填写abap程序NAME和Variant后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。
+- 点击`Step`，在字段中输入您的程序名称、Variant 名称。 如果没有 Variant，请将其留空。回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。
 
   ![Step](/images/ABAP/JOB5.png)
 
 [如何在 SAP 中定义 Event 类型的后台 Job](<http://blog.sina.com.cn/s/blog_76c57b480100rumm.html>)
+
+### Background Job 分类
+
+A 类（高/关键优先级）：某些任务是紧急或关键的，必须与 A 类优先级作业一起安排。 A 类优先级保留一个或多个后台工作进程。 用户必须决定应该为 A 类优先作业分配多少后台工作进程。
+
+- 假设用户为此类别选择了 2 个后台工作进程，那么 B 类和 C 类可用的后台工作进程 =（在操作模式 RZ03 中设置的工作进程总数）-（允许为 A 类类别的后台工作进程）。
+
+B 类（中优先级）：一旦 A 类作业完成，B 类作业将在 C 类作业之前开始在后台执行。
+
+C 类（低优先级）：在 A 类和 B 类作业完成后运行。
 
 ### 强制结束后台作业（ SM37 SM35 SM50)
 

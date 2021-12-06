@@ -166,6 +166,16 @@ Messages of call transaction：返回信息
 
 #### 两个固定 Form：尽量不要对其中的内容进行修改
 
+参数值：
+
+| Field name | Type | Length | Description       |
+| :--------- | :--- | :----- | :---------------- |
+| PROGRAM    | CHAR | 8      | Module pool       |
+| DYNPRO     | NUMC | 4      | Dynpro number     |
+| DYNBEGIN   | CHAR | 1      | Starting a dynpro |
+| FNAM       | CHAR | 35     | Field name        |
+| FVAL       | CHAR | 80     | Field value       |
+
 BDC_DYNPRO：指定 bdc_dynpro 的实参，告知系统 dialog 程序名称以及 Screen number。
 
 ```ABAP
@@ -188,7 +198,7 @@ BDC_FIELD：指定 bdc_field 的实参，告知系统把光标放在哪个字段
 *        Insert field                                            *
 *----------------------------------------------------------------*
 FORM BDC_FIELD USING FNAM FVAL.
-  IF FVAL <> NODATA.
+  IF FVAL <> ' ' OR FVAL IS NOT INITIAL.
     CLEAR BDCDATA.
     BDCDATA-FNAM = FNAM.
     BDCDATA-FVAL = FVAL.
@@ -199,19 +209,19 @@ ENDFORM.
 
 ### BDC中按顺序使用的功能模块
 
-三个功能模块依次使用，使用BDC编程成功进行数据传输。
+三个功能模块依次使用，使 BDC 编程成功进行数据传输。
 
-- BDC_OPEN_GROUP
-
-
-- BDC_INSERT
+- BDC_OPEN_GROUP：打开批量输入会话会话
 
 
-- BDC_CLOSE_GROUP
+- BDC_INSERT：将事务传输到 session
+
+
+- BDC_CLOSE_GROUP：关闭批处理输入会话
 
 ### BDC 执行类型
 
-#### 跳转类的
+#### Call Transaction Method
 
 定义变量时需要添加两个变量。
 

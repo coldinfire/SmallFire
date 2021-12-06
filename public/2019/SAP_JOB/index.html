@@ -24,10 +24,10 @@
   <title>
        
        
-            SAP 后台 JOB  | Small Fire`s Blog
+            SAP Background Job  | Small Fire`s Blog
        
   </title>
-  <meta name="title" content=" SAP 后台 JOB  | Small Fire`s Blog">
+  <meta name="title" content=" SAP Background Job  | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,14 +35,14 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=" SAP 后台 JOB "/>
-<meta name="twitter:description" content="定义后台 job 第一种：SE38执行可执行程序 菜单栏‘program’&mdash;&gt;&lsquo;Execute in Background&rsquo; 输入输出设备 选择开始时"/>
+<meta name="twitter:title" content=" SAP Background Job "/>
+<meta name="twitter:description" content="定义 Background Job SE38 执行可执行程序 菜单栏‘program’&mdash;&gt;&lsquo;Execute in Background&rsquo; 输入输出设备 选择开始时间（立刻执行，或"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": " SAP 后台 JOB ",
+  "headline": " SAP Background Job ",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https:\/\/coldinfire.github.io\/2019\/SAP_JOB\/"
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abaputils, JOB",
-  "wordcount":  856 ,
+  "wordcount":  1150 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/SAP_JOB\/",
   "datePublished": "2019-04-05T00:00:00\u002b00:00",
   "dateModified": "2019-04-05T00:00:00\u002b00:00",
@@ -139,7 +139,7 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title"> SAP 后台 JOB </h1>
+        <h1 class="post-title"> SAP Background Job </h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                2 min
+                3 min
         </div>
     </header>
     <div class="post-content">
@@ -173,8 +173,8 @@
           
           
 
-          <h3 id="定义后台-job">定义后台 job</h3>
-<p>第一种：SE38执行可执行程序</p>
+          <h3 id="定义-background-job">定义 Background Job</h3>
+<h4 id="se38-执行可执行程序">SE38 执行可执行程序</h4>
 <ul>
 <li>
 <p>菜单栏‘program’&mdash;&gt;&lsquo;Execute in Background&rsquo;</p>
@@ -189,18 +189,25 @@
 <p><img src="/images/ABAP/JOB2.png" alt="时间"></p>
 </li>
 </ul>
-<p>第二种：SM36定义作业名</p>
+<h4 id="sm36-定义作业名">SM36 定义作业名</h4>
 <ul>
 <li>
-<p>点击<code>Start condition</code>选择job开始时间（立刻执行，或定义日期时间，也可周期执行）后保存.</p>
+<p>填写 JOB 名称、优先级（A/B/C）和目标服务器。 一旦在目标服务器上安排了后台作业，就会在该服务器上运行。 定义目标服务器的主要目的是工作负载平衡。然后点击<code>Start condition</code>选择 job 开始时间（立刻执行，或定义日期时间，也可周期执行）后保存。</p>
 <p><img src="/images/ABAP/JOB4.png" alt="Start Condition"></p>
 </li>
 <li>
-<p>再点击<code>Step</code>，填写abap程序NAME和Variant后保存，回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。</p>
+<p>点击<code>Step</code>，在字段中输入您的程序名称、Variant 名称。 如果没有 Variant，请将其留空。回到主界面后再保存。后台会在你定义的时间，自动执行按照变式的条件执行程序。</p>
 <p><img src="/images/ABAP/JOB5.png" alt="Step"></p>
 </li>
 </ul>
 <p><a href="http://blog.sina.com.cn/s/blog_76c57b480100rumm.html">如何在 SAP 中定义 Event 类型的后台 Job</a></p>
+<h3 id="background-job-分类">Background Job 分类</h3>
+<p>A 类（高/关键优先级）：某些任务是紧急或关键的，必须与 A 类优先级作业一起安排。 A 类优先级保留一个或多个后台工作进程。 用户必须决定应该为 A 类优先作业分配多少后台工作进程。</p>
+<ul>
+<li>假设用户为此类别选择了 2 个后台工作进程，那么 B 类和 C 类可用的后台工作进程 =（在操作模式 RZ03 中设置的工作进程总数）-（允许为 A 类类别的后台工作进程）。</li>
+</ul>
+<p>B 类（中优先级）：一旦 A 类作业完成，B 类作业将在 C 类作业之前开始在后台执行。</p>
+<p>C 类（低优先级）：在 A 类和 B 类作业完成后运行。</p>
 <h3 id="强制结束后台作业-sm37-sm35-sm50">强制结束后台作业（ SM37 SM35 SM50)</h3>
 <p>第一步：SM50</p>
 <p>找到 &ldquo;Ty.&rdquo; 列为 BGD 的(Background)，然后再找到你刚运行的那个后台 Job 的行，选中；然后在菜单点击：Process &mdash;&gt; Cancel with core 即可。</p>
@@ -236,7 +243,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>856</span>
+                   <span>1150</span>
             </p>
             
             <p class="copyright-item">
@@ -283,7 +290,7 @@
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '2019-04-05 00:00:00 \u002b0000 UTC',
-        title: ' SAP 后台 JOB ',
+        title: ' SAP Background Job ',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',
