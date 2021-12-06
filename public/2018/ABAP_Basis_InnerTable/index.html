@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abapbasis",
-  "wordcount":  2557 ,
+  "wordcount":  2738 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Basis_InnerTable\/",
   "datePublished": "2018-05-21T00:00:00\u002b00:00",
   "dateModified": "2018-05-21T00:00:00\u002b00:00",
@@ -318,8 +318,14 @@
 <li>
 <p><code>DELETE itab FROM idx1 TO idx2.</code>：根据索引删除具体行数范围间数据。</p>
 </li>
+</ul>
+<p>删除重复数据：</p>
+<ul>
 <li>
-<p><code>DELETE ADJACENT DUPLICATES FROM itab [COMPARING f1 f2 | ALL FIELDS].</code>：删除重复数据，仅保留第一条。执行此条件前必须先按照内表关键字声明的顺序进行排序。</p>
+<p><code>SORT itab BY f1 f2.</code> ：先按照内表关键字声明的顺序进行排序</p>
+</li>
+<li>
+<p><code>DELETE ADJACENT DUPLICATES FROM itab [COMPARING f1 f2 | ALL FIELDS].</code>：删除重复数据，仅保留第一条。</p>
 </li>
 <li>
 <p>如果指定了 COMPARING 选项，则需要根据指定的比较字段顺序进行排序，才能删除所有重复数据</p>
@@ -327,12 +333,18 @@
 </ul>
 <h4 id="modify修改内表数据">MODIFY：修改内表数据</h4>
 <p>按内表位置或者具体内表字段值相等条件修改内表数据。</p>
+<p><code>MODIFY itab [INDEX idx] FROM wa [TRANSPORTING f1...fn] WHERE condition.</code></p>
 <ul>
-<li><code>MODIFY itab [INDEX idx] FROM wa [TRANSPORTING f1...fn] WHERE condition.</code></li>
+<li><code>MODIFY TABLE itab FROM wa [TRANSPORTING f1...fn].</code> ：修改单条</li>
+<li><code>MODIFY itab FROM wa TRANSPORTING f1 f2 WHERE cond</code>： 修改多条</li>
+<li>TRANSPORTING：根据该语句后面的字段进行比较，当字段出现不一致现象时，触发修改操作</li>
 </ul>
 <h4 id="从内表中读取数据">从内表中读取数据</h4>
 <p>READ：使用 READ 读取数据，如果找到具有指定索引的条目，则将 SY-SUBRC 设置为 0。如果指定的索引小于 0，则会发生运行时错误。如果指定的索引超过表大小，则 SY-SUBRC 设置为 4。</p>
-<ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">READ</span> <span style="color:#66d9ef">TABLE</span> &lt;itab&gt; <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">KEY</span> <span style="color:#960050;background-color:#1e0010">{</span>&lt;k1&gt;=&lt;f1&gt;...[BINARY <span style="color:#66d9ef">SEARCH</span>]<span style="color:#960050;background-color:#1e0010">}</span> <span style="color:#66d9ef">INTO</span> &lt;wa&gt;}<span style="color:#e6db74">
+</span><span style="color:#e6db74">    [COMPARING &lt;f1&gt;&lt;f2&gt;...</span>|ALL <span style="color:#66d9ef">FIELDS</span>]  [TRANSPORTING &lt;f1&gt; &lt;f2&gt; ...|<span style="color:#e6db74">ALL FIELDS
+</span><span style="color:#e6db74">                                        </span>|NO <span style="color:#66d9ef">FIELDS</span>] <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#66d9ef">ASSIGNING</span> &lt;fs&gt;.
+</code></pre></div><ul>
 <li>
 <p><code>READ TABLE itab [INTO wa] FROM wa.</code>：以表关键字为查找条件，条件来自 工作区。</p>
 </li>
@@ -347,7 +359,10 @@
 </li>
 </ul>
 <p>LOOP &hellip; ENDLOOP：循环读取内表数据，在循环中使用系统变量 SY-TABIX 可获取当前所执行的行数。</p>
-<ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">LOOP AT </span>itab <span style="color:#960050;background-color:#1e0010">{</span>INTO wa}|<span style="color:#960050;background-color:#1e0010">{</span>ASSIGNING &lt;fs&gt; [CASTING]}<span style="color:#e6db74"> </span>| <span style="color:#960050;background-color:#1e0010">{</span>TRANSPORTING NO FILDS}<span style="color:#e6db74"> 
+</span><span style="color:#e6db74">      [[USING KEY key_name] [FROM idx1] [TO idx2] [WHERE log_exp</span>|(cond_syntax)]].
+<span style="color:#66d9ef">ENDLOOP</span>.
+</code></pre></div><ul>
 <li>
 <p><code>LOOP AT ITAB [INTO WA] FROM n1 TO n2.</code>：读取内表具体索引行数之间的数据。</p>
 </li>
@@ -356,6 +371,19 @@
 </li>
 <li>
 <p><code>LOOP AT ITAB [ASSIGNING wa ] WHERE cond.</code>：根据查询条件循环内表数据并分配给字段符号。</p>
+</li>
+</ul>
+<h4 id="sort内表排序操作">SORT：内表排序操作</h4>
+<ul>
+<li><code>SORT itab ASCENDING|DESCENDING BY field1 field2 field3.</code>
+<ul>
+<li>指示符在 BY 在前面，表示后面的字段都用这个升降序，作用范围是后面 BY 所有的字段</li>
+</ul>
+</li>
+<li><code>SORT itab BY field1 field2 field3 ASCENDING|DESCENDING.</code>
+<ul>
+<li>指示符在 BY 的后面，则只是对这个指示符前面的字段起作用，其他的字段还是默认的方式排序</li>
+</ul>
 </li>
 </ul>
 <h4 id="collect内表数据分类汇总">COLLECT：内表数据分类汇总</h4>
@@ -391,17 +419,14 @@
 <li><code>DESCRIBE TABLE itab LINES n.</code>：获取内表当前总行数，n 为整型 i。</li>
 <li><code>n = lines (itab). </code></li>
 </ul>
-<h4 id="sort内表排序操作">SORT：内表排序操作</h4>
+<h4 id="第二索引">第二索引</h4>
+<p>通过第二索引在无法使用主键时，可以加快大量处理数据的速度。</p>
 <ul>
-<li><code>SORT itab ASCENDING|DESCENDING BY field1 field2 field3.</code>
-<ul>
-<li>指示符在 BY 在前面，表示后面的字段都用这个升降序，作用范围是后面 BY 所有的字段</li>
-</ul>
+<li>
+<p><code>    UNIQUE KEY.</code>：唯一升序第二索引</p>
 </li>
-<li><code>SORT itab BY field1 field2 field3 ASCENDING|DESCENDING.</code>
-<ul>
-<li>指示符在 BY 的后面，则只是对这个指示符前面的字段起作用，其他的字段还是默认的方式排序</li>
-</ul>
+<li>
+<p><code>NON-UNIQUE KEY.</code>：非唯一升序第二索引</p>
 </li>
 </ul>
 
@@ -417,7 +442,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2557</span>
+                   <span>2738</span>
             </p>
             
             <p class="copyright-item">

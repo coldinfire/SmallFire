@@ -170,19 +170,33 @@ WITH HEADER LINE 作用：
 
 - `DELETE itab FROM idx1 TO idx2.`：根据索引删除具体行数范围间数据。
 
+删除重复数据：
 
-- `DELETE ADJACENT DUPLICATES FROM itab [COMPARING f1 f2 | ALL FIELDS].`：删除重复数据，仅保留第一条。执行此条件前必须先按照内表关键字声明的顺序进行排序。
+- `SORT itab BY f1 f2.` ：先按照内表关键字声明的顺序进行排序
+
+
+- `DELETE ADJACENT DUPLICATES FROM itab [COMPARING f1 f2 | ALL FIELDS].`：删除重复数据，仅保留第一条。
 - 如果指定了 COMPARING 选项，则需要根据指定的比较字段顺序进行排序，才能删除所有重复数据
 
 #### MODIFY：修改内表数据
 
 按内表位置或者具体内表字段值相等条件修改内表数据。
 
-- `MODIFY itab [INDEX idx] FROM wa [TRANSPORTING f1...fn] WHERE condition.`
+`MODIFY itab [INDEX idx] FROM wa [TRANSPORTING f1...fn] WHERE condition.`
+
+- `MODIFY TABLE itab FROM wa [TRANSPORTING f1...fn].` ：修改单条
+- `MODIFY itab FROM wa TRANSPORTING f1 f2 WHERE cond`： 修改多条
+- TRANSPORTING：根据该语句后面的字段进行比较，当字段出现不一致现象时，触发修改操作
 
 #### 从内表中读取数据
 
 READ：使用 READ 读取数据，如果找到具有指定索引的条目，则将 SY-SUBRC 设置为 0。如果指定的索引小于 0，则会发生运行时错误。如果指定的索引超过表大小，则 SY-SUBRC 设置为 4。
+
+```ABAP
+READ TABLE <itab> WITH KEY {<k1>=<f1>...[BINARY SEARCH]} INTO <wa>}
+    [COMPARING <f1><f2>...|ALL FIELDS]  [TRANSPORTING <f1> <f2> ...|ALL FIELDS
+                                        |NO FIELDS] | ASSIGNING <fs>.
+```
 
 - `READ TABLE itab [INTO wa] FROM wa.`：以表关键字为查找条件，条件来自 工作区。
 
@@ -195,11 +209,24 @@ READ：使用 READ 读取数据，如果找到具有指定索引的条目，则�
 
 LOOP ... ENDLOOP：循环读取内表数据，在循环中使用系统变量 SY-TABIX 可获取当前所执行的行数。
 
+```ABAP
+LOOP AT itab {INTO wa}|{ASSIGNING <fs> [CASTING]} | {TRANSPORTING NO FILDS} 
+      [[USING KEY key_name] [FROM idx1] [TO idx2] [WHERE log_exp|(cond_syntax)]].
+ENDLOOP.
+```
+
 - `LOOP AT ITAB [INTO WA] FROM n1 TO n2.`：读取内表具体索引行数之间的数据。
 
 
 - `LOOP AT ITAB [INTO WA] WHERE cond.`：按具体字段条件读取内表。
 - `LOOP AT ITAB [ASSIGNING wa ] WHERE cond.`：根据查询条件循环内表数据并分配给字段符号。
+
+#### SORT：内表排序操作
+
+- `SORT itab ASCENDING|DESCENDING BY field1 field2 field3.`
+  - 指示符在 BY 在前面，表示后面的字段都用这个升降序，作用范围是后面 BY 所有的字段
+- `SORT itab BY field1 field2 field3 ASCENDING|DESCENDING.`
+  - 指示符在 BY 的后面，则只是对这个指示符前面的字段起作用，其他的字段还是默认的方式排序
 
 #### COLLECT：内表数据分类汇总
 
@@ -234,16 +261,13 @@ Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 wo
 - `DESCRIBE TABLE itab LINES n.`：获取内表当前总行数，n 为整型 i。
 - `n = lines (itab). `
 
-#### SORT：内表排序操作
+####  第二索引
 
-- `SORT itab ASCENDING|DESCENDING BY field1 field2 field3.`
-  - 指示符在 BY 在前面，表示后面的字段都用这个升降序，作用范围是后面 BY 所有的字段
-- `SORT itab BY field1 field2 field3 ASCENDING|DESCENDING.`
-  - 指示符在 BY 的后面，则只是对这个指示符前面的字段起作用，其他的字段还是默认的方式排序
+通过第二索引在无法使用主键时，可以加快大量处理数据的速度。
 
+- `    UNIQUE KEY.`：唯一升序第二索引
 
-
-
+- `NON-UNIQUE KEY.`：非唯一升序第二索引
 
 
 

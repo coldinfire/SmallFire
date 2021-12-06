@@ -1,5 +1,5 @@
 ---
-title: " Smartforms 使用 "
+title: " Smart Forms 使用 "
 date: 2018-07-23
 draft: false
 author: Small Fire
@@ -12,17 +12,17 @@ tags:
 
 ---
 
-### Smartforms 简介
+### Smart Forms 简介
 
-在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。
+在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出介质，SAP Smart Forms 支持打印机、传真、电子邮件或 Internet（通过使用生成的 XML 输出）。
 
-但是 SmartForms 是一个独立的外部 Function Module，对于程序内部定义的内表数据不能直接传递，需要定义外部的数据结构 Structure 或者使用标准的表结构，如果程序变更，需要传递的数据发生变化，那么该 Sturcture 也需要修改，这是 SmartForms 中不方便的地方。
+激活 Smart Forms 时，系统会在运行时自动生成一个独立的外部 Function Module，对于程序内部定义的内表数据不能直接传递，需要定义外部的数据结构 Structure 或者使用标准的表结构，如果程序变更，需要传递的数据发生变化，那么该 Sturcture 也需要修改，这是 Smart Forms 中不方便的地方。
 
-我们也可以在 SmartForms 内部写取数据的逻辑，但是在 SmartForms 中编程不是很方便，而且有时我们的数据需要首先以 List 或者 ALV List 的方式显示，然后再打印，所以在 smartforms 中书写取数据逻辑只能对一些要求非常简单的场合适用。
+我们也可以在 Smart Forms 内部写取数据的逻辑，但是在 Smart Forms 中编程不是很方便，而且有时我们的数据需要首先以 List 或者 ALV List 的方式显示，然后再打印，所以在 Smart Forms 中书写取数据逻辑只能对一些要求非常简单的场合适用。
 
-Smartforms 的执行顺序是根据左边菜单从上到下执行的。
+Smart Forms 的执行顺序是根据左边菜单从上到下执行的。
 
-### 查找 Smartforms
+### 查找 Smart Forms
 
 #### 方法 1
 

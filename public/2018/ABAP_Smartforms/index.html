@@ -24,10 +24,10 @@
   <title>
        
        
-            Smartforms 使用  | Small Fire`s Blog
+            Smart Forms 使用  | Small Fire`s Blog
        
   </title>
-  <meta name="title" content=" Smartforms 使用  | Small Fire`s Blog">
+  <meta name="title" content=" Smart Forms 使用  | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,14 +35,14 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=" Smartforms 使用 "/>
-<meta name="twitter:description" content="Smartforms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。 但是 SmartForms 是一"/>
+<meta name="twitter:title" content=" Smart Forms 使用 "/>
+<meta name="twitter:description" content="Smart Forms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": " Smartforms 使用 ",
+  "headline": " Smart Forms 使用 ",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https:\/\/coldinfire.github.io\/2018\/ABAP_Smartforms\/"
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "smartforms",
-  "wordcount":  1573 ,
+  "wordcount":  1640 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Smartforms\/",
   "datePublished": "2018-07-23T00:00:00\u002b00:00",
   "dateModified": "2018-07-23T00:00:00\u002b00:00",
@@ -139,7 +139,7 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title"> Smartforms 使用 </h1>
+        <h1 class="post-title"> Smart Forms 使用 </h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
@@ -173,12 +173,12 @@
           
           
 
-          <h3 id="smartforms-简介">Smartforms 简介</h3>
-<p>在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。</p>
-<p>但是 SmartForms 是一个独立的外部 Function Module，对于程序内部定义的内表数据不能直接传递，需要定义外部的数据结构 Structure 或者使用标准的表结构，如果程序变更，需要传递的数据发生变化，那么该 Sturcture 也需要修改，这是 SmartForms 中不方便的地方。</p>
-<p>我们也可以在 SmartForms 内部写取数据的逻辑，但是在 SmartForms 中编程不是很方便，而且有时我们的数据需要首先以 List 或者 ALV List 的方式显示，然后再打印，所以在 smartforms 中书写取数据逻辑只能对一些要求非常简单的场合适用。</p>
-<p>Smartforms 的执行顺序是根据左边菜单从上到下执行的。</p>
-<h3 id="查找-smartforms">查找 Smartforms</h3>
+          <h3 id="smart-forms-简介">Smart Forms 简介</h3>
+<p>在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出介质，SAP Smart Forms 支持打印机、传真、电子邮件或 Internet（通过使用生成的 XML 输出）。</p>
+<p>激活 Smart Forms 时，系统会在运行时自动生成一个独立的外部 Function Module，对于程序内部定义的内表数据不能直接传递，需要定义外部的数据结构 Structure 或者使用标准的表结构，如果程序变更，需要传递的数据发生变化，那么该 Sturcture 也需要修改，这是 Smart Forms 中不方便的地方。</p>
+<p>我们也可以在 Smart Forms 内部写取数据的逻辑，但是在 Smart Forms 中编程不是很方便，而且有时我们的数据需要首先以 List 或者 ALV List 的方式显示，然后再打印，所以在 Smart Forms 中书写取数据逻辑只能对一些要求非常简单的场合适用。</p>
+<p>Smart Forms 的执行顺序是根据左边菜单从上到下执行的。</p>
+<h3 id="查找-smart-forms">查找 Smart Forms</h3>
 <h4 id="方法-1">方法 1</h4>
 <p>查找表格名称和打印程序名称的最佳方法是使用 SE38，输入程序 RSNAST00。 在以下语句处保留断点。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP">PERFORM (TNAPR<span style="color:#f92672">-</span>RONAM) <span style="color:#66d9ef">IN PROGRAM</span> (TNAPR<span style="color:#f92672">-</span>PGNAM) 
@@ -335,7 +335,7 @@ Character formats：字符格式，定义是否粗体、倾斜、大小等，在
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1573</span>
+                   <span>1640</span>
             </p>
             
             <p class="copyright-item">
@@ -379,7 +379,7 @@ Character formats：字符格式，定义是否粗体、倾斜、大小等，在
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '2018-07-23 00:00:00 \u002b0000 UTC',
-        title: ' Smartforms 使用 ',
+        title: ' Smart Forms 使用 ',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',

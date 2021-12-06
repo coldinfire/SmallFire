@@ -32,44 +32,6 @@ tags:
 
 循环结束后，循环开始前需要根据程序需求选择是否需要清空内表内容，对于带有 HEAD LINE 的内表要注意。
 
-### 增、删、改
-
-
-```JS
-<1> Loop AT循环(sy-tabix:索引号)
-    LOOP AT itab {INTO wa}|{ASSIGNING <fs> [CASTING]} | {TRANSPORTING NO FILDS} 
-      [[USING KEY key_name] [FROM idx1] [TO idx2] [WHERE log_exp|(cond_syntax)]].
-    ENDLOOP.
-<2> INSERT <wa> INTO TABLE <itab>.[单条]
-    INSERT <wa> INTO <itab> INDEX <idx>.[索引]
-    INSERT LINES OF <itab> [FROM <n1>] [TO <n2>] INTO TABLE <itab>.[批量插入]
-    APPEND <wa> TO <itab>.
-    APPEND LINES OF <itab1> [FROM<n1>] [TO<n2>] TO <itab2>.
-<3> READ TABLE <itab> WITH KEY {<k1>=<f1>...[BINARY SEARCH]} INTO <wa>}
-    [COMPARING <f1><f2>...|ALL FIELDS]  [TRANSPORTING <f1> <f2> ...|ALL FIELDS
-                                        |NO FIELDS] | ASSIGNING <fs>.
-    COMPARING:根据关键字读取指定的单行与工作区<wa>中的相应组件进行比较。内容相同SY-SUBRC=0
-<4> MODIFY itab1.
-    MODIFY itab INDEX idx FROM <wa> [TRANSPORTING <f1> <f2> ...].
-    MODIFY TABLE <itab> FROM <wa> [TRANSPORTING <f1> <f2>...].[修改单条]
-    MODIFY <itab> FROM <wa> TRANSPORTING <f1> <f2> ... WHERE <cond>.[修改多条]
-    UPDATE dbtab SET f1=g1 ... fi=gi WHERE <con>.
-    TRANSPORTING:根据后面的字段进行比较，当字段出现不一致现象时，触发修改操作
-<5> DELETE TABLE <itab> FROM <wa> [USING KEY key_name].[删除单条]
-    DELETE TABLE <itab> WITH TABLE KEY <k1>=<f1>.. .
-    DELETE <itab> WHERE <cond>.[删除多行]
-    DELETE <itab> [INDEX <idx>].
-<6>删除重复
-  (1)SORT record_tab. //首先进行排序处理
-  (2)DELETE ADJACENT DUPLICATES ENTRIES FROM itab [USING KEY key_name] 
-                                     [COMPARING K1 K2...] [ALL FIELDS].//删除
-<7> COLLECT <wa> INTO <itab>.
-<8> 第二索引
-    UNIQUE KEY.唯一升序第二索引
-    NON-UNIQUE KEY.非唯一升序第二索引
-    通过第二索引在无法使用主键时，可以加快大量处理数据的速度。
-```
-
 ### 查询数据
 
 ```JS

@@ -2204,12 +2204,12 @@
     </item>
     
     <item>
-      <title> Smartforms 使用 </title>
+      <title> Smart Forms 使用 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Smartforms/</link>
       <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
-      <description>Smartforms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。 但是 SmartForms 是一</description>
+      <description>Smart Forms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出</description>
     </item>
     
     <item>
