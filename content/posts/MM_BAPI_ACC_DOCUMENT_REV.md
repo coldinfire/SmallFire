@@ -1,6 +1,6 @@
 ---
 title: " BAPI:BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 "
-date: 2020-02-24
+date: 2019-11-08
 draft: false
 author: Small Fire
 isCJKLanguage: true

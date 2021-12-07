@@ -1,6 +1,6 @@
 ---
 title: " BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 "
-date: 2020-02-16
+date: 2019-11-26
 draft: false
 author: Small Fire
 isCJKLanguage: true

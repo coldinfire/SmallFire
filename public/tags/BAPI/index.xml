@@ -44,39 +44,39 @@
     </item>
     
     <item>
-      <title> BAPI:BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 </title>
-      <link>https://coldinfire.github.io/2020/MM_BAPI_ACC_DOCUMENT_REV/</link>
-      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2020/MM_BAPI_ACC_DOCUMENT_REV/</guid>
-      <description>引用链接：https://mp.weixin.qq.com/s/0RoUY8nyWfONjKTItjTouA BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 前台操作： FB08 直接点保存</description>
-    </item>
-    
-    <item>
-      <title> BAPI:BAPI_ACC_DOCUMENT_POST 创建固定资产凭证 </title>
-      <link>https://coldinfire.github.io/2020/FI_BAPI_ACC_DOCUMENT_POST/</link>
-      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2020/FI_BAPI_ACC_DOCUMENT_POST/</guid>
-      <description>引用链接： https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA 固定资产 BAPI_ACC_DOCUMENT_POST 凭证创建 TCode : F-02 (固定资产) 增强创建 和其他常规标准增强一样：创建自定义结构 ZLM_ENHANCE_ACC_DOC (ACC_DOCUMENT) SE19 创建增强实例：ACC_DOCUMENT</description>
-    </item>
-    
-    <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据退货PO创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2020/MM_MIRO_INCOMINGINVOICE_CREATE/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
+      <link>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_MIRO_INCOMINGINVOICE_CREATE/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw MIRO根据退货PO创建贷项凭证</description>
     </item>
     
     <item>
-      <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2020/FI_MIRO_Matnr/</link>
-      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
+      <title> BAPI:BAPI_ACC_DOCUMENT_POST 创建固定资产凭证 </title>
+      <link>https://coldinfire.github.io/2019/FI_BAPI_ACC_DOCUMENT_POST/</link>
+      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/FI_MIRO_Matnr/</guid>
+      <guid>https://coldinfire.github.io/2019/FI_BAPI_ACC_DOCUMENT_POST/</guid>
+      <description>引用链接： https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA 固定资产 BAPI_ACC_DOCUMENT_POST 凭证创建 TCode : F-02 (固定资产) 增强创建 和其他常规标准增强一样：创建自定义结构 ZLM_ENHANCE_ACC_DOC (ACC_DOCUMENT) SE19 创建增强实例：ACC_DOCUMENT</description>
+    </item>
+    
+    <item>
+      <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 </title>
+      <link>https://coldinfire.github.io/2019/FI_MIRO_Matnr/</link>
+      <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/FI_MIRO_Matnr/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw BAPI_INCOMINGINVOICE_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZLM_MIRO *&amp;amp; *&amp;amp;---------------------------------------------------------------------* REPORT ZLM_MIRO. DATA: LS_HEADERDATA LIKE BAPI_INCINV_CREATE_HEADER, LT_RETURN LIKE TABLE</description>
+    </item>
+    
+    <item>
+      <title> BAPI:BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 </title>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_ACC_DOCUMENT_REV/</link>
+      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_ACC_DOCUMENT_REV/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/0RoUY8nyWfONjKTItjTouA BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 前台操作： FB08 直接点保存</description>
     </item>
     
     <item>

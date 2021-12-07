@@ -1,6 +1,6 @@
 ---
 title: " BAPI:BAPI_ACC_DOCUMENT_POST 创建固定资产凭证 "
-date: 2020-02-22
+date: 2019-12-04
 draft: false
 author: Small Fire
 isCJKLanguage: true
