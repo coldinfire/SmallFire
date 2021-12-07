@@ -30,9 +30,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/SAP_Note/</loc>
+      <loc>https://coldinfire.github.io/2021/FI_BAPI_READ_EXCHANGE_RATE/</loc>
       
-      <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+      <lastmod>2021-10-15T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -46,7 +46,7 @@
     <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
-      <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+      <lastmod>2021-10-15T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -60,7 +60,21 @@
     <url>
       <loc>https://coldinfire.github.io/categories/</loc>
       
-      <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+      <lastmod>2021-10-15T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/Enhance/</loc>
+      
+      <lastmod>2021-10-15T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -74,7 +88,7 @@
     <url>
       <loc>https://coldinfire.github.io/posts/</loc>
       
-      <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+      <lastmod>2021-10-15T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -88,7 +102,7 @@
     <url>
       <loc>https://coldinfire.github.io/</loc>
       
-      <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+      <lastmod>2021-10-15T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -101,6 +115,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2021-10-15T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/SAP_Note/</loc>
       
       <lastmod>2021-09-04T00:00:00+00:00</lastmod>
       
@@ -591,20 +619,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</loc>
-      
-      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/Enhance/</loc>
       
       <lastmod>2020-12-26T00:00:00+00:00</lastmod>
       
@@ -3320,7 +3334,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Enhance3/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Enhance_Util2/</loc>
       
       <lastmod>2018-11-30T00:00:00+00:00</lastmod>
       
@@ -3768,21 +3782,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Enhance1/</loc>
-      
-      <lastmod>2018-09-15T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_Enhance2/</loc>
+      <loc>https://coldinfire.github.io/2018/ABAP_Enhance_Util1/</loc>
       
       <lastmod>2018-09-15T00:00:00+00:00</lastmod>
       

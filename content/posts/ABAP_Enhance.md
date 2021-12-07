@@ -174,11 +174,9 @@ BADI 创建和实现：[https://coldinfire.github.io/2019/ABAP_BADI/](https://co
 
 ### 查找的功能程序：
 
-- [利用 t-code 查找增强出口的程序工具](https://coldinfire.github.io/2018/ABAPEnhance1/)
+- [查找增强出口和 BADI](https://coldinfire.github.io/2018/ABAP_Enhance_Util1/)
 
-- [查找增强出口和 BADI](https://coldinfire.github.io/2018/ABAPEnhance2/)
-
-- [利用 t-code 查找增强出口的程序工具](https://coldinfire.github.io/2018/ABAPEnhance1/)
+- [利用 t-code 查找增强出口的程序工具](https://coldinfire.github.io/2018/ABAP_Enhance_Util2/)
 
 
 

@@ -6,7 +6,16 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> SAP 外币金额汇率转换 </title>
+      <link>https://coldinfire.github.io/2021/FI_BAPI_READ_EXCHANGE_RATE/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/FI_BAPI_READ_EXCHANGE_RATE/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title> SAP Note 使用 </title>
       <link>https://coldinfire.github.io/2021/SAP_Note/</link>
@@ -980,11 +989,11 @@
     </item>
     
     <item>
-      <title> 查找增强程序(3) </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Enhance3/</link>
+      <title> 查找增强程序(2) </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Enhance_Util2/</link>
       <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Enhance3/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Enhance_Util2/</guid>
       <description>一个功能非常全面的增强出口查找工具 *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Report: zdamon_004 (V9) &amp;amp;* *&amp;amp; PJA Consultancy Services (www.pjas.com) &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; This report attmpts to find Enhancements, Program-Exits, BADIs &amp;amp;* *&amp;amp; and Business Transaction Events in a particular program/tcode. &amp;amp;* *&amp;amp; Last updated: 09 May 2007 &amp;amp;* *&amp;amp;--------------------------------------------------------------------&amp;amp;* *&amp;amp; Selection Texts: *&amp;amp; P_ALV ALV format *&amp;amp; P_AUTH Include authority-check search</description>
     </item>
     
@@ -1233,20 +1242,11 @@
     
     <item>
       <title> 查找增强程序(1) </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Enhance1/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Enhance_Util1/</link>
       <pubDate>Sat, 15 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Enhance1/</guid>
-      <description>利用t-code查找增强出口的程序工具 REPORT zdamon_005 NO STANDARD PAGE HEADING. TABLES : tstc, tadir, modsapt, modact, trdir, tfdir, enlfdir. TABLES : tstct. DATA : jtab LIKE tadir OCCURS 0 WITH HEADER LINE. DATA : field1(30). DATA : v_devclass LIKE tadir-devclass. PARAMETERS : p_tcode LIKE tstc-tcode OBLIGATORY. SELECT SINGLE * FROM tstc WHERE tcode EQ p_tcode.</description>
-    </item>
-    
-    <item>
-      <title> 查找增强程序(2) </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Enhance2/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Enhance2/</guid>
-      <description>查找增强出口和BADI *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z_FIND_EXIT_AND_BADI *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp; *&amp;amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Enter the transaction code that you want to search through in order *&amp;amp; to find which Standard SAP User Exits and BADIs *&amp;amp; *&amp;amp;---------------------------------------------------------------------* *&amp;amp; For field &amp;#39;SUBC&amp;#39; of table &amp;#39;TRDIR&amp;#39;: *&amp;amp; M Module Pool *&amp;amp; F Function group *&amp;amp; S Subroutine</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Enhance_Util1/</guid>
+      <description>查找增强出口和BADI *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report Z_FIND_EXIT_AND_BADI *&amp;amp;---------------------------------------------------------------------* report z_find_exit_and_badi no standard page heading. *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Enter the transaction code that you want to search through in order *&amp;amp; to find which Standard SAP User Exits and BADIs *&amp;amp;---------------------------------------------------------------------* *&amp;amp; For field &amp;#39;SUBC&amp;#39; of table &amp;#39;TRDIR&amp;#39;: *&amp;amp; M Module Pool *&amp;amp; F Function group *&amp;amp; S Subroutine Pool *&amp;amp; J Interface pool</description>
     </item>
     
     <item>
