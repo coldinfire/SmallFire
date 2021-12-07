@@ -33,15 +33,15 @@ report z_find_exit_and_badi no standard page heading.
 *&   X  XSLT Program
 *&---------------------------------------------------------------------*
 *Tables
-TABLES: tstc     , " SAP Transaction Codes
-        tadir    , " Directory of Repository Objects
-        modsapt  , " SAP Enhancements - Short Texts
-        sxs_attrt, " SAP BADI - short text
-        modact   , " Modifications
-        trdir    , " System table TRDIR
-        tfdir    , " Function Module
-        enlfdir  , " Additional Attributes for Function Modules
-        tstct    . " Transaction Code Texts
+TABLES: tstc     , " SAP Transaction Codes "
+        tadir    , " Directory of Repository Objects "
+        modsapt  , " SAP Enhancements - Short Texts "
+        sxs_attrt, " SAP BADI - short text "
+        modact   , " Modifications "
+        trdir    , " System table TRDIR "
+        tfdir    , " Function Module "
+        enlfdir  , " Additional Attributes for Function Modules "
+        tstct    . " Transaction Code Texts "
 *Variables
 DATA: jtab        LIKE tadir OCCURS 0 WITH HEADER LINE.
 DATA: field1(30).
@@ -75,9 +75,9 @@ END-OF-DEFINITION.
 *Start of main program
 START-OF-SELECTION.
   IF exit = 'X'.
-    object = 'SMOD'.  " User-exit!
+    object = 'SMOD'.  " User-exit! "
   ELSE.
-    object = 'SXSD'.  " BADI!
+    object = 'SXSD'.  " BADI! "
   ENDIF.
 * Validate Transaction Code:
   SELECT SINGLE * FROM tstc WHERE tcode EQ p_tcode.
