@@ -31,7 +31,7 @@
       <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_ALL_LIST/</guid>
-      <description>MM BAPI LIST 整理 BAPI Desc BAPI_MATERIAL_SAVEDATA 创建及更改物料主数据 BAPI_OBJCL_CREATE 分类视图的创建 BAPI_OBJCL_GETCLASSES 分类视图得到详细信息 BAPI_MATERIAL_SAVEREPLICA 物料视图的扩充 BAPI_GOODSMVT_CREATE 创建物料凭证，注意表T158G可以决定goods</description>
+      <description>MM 常用 BAPI 整理 BAPI Description BAPI_MATERIAL_SAVEDATA 创建及更改物料主数据，EXTENSIONIN可以创建自定义字段 BAPI_OBJCL_CREATE 分类视图的创建 BAPI_OBJCL_GETCLASSES 分类视图得到详细信息 BAPI_MATERIAL_SAVEREPLICA 物料视图的扩充 BAPI_GOODSMVT_CREATE 创建</description>
     </item>
     
     <item>
@@ -44,12 +44,30 @@
     </item>
     
     <item>
+      <title> FI 常用BAPI </title>
+      <link>https://coldinfire.github.io/2020/FI_BAPI_ALL_List/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/FI_BAPI_ALL_List/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据退货PO创建贷项凭证 </title>
       <link>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</link>
       <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw MIRO根据退货PO创建贷项凭证</description>
+    </item>
+    
+    <item>
+      <title> PP 模块常用BAPI </title>
+      <link>https://coldinfire.github.io/2019/PP_BAPI_ALL_List/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/PP_BAPI_ALL_List/</guid>
+      <description>生产计划的 BAPI 列表 Routing：工艺路线 BAPI Description BAPI_ROUTING_CREATE 创建工艺路线BAPI - CA03 BAPI_ROUTING_EXISTENCE_CHECK 检查工艺路线是否存在 Reference operation set：参考操作集 BAPI Description BAPI_REFSETOFOPERATIONS_CREATE 创建参考参考工序集 BAPI_REFSETOFOPR_EXISTENCE_CHK</description>
     </item>
     
     <item>
@@ -86,6 +104,15 @@
       
       <guid>https://coldinfire.github.io/2019/MM_BAPI_ACC_DOCUMENT_REV/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/0RoUY8nyWfONjKTItjTouA BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 前台操作： FB08 直接点保存</description>
+    </item>
+    
+    <item>
+      <title> SD 模块常用BAPI </title>
+      <link>https://coldinfire.github.io/2019/SD_BAPI_Sum/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SD_BAPI_Sum/</guid>
+      <description>SD 常用 BAPI BAPI Description SD_SALESDOCUMENT_CREATE 创建销售订单 SD_SALES_DOCUMENT_SAVE 从复制的文档创建销售订单 BAPI_SALESORDER_CREATEFROMDAT2 创建销售订单 BAPI_SALESORDER_CHANGE 修改或者删除销售订单 BAPI_OUTB_DELIVERY_CREATE_SLS 根据销售订单创建交货单 BAPI_BILLINGDOC_CREATEMULTIPLE 创建发票，注意参数 ref_doc_ca MB_CANCEL_GOODS_MOVEMENT 冲销</description>
     </item>
     
     <item>

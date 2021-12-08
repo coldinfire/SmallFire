@@ -58,7 +58,7 @@
       <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_ALL_LIST/</guid>
-      <description>MM BAPI LIST 整理 BAPI Desc BAPI_MATERIAL_SAVEDATA 创建及更改物料主数据 BAPI_OBJCL_CREATE 分类视图的创建 BAPI_OBJCL_GETCLASSES 分类视图得到详细信息 BAPI_MATERIAL_SAVEREPLICA 物料视图的扩充 BAPI_GOODSMVT_CREATE 创建物料凭证，注意表T158G可以决定goods</description>
+      <description>MM 常用 BAPI 整理 BAPI Description BAPI_MATERIAL_SAVEDATA 创建及更改物料主数据，EXTENSIONIN可以创建自定义字段 BAPI_OBJCL_CREATE 分类视图的创建 BAPI_OBJCL_GETCLASSES 分类视图得到详细信息 BAPI_MATERIAL_SAVEREPLICA 物料视图的扩充 BAPI_GOODSMVT_CREATE 创建</description>
     </item>
     
     <item>
