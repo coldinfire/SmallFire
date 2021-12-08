@@ -226,8 +226,8 @@ ENDFORM.
 定义变量时需要添加两个变量。
 
 ```ABAP
-DATA:bdcdata LIKE BDCDATA OCCURS 0 WITH HEADER LINE.    "保存录屏过程中的变量及常量数据"
-DATA:messtab LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE. "记录BDC执行返回数据" 
+DATA:bdcdata TYPE TABLE OF BDCDATA WITH HEADER LINE.    "保存录屏过程中的变量及常量数据"
+DATA:messtab TYPE TABLE OF BDCMSGCOLL WITH HEADER LINE. "记录BDC执行返回数据" 
 DATA:ctu_params LIKE CTU_PARAMS.   "调事务代码时带的一些参数，是否前台执行，报错停止等"
 " 从程序中选一些dynpro和field的BDC行，不需要的字段或则屏幕，可以直接删除对应的代码。"
 CLEAR ctu_params.
@@ -236,8 +236,8 @@ ctu_params-dismode = 'E'.
 ctu_params-defsize = ''. "设置窗口非默认大小"
 "调用BDC执行 T-code COOIS 显示订单抬头"
 CALL TRANSACTION 'COOIS' USING bdcdata
-                         OPTIONS FROM ctu_params
-                         MESSAGE INTO messtab.
+                         OPTIONS  FROM ctu_params
+                         MESSAGES INTO messtab.
 ```
 
 `OPTIONS FROM [opt]`：参考ABAP字典结构类型 `CTU_PARAMS` 的结构数据对象来传递参数。

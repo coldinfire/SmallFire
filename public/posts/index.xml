@@ -692,6 +692,15 @@
     </item>
     
     <item>
+      <title> TCode 可用BAPI查找 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Select/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Select/</guid>
+      <description>查找 T-Code 可用 BAPI 1、MM02，先查看事物码系统状态 2、双击 Program(Screen)，进入程序界面 3、点击 Display Object List，转到 SE80 4、点击 Display Superord Object</description>
+    </item>
+    
+    <item>
       <title> CS12 ALV 增强 </title>
       <link>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>

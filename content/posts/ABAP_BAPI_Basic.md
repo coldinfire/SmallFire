@@ -24,20 +24,6 @@ BAPI 在 BOR（业务对象存储库）中定义为执行特定业务功能的 S
 
 往往调用一个 BAPI 的时候不知道哪里赋值，怎么赋值，赋什么值。
 
-### 查找Tcode对应的BAPI
-
-1、SE93 根据Tcode查找对应的Package
-
-2、SE80 展开 PACKAGE 下的Business Engineering -> Business Object Types，根据业务需求选择对应的Item
-
-![SE80](/images/SAPUtils/SAP_BAPI_1.png)
-
-3、双击打开选择的Business Object，展开Methods根据描述选择需要的功能双击该方法，在弹出的屏幕中，选择 ABAP TAB 页，Name 中显示的既是对应的BAPI
-
-![SE80](/images/SAPUtils/SAP_BAPI_2.png)
-
-页签下面勾选的 **API Function**，说明找到的 BAPI 就是创建 PO 的，如果选的是 **Function module**，说明是通过函数实现的。
-
 ### 创建 BAPI
 
 Step1：使用事物码 SWO1；Tools->Business Framework -> BAPI Development ->Business Object builder  根据为其创建 BAPI 的功能需求选择业务对象。

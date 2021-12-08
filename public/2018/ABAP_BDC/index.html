@@ -426,8 +426,8 @@ ctu_params<span style="color:#f92672">-</span>racommit <span style="color:#f9267
 <h3 id="bdc-执行类型">BDC 执行类型</h3>
 <h4 id="call-transaction-method">Call Transaction Method</h4>
 <p>定义变量时需要添加两个变量。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>:bdcdata <span style="color:#66d9ef">LIKE </span>BDCDATA OCCURS <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.    <span style="color:#75715e">&#34;保存录屏过程中的变量及常量数据&#34;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>:messtab <span style="color:#66d9ef">LIKE </span>BDCMSGCOLL OCCURS <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>. <span style="color:#75715e">&#34;记录BDC执行返回数据&#34; 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>:bdcdata <span style="color:#66d9ef">TYPE TABLE OF</span> BDCDATA <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.    <span style="color:#75715e">&#34;保存录屏过程中的变量及常量数据&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>:messtab <span style="color:#66d9ef">TYPE TABLE OF</span> BDCMSGCOLL <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>. <span style="color:#75715e">&#34;记录BDC执行返回数据&#34; 
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>:ctu_params <span style="color:#66d9ef">LIKE </span>CTU_PARAMS.   <span style="color:#75715e">&#34;调事务代码时带的一些参数，是否前台执行，报错停止等&#34;
 </span><span style="color:#75715e">&#34; 从程序中选一些dynpro和field的BDC行，不需要的字段或则屏幕，可以直接删除对应的代码。&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">CLEAR</span> ctu_params.
@@ -436,8 +436,8 @@ ctu_params<span style="color:#f92672">-</span>dismode <span style="color:#f92672
 ctu_params<span style="color:#f92672">-</span>defsize <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>. <span style="color:#75715e">&#34;设置窗口非默认大小&#34;
 </span><span style="color:#75715e">&#34;调用BDC执行 T-code COOIS 显示订单抬头&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL TRANSACTION</span> <span style="color:#e6db74">&#39;COOIS&#39;</span> <span style="color:#66d9ef">USING</span> bdcdata
-                         OPTIONS <span style="color:#66d9ef">FROM</span> ctu_params
-                         <span style="color:#66d9ef">MESSAGE</span> <span style="color:#66d9ef">INTO</span> messtab.
+                         OPTIONS  <span style="color:#66d9ef">FROM</span> ctu_params
+                         MESSAGES <span style="color:#66d9ef">INTO</span> messtab.
 </code></pre></div><p><code>OPTIONS FROM [opt]</code>：参考ABAP字典结构类型 <code>CTU_PARAMS</code> 的结构数据对象来传递参数。</p>
 <ul>
 <li>DISMODE：显示模式，其值对应于前面介绍的 MODE 参数；</li>
