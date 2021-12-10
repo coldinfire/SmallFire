@@ -116,6 +116,15 @@
     </item>
     
     <item>
+      <title> PM&amp;PS BAPI </title>
+      <link>https://coldinfire.github.io/2020/SAP_PMPS_BAPI/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAP_PMPS_BAPI/</guid>
+      <description>PM 模块 BAPI Description BAPI_OBJCL_CREATE 分类 BAPI：创建分配 BAPI_OBJCL_CHANGE 分类 BAPI：更改分配 BAPI_OBJCL_GETDETAIL 分类 BAPI：读取对象的分类信息 MEASUREM_DOCUM_RFC_SINGLE_001 计量凭证创建 PS 模块 BAPI Description BAPI_PS_INITIALIZATION 创建项目定义 BAPI_BUS2001_CREATE 创建项目</description>
+    </item>
+    
+    <item>
       <title> SAP Query 使用介绍 </title>
       <link>https://coldinfire.github.io/2020/SAP_Query/</link>
       <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
@@ -211,7 +220,7 @@
       <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/FI_BAPI_ALL_List/</guid>
-      <description></description>
+      <description>FI BAPI List BAPI Description K_HIERARCHY_TABLES_READ 成本要素组明细 BAPI_ACC_DOCUMENT_POST 创建会计凭证 BAPI_ACC_DOCUMENT_REV_POST 反冲会计凭证；可以冲销自开发程序生成的凭证，必须传入交易码参数 BAPI_ACC_GL_POSTING_REV_POST 只能冲销标准TCODE生成的凭证 FCOM_COSTCENTER_CHANGEMULTIPLE</description>
     </item>
     
     <item>
