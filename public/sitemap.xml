@@ -240,37 +240,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/MM_BAPI_BOM_Update/</loc>
+      <loc>https://coldinfire.github.io/2021/MM_BAPI_BOM/</loc>
       
       <lastmod>2021-07-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/ALV/</loc>
-      
-      <lastmod>2021-07-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/2021/MM_BAPI_ECNCreate/</loc>
-      
-      <lastmod>2021-07-14T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -283,6 +255,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/MM/</loc>
+      
+      <lastmod>2021-07-18T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/MM_BAPI_ECN/</loc>
       
       <lastmod>2021-07-14T00:00:00+00:00</lastmod>
       
@@ -297,6 +283,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/2021/ABAP_ALV_Screen_Layout/</loc>
+      
+      <lastmod>2021-07-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/ALV/</loc>
       
       <lastmod>2021-07-12T00:00:00+00:00</lastmod>
       

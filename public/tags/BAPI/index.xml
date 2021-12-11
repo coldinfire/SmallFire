@@ -17,12 +17,21 @@
     </item>
     
     <item>
-      <title> BAPI 创建和修改 ECN </title>
-      <link>https://coldinfire.github.io/2021/MM_BAPI_ECNCreate/</link>
+      <title> BAPI 操作BOM数据 </title>
+      <link>https://coldinfire.github.io/2021/MM_BAPI_BOM/</link>
+      <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/MM_BAPI_BOM/</guid>
+      <description>BOM 内部 API：Function Group &amp;mdash; CSAI 创建 BOM：CSAI_BOM_CREATE DATA: LS_CSIN TYPE CSIN, LS_STKOB TYPE STKOB, LS_STZUB TYPE STZUB, LS_STPOB TYPE STPOB, LT_STPOB TYPE TABLE OF STPOB, LT_STPOB2 TYPE TABLE OF STPO_API03. DATA: LV_RESULT TYPE BAPI_MSGTY, LV_MESSAGE TYPE BAPI_MSG. DATA:</description>
+    </item>
+    
+    <item>
+      <title> BAPI 操作ECN数据 </title>
+      <link>https://coldinfire.github.io/2021/MM_BAPI_ECN/</link>
       <pubDate>Wed, 14 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/MM_BAPI_ECNCreate/</guid>
-      <description></description>
+      <guid>https://coldinfire.github.io/2021/MM_BAPI_ECN/</guid>
+      <description>API modules for ECM： Function Group &amp;ndash; CCAP Create Change Master Record BAPI：CCAP_ECN_HEADER_CREATE / CCAP_ECN_CREATE 使用 BAPI 创建更改主记录的表头数据：status、aut</description>
     </item>
     
     <item>
