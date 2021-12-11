@@ -9,6 +9,8 @@ categories:
 
 tags: 
   - ALV
+  - DEMO
+
 ---
 
 ### GRID ALV 程序实例

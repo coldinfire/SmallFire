@@ -58,7 +58,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/</loc>
+      <loc>https://coldinfire.github.io/tags/abaputils/</loc>
       
       <lastmod>2021-10-15T00:00:00+00:00</lastmod>
       
@@ -72,7 +72,21 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/Enhance/</loc>
+      <loc>https://coldinfire.github.io/tags/BAPI/</loc>
+      
+      <lastmod>2021-10-15T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/</loc>
       
       <lastmod>2021-10-15T00:00:00+00:00</lastmod>
       
@@ -170,20 +184,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/abaputils/</loc>
-      
-      <lastmod>2021-08-28T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2021/ABAP_Utils_GlobalMacro/</loc>
       
       <lastmod>2021-08-27T00:00:00+00:00</lastmod>
@@ -199,20 +199,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</loc>
-      
-      <lastmod>2021-08-12T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/BAPI/</loc>
       
       <lastmod>2021-08-12T00:00:00+00:00</lastmod>
       
@@ -619,6 +605,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</loc>
+      
+      <lastmod>2020-12-26T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/Enhance/</loc>
       
       <lastmod>2020-12-26T00:00:00+00:00</lastmod>
       
@@ -1108,20 +1108,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/WM/</loc>
-      
-      <lastmod>2020-05-28T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2020/MM_Stock/</loc>
       
       <lastmod>2020-05-24T00:00:00+00:00</lastmod>
@@ -1318,7 +1304,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/SAPAuthorizationTable/</loc>
+      <loc>https://coldinfire.github.io/2020/SAPAuthorization_Table/</loc>
       
       <lastmod>2020-03-16T00:00:00+00:00</lastmod>
       
@@ -1458,7 +1444,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_BOM_Enhance/</loc>
       
       <lastmod>2019-11-19T00:00:00+00:00</lastmod>
       
@@ -1977,6 +1963,34 @@
   
     <url>
       <loc>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Template/</loc>
+      
+      <lastmod>2019-06-27T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/DEMO/</loc>
+      
+      <lastmod>2019-06-27T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/OOALV/</loc>
       
       <lastmod>2019-06-27T00:00:00+00:00</lastmod>
       
@@ -2648,20 +2662,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/tags/Fiori/</loc>
-      
-      <lastmod>2019-04-16T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2019/WM_Q1/</loc>
       
       <lastmod>2019-04-14T00:00:00+00:00</lastmod>
@@ -2788,7 +2788,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMGoodsReceive/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_GoodsReceive/</loc>
       
       <lastmod>2019-03-20T00:00:00+00:00</lastmod>
       
@@ -2802,7 +2802,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMInfoRecord/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_InfoRecord/</loc>
       
       <lastmod>2019-03-19T00:00:00+00:00</lastmod>
       
@@ -2816,7 +2816,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMPurchaseRFQ/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_PurchaseRFQ/</loc>
       
       <lastmod>2019-03-18T00:00:00+00:00</lastmod>
       
@@ -2830,7 +2830,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMPurchase/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_Purchase/</loc>
       
       <lastmod>2019-03-16T00:00:00+00:00</lastmod>
       
@@ -2858,7 +2858,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMVenderCreate/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_VenderCreate/</loc>
       
       <lastmod>2019-03-14T00:00:00+00:00</lastmod>
       
@@ -2872,7 +2872,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMVender/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_Vender/</loc>
       
       <lastmod>2019-03-13T00:00:00+00:00</lastmod>
       
@@ -2886,7 +2886,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMMasterData/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_MasterData/</loc>
       
       <lastmod>2019-03-12T00:00:00+00:00</lastmod>
       
@@ -2900,7 +2900,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMDetail2/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_Detail2/</loc>
       
       <lastmod>2019-03-11T00:00:00+00:00</lastmod>
       
@@ -2914,7 +2914,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMDetail1/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_Detail1/</loc>
       
       <lastmod>2019-03-10T00:00:00+00:00</lastmod>
       
@@ -2998,7 +2998,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MMSummary/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Summary/</loc>
       
       <lastmod>2019-03-01T00:00:00+00:00</lastmod>
       
@@ -3404,7 +3404,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/ABAP_BOM_USE/</loc>
+      <loc>https://coldinfire.github.io/2018/MM_BOM_USE/</loc>
       
       <lastmod>2018-11-25T00:00:00+00:00</lastmod>
       
@@ -3768,7 +3768,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/SAPAuthorization_details/</loc>
+      <loc>https://coldinfire.github.io/2018/SAPAuthorization_Details/</loc>
       
       <lastmod>2018-09-23T00:00:00+00:00</lastmod>
       
@@ -4846,9 +4846,37 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2018/Utils_NodeJs_NPM/</loc>
+      
+      <lastmod>2018-02-10T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/NodeJs/</loc>
+      
+      <lastmod>2018-02-10T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2018/Utils_hugo2/</loc>
       
-      <lastmod>2018-03-03T00:00:00+00:00</lastmod>
+      <lastmod>2018-02-07T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4862,7 +4890,21 @@
     <url>
       <loc>https://coldinfire.github.io/tags/hugo/</loc>
       
-      <lastmod>2018-03-03T00:00:00+00:00</lastmod>
+      <lastmod>2018-02-07T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2018/Utils_NodeJs/</loc>
+      
+      <lastmod>2018-02-06T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -4876,7 +4918,7 @@
     <url>
       <loc>https://coldinfire.github.io/2018/Utils_hugo1/</loc>
       
-      <lastmod>2018-03-01T00:00:00+00:00</lastmod>
+      <lastmod>2018-02-03T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -5504,6 +5546,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/tags/HTTP/</loc>
+      
+      <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2017/WEB_Tomcat/</loc>
       
       <lastmod>2017-11-01T00:00:00+00:00</lastmod>
@@ -5658,9 +5714,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/JAVA_BeanUtil/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_Collection/</loc>
       
-      <lastmod>2017-10-14T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-15T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -5672,7 +5728,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2017/JAVA_Collection/</loc>
+      <loc>https://coldinfire.github.io/2017/JAVA_BeanUtil/</loc>
       
       <lastmod>2017-10-14T00:00:00+00:00</lastmod>
       
@@ -5941,18 +5997,6 @@
       <loc>https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/</loc>
       
       <lastmod>2017-09-01T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/1/ABAP_BAPI_Business/</loc>
       
       
       <changefreq>monthly</changefreq>

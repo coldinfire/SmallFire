@@ -6,7 +6,16 @@
     <description>Recent content in abaputils on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 28 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/abaputils/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/abaputils/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> SAP 外币金额汇率转换 </title>
+      <link>https://coldinfire.github.io/2021/FI_BAPI_READ_EXCHANGE_RATE/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/FI_BAPI_READ_EXCHANGE_RATE/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title> SAP RFC Function 日志工具 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</link>
@@ -125,6 +134,15 @@
     </item>
     
     <item>
+      <title> SAP Domain 增强 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_DomainEnhancement/</link>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_DomainEnhancement/</guid>
+      <description>Domain 值范围增加固定值 Step1 : Fixed Value Append se11 进入domain 显示界面，选择 Goto -&amp;gt; Fixed Value Append 弹出下面对话框，输入自定义的 Fixed Value Append 名称： Step2: 维护添加值 保存并激活。 Ste</description>
+    </item>
+    
+    <item>
       <title> SAP 系统间数据表的复制 </title>
       <link>https://coldinfire.github.io/2020/ABAP_Utils_ClientTableCopy/</link>
       <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
@@ -215,12 +233,12 @@
     </item>
     
     <item>
-      <title> BTE 增强使用 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_Enhance_BTE/</link>
-      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      <title> ALV 添加执行进度功能 </title>
+      <link>https://coldinfire.github.io/2020/ABAP_ALV_Progress/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Enhance_BTE/</guid>
-      <description>BTE概念 BTE(Business Transaction Events)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。S</description>
+      <guid>https://coldinfire.github.io/2020/ABAP_ALV_Progress/</guid>
+      <description>添加进度条功能 为了更加清晰的了解到程序执行进度，可以在程序中添加显示进度条功能。 DATA:BEGIN OF gt_result OCCURS 0, sel(1), matnr TYPE mara-matnr, zz_edi_grp TYPE mara-zz_edi_grp, werks TYPE mseg-werks, eknam TYPE eknam, maktx TYPE maktx, num TYPE sy-tabix, row TYPE sy-tabix, icon TYPE icon-id,</description>
     </item>
     
     <item>

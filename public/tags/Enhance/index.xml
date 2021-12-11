@@ -6,16 +6,7 @@
     <description>Recent content in Enhance on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/Enhance/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title> SAP 外币金额汇率转换 </title>
-      <link>https://coldinfire.github.io/2021/FI_BAPI_READ_EXCHANGE_RATE/</link>
-      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2021/FI_BAPI_READ_EXCHANGE_RATE/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/Enhance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title> Text Enhancements </title>
       <link>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</link>
@@ -23,6 +14,15 @@
       
       <guid>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</guid>
       <description>文本增强 用文本增强修改SAP标准屏幕中的字段名称，如修改Internal Order 的 End of Work。 Step 1 : 找到对应的Data Element 事务 KO03 进入 Internal Order 主数据显示</description>
+    </item>
+    
+    <item>
+      <title> BTE 增强使用 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_Enhance_BTE/</link>
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_Enhance_BTE/</guid>
+      <description>BTE概念 BTE(Business Transaction Events)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。S</description>
     </item>
     
     <item>

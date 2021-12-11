@@ -8,7 +8,7 @@ categories:
   - business
 
 tags: 
-  - WM
+  - MM
 
 ---
 

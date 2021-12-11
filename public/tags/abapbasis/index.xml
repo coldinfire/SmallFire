@@ -26,6 +26,33 @@
     </item>
     
     <item>
+      <title> ABAP Object Oriented 特性 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Features/</link>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Features/</guid>
+      <description>对象创建与引用 ABAP 对象的创建和访问需要通过对象引用进行，引用类型是 ABAP 基本类型之一，其中包括&amp;quot;数据引用&amp;quot;和&amp;quot;对象引</description>
+    </item>
+    
+    <item>
+      <title> ABAP Object Oriented 语法 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Basic/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Basic/</guid>
+      <description>类声明和实现 类具有属性和方法；对象是类的实例；对象是通过指针变量来访问的；对象有独立的 interface。 属性 类内定义的数据对象。 实例属性：</description>
+    </item>
+    
+    <item>
+      <title> ABAP Object Oriented 概述 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Overview/</link>
+      <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Overview/</guid>
+      <description>ABAP Object Oriented 通过使用面向对象技术可以减少错误发生的隐患以及增强代码的可维护性。 ABAP Object Oriented 的年代史： SAP Basis Release 4.5 发布了 ABAP OO 的一个版本，引入了类接口的概念，并</description>
+    </item>
+    
+    <item>
       <title> RFC 介绍 </title>
       <link>https://coldinfire.github.io/2018/ABAP_RFC/</link>
       <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>

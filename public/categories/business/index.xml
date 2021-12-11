@@ -387,37 +387,37 @@
     
     <item>
       <title> SAP 收货流程 </title>
-      <link>https://coldinfire.github.io/2019/MMGoodsReceive/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_GoodsReceive/</link>
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMGoodsReceive/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_GoodsReceive/</guid>
       <description>1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO GRIN清单： 供应商发票上的PO# 与Org PO #相同 供应商地址和采购订单地址匹配 物料数量应在Org PO中可用 发票价格</description>
     </item>
     
     <item>
       <title> Info Record 使用 </title>
-      <link>https://coldinfire.github.io/2019/MMInfoRecord/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_InfoRecord/</link>
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMInfoRecord/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_InfoRecord/</guid>
       <description>创建Info Record 信息记录 (Info record)**：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。 创建方式：手工输入，报价单选择，</description>
     </item>
     
     <item>
       <title> RFQ 流程解析 </title>
-      <link>https://coldinfire.github.io/2019/MMPurchaseRFQ/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_PurchaseRFQ/</link>
       <pubDate>Mon, 18 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMPurchaseRFQ/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_PurchaseRFQ/</guid>
       <description>Request For Quotation (RFQ): ME41 /42/43 SPRO &amp;gt; IMG &amp;gt; Logistics &amp;gt; MM &amp;gt; Purchasing &amp;gt; RFQ/Quotation &amp;gt; RFQ Enter REQ type,Date limit,Purch Org,Purch Group, Plant ,Storage Location Enter Collective No to track of all RFQ related to particular instance and ref data Enter the appropriate item category,material NO, RFQ Quantity Enter the Deliv. Date，Plant code , Submission date , Click</description>
     </item>
     
     <item>
       <title> 有库存的采购流程解析 </title>
-      <link>https://coldinfire.github.io/2019/MMPurchase/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_Purchase/</link>
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMPurchase/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_Purchase/</guid>
       <description>采购流程 单据流 仓库数量被预约(采购订单下达) 收货采购订单，总账增加，库存成本增加； 应付账款不改变库存数量，根据数量和价格计算价格； 采购物料：</description>
     </item>
     
@@ -432,46 +432,46 @@
     
     <item>
       <title> 供应商主数据创建 </title>
-      <link>https://coldinfire.github.io/2019/MMVenderCreate/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_VenderCreate/</link>
       <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMVenderCreate/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_VenderCreate/</guid>
       <description>创建供应商主数据 1.Define vendor account groups : OBD3 SPRO &amp;gt; IMG &amp;gt; Financial accounting &amp;gt; Accounts Receivable and Accounts Payable &amp;gt; Vendor Accounts &amp;gt; Master data &amp;gt; preparation for creating vendor master data &amp;gt; Define Account groups with screen layout(Vendors) 1.Enter Account group Code and Name. 2.Choose: Company code data and select Account management under group. 3.Select Reconciliation accoun</description>
     </item>
     
     <item>
       <title> 供应商管理 </title>
-      <link>https://coldinfire.github.io/2019/MMVender/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_Vender/</link>
       <pubDate>Wed, 13 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMVender/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_Vender/</guid>
       <description>供应商主数据 供应商主数据的维护：采购和会计数据可以集中或分散维护 供应商主数据：采购业务，缺少不能创建采购凭证或则发票校验等 一般数据：地址、通</description>
     </item>
     
     <item>
       <title> MM 物料主数据管理 </title>
-      <link>https://coldinfire.github.io/2019/MMMasterData/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_MasterData/</link>
       <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMMasterData/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_MasterData/</guid>
       <description>Enterprise Struture 1.Define Company : OX15 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Define Company 1.Enter company 2.Enter company name 3.Update address 4.Enter country code of company 5.Enter language key 6.Enter local currency 2.Define Company Code : OX02 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Edit,Copy,Delete Company Code 3.Assign Company Code to Company : OX16 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition</description>
     </item>
     
     <item>
       <title> MM 概述(二) </title>
-      <link>https://coldinfire.github.io/2019/MMDetail2/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_Detail2/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMDetail2/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_Detail2/</guid>
       <description>库存采购基础 采购流程： MRP &amp;amp; Purch.Req (Determination of reqmts)（确认需求） Source determination (购买方式和货源) Vendor selection （跟哪个供应商买） Request for Quotation (要求报价) Purchase Requisition (采购申请) PO processing</description>
     </item>
     
     <item>
       <title> MM 概述(一) </title>
-      <link>https://coldinfire.github.io/2019/MMDetail1/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_Detail1/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMDetail1/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_Detail1/</guid>
       <description>企业组织结构 整体架构 集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。 公司代码：一</description>
     </item>
     
@@ -513,10 +513,10 @@
     
     <item>
       <title> MM 概要 </title>
-      <link>https://coldinfire.github.io/2019/MMSummary/</link>
+      <link>https://coldinfire.github.io/2019/MM_Summary/</link>
       <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MMSummary/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Summary/</guid>
       <description>包含业务 (采购询价 ME41 / 报价 ME47 录入、ME49 报价比较)&amp;mdash;-&amp;gt; 采购申请 (PR)&amp;mdash;-&amp;gt; 采购订单 (PO)&amp;mdash;-&amp;gt; 发送采购单给供应商 &amp;lt; ME9F&amp;gt;&amp;mdash;-&amp;gt; 采购收货 (产生物料凭证</description>
     </item>
     

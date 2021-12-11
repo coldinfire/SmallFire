@@ -8,7 +8,6 @@ categories:
   - business
 
 tags: 
-  - MM
   - BAPI
 
 ---

@@ -91,7 +91,47 @@ CALL FUNCTION 'CSAI_BOM_CREATE'
 
 ### 修改 BOM：CSAI_BOM_MAINTAIN
 
+```ABAP
+  DATA: LS_STKO LIKE STKO_API01.
+  DATA: L_POS     TYPE STPOB-POSNR,
+        LS_STPOB  LIKE STPO_API03,
+        LT_STPOB  TYPE TABLE OF STPO_API03,
+CALL FUNCTION 'CSAP_MAT_BOM_MAINTAIN'
+  EXPORTING
+    MATERIAL           = LS_HEAD-MATERIAL
+    PLANT              = LS_HEAD-PLANT
+    BOM_USAGE          = LS_HEAD-BOM_USAGE
+    VALID_FROM         = LS_HEAD-VALID_FROM
+    CHANGE_NO          = LS_HEAD-CHANGE_NO
+    I_STKO             = LS_STKO
+    FL_COMMIT_AND_WAIT = 'X'
+*   FL_NEW_ITEM        = 'X'
+*   FL_BOM_CREATE      = 'X'
+  IMPORTING
+    FL_WARNING         = L_WARNING
+*   O_STKO             = LT_O_STKO
+  TABLES
+    T_STPO             = LT_STPOB[]
+  EXCEPTIONS
+    ERROR              = 1
+    OTHERS             = 2.
 
+    CALL FUNCTION 'BALW_BAPIRETURN_GET2'
+      EXPORTING
+        TYPE   = SY-MSGTY
+        CL     = SY-MSGID
+        NUMBER = SY-MSGNO
+        PAR1   = SY-MSGV1
+        PAR2   = SY-MSGV2
+        PAR3   = SY-MSGV3
+        PAR4   = SY-MSGV4
+*       PARAMETER  = P_PARAMETER
+*       ROW    = P_ROW
+*       FIELD  = ' '
+      IMPORTING
+        RETURN = LT_RETURN.
+    APPEND LT_RETURN.
+```
 
 ### 读取 BOM：CSAI_BOM_READ
 

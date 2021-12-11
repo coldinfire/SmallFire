@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/BOM/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title> CS12 ALV 增强 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</link>
+      <link>https://coldinfire.github.io/2019/MM_BOM_Enhance/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BOM_Enhance/</guid>
       <description>事物码 CS12：的执行程序查看 可以看到，最终执行的程序是RCS12001，因此可以在该程序中查找增强。 执行的程序： RCS11001：Disp</description>
     </item>
     
@@ -27,10 +27,10 @@
     
     <item>
       <title> BOM 展开 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_BOM_USE/</link>
+      <link>https://coldinfire.github.io/2018/MM_BOM_USE/</link>
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_BOM_USE/</guid>
+      <guid>https://coldinfire.github.io/2018/MM_BOM_USE/</guid>
       <description>SAP BOM读取逻辑 相关表 MAST：Material BOM STKO : BOM Header STPO : BOM Positions (detail) MAPL : Assignment fo Task Lists to Materials PLKO : Routing Group Header PLSO : Routing Group Sequence PLPO : Routing Group Operations AFKO : Production Order Header AFPO : Production Order Position (details) 可用</description>
     </item>
     

@@ -8,7 +8,8 @@ categories:
   - ABAP
 
 tags: 
-  - ALV
+  - OOALV
+
 ---
 
 ### OO ALV 设置排序条件

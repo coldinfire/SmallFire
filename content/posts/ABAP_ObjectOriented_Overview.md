@@ -8,7 +8,7 @@ categories:
   - ABAP
 
 tags: 
-  - Utils
+  - abapbasis
 
 ---
 

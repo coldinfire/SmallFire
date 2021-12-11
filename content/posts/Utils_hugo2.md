@@ -1,6 +1,6 @@
 ---
 title: " Hugo 添加搜索功能(Algolia) "
-date: 2018-03-03
+date: 2018-02-07
 draft: false
 author: Small Fire
 isCJKLanguage: true

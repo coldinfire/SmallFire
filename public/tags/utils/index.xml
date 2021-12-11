@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title> SAP Domain 增强 </title>
-      <link>https://coldinfire.github.io/2020/ABAP_DomainEnhancement/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2020/ABAP_DomainEnhancement/</guid>
-      <description>Domain 值范围增加固定值 Step1 : Fixed Value Append se11 进入domain 显示界面，选择 Goto -&amp;gt; Fixed Value Append 弹出下面对话框，输入自定义的 Fixed Value Append 名称： Step2: 维护添加值 保存并激活。 Ste</description>
-    </item>
-    
-    <item>
       <title> SAP Report 选择和显示栏位配置 </title>
       <link>https://coldinfire.github.io/2020/SAP_Report_config/</link>
       <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
@@ -81,20 +72,11 @@
     
     <item>
       <title> SAP Authorization table </title>
-      <link>https://coldinfire.github.io/2020/SAPAuthorizationTable/</link>
+      <link>https://coldinfire.github.io/2020/SAPAuthorization_Table/</link>
       <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAPAuthorizationTable/</guid>
+      <guid>https://coldinfire.github.io/2020/SAPAuthorization_Table/</guid>
       <description>相关权限分配的Table Table Desc Table Decs AGR_1016 活动组参数文件名称 AGR_FLAGS 角色属性 AGR_1016B 活动组参数文件名称 AGR_FLAGSB 角色属性 AGR_1250 活动组的权限数据 AGR_HIER 菜单结构信息表 AGR_1251 活动组的权限</description>
-    </item>
-    
-    <item>
-      <title> ABAP Object Oriented 概述 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Overview/</link>
-      <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_ObjectOriented_Overview/</guid>
-      <description>ABAP Object Oriented 通过使用面向对象技术可以减少错误发生的隐患以及增强代码的可维护性。 ABAP Object Oriented 的年代史： SAP Basis Release 4.5 发布了 ABAP OO 的一个版本，引入了类接口的概念，并</description>
     </item>
     
     <item>
@@ -108,10 +90,10 @@
     
     <item>
       <title> SAP 自定义权限对象并使用 </title>
-      <link>https://coldinfire.github.io/2018/SAPAuthorization_details/</link>
+      <link>https://coldinfire.github.io/2018/SAPAuthorization_Details/</link>
       <pubDate>Sun, 23 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPAuthorization_details/</guid>
+      <guid>https://coldinfire.github.io/2018/SAPAuthorization_Details/</guid>
       <description>自定义权限对象流程 SAP 扩展中用户往往都需要使用自己的权限对象，为了达到目的，请按下列流程建立和维护权限对象。一旦有账号需要赋予权限，直接用 SAP 系</description>
     </item>
     

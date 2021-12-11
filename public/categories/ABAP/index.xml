@@ -378,10 +378,10 @@
     
     <item>
       <title> SAP Authorization table </title>
-      <link>https://coldinfire.github.io/2020/SAPAuthorizationTable/</link>
+      <link>https://coldinfire.github.io/2020/SAPAuthorization_Table/</link>
       <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/SAPAuthorizationTable/</guid>
+      <guid>https://coldinfire.github.io/2020/SAPAuthorization_Table/</guid>
       <description>相关权限分配的Table Table Desc Table Decs AGR_1016 活动组参数文件名称 AGR_FLAGS 角色属性 AGR_1016B 活动组参数文件名称 AGR_FLAGSB 角色属性 AGR_1250 活动组的权限数据 AGR_HIER 菜单结构信息表 AGR_1251 活动组的权限</description>
     </item>
     
@@ -432,10 +432,10 @@
     
     <item>
       <title> CS12 ALV 增强 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</link>
+      <link>https://coldinfire.github.io/2019/MM_BOM_Enhance/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_BOM_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BOM_Enhance/</guid>
       <description>事物码 CS12：的执行程序查看 可以看到，最终执行的程序是RCS12001，因此可以在该程序中查找增强。 执行的程序： RCS11001：Disp</description>
     </item>
     
@@ -661,7 +661,7 @@
       <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_ALV_TreeDemo/</guid>
-      <description></description>
+      <description>示例代码</description>
     </item>
     
     <item>
@@ -1017,10 +1017,10 @@
     
     <item>
       <title> BOM 展开 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_BOM_USE/</link>
+      <link>https://coldinfire.github.io/2018/MM_BOM_USE/</link>
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_BOM_USE/</guid>
+      <guid>https://coldinfire.github.io/2018/MM_BOM_USE/</guid>
       <description>SAP BOM读取逻辑 相关表 MAST：Material BOM STKO : BOM Header STPO : BOM Positions (detail) MAPL : Assignment fo Task Lists to Materials PLKO : Routing Group Header PLSO : Routing Group Sequence PLPO : Routing Group Operations AFKO : Production Order Header AFPO : Production Order Position (details) 可用</description>
     </item>
     
@@ -1224,10 +1224,10 @@
     
     <item>
       <title> SAP 自定义权限对象并使用 </title>
-      <link>https://coldinfire.github.io/2018/SAPAuthorization_details/</link>
+      <link>https://coldinfire.github.io/2018/SAPAuthorization_Details/</link>
       <pubDate>Sun, 23 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/SAPAuthorization_details/</guid>
+      <guid>https://coldinfire.github.io/2018/SAPAuthorization_Details/</guid>
       <description>自定义权限对象流程 SAP 扩展中用户往往都需要使用自己的权限对象，为了达到目的，请按下列流程建立和维护权限对象。一旦有账号需要赋予权限，直接用 SAP 系</description>
     </item>
     

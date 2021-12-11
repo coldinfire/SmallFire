@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>http on Small Fire`s Blog</title>
-    <link>https://coldinfire.github.io/tags/http/</link>
-    <description>Recent content in http on Small Fire`s Blog</description>
+    <title>HTTP on Small Fire`s Blog</title>
+    <link>https://coldinfire.github.io/tags/HTTP/</link>
+    <description>Recent content in HTTP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/HTTP/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title> HTTP解析 </title>
+      <title> HTTP 解析 </title>
       <link>https://coldinfire.github.io/2017/WEB_HTTP/</link>
       <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
       

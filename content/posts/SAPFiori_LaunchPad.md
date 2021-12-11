@@ -8,7 +8,7 @@ categories:
   - SAP Fiori
 
 tags: 
-  - Fiori
+  - sapui5
 
 ---
 

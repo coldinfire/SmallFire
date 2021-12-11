@@ -8,7 +8,8 @@ categories:
   - ABAP
 
 tags: 
-  - Enhance
+  - BAPI
+  - abaputils
 
 ---
 

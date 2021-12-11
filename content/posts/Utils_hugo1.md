@@ -1,6 +1,6 @@
 ---
 title: " 使用Hugo+GitHub Pages快速搭建博客 "
-date: 2018-03-01
+date: 2018-02-03
 draft: false
 author: Small Fire
 isCJKLanguage: true
