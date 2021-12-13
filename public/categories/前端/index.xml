@@ -67,7 +67,7 @@
       <pubDate>Sat, 10 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/Utils_NodeJs_NPM/</guid>
-      <description>NPM 使用介绍 NPM 是随同 NodeJS 一起安装的包管理工具，能解决 NodeJS 代码部署上的很多问题，常见的使用场景有以下几种： 允许用户从 NPM 服务器下载别人编写的第三方包到</description>
+      <description>NPM 使用介绍 NPM 是随同 NodeJS 一起安装的标准的软件包管理工具，能解决 NodeJS 代码部署上的很多问题，常见的使用场景有以下几种： 允许用户从 NPM 服务器下载别人编写的</description>
     </item>
     
     <item>
