@@ -13,7 +13,7 @@
       <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/FI_BAPI_READ_EXCHANGE_RATE/</guid>
-      <description></description>
+      <description>SAP 金额/汇率处理逻辑 SAP 中对于金额和汇率字段的处理(一般是会计相关的：会计发票、销售发票、采购发票等)有点特殊，并不是说你在前台看到的数据是多</description>
     </item>
     
     <item>
