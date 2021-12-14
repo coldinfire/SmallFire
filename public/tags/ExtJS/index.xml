@@ -17,12 +17,12 @@
     </item>
     
     <item>
-      <title> ExtJS 应用程序创建 </title>
-      <link>https://coldinfire.github.io/2021/ExtJS_Dev/</link>
+      <title> BOM 创建修改保存时增强 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Enhance_BOM/</link>
       <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ExtJS_Dev/</guid>
-      <description>创建程序</description>
+      <guid>https://coldinfire.github.io/2021/ABAP_Enhance_BOM/</guid>
+      <description>使用 BADI BADI：BOM_UPDATE，CHANGE_AT_SAVE 方法就是 BOM 创建和修改保存时触发的方法，也就是CS01，CS02保存时触发。</description>
     </item>
     
     <item>
