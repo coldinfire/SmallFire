@@ -80,11 +80,11 @@ WRITE: len.
 
 将字符串的值分配给具体变量
 
-- `SPLIT dobj AT sep INTO {res1 res2......resn}.` 
+- `SPLIT dobj AT sep INTO res1 res2 ... resn.` 
 
 将字符串的值分配给一内表
 
-- `SPLIT s_source AT sep INTO TABLE itab`
+- `SPLIT s_source AT sep INTO TABLE itab.`
 
 #### 9.比较字符串
 
