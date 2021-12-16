@@ -1,6 +1,6 @@
 ---
 title: " ABAP 动态函数调用 "
-date: 2022-11-18
+date: 2021-10-28
 draft: false
 author: Small Fire
 isCJKLanguage: true

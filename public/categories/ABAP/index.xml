@@ -6,7 +6,16 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> ABAP 动态函数调用 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_DynamicFM/</link>
+      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_DynamicFM/</guid>
+      <description>获取 Function Module 参数信息 DATA: lv_func_name TYPE RS38L_FNAM. DATA: lt_rsimp TYPE TABLE OF rsimp WITH HEADER LINE, lt_rscha TYPE TABLE OF rscha WITH HEADER LINE, lt_rsexp TYPE TABLE OF rsexp WITH HEADER LINE, lt_rstbl TYPE TABLE OF rstbl WITH HEADER LINE, lt_rsexc TYPE TABLE OF rsexc WITH HEADER LINE, lt_rsfdo TYPE TABLE OF rsfdo WITH HEADER LINE, lt_source TYPE TABLE OF rssource WITH HEADER LINE. CLEAR:lt_rsimp,lt_rscha,lt_rsexp,lt_rstbl,lt_rsexc,lt_rsfdo,lt_source.</description>
+    </item>
+    
     <item>
       <title> SAP 外币金额汇率转换 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Util_CurrencyRate/</link>
