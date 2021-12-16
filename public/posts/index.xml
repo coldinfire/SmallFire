@@ -13,7 +13,7 @@
       <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_DynamicFM/</guid>
-      <description>获取 Function Module 参数信息 DATA: lv_func_name TYPE RS38L_FNAM. DATA: lt_rsimp TYPE TABLE OF rsimp WITH HEADER LINE, lt_rscha TYPE TABLE OF rscha WITH HEADER LINE, lt_rsexp TYPE TABLE OF rsexp WITH HEADER LINE, lt_rstbl TYPE TABLE OF rstbl WITH HEADER LINE, lt_rsexc TYPE TABLE OF rsexc WITH HEADER LINE, lt_rsfdo TYPE TABLE OF rsfdo WITH HEADER LINE, lt_source TYPE TABLE OF rssource WITH HEADER LINE. CLEAR:lt_rsimp,lt_rscha,lt_rsexp,lt_rstbl,lt_rsexc,lt_rsfdo,lt_source.</description>
+      <description>调用语法 CALL FUNCTION [PARAMETER-TABLE ptab] [EXCEPTION-TABLE etab]. ：通过特殊的内部表 ptab 和 etab 将实际参数分配给功能模块的形式参数，并将值返回给非基于类的异常。 使用参数 PARAMETER-TA</description>
     </item>
     
     <item>
