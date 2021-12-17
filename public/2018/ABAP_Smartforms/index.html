@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "smartforms",
-  "wordcount":  1681 ,
+  "wordcount":  1773 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Smartforms\/",
   "datePublished": "2018-07-23T00:00:00\u002b00:00",
   "dateModified": "2018-07-23T00:00:00\u002b00:00",
@@ -191,7 +191,8 @@
 <h4 id="方法-2">方法 2</h4>
 <p>Run <code>SE03</code>, choose &ldquo;Search For Object in the request/transport&rdquo;：Here run the report for the hit：R3TR SSFO.</p>
 <h4 id="方法-3">方法 3</h4>
-<p>事物码 <code>NACE</code> 可以查找 (例如。采购订单，销售订单等)</p>
+<p>事物码 <code>NACE</code> 可以查找 (例如。采购订单，销售订单等)；如果不想找，可以直接在</p>
+<p>SSF_FUNCTION_MODULE_NAME 这个函数里打断点，只要调用smartfrom打印，总要走这个的。前台去执行打印操作，自然会进入这个function，然后看下对应的smartform名称即可。</p>
 <ul>
 <li>NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加的脚本表单或 Smartforms）的 Tcode。</li>
 </ul>
@@ -332,7 +333,7 @@ control_param<span style="color:#f92672">-</span>no_dialog <span style="color:#f
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1681</span>
+                   <span>1773</span>
             </p>
             
             <p class="copyright-item">

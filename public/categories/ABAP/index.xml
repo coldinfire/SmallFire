@@ -26,15 +26,6 @@
     </item>
     
     <item>
-      <title> Debug 弹出框 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Util_DebugPopWindow/</link>
-      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2021/ABAP_Util_DebugPopWindow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title> SAP Note 使用 </title>
       <link>https://coldinfire.github.io/2021/SAP_Note/</link>
       <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
@@ -68,6 +59,15 @@
       
       <guid>https://coldinfire.github.io/2021/SAP_BAPI_TCODE/</guid>
       <description>BAPI 和前台 Tcode 操作大部分是相同的，但是仍然会有一些差异。当使用 BAPI 进行操作时，如果遇到问题，可能需要查找一些资料信息或者 Debug 进行参数排查。 Subsequent Debit/Credit 无法使</description>
+    </item>
+    
+    <item>
+      <title> Debug 弹出框 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Util_DebugPopWindow/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Util_DebugPopWindow/</guid>
+      <description>参考链接：https://mp.weixin.qq.com/s/R47RBR65JKUyyME1THMILg Debug 弹出框示例 MM03 输入物料，会弹出框</description>
     </item>
     
     <item>

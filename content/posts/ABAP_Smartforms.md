@@ -43,7 +43,9 @@ Run `SE03`, choose "Search For Object in the request/transport"：Here run the r
 
 #### 方法 3
 
-事物码 `NACE` 可以查找 (例如。采购订单，销售订单等)
+事物码 `NACE` 可以查找 (例如。采购订单，销售订单等)；如果不想找，可以直接在
+
+SSF_FUNCTION_MODULE_NAME 这个函数里打断点，只要调用smartfrom打印，总要走这个的。前台去执行打印操作，自然会进入这个function，然后看下对应的smartform名称即可。
 
 - NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加的脚本表单或 Smartforms）的 Tcode。
 

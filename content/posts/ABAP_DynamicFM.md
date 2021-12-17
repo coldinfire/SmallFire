@@ -30,7 +30,9 @@ PARAMETER-TABLE：用于为被调用函数模块的所有形参分配实参。 p
 
 EXCEPTION-TABLE：用于将返回值分配给未标记为异常类的被调用功能模块的异常。 etab 参照类型池 ABAP 的表类型 abap_func_excpbind_tab 或行类型 abap_func_excpbind 创建散列表。 当执行语句 CALL FUNCTION 时，该表可以为功能模块的每个非基于类的异常只包含一行。 表参数列表：
 
-- 
+- NAME： 对于相应异常的名称，或 error_message，或以大写字母指定 OTHERS。类型 char30
+- VALUE：类型为 i ，处理 name 中指定的异常后在 sy-subrc 中可用的数值
+- MESSAGE：定义类型为 `REF TO data`
 
 #### 简单实例
 
@@ -75,9 +77,16 @@ ls_param–kind = abap_func_tables.
 GET REFERENCE OF lt_flight INTO ls_param–value.
 APPEND ls_param TO lt_param.
 CLEAR ls_param.
+"Exception Parameter"
+ls_excep-name = 'PROGRAM_ERROR'.
+ls_excep-value = 10.
+INSERT ls_excep INTO TABLE lt_excep.
 * Dynamic FM call with all import,export,table parameters in the Parameter-table
-CALL FUNCTION fm_name
-  PARAMETER–TABLE lt_param.
+CALL FUNCTION lv_func_name
+  PARAMETER–TABLE 
+    lt_param
+  EXCEPTION-TABLE 
+    lt_excep.
 * FM Result
 READ TABLE lt_param INTO ls_param WITH KEY name = 'MSG'.
 IF sy–subrc IS INITIAL.
@@ -135,6 +144,20 @@ CALL FUNCTION 'RPY_FUNCTIONMODULE_READ_NEW'
     source             = lt_source.
 ```
 
+#### 参数详情
+
+- IMPORT_PARAMETER
+
+  ![FUNCTION MODULE](/images/ABAP/FM_Detail1.png)
+
+- EXPORT_PARAMETER
+
+  ![FUNCTION MODULE](/images/ABAP/FM_Detail2.png)
+
+- TABLES_PARAMETER
+
+  ![FUNCTION MODULE](/images/ABAP/FM_Detail3.png)
+
 #### 动态实例
 
 ```ABAP
@@ -142,24 +165,46 @@ REPORT zdyn_call_fm.
 TYPE-POOLS:abap,slis.
 DATA: lv_func_name TYPE rs38l_fnam.
 DATA: lv_msg TYPE string.
-DATA: it_param TYPE abap_func_parmbind_tab,
-      wa_param TYPE abap_func_parmbind,
-      it_excep TYPE abap_func_excpbind_tab,
-      wa_excep TYPE abap_func_excpbind.
+DATA: lt_param TYPE abap_func_parmbind_tab,
+      ls_param TYPE abap_func_parmbind,
+      lt_excep TYPE abap_func_excpbind_tab,
+      ls_excep TYPE abap_func_excpbind.
 FIELD-SYMBOLS: <fs_msg> TYPE string.
-
-CLEAR it_par.
+DATA:BEGIN OF gs_data,
+  canum          TYPE HRFPM_NO_DOC_LINES,
+  func_parameter TYPE RS38L_PAR_,
+  func_paramtype TYPE RS38L_KIND,
+  func_structure TYPE RS38L_TYP,
+  json_data      TYPE STRING,
+  param_type     TYPE PARAMTEXT,
+END OF gs_data.
+DATA: gt_data LIKE TABLE OF gs_data.
+"Prepare Data"
+" PERFORM get_data.
+"Get FM Parameter"
+CALL FUNCTION 'RPY_FUNCTIONMODULE_READ_NEW'
+  EXPORTING
+    functionname       = lv_func_name
+  TABLES
+    import_parameter   = lt_imp_para
+    changing_parameter = lt_chg_para
+    export_parameter   = lt_exp_para
+    tables_parameter   = lt_tab_para
+    exception_list     = lt_exc_list
+    documentation      = lt_document
+    source             = lt_source.
+CLEAR lt_param .
 "Function Input Parameter"
-LOOP AT lt_rsimp.
-  PERFORM prepare_parameter_table USING lt_rsimp-parameter lt_rsimp-optional 
-                                        lt_rsimp-typ 'I'
-                               CHANGING it_par.
+LOOP AT lt_imp_para.
+  PERFORM prepare_parameter_table USING lt_imp_para-parameter lt_imp_para-optional 
+                                        lt_imp_para-typ 'I'
+                               CHANGING lt_param .
 ENDLOOP.
 "Function Table Parameter"
-LOOP AT lt_rstbl.
-  PERFORM prepare_parameter_table USING lt_rstbl-parameter lt_rstbl-optional 
-                                        lt_rstbl-dbstruct 'T'
-                               CHANGING it_par.
+LOOP AT lt_tab_para.
+  PERFORM prepare_parameter_table USING lt_tab_para-parameter lt_tab_para-optional 
+                                        lt_tab_para-dbstruct 'T'
+                               CHANGING lt_param .
 ENDLOOP.
 "Call Function with parameter
 CALL FUNCTION lv_func_name
@@ -178,7 +223,7 @@ FORM prepare_parameter_table  USING parameter optional ref typ
                            CHANGING it_par TYPE abap_func_parmbind_tab.
 
   DATA wa_par TYPE abap_func_parmbind.
-  DATA: lv_json_string TYPE string.
+  DATA: lv_string TYPE string.
   DATA: lv_data_type TYPE string.
 
   DATA: l_tabname TYPE tabname,
@@ -189,17 +234,11 @@ FORM prepare_parameter_table  USING parameter optional ref typ
         dyn_value TYPE REF TO data.
   FIELD-SYMBOLS: <dyn_table> TYPE ANY TABLE,
                  <dyn_wa>    TYPE ANY,
-                 <dref>      TYPE ANY,
+                 <dyn_value> TYPE ANY,
                  <fval>      TYPE ANY.
 
-  DATA: lv_1 TYPE string,
-        lv_2 TYPE string,
-        lv_3 TYPE string,
-        lv_spanid TYPE string,
-        lv_name TYPE adrp-name_text.
-
   "Log记录的Function Module请求参数处理"
-  READ TABLE gt_data_rst INTO gs_data WITH KEY func_parameter = parameter.
+  READ TABLE gt_data INTO gs_data WITH KEY func_parameter = parameter.
   IF sy-subrc = 0.
     CLEAR wa_par.
     wa_par-name = parameter.              " Prarter Name "
@@ -213,11 +252,6 @@ FORM prepare_parameter_table  USING parameter optional ref typ
     " Parameter Value "
     " Paremeter:Structure OR Table "
     IF gs_data-json_data+0(1) = '[' OR gs_data-json_data+0(1) = '{'.
-      IF gs_data-json_data+0(1) = '['.
-        lv_json_string = gs_data-json_data.
-      ELSEIF gs_data-json_data+0(1) = '{'.
-        CONCATENATE '[' gs_data-json_data ']' INTO lv_json_string.
-      ENDIF.
       CLEAR ls_dd40vv.
       SELECT SINGLE * FROM dd40vv INTO ls_dd40vv
        WHERE typename = ref
@@ -236,73 +270,43 @@ FORM prepare_parameter_table  USING parameter optional ref typ
       CREATE DATA dyn_wa LIKE LINE OF <dyn_table>.
       "创建动态工作区"
       ASSIGN dyn_wa->* TO <dyn_wa>.
-      zui2_json=>deserialize( EXPORTING json = lv_json_string
-                                        pretty_name = zui2_json=>pretty_mode-camel_case
-                              CHANGING data = <dyn_table> ).
-      IF typ EQ 'T'. "如果是传入参数则取传入的值，非传入参数置空"
-        IF gs_data-param_type EQ 'IMPORT'.
+      <dyn_table> = gs_data-json_data.
+      IF typ EQ 'T'.       "参数类型为表：整表数据传输"
           GET REFERENCE OF <dyn_table> INTO wa_par-value.
-        ELSE.
-          REFRESH <dyn_table>.
-          GET REFERENCE OF <dyn_table> INTO wa_par-value.
-        ENDIF.
-      ELSEIF typ EQ 'I'."传入类型为结构:传入单条数据"
+      ELSEIF typ EQ 'I'.   "参数类型为结构:传入单条数据"
         LOOP AT <dyn_table> INTO <dyn_wa>.
-          "更新Frame传入参数"
-          IF parameter EQ 'I_FRAME_HEAD'.
-            ASSIGN COMPONENT 'SPANID' OF STRUCTURE <dyn_wa> TO <fval>.
-            SPLIT <fval> AT '.' INTO lv_1 lv_2 lv_3 .
-            lv_spanid = lv_3 + 1.
-            CONCATENATE lv_1 '.' lv_2 '.' lv_spanid INTO <fval>.
-            CONDENSE <fval> NO-GAPS.
-            ASSIGN COMPONENT 'CDATE' OF STRUCTURE <dyn_wa> TO <fval>.
-            <fval> = sy-datum.
-            ASSIGN COMPONENT 'CTIME' OF STRUCTURE <dyn_wa> TO <fval>.
-            <fval> = sy-uzeit.
-            ASSIGN COMPONENT 'USERID' OF STRUCTURE <dyn_wa> TO <fval>.
-            <fval> = sy-uname.
-            ASSIGN COMPONENT 'USERNAME' OF STRUCTURE <dyn_wa> TO <fval>.
-            CLEAR lv_name.
-            SELECT SINGLE name_text INTO lv_name
-              FROM usr21 INNER JOIN adrp ON usr21~persnumber = adrp~persnumber
-              WHERE bname = sy-uname.
-            <fval> = lv_name.
-          ENDIF.
           GET REFERENCE OF <dyn_wa> INTO wa_par-value.
         ENDLOOP.
       ENDIF.
     ELSE. "Paremeter:单值传入"
-      CLEAR lv_json_string .
-      lv_json_string = gs_data-json_data.
-      SHIFT lv_json_string LEFT DELETING LEADING '"'.
-      SHIFT lv_json_string RIGHT DELETING TRAILING '"'.
-      CONDENSE lv_json_string NO-GAPS.
+      CLEAR lv_string .
+      lv_string = gs_data-json_data.
+      CONDENSE lv_string NO-GAPS.
       CREATE DATA dyn_value TYPE (ref).   "参照传入参数类型创建动态字段"
-      ASSIGN dyn_value->* TO <dref>.
-      <dref> = lv_json_string.
+      ASSIGN dyn_value->* TO <dyn_value>.
+      <dyn_value> = lv_string.
       GET REFERENCE OF <dref> INTO wa_par-value.
     ENDIF.
-
     INSERT wa_par INTO TABLE it_par.
     CLEAR wa_par.
-  ELSE.
+  ELSE. "必输字段一定要处理，否则会报错"
     IF optional IS INITIAL.
       CLEAR wa_par.
       wa_par-name = parameter.
       IF typ EQ 'I'.
         wa_par-kind = abap_func_exporting.
         CREATE DATA dyn_value TYPE (ref).
-        ASSIGN dyn_value->* TO <dref>.
-        CLEAR <dref>.
-        GET REFERENCE OF <dref> INTO wa_par-value.
+        ASSIGN dyn_value->* TO <dyn_value>.
+        CLEAR <dyn_value>.
+        GET REFERENCE OF <dyn_value> INTO wa_par-value.
         INSERT wa_par INTO TABLE it_par.
         CLEAR wa_par.
       ELSEIF typ EQ 'T'.
         wa_par-kind = abap_func_tables.
         CLEAR ls_dd40vv.
         SELECT SINGLE * FROM dd40vv INTO ls_dd40vv
-        WHERE typename = ref
-        AND ddlanguage = sy-langu.
+         WHERE typename = ref
+           AND ddlanguage = sy-langu.
         "判断表类型，如果是 Table Type 则使用 row type 为表结构"
         IF ls_dd40vv IS NOT INITIAL.
           l_tabname = ls_dd40vv-rowtype.

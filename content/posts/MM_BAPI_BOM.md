@@ -13,8 +13,6 @@ tags:
 
 ---
 
-
-
 BOM 内部 API：Function Group --- CSAI
 
 ### 创建 BOM：CSAI_BOM_CREATE
