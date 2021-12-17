@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title> Debug 弹出框 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Util_DebugPopWindow/</link>
+      <pubDate>Wed, 22 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Util_DebugPopWindow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title> SAP RFC Function 日志工具 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</link>
       <pubDate>Sat, 28 Aug 2021 00:00:00 +0000</pubDate>

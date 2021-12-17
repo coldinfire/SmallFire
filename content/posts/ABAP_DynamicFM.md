@@ -28,7 +28,7 @@ PARAMETER-TABLE：用于为被调用函数模块的所有形参分配实参。 p
   - `abap_func_changing`：for input/output parameters value 40
 - VALUE：定义类型为`REF TO data`，作为指向实际参数的指针。 value 中的引用变量所指向的数据对象被分配给 name 中指定的形参。如果该引用变量类型与 FM 实际参数变量类型不一致，则引发异常  `CX_SY_DYN_CALL_ILLEGAL_TYPE`
 
-EXCEPTION-TABLE：
+EXCEPTION-TABLE：用于将返回值分配给未标记为异常类的被调用功能模块的异常。 etab 参照类型池 ABAP 的表类型 abap_func_excpbind_tab 或行类型 abap_func_excpbind 创建散列表。 当执行语句 CALL FUNCTION 时，该表可以为功能模块的每个非基于类的异常只包含一行。 表参数列表：
 
 - 
 
