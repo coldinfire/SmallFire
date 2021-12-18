@@ -276,7 +276,7 @@ FORM frm_change_salesorder  TABLES   tp_item    STRUCTURE zrmxsds004
     MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
        WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
   ENDIF.
-ENDFORM.                    "frm_create_salesorder
+ENDFORM.                    " frm_create_salesorder "
 *&---------------------------------------------------------------------*
 *&      Form  FRM_GET_COND_KEY
 *&---------------------------------------------------------------------*
