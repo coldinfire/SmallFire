@@ -287,6 +287,15 @@
     </item>
     
     <item>
+      <title> BAPI 销售订单修改 </title>
+      <link>https://coldinfire.github.io/2019/SD_BAPI_SalesorderChange/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SD_BAPI_SalesorderChange/</guid>
+      <description>VA02：销售订单修改 UPDATEFLAGS：flg 值的三种不同意义 U = change D = delete I = add *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Form FRM_CHANGE_SALESORDER *&amp;amp;---------------------------------------------------------------------* * text *----------------------------------------------------------------------* * --&amp;gt;P_LT_ITEM text * --&amp;gt;P_LT_COND text * --&amp;gt;P_LT_MSG text * --&amp;gt;P_LS_HEAD text * &amp;lt;--P_LV_EIND text *----------------------------------------------------------------------* FORM frm_change_salesorder TABLES</description>
+    </item>
+    
+    <item>
       <title> BAPI 创建 Customer </title>
       <link>https://coldinfire.github.io/2019/SD_BAPI_CustomerCreate/</link>
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
