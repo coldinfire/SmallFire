@@ -18,19 +18,37 @@
     
     <item>
       <title> SAP 外币金额汇率转换 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Util_CurrencyRate/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_CurrencyRate/</link>
       <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Util_CurrencyRate/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_CurrencyRate/</guid>
       <description>SAP 金额/汇率处理逻辑 SAP 中对于金额和汇率字段的处理(一般是会计相关的：会计发票、销售发票、采购发票等)有点特殊，并不是说你在前台看到的数据是多</description>
     </item>
     
     <item>
       <title> SAP RFC Function 日志工具 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</link>
-      <pubDate>Sat, 28 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</guid>
+      <description>程序功能设计</description>
+    </item>
+    
+    <item>
+      <title> SAP 程序锁定 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_LockProgramer/</link>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_LockProgramer/</guid>
+      <description>在 SAP 中对于一些重要的程序，可能会要求处理并发的情况，在有用户操作的情况下不允许其他用户进行操作，以此来保证数据及程序的安全。 使用技术 ENQUEUE_ES_PROG 和 DE</description>
+    </item>
+    
+    <item>
+      <title> SAP RFC Function 日志工具 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log-_Report/</link>
+      <pubDate>Sat, 28 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log-_Report/</guid>
       <description>SAP 与外部系统接口日志记录 工具结构设计 表设计 程序结构设计 程序使用</description>
     </item>
     
@@ -45,10 +63,10 @@
     
     <item>
       <title> Debug 弹出框 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Util_DebugPopWindow/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_DebugPopWindow/</link>
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Util_DebugPopWindow/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_DebugPopWindow/</guid>
       <description>参考链接：https://mp.weixin.qq.com/s/R47RBR65JKUyyME1THMILg Debug 弹出框示例 MM03 输入物料，会弹出框</description>
     </item>
     

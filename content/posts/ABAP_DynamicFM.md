@@ -113,11 +113,53 @@ ENDIF.
 
 ### 获取 Function Module 参数信息
 
-#### 函数功能
+#### 函数：RPY_FUNCTIONMODULE_READ_NEW
 
-![FUNCTION MODULE](/images/ABAP/FM_Detail.png)
+![FUNCTION MODULE](/images/ABAP/FM_Detail0.png)
 
-#### 调用函数
+参数详情
+
+- IMPORT_PARAMETER
+
+  ![FUNCTION MODULE](/images/ABAP/FM_Detail1.png)
+
+- EXPORT_PARAMETER
+
+  ![FUNCTION MODULE](/images/ABAP/FM_Detail2.png)
+
+- TABLES_PARAMETER
+
+  ![FUNCTION MODULE](/images/ABAP/FM_Detail3.png)
+
+参数判断：通过反射方法判断类型
+
+```ABAP
+DATA: lo_tabledescr  TYPE REF TO cl_abap_tabledescr,
+      lo_structdescr TYPE REF TO cl_abap_structdescr,
+      lo_elemdescr   TYPE REF TO cl_abap_elemdescr,
+      lv_linetypename TYPE string,
+      t_tabdescr      TYPE abap_compdescr_tab.
+LOOP AT lt_chg_para.
+  TRY. "如果当前try成功则为Table type，失败则执行下一个try语句判断Structure type"
+*Note: To create a table in Changing Parameter, the type should be a dictionary table type.
+      lo_tabledescr   ?= cl_abap_typedescr=>describe_by_name( lt_chg_para-dbfield ).
+      lo_structdescr  ?= lo_tabledescr->get_table_line_type( ).
+      lv_linetypename = lo_structdescr->get_relative_name( ).
+      lo_structdescr ?= cl_abap_typedescr=>describe_by_name( lv_linetypename ).
+      t_tabdescr[]  =  lo_structdescr->components[].
+    CATCH cx_root.
+      TRY."如果当前try成功则为structure type."
+          lo_structdescr ?= cl_abap_typedescr=>describe_by_data( lt_chg_para-dbfield ).
+          t_tabdescr[] = lo_structdescr->components[].
+        CATCH cx_root. 
+          "如果上面两个都发生异常，则为variable type"
+          lo_elemdescr ?= cl_abap_typedescr=>describe_by_name( lt_chg_para-dbfield ).
+      ENDTRY.
+  ENDTRY.
+ENDLOOP.
+```
+
+调用函数
 
 ```ABAP
 DATA: lv_func_name TYPE RS38L_FNAM.
@@ -144,19 +186,28 @@ CALL FUNCTION 'RPY_FUNCTIONMODULE_READ_NEW'
     source             = lt_source.
 ```
 
-#### 参数详情
+#### 函数：RFC_GET_FUNCTION_INTERFACE_US
 
-- IMPORT_PARAMETER
+![RFC_GET_FUNCTION_INTERFACE_US](/images/ABAP/FM_Detail4.png)
 
-  ![FUNCTION MODULE](/images/ABAP/FM_Detail1.png)
+![RFC_GET_FUNCTION_INTERFACE_US](/images/ABAP/FM_Detail5.png)
 
-- EXPORT_PARAMETER
+参数详情
 
-  ![FUNCTION MODULE](/images/ABAP/FM_Detail2.png)
+| Parameter  | Description                       | Parameter | Parameter | Parameter |
+| :--------- | --------------------------------- | :-------- | :-------- | :-------- |
+| PARAMCLASS | i (import)、e (export)、T (table) | PARAMETER | TABNAME   | FIELDNAME |
 
-- TABLES_PARAMETER
+PARAMCLASS  参数判断
 
-  ![FUNCTION MODULE](/images/ABAP/FM_Detail3.png)
+- I 或则 E：去 DD02L 表中根据 TABNAME 查找(TRANSP 透明表、INTTAB 结构) ，如果类型不是 TRANSP
+  - 如果类型是 INTTAB，那么 PARAMETER 就是一个 structure
+  - 如果 DD02L 表中不存在或则 FIELDNAME 不为空，那么 PARAMETER 是一个 variable；
+
+- I 或则 E 并且 TABNAME 的类型是 table 那么 PARAMETER 就是一个 table
+  - DD40VV / DD40L 判断 table 实际类型，是否参照 ROWTYPE
+
+- T 代表 PARAMETER 是一个 table
 
 #### 动态实例
 
