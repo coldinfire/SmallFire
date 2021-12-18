@@ -26,11 +26,11 @@
     </item>
     
     <item>
-      <title> SAP RFC Function 日志工具 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</link>
-      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <title> SAP RFC Function Log 报表 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log-_Report/</link>
+      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log-_Report/</guid>
       <description>程序功能设计</description>
     </item>
     
@@ -45,11 +45,11 @@
     
     <item>
       <title> SAP RFC Function 日志工具 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log-_Report/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</link>
       <pubDate>Sat, 28 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log-_Report/</guid>
-      <description>SAP 与外部系统接口日志记录 工具结构设计 表设计 程序结构设计 程序使用</description>
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_RFC_Log/</guid>
+      <description>SAP 与外部系统接口日志记录 工具结构设计 表设计 Log 信息表：ZFUNC_LOG 输入参数 Log 表： ZFUNC_LOG_DATA 输出参数 Log 表： ZFUNC_LOG_DATA_E 程序结构设计 RFC 传入参数保存 传入参数如果</description>
     </item>
     
     <item>
