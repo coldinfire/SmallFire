@@ -12,8 +12,6 @@ tags:
 
 ---
 
-
-
 ### FI BAPI List
 
 | BAPI                           | Description                                                  |

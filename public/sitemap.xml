@@ -1458,7 +1458,21 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/FI_BAPI_ACC_DOCUMENT_POST/</loc>
+      <loc>https://coldinfire.github.io/2019/FI_BAPI_DocumentPost/</loc>
+      
+      <lastmod>2019-12-04T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/FI_BAPI_DocumentRevPost/</loc>
       
       <lastmod>2019-12-04T00:00:00+00:00</lastmod>
       

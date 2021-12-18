@@ -738,11 +738,20 @@
     
     <item>
       <title> BAPI:BAPI_ACC_DOCUMENT_POST 创建固定资产凭证 </title>
-      <link>https://coldinfire.github.io/2019/FI_BAPI_ACC_DOCUMENT_POST/</link>
+      <link>https://coldinfire.github.io/2019/FI_BAPI_DocumentPost/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/FI_BAPI_ACC_DOCUMENT_POST/</guid>
+      <guid>https://coldinfire.github.io/2019/FI_BAPI_DocumentPost/</guid>
       <description>引用链接： https://mp.weixin.qq.com/s/BJBjzFUluYm5xNp1Xmph0Q https://mp.weixin.qq.com/s/6Fa9RtRTZpBU-fXejoTCTA 固定资产 BAPI_ACC_DOCUMENT_POST 凭证创建 TCode : F-02 (固定资产) 增强创建 和其他常规标准增强一样：创建自定义结构 ZLM_ENHANCE_ACC_DOC (ACC_DOCUMENT) SE19 创建增强实例：ACC_DOCUMENT</description>
+    </item>
+    
+    <item>
+      <title> BAPI:BAPI_ACC_DOCUMENT_REV_POST 反冲会计凭证 </title>
+      <link>https://coldinfire.github.io/2019/FI_BAPI_DocumentRevPost/</link>
+      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/FI_BAPI_DocumentRevPost/</guid>
+      <description>反冲会计凭证：可以冲销自开发程序生成的凭证，必须传入交易码参数。 使用实例 DATA: L_BKPF TYPE TABLE OF bkpf WITH HEADER LINE. DATA: REVERSAL TYPE BAPIACREV. SELECT SINGLE * FROM BKPF INTO L_BKPF WHERE BUKRS = P_BUKRS AND BELNR = P_BELNR AND GJAHR = P_GJAHR. REVERSAL-OBJ_TYPE =</description>
     </item>
     
     <item>
