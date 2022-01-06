@@ -37,7 +37,8 @@ SAP 中对于金额和汇率字段的处理(一般是会计相关的：会计发
 #### 获取金额转换比率
 
 ```ABAP
-DATA: lv_fact TYPE ISOC_FACTOR.
+DATA: lv_fact TYPE ISOC_FACTOR,
+      lv_amount TYPE BAPICURR-BAPICURR.
 CALL FUNCTION 'CURRENCY_CONVERTING_FACTOR'
   EXPORTING
     currency          = 'JPY'
@@ -46,6 +47,7 @@ CALL FUNCTION 'CURRENCY_CONVERTING_FACTOR'
   EXCEPTIONS
     too_many_decimals = 1
     OTHERS            = 2.
+lv_amount = lv_amount * lv_fact.
 ```
 
 ![Factor](/images/ABAP/ABAP_Amount_1.png)

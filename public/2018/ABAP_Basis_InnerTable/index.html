@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abapbasis",
-  "wordcount":  2738 ,
+  "wordcount":  2948 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Basis_InnerTable\/",
   "datePublished": "2018-05-21T00:00:00\u002b00:00",
   "dateModified": "2018-05-21T00:00:00\u002b00:00",
@@ -429,6 +429,43 @@
 <p><code>NON-UNIQUE KEY.</code>：非唯一升序第二索引</p>
 </li>
 </ul>
+<h3 id="不同类型表执行效率">不同类型表执行效率</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Access Type</th>
+<th style="text-align:left">Standard Table</th>
+<th style="text-align:left">Sorted Table</th>
+<th style="text-align:left">Hashed Table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">READ TABLE WITH KEY</td>
+<td style="text-align:left">全表扫描，直到找到相关数据记录:O(n)</td>
+<td style="text-align:left">执行全表扫描:O(n)</td>
+<td style="text-align:left">执行全表扫描:O(n)</td>
+</tr>
+<tr>
+<td style="text-align:left">READ TABLE WITH TABLE KEY</td>
+<td style="text-align:left">执行全表扫描:O(n)</td>
+<td style="text-align:left">二分法查找数据记录:O(logN)</td>
+<td style="text-align:left">访问发生在几乎恒定的时间内:O(1)</td>
+</tr>
+<tr>
+<td style="text-align:left">READ TABLE &hellip; INDEX &hellip;</td>
+<td style="text-align:left">访问发生在几乎恒定的时间内:O(1)</td>
+<td style="text-align:left">访问发生在几乎恒定的时间内:O(1)</td>
+<td style="text-align:left">不能使用该语法</td>
+</tr>
+<tr>
+<td style="text-align:left">LOOP AT TABLE WHERE &hellip;</td>
+<td style="text-align:left">循环表:O(n)</td>
+<td style="text-align:left">where 条件为对应key，则二分法查找；否则循环表:O(n)</td>
+<td style="text-align:left">循环表:O(n)</td>
+</tr>
+</tbody>
+</table>
 
     </div>
 
@@ -442,7 +479,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2738</span>
+                   <span>2948</span>
             </p>
             
             <p class="copyright-item">
@@ -509,7 +546,7 @@
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2017 - 2021</span>
+        <span itemprop="copyrightYear">2017 - 2022</span>
         
          
             <span class="author" itemprop="copyrightHolder"><a href="https://coldinfire.github.io">Small Fire</a> | </span>

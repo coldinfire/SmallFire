@@ -269,5 +269,12 @@ Loop 的时候不能加条件；AT 和 ENDAT 之间不能使用 loop into 的 wo
 
 - `NON-UNIQUE KEY.`：非唯一升序第二索引
 
+### 不同类型表执行效率
 
+| Access Type               | Standard Table                      | Sorted Table                                       | Hashed Table                    |
+| :------------------------ | :---------------------------------- | :------------------------------------------------- | :------------------------------ |
+| READ TABLE WITH KEY       | 全表扫描，直到找到相关数据记录:O(n) | 执行全表扫描:O(n)                                  | 执行全表扫描:O(n)               |
+| READ TABLE WITH TABLE KEY | 执行全表扫描:O(n)                   | 二分法查找数据记录:O(logN)                         | 访问发生在几乎恒定的时间内:O(1) |
+| READ TABLE ... INDEX ...  | 访问发生在几乎恒定的时间内:O(1)     | 访问发生在几乎恒定的时间内:O(1)                    | 不能使用该语法                  |
+| LOOP AT TABLE WHERE ...   | 循环表:O(n)                         | where 条件为对应key，则二分法查找；否则循环表:O(n) | 循环表:O(n)                     |
 

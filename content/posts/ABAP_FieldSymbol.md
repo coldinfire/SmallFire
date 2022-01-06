@@ -68,7 +68,7 @@ LOOP AT t_mara ASSIGNING <fs_mara>.
   <fs_mara>-ersda = sy-datum + 1.
 ENDLOOP.
 "Read table"
-READ TABLE t_mara ASSIGNING <fs_mara> WITH KEY matnr = 'sapclub'.
+READ TABLE t_mara ASSIGNING <fs_mara> WITH KEY matnr = 'XXX'.
 IF sy-subrc EQ 0.
   <fs_mara>-ersda = sy-datum.
 ENDIF.
@@ -145,7 +145,7 @@ ASSIGN txt TO <fs> CASTING TYPE d. "由于定义时未指定具体的类型，�
 FIELD-SYMBOLS <l_shortageqty> type mng01.
 LOOP AT <dyn_table> ASSIGNING <dyn_wa>.
   ASSIGN COMPONENT 'SHORTAGEQTY' of STRUCTURE <dyn_wa> to <l_shortageqty>.
-  <l_shortageqty> = <l_shortageqty> - <l_fvalue>.
+  <l_shortageqty> = <l_shortageqty> - 20.
 ENDLOOP.
 ```
 
