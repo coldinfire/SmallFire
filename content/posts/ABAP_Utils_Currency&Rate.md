@@ -32,13 +32,13 @@ SAP 中对于金额和汇率字段的处理(一般是会计相关的：会计发
 
 处理金额的时候需要乘以转换值：这个值可以通过`CURRENCY_CONVERTING_FACTOR`函数获得
 
-处理汇率的时候需要除以转换值：这个值可以通过`READ_EXCHANGE_RATE`获得
+处理汇率的时候需要除以转换值：这个值可以通过`READ_EXCHANGE_RATE` / `BAPI_EXCHANGERATE_GETDETAIL`获得
 
 #### 获取金额转换比率
 
 ```ABAP
-DATA: lv_fact TYPE ISOC_FACTOR,
-      lv_amount TYPE BAPICURR-BAPICURR.
+DATA: lv_fact TYPE isoc_factor,
+      lv_amount TYPE bapicurr-bapicurr.
 CALL FUNCTION 'CURRENCY_CONVERTING_FACTOR'
   EXPORTING
     currency          = 'JPY'
@@ -55,9 +55,10 @@ lv_amount = lv_amount * lv_fact.
 #### 获取不同币种之间汇率比率
 
 ```ABAP
-DATA:p_waers LIKE t001-waers .
+DATA:p_waers LIKE t001-waers,
+     lv_amount TYPE bapicurr-bapicurr.
 DATA:l_fact TYPE i,
-     rate  LIKE vbrp-kursk,.
+     rate   LIKE vbrp-kursk.
 CALL FUNCTION 'READ_EXCHANGE_RATE'
   EXPORTING
     date             = sy-datum  "汇率日期"
@@ -75,6 +76,7 @@ CALL FUNCTION 'READ_EXCHANGE_RATE'
     overflow         = 5
     zero_rate        = 6
     OTHERS           = 7. 
+lv_amount = lv_amount * rate / l_fact.
 ```
 
 #### 日元等特殊处理
