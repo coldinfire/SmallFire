@@ -225,7 +225,7 @@ gs_grid_settings<span style="color:#f92672">-</span>edt_cll_cb  <span style="col
 <span style="color:#75715e">&#34; 稳定刷新 &#34;
 </span><span style="color:#75715e"></span>gs_stbl<span style="color:#f92672">-</span>row <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.<span style="color:#75715e">&#34; 基于行的稳定刷新
 </span><span style="color:#75715e"></span>gs_stbl<span style="color:#f92672">-</span>col <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.<span style="color:#75715e">&#34; 基于列稳定刷新
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL METHOD</span> l_guid<span style="color:#f92672">-&gt;</span>refresh_table_display
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL METHOD</span> go_grid<span style="color:#f92672">-&gt;</span>refresh_table_display
   <span style="color:#66d9ef">EXPORTING</span>
     is_stable      <span style="color:#f92672">=</span> gs_stbl
     i_soft_refresh <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>

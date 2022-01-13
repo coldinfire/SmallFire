@@ -89,7 +89,7 @@ CALL METHOD go_grid->check_changed_data.
 " 稳定刷新 "
 gs_stbl-row = 'X'." 基于行的稳定刷新
 gs_stbl-col = 'X'." 基于列稳定刷新
-CALL METHOD l_guid->refresh_table_display
+CALL METHOD go_grid->refresh_table_display
   EXPORTING
     is_stable      = gs_stbl
     i_soft_refresh = 'X'
