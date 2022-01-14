@@ -18,11 +18,11 @@
     
     <item>
       <title> SAP HANA 结构分析 </title>
-      <link>https://coldinfire.github.io/2019/SAPHANA_APP1/</link>
+      <link>https://coldinfire.github.io/2019/SAPHANA_Architecture/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPHANA_APP1/</guid>
-      <description>组成结构 Presentation Layer :SAPGUI -&amp;gt; Browser(BSP/Webdynpro) -&amp;gt; SAP Fiori (UX) -&amp;gt; Web application Application layer : NW Foundation (NW7.4-&amp;gt;NW7.53) DB layer : HANA DB* (Code-to-data) OData : HANA XS OData服务，通过声明式的代码，将HANA表或信息模型开放成OData实体</description>
+      <guid>https://coldinfire.github.io/2019/SAPHANA_Architecture/</guid>
+      <description>HANA 结构 经典应用程序用例中常见的一些重要的 SAP HANA 数据库服务。 在内部，SAP HANA 服务器使用各种组件来处理传入请求并返回结果集。 这些组件分为服务器和引</description>
     </item>
     
   </channel>
