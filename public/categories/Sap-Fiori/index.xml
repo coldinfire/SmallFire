@@ -13,7 +13,7 @@
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPHANA1/</guid>
-      <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana HANA主要组成成分 客户端：HANA Studio(In-memory studio) 内存内数据库：HANA Database 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices 三种复制数据方法</description>
+      <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana HANA 主要组成成分 客户端：HANA Studio(In-memory studio) 内存内数据库：HANA Database 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices 三种复制数据方法 Tri</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPHANA_Architecture/</guid>
-      <description>HANA 结构 经典应用程序用例中常见的一些重要的 SAP HANA 数据库服务。 在内部，SAP HANA 服务器使用各种组件来处理传入请求并返回结果集。 这些组件分为服务器和引</description>
+      <description>HANA 结构 SAP HANA 服务器使用各种组件来处理传入请求并返回结果集。 这些组件分为服务器和引擎，服务器是在操作系统级别运行的进程和服务，引擎是服务器内处理</description>
     </item>
     
     <item>
