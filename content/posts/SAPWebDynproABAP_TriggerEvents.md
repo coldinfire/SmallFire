@@ -38,7 +38,7 @@ tags:
 
 在成功触发 ALV 事件之前，应修改 Web Dynpro 组件 WDDOMODIFYVIEW 方法以启用 ALV 事件。以下 ABAP 代码可用于启用 WDDOMODIFYVIEW 方法中的 ALV 事件。
 
-```html
+```ABAP
 * Data Declaration
 data alv_cmp_usage type ref to if_wd_component_usage.
 data alv_controller type ref to iwci_salv_wd_table .

@@ -186,22 +186,22 @@
 <p><img src="/images/webdynproABAP/Portal33.png" alt="Event Types"></p>
 <h3 id="在-web-dynpro-wddomodifyview-方法中启用-alv-事件">在 Web Dynpro WDDOMODIFYVIEW 方法中启用 ALV 事件</h3>
 <p>在成功触发 ALV 事件之前，应修改 Web Dynpro 组件 WDDOMODIFYVIEW 方法以启用 ALV 事件。以下 ABAP 代码可用于启用 WDDOMODIFYVIEW 方法中的 ALV 事件。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">* Data Declaration
-data alv_cmp_usage type ref to if_wd_component_usage.
-data alv_controller type ref to iwci_salv_wd_table .
-data alv_config type ref to cl_salv_wd_config_table.
-* Instantiate ALV 
-alv_cmp_usage = WD_THIS-&gt;WD_CPUSE_ALV_OPENITEMS( ).
-IF alv_cmp_usage-&gt;HAS_ACTIVE_COMPONENT( ) is initial.
-  alv_cmp_usage-&gt;CREATE_COMPONENT( ).
-ENDIF.
-alv_controller = wd_this-&gt;wd_cpifc_alv_openitems( ).
-* Call get_model of Interface Controller to get reference of ALV
-alv_config = lalv_controller-&gt;get_model( ).
-* Enable the ON_CELL_ACTION Event
-call method alv_config-&gt;if_salv_wd_table_settings~set_cell_action_event_enabled
- exporting
-  value = ABAP_TRUE .
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">* Data Declaration</span>
+<span style="color:#66d9ef">data</span> alv_cmp_usage <span style="color:#66d9ef">type ref to</span> if_wd_component_usage.
+<span style="color:#66d9ef">data</span> alv_controller <span style="color:#66d9ef">type ref to</span> iwci_salv_wd_table .
+<span style="color:#66d9ef">data</span> alv_config <span style="color:#66d9ef">type ref to</span> cl_salv_wd_config_table.
+<span style="color:#75715e">* Instantiate ALV </span>
+alv_cmp_usage <span style="color:#f92672">=</span> WD_THIS<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">WD_CPUSE_ALV_OPENITEMS</span>( ).
+<span style="color:#66d9ef">IF</span> alv_cmp_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">HAS_ACTIVE_COMPONENT</span>( ) <span style="color:#f92672">is initial</span>.
+  alv_cmp_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">CREATE_COMPONENT</span>( ).
+<span style="color:#66d9ef">ENDIF</span>.
+alv_controller <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpifc_alv_openitems</span>( ).
+<span style="color:#75715e">* Call get_model of Interface Controller to get reference of ALV</span>
+alv_config <span style="color:#f92672">=</span> lalv_controller<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_model</span>( ).
+<span style="color:#75715e">* Enable the ON_CELL_ACTION Event</span>
+<span style="color:#66d9ef">call method</span> alv_config<span style="color:#f92672">-&gt;</span>if_salv_wd_table_settings~set_cell_action_event_enabled
+ <span style="color:#66d9ef">exporting</span>
+  <span style="color:#66d9ef">value</span> <span style="color:#f92672">=</span> ABAP_TRUE .
 </code></pre></div><p>当您单击 ALV 行或在可编辑的 ALV 表单元上按 Enter 键时，将触发这些事件处理程序。可以在这些 ALV 事件处理程序方法中添加自定义代码。</p>
 
     </div>

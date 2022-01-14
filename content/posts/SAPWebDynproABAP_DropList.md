@@ -22,7 +22,7 @@ Type : WDR_CONTEXT_ATTR_VALUE_LIST
 
 #### Step2:将TYPE_SET字段设置为值范围
 
-```html
+```ABAP
 METHOD wddoinit .
   DATA:
     lo_node      TYPE REF TO if_wd_context_node,

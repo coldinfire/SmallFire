@@ -368,6 +368,15 @@
     </item>
     
     <item>
+      <title> Web Dynpro ABAP:Error List </title>
+      <link>https://coldinfire.github.io/2020/SAPWebDynproABAP_Error/</link>
+      <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/SAPWebDynproABAP_Error/</guid>
+      <description>Error when executing webdynpro application Collection of Node COMPONENTCONTROLLER.1.DATA Violates the Cardinality. 转到您在 COMPONENTCONTROLLER 中创建的节点 DATA。 选择节点并将基数更改为 0&amp;hellip;n 或 1&amp;hellip;n。由于您要显示多行数据，因此您应该选择</description>
+    </item>
+    
+    <item>
       <title> User Exit for CO11N </title>
       <link>https://coldinfire.github.io/2020/PP_CO11N_Exit/</link>
       <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>

@@ -18,7 +18,7 @@ tags:
 
 ### WDDOINIT
 
-```HTML
+```ABAP
 METHOD INIT_DATA_NODE .
 *... Create an instance of ALV component
   data: l_ref_cmp_usage type ref to if_wd_component_usage.
@@ -56,7 +56,7 @@ ENDMETHOD.
 
 ### DATALOAD
 
-```HTML
+```ABAP
 data: lt_stock type salv_wd_t_test,
       ls_stock type salv_wd_s_test.
    ls_stock-field1 = 'ICON_RED_LIGHT'.                      "#EC NOTEXT"
