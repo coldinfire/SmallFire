@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" ABAP Native SQL "/>
-<meta name="twitter:description" content="EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这"/>
+<meta name="twitter:description" content="每个数据库都有其原生结构化查询语言，也称为原生 SQL。 与数据库交互以检索结果集的方法有很多种，但本地 SQL 的执行是最快和最有效的。 这是因为原生 SQL"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abapbasis",
-  "wordcount":  1352 ,
+  "wordcount":  1520 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_SQL_NativeSQL\/",
   "datePublished": "2018-05-26T00:00:00\u002b00:00",
   "dateModified": "2018-05-26T00:00:00\u002b00:00",
@@ -152,12 +152,14 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                3 min
+                4 min
         </div>
     </header>
     <div class="post-content">
         
 
+        
+            
         
 
         
@@ -171,7 +173,9 @@
           
           
 
-          <p>EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。</p>
+          <p>每个数据库都有其原生结构化查询语言，也称为原生 SQL。 与数据库交互以检索结果集的方法有很多种，但本地 SQL 的执行是最快和最有效的。 这是因为原生 SQL 查询以自己的语言与数据库对话，并直接在数据库层执行。</p>
+<p>EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。</p>
+<p><img src="/images/ABAP/ABAP_SQL_Native.png" alt="ABAP_SQL_Native"></p>
 <h3 id="exec-sql">EXEC SQL</h3>
 <h4 id="连接外部的数据库">连接外部的数据库</h4>
 <ul>
@@ -197,11 +201,14 @@
 <p>需要确定使用的第三方数据库中的表名和字段名是否区分大小写</p>
 </li>
 <li>
-<p>Native SQL 参数占位符是冒号<code>:para_value</code></p>
+<p>通过在单引号 (' &lsquo;) 中传递文字来对文字进行编码</p>
+</li>
+<li>
+<p>Native SQL 参数使用程序中的主变量时，与前面的冒号 (:) 一起传递<code>:para_value</code></p>
 </li>
 </ul>
 <h4 id="native-sql-返回码">Native SQL 返回码</h4>
-<p>与 Open SQL 中一样，在 ENDEXEC 语句之后。SY-DBCNT 包含已处理的行数。 在几乎所有情况下，SY-SUBRC 在 ENDEXEC 语句之后的值都是 0。</p>
+<p>与 Open SQL 中一样，在 ENDEXEC 语句之后。SY-DBCNT 包含已处理的行数。 如果找到对应数据，则系统变量 SY-SUBRC 设置为 0； 如果不是，则将 SUBRC 变量设置为 4。</p>
 <h3 id="程序调用">程序调用</h3>
 <h4 id="连接-db">连接 DB</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: CON_NAME <span style="color:#66d9ef">LIKE </span>DBCON<span style="color:#f92672">-</span>CON_NAME <span style="color:#66d9ef">VALUE</span> <span style="color:#e6db74">&#39;DBNAME&#39;</span>,
@@ -217,7 +224,7 @@
   ENDEXEC.
   <span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>. <span style="color:#75715e">&#34;如果连接没有打开，打开连接&#34;
 </span><span style="color:#75715e"></span>    EXEC SQL. 
-      CONNECT <span style="color:#66d9ef">TO</span> :CON_NAME
+      CONNECT <span style="color:#66d9ef">TO</span> :CON_NAME [AS con]
     ENDEXEC.
   <span style="color:#66d9ef">ENDIF</span>.
   <span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
@@ -230,7 +237,7 @@
 </span><span style="color:#75715e"></span>LOOP demo_datas.
   <span style="color:#66d9ef">TRY</span>.
     EXEC SQL PERFORMING frm_download_data.
-      <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">into</span> :wa_emp <span style="color:#66d9ef">FROM</span> emp <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">index</span> <span style="color:#f92672">=</span> :demo_datas<span style="color:#f92672">-</span>index
+      <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> emp <span style="color:#66d9ef">into</span> :wa_emp <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">index</span> <span style="color:#f92672">=</span> :demo_datas<span style="color:#f92672">-</span>index
     ENDEXEC.
     <span style="color:#66d9ef">CATCH</span> CX_SY_NATIVE_SQL_ERROR.
       <span style="color:#66d9ef">CLEAR</span>: e_type,e_message.
@@ -242,6 +249,18 @@
 <span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">frm_download_data</span>.
   <span style="color:#66d9ef">APPEND</span> wa_emp <span style="color:#66d9ef">TO</span> lt_emp.
 <span style="color:#66d9ef">ENDFORM</span>.
+</code></pre></div><h4 id="select-single">SELECT SINGLE</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: p_fldate <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>datum.
+<span style="color:#66d9ef">TRY</span>.
+  EXEC SQL.
+    <span style="color:#66d9ef">SELECT</span> carrid connid fldate price <span style="color:#66d9ef">currency</span>
+      <span style="color:#66d9ef">FROM</span> sflight
+      <span style="color:#66d9ef">INTO</span> :wa_sflight
+     <span style="color:#66d9ef">WHERE</span> carrid <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;LH&#39;</span>
+       <span style="color:#f92672">AND</span> connid <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0400&#39;</span>
+       <span style="color:#f92672">AND</span> fldate <span style="color:#f92672">=</span>:p_fldate.
+  ENDEXEC.
+<span style="color:#66d9ef">ENDTRY</span>.
 </code></pre></div><h4 id="insert">INSERT</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TRY</span>. 
   <span style="color:#66d9ef">LOOP AT </span>gt_room <span style="color:#66d9ef">INTO</span> gs_room. 
@@ -275,7 +294,7 @@ ENDEXEC.
       lt_data <span style="color:#66d9ef">TYPE TABLE</span> t001.
 <span style="color:#75715e">&#34; 打开游标 &#34;
 </span><span style="color:#75715e"></span>EXEC SQL.
-  OPEN c1 <span style="color:#66d9ef">FOR</span>  
+  OPEN cbcur <span style="color:#66d9ef">FOR</span>  
   <span style="color:#66d9ef">SELECT</span> MANDT, BUKRS <span style="color:#66d9ef">FROM</span> T001   <span style="color:#75715e">&#34; 远程数据库表 &#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">WHERE</span> MANDT <span style="color:#f92672">=</span> :arg1
 ENDEXEC.
@@ -284,9 +303,8 @@ ENDEXEC.
 </span><span style="color:#75715e">&#34;2.按结构整体赋值，select 字段必须与结构字段顺序一致且字段长度一致&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">DO</span>.
   EXEC SQL.
-    <span style="color:#66d9ef">FETCH</span> <span style="color:#66d9ef">NEXT</span> c1 <span style="color:#66d9ef">INTO</span> :ls_data<span style="color:#f92672">-</span>mandt, :ls_data<span style="color:#f92672">-</span>bukrs
-    <span style="color:#75715e">&#34;FETCH NEXT c1 INTO :ls_data&#34;
-</span><span style="color:#75715e"></span>  ENDEXEC.
+    <span style="color:#66d9ef">FETCH</span> <span style="color:#66d9ef">NEXT</span> dbcur <span style="color:#66d9ef">INTO</span> :ls_data<span style="color:#f92672">-</span>mandt, :ls_data<span style="color:#f92672">-</span>bukrs
+  ENDEXEC.
   <span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
     <span style="color:#66d9ef">EXIT</span>.
   <span style="color:#66d9ef">ELSE</span>.
@@ -295,7 +313,7 @@ ENDEXEC.
 <span style="color:#66d9ef">ENDDO</span>.
 <span style="color:#75715e">&#34;关闭游标&#34;
 </span><span style="color:#75715e"></span>EXEC SQL.
-  CLOSE c1     
+  CLOSE cbcur     
 ENDEXEC.
 </code></pre></div><h3 id="使用-adbc-执行-native-sql">使用 ADBC 执行 Native SQL</h3>
 <p>SAP 提供了对原生 sql 的操作，主要有以下几个类组成：</p>
@@ -450,7 +468,7 @@ ENDEXEC.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1352</span>
+                   <span>1520</span>
             </p>
             
             <p class="copyright-item">
@@ -539,8 +557,9 @@ ENDEXEC.
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 

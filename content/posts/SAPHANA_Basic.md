@@ -1,6 +1,6 @@
 ---
 title: " SAP HANA 知识链接 "
-date: 2019-05-12
+date: 2021-11-02
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -20,20 +20,6 @@ http://www.sdn.sap.com/irj/sdn/in-memory
 
 http://service.sap.com/hana
 
-#### HANA 主要组成成分
-
-- 客户端：HANA Studio(In-memory studio)
-
-- 内存内数据库：HANA Database
-
-- 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices
-
-#### 三种复制数据方法
-
-- Trigger-based：使用的是 SAP 自己开发的已经有一段历史的工具 SAP Landscape Transformation Replication Server (SLT RS)，这是与底层数据库无关的技术。
-- ETL-based：其实就是 ETL 数据到 HANA，使用的是 SAP EIM 的旗舰产品 BusinessObjects DataServices。
-- Log-based：是 Sybase 的 Replication Server，而这曾经是 SAP HANA 的首选，是基于数据库 change log 的复制技术。
-
 #### Differences between S4HANA & ECC
 
 | SAP S4 HANA                                | SAP ECC                                                     |
@@ -45,23 +31,25 @@ http://service.sap.com/hana
 | 基于 fiori 的用户体验                      | 基于 SAP GUI 的用户界面。 FIORI 应用程序可用但有限          |
 | 高级功能，如嵌入式分析、机器人流程自动化等 | 没有这样的创新                                              |
 
-### SAP HANA 应用场景和方案
+#### HANA 主要组成部分
+
+- 客户端：HANA Studio(In-memory studio)
+
+- 内存内数据库：HANA Database
+
+- 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices
+
+三种复制数据方法：
+
+- Trigger-based：使用的是 SAP 自己开发的已经有一段历史的工具 SAP Landscape Transformation Replication Server (SLT RS)，这是与底层数据库无关的技术。
+- ETL-based：其实就是 ETL 数据到 HANA，使用的是 SAP EIM 的旗舰产品 BusinessObjects DataServices。
+- Log-based：是 Sybase 的 Replication Server，而这曾经是 SAP HANA 的首选，是基于数据库 change log 的复制技术。
+
+### SAP HANA 应用场景和集成方案
 
 HANA DB 是一个列存储的数据库，列存储的数据库更容易压缩，聚合结果更快，所以是为分析所设计的。这是 HANA 将会使数据分析提速的因素之一。
 
 HANA DB 是内存内计算数据库，也就是说不仅仅是部分数据存储在内存里，更重要的是，一些逻辑计算发生在内存的数据里，这样肯定要比在应用层计算快得多。这也是 HANA 使数据分析提速的重要因素。
-
-#### HANA Code To Data
-
-当使用内存数据库（code-to-data paradigm）时，ABAP 编程范式的这种根本性变化非常重要。
-
-代码到数据范式与经典编程的数据到代码方法的比较：
-
-![HANA_CodeToData](/images/HANA/HANA_CodeToData.png)
-
-HANA 将执行复杂数据操作（如计算、聚合和文本处理）所需的应用程序逻辑通过实现多种可用技术之一被移至数据库层。
-
-![HANA_CodeToData_Methods](/images/HANA/HANA_CodeToData_Methods.png)
 
 #### Side-by-Side Scenario
 
@@ -85,3 +73,17 @@ SAP Business Suite powered by SAP HANA and SAP S/4HANA：各种业务套件是 S
 SAP BW powered by SAP HANA and SAP BW/4HANA：SAP BW 支持的 SAP HANA 和 SAP BW/4HANA 是使用 SAP HANA 作为主数据库的数据仓库解决方案。 这些解决方案用于 SAP HANA 上的业务规划和整合。
 
 SAP Business One, version for SAP HANA：SAP Business One 是面向中小型企业 (SME) 的数字核心，在 MS SQL 上运行。 此解决方案在 SAP HANA 和 SAP HANA Cloud 上使用 SAP Business One 分析。
+
+### HANA Code To Data
+
+当使用内存数据库（code-to-data paradigm）时，ABAP 编程范式的这种根本性变化非常重要。HANA 将执行复杂数据操作（如计算、聚合和文本处理）所需的应用程序逻辑通过实现多种可用技术之一被移至数据库层。
+
+代码到数据范式与经典编程的数据到代码方法的比较：
+
+![HANA_CodeToData](/images/HANA/HANA_CodeToData.png)
+
+HANA 不同版本所使用的不同方法：
+
+![HANA_CodeToData_CodePushDown](/images/HANA/HANA_CodeToData_CodePushDown.png)
+
+![HANA_CodeToData_Methods](/images/HANA/HANA_CodeToData_Methods.png)

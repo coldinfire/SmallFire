@@ -12,7 +12,11 @@ tags:
 
 ---
 
+每个数据库都有其原生结构化查询语言，也称为原生 SQL。 与数据库交互以检索结果集的方法有很多种，但本地 SQL 的执行是最快和最有效的。 这是因为原生 SQL 查询以自己的语言与数据库对话，并直接在数据库层执行。
+
 EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。
+
+![ABAP_SQL_Native](/images/ABAP/ABAP_SQL_Native.png)
 
 ### EXEC SQL
 
@@ -25,7 +29,6 @@ EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据
 
 - 添加新的连接：`MSSQL_SERVER=IP adress MSSQL_DBNAME=dbname OBJECT_SOURCE=dbname`
 
-
 #### 注意事项
 
 - Native SQL 语句不能有结尾符号
@@ -33,13 +36,14 @@ EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据
 
 - `EXEC SQL ... ENDEXEC.` 间不能有注释
 - 需要确定使用的第三方数据库中的表名和字段名是否区分大小写
+- 通过在单引号 (' ') 中传递文字来对文字进行编码
 
 
-- Native SQL 参数占位符是冒号`:para_value`
+- Native SQL 参数使用程序中的主变量时，与前面的冒号 (:) 一起传递`:para_value`
 
 #### Native SQL 返回码
 
-与 Open SQL 中一样，在 ENDEXEC 语句之后。SY-DBCNT 包含已处理的行数。 在几乎所有情况下，SY-SUBRC 在 ENDEXEC 语句之后的值都是 0。
+与 Open SQL 中一样，在 ENDEXEC 语句之后。SY-DBCNT 包含已处理的行数。 如果找到对应数据，则系统变量 SY-SUBRC 设置为 0； 如果不是，则将 SUBRC 变量设置为 4。
 
 
 ### 程序调用
@@ -60,7 +64,7 @@ TRY.
   ENDEXEC.
   IF sy-subrc <> 0. "如果连接没有打开，打开连接"
     EXEC SQL. 
-      CONNECT TO :CON_NAME
+      CONNECT TO :CON_NAME [AS con]
     ENDEXEC.
   ENDIF.
   IF sy-subrc <> 0.
@@ -77,7 +81,7 @@ ENDTRY.
 LOOP demo_datas.
   TRY.
     EXEC SQL PERFORMING frm_download_data.
-      SELECT * into :wa_emp FROM emp WHERE index = :demo_datas-index
+      SELECT * FROM emp into :wa_emp WHERE index = :demo_datas-index
     ENDEXEC.
     CATCH CX_SY_NATIVE_SQL_ERROR.
       CLEAR: e_type,e_message.
@@ -89,6 +93,22 @@ ENDLOOP.
 FORM frm_download_data.
   APPEND wa_emp TO lt_emp.
 ENDFORM.
+```
+
+#### SELECT SINGLE
+
+```ABAP
+DATA: p_fldate TYPE sy-datum.
+TRY.
+  EXEC SQL.
+    SELECT carrid connid fldate price currency
+      FROM sflight
+      INTO :wa_sflight
+     WHERE carrid = 'LH'
+       AND connid = '0400'
+       AND fldate =:p_fldate.
+  ENDEXEC.
+ENDTRY.
 ```
 
 #### INSERT
@@ -134,7 +154,7 @@ DATA: ls_data TYPE t001,
       lt_data TYPE TABLE t001.
 " 打开游标 "
 EXEC SQL.
-  OPEN c1 FOR  
+  OPEN cbcur FOR  
   SELECT MANDT, BUKRS FROM T001   " 远程数据库表 "
     WHERE MANDT = :arg1
 ENDEXEC.
@@ -143,8 +163,7 @@ ENDEXEC.
 "2.按结构整体赋值，select 字段必须与结构字段顺序一致且字段长度一致"
 DO.
   EXEC SQL.
-    FETCH NEXT c1 INTO :ls_data-mandt, :ls_data-bukrs
-    "FETCH NEXT c1 INTO :ls_data"
+    FETCH NEXT dbcur INTO :ls_data-mandt, :ls_data-bukrs
   ENDEXEC.
   IF sy-subrc <> 0.
     EXIT.
@@ -154,7 +173,7 @@ DO.
 ENDDO.
 "关闭游标"
 EXEC SQL.
-  CLOSE c1     
+  CLOSE cbcur     
 ENDEXEC.
 ```
 

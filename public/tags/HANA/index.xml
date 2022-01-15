@@ -6,23 +6,23 @@
     <description>Recent content in HANA on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 14 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/HANA/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/HANA/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title> SAP HANA 结构分析 </title>
-      <link>https://coldinfire.github.io/2019/SAPHANA_Architecture/</link>
-      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
+      <link>https://coldinfire.github.io/2021/SAPHANA_Architecture/</link>
+      <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPHANA_Architecture/</guid>
+      <guid>https://coldinfire.github.io/2021/SAPHANA_Architecture/</guid>
       <description>HANA 结构 SAP HANA 服务器使用各种组件来处理传入请求并返回结果集。 这些组件分为服务器和引擎，服务器是在操作系统级别运行的进程和服务，引擎是服务器内处理</description>
     </item>
     
     <item>
       <title> SAP HANA 知识链接 </title>
-      <link>https://coldinfire.github.io/2019/SAPHANA_Basic/</link>
-      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      <link>https://coldinfire.github.io/2021/SAPHANA_Basic/</link>
+      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/SAPHANA_Basic/</guid>
-      <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana HANA 主要组成成分 客户端：HANA Studio(In-memory studio) 内存内数据库：HANA Database 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices 三种复制数据方法 Tri</description>
+      <guid>https://coldinfire.github.io/2021/SAPHANA_Basic/</guid>
+      <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana Differences between S4HANA &amp;amp; ECC SAP S4 HANA SAP ECC 仅在 HANA 数据库上运行 在多个数据库上运行：Oracle、SQL Server、DB2 它经过优化以充分利用 SAP</description>
     </item>
     
   </channel>

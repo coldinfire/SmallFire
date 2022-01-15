@@ -103,7 +103,7 @@
       <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SQL_NativeSQL/</guid>
-      <description>EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这</description>
+      <description>每个数据库都有其原生结构化查询语言，也称为原生 SQL。 与数据库交互以检索结果集的方法有很多种，但本地 SQL 的执行是最快和最有效的。 这是因为原生 SQL</description>
     </item>
     
     <item>
