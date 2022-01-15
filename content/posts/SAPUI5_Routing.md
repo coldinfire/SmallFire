@@ -14,7 +14,7 @@ tags:
 
 ## Routing导航
 
-​	Openui5 的 routing 基于模式 ( pattern )，使用 `#` 符号表示不同的路径 ( route )，导航通过路径的改变来实现。
+Openui5 的 routing 基于模式 ( pattern )，使用 `#` 符号表示不同的路径 ( route )，导航通过路径的改变来实现。
 
 ### Pattern 表达式
 

@@ -60,13 +60,13 @@ OData 服务生命周期包括 OData 服务的范围。
 
 #### SAP Gateway
 
-- SAP Gateway是一天基于ABAP开发的OData服务器端组件
-- SAP Gateway可将ABAP数据字典元素转为OData实体，通过图形化的建模工具创建OData服务
-- SAP Gateway将用户对不同实体的不同调用转换为调用不同的ABAP方法，有用户实现具体的调用代码
-- SAP Gateway可以与ABAP中已经存在的相关服务进行集成，重用已有的表，视图，函数等对象
+- SAP Gateway 是一天基于 ABAP 开发的 OData 服务器端组件
+- SAP Gateway 可将 ABAP 数据字典元素转为 OData 实体，通过图形化的建模工具创建 OData 服务
+- SAP Gateway 将用户对不同实体的不同调用转换为调用不同的 ABAP 方法，有用户实现具体的调用代码
+- SAP Gateway 可以与 ABAP 中已经存在的相关服务进行集成，重用已有的表，视图，函数等对象
 
 #### HANA XS Engine
 
-- HANA XS Engine具有将HANA中的表、信息模型开放为OData服务的能力
-- 使用声明式的语法，快速声明OData服务
-- 在处理数据更新逻辑时，允许通过存储过程或XSJS函数处理用户输入的数据
+- HANA XS Engine 具有将 HANA 中的表、信息模型开放为 OData 服务的能力
+- 使用声明式的语法，快速声明 OData 服务
+- 在处理数据更新逻辑时，允许通过存储过程或 XSJS 函数处理用户输入的数据

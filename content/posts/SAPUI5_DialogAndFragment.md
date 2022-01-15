@@ -16,7 +16,7 @@ tags:
 
 ### Fragments
 
-1. 片段是一个轻量级的Ui部分，它只是一组重用控件的容器。包含一到多个控件，不需要控制器。
+1. 片段是一个轻量级的 UI 部分，它只是一组重用控件的容器。包含一到多个控件，不需要控制器。
 
 2. 定义并调用已存在的 Fragments : "sap/ui/core/Fragment"
 
@@ -159,7 +159,7 @@ sap.ui.define([
 
 3、在按钮事件中通过`this.getOwnerComponent().openHelloDialog()`调用
 
-onOpenDialog方法现在通过调用辅助方法getOwnerComponent来访问其组件。当调用重用对象的open方法时，我们传入当前视图以将其连接到对话框。
+onOpenDialog 方法现在通过调用辅助方法 getOwnerComponent 来访问其组件。当调用重用对象的 open 方法时，我们传入当前视图以将其连接到对话框。
 
 4、Attention
 

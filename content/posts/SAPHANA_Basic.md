@@ -34,6 +34,17 @@ http://service.sap.com/hana
 - ETL-based：其实就是 ETL 数据到 HANA，使用的是 SAP EIM 的旗舰产品 BusinessObjects DataServices。
 - Log-based：是 Sybase 的 Replication Server，而这曾经是 SAP HANA 的首选，是基于数据库 change log 的复制技术。
 
+#### Differences between S4HANA & ECC
+
+| SAP S4 HANA                                | SAP ECC                                                     |
+| :----------------------------------------- | :---------------------------------------------------------- |
+| 仅在 HANA 数据库上运行                     | 在多个数据库上运行：Oracle、SQL Server、DB2                 |
+| 它经过优化以充分利用 SAP HANA 的内存功能   | 即使它可以在 HANA 上运行，但是没有进行优化                  |
+| 内部部署、私有云和公共云版本               | 本地版本，可以托管在 Hyperscaler 中，但没有可用的公共云版本 |
+| 简化数据模型，部分功能替换为云应用         | 标准范围                                                    |
+| 基于 fiori 的用户体验                      | 基于 SAP GUI 的用户界面。 FIORI 应用程序可用但有限          |
+| 高级功能，如嵌入式分析、机器人流程自动化等 | 没有这样的创新                                              |
+
 ### SAP HANA 应用场景和方案
 
 HANA DB 是一个列存储的数据库，列存储的数据库更容易压缩，聚合结果更快，所以是为分析所设计的。这是 HANA 将会使数据分析提速的因素之一。
@@ -47,6 +58,10 @@ HANA DB 是内存内计算数据库，也就是说不仅仅是部分数据存储
 代码到数据范式与经典编程的数据到代码方法的比较：
 
 ![HANA_CodeToData](/images/HANA/HANA_CodeToData.png)
+
+HANA 将执行复杂数据操作（如计算、聚合和文本处理）所需的应用程序逻辑通过实现多种可用技术之一被移至数据库层。
+
+![HANA_CodeToData_Methods](/images/HANA/HANA_CodeToData_Methods.png)
 
 #### Side-by-Side Scenario
 

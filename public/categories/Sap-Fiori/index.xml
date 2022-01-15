@@ -6,23 +6,23 @@
     <description>Recent content in SAP Fiori on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/SAP-Fiori/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title> SAP HANA 知识链接 </title>
-      <link>https://coldinfire.github.io/2019/SAPHANA1/</link>
-      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAPHANA1/</guid>
-      <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana HANA 主要组成成分 客户端：HANA Studio(In-memory studio) 内存内数据库：HANA Database 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices 三种复制数据方法 Tri</description>
-    </item>
-    
+    <lastBuildDate>Tue, 14 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/SAP-Fiori/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title> SAP HANA 结构分析 </title>
       <link>https://coldinfire.github.io/2019/SAPHANA_Architecture/</link>
-      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPHANA_Architecture/</guid>
       <description>HANA 结构 SAP HANA 服务器使用各种组件来处理传入请求并返回结果集。 这些组件分为服务器和引擎，服务器是在操作系统级别运行的进程和服务，引擎是服务器内处理</description>
+    </item>
+    
+    <item>
+      <title> SAP HANA 知识链接 </title>
+      <link>https://coldinfire.github.io/2019/SAPHANA_Basic/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/SAPHANA_Basic/</guid>
+      <description>了解 HANA 的途径有 http://help.sap.com http://www.sdn.sap.com/irj/sdn/in-memory http://service.sap.com/hana HANA 主要组成成分 客户端：HANA Studio(In-memory studio) 内存内数据库：HANA Database 数据复制组件：SLT/Sybase Replication Sever/BusinessObjects DataServices 三种复制数据方法 Tri</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@
       <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5_MockServer/</guid>
-      <description>mock server ​ 在开发过程中，通过使用模拟服务器的方法方便测试，SAPUI5将模拟服务器称为mock server.mock server的基本功能是模拟oData数据的提供</description>
+      <description>Mock server 在开发过程中，通过使用模拟服务器的方法方便测试，SAPUI5 将模拟服务器称为 mock server.mock server 的基本功能是模拟 oData 数据的提供者，截获应用程序对服务器端</description>
     </item>
     
     <item>
@@ -67,7 +67,7 @@
       <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5_Routing/</guid>
-      <description>Routing导航 ​ Openui5 的 routing 基于模式 ( pattern )，使用 # 符号表示不同的路径 ( route )，导航通过路径的改变来实现。 Pattern 表达式 Openui5 一共有 5 种 pattern表达式</description>
+      <description>Routing导航 Openui5 的 routing 基于模式 ( pattern )，使用 # 符号表示不同的路径 ( route )，导航通过路径的改变来实现。 Pattern 表达式 Openui5 一共有 5 种 pattern表达式:</description>
     </item>
     
     <item>
@@ -103,7 +103,7 @@
       <pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPUI5_DialogAndFragment/</guid>
-      <description>Dialogs and Fragments Fragments 片段是一个轻量级的Ui部分，它只是一组重用控件的容器。包含一到多个控件，不需要控制器。 定义并调用已存在的 Fragments : &amp;ldquo;sap/ui/core/Fragment&amp;rdquo; 定义xxx.fragm</description>
+      <description>Dialogs and Fragments Fragments 片段是一个轻量级的 UI 部分，它只是一组重用控件的容器。包含一到多个控件，不需要控制器。 定义并调用已存在的 Fragments : &amp;ldquo;sap/ui/core/Fragment&amp;rdquo; 定义xxx.fragme</description>
     </item>
     
     <item>
@@ -139,7 +139,7 @@
       <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SAPFiori_AllOverview/</guid>
-      <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使SAP Fiori变得简单，并将不同的事务分解为基于任务的简单UI应用程序。 基于角色 - SAP已经分</description>
+      <description>框架设计 SAP Fiori UI5有五种设计原则。这些原则使 SAP Fiori 变得简单，并将不同的事务分解为基于任务的简单 UI 应用程序。 基于角色：SAP 已经分解了各种 SAP 事务</description>
     </item>
     
   </channel>
