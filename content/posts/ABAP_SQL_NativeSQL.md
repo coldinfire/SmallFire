@@ -14,9 +14,15 @@ tags:
 
 每个数据库都有其原生结构化查询语言，也称为原生 SQL。 与数据库交互以检索结果集的方法有很多种，但本地 SQL 的执行是最快和最有效的。 这是因为原生 SQL 查询以自己的语言与数据库对话，并直接在数据库层执行。
 
-EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 native sql，这种方式的好处是更加容易追踪错误。
+EXEC SQL(Executing Native SQL Statements) 和 ADBC(ABAP Database Connectivity) 是所谓的 Native SQL，这种方式直接进入指定数据库，不涉及到 DBI，这样就没有 Table buffer。相对 EXEC SQL 来说，更推荐 ADBC 的方式执行 Native SQL，这种方式的好处是更加容易追踪错误。
 
 ![ABAP_SQL_Native](/images/ABAP/ABAP_SQL_Native.png)
+
+#### 使用 ABAP 数据库连接时的注意事项
+
+使用 ABAP 数据库连接的缺点是可能会出现语法错误，因为本机 SQL 查询是作为字符串传递的。 因此，必须始终使用 try –catch 块。 但是直到运行时才能确定这些错误。
+
+事务控制语言命令不建议使用 ABAP 数据库连接类方法中的 DML 查询。 这些语句可用于 ABAP 数据库连接的单独逻辑工作单元，但应避免使用，SAP 不建议这样做。
 
 ### EXEC SQL
 
@@ -44,9 +50,6 @@ EXEC SQL 和 ADBC 是所谓的 Native SQL，这种方式直接进入指定数据
 #### Native SQL 返回码
 
 与 Open SQL 中一样，在 ENDEXEC 语句之后。SY-DBCNT 包含已处理的行数。 如果找到对应数据，则系统变量 SY-SUBRC 设置为 0； 如果不是，则将 SUBRC 变量设置为 4。
-
-
-### 程序调用
 
 #### 连接 DB
 
@@ -179,15 +182,74 @@ ENDEXEC.
 
 ### 使用 ADBC 执行 Native SQL
 
-SAP 提供了对原生 sql 的操作，主要有以下几个类组成：
+不同与 EXEC SQL，ADBC 将查询内容准备为字符串，然后传递给 ABAP 数据库连接类的方法。
 
-- `CL_SQL_STATEMENT`：Execution of SQL Statements
-- `CL_SQL_PREPARED_STATEMENT`：Prepared SQL Statements
-- `CL_SQL_CONNECTION`：Administration of Database Connections
-- `CX_SQL_EXCEPTION`：Exception Class for SQL Error
+ADBC 主要类成员：这些类的方法可以将原生 SQL 查询传递给数据库执行，从而执行无法使用 Open SQL 执行的特定于数据库的命令。 所有 ABAP 数据库连接类都以 CL_SQL 开头，ABAP 数据库连接的异常类以 CX_SQL 开头。
 
-- `CL_SQL_RESULT_SET`：Resulting Set of an SQL Query
-- `CX_PARAMETER_INVALID`：Superclass for Parameter Error
+| Class                        | Description                                                  |
+| :--------------------------- | :----------------------------------------------------------- |
+| CL_SQL_CONNECTION            | Administration of Database connection                        |
+| CL_SQL_DEMO_UTIL             | Help class for ADBC_DEMO reports                             |
+| CL_SQL_METADATA              | Method to describe database objects                          |
+| CL_SQL_METADATA_ADA          | Implements CL_SQL_METADATA for SAP-supported databases       |
+| CL_SQL_METADATA_ORA          | Implements CL_SQL_METADATA for Oracle                        |
+| CL_SQL_PARAMETERS            | Administrates input and output parameters of SQL statements  |
+| CL_SQL_PREPARED_STATEMENT    | A prepared SQL statement                                     |
+| CL_SQL_STATEMENT             | Execution of SQL Statements，have various methods that can used in various scenarios |
+| CL_SQL_RESULT_SET            | Resulting set of an SQL query                                |
+| CX_SQL_EXCEPTION             | Exception class for SAP errors                               |
+| CX_SQL_FEATURE_NOT_SUPPORTED | Exception class for SQL errors                               |
+| CX_PARAMETER_INVALID         | Superclass for Parameter Error                               |
+
+#### 使用步骤
+
+连接数据库
+
+- ```ABAP
+  DATA:lo_sql_conn TYPE REF TO cl_sql_connection.
+  DATA:lo_sql_stms TYPE REF TO cl_sql_statement,
+       lv_statement TYPE string.
+  DATA:lo_sql_result TYPE REF TO cl_sql_result_set.
+  DATA:lr_data TYPE REFTO data.
+  TRY.
+    "Prepare Connection"
+    lo_sql_conn = cl_sql_connection=>get_connection( ).
+  CATCH cx_sql_exception .
+  ENDTRY.
+  ```
+
+准备 SQL 语句
+
+- `CL_LIB_SELTAB`：将Selection Option 转换成 where 条件
+
+- ```ABAP
+  *Convert selection option to a where clause string
+  DATA: lo_seltab TYPE REF TO cl_lib_seltab,
+        lv_where_cause_sel TYPE string.
+  lo_seltab = cl_lib_seltab=>new( it_sel = s_carrid[] ).
+  lv_where_clause_sel = lo_seltab->sql_where_condition( iv_field = 'CARRID' ).
+  lv_statement = | SELECT | && |carrid,| && |connid,| && |fldate,| && |price,| && |currency|
+                 && |FROM sflight|
+                 && |WHERE mandt = '{ sy-mandt }'|
+                 && |AND '{ lv_where_clause_sel }'|.
+  ```
+
+执行 SQL 语句 & 获取结果集
+
+- ```ABAP
+  TRY .
+    "Prepare Connection"
+    lo_sql_conn = cl_sql_connection=>get_connection( ).
+    "Prepare the SQLStatement"
+    lo_sql_stmt = lo_sql_conn->create_statement( ).
+    "Execute Query"
+    lo_sql_result = lo_sql_stmt->execute_query( lv_statement ).
+    "Pass result set to the ref of the internal table"
+    lo_sql_result->set_param_table( itab_ref = lr_data ).
+    lo_sql_result->next_package( ).
+  CATCH cx_sql_exception .
+  ENDTRY.
+  ```
 
 #### 程序实例
 
@@ -267,6 +329,7 @@ FUNCTION ZUU_EXEC_SQL .
   DATA: l_dref TYPE REF TO DATA,
         ncount TYPE I.
   TRY.
+    "连接到Database"
     CALL METHOD cl_sql_connection=>get_connection
       EXPORTING
         con_name = DBCONN
