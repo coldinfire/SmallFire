@@ -8,12 +8,12 @@
     <language>en</language>
     <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title> SQLScript 使用 </title>
+      <title> SAP HANA SQLScript 使用 </title>
       <link>https://coldinfire.github.io/2021/SAPHANA_SQLScript/</link>
       <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/SAPHANA_SQLScript/</guid>
-      <description>用于本地数据库编程的 SAP HANA 特定语言：SQLScript</description>
+      <description>SQLScript 是 SAP HANA 的专用 SQL 语言。SQLScript 是为 SAP HANA 数据库层的 SAP HANA 开发而设计的。SQLScript 在 code pushdown paradigm 转换中起着关键作用。 SQLScript 背后的动机是将数</description>
     </item>
     
     <item>
