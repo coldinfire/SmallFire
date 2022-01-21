@@ -128,4 +128,19 @@ Modeler 透视图还用于访问 Systems 视图。 Systems 视图是 SAP HANA St
   - Security 文件夹使系统管理员能够创建和分配角色，以便根据定义的权限为用户提供适当的访问权限。SAP HANA 在对象、系统、分析、包和应用程序级别提供多种权限。
   - Security 文件夹包含默认角色或建模者角色。当用户使用客户端接口（例如 ODBC、JDBC 或 HTTP）访问 SAP HANA 数据库时，他们对数据库对象执行数据库操作的能力取决于他们被授予的权限。通过角色直接或间接授予用户的所有权限都被组合在一起。因此，每当用户尝试访问对象时，系统都会对用户 ID、分配的角色和授予的权限执行授权检查。
 - Provisioning
+
   - Provisioning 文件夹与智能数据访问相关，用作创建、准备和建立网络连接以向业务用户提供数据的方法。 即使在使用前端工具向用户提供数据之前，也必须将数据从各种远程数据源（如 Hadoop、SAP Adaptive Server Enterprise [SAP ASE] 等）整合到 SAP HANA 数据库表中。 要执行此数据整合活动，可以使用提取、加载和转换 (ETL) 流程
+
+  - 几种数据供应技术的使用。 可以根据项目和业务需求调整以下数据供应技术：
+
+    ![HANA ProvisioningTools](/images/HANA/HANA_ProvisioningTools.png)
+
+    | Techniques | Desc                                                         |
+    | :--------- | :----------------------------------------------------------- |
+    | SLT        | SAP Landscape Transformation Replication Server (SAP LT Replication Server) |
+    | ETL        | SAP Data Services (for ETL)                                  |
+    | DXC        | Direct Extractor Connect                                     |
+    | Flat File  | Flat file                                                    |
+    | BW         | SAP Business Warehouse or SAP BW/4HANA as ETL                |
+
+    
