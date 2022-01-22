@@ -77,7 +77,7 @@ HANA 数据库版本：通过事物码 **DBACOCKPIT** 的 **DB Release** 字段�
 #### 打开透视图
 
 - 导航栏选择 Windows --> Perspective --> Open Perspective --> Other…
-- 从显示的列表中选择 Perspective，比如SAP HANA Modelers 
+- 从显示的列表中选择 Perspective，比如 SAP HANA Modelers
 - 单击打开
 
 #### ABAP Perspective
@@ -118,8 +118,8 @@ Modeler 透视图还用于访问 Systems 视图。 Systems 视图是 SAP HANA St
 
 - Catalog
   - Catalog 文件夹包含数据库对象，如表、函数、索引、过程、序列、同义词、触发器和视图，这些对象分组在数据库模式下
-  - 这些数据库对象使用 schemas 进行逻辑分组，schemas：事物码 DBACOCKPIT --> DB User
-  - Catalog 文件夹在激活数据库对象时保存运行时对象，并存储在默认数据库模式中
+  - 这些数据库对象使用 schemas 进行逻辑分组，SAP 默认 schemas： DBACOCKPIT --> DB User
+  - Catalog 文件夹在激活数据库对象时保存运行时对象，并存储在默认 Database Schema
 - Content
   - Content 文件夹包含 SAP HANA 特定的设计时信息模型，包括 Attribute Views、 Analytic Views、 Calculation Views、Analytic Privileges 和 Decision Tables。信息视图主要用于分析用例
   - 这些建模对象被组织成包，可以通过定义权限限制开发人员访问；也可以将这些对象传输到 Landscape 中配置的其他系统
@@ -131,16 +131,17 @@ Modeler 透视图还用于访问 Systems 视图。 Systems 视图是 SAP HANA St
 
   - Provisioning 文件夹与智能数据访问相关，用作创建、准备和建立网络连接以向业务用户提供数据的方法。 即使在使用前端工具向用户提供数据之前，也必须将数据从各种远程数据源（如 Hadoop、SAP Adaptive Server Enterprise [SAP ASE] 等）整合到 SAP HANA 数据库表中。 要执行此数据整合活动，可以使用提取、加载和转换 (ETL) 流程
 
-  - 几种数据供应技术的使用。 可以根据项目和业务需求调整以下数据供应技术：
+  - 几种上传数据到 HANA Database 技术的使用。 可以根据项目和业务需求调整以下数据供应技术：
 
     ![HANA ProvisioningTools](/images/HANA/HANA_ProvisioningTools.png)
 
     | Techniques | Desc                                                         |
     | :--------- | :----------------------------------------------------------- |
-    | SLT        | SAP Landscape Transformation Replication Server (SAP LT Replication Server) |
+    | SLT        | SAP Landscape Transformation Replication Server (table to table replication, real time) |
     | ETL        | SAP Data Services (for ETL)                                  |
-    | DXC        | Direct Extractor Connect                                     |
-    | Flat File  | Flat file                                                    |
+    | DXC        | Direct Extractor Connect (using standard datasources)        |
+    | Flat File  | Flat file (csv or xls upload)                                |
     | BW         | SAP Business Warehouse or SAP BW/4HANA as ETL                |
-
+| BODS       | BO data services                                             |
+    
     

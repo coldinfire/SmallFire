@@ -58,11 +58,13 @@ Database Schema 是相关对象（如表、视图和存储过程）的逻辑分�
 
 #### CREATE
 
-表是关系数据库级别的最低数据存储形式。 视图和更高级别的数据库对象是在表之上创建的。 表创建是一个简单的过程。
+表是关系数据库级别的最低数据存储形式。 视图和更高级别的数据库对象是在表之上创建的。
 
 Create Table：
 
-- ```ABAP
+- 通过 SQL 语句创建
+
+  ```ABAP
   CREATE COLUMN TABLE "<schema_name>"."<table_name>"( 
     "<column>" <type> not null,
     "<column>" <type> ,
@@ -71,7 +73,11 @@ Create Table：
   );
   ```
 
-Create Table Type：
+- 通过 HANA Studio 提供的工具视图创建
+
+  ![Create Table](/images/HANA/HANA_SQLScript_1.png)
+
+Create Table Type：借助 Table Type，SQLScript 可以处理并返回结果集的一堆行
 
 - ```ABAP
   CREATE TYPE "<schema_name>"."<table_type_name>"( AS TABLE (
@@ -122,7 +128,7 @@ SELECT column1, column2, count(*)
 使用 DCL 管理数据库中数据的授权和控制。 使用 DCL 语句，可以创建角色并将其授予用户，以授予他们执行某些数据操作所需的权限。 GRANT 和 REVOKE 语句是授予和撤销用户权限的基本构建块。
 使用查询语言，可以将实时对象保存在由引用到其他表的相关字段链接的二维表中。
 
-### 存储过程
+### 存储过程 Stored Procedures
 
 存储过程：是一组可执行语句，用于实现一组任务或操作。 在 SQLScript 的上下文中，可以将存储过程用作一种容器，而不是单独编写一组独立的 SQL 语句。使用存储过程的一些优点：
 
@@ -138,15 +144,54 @@ SELECT column1, column2, count(*)
 ```ABAP
 CREATE [OR REPLACE] PROCEDURE <proc_name> [(<parameter_clause>)]
   [LANGUAGE <lang>] [SQL SECURITY <mode>] [DEFAULT SCHEMA <default_schema_name>]
-  [READS SQLDATA] [WITH ENCRYPTION] [AUTOCOMMIT DDLON|OFF] AS 
-  BEGIN [SEQUENTIAL EXECUTION]
-    <procedure_body>
+  [READS SQLDATA] [WITH ENCRYPTION] [AUTOCOMMIT DDL ON|OFF]  AS 
+BEGIN [SEQUENTIAL EXECUTION]
+  <procedure_body>
 END
 ```
 
-调用存储过程：`CALL <proc_name> (<param_list>);`
+#### 修改存储过程
 
-删除存储过程：`DROP PROCEDURE <proc_name>;`
+```ABAP
+ALTER PROCEDURE <proc_name> [(<parameter_clause>)]
+  [LANGUAGE <lang>] [SQL SECURITY <mode>] [DEFAULT SCHEMA <default_schema_name>]
+  [READS SQLDATA] [WITH ENCRYPTION] [AUTOCOMMIT DDL ON|OFF] AS
+BEGIN [SEQUENTIAL EXECUTION]
+  <procedure_body>
+END
+```
+
+#### 调用存储过程
+
+`CALL <proc_name> (<param_list>);`
+
+#### 删除存储过程
+
+`DROP PROCEDURE <proc_name>;`
+
+### 用户自定义函数 UDFs(User-Defined Functions)
+
+用户自定义函数也是 SQLScript 语句的集合，用于实现特定功能。
+
+SQLScript 中存在两种类型的用户自定义函数：
+
+- Scalar UDFs：返回值类型是 Scalar
+- Table UDFs：返回值类型是 Table
+
+#### UDFs Create
+
+```ABAP
+CREATE [OR REPLACE] FUNCTION <func_name> [(<parameter_clause>)] 
+ RETURNS <return_type> [LANGUAGE <lang>] [SQL SECURITY <mode>]
+ [DEFAULT SCHEMA <default_schema_name> [DETERMINISTIC]] [WITH ENCRYPTION] AS
+BEGIN
+  <function_body>
+END
+```
+
+#### 删除 UDFs
+
+`DROP FUNCTION <func_name> [<drop_option>];`
 
 ### SQLScript Constructs
 
@@ -158,14 +203,18 @@ SQLScript 编程通过在数据库层执行数据密集型操作（例如，命�
 
 变量类型：
 
-| 类型                   | 参数                                                       |      |
-| ---------------------- | ---------------------------------------------------------- | ---- |
-| Numeric types          | TINYINT、INT、BIGINT、DECIMAL、SMALL-DECIMAL、REAL、DOUBLE |      |
-| Character string types | VARCHAR、NVARCHAR、ALPHANUM                                |      |
-| Date-time types        | TIMESTAMP、SECOND DATE、DATE-TIME                          |      |
-| Binary types           | VARBINARY                                                  |      |
-| Large object types     | CLOB、NCLOB、BLOB                                          |      |
-| Spatial types          | ST_GEOMETRY                                                |      |
+| 类型                   | 参数                                                       |
+| ---------------------- | ---------------------------------------------------------- |
+| Numeric types          | TINYINT、INT、BIGINT、DECIMAL、SMALL-DECIMAL、REAL、DOUBLE |
+| Character string types | VARCHAR、NVARCHAR、ALPHANUM                                |
+| Date-time types        | TIMESTAMP、SECOND DATE、DATE-TIME                          |
+| Binary types           | VARBINARY                                                  |
+| Large object types     | CLOB、NCLOB、BLOB                                          |
+| Spatial types          | ST_GEOMETRY                                                |
+
+### Arrays
+
+#### 创建数组
 
 
 
