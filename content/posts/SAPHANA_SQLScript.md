@@ -65,13 +65,22 @@ Create Table：
 - 通过 SQL 语句创建
 
   ```ABAP
-  CREATE COLUMN TABLE "<schema_name>"."<table_name>"( 
-    "<column>" <type> not null,
-    "<column>" <type> ,
-    "<column>" <type> ,
+  CREATE [<table_type>] TABLE "<schema_name>"."<table_name>"( 
+    "<column_name>" <data_type> not null,
+    "<column_name>" <data_type> ,
     ...
+    PRIMARY KEY(<column_name>,...)
+  );
+  "示例代码"
+  CREATE COLUMN TABLE airport(
+    CODE NVARCHAR(3) not null,
+    NAME NVARCHAR(50),
+    CITY NVARCHAR(20),
+    PRIMARY KEY (CODE)
   );
   ```
+
+  - table_type定义了表类型，COLUMN、ROW、HISTORY COLUMN 等。 默认值为 ROW。 一般使用 COLUMN
 
 - 通过 HANA Studio 提供的工具视图创建
 
@@ -81,9 +90,8 @@ Create Table Type：借助 Table Type，SQLScript 可以处理并返回结果集
 
 - ```ABAP
   CREATE TYPE "<schema_name>"."<table_type_name>"( AS TABLE (
-    "<column>" <type> not null,
-    "<column>" <type> ,
-    "<column>" <type> ,
+    "<column_name>" <data_type> not null,
+    "<column_name>" <data_type> ,
     ...
   ));
   ```
@@ -105,7 +113,7 @@ Create Table Type：借助 Table Type，SQLScript 可以处理并返回结果集
 查询语句种，选择的列用逗号 (,) 分隔，并且语句以分号 (;) 结尾。
 
 ```ABAP
-SELECT column1, column2, count(*)
+SELECT column1 [,column2,column3] count(*)
   FROM "<schema_name>"."<table_name>"
  WHERE condition 
  GROUPBY column1,column2
@@ -115,7 +123,7 @@ SELECT column1, column2, count(*)
 
 #### INSERT
 
-- `INSERT INTO "<schema_name>"."<table_name>" VALUES('val1','val2',...,'valn');`
+- `INSERT INTO "<schema_name>"."<table_name>" [<column_list>] VALUES('val1','val2',...,'valn');`
 
 #### UPDATE
 

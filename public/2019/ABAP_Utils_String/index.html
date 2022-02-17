@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abaputils",
-  "wordcount":  1023 ,
+  "wordcount":  1078 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_Utils_String\/",
   "datePublished": "2019-09-18T00:00:00\u002b00:00",
   "dateModified": "2019-09-18T00:00:00\u002b00:00",
@@ -284,13 +284,19 @@ l_len <span style="color:#f92672">=</span> strlen(str1).
 </tbody>
 </table>
 <h4 id="10大小写转换">10.大小写转换</h4>
-<p>​	TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写</p>
+<p>​	TRANSLATE c TO [UPPER] [LOWER] CASE.：将字符串转换为大|小写</p>
 <h4 id="11字符前拼接空格">11.字符前拼接空格</h4>
 <p>在 Grid ALV 上也显示空格：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">IF</span> &lt;fw_output&gt;<span style="color:#f92672">-</span>name2<span style="color:#f92672">+</span><span style="color:#ae81ff">0</span>(<span style="color:#ae81ff">1</span>) <span style="color:#f92672">eq</span> space <span style="color:#f92672">AND</span> &lt;fw_output&gt;<span style="color:#f92672">-</span>name2 <span style="color:#f92672">IS NOT INITIAL</span>.
   h_white <span style="color:#f92672">=</span> cl_abap_conv_in_ce<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">uccpi</span>( <span style="color:#ae81ff">160</span> ).
   <span style="color:#66d9ef">REPLACE ALL OCCURRENCES OF REGEX</span> <span style="color:#e6db74">&#39;\s&#39;</span> <span style="color:#66d9ef">IN</span> &lt;fw_output&gt;<span style="color:#f92672">-</span>name2 <span style="color:#66d9ef">WITH</span> h_white.
 <span style="color:#66d9ef">ENDIF</span>.
+</code></pre></div><h4 id="12判断字符是否为纯数字">12.判断字符是否为纯数字</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">IF</span> cl_abap_matcher<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">matches</span>(
+     pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;^(-?[1-9]\d*(\.\d*[1-9])?)|(-?0\.\d*[1-9])$&#39;</span>
+     text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;文本&#39;</span> ) <span style="color:#f92672">=</span> abap_true.
+    <span style="color:#75715e">&#34;文本包含全为数字&#34;     
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ENDIF</span>.
 </code></pre></div>
     </div>
 
@@ -304,7 +310,7 @@ l_len <span style="color:#f92672">=</span> strlen(str1).
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1023</span>
+                   <span>1078</span>
             </p>
             
             <p class="copyright-item">

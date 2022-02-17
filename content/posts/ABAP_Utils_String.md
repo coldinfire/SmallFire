@@ -104,7 +104,7 @@ WRITE: len.
 
 #### 10.大小写转换
 
-​	TRANSLATE c TO UPPER|LOWER CASE.：将字符串转换为大|小写
+​	TRANSLATE c TO [UPPER] [LOWER] CASE.：将字符串转换为大|小写
 
 #### 11.字符前拼接空格
 
@@ -114,6 +114,16 @@ WRITE: len.
 IF <fw_output>-name2+0(1) eq space AND <fw_output>-name2 IS NOT INITIAL.
   h_white = cl_abap_conv_in_ce=>uccpi( 160 ).
   REPLACE ALL OCCURRENCES OF REGEX '\s' IN <fw_output>-name2 WITH h_white.
+ENDIF.
+```
+
+#### 12.判断字符是否为纯数字
+
+```ABAP
+IF cl_abap_matcher=>matches(
+     pattern = '^(-?[1-9]\d*(\.\d*[1-9])?)|(-?0\.\d*[1-9])$'
+     text = '文本' ) = abap_true.
+    "文本包含全为数字"     
 ENDIF.
 ```
 
