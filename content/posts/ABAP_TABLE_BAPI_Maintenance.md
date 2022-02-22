@@ -26,24 +26,24 @@ APPEND LT_SELLIST.
 
 CALL FUNCTION 'VIEW_MAINTENANCE_CALL'
   EXPORTING
-    ACTION            = 'U'"S = Display U = Change T = Transport
-    VIEW_NAME          = 'ZCO002'
+    ACTION           = 'U'        "S = Display U = Change T = Transport"
+    VIEW_NAME        = 'ZCO002'
   TABLES
-    DBA_SELLIST         = LT_SELLIST
+    DBA_SELLIST      = LT_SELLIST
   EXCEPTIONS
-    CLIENT_REFERENCE       = 1
-    FOREIGN_LOCK         = 2
-    INVALID_ACTION        = 3
-    NO_CLIENTINDEPENDENT_AUTH  = 4
-    NO_DATABASE_FUNCTION     = 5
-    NO_EDITOR_FUNCTION      = 6
-    NO_SHOW_AUTH         = 7
-    NO_TVDIR_ENTRY        = 8
-    NO_UPD_AUTH         = 9
-    ONLY_SHOW_ALLOWED      = 10
-    SYSTEM_FAILURE        = 11
+    CLIENT_REFERENCE          = 1
+    FOREIGN_LOCK              = 2
+    INVALID_ACTION            = 3
+    NO_CLIENTINDEPENDENT_AUTH = 4
+    NO_DATABASE_FUNCTION      = 5
+    NO_EDITOR_FUNCTION        = 6
+    NO_SHOW_AUTH              = 7
+    NO_TVDIR_ENTRY            = 8
+    NO_UPD_AUTH               = 9
+    ONLY_SHOW_ALLOWED         = 10
+    SYSTEM_FAILURE            = 11
     UNKNOWN_FIELD_IN_DBA_SELLIST = 12
-    VIEW_NOT_FOUND        = 13
+    VIEW_NOT_FOUND            = 13
     MAINTENANCE_PROHIBITED    = 14.
 ```
 
