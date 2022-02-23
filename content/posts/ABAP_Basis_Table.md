@@ -28,13 +28,13 @@ ABAP 数据字典中对象可以分为三个级别。
 
 - Format、Output Characteristics
 
-  | Type   | 描述            | Type | 描述         | Type | 描述           |
-  | :----- | :-------------- | :--- | :----------- | :--- | :------------- |
-  | DEC    | double          | INT1 | 0~255        | UNIT | 单位(2-3)      |
-  | FLTP   | Float           | INT2 | -32768~32767 | CLNT | Client(3)      |
-  | NUMC   | 数字字符(1-255) | INT4 | 四个字节     | CURR | 货币字段(1-17) |
-  | CHAR   | 字符(1-255)     | DATS | Date(8)      | CUKY | 货币代码(5)    |
-  | STRING | 字符串          | TIMS | Time(6)      | QUAN | 金额(1-17)     |
+  | Type   | 描述            | Type | 描述         | Type | 描述                                |
+  | :----- | :-------------- | :--- | :----------- | :--- | :---------------------------------- |
+  | DEC    | double          | INT1 | 0~255        | CLNT | Client(3)                           |
+  | FLTP   | Float(8 bytes)  | INT2 | -32768~32767 | CUKY | Currency key,referenced by CURR (5) |
+  | NUMC   | 数字字符(1-255) | INT4 | 四个字节     | CURR | 货币字段，以 DEC 格式存储(1-17)     |
+  | CHAR   | 字符(1-255)     | DATS | Date(8)      | UNIT | Unit Key for QUAN fields (2-3)      |
+  | STRING | 字符串          | TIMS | Time(6)      | QUAN | 金额字段，参照 UNIT 单位(1-17)      |
   
 - Converse Routine：转换规则设置，注意前导0的补充问题，将该字段设置为 ALPHA。
   
