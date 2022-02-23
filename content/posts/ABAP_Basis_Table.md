@@ -28,15 +28,14 @@ ABAP 数据字典中对象可以分为三个级别。
 
 - Format、Output Characteristics
 
-  | Type   | 描述            | Type | 描述         | Type | 描述                            |
-  | :----- | :-------------- | :--- | :----------- | :--- | :------------------------------ |
-  | DEC    | double          | FLTP | Float        | DATS | Date(8)                         |
-  | INT1   | 0~255           | INT2 | -32768~32767 | TIMS | Time(6)                         |
-  | NUMC   | 数字字符(1-255) | INT4 | 四个字节     | CHAR | 字符(1-255)                     |
-  | QUAN   | 金额(1-17)      | UNIT | 单位(2-3)    | CLNT | Client(3)                       |
-  | CURR   | 货币字段(1-17)  | CUKY | 货币代码(5)  | LANG | Language(internal 1,external 2) |
-  | STRING | 字符串          |      |              |      |                                 |
-
+  | Type   | 描述            | Type | 描述         | Type | 描述           |
+  | :----- | :-------------- | :--- | :----------- | :--- | :------------- |
+  | DEC    | double          | INT1 | 0~255        | UNIT | 单位(2-3)      |
+  | FLTP   | Float           | INT2 | -32768~32767 | CLNT | Client(3)      |
+  | NUMC   | 数字字符(1-255) | INT4 | 四个字节     | CURR | 货币字段(1-17) |
+  | CHAR   | 字符(1-255)     | DATS | Date(8)      | CUKY | 货币代码(5)    |
+  | STRING | 字符串          | TIMS | Time(6)      | QUAN | 金额(1-17)     |
+  
 - Converse Routine：转换规则设置，注意前导0的补充问题，将该字段设置为 ALPHA。
   
 - Lower Case：不勾选，默认会全部转换为大写字母。
