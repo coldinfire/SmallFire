@@ -14,17 +14,29 @@ tags:
 
 ### 搜索帮助优先级
 
-- 先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST
+- 先 `PROCESS ON VALUE-REQUEST` 、`AT SELECTION-SCREEN ON VALUE-REQUEST`
 
-- 再 PARAMETERS/ SELECT-OPTIONS MATCHCODE OBJECT XXXX
+- 再 `PARAMETERS VALUE CHECK` / `SELECT-OPTIONS MATCHCODE OBJECT XXXX`
 
-- 其次是  Check Table、再表（或 结构 ）字段是否绑定了搜索帮助
+- 其次是`Check Table`、再表（或结构 ）字段是否绑定了搜索帮助
 
-- 然后检查 Data element 是否绑定了帮助 ，再 Domain 是否存在 Fixed values
+- 然后检查 Data element 是否绑定了搜索帮助 ，再检查 Domain 是否存在 Fixed Values
 
-- 最后才是DATS、TIMS.
+- 最后才是SAP中的 DATS、TIMS 搜索帮助
+
+### VALUE CHECK
+
+`PARAMETER p_test TYPE mara-matnr VALUE CHECK.`
+
+如果选择屏幕字段参考数据元素所对应的 Domain 设置了 **固定值（ Fixed Values ）**或 **值表（ Value Table ）**时，使用 VALUE CHECK 选项后，会验证输入值是否在固定值或值表范围之内。
+
+- 若要使值表检查生效，则首先需要将此 Domain 引用到表字段，再对此表字段通过 Foreign Keys 按钮进行外键分配，并且外键一定是来自值表的主键，最后使用 PARAMETERS 定义屏幕参数时要参照此表字段，否则如果只是直接参照所对应的 Data Element 是不起作用， **即 Value Table 一定要经过转换为 Check Table 后再起作用**。
+
+- 如果要使用 VALUE CHECK 选项，则 Domain 的类型只能是 **C** 或者 **N** 类型 ， 否则运行会抛异常。另外， **如果未使用该选项，但** **F4 Help** **还是会出现** （有固定值或检查表的情况下），但不进行有效性检查。
 
 ### 使用搜索帮助对象
+
+当某个表字段有检查表，并且又有搜索帮助，则数据一般来自源于检查表，而 **F4 的输入输出则由搜索帮助来决定**。 
 
 #### 定义 Search Help
 
@@ -34,7 +46,7 @@ tags:
 
 ![Search Help](/images/ABAP/SearchHelp1.png)
 
-2、输入搜索帮助的描述。在选择方法字段中，应输入数据库表名称。该表是我们将从中选择信息类型编号字段的值的表。表 T157D 可用于此目的。
+2、输入搜索帮助的描述。在选择方法字段中，应输入数据库表名称（我们将从该表中选择信息类型编号字段的值）。
 
 ![Search Help](/images/ABAP/SearchHelp.png)
 
@@ -45,12 +57,12 @@ tags:
 | 属性                 | 描述                                                         |
 | -------------------- | ------------------------------------------------------------ |
 | **Search help para** | 来自数据源的字段，选择条件所需的字段                         |
-| **IMP**              | 选中此框以指示该字段是输入字段，即将传递给搜索帮助           |
-| **EXP**              | 选中此框以指示该字段是输出字段，即将从搜索帮助传递到屏幕     |
-| **LPOS**             | 控制选择列表中搜索帮助参数或字段出现在匹配列表中的位置       |
+| **IMP**              | 输入参数，即将选择屏幕上的字段值传递给搜索帮助               |
+| **EXP**              | 输出参数，即将从搜索帮助中传递到报表屏幕上                   |
+| **LPOS**             | 控制选择列表中搜索帮助参数或字段出现在匹配列表中的位置，如果为 0 或留空的列则不会显示 |
 | **SPOS**             | 控制限制性对话框中的搜索帮助参数或字段显示的位置             |
 | **SDIS**             | 使该字段在选择屏幕中 “仅显示”                                |
-| **Data element**     | 设置搜索帮助参数的属性。通常由 系统填写                      |
+| **Data element**     | 设置搜索帮助参数的属性。通常由系统填写                       |
 | **MOD**              | 选中此框可以分配与系统提供的数据元素不同的数据元素           |
 | **Default**          | 以以下三种方式之一指定默认值："文字"(带引号)，参数ID（ZRD）或系统字段(SY-UNAME) |
 
@@ -171,7 +183,15 @@ DATA:BEGIN OF l_it_t157d OCCURS 0,
 ENDFUNCTION.
 ```
 
-### FM：F4IF_INT_TABLE_VALUE_REQUEST
+### 搜索帮助创建函数
+
+在屏幕的 ON VALUE-REQUEST 事件中可以通过以下几个函数来创建搜索帮助：
+
+- F4IF_FIELD_VALUE_REQUEST：在程序运行时，可以动态的为屏幕上某个字段指定 Search Help。被引用的搜索帮助来自于某个表（结构）字段上绑定的 Search Help
+- F4IF_INT_TABLE_VALUE_REQUEST：在程序运行时，将某个内表动态的用作 Search Help 的数据，可实现联动效果
+- TR_F4_HELP：实现简单的 Search Help，数据来源于内表
+
+#### FM：F4IF_INT_TABLE_VALUE_REQUEST
 
 在程序运行时，将某个内表动态的用作 **Search help**  的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果。
 

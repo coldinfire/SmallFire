@@ -301,7 +301,7 @@
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_ALV_SearchHelp/</guid>
-      <description>搜索帮助优先级 先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST 再 PARAMETERS/ SELECT-OPTIONS MATCHCODE OBJECT XXXX 其次是 Check Table、再表（或 结构 ）字段是否绑定了搜索帮助 然后检查 Data element 是否绑定了帮助 ，再 Domain 是否存</description>
+      <description>搜索帮助优先级 先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST 再 PARAMETERS VALUE CHECK / SELECT-OPTIONS MATCHCODE OBJECT XXXX 其次是Check Table、再表（或结构 ）字段是否绑定了搜索帮助 然后检查 Data element 是否绑定了搜</description>
     </item>
     
     <item>
