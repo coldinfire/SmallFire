@@ -44,7 +44,7 @@ CLASS lcl_report DEFINITION.
            END OF str_vbak.
     DATA: gt_vbak TYPE STANDARD TABLE OF str_vbak.
     "ALV reference"
-    DATA: go_alv TYPE REF TO cl_salv_table.
+    DATA: gr_table TYPE REF TO cl_salv_table.
     METHODS:
       get_data,
       generate_output.
@@ -64,32 +64,32 @@ CLASS lcl_report IMPLEMENTATION.
     TRY.
         cl_salv_table=>factory(
           IMPORTING
-            r_salv_table = go_alv
+            r_salv_table = gr_table
           CHANGING
             t_table      = gt_vbak ).
       CATCH cx_salv_msg INTO lv_msg.
     ENDTRY.
-    DATA: lo_cols TYPE REF TO cl_salv_columns_table.
-    DATA: lo_column TYPE REF TO cl_salv_column_table.
-    lo_cols ?= go_alv->get_columns( ).
-    lo_cols->set_optimize( 'X' ).
+    DATA: lr_columns TYPE REF TO cl_salv_columns_table.
+    DATA: lr_column  TYPE REF TO cl_salv_column_table.
+    lr_columns ?= gr_table->get_columns( ).
+    lr_columns->set_optimize( 'X' ).
     "Change the properties of the Columns KUNNR"
     TRY.
-        lo_column ?= lo_cols->get_column( 'CHECK' ).
-        lo_column->set_cell_type( if_salv_c_cell_type=>checkbox_hotspot ).
-        lo_column->set_output_length( 10 ).
+        lr_column ?= lr_columns->get_column( 'CHECK' ).
+        lr_column->set_cell_type( if_salv_c_cell_type=>checkbox_hotspot ).
+        lr_column->set_output_length( 10 ).
       CATCH cx_salv_not_found.   "EC NO_HANDLER"
     ENDTRY.
     "Get the event object"
-    DATA: lo_events TYPE REF TO cl_salv_events_table.
-    lo_events = go_alv->get_event( ).
+    DATA: lr_events TYPE REF TO cl_salv_events_table.
+    lr_events = gr_table->get_event( ).
     "Instantiate the event handler object"
-    DATA: lo_event_handler TYPE REF TO lcl_event_handler.
-    CREATE OBJECT lo_event_handler.
+    DATA: lr_event_handler TYPE REF TO lcl_event_handler.
+    CREATE OBJECT lr_event_handler.
     "Event handler"
-    SET HANDLER lo_event_handler->on_link_click FOR lo_events.
+    SET HANDLER lr_event_handler->on_link_click FOR lr_events.
     "Displaying the ALV"
-    go_alv->display( ).
+    gr_table->display( ).
   ENDMETHOD.               "generate_output"
 ENDCLASS.                  "lcl_report IMPLEMENTATION"
 
@@ -98,7 +98,7 @@ START-OF-SELECTION.
   CREATE OBJECT lo_report.
   lo_report->get_data( ).
   lo_report->generate_output( ).
-  
+
 CLASS lcl_event_handler IMPLEMENTATION.
   METHOD on_link_click.
     "Get the value of the checkbox and set the value accordingly refersh the table"
@@ -110,7 +110,7 @@ CLASS lcl_event_handler IMPLEMENTATION.
     ELSE.
       CLEAR <lfa_data>-check.
     ENDIF.
-    lo_report->go_alv->refresh( ).
+    lo_report->gr_table->refresh( ).
   ENDMETHOD.                 "on_link_click"
 ENDCLASS.                    "lcl_event_handler IMPLEMENTATION"
 ```

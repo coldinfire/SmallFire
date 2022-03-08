@@ -190,23 +190,23 @@
     <span style="color:#75715e">&#34;Set the colors to ALV display&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">CALL METHOD</span> set_color
       <span style="color:#66d9ef">CHANGING</span>
-        co_alv  <span style="color:#f92672">=</span> go_alv
+        co_alv  <span style="color:#f92672">=</span> gr_table
         ct_vbak <span style="color:#f92672">=</span> gt_vbak.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_color</span>.
     <span style="color:#75715e">&#34;Color for COLUMN&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_cols <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table,
-          lo_column <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_columns <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table,
+          lr_column  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
     <span style="color:#66d9ef">DATA</span>: ls_color <span style="color:#66d9ef">TYPE </span>lvc_s_colo. <span style="color:#75715e">&#34;Colors strucutre&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">INCLUDE</span> &lt;color&gt;. 
-    lo_cols <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
+    lr_columns <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
     <span style="color:#75715e">&#34;列颜色设置&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
-        lo_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;ERDAT&#39;</span> ).
+        lr_column <span style="color:#f92672">?=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;ERDAT&#39;</span> ).
         ls_color<span style="color:#f92672">-</span>col <span style="color:#f92672">=</span> col_total. <span style="color:#75715e">&#34;color&#34;
-</span><span style="color:#75715e"></span>        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_color</span>( ls_color ).
+</span><span style="color:#75715e"></span>        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_color</span>( ls_color ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_not_found.
     <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#75715e">&#34;Color for Specific Cell &amp; Rows&#34;
@@ -242,7 +242,7 @@
     <span style="color:#75715e">&#34;Set this COLOR table field name of the internal table to&#34; 
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">&#34;COLUMNS tab reference for the specific colors&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
-        lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_color_column</span>( <span style="color:#e6db74">&#39;T_COLOR&#39;</span> ).
+        lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_color_column</span>( <span style="color:#e6db74">&#39;T_COLOR&#39;</span> ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_data_error. 
     <span style="color:#66d9ef">ENDTRY</span>.
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;set_colors&#34;

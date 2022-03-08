@@ -40,23 +40,23 @@ tags:
     "Set the colors to ALV display"
     CALL METHOD set_color
       CHANGING
-        co_alv  = go_alv
+        co_alv  = gr_table
         ct_vbak = gt_vbak.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
   METHOD set_color.
     "Color for COLUMN"
-    DATA: lo_cols TYPE REF TO cl_salv_columns_table,
-          lo_column TYPE REF TO cl_salv_column_table.
+    DATA: lr_columns TYPE REF TO cl_salv_columns_table,
+          lr_column  TYPE REF TO cl_salv_column_table.
     DATA: ls_color TYPE lvc_s_colo. "Colors strucutre"
     INCLUDE <color>. 
-    lo_cols = co_alv->get_columns( ).
+    lr_columns = co_alv->get_columns( ).
     "列颜色设置"
     TRY.
-        lo_column ?= lo_cols->get_column( 'ERDAT' ).
+        lr_column ?= lr_columns->get_column( 'ERDAT' ).
         ls_color-col = col_total. "color"
-        lo_column->set_color( ls_color ).
+        lr_column->set_color( ls_color ).
       CATCH cx_salv_not_found.
     ENDTRY.
     "Color for Specific Cell & Rows"
@@ -92,7 +92,7 @@ tags:
     "Set this COLOR table field name of the internal table to" 
     "COLUMNS tab reference for the specific colors"
     TRY.
-        lo_cols->set_color_column( 'T_COLOR' ).
+        lr_columns->set_color_column( 'T_COLOR' ).
       CATCH cx_salv_data_error. 
     ENDTRY.
   ENDMETHOD.                    "set_colors"

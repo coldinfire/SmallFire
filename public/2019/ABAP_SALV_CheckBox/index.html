@@ -198,7 +198,7 @@
 </span><span style="color:#75715e"></span>           <span style="color:#66d9ef">END OF</span> str_vbak.
     <span style="color:#66d9ef">DATA</span>: gt_vbak <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> str_vbak.
     <span style="color:#75715e">&#34;ALV reference&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: go_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: gr_table <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
     <span style="color:#66d9ef">METHODS</span>:
       get_data,
       generate_output.
@@ -218,32 +218,32 @@
     <span style="color:#66d9ef">TRY</span>.
         cl_salv_table<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">factory</span>(
           <span style="color:#66d9ef">IMPORTING</span>
-            r_salv_table <span style="color:#f92672">=</span> go_alv
+            r_salv_table <span style="color:#f92672">=</span> gr_table
           <span style="color:#66d9ef">CHANGING</span>
             t_table      <span style="color:#f92672">=</span> gt_vbak ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_msg <span style="color:#66d9ef">INTO</span> lv_msg.
     <span style="color:#66d9ef">ENDTRY</span>.
-    <span style="color:#66d9ef">DATA</span>: lo_cols <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
-    <span style="color:#66d9ef">DATA</span>: lo_column <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
-    lo_cols <span style="color:#f92672">?=</span> go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
-    lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
+    <span style="color:#66d9ef">DATA</span>: lr_columns <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
+    <span style="color:#66d9ef">DATA</span>: lr_column  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
+    lr_columns <span style="color:#f92672">?=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
+    lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
     <span style="color:#75715e">&#34;Change the properties of the Columns KUNNR&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
-        lo_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;CHECK&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_type</span>( if_salv_c_cell_type<span style="color:#f92672">=&gt;</span>checkbox_hotspot ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_output_length</span>( <span style="color:#ae81ff">10</span> ).
+        lr_column <span style="color:#f92672">?=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;CHECK&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_type</span>( if_salv_c_cell_type<span style="color:#f92672">=&gt;</span>checkbox_hotspot ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_output_length</span>( <span style="color:#ae81ff">10</span> ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_not_found.   <span style="color:#75715e">&#34;EC NO_HANDLER&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#75715e">&#34;Get the event object&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_events <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_events_table.
-    lo_events <span style="color:#f92672">=</span> go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_event</span>( ).
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_events <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_events_table.
+    lr_events <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_event</span>( ).
     <span style="color:#75715e">&#34;Instantiate the event handler object&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_event_handler <span style="color:#66d9ef">TYPE REF TO</span> lcl_event_handler.
-    <span style="color:#66d9ef">CREATE OBJECT</span> lo_event_handler.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_event_handler <span style="color:#66d9ef">TYPE REF TO</span> lcl_event_handler.
+    <span style="color:#66d9ef">CREATE OBJECT</span> lr_event_handler.
     <span style="color:#75715e">&#34;Event handler&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">SET HANDLER</span> lo_event_handler<span style="color:#f92672">-&gt;</span>on_link_click <span style="color:#66d9ef">FOR</span> lo_events.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">SET HANDLER</span> lr_event_handler<span style="color:#f92672">-&gt;</span>on_link_click <span style="color:#66d9ef">FOR</span> lr_events.
     <span style="color:#75715e">&#34;Displaying the ALV&#34;
-</span><span style="color:#75715e"></span>    go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
+</span><span style="color:#75715e"></span>    gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
   <span style="color:#66d9ef">ENDMETHOD</span>.               <span style="color:#75715e">&#34;generate_output&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">ENDCLASS</span>.                  <span style="color:#75715e">&#34;lcl_report IMPLEMENTATION&#34;
 </span><span style="color:#75715e"></span>
@@ -252,7 +252,7 @@
   <span style="color:#66d9ef">CREATE OBJECT</span> lo_report.
   lo_report<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_data</span>( ).
   lo_report<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">generate_output</span>( ).
-  
+
 <span style="color:#66d9ef">CLASS</span> lcl_event_handler <span style="color:#66d9ef">IMPLEMENTATION</span>.
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">on_link_click</span>.
     <span style="color:#75715e">&#34;Get the value of the checkbox and set the value accordingly refersh the table&#34;
@@ -264,7 +264,7 @@
     <span style="color:#66d9ef">ELSE</span>.
       <span style="color:#66d9ef">CLEAR</span> &lt;lfa_data&gt;<span style="color:#f92672">-</span>check.
     <span style="color:#66d9ef">ENDIF</span>.
-    lo_report<span style="color:#f92672">-&gt;</span>go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">refresh</span>( ).
+    lo_report<span style="color:#f92672">-&gt;</span>gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">refresh</span>( ).
   <span style="color:#66d9ef">ENDMETHOD</span>.                 <span style="color:#75715e">&#34;on_link_click&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">ENDCLASS</span>.                    <span style="color:#75715e">&#34;lcl_event_handler IMPLEMENTATION&#34;
 </span></code></pre></div>

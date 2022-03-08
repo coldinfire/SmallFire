@@ -187,48 +187,48 @@
 <span style="color:#75715e">*Set the various column properties</span>
     <span style="color:#66d9ef">METHODS</span>:set_columns
         <span style="color:#66d9ef">CHANGING</span>
-          co_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+          co_table <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
 <span style="color:#75715e">*Setting up the Columns</span>
     <span style="color:#66d9ef">CALL METHOD</span> me<span style="color:#f92672">-&gt;</span>set_columns
       <span style="color:#66d9ef">CHANGING</span>
-        co_alv <span style="color:#f92672">=</span> go_alv.
+        co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_columns</span>.
-    <span style="color:#66d9ef">DATA</span>: lo_cols <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
-    <span style="color:#66d9ef">DATA</span>: lo_column <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
+    <span style="color:#66d9ef">DATA</span>: lr_columns <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
+    <span style="color:#66d9ef">DATA</span>: lr_column  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
     <span style="color:#75715e">&#34;Get all the Columns&#34;
-</span><span style="color:#75715e"></span>    lo_cols <span style="color:#f92672">=</span> go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
+</span><span style="color:#75715e"></span>    lr_columns <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
     <span style="color:#75715e">&#34;Set the Column optimization&#34;
-</span><span style="color:#75715e"></span>    lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
+</span><span style="color:#75715e"></span>    lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
     <span style="color:#75715e">&#34;Process individual columns&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: ls_color <span style="color:#66d9ef">TYPE </span>lvc_s_colo. <span style="color:#75715e">&#34;颜色设置&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_color <span style="color:#66d9ef">TYPE </span>lvc_s_colo. <span style="color:#75715e">&#34;颜色设置&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">&#34;Change the properties of the Columns KUNNR&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
-        lo_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;KUNNR&#39;</span> ). <span style="color:#75715e">&#34;需要处理的列&#34;
-</span><span style="color:#75715e"></span>        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_long_text</span>( <span style="color:#e6db74">&#39;Sold-To Party&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_medium_text</span>( <span style="color:#e6db74">&#39;Sold-To Party&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_short_text</span>( <span style="color:#e6db74">&#39;Sold-To&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_output_length</span>( <span style="color:#ae81ff">10</span> ).
+        lr_column <span style="color:#f92672">?=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;KUNNR&#39;</span> ). <span style="color:#75715e">&#34;需要处理的列&#34;
+</span><span style="color:#75715e"></span>        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_long_text</span>( <span style="color:#e6db74">&#39;Sold-To Party&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_medium_text</span>( <span style="color:#e6db74">&#39;Sold-To Party&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_short_text</span>( <span style="color:#e6db74">&#39;Sold-To&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_output_length</span>( <span style="color:#ae81ff">10</span> ).
         <span style="color:#75715e">&#34;隐藏设置&#34;
-</span><span style="color:#75715e"></span>        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_visible</span>( if_salv_c_bool_sap<span style="color:#f92672">=&gt;</span>false ).  <span style="color:#75715e">&#34;隐藏在Layout里&#34;
-</span><span style="color:#75715e"></span>        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_technical</span>( if_salv_c_bool_sap<span style="color:#f92672">=&gt;</span>true ). <span style="color:#75715e">&#34;完全隐藏&#34;
+</span><span style="color:#75715e"></span>        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_visible</span>( if_salv_c_bool_sap<span style="color:#f92672">=&gt;</span>false ).  <span style="color:#75715e">&#34;隐藏在Layout里&#34;
+</span><span style="color:#75715e"></span>        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_technical</span>( if_salv_c_bool_sap<span style="color:#f92672">=&gt;</span>true ). <span style="color:#75715e">&#34;完全隐藏&#34;
 </span><span style="color:#75715e"></span>        <span style="color:#75715e">&#34;颜色设置&#34;
 </span><span style="color:#75715e"></span>        <span style="color:#66d9ef">CLEAR</span> ls_color.
         ls_color<span style="color:#f92672">-</span>col <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;6&#39;</span>.
         ls_color<span style="color:#f92672">-</span>int <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>.
         ls_color<span style="color:#f92672">-</span>inv <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span>.
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_color</span>( ls_color ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_color</span>( ls_color ).
         <span style="color:#75715e">&#34;数值为空时，不显示0&#34;
-</span><span style="color:#75715e"></span>        lo_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;BET01&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_zero</span>( <span style="color:#e6db74">&#39; &#39;</span> ).
+</span><span style="color:#75715e"></span>        lr_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;BET01&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_zero</span>( <span style="color:#e6db74">&#39; &#39;</span> ).
         <span style="color:#75715e">&#34;热点列设置&#34;
-</span><span style="color:#75715e"></span>        lo_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;AUFNR&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_type</span>( if_salv_c_cell_type<span style="color:#f92672">=&gt;</span>hotspot ).
+</span><span style="color:#75715e"></span>        lr_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;AUFNR&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_type</span>( if_salv_c_cell_type<span style="color:#f92672">=&gt;</span>hotspot ).
         ...
       <span style="color:#66d9ef">CATCH</span> cx_salv_not_found.  <span style="color:#75715e">&#34;#EC NO_HANDLER&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">ENDTRY</span>.
@@ -275,12 +275,12 @@
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_columns</span>.
     <span style="color:#75715e">&#34;Get all the Columns&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_cols <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
-    lo_cols <span style="color:#f92672">=</span> o_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
-    lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_columns <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
+    lr_columns <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
+    lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
     <span style="color:#75715e">&#34;设置单元格style的字段&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
-        lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_type_column</span>( <span style="color:#e6db74">&#39;T_CELLTYPE&#39;</span> ).
+        lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_type_column</span>( <span style="color:#e6db74">&#39;T_CELLTYPE&#39;</span> ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_data_error.
     <span style="color:#66d9ef">ENDTRY</span>.
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;SET_COLUMNS&#34;

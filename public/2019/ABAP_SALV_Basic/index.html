@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "SALV",
-  "wordcount":  1268 ,
+  "wordcount":  1469 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_SALV_Basic\/",
   "datePublished": "2019-06-03T00:00:00\u002b00:00",
   "dateModified": "2019-06-03T00:00:00\u002b00:00",
@@ -184,7 +184,7 @@
 <li>简化设计：该模型使用高度集成的面向对象设计，这使程序员可以轻松开发 ALV</li>
 <li>统一对象模型：此模型只有一个主类，该主类将获取并设置整个布局的参数</li>
 </ul>
-<h3 id="主要的报表类型和方法">主要的报表类型和方法</h3>
+<h3 id="主要的报表类型">主要的报表类型</h3>
 <table>
 <thead>
 <tr>
@@ -208,22 +208,18 @@
 </tbody>
 </table>
 <p>要显示ALV，只需要调用以下两个方法即可：</p>
+<p><img src="/images/ABAP/SALV1.png" alt="CL_SALV_TABLE"></p>
 <ul>
-<li>
-<p>FACTORY：静态方法。定义要显示在屏幕上的数据；定义 ALV 报表样式；调用此方法就会返回 CL_SALV_TABLE 类型的实例对象</p>
-</li>
-<li>
-<p>DISPLAY：实例方法。调用此方法屏幕上就可以显示 ALV</p>
-</li>
+<li>FACTORY：静态方法。定义要显示在屏幕上的数据；定义 ALV 报表样式；调用此方法就会返回 CL_SALV_TABLE 类型的实例对象</li>
+<li>DISPLAY：实例方法。由静态方法产生的实例对象调用该方法显示 ALV</li>
 </ul>
 <h4 id="factory-静态方法">FACTORY 静态方法</h4>
-<p>所有类都有静态方法 FACTORY，该方法将取回 ALV 的实例。就像简单的报表显示一样，我们必须调用方法 <code>CL_SALV_TABLE =&gt; FACTORY( ). </code>来获取 ALV 的实例。</p>
+<p>所有类都有静态方法 FACTORY，该方法将取回 ALV 的实例。调用方法 <code>CL_SALV_TABLE =&gt; FACTORY( ). </code>来获取 ALV 的实例。返回值 R_SALV_TABLE 保存产生的实例对象。</p>
 <p>有三种显示方法可以通过传入参数设置：</p>
 <ul>
 <li>LIST_DISPLAY：该参数决定了列表显示的模式是以 List 普通列表方式显示，还是 Grid 网格方式显示</li>
 <li>R_CONTAINER：用户自定义控件区域的引用对象，类型为 CL_GUI_CONTAINER</li>
 <li>CONTAINER_NAME：屏幕上用户自定义控件区域（Custom Control）的名称</li>
-<li>R_SALV_TABLE：用来接收工厂产生的实例</li>
 </ul>
 <table>
 <thead>
@@ -255,35 +251,7 @@
 </tr>
 </tbody>
 </table>
-<p>参数定义</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: go_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
-<span style="color:#66d9ef">DATA</span>: go_functions <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functions_list.
-<span style="color:#66d9ef">DATA</span>: go_container <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_custom_container.
-</code></pre></div><p>使用示例</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">&#34; 判断是否已分配了一个有效引用 &#34;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">IF</span> go_container <span style="color:#f92672">IS NOT BOUND</span>.
-  <span style="color:#75715e">&#34; 创建容器 &#34;
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CREATE OBJECT</span> go_container
-    <span style="color:#66d9ef">EXPORTING</span>
-      container_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CONTAINER_1&#39;</span>. <span style="color:#75715e">&#34; 屏幕上用户自定义控件名 &#34;
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">&#34; 创建 ALV &#34;
-</span><span style="color:#75715e"></span>  cl_salv_table<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">factory</span>(
-    <span style="color:#66d9ef">EXPORTING</span>
-      r_container <span style="color:#f92672">=</span> go_container
-<span style="color:#75715e">*     list_display = abap_true &#34;以列表形式显示&#34;</span>
-      container_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CONTAINER_1&#39;</span>
-    <span style="color:#66d9ef">IMPORTING</span>
-      r_salv_table <span style="color:#f92672">=</span> go_alv
-    <span style="color:#66d9ef">CHANGING</span>
-      t_table <span style="color:#f92672">=</span> gt_data[] ).
-  <span style="color:#75715e">&#34;设置工具栏&#34;
-</span><span style="color:#75715e"></span>  go_functions <span style="color:#f92672">=</span> go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functions</span>( ).
-  <span style="color:#75715e">&#34;将激活所有的ALV内置通用按钮&#34;
-</span><span style="color:#75715e"></span>  go_functions<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_all</span>( abap_true ). 
-  <span style="color:#75715e">&#34;显示&#34;
-</span><span style="color:#75715e"></span>  go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
-<span style="color:#66d9ef">ENDIF</span>.
-</code></pre></div><h4 id="display-方法显示-alv">DISPLAY 方法显示 ALV</h4>
+<h4 id="display-方法显示-alv">DISPLAY 方法显示 ALV</h4>
 <p>实例方法，调用此方法显示 ALV。</p>
 <ul>
 <li>
@@ -308,10 +276,75 @@
 <p>SALV 如果用了 grid 网格形式显示，是不支持后台 job 的</p>
 </li>
 </ul>
-<p><img src="/images/ABAP/SALV1.png" alt="CL_SALV_TABLE"></p>
-<h3 id="设置相关属性方法">设置相关属性方法</h3>
+<h4 id="使用-salv-实例">使用 SALV 实例</h4>
+<p>参数定义</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">************************************************************************</span>
+<span style="color:#75715e">**   Global References for Classes                                    **</span>
+<span style="color:#75715e">************************************************************************</span>
+<span style="color:#66d9ef">DATA</span>: gr_table     <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+<span style="color:#66d9ef">DATA</span>: gr_display   <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_display_settings.
+<span style="color:#66d9ef">DATA</span>: gr_columns   <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
+<span style="color:#66d9ef">DATA</span>: gr_column    <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
+<span style="color:#66d9ef">DATA</span>: gr_layout    <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_layout.
+<span style="color:#66d9ef">DATA</span>: gr_functions <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functions_list.
+<span style="color:#66d9ef">DATA</span>: gr_container <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_custom_container.
+</code></pre></div><p><em>SALV 简单使用</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">START-OF-SELECTION</span>.
+   <span style="color:#75715e">&#34;SALV 通过factory获取实例对象&#34;
+</span><span style="color:#75715e"></span>   cl_salv_table<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">factory</span>( <span style="color:#66d9ef">IMPORTING</span> r_salv_table <span style="color:#f92672">=</span> gr_table 
+                           <span style="color:#66d9ef">CHANGING</span> t_table <span style="color:#f92672">=</span> source_table ).
+   <span style="color:#75715e">&#34;SALV 设置工具栏：激活所有的ALV内置通用按钮&#34;
+</span><span style="color:#75715e"></span>   gr_functions <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functions</span>( ).
+   gr_functions<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_all</span>( abap_true ).
+   <span style="color:#75715e">&#34;SALV 显示设置&#34;
+</span><span style="color:#75715e"></span>   gr_display <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_display_settings</span>( ).
+   gr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_list_header</span>( <span style="color:#e6db74">&#39;This is our custom heading&#39;</span> ).
+   gr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_striped_pattern</span>( abap_true ).
+   <span style="color:#75715e">&#34;SALV 字段设置&#34;
+</span><span style="color:#75715e"></span>   gr_columns <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
+   gr_column <span style="color:#f92672">?=</span> gr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;c_name&#39;</span> ).
+   gr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_long_text</span>( <span style="color:#e6db74">&#39;long text&#39;</span> ).
+   gr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_medium_text</span>( <span style="color:#e6db74">&#39;medium text&#39;</span> ).
+   gr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_short_text</span>( <span style="color:#e6db74">&#39;short text&#39;</span> ).
+   <span style="color:#75715e">&#34;SALV 排序字段设置&#34;
+</span><span style="color:#75715e"></span>   gr_sorts <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_sorts</span>( ).
+   gr_sorts<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_sort</span>( columnname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CITYTO&#39;</span> subtotal <span style="color:#f92672">=</span> abap_true ).
+   <span style="color:#75715e">&#34;SALV 聚合字段设置&#34;
+</span><span style="color:#75715e"></span>   gr_agg <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_aggregations</span>( ).
+   gr_agg<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_aggregation</span>( <span style="color:#e6db74">&#39;DISTANCE&#39;</span> ).
+   <span style="color:#75715e">&#34;SALV Layout 设置&#34;
+</span><span style="color:#75715e"></span>   gr_layout <span style="color:#f92672">=</span>  gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_layout</span>( ).
+   lv_key<span style="color:#f92672">-</span>report <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>repid.
+   gr_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_key</span>( lv_key ).
+   gr_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_save_restriction</span>( cl_salv_layout<span style="color:#f92672">=&gt;</span>restrict_none ).
+   <span style="color:#75715e">&#34;SALV 显示&#34;
+</span><span style="color:#75715e"></span>   gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
+</code></pre></div><p><em>使用 Container</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">&#34; 判断容器是否已分配了一个有效引用 &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">IF</span> gr_container <span style="color:#f92672">IS NOT BOUND</span>.
+  <span style="color:#75715e">&#34;创建容器&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CREATE OBJECT</span> gr_container
+    <span style="color:#66d9ef">EXPORTING</span>
+      container_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CONTAINER_1&#39;</span>. <span style="color:#75715e">&#34; 屏幕上用户自定义控件名 &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ENDIF</span>.      
+<span style="color:#75715e">&#34;创建 ALV&#34;
+</span><span style="color:#75715e"></span>cl_salv_table<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">factory</span>(
+  <span style="color:#66d9ef">EXPORTING</span>
+    r_container <span style="color:#f92672">=</span> gr_container
+<span style="color:#75715e">*   list_display = abap_true &#34;以列表形式显示&#34;</span>
+    container_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CONTAINER_1&#39;</span>
+  <span style="color:#66d9ef">IMPORTING</span>
+      r_salv_table <span style="color:#f92672">=</span> gr_table
+    <span style="color:#66d9ef">CHANGING</span>
+      t_table <span style="color:#f92672">=</span> gt_data[] ).
+<span style="color:#75715e">&#34;设置工具栏：激活所有的ALV内置通用按钮&#34;
+</span><span style="color:#75715e"></span>gr_functions <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functions</span>( ).
+gr_functions<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_all</span>( abap_true ). 
+<span style="color:#75715e">&#34;显示 ALV&#34;
+</span><span style="color:#75715e"></span>gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
+</code></pre></div><h3 id="设置相关属性方法">设置相关属性方法</h3>
 <p>对 SALV 进行设置，先需要通过 CL_SALV_TABLE 对象实例获取相关设置对象，然后再对这些设置对进行操作。</p>
-<p>如对样式的设置，需要先通过 CL_SALV_TABLE 对象的 GET_LAYOUT( ) 方法拿到 CL_SALV_LAYOUT 对象，实后通过该对象相关方法对 SALV 进行设置；除样式外，如排序、工具栏设置、事件等，都是先通过某个 GET 方法拿到相应对象，再通过该对象相关方法对 SALV 进行设置，这与以前 Function ALV、及 OO ALV 不太一样。（如上面的设置工具栏代码所示）</p>
+<p>如对样式的设置，需要先通过 CL_SALV_TABLE 实例对象的 GET_LAYOUT( ) 方法拿到对应的对象，实后通过该对象相关方法对 SALV 进行设置；除样式外，如排序、工具栏设置、事件等，都是先通过某个 GET 方法拿到相应对象，再通过该对象相关方法对 SALV 进行设置，这与以前 Function ALV、及 OO ALV 不太一样。</p>
 <p><img src="/images/ABAP/SALV2.png" alt="CL_SALV_TABLE Methods"></p>
 
     </div>
@@ -326,7 +359,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1268</span>
+                   <span>1469</span>
             </p>
             
             <p class="copyright-item">

@@ -32,26 +32,26 @@ tags:
 
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
     CALL METHOD set_layout
-      CHANGING co_alv = go_alv.
+      CHANGING co_alv = gr_table.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
   METHOD set_layout.
-    DATA: lo_layout  TYPE REF TO cl_salv_layout,
+    DATA: lr_layout  TYPE REF TO cl_salv_layout,
           lv_variant TYPE slis_vari,
           ls_key    TYPE salv_s_layout_key. "该结构包含了布局变式所属程序名"
     "Get layout object"
-    lo_layout = co_alv->get_layout( ).
+    lr_layout = co_alv->get_layout( ).
     "Set Layout save restriction"
     "1. Set Layout Key .. Unique key identifies the Differenet ALVs"
     ls_key-report = sy-repid.
-    lo_layout->set_key( ls_key ).
+    lr_layout->set_key( ls_key ).
     "2.设置保存Layout按钮"
-    lo_layout->set_save_restriction( if_salv_c_layout=>restrict_none ).
+    lr_layout->set_save_restriction( if_salv_c_layout=>restrict_none ).
     "3.允许保存布局为变式"
-    lo_layout->set_default( abap_true ).
+    lr_layout->set_default( abap_true ).
     lv_variant = 'DEFAULT'.
-    lo_layout->set_initial_layout( lv_variant ).
+    lr_layout->set_initial_layout( lv_variant ).
   ENDMETHOD.                    " set_layout "
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```

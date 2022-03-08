@@ -40,13 +40,13 @@ ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控
 #### 使用到的类和参数
 
 
-- CL_GUI_ALV_GRID：ALV控制类
+- CL_GUI_ALV_GRID：ALV 控制类
 
-- LVC_T_FCAT：ALV显示参照字段表
+- LVC_T_FCAT：ALV 显示参照字段表
 
-- LVC_S_FCAT：ALV显示参照字段结构
+- LVC_S_FCAT：ALV 显示参照字段结构
 
-- LVC_S_LAYO：ALV显示布局结构
+- LVC_S_LAYO：ALV 显示布局结构
 
 - LVC_T_SORT：排序条件字段
 

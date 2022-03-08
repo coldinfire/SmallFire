@@ -33,55 +33,55 @@ tags:
   "Set the colors to ALV display"
   CALL METHOD set_column_specific_group
       CHANGING
-        co_alv  = go_alv.
+        co_alv = gr_table.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
   METHOD set_column_specific_group.
     "Create the Groups"
-    DATA: lo_functional_settings TYPE REF TO cl_salv_functional_settings,
-          lo_specific_groups     TYPE REF TO cl_salv_specific_groups,
+    DATA: lr_functional_settings TYPE REF TO cl_salv_functional_settings,
+          lr_specific_groups     TYPE REF TO cl_salv_specific_groups,
           lv_text                TYPE cl_salv_specific_groups=>y_text.
-    lo_functional_settings = co_alv->get_functional_settings( ).
-    lo_specific_groups = lo_functional_settings->get_specific_groups( ).
+    lr_functional_settings = co_alv->get_functional_settings( ).
+    lr_specific_groups = lr_functional_settings->get_specific_groups( ).
     "Add group GRP1"
     TRY.
         lv_text = 'External supplier'.
-        lo_specific_groups->add_specific_group( id   = 'GRP1'
+        lr_specific_groups->add_specific_group( id   = 'GRP1'
                                                 text = lv_text ).
       CATCH cx_salv_existing.                           
     ENDTRY.
     "Add group GRP2"
     TRY.
         lv_text = 'Internal supplier'.
-        lo_specific_groups->add_specific_group( id   = 'GRP2'
+        lr_specific_groups->add_specific_group( id   = 'GRP2'
                                                 text = lv_text ).
       CATCH cx_salv_existing.
     ENDTRY.
     "Assign the group to columns"
-    DATA: lo_cols   TYPE REF TO cl_salv_columns_table,
-          lo_column TYPE REF TO cl_salv_column_list,
-          lt_cols   TYPE salv_t_column_ref,
-          ls_cols   LIKE LINE OF lt_cols.
-    lo_cols = co_alv->get_columns( ).
-    lt_cols = lo_cols->get( ).
+    DATA: lr_columns TYPE REF TO cl_salv_columns_table,
+          lr_column  TYPE REF TO cl_salv_column_list,
+          lt_cols    TYPE salv_t_column_ref,
+          ls_cols    LIKE LINE OF lt_cols.
+    lr_columns = co_alv->get_columns( ).
+    lt_cols = lr_columns->get( ).
     TRY.
         "隐藏KUNNR字段，Customer"
-        lo_column ?= lo_cols->get_column( 'KUNNR' ).
-        lo_column->set_technical( if_salv_c_bool_sap=>true ).
+        lr_column ?= lr_columns->get_column( 'KUNNR' ).
+        lr_column->set_technical( if_salv_c_bool_sap=>true ).
       CATCH cx_salv_not_found.
     ENDTRY.
     LOOP AT lt_cols INTO ls_cols.
-      lo_column ?= ls_cols-r_column.    "Narrow casting"
+      lr_column ?= ls_cols-r_column.    "Narrow casting"
       CASE ls_cols-columnname+0(2).
         "将以ET开始的表字段分配给group GRP1,然后设置为不显示"
         WHEN 'ET'.
-          lo_column->set_specific_group( id = 'GRP1' ).
-          lo_column->set_visible( '' ).
+          lr_column->set_specific_group( id = 'GRP1' ).
+          lr_column->set_visible( '' ).
         "将以IT开始的表字段分配给group GRP2,然后设置为不显示"
         WHEN 'IT'.
-          lo_column->set_specific_group( id = 'GRP2' ).
-          lo_column->set_visible( '' ).
+          lr_column->set_specific_group( id = 'GRP2' ).
+          lr_column->set_visible( '' ).
       ENDCASE.
       CLEAR ls_cols.
     ENDLOOP.

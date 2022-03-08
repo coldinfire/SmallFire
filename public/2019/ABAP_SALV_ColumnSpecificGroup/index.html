@@ -189,55 +189,55 @@
   <span style="color:#75715e">&#34;Set the colors to ALV display&#34;
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CALL METHOD</span> set_column_specific_group
       <span style="color:#66d9ef">CHANGING</span>
-        co_alv  <span style="color:#f92672">=</span> go_alv.
+        co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_column_specific_group</span>.
     <span style="color:#75715e">&#34;Create the Groups&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_functional_settings <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functional_settings,
-          lo_specific_groups     <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_specific_groups,
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_functional_settings <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functional_settings,
+          lr_specific_groups     <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_specific_groups,
           lv_text                <span style="color:#66d9ef">TYPE </span>cl_salv_specific_groups<span style="color:#f92672">=&gt;</span>y_text.
-    lo_functional_settings <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functional_settings</span>( ).
-    lo_specific_groups <span style="color:#f92672">=</span> lo_functional_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_specific_groups</span>( ).
+    lr_functional_settings <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functional_settings</span>( ).
+    lr_specific_groups <span style="color:#f92672">=</span> lr_functional_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_specific_groups</span>( ).
     <span style="color:#75715e">&#34;Add group GRP1&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
         lv_text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;External supplier&#39;</span>.
-        lo_specific_groups<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_specific_group</span>( <span style="color:#66d9ef">id</span>   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GRP1&#39;</span>
+        lr_specific_groups<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_specific_group</span>( <span style="color:#66d9ef">id</span>   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GRP1&#39;</span>
                                                 text <span style="color:#f92672">=</span> lv_text ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_existing.                           
     <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#75715e">&#34;Add group GRP2&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
         lv_text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Internal supplier&#39;</span>.
-        lo_specific_groups<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_specific_group</span>( <span style="color:#66d9ef">id</span>   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GRP2&#39;</span>
+        lr_specific_groups<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_specific_group</span>( <span style="color:#66d9ef">id</span>   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GRP2&#39;</span>
                                                 text <span style="color:#f92672">=</span> lv_text ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_existing.
     <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#75715e">&#34;Assign the group to columns&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_cols   <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table,
-          lo_column <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_list,
-          lt_cols   <span style="color:#66d9ef">TYPE </span>salv_t_column_ref,
-          ls_cols   <span style="color:#66d9ef">LIKE LINE OF</span> lt_cols.
-    lo_cols <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
-    lt_cols <span style="color:#f92672">=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>( ).
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_columns <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table,
+          lr_column  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_list,
+          lt_cols    <span style="color:#66d9ef">TYPE </span>salv_t_column_ref,
+          ls_cols    <span style="color:#66d9ef">LIKE LINE OF</span> lt_cols.
+    lr_columns <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
+    lt_cols <span style="color:#f92672">=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>( ).
     <span style="color:#66d9ef">TRY</span>.
         <span style="color:#75715e">&#34;隐藏KUNNR字段，Customer&#34;
-</span><span style="color:#75715e"></span>        lo_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;KUNNR&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_technical</span>( if_salv_c_bool_sap<span style="color:#f92672">=&gt;</span>true ).
+</span><span style="color:#75715e"></span>        lr_column <span style="color:#f92672">?=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;KUNNR&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_technical</span>( if_salv_c_bool_sap<span style="color:#f92672">=&gt;</span>true ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_not_found.
     <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#66d9ef">LOOP AT </span>lt_cols <span style="color:#66d9ef">INTO</span> ls_cols.
-      lo_column <span style="color:#f92672">?=</span> ls_cols<span style="color:#f92672">-</span>r_column.    <span style="color:#75715e">&#34;Narrow casting&#34;
+      lr_column <span style="color:#f92672">?=</span> ls_cols<span style="color:#f92672">-</span>r_column.    <span style="color:#75715e">&#34;Narrow casting&#34;
 </span><span style="color:#75715e"></span>      <span style="color:#66d9ef">CASE</span> ls_cols<span style="color:#f92672">-</span>columnname<span style="color:#f92672">+</span><span style="color:#ae81ff">0</span>(<span style="color:#ae81ff">2</span>).
         <span style="color:#75715e">&#34;将以ET开始的表字段分配给group GRP1,然后设置为不显示&#34;
 </span><span style="color:#75715e"></span>        <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;ET&#39;</span>.
-          lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_specific_group</span>( <span style="color:#66d9ef">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GRP1&#39;</span> ).
-          lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_visible</span>( <span style="color:#e6db74">&#39;&#39;</span> ).
+          lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_specific_group</span>( <span style="color:#66d9ef">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GRP1&#39;</span> ).
+          lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_visible</span>( <span style="color:#e6db74">&#39;&#39;</span> ).
         <span style="color:#75715e">&#34;将以IT开始的表字段分配给group GRP2,然后设置为不显示&#34;
 </span><span style="color:#75715e"></span>        <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;IT&#39;</span>.
-          lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_specific_group</span>( <span style="color:#66d9ef">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GRP2&#39;</span> ).
-          lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_visible</span>( <span style="color:#e6db74">&#39;&#39;</span> ).
+          lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_specific_group</span>( <span style="color:#66d9ef">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GRP2&#39;</span> ).
+          lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_visible</span>( <span style="color:#e6db74">&#39;&#39;</span> ).
       <span style="color:#66d9ef">ENDCASE</span>.
       <span style="color:#66d9ef">CLEAR</span> ls_cols.
     <span style="color:#66d9ef">ENDLOOP</span>.

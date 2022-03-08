@@ -190,26 +190,26 @@
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
     <span style="color:#66d9ef">CALL METHOD</span> set_layout
-      <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#f92672">=</span> go_alv.
+      <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_layout</span>.
-    <span style="color:#66d9ef">DATA</span>: lo_layout  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_layout,
+    <span style="color:#66d9ef">DATA</span>: lr_layout  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_layout,
           lv_variant <span style="color:#66d9ef">TYPE </span>slis_vari,
           ls_key    <span style="color:#66d9ef">TYPE </span>salv_s_layout_key. <span style="color:#75715e">&#34;该结构包含了布局变式所属程序名&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">&#34;Get layout object&#34;
-</span><span style="color:#75715e"></span>    lo_layout <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_layout</span>( ).
+</span><span style="color:#75715e"></span>    lr_layout <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_layout</span>( ).
     <span style="color:#75715e">&#34;Set Layout save restriction&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">&#34;1. Set Layout Key .. Unique key identifies the Differenet ALVs&#34;
 </span><span style="color:#75715e"></span>    ls_key<span style="color:#f92672">-</span>report <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>repid.
-    lo_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_key</span>( ls_key ).
+    lr_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_key</span>( ls_key ).
     <span style="color:#75715e">&#34;2.设置保存Layout按钮&#34;
-</span><span style="color:#75715e"></span>    lo_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_save_restriction</span>( if_salv_c_layout<span style="color:#f92672">=&gt;</span>restrict_none ).
+</span><span style="color:#75715e"></span>    lr_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_save_restriction</span>( if_salv_c_layout<span style="color:#f92672">=&gt;</span>restrict_none ).
     <span style="color:#75715e">&#34;3.允许保存布局为变式&#34;
-</span><span style="color:#75715e"></span>    lo_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_default</span>( abap_true ).
+</span><span style="color:#75715e"></span>    lr_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_default</span>( abap_true ).
     lv_variant <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;DEFAULT&#39;</span>.
-    lo_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_initial_layout</span>( lv_variant ).
+    lr_layout<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_initial_layout</span>( lv_variant ).
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34; set_layout &#34;
 </span><span style="color:#75715e">*$*$*.....CODE_ADD_3 - End....................................3..*$*$*</span>
 </code></pre></div>

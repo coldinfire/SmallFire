@@ -193,19 +193,19 @@
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
     <span style="color:#66d9ef">CALL METHOD</span> set_display_setting
       <span style="color:#66d9ef">CHANGING</span>
-        co_alv <span style="color:#f92672">=</span> go_alv.
+        co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_display_setting</span>.
-    <span style="color:#66d9ef">DATA</span>: lo_display <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_display_settings.
+    <span style="color:#66d9ef">DATA</span>: lr_display <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_display_settings.
     <span style="color:#75715e">&#34;Get display object&#34;
-</span><span style="color:#75715e"></span>    lo_display <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_display_settings</span>( ).
+</span><span style="color:#75715e"></span>    lr_display <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_display_settings</span>( ).
     <span style="color:#75715e">&#34;Set attributes&#34;
-</span><span style="color:#75715e"></span>    lo_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_striped_pattern</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
-    lo_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_fit_column_to_table_size</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
+</span><span style="color:#75715e"></span>    lr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_striped_pattern</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
+    lr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_fit_column_to_table_size</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
     <span style="color:#75715e">&#34;Title to ALV&#34;
-</span><span style="color:#75715e"></span>    lo_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_list_header</span>( <span style="color:#e6db74">&#39;ALV Test for Display Settings&#39;</span> ).
+</span><span style="color:#75715e"></span>    lr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_list_header</span>( <span style="color:#e6db74">&#39;ALV Test for Display Settings&#39;</span> ).
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;SET_DISPLAY_SETTING&#34;
 </span><span style="color:#75715e">*$*$*.....CODE_ADD_3 - End....................................3..*$*$*</span>
 </code></pre></div><h3 id="salv-选择模式">SALV 选择模式</h3>
@@ -227,15 +227,15 @@
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
   <span style="color:#66d9ef">CALL METHOD</span> set_selection
     <span style="color:#66d9ef">CHANGING</span>
-      co_alv <span style="color:#f92672">=</span> go_alv.
+      co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_selection</span>.
-    <span style="color:#66d9ef">DATA</span>: lo_selections <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_selections.
-    lo_selections <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_selections</span>( ).
+    <span style="color:#66d9ef">DATA</span>: lr_selections <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_selections.
+    lr_selections <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_selections</span>( ).
     <span style="color:#75715e">&#34;set selection mode&#34;
-</span><span style="color:#75715e"></span>    lo_selections<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_selection_mode</span>( if_salv_c_selection_mode<span style="color:#f92672">=&gt;</span>row_column ).
+</span><span style="color:#75715e"></span>    lr_selections<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_selection_mode</span>( if_salv_c_selection_mode<span style="color:#f92672">=&gt;</span>row_column ).
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;set_selection&#34;
 </span><span style="color:#75715e">*$*$*.....CODE_ADD_3 - End....................................3..*$*$*</span>
 </code></pre></div>

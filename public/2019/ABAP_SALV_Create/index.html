@@ -195,16 +195,18 @@
     <span style="color:#66d9ef">TYPES</span>: ty_t_vbak <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> str_vbak.
     <span style="color:#66d9ef">DATA</span>: gt_vbak <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> str_vbak.
     <span style="color:#75715e">&#34;ALV reference&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: go_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
-    <span style="color:#66d9ef">DATA</span>: go_container <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_custom_container.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: gr_table <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+    <span style="color:#66d9ef">DATA</span>: gr_container <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_custom_container.
     <span style="color:#75715e">&#34;Methods Define&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">METHODS</span>:
       get_data,        <span style="color:#75715e">&#34;Data prepare&#34; 
 </span><span style="color:#75715e"></span>      generate_output. <span style="color:#75715e">&#34;Generating output&#34;
-</span><span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
 <span style="color:#75715e">*  In this section we will define the private methods which can be implemented</span>
 <span style="color:#75715e">*    to set the properties of the ALV and can be called in the generate_output</span>
 <span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
+
 <span style="color:#66d9ef">ENDCLASS</span>.                    <span style="color:#75715e">&#34;lcl_report DEFINITION&#34;
 </span><span style="color:#75715e"></span> 
 <span style="color:#75715e">*----------------------------------------------------------------------*</span>
@@ -217,7 +219,8 @@
            <span style="color:#66d9ef">FROM</span>  vbak
            UP <span style="color:#66d9ef">TO</span> <span style="color:#ae81ff">20</span> ROWS.
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;get_data&#34;
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">generate_output</span>.
+</span><span style="color:#75715e"></span>  
+  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">generate_output</span>.
     <span style="color:#75715e">&#34;Calling the static Factory Method&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lv_msg <span style="color:#66d9ef">TYPE REF TO</span> cx_salv_msg.
     <span style="color:#66d9ef">TRY</span>.
@@ -225,23 +228,27 @@
           <span style="color:#66d9ef">EXPORTING</span>
             list_display <span style="color:#f92672">=</span> abap_ture  <span style="color:#75715e">&#34;以列表还是GUI形式控制&#34;
 </span><span style="color:#75715e"></span>          <span style="color:#66d9ef">IMPORTING</span>
-            r_salv_table <span style="color:#f92672">=</span> go_alv     <span style="color:#75715e">&#34;用来接收工厂产生的实例&#34;
+            r_salv_table <span style="color:#f92672">=</span> gr_table   <span style="color:#75715e">&#34;用来接收工厂产生的实例&#34;
 </span><span style="color:#75715e"></span>          <span style="color:#66d9ef">CHANGING</span>
             t_table      <span style="color:#f92672">=</span> gt_vbak ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_msg <span style="color:#66d9ef">INTO</span> lv_msg.
     <span style="color:#66d9ef">ENDTRY</span>.
+
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
 <span style="color:#75715e">*    In this area we will call the methods which will set the</span>
 <span style="color:#75715e">*      different properties to the ALV</span>
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
-   <span style="color:#75715e">&#34;Displaying the ALV&#34;
-</span><span style="color:#75715e"></span>    go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
-    go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">refresh</span>( ).
+
+    <span style="color:#75715e">&#34;Displaying the ALV&#34;
+</span><span style="color:#75715e"></span>    gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
+    gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">refresh</span>( ).
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;generate_output&#34;
-</span><span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
+</span><span style="color:#75715e"></span>  
+<span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
 <span style="color:#75715e">*    In this area we will implement the methods which are defined in</span>
 <span style="color:#75715e">*      the class definition</span>
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - End....................................3..*$*$*</span>
+
 <span style="color:#66d9ef">ENDCLASS</span>.                    <span style="color:#75715e">&#34;lcl_report IMPLEMENTATION&#34;
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">START-OF-SELECTION</span>.
@@ -261,9 +268,9 @@
       <span style="color:#66d9ef">END OF</span> str_vbak.
   <span style="color:#66d9ef">TYPES</span>: ty_t_vbak   <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> str_vbak.
   <span style="color:#66d9ef">DATA</span>: gt_vbak      <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> str_vbak.
-  <span style="color:#66d9ef">DATA</span>: go_alv       <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
-  <span style="color:#66d9ef">DATA</span>: go_functions <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functions_list.
-  <span style="color:#66d9ef">DATA</span>: go_container <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_custom_container.
+  <span style="color:#66d9ef">DATA</span>: gr_table     <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+  <span style="color:#66d9ef">DATA</span>: gr_functions <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functions_list.
+  <span style="color:#66d9ef">DATA</span>: gr_container <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_custom_container.
   <span style="color:#66d9ef">DATA</span>: ok_code <span style="color:#66d9ef">TYPE </span>syucomm.
   
 <span style="color:#66d9ef">START-OF-SELECTION</span>.
@@ -275,42 +282,42 @@
       <span style="color:#66d9ef">FROM</span>  vbak
       UP <span style="color:#66d9ef">TO</span> <span style="color:#ae81ff">20</span> ROWS.
   <span style="color:#75715e">&#34;判断是否已分配了一个有效引用&#34;
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">IF</span> go_container <span style="color:#f92672">IS NOT BOUND</span>.
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">IF</span> gr_container <span style="color:#f92672">IS NOT BOUND</span>.
     <span style="color:#75715e">&#34;创建容器&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">CREATE OBJECT</span> go_container
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">CREATE OBJECT</span> gr_container
       <span style="color:#66d9ef">EXPORTING</span>
         container_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CONTAINER_1&#39;</span>. <span style="color:#75715e">&#34; 屏幕上用户自定义控件名 &#34;
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">&#34;创建ALV&#34;
 </span><span style="color:#75715e"></span>    cl_salv_table<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">factory</span>(
       <span style="color:#66d9ef">EXPORTING</span>
-          r_container <span style="color:#f92672">=</span> go_container
+          r_container <span style="color:#f92672">=</span> gr_container
           container_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CONTAINER_1&#39;</span>
       <span style="color:#66d9ef">IMPORTING</span>
-          r_salv_table <span style="color:#f92672">=</span> go_alv
+          r_salv_table <span style="color:#f92672">=</span> gr_table
       <span style="color:#66d9ef">CHANGING</span>
           t_table <span style="color:#f92672">=</span> gt_data[] ).
     <span style="color:#75715e">&#34;激活所有的ALV内置通用按钮&#34;
-</span><span style="color:#75715e"></span>    go_functions <span style="color:#f92672">=</span> go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functions</span>( ).
-    go_functions<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_all</span>( abap_true ).  
+</span><span style="color:#75715e"></span>    gr_functions <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functions</span>( ).
+    gr_functions<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_all</span>( abap_true ).  
     <span style="color:#75715e">&#34;显示ALV&#34;
-</span><span style="color:#75715e"></span>    go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
+</span><span style="color:#75715e"></span>    gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
   <span style="color:#66d9ef">ENDIF</span>.
 <span style="color:#66d9ef">ENDMODULE</span>.
 </code></pre></div><h3 id="以弹出框显示-salv">以弹出框显示 SALV</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: go_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: gr_table <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
 cl_salv_table<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">factory</span>(
   <span style="color:#66d9ef">IMPORTING</span> 
-    r_salv_table <span style="color:#f92672">=</span> go_alv
+    r_salv_table <span style="color:#f92672">=</span> gr_table
   <span style="color:#66d9ef">CHANGING</span> 
     t_table <span style="color:#f92672">=</span> gt_data[] ).
 <span style="color:#75715e">&#34;设置弹出框属性&#34;
-</span><span style="color:#75715e"></span>go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_screen_popup</span>(
+</span><span style="color:#75715e"></span>gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_screen_popup</span>(
   start_column <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
   end_column <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
   start_line <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
   end_line <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> ).
 <span style="color:#75715e">&#34;Display&#34;
-</span><span style="color:#75715e"></span>go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
+</span><span style="color:#75715e"></span>gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
 </code></pre></div>
     </div>
 
