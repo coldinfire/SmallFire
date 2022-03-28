@@ -21,8 +21,8 @@ tags:
 - SET_VERTICAL_LINES：设置是否显示垂直线
 - SET_HORIZONTAL_LINES：设置是否显示水平线
 - SET_STRIPED_PATTERN：斑马条纹（行颜色交替）
-- SET_LIST_HEADER_SIZE：报表头
-- SET_FIT_COLUMN_TO_TABLE_SIZE：列自适应表格宽度
+- SET_LIST_HEADER_SIZE：设置报表标题
+- SET_FIT_COLUMN_TO_TABLE_SIZE：设置列自适应表格宽度
 
 ```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
@@ -44,45 +44,13 @@ tags:
     "Get display object"
     lr_display = co_alv->get_display_settings( ).
     "Set attributes"
-    lr_display->set_striped_pattern( 'X' ).
-    lr_display->set_fit_column_to_table_size( 'X' ).
+    lr_display->set_striped_pattern( abap_true ).
+    lr_display->set_fit_column_to_table_size( abap_true ).
     "Title to ALV"
     lr_display->set_list_header( 'ALV Test for Display Settings' ).
   ENDMETHOD.                    "SET_DISPLAY_SETTING"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
 
-### SALV 选择模式
 
-![CL_SALV_DISPLAY_SETTINGS](/images/ABAP/SALV14.png)
-
-- SINGLE：单行选择
-- MULTIPLE：多行选择
-- CELL：单元格选择
-- ROW_COLUMN：行，列选择
-- NONE：无，不能选择
-
-```ABAP
-*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
-  PRIVATE SECTION.
-    METHODS: set_selection
-        CHANGING
-          co_alv TYPE REF TO cl_salv_table.
-*$*$*.....CODE_ADD_1 - End....................................1..*$*$*
-
-*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
-  CALL METHOD set_selection
-    CHANGING
-      co_alv = gr_table.
-*$*$*.....CODE_ADD_2 - End....................................2..*$*$*
-
-*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
-  METHOD set_selection.
-    DATA: lr_selections TYPE REF TO cl_salv_selections.
-    lr_selections = co_alv->get_selections( ).
-    "set selection mode"
-    lr_selections->set_selection_mode( if_salv_c_selection_mode=>row_column ).
-  ENDMETHOD.                    "set_selection"
-*$*$*.....CODE_ADD_3 - End....................................3..*$*$*
-```
 

@@ -86,7 +86,12 @@ CLASS lcl_report IMPLEMENTATION.
     gr_table->display( ).
     gr_table->refresh( ).
   ENDMETHOD.                    "generate_output"
-  
+
+*$*$*.....CODE_ADD_2_1 - Begin..................................2_1..*$*$*
+*    In this area we will define the methods which will set the
+*      different properties to the ALV
+*$*$*.....CODE_ADD_2_1 - End....................................2_1..*$*$*
+
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
 *    In this area we will implement the methods which are defined in
 *      the class definition

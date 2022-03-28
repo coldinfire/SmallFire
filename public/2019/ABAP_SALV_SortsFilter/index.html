@@ -180,30 +180,28 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
   <span style="color:#66d9ef">PRIVATE SECTION</span>.
     <span style="color:#66d9ef">METHODS</span>: set_sort
-        <span style="color:#66d9ef">CHANGING</span>
-          co_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+      <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
     <span style="color:#66d9ef">CALL METHOD</span> set_sort
-      <span style="color:#66d9ef">CHANGING</span>
-        co_alv <span style="color:#f92672">=</span> go_alv.
+      <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_sort</span>.
-    <span style="color:#66d9ef">DATA</span>: lo_sort <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_sorts.
+    <span style="color:#66d9ef">DATA</span>: lr_sort <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_sorts.
     <span style="color:#75715e">&#34;Get Sort object&#34;
-</span><span style="color:#75715e"></span>    lo_sort <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_sorts</span>( ).
+</span><span style="color:#75715e"></span>    lr_sort <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_sorts</span>( ).
     <span style="color:#75715e">&#34;Set the SORT on the AUART with Subtotal&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
-        <span style="color:#66d9ef">CALL METHOD</span> lo_sort<span style="color:#f92672">-&gt;</span>add_sort
+        <span style="color:#66d9ef">CALL METHOD</span> lr_sort<span style="color:#f92672">-&gt;</span>add_sort
           <span style="color:#66d9ef">EXPORTING</span>
             columnname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUART&#39;</span>
             <span style="color:#66d9ef">position</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e">&#34;排序的顺序，如果根据多个字段来排时，决定哪个先排&#34;
 </span><span style="color:#75715e"></span>            sequence   <span style="color:#f92672">=</span> if_salv_c_sort<span style="color:#f92672">=&gt;</span>sort_up <span style="color:#75715e">&#34;升序&#34;
 </span><span style="color:#75715e"></span>            subtotal   <span style="color:#f92672">=</span> if_salv_c_bool_sap<span style="color:#f92672">=&gt;</span>true.<span style="color:#75715e">&#34;是否需要以此字段进行分类小计&#34;
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">CALL METHOD</span> lo_sort<span style="color:#f92672">-&gt;</span>add_sort
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">CALL METHOD</span> lr_sort<span style="color:#f92672">-&gt;</span>add_sort
           <span style="color:#66d9ef">EXPORTING</span>
             columnname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ERDAT&#39;</span>
             <span style="color:#66d9ef">position</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> 
@@ -224,24 +222,22 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
   <span style="color:#66d9ef">PRIVATE SECTION</span>.
     <span style="color:#66d9ef">METHODS</span>:set_aggregation
-        <span style="color:#66d9ef">CHANGING</span>
-          co_alv  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+      <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
     <span style="color:#66d9ef">CALL METHOD</span> set_aggregation
-      <span style="color:#66d9ef">CHANGING</span>
-        co_alv <span style="color:#f92672">=</span> go_alv.
+      <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_aggregation</span>.
-    <span style="color:#66d9ef">DATA</span>: lo_aggrs <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_aggregations.
-    lo_aggrs <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_aggregations</span>( ).
+    <span style="color:#66d9ef">DATA</span>: lr_aggrs <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_aggregations.
+    lr_aggrs <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_aggregations</span>( ).
     <span style="color:#75715e">&#34;Add TOTAL for COLUMN NETWR&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">&#34;如果不先进行排序，则只有汇总，不会进行分类小计&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
-        <span style="color:#66d9ef">CALL METHOD</span> lo_aggrs<span style="color:#f92672">-&gt;</span>add_aggregation
+        <span style="color:#66d9ef">CALL METHOD</span> lr_aggrs<span style="color:#f92672">-&gt;</span>add_aggregation
           <span style="color:#66d9ef">EXPORTING</span>
             columnname  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;NETWR&#39;</span>
             aggregation <span style="color:#f92672">=</span> if_salv_c_aggregation<span style="color:#f92672">=&gt;</span>total.
@@ -250,7 +246,7 @@
 </span><span style="color:#75715e"></span>      <span style="color:#66d9ef">CATCH</span> cx_salv_existing .                          <span style="color:#75715e">&#34;#EC NO_HANDLER&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#75715e">&#34;将合计放置到SALV的顶端&#34;
-</span><span style="color:#75715e"></span>    lo_aggrs<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_aggregation_before_items</span>( ).
+</span><span style="color:#75715e"></span>    lr_aggrs<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_aggregation_before_items</span>( ).
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;set_aggregation&#34;
 </span><span style="color:#75715e">*$*$*.....CODE_ADD_3 - End....................................3..*$*$*</span>
 </code></pre></div><h3 id="过滤设置">过滤设置</h3>
@@ -267,24 +263,22 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
   <span style="color:#66d9ef">PRIVATE SECTION</span>.
     <span style="color:#66d9ef">METHODS</span>:set_filter
-        <span style="color:#66d9ef">CHANGING</span>
-          co_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+      <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
 <span style="color:#75715e">*Set Filters</span>
     <span style="color:#66d9ef">CALL METHOD</span> set_filter
-      <span style="color:#66d9ef">CHANGING</span>
-        co_alv <span style="color:#f92672">=</span> go_alv.
+      <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_filter</span>.
-    <span style="color:#66d9ef">DATA</span>: lo_filter <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_filters.
-    lo_filter <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_filters</span>( ).
+    <span style="color:#66d9ef">DATA</span>: lr_filter <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_filters.
+    lr_filter <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_filters</span>( ).
     <span style="color:#75715e">&#34;Set the filter for the column ERDAT&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
-        <span style="color:#66d9ef">CALL METHOD</span> lo_filter<span style="color:#f92672">-&gt;</span>add_filter
+        <span style="color:#66d9ef">CALL METHOD</span> lr_filter<span style="color:#f92672">-&gt;</span>add_filter
           <span style="color:#66d9ef">EXPORTING</span>
             columnname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ERDAT&#39;</span>
             <span style="color:#66d9ef">sign</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I&#39;</span>

@@ -181,15 +181,13 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
   <span style="color:#66d9ef">PRIVATE SECTION</span>.
     <span style="color:#66d9ef">METHODS</span>:set_column_specific_group
-        <span style="color:#66d9ef">CHANGING</span>
-          co_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table..
+        <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table..
 <span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
   <span style="color:#75715e">&#34;Set the colors to ALV display&#34;
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CALL METHOD</span> set_column_specific_group
-      <span style="color:#66d9ef">CHANGING</span>
-        co_alv <span style="color:#f92672">=</span> gr_table.
+      <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>

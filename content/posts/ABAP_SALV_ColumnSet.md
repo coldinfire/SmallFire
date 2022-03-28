@@ -34,16 +34,12 @@ Function ALV、OO ALV 可通过 Fieldcat 对列进行相关设置，SALV 也有�
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
 *Set the various column properties
-    METHODS:set_columns
-        CHANGING
-          co_table TYPE REF TO cl_salv_table.
+    METHODS: set_columns CHANGING co_table TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
 *Setting up the Columns
-    CALL METHOD me->set_columns
-      CHANGING
-        co_alv = gr_table.
+    CALL METHOD me->set_columns CHANGING co_alv = gr_table.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
@@ -51,11 +47,11 @@ Function ALV、OO ALV 可通过 Fieldcat 对列进行相关设置，SALV 也有�
     DATA: lr_columns TYPE REF TO cl_salv_columns_table.
     DATA: lr_column  TYPE REF TO cl_salv_column_table.
     "Get all the Columns"
-    lr_columns = gr_table->get_columns( ).
+    lr_columns = co_alv->get_columns( ).
     "Set the Column optimization"
     lr_columns->set_optimize( 'X' ).
     "Process individual columns"
-    DATA: lr_color TYPE lvc_s_colo. "颜色设置"
+    DATA: ls_color TYPE lvc_s_colo. "颜色设置"
     "Change the properties of the Columns KUNNR"
     TRY.
         lr_column ?= lr_columns->get_column( 'KUNNR' ). "需要处理的列"
@@ -73,10 +69,10 @@ Function ALV、OO ALV 可通过 Fieldcat 对列进行相关设置，SALV 也有�
         ls_color-inv = '0'.
         lr_column->set_color( ls_color ).
         "数值为空时，不显示0"
-        lr_column ?= lo_cols->get_column( 'BET01' ).
+        lr_column ?= lr_columns->get_column( 'BET01' ).
         lr_column->set_zero( ' ' ).
         "热点列设置"
-        lr_column ?= lo_cols->get_column( 'AUFNR' ).
+        lr_column ?= lr_columns->get_column( 'AUFNR' ).
         lr_column->set_cell_type( if_salv_c_cell_type=>hotspot ).
         ...
       CATCH cx_salv_not_found.  "#EC NO_HANDLER"
@@ -127,7 +123,7 @@ Function ALV、OO ALV 可通过 Fieldcat 对列进行相关设置，SALV 也有�
   METHOD set_columns.
     "Get all the Columns"
     DATA: lr_columns TYPE REF TO cl_salv_columns_table.
-    lr_columns = gr_table->get_columns( ).
+    lr_columns = co_alv->get_columns( ).
     lr_columns->set_optimize( 'X' ).
     "设置单元格style的字段"
     TRY.

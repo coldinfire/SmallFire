@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "SALV",
-  "wordcount":  872 ,
+  "wordcount":  873 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_SALV_ColumnSet\/",
   "datePublished": "2019-06-06T00:00:00\u002b00:00",
   "dateModified": "2019-06-06T00:00:00\u002b00:00",
@@ -185,16 +185,12 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
   <span style="color:#66d9ef">PRIVATE SECTION</span>.
 <span style="color:#75715e">*Set the various column properties</span>
-    <span style="color:#66d9ef">METHODS</span>:set_columns
-        <span style="color:#66d9ef">CHANGING</span>
-          co_table <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
+    <span style="color:#66d9ef">METHODS</span>: set_columns <span style="color:#66d9ef">CHANGING</span> co_table <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
 <span style="color:#75715e">*Setting up the Columns</span>
-    <span style="color:#66d9ef">CALL METHOD</span> me<span style="color:#f92672">-&gt;</span>set_columns
-      <span style="color:#66d9ef">CHANGING</span>
-        co_alv <span style="color:#f92672">=</span> gr_table.
+    <span style="color:#66d9ef">CALL METHOD</span> me<span style="color:#f92672">-&gt;</span>set_columns <span style="color:#66d9ef">CHANGING</span> co_alv <span style="color:#f92672">=</span> gr_table.
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
@@ -202,11 +198,11 @@
     <span style="color:#66d9ef">DATA</span>: lr_columns <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
     <span style="color:#66d9ef">DATA</span>: lr_column  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
     <span style="color:#75715e">&#34;Get all the Columns&#34;
-</span><span style="color:#75715e"></span>    lr_columns <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
+</span><span style="color:#75715e"></span>    lr_columns <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
     <span style="color:#75715e">&#34;Set the Column optimization&#34;
 </span><span style="color:#75715e"></span>    lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
     <span style="color:#75715e">&#34;Process individual columns&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_color <span style="color:#66d9ef">TYPE </span>lvc_s_colo. <span style="color:#75715e">&#34;颜色设置&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: ls_color <span style="color:#66d9ef">TYPE </span>lvc_s_colo. <span style="color:#75715e">&#34;颜色设置&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">&#34;Change the properties of the Columns KUNNR&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
         lr_column <span style="color:#f92672">?=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;KUNNR&#39;</span> ). <span style="color:#75715e">&#34;需要处理的列&#34;
@@ -224,10 +220,10 @@
         ls_color<span style="color:#f92672">-</span>inv <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span>.
         lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_color</span>( ls_color ).
         <span style="color:#75715e">&#34;数值为空时，不显示0&#34;
-</span><span style="color:#75715e"></span>        lr_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;BET01&#39;</span> ).
+</span><span style="color:#75715e"></span>        lr_column <span style="color:#f92672">?=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;BET01&#39;</span> ).
         lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_zero</span>( <span style="color:#e6db74">&#39; &#39;</span> ).
         <span style="color:#75715e">&#34;热点列设置&#34;
-</span><span style="color:#75715e"></span>        lr_column <span style="color:#f92672">?=</span> lo_cols<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;AUFNR&#39;</span> ).
+</span><span style="color:#75715e"></span>        lr_column <span style="color:#f92672">?=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;AUFNR&#39;</span> ).
         lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_type</span>( if_salv_c_cell_type<span style="color:#f92672">=&gt;</span>hotspot ).
         ...
       <span style="color:#66d9ef">CATCH</span> cx_salv_not_found.  <span style="color:#75715e">&#34;#EC NO_HANDLER&#34;
@@ -276,7 +272,7 @@
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_columns</span>.
     <span style="color:#75715e">&#34;Get all the Columns&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_columns <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
-    lr_columns <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
+    lr_columns <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
     lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
     <span style="color:#75715e">&#34;设置单元格style的字段&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
@@ -298,7 +294,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>872</span>
+                   <span>873</span>
             </p>
             
             <p class="copyright-item">

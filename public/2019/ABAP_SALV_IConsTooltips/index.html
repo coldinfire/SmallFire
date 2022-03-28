@@ -179,9 +179,9 @@
 <li><strong>设置提示信息</strong>： Tooltip 对象是 Functions_List 的一部分。首先获取功能对象。从中获取工具提示对象。调用方法 ADD_TOOLTIP 添加提示信息</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">REPORT</span>  ZTEST_NP_SALV_ICON_TOOLTIP.
-<span style="color:#66d9ef">CLASS</span> lcl_main <span style="color:#66d9ef">DEFINITION</span>.
+<span style="color:#66d9ef">CLASS</span> lcl_report <span style="color:#66d9ef">DEFINITION</span>.
   <span style="color:#66d9ef">PUBLIC SECTION</span>.
-    <span style="color:#66d9ef">DATA</span> go_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table .
+    <span style="color:#66d9ef">DATA</span> gr_table <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table .
     <span style="color:#66d9ef">TYPES</span>:
       <span style="color:#66d9ef">BEGIN OF</span> str_output,
         status <span style="color:#66d9ef">TYPE </span>icon_d,
@@ -194,10 +194,10 @@
 <span style="color:#66d9ef">ENDCLASS</span>.                    <span style="color:#75715e">&#34;lcl_main DEFINITION&#34;
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">START-OF-SELECTION</span>.
-  <span style="color:#66d9ef">DATA</span>: lo_main <span style="color:#66d9ef">TYPE REF TO</span> lcl_main.
-  <span style="color:#66d9ef">CREATE OBJECT</span> lo_main.
-  lo_main<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">select_data</span>( ).
-  lo_main<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">generate_alv</span>( ).
+  <span style="color:#66d9ef">DATA</span>: lo_report <span style="color:#66d9ef">TYPE REF TO</span> lcl_report.
+  <span style="color:#66d9ef">CREATE OBJECT</span> lo_report.
+  lo_report<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">select_data</span>( ).
+  lo_report<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">generate_alv</span>( ).
 
 <span style="color:#66d9ef">CLASS</span> lcl_main <span style="color:#66d9ef">IMPLEMENTATION</span>.
   <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">select_data</span>.
@@ -220,43 +220,43 @@
     <span style="color:#66d9ef">ENDDO</span>.
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;select_Data&#34;
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">generate_alv</span>.
-    <span style="color:#66d9ef">DATA</span>: lo_functions            <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functions_list.
-    <span style="color:#66d9ef">DATA</span>: lo_functional_settings  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functional_settings.
-    <span style="color:#66d9ef">DATA</span>: lo_columns              <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns.
-    <span style="color:#66d9ef">DATA</span>: lo_column               <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
-    <span style="color:#66d9ef">DATA</span>: lo_tooltips             <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_tooltips,
+    <span style="color:#66d9ef">DATA</span>: lr_functions            <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functions_list.
+    <span style="color:#66d9ef">DATA</span>: lr_functional_settings  <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functional_settings.
+    <span style="color:#66d9ef">DATA</span>: lr_columns              <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns.
+    <span style="color:#66d9ef">DATA</span>: lr_column               <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
+    <span style="color:#66d9ef">DATA</span>: lr_tooltips             <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_tooltips,
           lv_value                <span style="color:#66d9ef">TYPE </span>lvc_value.
     <span style="color:#66d9ef">INCLUDE</span>: &lt;icon&gt;.
     <span style="color:#75715e">&#34;ALV Object&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">TRY</span>.
         cl_salv_table<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">factory</span>(
           <span style="color:#66d9ef">IMPORTING</span>
-            r_salv_table <span style="color:#f92672">=</span> go_alv
+            r_salv_table <span style="color:#f92672">=</span> gr_table
           <span style="color:#66d9ef">CHANGING</span>
             t_table      <span style="color:#f92672">=</span> gt_output ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_msg.    <span style="color:#75715e">&#34;#EC NO_HANDLER&#34;
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#75715e">&#34;Functions&#34;
-</span><span style="color:#75715e"></span>    lo_functions <span style="color:#f92672">=</span> go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functions</span>( ).
-    lo_functions<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_all</span>( abap_true ).
+</span><span style="color:#75715e"></span>    lr_functions <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functions</span>( ).
+    lr_functions<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_all</span>( abap_true ).
     <span style="color:#75715e">&#34;Set the columns&#34;
-</span><span style="color:#75715e"></span>    lo_columns <span style="color:#f92672">=</span> go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
-    lo_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( abap_true ).
+</span><span style="color:#75715e"></span>    lr_columns <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>( ).
+    lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_optimize</span>( abap_true ).
     <span style="color:#66d9ef">TRY</span>.
-        lo_column <span style="color:#f92672">?=</span> lo_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;STATUS&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_icon</span>( if_salv_c_bool_sap<span style="color:#f92672">=&gt;</span>true ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_long_text</span>( <span style="color:#e6db74">&#39;Status&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_alignment</span>( if_salv_c_alignment<span style="color:#f92672">=&gt;</span>centered ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_output_length</span>( <span style="color:#ae81ff">20</span> ).
-        lo_column <span style="color:#f92672">?=</span> lo_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;FIELD1&#39;</span> ).
-        lo_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_long_text</span>( <span style="color:#e6db74">&#39;Message&#39;</span> ).
+        lr_column <span style="color:#f92672">?=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;STATUS&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_icon</span>( if_salv_c_bool_sap<span style="color:#f92672">=&gt;</span>true ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_long_text</span>( <span style="color:#e6db74">&#39;Status&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_alignment</span>( if_salv_c_alignment<span style="color:#f92672">=&gt;</span>centered ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_output_length</span>( <span style="color:#ae81ff">20</span> ).
+        lr_column <span style="color:#f92672">?=</span> lr_columns<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;FIELD1&#39;</span> ).
+        lr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_long_text</span>( <span style="color:#e6db74">&#39;Message&#39;</span> ).
       <span style="color:#66d9ef">CATCH</span> cx_salv_not_found.                          
     <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#75715e">&#34;Tooltips:为异常列单无格不同的值添加不同的冒泡提示&#34;
-</span><span style="color:#75715e"></span>    lo_functional_settings <span style="color:#f92672">=</span> go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functional_settings</span>( ).
-    lo_tooltips <span style="color:#f92672">=</span> lo_functional_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_tooltips</span>( ).
+</span><span style="color:#75715e"></span>    lr_functional_settings <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_functional_settings</span>( ).
+    lr_tooltips <span style="color:#f92672">=</span> lo_functional_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_tooltips</span>( ).
     <span style="color:#66d9ef">TRY</span>.
-        lo_tooltips<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_tooltip</span>(
+        lr_tooltips<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_tooltip</span>(
           TYPE    <span style="color:#f92672">=</span> cl_salv_tooltip<span style="color:#f92672">=&gt;</span>c_type_icon
           <span style="color:#66d9ef">VALUE</span>   <span style="color:#f92672">=</span> space    <span style="color:#75715e">&#34;不同的图形不同的冒泡提示&#34;
 </span><span style="color:#75715e"></span>          tooltip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Everything is Processed&#39;</span> ).        
@@ -264,7 +264,7 @@
     <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#66d9ef">TRY</span>.
         lv_value <span style="color:#f92672">=</span> icon_green_light.
-        lo_tooltips<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_tooltip</span>(
+        lr_tooltips<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_tooltip</span>(
           TYPE    <span style="color:#f92672">=</span> cl_salv_tooltip<span style="color:#f92672">=&gt;</span>c_type_icon
           <span style="color:#66d9ef">VALUE</span>   <span style="color:#f92672">=</span> lv_value
           tooltip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Everything is Processed&#39;</span> ).        
@@ -272,7 +272,7 @@
     <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#66d9ef">TRY</span>.
         lv_value <span style="color:#f92672">=</span> icon_yellow_light.
-        lo_tooltips<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_tooltip</span>(
+        lr_tooltips<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_tooltip</span>(
           TYPE    <span style="color:#f92672">=</span> cl_salv_tooltip<span style="color:#f92672">=&gt;</span>c_type_icon
           <span style="color:#66d9ef">VALUE</span>   <span style="color:#f92672">=</span> lv_value
           tooltip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Partially processed&#39;</span> ).            
@@ -280,14 +280,14 @@
     <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#66d9ef">TRY</span>.
         lv_value <span style="color:#f92672">=</span> icon_red_light.
-        lo_tooltips<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_tooltip</span>(
+        lr_tooltips<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_tooltip</span>(
           TYPE    <span style="color:#f92672">=</span> cl_salv_tooltip<span style="color:#f92672">=&gt;</span>c_type_icon
           <span style="color:#66d9ef">VALUE</span>   <span style="color:#f92672">=</span> lv_value
           tooltip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Nothing Yet processed&#39;</span> ).          
       <span style="color:#66d9ef">CATCH</span> cx_salv_existing.                           
     <span style="color:#66d9ef">ENDTRY</span>.
     <span style="color:#75715e">&#34;Display the table&#34;
-</span><span style="color:#75715e"></span>    go_salv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
+</span><span style="color:#75715e"></span>    gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">display</span>( ).
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;generate_alv&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">ENDCLASS</span>.                    <span style="color:#75715e">&#34;lcl_main IMPLEMENTATION&#34;
 </span></code></pre></div>

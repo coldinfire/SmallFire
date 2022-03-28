@@ -86,10 +86,14 @@ SALV 不提供编辑功能，但可以通过 SALV 适配器调用 CL_GUI_ALV_GRI
 ************************************************************************
 DATA: gr_table     TYPE REF TO cl_salv_table.
 DATA: gr_display   TYPE REF TO cl_salv_display_settings.
+DATA: gr_functions TYPE REF TO cl_salv_functions_list.
 DATA: gr_columns   TYPE REF TO cl_salv_columns_table.
 DATA: gr_column    TYPE REF TO cl_salv_column_table.
 DATA: gr_layout    TYPE REF TO cl_salv_layout.
-DATA: gr_functions TYPE REF TO cl_salv_functions_list.
+DATA: gr_sort      TYPE REF TO cl_salv_sorts.
+DATA: gr_filter    TYPE REF TO cl_salv_filters.
+DATA: gr_aggrs     TYPE REF TO cl_salv_aggregations.
+DATA: gr_events    TYPE REF TO cl_salv_events_table.
 DATA: gr_container TYPE REF TO cl_gui_custom_container.
 ```
 
@@ -114,11 +118,11 @@ START-OF-SELECTION.
    gr_column->set_medium_text( 'medium text' ).
    gr_column->set_short_text( 'short text' ).
    "SALV 排序字段设置"
-   gr_sorts = gr_table->get_sorts( ).
-   gr_sorts->add_sort( columnname = 'CITYTO' subtotal = abap_true ).
+   gr_sort = gr_table->get_sorts( ).
+   gr_sort->add_sort( columnname = 'CITYTO' subtotal = abap_true ).
    "SALV 聚合字段设置"
-   gr_agg = gr_table->get_aggregations( ).
-   gr_agg->add_aggregation( 'DISTANCE' ).
+   gr_aggrs = gr_table->get_aggregations( ).
+   gr_aggrs->add_aggregation( 'DISTANCE' ).
    "SALV Layout 设置"
    gr_layout =  gr_table->get_layout( ).
    lv_key-report = sy-repid.

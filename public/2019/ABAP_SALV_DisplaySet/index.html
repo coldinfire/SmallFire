@@ -10,7 +10,7 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2019/ABAP_SALV_Layout/" />
+  <link rel="prev" href="https://coldinfire.github.io/2019/ABAP_SALV_Functions/" />
   <link rel="next" href="https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/" />
   <link rel="canonical" href="https://coldinfire.github.io/2019/ABAP_SALV_DisplaySet/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "SALV",
-  "wordcount":  365 ,
+  "wordcount":  249 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_SALV_DisplaySet\/",
   "datePublished": "2019-06-06T00:00:00\u002b00:00",
   "dateModified": "2019-06-06T00:00:00\u002b00:00",
@@ -180,8 +180,8 @@
 <li>SET_VERTICAL_LINES：设置是否显示垂直线</li>
 <li>SET_HORIZONTAL_LINES：设置是否显示水平线</li>
 <li>SET_STRIPED_PATTERN：斑马条纹（行颜色交替）</li>
-<li>SET_LIST_HEADER_SIZE：报表头</li>
-<li>SET_FIT_COLUMN_TO_TABLE_SIZE：列自适应表格宽度</li>
+<li>SET_LIST_HEADER_SIZE：设置报表标题</li>
+<li>SET_FIT_COLUMN_TO_TABLE_SIZE：设置列自适应表格宽度</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
   <span style="color:#66d9ef">PRIVATE SECTION</span>.
@@ -202,41 +202,11 @@
     <span style="color:#75715e">&#34;Get display object&#34;
 </span><span style="color:#75715e"></span>    lr_display <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_display_settings</span>( ).
     <span style="color:#75715e">&#34;Set attributes&#34;
-</span><span style="color:#75715e"></span>    lr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_striped_pattern</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
-    lr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_fit_column_to_table_size</span>( <span style="color:#e6db74">&#39;X&#39;</span> ).
+</span><span style="color:#75715e"></span>    lr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_striped_pattern</span>( abap_true ).
+    lr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_fit_column_to_table_size</span>( abap_true ).
     <span style="color:#75715e">&#34;Title to ALV&#34;
 </span><span style="color:#75715e"></span>    lr_display<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_list_header</span>( <span style="color:#e6db74">&#39;ALV Test for Display Settings&#39;</span> ).
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;SET_DISPLAY_SETTING&#34;
-</span><span style="color:#75715e">*$*$*.....CODE_ADD_3 - End....................................3..*$*$*</span>
-</code></pre></div><h3 id="salv-选择模式">SALV 选择模式</h3>
-<p><img src="/images/ABAP/SALV14.png" alt="CL_SALV_DISPLAY_SETTINGS"></p>
-<ul>
-<li>SINGLE：单行选择</li>
-<li>MULTIPLE：多行选择</li>
-<li>CELL：单元格选择</li>
-<li>ROW_COLUMN：行，列选择</li>
-<li>NONE：无，不能选择</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*</span>
-  <span style="color:#66d9ef">PRIVATE SECTION</span>.
-    <span style="color:#66d9ef">METHODS</span>: set_selection
-        <span style="color:#66d9ef">CHANGING</span>
-          co_alv <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
-<span style="color:#75715e">*$*$*.....CODE_ADD_1 - End....................................1..*$*$*</span>
-
-<span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
-  <span style="color:#66d9ef">CALL METHOD</span> set_selection
-    <span style="color:#66d9ef">CHANGING</span>
-      co_alv <span style="color:#f92672">=</span> gr_table.
-<span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
-
-<span style="color:#75715e">*$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*</span>
-  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">set_selection</span>.
-    <span style="color:#66d9ef">DATA</span>: lr_selections <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_selections.
-    lr_selections <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_selections</span>( ).
-    <span style="color:#75715e">&#34;set selection mode&#34;
-</span><span style="color:#75715e"></span>    lr_selections<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_selection_mode</span>( if_salv_c_selection_mode<span style="color:#f92672">=&gt;</span>row_column ).
-  <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;set_selection&#34;
 </span><span style="color:#75715e">*$*$*.....CODE_ADD_3 - End....................................3..*$*$*</span>
 </code></pre></div>
     </div>
@@ -251,7 +221,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>365</span>
+                   <span>249</span>
             </p>
             
             <p class="copyright-item">
@@ -280,7 +250,7 @@
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2019/ABAP_SALV_Layout/" class="prev" rel="prev" title=" SALV Layout 设置 "><i class="iconfont icon-dajiantou"></i>&nbsp; SALV Layout 设置 </a>
+        <a href="https://coldinfire.github.io/2019/ABAP_SALV_Functions/" class="prev" rel="prev" title=" SALV Functions 设置 "><i class="iconfont icon-dajiantou"></i>&nbsp; SALV Functions 设置 </a>
          
         
         <a href="https://coldinfire.github.io/2019/ABAP_SALV_ColumnSet/" class="next" rel="next" title=" SALV Columns 设置字段目录 "> SALV Columns 设置字段目录 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>

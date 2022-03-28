@@ -25,15 +25,13 @@ tags:
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
     METHODS:set_column_specific_group
-        CHANGING
-          co_alv TYPE REF TO cl_salv_table..
+        CHANGING co_alv TYPE REF TO cl_salv_table..
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
   "Set the colors to ALV display"
   CALL METHOD set_column_specific_group
-      CHANGING
-        co_alv = gr_table.
+      CHANGING co_alv = gr_table.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*

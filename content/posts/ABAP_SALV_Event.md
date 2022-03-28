@@ -38,14 +38,14 @@ ENDCLASS.                     "lcl_event_handler IMPLEMENTATION"
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
  METHOD generate_output.
     "Get the event object"
-    DATA: lo_events TYPE REF TO cl_salv_events_table.
-    lo_events = go_alv->get_event( ).
+    DATA: lr_events TYPE REF TO cl_salv_events_table.
+    lr_events = gr_table->get_event( ).
     "Instantiate the event handler object"
-    DATA: lo_event_handler TYPE REF TO lcl_event_handler.
-    CREATE OBJECT lo_event_handler.
+    DATA: lr_event_handler TYPE REF TO lcl_event_handler.
+    CREATE OBJECT lr_event_handler.
     "Event handler register"
-    SET HANDLER lo_event_handler->on_link_click FOR lo_events.
-    SET HANDLER lo_event_handler->on_double_click FOR lo_events.
+    SET HANDLER lr_event_handler->on_link_click FOR lr_events.
+    SET HANDLER lr_event_handler->on_double_click FOR lr_events.
   ENDMETHOD.                    "generate_output"
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
     
@@ -78,20 +78,20 @@ ENDCLASS.                     "lcl_event_handler IMPLEMENTATION"
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
  METHOD generate_output.
     "Get the event object"
-    DATA: lo_events TYPE REF TO cl_salv_events_table.
-    lo_events = co_alv->get_event( ).
+    DATA: lr_events TYPE REF TO cl_salv_events_table.
+    lr_events = co_alv->get_event( ).
     "Instantiate the event handler object"
-    DATA: lo_event_handler TYPE REF TO lcl_event_handler.
-    CREATE OBJECT lo_event_handler.
+    DATA: lr_event_handler TYPE REF TO lcl_event_handler.
+    CREATE OBJECT lr_event_handler.
     "Event handler register"
-    SET HANDLER lo_event_handler->on_user_command FOR lo_events.
+    SET HANDLER lr_event_handler->on_user_command FOR lr_events.
   ENDMETHOD.                    "generate_output"
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 FORM handle_user_command USING p_function TYPE salv_de_function.
   CASE p_function.
     WHEN 'REFRESH'.
-      go_alv->refresh( ).
+      gr_table->refresh( ).
   ENDCASE.
 ENDFORM.
 ```

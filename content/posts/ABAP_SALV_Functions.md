@@ -1,5 +1,5 @@
 ---
-title: " SALV Status 设置 "
+title: " SALV Functions 设置 "
 date: 2019-06-06
 draft: false
 author: Small Fire
@@ -12,7 +12,7 @@ tags:
  
 ---
 
-### Status 设置
+### Functions 设置
 
 CL_SALV_TABLE 中提供了方法 `get_functions`，`set_default`；通过这两个方法可以创建 Status。
 
@@ -23,25 +23,23 @@ CL_SALV_TABLE 中提供了方法 `get_functions`，`set_default`；通过这两�
 ```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
-    METHODS:set_pf_status
-        CHANGING 
-          co_alv TYPE REF TO cl_salv_table.
+    METHODS:set_functions
+      CHANGING co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 
 *$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
-    CALL METHOD set_pf_status
-      CHANGING
-        co_alv = go_alv.
+    CALL METHOD set_functions
+      CHANGING co_alv = go_alv.
 *$*$*.....CODE_ADD_2 - End....................................2..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
-  METHOD set_pf_status.
-    DATA: lo_functions TYPE REF TO cl_salv_functions_list.
-    lo_functions = co_alv->get_functions( ).
+  METHOD set_functions.
+    DATA: lr_functions TYPE REF TO cl_salv_functions_list.
+    lr_functions = co_alv->get_functions( ).
     "Setting a default status"
-    lo_functions->set_default( abap_true ).
+    lr_functions->set_default( abap_true ).
     "Activate All Generic ALV Functions"
-    "lo_functions->set_all( abap_true )." 
+    lr_functions->set_all( abap_true )." 
   ENDMETHOD.     "set_pf_status"
 *$*$*.....CODE_ADD_3 - End....................................3..*$*$*
 ```
@@ -55,19 +53,17 @@ CL_SALV_TABLE 的方法 `SET_SCREEN_STATUS` 可以指定自定义的 Status。
 ```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
-    METHODS:set_pf_status
-        CHANGING
-          co_alv TYPE REF TO cl_salv_table.
+    METHODS:add_pf_status
+      CHANGING co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 
-*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
-    CALL METHOD set_pf_status
-      CHANGING
-        co_alv = go_alv.
-*$*$*.....CODE_ADD_2 - End....................................2..*$*$*
+*$*$*.....CODE_ADD_2_1 - Begin..............................2_1..*$*$*
+    CALL METHOD add_pf_status
+      CHANGING co_alv = go_alv.
+*$*$*.....CODE_ADD_2_1 - End................................2_1..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
-  METHOD set_pf_status.
+  METHOD add_pf_status.
     "系统提示的标准Status为SAPLSALV_METADATA_STATUS"
     co_alv->set_screen_status(
       pfstatus      =  'STANDARD_STATUS'
@@ -87,28 +83,26 @@ CL_SALV_TABLE 的方法 `SET_SCREEN_STATUS` 可以指定自定义的 Status。
 ```ABAP
 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$*
   PRIVATE SECTION.
-    METHODS:set_pf_status
-        CHANGING
-          co_alv TYPE REF TO cl_salv_table.
+    METHODS:add_pf_status
+      CHANGING co_alv TYPE REF TO cl_salv_table.
 *$*$*.....CODE_ADD_1 - End....................................1..*$*$*
 
-*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*
-    CALL METHOD set_pf_status
-      CHANGING
-        co_alv = go_alv.
-*$*$*.....CODE_ADD_2 - End....................................2..*$*$*
+*$*$*.....CODE_ADD_2_1 - Begin..............................2_1..*$*$*
+    CALL METHOD add_pf_status
+      CHANGING co_alv = go_alv.
+*$*$*.....CODE_ADD_2_1 - End................................2_1..*$*$*
 
 *$*$*.....CODE_ADD_3 - Begin..................................3..*$*$*
-  METHOD set_pf_status.
+  METHOD add_pf_status.
     "附加刷新按钮"
-    DATA: lo_functions TYPE REF TO cl_salv_functions_list.
-    lo_functions = go_alv->get_functions( ).
-    lo_functions->set_all( abap_true ). "激活所有的ALV内置通用按钮"
+    DATA: lr_functions TYPE REF TO cl_salv_functions_list.
+    lr_functions = go_alv->get_functions( ).
+    lr_functions->set_all( abap_true ). "激活所有的ALV内置通用按钮"
     INCLUDE <icon>.
     DATA: lv_icon TYPE string.
     lv_icon = icon_refresh.
     "附加按钮，只适用于‘可控模式’下的 SALV"
-    lo_functions->add_function(
+    lr_functions->add_function(
       name = 'refresh'
       icon = lv_icon
       text = '刷新按钮'

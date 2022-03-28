@@ -22,9 +22,9 @@ tags:
 
 ```ABAP
 REPORT  ZTEST_NP_SALV_ICON_TOOLTIP.
-CLASS lcl_main DEFINITION.
+CLASS lcl_report DEFINITION.
   PUBLIC SECTION.
-    DATA go_alv TYPE REF TO cl_salv_table .
+    DATA gr_table TYPE REF TO cl_salv_table .
     TYPES:
       BEGIN OF str_output,
         status TYPE icon_d,
@@ -37,10 +37,10 @@ CLASS lcl_main DEFINITION.
 ENDCLASS.                    "lcl_main DEFINITION"
 
 START-OF-SELECTION.
-  DATA: lo_main TYPE REF TO lcl_main.
-  CREATE OBJECT lo_main.
-  lo_main->select_data( ).
-  lo_main->generate_alv( ).
+  DATA: lo_report TYPE REF TO lcl_report.
+  CREATE OBJECT lo_report.
+  lo_report->select_data( ).
+  lo_report->generate_alv( ).
 
 CLASS lcl_main IMPLEMENTATION.
   METHOD select_data.
@@ -63,43 +63,43 @@ CLASS lcl_main IMPLEMENTATION.
     ENDDO.
   ENDMETHOD.                    "select_Data"
   METHOD generate_alv.
-    DATA: lo_functions            TYPE REF TO cl_salv_functions_list.
-    DATA: lo_functional_settings  TYPE REF TO cl_salv_functional_settings.
-    DATA: lo_columns              TYPE REF TO cl_salv_columns.
-    DATA: lo_column               TYPE REF TO cl_salv_column_table.
-    DATA: lo_tooltips             TYPE REF TO cl_salv_tooltips,
+    DATA: lr_functions            TYPE REF TO cl_salv_functions_list.
+    DATA: lr_functional_settings  TYPE REF TO cl_salv_functional_settings.
+    DATA: lr_columns              TYPE REF TO cl_salv_columns.
+    DATA: lr_column               TYPE REF TO cl_salv_column_table.
+    DATA: lr_tooltips             TYPE REF TO cl_salv_tooltips,
           lv_value                TYPE lvc_value.
     INCLUDE: <icon>.
     "ALV Object"
     TRY.
         cl_salv_table=>factory(
           IMPORTING
-            r_salv_table = go_alv
+            r_salv_table = gr_table
           CHANGING
             t_table      = gt_output ).
       CATCH cx_salv_msg.    "#EC NO_HANDLER"
     ENDTRY.
     "Functions"
-    lo_functions = go_alv->get_functions( ).
-    lo_functions->set_all( abap_true ).
+    lr_functions = gr_table->get_functions( ).
+    lr_functions->set_all( abap_true ).
     "Set the columns"
-    lo_columns = go_alv->get_columns( ).
-    lo_columns->set_optimize( abap_true ).
+    lr_columns = gr_table->get_columns( ).
+    lr_columns->set_optimize( abap_true ).
     TRY.
-        lo_column ?= lo_columns->get_column( 'STATUS' ).
-        lo_column->set_icon( if_salv_c_bool_sap=>true ).
-        lo_column->set_long_text( 'Status' ).
-        lo_column->set_alignment( if_salv_c_alignment=>centered ).
-        lo_column->set_output_length( 20 ).
-        lo_column ?= lo_columns->get_column( 'FIELD1' ).
-        lo_column->set_long_text( 'Message' ).
+        lr_column ?= lr_columns->get_column( 'STATUS' ).
+        lr_column->set_icon( if_salv_c_bool_sap=>true ).
+        lr_column->set_long_text( 'Status' ).
+        lr_column->set_alignment( if_salv_c_alignment=>centered ).
+        lr_column->set_output_length( 20 ).
+        lr_column ?= lr_columns->get_column( 'FIELD1' ).
+        lr_column->set_long_text( 'Message' ).
       CATCH cx_salv_not_found.                          
     ENDTRY.
     "Tooltips:为异常列单无格不同的值添加不同的冒泡提示"
-    lo_functional_settings = go_alv->get_functional_settings( ).
-    lo_tooltips = lo_functional_settings->get_tooltips( ).
+    lr_functional_settings = gr_table->get_functional_settings( ).
+    lr_tooltips = lo_functional_settings->get_tooltips( ).
     TRY.
-        lo_tooltips->add_tooltip(
+        lr_tooltips->add_tooltip(
           TYPE    = cl_salv_tooltip=>c_type_icon
           VALUE   = space    "不同的图形不同的冒泡提示"
           tooltip = 'Everything is Processed' ).        
@@ -107,7 +107,7 @@ CLASS lcl_main IMPLEMENTATION.
     ENDTRY.
     TRY.
         lv_value = icon_green_light.
-        lo_tooltips->add_tooltip(
+        lr_tooltips->add_tooltip(
           TYPE    = cl_salv_tooltip=>c_type_icon
           VALUE   = lv_value
           tooltip = 'Everything is Processed' ).        
@@ -115,7 +115,7 @@ CLASS lcl_main IMPLEMENTATION.
     ENDTRY.
     TRY.
         lv_value = icon_yellow_light.
-        lo_tooltips->add_tooltip(
+        lr_tooltips->add_tooltip(
           TYPE    = cl_salv_tooltip=>c_type_icon
           VALUE   = lv_value
           tooltip = 'Partially processed' ).            
@@ -123,14 +123,14 @@ CLASS lcl_main IMPLEMENTATION.
     ENDTRY.
     TRY.
         lv_value = icon_red_light.
-        lo_tooltips->add_tooltip(
+        lr_tooltips->add_tooltip(
           TYPE    = cl_salv_tooltip=>c_type_icon
           VALUE   = lv_value
           tooltip = 'Nothing Yet processed' ).          
       CATCH cx_salv_existing.                           
     ENDTRY.
     "Display the table"
-    go_salv->display( ).
+    gr_table->display( ).
   ENDMETHOD.                    "generate_alv"
 ENDCLASS.                    "lcl_main IMPLEMENTATION"
 ```

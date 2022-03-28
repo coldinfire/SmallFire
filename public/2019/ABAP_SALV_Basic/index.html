@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "SALV",
-  "wordcount":  1469 ,
+  "wordcount":  1493 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_SALV_Basic\/",
   "datePublished": "2019-06-03T00:00:00\u002b00:00",
   "dateModified": "2019-06-03T00:00:00\u002b00:00",
@@ -283,10 +283,14 @@
 <span style="color:#75715e">************************************************************************</span>
 <span style="color:#66d9ef">DATA</span>: gr_table     <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_table.
 <span style="color:#66d9ef">DATA</span>: gr_display   <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_display_settings.
+<span style="color:#66d9ef">DATA</span>: gr_functions <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functions_list.
 <span style="color:#66d9ef">DATA</span>: gr_columns   <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_columns_table.
 <span style="color:#66d9ef">DATA</span>: gr_column    <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_column_table.
 <span style="color:#66d9ef">DATA</span>: gr_layout    <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_layout.
-<span style="color:#66d9ef">DATA</span>: gr_functions <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_functions_list.
+<span style="color:#66d9ef">DATA</span>: gr_sort      <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_sorts.
+<span style="color:#66d9ef">DATA</span>: gr_filter    <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_filters.
+<span style="color:#66d9ef">DATA</span>: gr_aggrs     <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_aggregations.
+<span style="color:#66d9ef">DATA</span>: gr_events    <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_events_table.
 <span style="color:#66d9ef">DATA</span>: gr_container <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_custom_container.
 </code></pre></div><p><em>SALV 简单使用</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">START-OF-SELECTION</span>.
@@ -307,11 +311,11 @@
    gr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_medium_text</span>( <span style="color:#e6db74">&#39;medium text&#39;</span> ).
    gr_column<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_short_text</span>( <span style="color:#e6db74">&#39;short text&#39;</span> ).
    <span style="color:#75715e">&#34;SALV 排序字段设置&#34;
-</span><span style="color:#75715e"></span>   gr_sorts <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_sorts</span>( ).
-   gr_sorts<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_sort</span>( columnname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CITYTO&#39;</span> subtotal <span style="color:#f92672">=</span> abap_true ).
+</span><span style="color:#75715e"></span>   gr_sort <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_sorts</span>( ).
+   gr_sort<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_sort</span>( columnname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CITYTO&#39;</span> subtotal <span style="color:#f92672">=</span> abap_true ).
    <span style="color:#75715e">&#34;SALV 聚合字段设置&#34;
-</span><span style="color:#75715e"></span>   gr_agg <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_aggregations</span>( ).
-   gr_agg<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_aggregation</span>( <span style="color:#e6db74">&#39;DISTANCE&#39;</span> ).
+</span><span style="color:#75715e"></span>   gr_aggrs <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_aggregations</span>( ).
+   gr_aggrs<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_aggregation</span>( <span style="color:#e6db74">&#39;DISTANCE&#39;</span> ).
    <span style="color:#75715e">&#34;SALV Layout 设置&#34;
 </span><span style="color:#75715e"></span>   gr_layout <span style="color:#f92672">=</span>  gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_layout</span>( ).
    lv_key<span style="color:#f92672">-</span>report <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>repid.
@@ -359,7 +363,7 @@ gr_functions<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1469</span>
+                   <span>1493</span>
             </p>
             
             <p class="copyright-item">

@@ -11,7 +11,7 @@
   
   
   <link rel="prev" href="https://coldinfire.github.io/2019/ABAP_SALV_IConsTooltips/" />
-  <link rel="next" href="https://coldinfire.github.io/2019/ABAP_SALV_Status/" />
+  <link rel="next" href="https://coldinfire.github.io/2019/ABAP_SALV_Selection/" />
   <link rel="canonical" href="https://coldinfire.github.io/2019/ABAP_SALV_Event/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -196,14 +196,14 @@
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">generate_output</span>.
     <span style="color:#75715e">&#34;Get the event object&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_events <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_events_table.
-    lo_events <span style="color:#f92672">=</span> go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_event</span>( ).
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_events <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_events_table.
+    lr_events <span style="color:#f92672">=</span> gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_event</span>( ).
     <span style="color:#75715e">&#34;Instantiate the event handler object&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_event_handler <span style="color:#66d9ef">TYPE REF TO</span> lcl_event_handler.
-    <span style="color:#66d9ef">CREATE OBJECT</span> lo_event_handler.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_event_handler <span style="color:#66d9ef">TYPE REF TO</span> lcl_event_handler.
+    <span style="color:#66d9ef">CREATE OBJECT</span> lr_event_handler.
     <span style="color:#75715e">&#34;Event handler register&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">SET HANDLER</span> lo_event_handler<span style="color:#f92672">-&gt;</span>on_link_click <span style="color:#66d9ef">FOR</span> lo_events.
-    <span style="color:#66d9ef">SET HANDLER</span> lo_event_handler<span style="color:#f92672">-&gt;</span>on_double_click <span style="color:#66d9ef">FOR</span> lo_events.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">SET HANDLER</span> lr_event_handler<span style="color:#f92672">-&gt;</span>on_link_click <span style="color:#66d9ef">FOR</span> lr_events.
+    <span style="color:#66d9ef">SET HANDLER</span> lr_event_handler<span style="color:#f92672">-&gt;</span>on_double_click <span style="color:#66d9ef">FOR</span> lr_events.
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;generate_output&#34;
 </span><span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
     
@@ -231,20 +231,20 @@
 <span style="color:#75715e">*$*$*.....CODE_ADD_2 - Begin..................................2..*$*$*</span>
  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">generate_output</span>.
     <span style="color:#75715e">&#34;Get the event object&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_events <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_events_table.
-    lo_events <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_event</span>( ).
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_events <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_events_table.
+    lr_events <span style="color:#f92672">=</span> co_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_event</span>( ).
     <span style="color:#75715e">&#34;Instantiate the event handler object&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lo_event_handler <span style="color:#66d9ef">TYPE REF TO</span> lcl_event_handler.
-    <span style="color:#66d9ef">CREATE OBJECT</span> lo_event_handler.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">DATA</span>: lr_event_handler <span style="color:#66d9ef">TYPE REF TO</span> lcl_event_handler.
+    <span style="color:#66d9ef">CREATE OBJECT</span> lr_event_handler.
     <span style="color:#75715e">&#34;Event handler register&#34;
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">SET HANDLER</span> lo_event_handler<span style="color:#f92672">-&gt;</span>on_user_command <span style="color:#66d9ef">FOR</span> lo_events.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">SET HANDLER</span> lr_event_handler<span style="color:#f92672">-&gt;</span>on_user_command <span style="color:#66d9ef">FOR</span> lr_events.
   <span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;generate_output&#34;
 </span><span style="color:#75715e">*$*$*.....CODE_ADD_2 - End....................................2..*$*$*</span>
 
 <span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">handle_user_command</span> <span style="color:#66d9ef">USING</span> p_function <span style="color:#66d9ef">TYPE </span>salv_de_function.
   <span style="color:#66d9ef">CASE</span> p_function.
     <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;REFRESH&#39;</span>.
-      go_alv<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">refresh</span>( ).
+      gr_table<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">refresh</span>( ).
   <span style="color:#66d9ef">ENDCASE</span>.
 <span style="color:#66d9ef">ENDFORM</span>.
 </code></pre></div>
@@ -292,7 +292,7 @@
         <a href="https://coldinfire.github.io/2019/ABAP_SALV_IConsTooltips/" class="prev" rel="prev" title=" SALV 图标设置 "><i class="iconfont icon-dajiantou"></i>&nbsp; SALV 图标设置 </a>
          
         
-        <a href="https://coldinfire.github.io/2019/ABAP_SALV_Status/" class="next" rel="next" title=" SALV Status 设置 "> SALV Status 设置 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2019/ABAP_SALV_Selection/" class="next" rel="next" title=" SALV Selections 设置 "> SALV Selections 设置 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 

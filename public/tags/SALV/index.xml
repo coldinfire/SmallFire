@@ -80,6 +80,15 @@
     </item>
     
     <item>
+      <title> SALV Functions 设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Functions/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Functions/</guid>
+      <description>Functions 设置 CL_SALV_TABLE 中提供了方法 get_functions，set_default；通过这两个方法可以创建 Status。 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS:set_functions CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2</description>
+    </item>
+    
+    <item>
       <title> SALV Layout 设置 </title>
       <link>https://coldinfire.github.io/2019/ABAP_SALV_Layout/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
@@ -89,12 +98,12 @@
     </item>
     
     <item>
-      <title> SALV Status 设置 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALV_Status/</link>
+      <title> SALV Selections 设置 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Selection/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Status/</guid>
-      <description>Status 设置 CL_SALV_TABLE 中提供了方法 get_functions，set_default；通过这两个方法可以创建 Status。 *$*$*.....CODE_ADD_1 - Begin..................................1..*$*$* PRIVATE SECTION. METHODS:set_pf_status CHANGING co_alv TYPE REF TO cl_salv_table. *$*$*.....CODE_ADD_1 - End....................................1..*$*$* *$*$*.....CODE_ADD_2</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Selection/</guid>
+      <description>选择数据 CL_SALV_SELECTIONS 可以处理 ALV 中的选择数据方式和获取选择的具体内容。 GET_SELECTED_ROWS：获取 ALV 中选中的行 SALV_T_ROW GET_SELECTED_C</description>
     </item>
     
     <item>
