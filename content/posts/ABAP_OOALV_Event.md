@@ -28,6 +28,8 @@ tags:
 
 (6) DATA_CHANGED_FINISHED：当数据修改完成后触发，数据没有被修改，当失去焦点或回车时触发。
 
+(7) HANDLE_F4_HELP：F4 搜索帮助
+
 #### 事件类定义
 
 ```ABAP
@@ -53,6 +55,10 @@ CLASS lcl_event_receiver DEFINITION.
     METHODS handle_data_changed 
       FOR EVENT data_changed OF cl_gui_alv_grid
       IMPORTING er_data_changed e_onf4_before e_onf4_after e_ucomm.
+    "F4 Help"
+    METHODS handle_f4_help
+      FOR EVENT onf4 OF cl_gui_alv_grid
+      IMPORTING e_fieldname es_row_no er_event_data et_bad_cells e_display.
 ENDCLASS.                    "cl_event_receiver DEFINITION"
 ```
 
@@ -94,6 +100,18 @@ CLASS lcl_event_receiver IMPLEMENTATION.
        MESSAGE i001(00) WITH 'Toolbar 事件 + USER-COMMAND 事件 '.
     ENDCASE.
   ENDMETHOD.                    "HANDLE_COMMAND"
+  "F4 Help"
+  METHOD handle_f4_help.
+    FIELD-SYMBOLS: <fs_alv> TYPE alv.
+    CASE e_fieldname.
+    WHEN 'XXXX'.
+      READ TABLE alv assiging <fs_alv> INDEX es_row_no-row_id.
+      IF sy-subrc = 0.
+        PERFORM frm_get_f4_value CHANGING <fs_alv>-xxxx.
+      ENDIF.
+    ENDCASE.
+    CALL METHOD go_grid->refresh_table_display.
+  ENDMETHOD.
 ENDCLASS.                    "cl_event_receiver IMPLEMENTATION"
 ```
 
@@ -111,6 +129,7 @@ SET HANDLER event_receiver->handle_double_click   FOR go_grid.
 SET HANDLER event_receiver->handle_toolbar        FOR go_grid.
 SET HANDLER event_receiver->handle_command        FOR go_grid.
 SET HANDLER event_receiver->handle_data_changed   FOR go_grid.
+SET HANDLER event_receiver->handle_f4_help        FOR go_grid.
 ```
 
 ### 控制数据变化
@@ -197,5 +216,60 @@ METHOD handle_data_changed.
     ENDIF.
   ENDLOOP.
 ENDMETHOD.
+```
+
+### F4 Help
+
+#### 定义 fieldcat  属性
+
+```ABAP
+fieldcat-f4availabl = 'X'.
+fieldcat-edit = 'X'.
+```
+
+#### F4 事件注册到 ALV
+
+```ABAP
+DATA: lt_f4 TYPE lvc_t_f4,
+      ls_f4 TYPE lvc_s_f4.
+CALL METHOD go_grid->set_table_for_first_display.
+CLEAR: ls_f4.
+ls_f4-fieldname = 'XXXX'.
+ls_f4-register  = 'X'.
+ls_f4-getbefore = 'X'.
+ls_f4-chngeafter = ''.
+ls_f4-internal = ''.
+INSERT ls_f4 INTO TABLE lt_f4.
+
+CALL METHOD go_grid->register_f4_for_fields
+  EXPORTING
+    it_f4 = lt_f4.
+```
+
+#### 自定义 F4，获取数据
+
+```ABAP
+FORM frm_get_f4_value USING i_matnr TYPE xxx
+                      CHANGING e_value TYPE xxx.
+  DATA: value_tab TYPE TABLE OF xxxx WITH HEADER LINE.
+  DATA: lt_ret_tab TYPE TABLE OF ddshretval WITH HEADER LINE.
+  CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
+    EXPORTING
+      retfield        = 'SUB_NAME_M'
+      value_org       = 'S'
+    TABLES
+      value_tab       = value_tab
+      return_tab      = lt_ret_tab
+    EXCEPTIONS
+      parameter_error = 1
+      no_values_fount = 2
+      others          = 3.
+  IF sy-subrc = 0.
+    READ TABLE lt_ret_tab INDEX 1.
+    IF sy-subrc = 0 AND lt_ret_tab-fieldval IS NOT INITIAL.
+      e_value = lt_ret_tab-fieldval.
+    ENDIF.
+  ENDIF.
+ENDFORM.
 ```
 
