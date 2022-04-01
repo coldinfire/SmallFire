@@ -328,7 +328,7 @@
       <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_1/</guid>
-      <description>Inline Declarations - 内联声明 @DATA(...) 语句非常的强大，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。注意在使用 FOR ALL ENTRIES 语句</description>
+      <description>Inline Declarations - 内联声明 DATA(...) 内联声明方便了我们的使用，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。在内表中它</description>
     </item>
     
     <item>

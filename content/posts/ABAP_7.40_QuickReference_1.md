@@ -14,9 +14,9 @@ tags:
 
 ## Inline Declarations - 内联声明
 
-` @DATA(...)` 语句非常的强大，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。注意在使用 FOR ALL ENTRIES 语句的时候，管理的内表前面要加上 @ 。
+` DATA(...)` 内联声明方便了我们的使用，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。在内表中它会自动根据读取的内表类型定义相应的工作区类型。但是使用这种方法注意作用域问题，它与普通定义的变量范围一致。
 
-内联声明方便了我们的使用，在内表中它会自动根据读取的内表类型定义相应的工作区类型。但是使用这种方法注意作用域问题。
+- 注意在使用 FOR ALL ENTRIES 语句的时候，管理的内表前面要加上 @ `@inner_table` 。
 
 - 指针声明符：`FIELD-SYMBOL(...)`
 
@@ -27,7 +27,7 @@ tags:
 DATA text TYPE string.
 text = 'ABC'.
 *With 7.40
-DATA(text) = 'ABC'.
+DATA(text) = 'ABC'. / DATA(lv_int) = 10.
 ```
 
 ### Select into table
@@ -38,11 +38,12 @@ DATA itab TYPE TABLE OF mara.
 DATA lv_matnr TYPE matnr.
 SELECT * FROM mara INTO TABLE itab WHERE matnr = lv_matnr.
 *With 7.40
+SELECT * FROM mara INTO TABLE @DATA(gt_data)
 SELECT mara~matnr,marc~werks
   FROM mara INNER JOIN marc ON mara~matnr = marc~matnr
   FOR ALL ENTRIES IN @itab
   WHERE mara~matnr = @itab-matnr
-  INTO TABLE @DATA(lt_data).
+  INTO TABLE @DATA(gt_data).
 ```
 
 ### Select single 
@@ -51,8 +52,9 @@ SELECT mara~matnr,marc~werks
 *Before 7.40
 SELECT SINGLE f1 f2 FROM scarr INTO (lv_f1, lv_f2) WHERE carrid = p_id.
 *With 7.40
-SELECT SINGLE f1 AS lv_f1, F2 AS lv_f2 
-  FROM dbtab INTO @DATA(wa) WHERE carrid = @p_id.
+SELECT SINGLE f1 AS lv_f1, f2 AS lv_f2 
+  FROM scarr INTO @DATA(wa) 
+ WHERE carrid = @p_id.
 WRITE: / wa-lv_f1, wa-lv_f2.
 ```
 
@@ -77,6 +79,14 @@ oref->method( IMPORTING p1 = a1
 *With 7.40
 oref->method( IMPORTING p1 = DATA(a1)
               IMPORTING p2 = DATA(a2) ). 
+```
+
+### String Operation
+
+```ABAP
+CONCATENATE 'TEXT' '-' 'XXX' INTO DATA(str1).
+SPLIT str1 AT '-' INTO DATA(part1) DATA(part2).
+SPLIT str1 AT '-' INTO TABLE DATA(lt_parts).
 ```
 
 ### Loop at assigning
@@ -225,6 +235,30 @@ rang_itab = VALUE #(
                             ( low = 41 high = 50 )
               option = 'GE' ( low = 61 )  ).
 cl_demo_output=>display( rang_itab ).
+```
+
+### REF  定义引用变量
+
+使用 REF 定义引用变量，用来代替 CREATE DATA。在使用 REF 时，不需要提前声明变量，也不用指定类型，类型默认会与被指向的变量保持一致。
+
+```ABAP
+TYPES: BEGIN OF str_mara,
+    matnr TYPE mara-matnr,
+    matar TYPE mara-matar,
+    text1 TYPE char50,
+  END OF str_mara.
+DATA(ls_mara) = VALUE str_mara(
+	matnr = 'material-001'
+	matar = 'TYPE'
+	text1 = 'test1' ).
+CALL METHOD CL_DEMO_OUTPUT=>DISPLAY( ls_mara ).
+
+DATA(lv_ref) = REF #( ls_mara ).
+lv_ref->* = VALUE #(
+      matnr = 'material-002'
+      mtart = 'WATR' ).
+lv_ref->text1 = 'test2'.
+CALL METHOD CL_DEMO_OUTPUT=>DISPLAY( ls_mara ).
 ```
 
 ### For operator

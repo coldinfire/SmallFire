@@ -253,7 +253,7 @@ DATA(lv_name1) = my_class=>get_lfa1( )-name1.
 
 #### Methods that return a type BOOLEAN
 
-类型 BOOLEAN 不是真正的布尔值，而是具有允许值 X、- 、blank 的 char1。使用 FLAG 或 WDY_BOOLEAN 类型也可以。
+类型 BOOLEAN 不是真正的布尔值，而是具有允许值` X、- 、blank `的 char1。使用 FLAG 或 WDY_BOOLEAN 类型也可以。
 
 ```ABAP
 *Before 7.40
@@ -268,17 +268,17 @@ ENDIF.
 
 #### New Operator
 
-NEW 可以创建匿名的数据对象或者类的实例。
+NEW 可以创建匿名的数据对象或者类的实例，用来代替 CREATE OBJECT。如果等号左侧的对象没有确定类型，则必须在 NEW 关键字后指定类型；如果是已经预定义的对象，则可以用 `#` 代替。
 
-#### Definition
+*Definition*
 
-`... NEW dtype( value ) ...`：创建一个类型为 dtype 的匿名数据对象，然后传值给创建的对象。
+- `... NEW dtype( value ) ...`：创建一个类型为 dtype 的匿名数据对象，然后传值给创建的对象。
 
-`... NEW class( p1 = a1 p2 = a2 ... ) ...`：创建一个名为 class 类的实例，并且传参到实例的构造函数。
+- `... NEW class( p1 = a1 p2 = a2 ... ) ...`：创建一个名为 class 类的实例，并且传参到实例的构造函数。
 
-`... NEW #( ... ) ...`：根据操作数类型创建一个匿名数据对象或者一个类的实例。
+- `... NEW #( ... ) ...`：根据操作数类型创建一个匿名数据对象或者一个类的实例。
 
-#### Example
+*Example*
 
 ```ABAP
 *Before 7.40
@@ -290,5 +290,8 @@ DATA: lv_vbeln TYPE vbeln VALUE '00123488'.
 lo_deliv = lo_delivs->get_deliv( lv_vbeln ).
 *With 7.40
 DATA(lo_deliv) = new zcl_sd_delivs->get_deliv( lv_vbeln ).
+"# use"
+DATA: GO_GRID TYPE REF TO CL_GUI_ALV_GRID.
+GO_GRID = NEW #( I_PARENT = GO_CON ).
 ```
 

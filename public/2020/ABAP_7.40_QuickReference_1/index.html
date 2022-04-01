@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" ABAP 7.40 Quick Reference Part1 "/>
-<meta name="twitter:description" content="Inline Declarations - 内联声明 @DATA(...) 语句非常的强大，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。注意在使用 FOR ALL ENTRIES 语句"/>
+<meta name="twitter:description" content="Inline Declarations - 内联声明 DATA(...) 内联声明方便了我们的使用，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。在内表中它"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abapbasis",
-  "wordcount":  2861 ,
+  "wordcount":  3029 ,
   "url": "https:\/\/coldinfire.github.io\/2020\/ABAP_7.40_QuickReference_1\/",
   "datePublished": "2020-07-14T00:00:00\u002b00:00",
   "dateModified": "2020-07-14T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                6 min
+                7 min
         </div>
     </header>
     <div class="post-content">
@@ -172,34 +172,40 @@
           
 
           <h2 id="inline-declarations---内联声明">Inline Declarations - 内联声明</h2>
-<p><code> @DATA(...)</code> 语句非常的强大，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。注意在使用 FOR ALL ENTRIES 语句的时候，管理的内表前面要加上 @ 。</p>
-<p>内联声明方便了我们的使用，在内表中它会自动根据读取的内表类型定义相应的工作区类型。但是使用这种方法注意作用域问题。</p>
+<p><code> DATA(...)</code> 内联声明方便了我们的使用，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。在内表中它会自动根据读取的内表类型定义相应的工作区类型。但是使用这种方法注意作用域问题，它与普通定义的变量范围一致。</p>
 <ul>
-<li>指针声明符：<code>FIELD-SYMBOL(...)</code></li>
+<li>
+<p>注意在使用 FOR ALL ENTRIES 语句的时候，管理的内表前面要加上 @ <code>@inner_table</code> 。</p>
+</li>
+<li>
+<p>指针声明符：<code>FIELD-SYMBOL(...)</code></p>
+</li>
 </ul>
 <h3 id="data-statement">Data statement</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*Before 7.40</span>
 <span style="color:#66d9ef">DATA</span> text <span style="color:#66d9ef">TYPE </span>string.
 text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ABC&#39;</span>.
 <span style="color:#75715e">*With 7.40</span>
-<span style="color:#66d9ef">DATA</span>(text) <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ABC&#39;</span>.
+<span style="color:#66d9ef">DATA</span>(text) <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ABC&#39;</span>. / <span style="color:#66d9ef">DATA</span>(lv_int) <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>.
 </code></pre></div><h3 id="select-into-table">Select into table</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*Before 7.40</span>
 <span style="color:#66d9ef">DATA</span> itab <span style="color:#66d9ef">TYPE TABLE OF</span> mara.
 <span style="color:#66d9ef">DATA</span> lv_matnr <span style="color:#66d9ef">TYPE </span>matnr.
 <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> mara <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> itab <span style="color:#66d9ef">WHERE</span> matnr <span style="color:#f92672">=</span> lv_matnr.
 <span style="color:#75715e">*With 7.40</span>
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> mara <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#960050;background-color:#1e0010">@</span>DATA(gt_data)
 <span style="color:#66d9ef">SELECT</span> mara~matnr,marc~werks
   <span style="color:#66d9ef">FROM</span> mara INNER <span style="color:#66d9ef">JOIN</span> marc <span style="color:#66d9ef">ON</span> mara~matnr <span style="color:#f92672">=</span> marc~matnr
   <span style="color:#66d9ef">FOR</span> ALL ENTRIES <span style="color:#66d9ef">IN</span> <span style="color:#960050;background-color:#1e0010">@</span>itab
   <span style="color:#66d9ef">WHERE</span> mara~matnr <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">@</span>itab<span style="color:#f92672">-</span>matnr
-  <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#960050;background-color:#1e0010">@</span>DATA(lt_data).
+  <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#960050;background-color:#1e0010">@</span>DATA(gt_data).
 </code></pre></div><h3 id="select-single">Select single</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*Before 7.40</span>
 <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SINGLE</span> f1 f2 <span style="color:#66d9ef">FROM</span> scarr <span style="color:#66d9ef">INTO</span> (lv_f1, lv_f2) <span style="color:#66d9ef">WHERE</span> carrid <span style="color:#f92672">=</span> p_id.
 <span style="color:#75715e">*With 7.40</span>
-<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SINGLE</span> f1 <span style="color:#66d9ef">AS</span> lv_f1, F2 <span style="color:#66d9ef">AS</span> lv_f2 
-  <span style="color:#66d9ef">FROM</span> dbtab <span style="color:#66d9ef">INTO</span> <span style="color:#960050;background-color:#1e0010">@</span>DATA(wa) <span style="color:#66d9ef">WHERE</span> carrid <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">@</span>p_id.
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SINGLE</span> f1 <span style="color:#66d9ef">AS</span> lv_f1, f2 <span style="color:#66d9ef">AS</span> lv_f2 
+  <span style="color:#66d9ef">FROM</span> scarr <span style="color:#66d9ef">INTO</span> <span style="color:#960050;background-color:#1e0010">@</span>DATA(wa) 
+ <span style="color:#66d9ef">WHERE</span> carrid <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">@</span>p_id.
 <span style="color:#66d9ef">WRITE</span>: / wa<span style="color:#f92672">-</span>lv_f1, wa<span style="color:#f92672">-</span>lv_f2.
 </code></pre></div><h3 id="loop-at-into-work-area">Loop at into work area</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*Before 7.40</span>
@@ -216,6 +222,10 @@ oref<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">method</
 <span style="color:#75715e">*With 7.40</span>
 oref<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">method</span>( <span style="color:#66d9ef">IMPORTING</span> p1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">DATA</span>(a1)
               <span style="color:#66d9ef">IMPORTING</span> p2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">DATA</span>(a2) ). 
+</code></pre></div><h3 id="string-operation">String Operation</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">CONCATENATE</span> <span style="color:#e6db74">&#39;TEXT&#39;</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#e6db74">&#39;XXX&#39;</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">DATA</span>(str1).
+<span style="color:#66d9ef">SPLIT</span> str1 <span style="color:#66d9ef">AT</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">DATA</span>(part1) <span style="color:#66d9ef">DATA</span>(part2).
+<span style="color:#66d9ef">SPLIT</span> str1 <span style="color:#66d9ef">AT</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">DATA</span>(lt_parts).
 </code></pre></div><h3 id="loop-at-assigning">Loop at assigning</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*Before 7.40</span>
 <span style="color:#66d9ef">FIELD-SYMBOLS</span>: &lt;line&gt; <span style="color:#66d9ef">type </span>any.
@@ -320,6 +330,25 @@ rang_itab <span style="color:#f92672">=</span> <span style="color:#66d9ef">VALUE
                             ( low <span style="color:#f92672">=</span> <span style="color:#ae81ff">41</span> high <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span> )
               option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;GE&#39;</span> ( low <span style="color:#f92672">=</span> <span style="color:#ae81ff">61</span> )  ).
 cl_demo_output<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">display</span>( rang_itab ).
+</code></pre></div><h3 id="ref--定义引用变量">REF  定义引用变量</h3>
+<p>使用 REF 定义引用变量，用来代替 CREATE DATA。在使用 REF 时，不需要提前声明变量，也不用指定类型，类型默认会与被指向的变量保持一致。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> str_mara,
+    matnr <span style="color:#66d9ef">TYPE </span>mara<span style="color:#f92672">-</span>matnr,
+    matar <span style="color:#66d9ef">TYPE </span>mara<span style="color:#f92672">-</span>matar,
+    text1 <span style="color:#66d9ef">TYPE </span>char50,
+  <span style="color:#66d9ef">END OF</span> str_mara.
+<span style="color:#66d9ef">DATA</span>(ls_mara) <span style="color:#f92672">=</span> <span style="color:#66d9ef">VALUE</span> str_mara(
+	matnr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;material-001&#39;</span>
+	matar <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;TYPE&#39;</span>
+	text1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;test1&#39;</span> ).
+<span style="color:#66d9ef">CALL METHOD</span> CL_DEMO_OUTPUT<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">DISPLAY</span>( ls_mara ).
+
+<span style="color:#66d9ef">DATA</span>(lv_ref) <span style="color:#f92672">=</span> REF <span style="color:#960050;background-color:#1e0010">#</span>( ls_mara ).
+lv_ref-&gt;* <span style="color:#f92672">=</span> <span style="color:#66d9ef">VALUE</span> <span style="color:#960050;background-color:#1e0010">#</span>(
+      matnr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;material-002&#39;</span>
+      mtart <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;WATR&#39;</span> ).
+lv_ref<span style="color:#f92672">-&gt;</span>text1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;test2&#39;</span>.
+<span style="color:#66d9ef">CALL METHOD</span> CL_DEMO_OUTPUT<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">DISPLAY</span>( ls_mara ).
 </code></pre></div><h3 id="for-operator">For operator</h3>
 <p>在内表赋值语句中，可以使用 FOR 语句从其他内表中批量引入数据并处理；可以认为是加强版的 LOOP AT 语句，与 REDUCE、VALUE 关键字配合使用。</p>
 <ul>
@@ -529,7 +558,7 @@ ty_filter_tab <span style="color:#66d9ef">TYPE HASHED TABLE OF</span> ty_filter 
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2861</span>
+                   <span>3029</span>
             </p>
             
             <p class="copyright-item">

@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abapbasis",
-  "wordcount":  1539 ,
+  "wordcount":  1617 ,
   "url": "https:\/\/coldinfire.github.io\/2020\/ABAP_7.40_QuickReference_2\/",
   "datePublished": "2020-07-17T00:00:00\u002b00:00",
   "dateModified": "2020-07-17T00:00:00\u002b00:00",
@@ -342,7 +342,7 @@ lv_name1 <span style="color:#f92672">=</span> ls_lfa1<span style="color:#f92672"
 <span style="color:#75715e">*With 7.40</span>
 <span style="color:#66d9ef">DATA</span>(lv_name1) <span style="color:#f92672">=</span> my_class<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">get_lfa1</span>( )<span style="color:#f92672">-</span>name1.
 </code></pre></div><h4 id="methods-that-return-a-type-boolean">Methods that return a type BOOLEAN</h4>
-<p>类型 BOOLEAN 不是真正的布尔值，而是具有允许值 X、- 、blank 的 char1。使用 FLAG 或 WDY_BOOLEAN 类型也可以。</p>
+<p>类型 BOOLEAN 不是真正的布尔值，而是具有允许值<code>X、- 、blank</code>的 char1。使用 FLAG 或 WDY_BOOLEAN 类型也可以。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*Before 7.40</span>
 <span style="color:#66d9ef">IF</span> my_class<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">return_boolean</span>( ) <span style="color:#f92672">=</span> abap_true.
   ...
@@ -352,12 +352,20 @@ lv_name1 <span style="color:#f92672">=</span> ls_lfa1<span style="color:#f92672"
   ...
 <span style="color:#66d9ef">ENDIF</span>.
 </code></pre></div><h4 id="new-operator">New Operator</h4>
-<p>NEW 可以创建匿名的数据对象或者类的实例。</p>
-<h4 id="definition-3">Definition</h4>
+<p>NEW 可以创建匿名的数据对象或者类的实例，用来代替 CREATE OBJECT。如果等号左侧的对象没有确定类型，则必须在 NEW 关键字后指定类型；如果是已经预定义的对象，则可以用 <code>#</code> 代替。</p>
+<p><em>Definition</em></p>
+<ul>
+<li>
 <p><code>... NEW dtype( value ) ...</code>：创建一个类型为 dtype 的匿名数据对象，然后传值给创建的对象。</p>
+</li>
+<li>
 <p><code>... NEW class( p1 = a1 p2 = a2 ... ) ...</code>：创建一个名为 class 类的实例，并且传参到实例的构造函数。</p>
+</li>
+<li>
 <p><code>... NEW #( ... ) ...</code>：根据操作数类型创建一个匿名数据对象或者一个类的实例。</p>
-<h4 id="example-2">Example</h4>
+</li>
+</ul>
+<p><em>Example</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*Before 7.40</span>
 <span style="color:#66d9ef">DATA</span>: lo_delivs <span style="color:#66d9ef">TYPE REF TO</span> zcl_sd_delivs,
       lo_deliv  <span style="color:#66d9ef">TYPE REF TO</span> zcl_sd_deliv.
@@ -367,6 +375,9 @@ lv_name1 <span style="color:#f92672">=</span> ls_lfa1<span style="color:#f92672"
 lo_deliv <span style="color:#f92672">=</span> lo_delivs<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_deliv</span>( lv_vbeln ).
 <span style="color:#75715e">*With 7.40</span>
 <span style="color:#66d9ef">DATA</span>(lo_deliv) <span style="color:#f92672">=</span> new zcl_sd_delivs<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_deliv</span>( lv_vbeln ).
+<span style="color:#75715e">&#34;# use&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>: GO_GRID <span style="color:#66d9ef">TYPE REF TO</span> CL_GUI_ALV_GRID.
+GO_GRID <span style="color:#f92672">=</span> NEW <span style="color:#960050;background-color:#1e0010">#</span>( I_PARENT <span style="color:#f92672">=</span> GO_CON ).
 </code></pre></div>
     </div>
 
@@ -380,7 +391,7 @@ lo_deliv <span style="color:#f92672">=</span> lo_delivs<span style="color:#f9267
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1539</span>
+                   <span>1617</span>
             </p>
             
             <p class="copyright-item">
