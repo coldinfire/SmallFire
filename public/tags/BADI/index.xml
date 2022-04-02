@@ -13,7 +13,7 @@
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_BADI_PurchaseOrder/</guid>
-      <description>创建采购订单(Purchase Order)时可以通过增强做一些控制。 BADI:ME_PROCESS_PO_CUST PROCESS_HEADER：对PO抬头数据进行检查 PROCESS_I</description>
+      <description>采购订单(Purchase Order) TCode：ME21N，ME22N，ME23N，ME29N Customer Exit MM06E005 ：EXIT_SAPMM06E_016 Customer fields in purchasing document BADI:ME_PROCESS_PO_CUST</description>
     </item>
     
     <item>

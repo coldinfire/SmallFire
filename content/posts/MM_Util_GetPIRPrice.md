@@ -39,4 +39,6 @@ tags:
   - **WERKS**：Plant
   - **LIFNR**：Vendor Account Number
   - **FLIFN**：Indicator: Fixed vendor
+- `LFA1`：Vendor Info
+  - **LIFNR：Vendor Account Numbe**r
 

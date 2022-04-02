@@ -30,9 +30,23 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/SAPHANA_SQLScript/</loc>
+      <loc>https://coldinfire.github.io/2021/FI_FM_ChangeDocument_FB02/</loc>
       
-      <lastmod>2021-11-18T00:00:00+00:00</lastmod>
+      <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
+      
+      <lastmod>2021-12-02T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -45,6 +59,76 @@
   
     <url>
       <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/FICO/</loc>
+      
+      <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2021/SAPHANA_SQLScript/</loc>
       
       <lastmod>2021-11-18T00:00:00+00:00</lastmod>
       
@@ -72,49 +156,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2021-11-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/categories/SAP-Fiori/</loc>
-      
-      <lastmod>2021-11-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2021-11-18T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
       
       <lastmod>2021-11-18T00:00:00+00:00</lastmod>
       
@@ -520,7 +562,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/ABAP_Enhance_BOM/</loc>
+      <loc>https://coldinfire.github.io/2021/MM_Enhance_BOM/</loc>
       
       <lastmod>2021-05-15T00:00:00+00:00</lastmod>
       
@@ -604,21 +646,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</loc>
-      
-      <lastmod>2021-04-09T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
+      <loc>https://coldinfire.github.io/2021/PP_Enhance_COOIS_AddFiled/</loc>
       
       <lastmod>2021-04-09T00:00:00+00:00</lastmod>
       
@@ -940,7 +968,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/PP_CO11N_Exit/</loc>
+      <loc>https://coldinfire.github.io/2020/PP_Enhance_CO11N/</loc>
       
       <lastmod>2020-08-21T00:00:00+00:00</lastmod>
       
@@ -968,7 +996,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/MM_MIGO_Exits/</loc>
+      <loc>https://coldinfire.github.io/2020/MM_Enhance_MIGO_Exits/</loc>
       
       <lastmod>2020-08-13T00:00:00+00:00</lastmod>
       
@@ -997,20 +1025,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2020/FI_DocumentPost/</loc>
-      
-      <lastmod>2020-08-02T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/FICO/</loc>
       
       <lastmod>2020-08-02T00:00:00+00:00</lastmod>
       
@@ -1332,7 +1346,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2020/MM_ME2N_ME2M/</loc>
+      <loc>https://coldinfire.github.io/2020/MM_Enhance_ME2N_ME2M/</loc>
       
       <lastmod>2020-04-28T00:00:00+00:00</lastmod>
       
@@ -1514,7 +1528,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_BAPI_MIRO_INCOMINGINVOICE_CREATE/</loc>
       
       <lastmod>2019-12-26T00:00:00+00:00</lastmod>
       
@@ -1584,7 +1598,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/FI_MIRO_Matnr/</loc>
+      <loc>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</loc>
       
       <lastmod>2019-11-26T00:00:00+00:00</lastmod>
       
@@ -1612,7 +1626,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MM_BOM_Enhance/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Enhance_BOM_CS12/</loc>
       
       <lastmod>2019-11-19T00:00:00+00:00</lastmod>
       
@@ -2592,7 +2606,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MM_MasterData_enhance1/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Enhance_MasterData1/</loc>
       
       <lastmod>2019-05-16T00:00:00+00:00</lastmod>
       
@@ -2998,7 +3012,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MM_MasterData_enhance2/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Enhance_MasterData2/</loc>
       
       <lastmod>2019-03-15T00:00:00+00:00</lastmod>
       
@@ -3600,7 +3614,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/PP_ProOrder_Enhance/</loc>
+      <loc>https://coldinfire.github.io/2018/PP_Enhance_ProductOrder/</loc>
       
       <lastmod>2018-11-18T00:00:00+00:00</lastmod>
       

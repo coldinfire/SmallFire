@@ -72,10 +72,10 @@
     
     <item>
       <title> Product Order 的增强 </title>
-      <link>https://coldinfire.github.io/2018/PP_ProOrder_Enhance/</link>
+      <link>https://coldinfire.github.io/2018/PP_Enhance_ProductOrder/</link>
       <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/PP_ProOrder_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2018/PP_Enhance_ProductOrder/</guid>
       <description>生产订单的增强 如果SAP系统的标准功能不能满足业务需求，用户出口或 BADI 可能会有所帮助。 Customer Exit SMOD:SAP增强管理 CMOD:SAP增强编辑器维</description>
     </item>
     

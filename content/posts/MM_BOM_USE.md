@@ -17,27 +17,37 @@ tags:
 
 ### 相关表
 
-   MAST：Material BOM 
+- MAST：Material BOM 
 
-   STKO : BOM Header 
 
-   STPO : BOM Positions (detail)     
+-   STKO : BOM Header 
 
-   MAPL : Assignment fo Task Lists to Materials 
 
-   PLKO : Routing Group Header 
+- STPO : BOM Positions (detail)     
 
-   PLSO : Routing Group Sequence 
 
-   PLPO : Routing Group Operations 
+- MAPL : Assignment fo Task Lists to Materials 
 
-   AFKO : Production Order Header 
 
-   AFPO : Production Order Position (details) 
+- PLKO : Routing Group Header 
 
-可用函数：CSAP_MAT_BOM_READ
+
+- PLSO : Routing Group Sequence 
+
+
+- PLPO : Routing Group Operations 
+
+
+- AFKO : Production Order Header 
+
+
+- AFPO : Production Order Position (details) 
+
+
+可用函数：`CSAP_MAT_BOM_READ`
 
 ### 读取逻辑 ###
+
 ```ABAP
 1.查找Material,Plant,Material Desc [Table:MARA,MARC,MAKT]
   MARA-MATNR    
@@ -50,7 +60,7 @@ tags:
    AND Plant (MAST–WERKS) = As in input 
    AND BOM usage (MAST-STLAN) = 2 (Engineering usage).
   ● Read BOM Header and Item
-      Read BOM Header from table  [STKO]。
+      Read BOM Header from table  [STKO].
           BOM Number (STKO-STLNR) = BOM number got in previous step and
           BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
       Read BOM Item details from  [STOP].

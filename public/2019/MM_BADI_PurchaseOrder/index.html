@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" Purchase Order 增强 "/>
-<meta name="twitter:description" content="创建采购订单(Purchase Order)时可以通过增强做一些控制。 BADI:ME_PROCESS_PO_CUST PROCESS_HEADER：对PO抬头数据进行检查 PROCESS_I"/>
+<meta name="twitter:description" content="采购订单(Purchase Order) TCode：ME21N，ME22N，ME23N，ME29N Customer Exit MM06E005 ：EXIT_SAPMM06E_016 Customer fields in purchasing document BADI:ME_PROCESS_PO_CUST"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "MM, BADI",
-  "wordcount":  2819 ,
+  "wordcount":  2852 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/MM_BADI_PurchaseOrder\/",
   "datePublished": "2019-09-11T00:00:00\u002b00:00",
   "dateModified": "2019-09-11T00:00:00\u002b00:00",
@@ -171,18 +171,20 @@
           
           
 
-          <p>创建采购订单(Purchase Order)时可以通过增强做一些控制。</p>
+          <p>采购订单(Purchase Order)</p>
+<ul>
+<li>TCode：ME21N，ME22N，ME23N，ME29N</li>
+</ul>
+<h3 id="customer-exit">Customer Exit</h3>
+<h4 id="mm06e005-exit_sapmm06e_016">MM06E005 ：EXIT_SAPMM06E_016</h4>
+<ul>
+<li>Customer fields in purchasing document</li>
+</ul>
 <h3 id="badime_process_po_cust">BADI:ME_PROCESS_PO_CUST</h3>
 <ul>
-<li>
-<p>PROCESS_HEADER：对PO抬头数据进行检查</p>
-</li>
-<li>
-<p>PROCESS_ITEM：对PO行项目做一些输入数据检查(限价检查)</p>
-</li>
-<li>
-<p>POST：点击保存时进行数据更新(底价更新)</p>
-</li>
+<li>PROCESS_HEADER：对 PO 抬头数据进行检查</li>
+<li>PROCESS_ITEM：对 PO 行项目做一些输入数据检查(限价检查)</li>
+<li>POST：点击保存时进行数据更新(底价更新)</li>
 </ul>
 <h4 id="method-if_ex_me_process_po_custprocess_item">METHOD： IF_EX_ME_PROCESS_PO_CUST~PROCESS_ITEM.</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">IF_EX_ME_PROCESS_PO_CUST~PROCESS_ITEM</span>.
@@ -730,7 +732,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2819</span>
+                   <span>2852</span>
             </p>
             
             <p class="copyright-item">

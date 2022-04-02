@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> FB02 修改行文本函数 </title>
+      <link>https://coldinfire.github.io/2021/FI_FM_ChangeDocument_FB02/</link>
+      <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/FI_FM_ChangeDocument_FB02/</guid>
+      <description>FM：CHANGE_DOCUMENT data: lt_bkpf type table of bkpf with header line, lt_bseg type table of bseg with header line, lt_bkdf type table of bkdf with header line, lt_bsec type table of bsec with header line, lt_bset type table of bset with header line, lt_bsed type table of bsed with header line, lt_bseg2 type table</description>
+    </item>
+    
     <item>
       <title> SAP HANA SQLScript 使用 </title>
       <link>https://coldinfire.github.io/2021/SAPHANA_SQLScript/</link>
@@ -139,7 +148,7 @@
       <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/MM_BAPI_BOM/</guid>
-      <description>BOM 内部 API：Function Group &amp;mdash; CSAI 创建 BOM：CSAI_BOM_CREATE DATA: LS_CSIN TYPE CSIN, LS_STKOB TYPE STKOB, LS_STZUB TYPE STZUB, LS_STPOB TYPE STPOB, LT_STPOB TYPE TABLE OF STPOB, LT_STPOB2 TYPE TABLE OF STPO_API03. DATA: LV_RESULT TYPE BAPI_MSGTY, LV_MESSAGE TYPE BAPI_MSG. DATA:</description>
+      <description>BOM 内部 API：Function Group &amp;mdash; CSAI CSAI_BOM_XXX 和 CSAP_BOM_XX CSAI_BOM_XXX ：This function module is used to create/change BOM item for sales. CSAP_DOC_BOM_MAINTAIN：用于处理简单的文档结构</description>
     </item>
     
     <item>
@@ -198,10 +207,10 @@
     
     <item>
       <title> BOM 创建修改保存时增强 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Enhance_BOM/</link>
+      <link>https://coldinfire.github.io/2021/MM_Enhance_BOM/</link>
       <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Enhance_BOM/</guid>
+      <guid>https://coldinfire.github.io/2021/MM_Enhance_BOM/</guid>
       <description>使用 BADI BADI：BOM_UPDATE，CHANGE_AT_SAVE 方法就是 BOM 创建和修改保存时触发的方法，也就是CS01，CS02保存时触发。</description>
     </item>
     
@@ -252,10 +261,10 @@
     
     <item>
       <title> COOIS 添加字段 </title>
-      <link>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</link>
+      <link>https://coldinfire.github.io/2021/PP_Enhance_COOIS_AddFiled/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/PP_COOIS_AddFiled/</guid>
+      <guid>https://coldinfire.github.io/2021/PP_Enhance_COOIS_AddFiled/</guid>
       <description>参考文档 :Add New or Custom Fields to COOIS Output COOIS 添加并显示自定义字段 要在订单信息系统的 ALV OUTPUT 中增强/添加/显示其他字段或列，而 COOIS ALV 输出中的标准系统中未提供这些字段或</description>
     </item>
     
@@ -328,7 +337,7 @@
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_GetStock/</guid>
-      <description>SAP的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。 库存类型 非批次管理库存：MARD 批次库存：MCHB 销售库存：MSKA 项目</description>
+      <description>SAP 的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。 库存类型 非批次管理库存：MARD 批次库存：MCHB 销售库存：MSKA 项目库存</description>
     </item>
     
     <item>
@@ -414,10 +423,10 @@
     
     <item>
       <title> User Exit for CO11N </title>
-      <link>https://coldinfire.github.io/2020/PP_CO11N_Exit/</link>
+      <link>https://coldinfire.github.io/2020/PP_Enhance_CO11N/</link>
       <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/PP_CO11N_Exit/</guid>
+      <guid>https://coldinfire.github.io/2020/PP_Enhance_CO11N/</guid>
       <description>User Exits for CO11N Exit Name Description CONF0001 Enhancements in order confirmation CONFPI01 Process order conf.: Calculate cust.specific default values CONFPI02 Process order confirmation: Customer spec. input checks 1 CONFPI03 Process order conf.: Cust. spec. check after op. selection CONFPI04 Process order conf.: Customer specific input checks 2 CONFPI05 Process order conf.: Cust. spec. enhancements when saving CONFPI06 Process order confirmation: Actual data transfer CONFPM01 PM/SM order conf.: Determine cust.</description>
     </item>
     
@@ -432,10 +441,10 @@
     
     <item>
       <title> User Exit for MIGO </title>
-      <link>https://coldinfire.github.io/2020/MM_MIGO_Exits/</link>
+      <link>https://coldinfire.github.io/2020/MM_Enhance_MIGO_Exits/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_MIGO_Exits/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_Enhance_MIGO_Exits/</guid>
       <description>MIGO 简介 内向交货的收货流程是供应链的重要组成部分。此过程包括创建采购订单后的步骤：通知，收货，随后的货物下达以及所订购货物的收货过帐。 根据未清</description>
     </item>
     
@@ -639,10 +648,10 @@
     
     <item>
       <title> ME2N/ME2M 报表增加显示字段 </title>
-      <link>https://coldinfire.github.io/2020/MM_ME2N_ME2M/</link>
+      <link>https://coldinfire.github.io/2020/MM_Enhance_ME2N_ME2M/</link>
       <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_ME2N_ME2M/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_Enhance_ME2N_ME2M/</guid>
       <description>原文地址：http://blog.csdn.net/zhongguomao/article/details/52514197 在 ME2N/ME2M/ME2W/ME3M 里加 EKKO/EKPO 中没显</description>
     </item>
     
@@ -756,10 +765,10 @@
     
     <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据退货PO创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</link>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_MIRO_INCOMINGINVOICE_CREATE/</link>
       <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_MIRO_INCOMINGINVOICE_CREATE/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw MIRO根据退货PO创建贷项凭证</description>
     </item>
     
@@ -801,11 +810,11 @@
     
     <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2019/FI_MIRO_Matnr/</link>
+      <link>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</link>
       <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/FI_MIRO_Matnr/</guid>
-      <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw BAPI_INCOMINGINVOICE_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZLM_MIRO *&amp;amp; *&amp;amp;---------------------------------------------------------------------* REPORT ZLM_MIRO. DATA: LS_HEADERDATA LIKE BAPI_INCINV_CREATE_HEADER, LT_RETURN LIKE TABLE</description>
+      <guid>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw BAPI_INCOMINGINVOICE_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZTEST_MIRO. *&amp;amp;---------------------------------------------------------------------* REPORT ZTEST_MIRO. DATA: LS_HEADERDATA LIKE BAPI_INCINV_CREATE_HEADER, LT_RETURN LIKE TABLE OF</description>
     </item>
     
     <item>
@@ -819,10 +828,10 @@
     
     <item>
       <title> CS12 ALV 增强 </title>
-      <link>https://coldinfire.github.io/2019/MM_BOM_Enhance/</link>
+      <link>https://coldinfire.github.io/2019/MM_Enhance_BOM_CS12/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_BOM_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Enhance_BOM_CS12/</guid>
       <description>事物码 CS12：的执行程序查看 可以看到，最终执行的程序是RCS12001，因此可以在该程序中查找增强。 执行的程序： RCS11001：Disp</description>
     </item>
     
@@ -949,7 +958,7 @@
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_BADI_PurchaseOrder/</guid>
-      <description>创建采购订单(Purchase Order)时可以通过增强做一些控制。 BADI:ME_PROCESS_PO_CUST PROCESS_HEADER：对PO抬头数据进行检查 PROCESS_I</description>
+      <description>采购订单(Purchase Order) TCode：ME21N，ME22N，ME23N，ME29N Customer Exit MM06E005 ：EXIT_SAPMM06E_016 Customer fields in purchasing document BADI:ME_PROCESS_PO_CUST</description>
     </item>
     
     <item>
@@ -1377,10 +1386,10 @@
     
     <item>
       <title> MM01 屏幕增强 </title>
-      <link>https://coldinfire.github.io/2019/MM_MasterData_enhance1/</link>
+      <link>https://coldinfire.github.io/2019/MM_Enhance_MasterData1/</link>
       <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_MasterData_enhance1/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Enhance_MasterData1/</guid>
       <description>Reference: https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/ MM01中的Screen完全是通过一个个的subscreen，像一个个的component组合而成的。在原有的subscreen不在cu</description>
     </item>
     
@@ -1611,10 +1620,10 @@
     
     <item>
       <title> 物料主数据增强自定义字段 </title>
-      <link>https://coldinfire.github.io/2019/MM_MasterData_enhance2/</link>
+      <link>https://coldinfire.github.io/2019/MM_Enhance_MasterData2/</link>
       <pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_MasterData_enhance2/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Enhance_MasterData2/</guid>
       <description>自定义增强字段 正常情况下通过FM Exits来增强一个屏幕的步骤： Find relevant enhancement thru program name. T-code: CMOD, create an enhancement project, then assign the enhancement to the enhancement project Create a subscreen in corresponding X function group Implement the FM exits for transporting data to subscreen and</description>
     </item>
     
@@ -1926,10 +1935,10 @@
     
     <item>
       <title> Product Order 的增强 </title>
-      <link>https://coldinfire.github.io/2018/PP_ProOrder_Enhance/</link>
+      <link>https://coldinfire.github.io/2018/PP_Enhance_ProductOrder/</link>
       <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/PP_ProOrder_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2018/PP_Enhance_ProductOrder/</guid>
       <description>生产订单的增强 如果SAP系统的标准功能不能满足业务需求，用户出口或 BADI 可能会有所帮助。 Customer Exit SMOD:SAP增强管理 CMOD:SAP增强编辑器维</description>
     </item>
     

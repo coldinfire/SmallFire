@@ -6,7 +6,16 @@
     <description>Recent content in FICO on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/FICO/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/FICO/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> FB02 修改行文本函数 </title>
+      <link>https://coldinfire.github.io/2021/FI_FM_ChangeDocument_FB02/</link>
+      <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/FI_FM_ChangeDocument_FB02/</guid>
+      <description>FM：CHANGE_DOCUMENT data: lt_bkpf type table of bkpf with header line, lt_bseg type table of bseg with header line, lt_bkdf type table of bkdf with header line, lt_bsec type table of bsec with header line, lt_bset type table of bset with header line, lt_bsed type table of bsed with header line, lt_bseg2 type table</description>
+    </item>
+    
     <item>
       <title> FI 会计凭证过账 </title>
       <link>https://coldinfire.github.io/2020/FI_DocumentPost/</link>
@@ -36,10 +45,10 @@
     
     <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据退货PO创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</link>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_MIRO_INCOMINGINVOICE_CREATE/</link>
       <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_MIRO_INCOMINGINVOICE_CREATE/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw MIRO根据退货PO创建贷项凭证</description>
     </item>
     

@@ -31,7 +31,7 @@
       <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/MM_BAPI_BOM/</guid>
-      <description>BOM 内部 API：Function Group &amp;mdash; CSAI 创建 BOM：CSAI_BOM_CREATE DATA: LS_CSIN TYPE CSIN, LS_STKOB TYPE STKOB, LS_STZUB TYPE STZUB, LS_STPOB TYPE STPOB, LT_STPOB TYPE TABLE OF STPOB, LT_STPOB2 TYPE TABLE OF STPO_API03. DATA: LV_RESULT TYPE BAPI_MSGTY, LV_MESSAGE TYPE BAPI_MSG. DATA:</description>
+      <description>BOM 内部 API：Function Group &amp;mdash; CSAI CSAI_BOM_XXX 和 CSAP_BOM_XX CSAI_BOM_XXX ：This function module is used to create/change BOM item for sales. CSAP_DOC_BOM_MAINTAIN：用于处理简单的文档结构</description>
     </item>
     
     <item>
@@ -81,10 +81,10 @@
     
     <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据退货PO创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</link>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_MIRO_INCOMINGINVOICE_CREATE/</link>
       <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_MIRO_INCOMINGINVOICE_CREATE/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_MIRO_INCOMINGINVOICE_CREATE/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/_6CL2fdz6WYCc4gMO8t3Zw MIRO根据退货PO创建贷项凭证</description>
     </item>
     
@@ -117,11 +117,11 @@
     
     <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2019/FI_MIRO_Matnr/</link>
+      <link>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</link>
       <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/FI_MIRO_Matnr/</guid>
-      <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw BAPI_INCOMINGINVOICE_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZLM_MIRO *&amp;amp; *&amp;amp;---------------------------------------------------------------------* REPORT ZLM_MIRO. DATA: LS_HEADERDATA LIKE BAPI_INCINV_CREATE_HEADER, LT_RETURN LIKE TABLE</description>
+      <guid>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</guid>
+      <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw BAPI_INCOMINGINVOICE_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZTEST_MIRO. *&amp;amp;---------------------------------------------------------------------* REPORT ZTEST_MIRO. DATA: LS_HEADERDATA LIKE BAPI_INCINV_CREATE_HEADER, LT_RETURN LIKE TABLE OF</description>
     </item>
     
     <item>

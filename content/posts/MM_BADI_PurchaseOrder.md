@@ -13,14 +13,20 @@ tags:
 
 ---
 
-创建采购订单(Purchase Order)时可以通过增强做一些控制。
+采购订单(Purchase Order)
+
+- TCode：ME21N，ME22N，ME23N，ME29N
+
+### Customer Exit
+
+#### MM06E005 ：EXIT_SAPMM06E_016 
+
+- Customer fields in purchasing document
 
 ### BADI:ME_PROCESS_PO_CUST
 
-- PROCESS_HEADER：对PO抬头数据进行检查
-
-- PROCESS_ITEM：对PO行项目做一些输入数据检查(限价检查)
-
+- PROCESS_HEADER：对 PO 抬头数据进行检查
+- PROCESS_ITEM：对 PO 行项目做一些输入数据检查(限价检查)
 - POST：点击保存时进行数据更新(底价更新)
 
 

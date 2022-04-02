@@ -103,7 +103,7 @@
       <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/MM_BAPI_BOM/</guid>
-      <description>BOM 内部 API：Function Group &amp;mdash; CSAI 创建 BOM：CSAI_BOM_CREATE DATA: LS_CSIN TYPE CSIN, LS_STKOB TYPE STKOB, LS_STZUB TYPE STZUB, LS_STPOB TYPE STPOB, LT_STPOB TYPE TABLE OF STPOB, LT_STPOB2 TYPE TABLE OF STPO_API03. DATA: LV_RESULT TYPE BAPI_MSGTY, LV_MESSAGE TYPE BAPI_MSG. DATA:</description>
+      <description>BOM 内部 API：Function Group &amp;mdash; CSAI CSAI_BOM_XXX 和 CSAP_BOM_XX CSAI_BOM_XXX ：This function module is used to create/change BOM item for sales. CSAP_DOC_BOM_MAINTAIN：用于处理简单的文档结构</description>
     </item>
     
     <item>
@@ -477,10 +477,10 @@
     
     <item>
       <title> CS12 ALV 增强 </title>
-      <link>https://coldinfire.github.io/2019/MM_BOM_Enhance/</link>
+      <link>https://coldinfire.github.io/2019/MM_Enhance_BOM_CS12/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_BOM_Enhance/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Enhance_BOM_CS12/</guid>
       <description>事物码 CS12：的执行程序查看 可以看到，最终执行的程序是RCS12001，因此可以在该程序中查找增强。 执行的程序： RCS11001：Disp</description>
     </item>
     

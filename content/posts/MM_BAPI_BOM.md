@@ -15,6 +15,16 @@ tags:
 
 BOM 内部 API：Function Group --- CSAI
 
+
+
+### CSAI_BOM_XXX 和 CSAP_BOM_XX
+
+CSAI_BOM_XXX ：This function module is used to create/change BOM item for sales. 
+
+CSAP_DOC_BOM_MAINTAIN：用于处理简单的文档结构。主要用于改变结构，但也可用于创建结构。
+
+如果您只想创建结构，请使用 CSAP_DOC_BOM_CREATE.
+
 ### 创建 BOM：CSAI_BOM_CREATE
 
 ```ABAP
@@ -133,6 +143,35 @@ CALL FUNCTION 'CSAP_MAT_BOM_MAINTAIN'
 
 ### 读取 BOM：CSAI_BOM_READ
 
+```ABAP
+DATA: gs_csin TYPE csin,
+      gs_stko TYPE stkob,
+      gs_stzu TYPE stzub.
+DATA: gt_stpo TYPE TABLE OF stpob,
+      gt_stko TYPE TABLE OF stkob,
+      gs_stpo TYPE stpob.
 
+CALL FUNCTION 'CSAI_BOM_READ'
+  EXPORTING
+    ecsin = gs_csin
+* IMPORTING
+* FL_WARNING =
+  TABLES
+    t_stpob = gt_stpo
+    t_stkob = gt_stko
+* T_DEP_DATA =
+* T_DEP_DESCR =
+* T_DEP_ORDER =
+* T_DEP_SOURCE =
+* T_DEP_DOC =
+* EXCEPTIONS
+* ERROR = 1
+* OTHERS = 2
+.
+IF sy-subrc <> 0.
+* MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
+* WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
+ENDIF.
+```
 
 ### 删除 BOM：CSAI_BOM_DELETE

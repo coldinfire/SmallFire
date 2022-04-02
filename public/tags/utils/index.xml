@@ -45,10 +45,10 @@
     
     <item>
       <title> User Exit for CO11N </title>
-      <link>https://coldinfire.github.io/2020/PP_CO11N_Exit/</link>
+      <link>https://coldinfire.github.io/2020/PP_Enhance_CO11N/</link>
       <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/PP_CO11N_Exit/</guid>
+      <guid>https://coldinfire.github.io/2020/PP_Enhance_CO11N/</guid>
       <description>User Exits for CO11N Exit Name Description CONF0001 Enhancements in order confirmation CONFPI01 Process order conf.: Calculate cust.specific default values CONFPI02 Process order confirmation: Customer spec. input checks 1 CONFPI03 Process order conf.: Cust. spec. check after op. selection CONFPI04 Process order conf.: Customer specific input checks 2 CONFPI05 Process order conf.: Cust. spec. enhancements when saving CONFPI06 Process order confirmation: Actual data transfer CONFPM01 PM/SM order conf.: Determine cust.</description>
     </item>
     
