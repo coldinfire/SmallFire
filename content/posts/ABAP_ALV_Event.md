@@ -266,8 +266,6 @@ FORM caller_exit USING ls_data TYPE slis_data_caller_exit.
 ENDFORM.                    "CALLER_EXIT
 ```
 
-
-
 ### ALV 上的下拉框
 
 #### 事件定义

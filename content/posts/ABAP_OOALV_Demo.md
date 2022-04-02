@@ -66,22 +66,38 @@ DATA event_receiver TYPE REF TO cl_event_receiver.
 *----------------------------------------------------------------------*
 *       CLASS cl_event_receiver DEFINITION
 *----------------------------------------------------------------------*
-*
-*----------------------------------------------------------------------*
 CLASS cl_event_receiver DEFINITION.
   PUBLIC SECTION.
+    METHODS handle_toolbar FOR EVENT toobal OF cl_gui_alv_grid
+      IMPORTING e_object e_interactive.
+    METHODS handle_user_command FOR EVENT user_command OF cl_gui_alv_grid
+      IMPORTING e_ucomm.
     METHODS handle_double_click FOR EVENT double_click OF cl_gui_alv_grid
-    IMPORTING e_row e_column es_row_no.
+      IMPORTING e_row e_column es_row_no.
     METHODS handle_data_changed FOR EVENT data_changed OF cl_gui_alv_grid
-    IMPORTING er_data_changed.
+      IMPORTING er_data_changed.
 ENDCLASS. "CL_EVENT_RECEIVER"
 "事件类实现"
 *----------------------------------------------------------------------*
 *       CLASS cl_event_receiver IMPLEMENTATION
 *----------------------------------------------------------------------*
-*
-*----------------------------------------------------------------------*
 CLASS cl_event_receiver IMPLEMENTATION.
+  METHOD handle_toolbar.
+    "ADDING A SAVE BUTTONN TO THE ALV TOOLBAR "
+    DATA: is_btn TYPE stb_button.
+    is_btn-function = ’SAVE‘.
+    is_btn-icon = icon_system_save.
+    is_btn-text = ‘SAVE’.
+    is_btn-quickinfo = ‘SAVE’.
+    is_btn-disabled = ‘ ‘.
+    APPEND is_btn TO e_object->mt_toolbar.
+  ENDMETHOD.    "handle_toolbar"
+  METHOD handle_user_command .
+    CASE e_ucomm.
+      WHEN ‘SAVE’.
+        PERFORM update_data_base.
+    ENDCASE.
+  ENDMETHOD.    "handle_user_command"
   METHOD handle_double_click.
     CONDENSE e_row     NO-GAPS.
     CONDENSE e_column  NO-GAPS.
@@ -94,7 +110,7 @@ CLASS cl_event_receiver IMPLEMENTATION.
         SET PARAMETER ID 'WRK' FIELD ls_output-werks.
         CALL TRANSACTION 'MM03' AND SKIP FIRST SCREEN.
       WHEN OTHERS.
-    ENDCASE.
+    ENDCASE.   "handel_double_click"
   ENDMETHOD.                    "cl_event_receiver"
   METHOD handle_data_changed.
     DATA: ls_output TYPE str_output,
@@ -125,17 +141,14 @@ ENDCLASS. "CL_EVENT_RECEIVER"
 
 START-OF-SELECTION.
   PERFORM get_data.
-  IF gt_output IS NOT INITIAL.
+  PERFORM prepare_fieldcat.
+  PERFORM prepare_layout.
+END-OF-SELECTION.
     CALL SCREEN 1000.
-  ENDIF.
+    
 *&---------------------------------------------------------------------*
 *&      Form  GET_DATA
 *&---------------------------------------------------------------------*
-*       text
-*----------------------------------------------------------------------*
-*  -->  p1        text
-*  <--  p2        text
-*----------------------------------------------------------------------*
 FORM get_data .
   CLEAR gt_ekko.
   SELECT * FROM ekko INTO TABLE gt_ekko UP TO 20 ROWS.
@@ -163,18 +176,54 @@ FORM get_data .
   ENDLOOP.
 ENDFORM.                    " GET_DATA "
 *&---------------------------------------------------------------------*
+*&      Form   PREPARE_FIELDCAT
+*&---------------------------------------------------------------------*
+FORM prepare_fieldcat .
+  CLEAR gt_fieldcat.
+  mrc_fieldcat 'EBELN' 'Purchase Order'      '1' '18'.
+  mrc_fieldcat 'EBELP' 'Purchase Order Item' '2' '5'.
+  mrc_fieldcat 'MATNR' 'Material Number'     '3' '18'.
+  mrc_fieldcat 'WERKS' 'Plant'               '4' '5'.
+  mrc_fieldcat 'MENGE' 'Quantity'            '5' '18'.
+  mrc_fieldcat 'MEINS' 'Unit'                '6' '18'.
+  mrc_fieldcat 'NETWR' 'Value'               '7' '18'.
+  mrc_fieldcat 'AEDAT' 'Create Date'         '8' '18'.
+  mrc_fieldcat 'ERNAM' 'Create By'           '9' '18'.
+ENDFORM.                    " PREPARE_FIELDCAT "
+*&---------------------------------------------------------------------*
+*&      Form  PREPARE_LAYOUT
+*&---------------------------------------------------------------------*
+FORM prepare_layout.
+  CLEAR layout.
+  layout-zebra = 'X' .
+  layout-cwidth_opt  = 'X'.
+  layout-grid_title = 'Material Document List' .
+* layout-smalltitle = 'X' .
+* layout-info_fname  = 'ROWCOLOR'.
+ENDFORM.                    " PREPARE_LAYOUT "
+*&---------------------------------------------------------------------*
 *&      Module  STATUS_1000  OUTPUT
 *&---------------------------------------------------------------------*
-*       text
-*----------------------------------------------------------------------*
 MODULE status_1000 OUTPUT.
   SET PF-STATUS 'STATUS_1000'.
-*  SET TITLEBAR  'TITLE_100'.
-  CLEAR gt_fieldcat.
-  PERFORM prepare_field_catalog.
-  PERFORM prepare_layout.
-  IF go_grid IS INITIAL .
+ENDMODULE.                 " STATUS_1000  OUTPUT "
+*&---------------------------------------------------------------------*
+*&      Module  USER_COMMAND_1000  INPUT
+*&---------------------------------------------------------------------*
+MODULE user_command_1000 INPUT.
+  CASE sy-ucomm.
+    WHEN 'SAVE'.
+      PERFORM update_data_base.
+    WHEN 'BACK' OR 'EXIT' OR 'CANCEL'.
+      LEAVE PROGRAM.
+  ENDCASE.
+ENDMODULE.                 " USER_COMMAND_1000  INPUT "
+*&---------------------------------------------------------------------*
+*&      Module  display_alv  OUTPUT
+*&---------------------------------------------------------------------*
+MODULE display_alv OUTPUT.
 *----Creating custom container instance
+  IF go_container IS NOT BOUND.
     CREATE OBJECT go_container
       EXPORTING
         container_name              = 'CONTAINER'
@@ -189,7 +238,9 @@ MODULE status_1000 OUTPUT.
       MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
       WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
+  ENDIF.
 *----Creating alv grid instance
+  IF go_grid IS NOT BOUND.
     CREATE OBJECT go_grid
       EXPORTING
         i_parent          = go_container
@@ -207,16 +258,16 @@ MODULE status_1000 OUTPUT.
 *--e.g. initial sorting criteria, initial filtering criteria, excluding functions
 *----Display ALV
     CALL METHOD go_grid->set_table_for_first_display
-    EXPORTING
+      EXPORTING
 *      i_buffer_active               =
 *      i_bypassing_buffer            =
 *      i_consistency_check           =
 *      i_structure_name              =
       "Name of the DDIC structure, the catalog is generated automatically (Have priority)"
 *      is_variant                    =
-      i_save                        = 'A'
-      i_default                     = 'X'
-      is_layout                     = layout
+        i_save                        = 'A'
+        i_default                     = 'X'
+        is_layout                     = layout
 *      is_print                      =
 *      it_special_groups             =
 *      it_toolbar_excluding          =
@@ -224,22 +275,31 @@ MODULE status_1000 OUTPUT.
 *      it_alv_graphics               =
 *      it_except_qinfo               =
 *      ir_salv_adapter               =
-    CHANGING
-      it_outtab                     = gt_output
-      it_fieldcatalog               = gt_fieldcat
+      CHANGING
+        it_outtab                     = gt_output
+        it_fieldcatalog               = gt_fieldcat
 *      it_sort                       =
 *      it_filter                     =
-    EXCEPTIONS
-      invalid_parameter_combination = 1
-      program_error                 = 2
-      too_many_lines                = 3
-      OTHERS                        = 4.
+      EXCEPTIONS
+        invalid_parameter_combination = 1
+        program_error                 = 2
+        too_many_lines                = 3
+        OTHERS                        = 4.
     IF sy-subrc <> 0.
       MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
       WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
-  ELSE .
-    CALL METHOD go_grid->refresh_table_display
+*---- Event Create
+    CREATE OBJECT event_receiver.
+    SET HANDLER event_receiver->handle_toolbar FOR go_grid.
+    SET HANDLER event_receiver->handle_user_command FOR go_grid.
+    SET HANDLER event_receiver->handle_double_click FOR go_grid. "双击事件"
+    SET HANDLER event_receiver->handle_data_changed FOR go_grid. "数据修改事件"
+    CALL METHOD go_grid->register_edit_event  "注册编辑事件，否则不会触发更新事件"
+      EXPORTING
+        i_event_id = cl_gui_alv_grid=>mc_evt_modified.
+  ENDIF.
+  CALL METHOD go_grid->refresh_table_display
 *     EXPORTING
 *     IS_STABLE =
 *     I_SOFT_REFRESH =
@@ -248,58 +308,24 @@ MODULE status_1000 OUTPUT.
       OTHERS = 2 .
     IF sy-subrc <> 0.
     ENDIF.
+ENDMODULE.  "display_alv"
+*&---------------------------------------------------------------------*
+*&      Form  UPDATE_DATA_BASE
+*&---------------------------------------------------------------------*
+FORM  UPDATE_DATA_BASE .
+  CALL METHOD o_alv->check_changed_data
+    IMPORTING
+      e_valid = check.
+  IF it_spfli NE it_spfli_old.
+    LOOP AT it_spfli INTO wa_spfli.
+      MOVE-CORRESPONDING wa_spfli TO wa_spfli_new.
+      APPEND wa_spfli_new TO it_spfli_new.
+    ENDLOOP.
+    MODIFY spfli FROM TABLE it_spfli_new.
+    IF  sy-subrc = 0..
+      MESSAGE ‘Change data success’ TYPE ‘S’.
+    ENDIF.
   ENDIF.
-*---- Event Create
-  CREATE OBJECT event_receiver.
-  SET HANDLER event_receiver->handle_double_click FOR go_grid. "双击事件"
-  SET HANDLER event_receiver->handle_data_changed FOR go_grid. "数据修改事件"
-  CALL METHOD go_grid->register_edit_event "注册编辑事件，否则不会触发更新事件"
-  EXPORTING
-    i_event_id = cl_gui_alv_grid=>mc_evt_modified.
-
-ENDMODULE.                 " STATUS_1000  OUTPUT "
-*&---------------------------------------------------------------------*
-*&      Module  USER_COMMAND_1000  INPUT
-*&---------------------------------------------------------------------*
-*       text
-*----------------------------------------------------------------------*
-MODULE user_command_1000 INPUT.
-  CASE sy-ucomm.
-    WHEN '&F03' OR '&F12' OR '&F15'.
-      LEAVE PROGRAM.
-  ENDCASE.
-ENDMODULE.                 " USER_COMMAND_1000  INPUT "
-*&---------------------------------------------------------------------*
-*&      Form  prepare_field_catalog
-*&---------------------------------------------------------------------*
-*       text
-*----------------------------------------------------------------------*
-*      -->PT_FIELDCAT  text
-*----------------------------------------------------------------------*
-FORM prepare_field_catalog .
-  mrc_fieldcat 'EBELN' 'Purchase Order'      '1' '18'.
-  mrc_fieldcat 'EBELP' 'Purchase Order Item' '2' '5'.
-  mrc_fieldcat 'MATNR' 'Material Number'     '3' '18'.
-  mrc_fieldcat 'WERKS' 'Plant'               '4' '5'.
-  mrc_fieldcat 'MENGE' 'Quantity'            '5' '18'.
-  mrc_fieldcat 'MEINS' 'Unit'                '6' '18'.
-  mrc_fieldcat 'NETWR' 'Value'               '7' '18'.
-  mrc_fieldcat 'AEDAT' 'Create Date'         '8' '18'.
-  mrc_fieldcat 'ERNAM' 'Create By'           '9' '18'.
-ENDFORM.                    " PREPARE_FIELD_CATALOG "
-*&---------------------------------------------------------------------*
-*&      Form  PREPARE_LAYOUT
-*&---------------------------------------------------------------------*
-*       text
-*----------------------------------------------------------------------*
-*      <--P_GS_LAYOUT  text
-*----------------------------------------------------------------------*
-FORM prepare_layout.
-  layout-zebra = 'X' .
-  layout-cwidth_opt  = 'X'.
-  layout-grid_title = 'Material Document List' .
-* layout-smalltitle = 'X' .
-* layout-info_fname  = 'ROWCOLOR'.
-ENDFORM.                    " PREPARE_LAYOUT "
+ENDFORM.                    ” UPDATE_DATA_BASE
 ```
 

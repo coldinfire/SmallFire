@@ -499,7 +499,7 @@
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_Memory/</guid>
-      <description>SAP Memory 和 ABAP Memory 使用的语句不同 SAP memory使用SET/GET parameters SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. ABAP Memory使用EXPORT 和IMPORT EXPORT p_matnr = var_matnr TO MEMORY ID</description>
+      <description>SAP Memory 和 ABAP Memory ABAP MEMORY：当活动的内部会话在单个主会话中调用另一个内部会话时，使用 export 和 import 参数传递数据。 SAP MEMORY：使用 set 和 get 参数将数据从</description>
     </item>
     
     <item>

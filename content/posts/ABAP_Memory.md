@@ -13,6 +13,11 @@ tags:
 ---
 
 ### SAP Memory 和 ABAP Memory ###
+ABAP MEMORY：当活动的内部会话在单个主会话中调用另一个内部会话时，使用 export 和 import 参数传递数据。
+SAP MEMORY：使用 set 和 get 参数将数据从一个主会话传递到另一个主会话。
+
+![Memory Difference](/images/ABAP/ABAP_Memory2.png)
+
 #### 使用的语句不同
 
 SAP memory使用SET/GET parameters

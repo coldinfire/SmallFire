@@ -130,7 +130,7 @@
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis_InnerTable/</guid>
-      <description>工作区和内表的关系 工作区 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 间接定义 通过 TYPES 定义并创</description>
+      <description>工作区和内表的关系 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 工作区 间接定义 通过 TYPES 定义并创</description>
     </item>
     
     <item>

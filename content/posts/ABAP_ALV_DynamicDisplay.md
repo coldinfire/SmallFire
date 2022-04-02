@@ -18,7 +18,7 @@ tags:
 
 ### Step2：创建动态的内表
 
-根据上一步骤创建的 fieldcat 创建动态的内表，使用cl_alv_table_create=>create_dynamic_table。
+根据上一步骤创建的 fieldcat 创建动态的内表，使用 `cl_alv_table_create=>create_dynamic_table`。
 
 ### Step3：指针为动态表赋值
 

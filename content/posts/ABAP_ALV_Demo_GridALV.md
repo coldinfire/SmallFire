@@ -38,10 +38,10 @@ DATA: gt_alv TYPE STANDARD TABLE OF str_alv,
 "ALV Parameter"
 DATA: gt_fieldcat TYPE slis_t_fieldcat_alv,
       gs_fieldcat TYPE slis_fieldcat_alv,
+      layout TYPE slis_layout_alv,
       gt_events TYPE slis_t_event,
       gs_events TYPE slis_alv_event,
-      gs_grid_settings TYPE lvc_s_glay,
-      layout   TYPE slis_layout_alv.
+      gs_grid_settings TYPE lvc_s_glay.
 "Select screen"
 SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN POSITION 1.

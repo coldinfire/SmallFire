@@ -11,7 +11,7 @@
   
   
   <link rel="prev" href="https://coldinfire.github.io/2018/ABAP_ALV_Screen/" />
-  <link rel="next" href="https://coldinfire.github.io/2018/ABAP_ALV_Display_util/" />
+  <link rel="next" href="https://coldinfire.github.io/2018/ABAP_ALV_DisplayBugFixed/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP_ALV_Display/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  5559 ,
+  "wordcount":  5557 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Display\/",
   "datePublished": "2018-06-23T00:00:00\u002b00:00",
   "dateModified": "2018-06-23T00:00:00\u002b00:00",
@@ -179,10 +179,17 @@
 <p><strong>REUSE_ALV_GRID_DISPLAY</strong>：Grid 格式的 ALV 报表有栏位选择按钮功能，允许用户直接输出格式，操作更为灵活。</p>
 <p><strong>REUSE_ALV_GRID_DISPLAY_LVC</strong>：以 LVC 结尾的 Grid 格式的 ALV 报表，此函数中引用到的类型大部分都不再从类型池 slis 中来引用，而是直接引用字典中已定义好的表或结构类型，这种函数与面向对象的 CL_GUI_ALV_GRID 生成的 ALV 参数类型上基本相同，所以以后一般如果使用函数方式来产生 ALV，推荐使用 REUSE_ALV_GRID_DISPLAY_LVC 函数，因为这样方便修改面向对象方式的 ALV。</p>
 <h3 id="fieldcatalog-创建的函数">FIELDCATALOG 创建的函数</h3>
-<p>如果 ALV 所要展示的列过多时，建议先在数据字典系统中创建相应的Structure，这样可免去对输出列表头信息的繁琐编辑处理，代码行也会缩短。</p>
+<p>如果 ALV 所要展示的列过多时，建议先在数据字典系统中创建相应的 Structure，这样可免去对输出列表头信息的繁琐编辑处理，代码行也会缩短。</p>
 <p><strong>REUSE_ALV_FIELDCATALOG_MERGE</strong>：根据定义的结构生成 FIELDCAT 字段结构信息。</p>
 <p><strong>LVC_FIELDCATALOG_MERGE</strong>：针对 REUSE_ALV_GRID_DISPLAY_LVC 函数，生成 FIELDCAT 字段结构信信息。</p>
-<p>对于 <strong>SLIS</strong> 开头的内表或结构，可以在类型池 SLIS 中查看详细信息；<strong>LVC</strong> 开头的可以在数据字典（<strong>SE11</strong>）中查看结构参数。</p>
+<ul>
+<li>
+<p>对于 <strong>SLIS</strong> 开头的内表或结构，可以在类型池 SLIS 中查看详细信息；</p>
+</li>
+<li>
+<p><strong>LVC</strong> 开头的可以在数据字典（<strong>SE11</strong>）中查看结构参数。</p>
+</li>
+</ul>
 <h3 id="字段目录和布局">字段目录和布局</h3>
 <p>在 ALV 开发中有两个重要的对象： <strong>LAYOUT</strong> 和 <strong>FIELDCATALOG</strong> 。</p>
 <ul>
@@ -1080,7 +1087,7 @@ GUI TITLE设置<span style="color:#960050;background-color:#1e0010">：</span>
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>5559</span>
+                   <span>5557</span>
             </p>
             
             <p class="copyright-item">
@@ -1112,7 +1119,7 @@ GUI TITLE设置<span style="color:#960050;background-color:#1e0010">：</span>
         <a href="https://coldinfire.github.io/2018/ABAP_ALV_Screen/" class="prev" rel="prev" title=" 报表开发&lt;屏幕设置&gt; "><i class="iconfont icon-dajiantou"></i>&nbsp; 报表开发&lt;屏幕设置&gt; </a>
          
         
-        <a href="https://coldinfire.github.io/2018/ABAP_ALV_Display_util/" class="next" rel="next" title=" Field Catalog 字段排坑 "> Field Catalog 字段排坑 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2018/ABAP_ALV_DisplayBugFixed/" class="next" rel="next" title=" Field Catalog 字段排坑 "> Field Catalog 字段排坑 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 

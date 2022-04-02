@@ -15,8 +15,6 @@ tags:
 
 BOM 内部 API：Function Group --- CSAI
 
-
-
 ### CSAI_BOM_XXX 和 CSAP_BOM_XX
 
 CSAI_BOM_XXX ：This function module is used to create/change BOM item for sales. 

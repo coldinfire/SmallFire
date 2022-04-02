@@ -15,10 +15,11 @@ tags:
 #### 定义结构中定义该字段
 
 ```ABAP
-DATA: BEGIN OF gt_print OCCURS 10,
-        CHECKBOX TYPE flag,
-        ......
-DATA: END OF gt_print.
+TYPE: BEGIN OF str_print,
+        checkbox TYPE flag,
+        ...
+  END OF str_print.
+DATA: gt_print TYPE TABLE OF gt_print WITH HEADER LINE.
 ```
 
 #### FIELDCAT 添加 CheckBox
@@ -39,14 +40,15 @@ APPEND alv_fieldcat.
 #### 自定义按钮
 
 ```ABAP
-FORM f_alv_user_command USING r_ucomm LIKE sy-ucomm
-                              rs_selfield TYPE slis_selfield.
+FORM frm_alv_user_command USING r_ucomm LIKE sy-ucomm
+                                rs_selfield TYPE slis_selfield.
   CASE r_ucomm.
      WHEN '&SALL' OR '&UALL'.
-      PERFORM f_select USING r_ucomm.
+      PERFORM frm_select USING r_ucomm.
   ENDCASE.
 ENDFORM.
-FORM f_select USING cmd TYPE sy-ucomm.
+
+FORM frm_select USING cmd TYPE sy-ucomm.
   DATA: flag TYPE c.
   CASE cmd.
     WHEN '&SALL'.
@@ -57,7 +59,7 @@ FORM f_select USING cmd TYPE sy-ucomm.
       RETURN.
   ENDCASE.
   LOOP AT gt_print.
-    gt_print-CHECKBOX = flag.
+    gt_print-checkbox = flag.
     MODIFY gt_print INDEX sy-tabix.
   ENDLOOP.
 ENDFORM.                    "f_select"

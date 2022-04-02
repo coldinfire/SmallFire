@@ -83,12 +83,20 @@ Include Programs 仅用于模块化源代码，没有参数接口。
 
 `FORM <Subroutine> [<pass>].  <Statement block>. ENDFORM.`
 
+将数据从调用部分传递到被调用部分的方式有以下三种：
+
+- 传值：VALUE()
+- 通过引用传递
+- 按值传递并返回
+
 Form 中的参数解析：
 
 - 形式参数：在定义子程序时用 FORM 语句定义。
 
 
 - 实际参数：在使用 PERFORM 语句调用子程序期间指定。
+
+#### 参数使用
 
 
 TABLES：Type 和 Like 只能参照标准内表类型或标准内表对象
@@ -97,9 +105,10 @@ TABLES：Type 和 Like 只能参照标准内表类型或标准内表对象
 
 USING：值传递，对形参的修改不会改变实参
 
-- ` FORM <name> USING [p1....pn].`
+- `PERFORM frm_name USING p1.`
+- ` FORM frm_name USING [ VALUE(P_PER1) TYPE <type> .... pn].`
 
-CHANGING：使用排序表或则哈希表，如果 CHANGE 值传递，对形参的修改还是会改变实参，在 Form 或则 Function 执行完后才去修改
+CHANGING：使用排序表或则哈希表，如果 CHANGE 值传递（VALUE(P_PER1)），对形参的修改还是会改变实参，在 Form 或则 Function 执行完后才去修改
 
 - `FORM <name> CHANGING [p1....pn].`
 

@@ -24,13 +24,15 @@ tags:
 
 ### FIELDCATALOG 创建的函数
 
-如果 ALV 所要展示的列过多时，建议先在数据字典系统中创建相应的Structure，这样可免去对输出列表头信息的繁琐编辑处理，代码行也会缩短。
+如果 ALV 所要展示的列过多时，建议先在数据字典系统中创建相应的 Structure，这样可免去对输出列表头信息的繁琐编辑处理，代码行也会缩短。
 
 **REUSE_ALV_FIELDCATALOG_MERGE**：根据定义的结构生成 FIELDCAT 字段结构信息。
 
 **LVC_FIELDCATALOG_MERGE**：针对 REUSE_ALV_GRID_DISPLAY_LVC 函数，生成 FIELDCAT 字段结构信信息。
 
-对于 **SLIS** 开头的内表或结构，可以在类型池 SLIS 中查看详细信息；**LVC** 开头的可以在数据字典（**SE11**）中查看结构参数。
+- 对于 **SLIS** 开头的内表或结构，可以在类型池 SLIS 中查看详细信息；
+
+- **LVC** 开头的可以在数据字典（**SE11**）中查看结构参数。
 
 ### 字段目录和布局
 

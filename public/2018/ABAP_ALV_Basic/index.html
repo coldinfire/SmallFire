@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  974 ,
+  "wordcount":  1092 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Basic\/",
   "datePublished": "2018-06-18T00:00:00\u002b00:00",
   "dateModified": "2018-06-18T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                2 min
+                3 min
         </div>
     </header>
     <div class="post-content">
@@ -173,12 +173,15 @@
 
           <p><strong>ALV</strong> (SAP List Viewer) 是 SAP 常用的屏幕显示列表控件对象，通过传递数据内表方式显示数据； <strong>ALV</strong> 显示格式分为 Grid 和 List 两种模式。</p>
 <ul>
-<li>
-<p>Grid 模式有栏位选择按钮功能，允许用户直接输出格式，操作更为灵活。</p>
-</li>
-<li>
-<p>List 模式则固定格式，应用于较严格的标准报表。</p>
-</li>
+<li>Grid 模式有栏位选择按钮功能，允许用户直接输出格式，操作更为灵活。</li>
+<li>List 模式则固定格式，应用于较严格的标准报表。</li>
+</ul>
+<h4 id="创建-alv-的不同方法">创建 ALV 的不同方法</h4>
+<ul>
+<li>Basic：REUSE_ALV_GRID_DISPLAY / REUSE_ALV_GRID_DISPLAY_LVC</li>
+<li>OOALV：CL_GUI_ALV_GRID，使用面向对象的方式</li>
+<li><a href="https://zevolving.com/category/salv-tutorial/salv-table/">SALV</a>：CL_SALV_TABLE，不提供编辑模式</li>
+<li><a href="https://abapblog.com/falv">FALV</a> ：ZCL_FALV，开源可用的</li>
 </ul>
 <h3 id="报表组成">报表组成</h3>
 <h4 id="report-开头">Report 开头</h4>
@@ -186,10 +189,20 @@
   line<span style="color:#f92672">-</span>size &lt;size&gt;
   line<span style="color:#f92672">-</span>count &lt;n(n1)&gt;
   <span style="color:#66d9ef">message-id</span> &lt;message_class&gt;.
-</code></pre></div><p>no standard page heading：为了抑制列表标题或程序名称。</p>
+</code></pre></div><ul>
+<li>
+<p>no standard page heading：为了抑制列表标题或程序名称。</p>
+</li>
+<li>
 <p>line-size：设置报表的行大小。</p>
+</li>
+<li>
 <p>line-count：使用加法行数 n(n1) 来设置特定页面的行数。N 是页面的行数，N1 是为页脚保留的行数。</p>
+</li>
+<li>
 <p>message-id：为了显示程序执行的消息，向程序添加消息类：Message-id &lt;消息类名称&gt;。消息类在 SE91 中维护。</p>
+</li>
+</ul>
 <h4 id="report-主体内容">Report 主体内容</h4>
 <p>数据定义：定义报表依赖的表，定义全局变量、内表、ALV 变量、宏定义等。</p>
 <p>INCLUDE x：可以通过 include 方式保存报表的功能函数。</p>
@@ -248,8 +261,8 @@
 </ul>
 <h3 id="报表程序大体逻辑结构">报表程序大体逻辑结构</h3>
 <p><strong>抬  头:</strong> 报表的主要信息 (抬头信息)。</p>
-<p><strong>行项目:</strong> 查询出的每行记录信息。</p>
-<p><strong>明  细:</strong> 每个行项目出关键字外其他明细内容。</p>
+<p><strong>行项目:</strong> 查询出的每行记录信息的关键字段。</p>
+<p><strong>明  细:</strong> 每个行项目除了关键字段外其他明细内容。</p>
 <h3 id="报表程序性能问题在业务层面的表现">报表程序性能问题在业务层面的表现</h3>
 <p><strong>1、报表查询维度多，不同的查询维度是完全不同的查询路径</strong></p>
 <p>如果大量的查询逻辑和处理代码都是不同的，就应该设计成不同的查询报表。否则将带来极大的运维成本。</p>
@@ -270,7 +283,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>974</span>
+                   <span>1092</span>
             </p>
             
             <p class="copyright-item">

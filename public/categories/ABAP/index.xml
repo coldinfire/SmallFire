@@ -985,7 +985,7 @@
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_Memory/</guid>
-      <description>SAP Memory 和 ABAP Memory 使用的语句不同 SAP memory使用SET/GET parameters SET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. GET PARAMETER ID &amp;lsquo;MAT&amp;rsquo; FIELD var_matnr. ABAP Memory使用EXPORT 和IMPORT EXPORT p_matnr = var_matnr TO MEMORY ID</description>
+      <description>SAP Memory 和 ABAP Memory ABAP MEMORY：当活动的内部会话在单个主会话中调用另一个内部会话时，使用 export 和 import 参数传递数据。 SAP MEMORY：使用 set 和 get 参数将数据从</description>
     </item>
     
     <item>
@@ -1340,7 +1340,7 @@
     </item>
     
     <item>
-      <title> 报表开发常用工具 </title>
+      <title> ALV 常用工具 </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</link>
       <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
       
@@ -1647,10 +1647,10 @@
     
     <item>
       <title> Field Catalog 字段排坑 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_DisplayBugFixed/</link>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Display_util/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_DisplayBugFixed/</guid>
       <description>原文链接：https://blog.csdn.net/zhongguomao/article/details/77774206 对于初写 ALV 的 A</description>
     </item>
     
@@ -1723,7 +1723,7 @@
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_CHECKBOX/</guid>
-      <description>定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT 添加 CheckBox &amp;#34;$. Region ALV_Data&amp;#34; TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &amp;#39;CHECKBOX&amp;#39;. alv_fieldcat-scrtext_m = &amp;#39;Choose&amp;#39;. alv_fieldcat-checkbox = &amp;#39;X&amp;#39;. alv_fieldcat-edit = &amp;#39;X&amp;#39;. alv_fieldcat-just = &amp;#39;C&amp;#39;. APPEND alv_fieldcat. 自定义按钮 FORM f_alv_user_command USING</description>
+      <description>定义结构中定义该字段 TYPE: BEGIN OF str_print, checkbox TYPE flag, ... END OF str_print. DATA: gt_print TYPE TABLE OF gt_print WITH HEADER LINE. FIELDCAT 添加 CheckBox &amp;#34;$. Region ALV_Data&amp;#34; TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &amp;#39;CHECKBOX&amp;#39;. alv_fieldcat-scrtext_m = &amp;#39;Choose&amp;#39;. alv_fieldcat-checkbox = &amp;#39;X&amp;#39;. alv_fieldcat-edit = &amp;#39;X&amp;#39;. alv_fieldcat-just = &amp;#39;C&amp;#39;. APPEND alv_fieldcat. 自定</description>
     </item>
     
     <item>
@@ -1822,7 +1822,7 @@
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis_InnerTable/</guid>
-      <description>工作区和内表的关系 工作区 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 间接定义 通过 TYPES 定义并创</description>
+      <description>工作区和内表的关系 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 工作区 间接定义 通过 TYPES 定义并创</description>
     </item>
     
     <item>

@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" ABAP 内表使用 "/>
-<meta name="twitter:description" content="工作区和内表的关系 工作区 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 间接定义 通过 TYPES 定义并创"/>
+<meta name="twitter:description" content="工作区和内表的关系 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。 工作区 间接定义 通过 TYPES 定义并创"/>
 
   <script type="application/ld+json">
 {
@@ -173,10 +173,10 @@
           
           
 
-          <h4 id="工作区和内表的关系">工作区和内表的关系</h4>
-<p><img src="/images/ABAP/ABAP_Basis_1.png" alt="自定义表创建"></p>
-<h3 id="工作区">工作区</h3>
+          <h3 id="工作区和内表的关系">工作区和内表的关系</h3>
 <p>工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。</p>
+<p><img src="/images/ABAP/ABAP_Basis_1.png" alt="Internal Table & Structure"></p>
+<h3 id="工作区">工作区</h3>
 <h4 id="间接定义">间接定义</h4>
 <p>通过 TYPES 定义并创建结构行，不能再程序中直接使用，需要通过 DATA 定义对应的工作区或内表 。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> str_order.
@@ -247,7 +247,8 @@
 <li><code>DATA table_name TYPE TABLE OF structure [WITH HEADER LINE].</code></li>
 <li><code>DATA table_name LIKE TABLE OF structure [WITH HEADER LINE].</code> ：定义内表，该内表和后面的结构字段一致</li>
 </ul>
-<p>WITH HEADER LINE 作用：</p>
+<p><code>WITH HEADER LINE.</code> 作用：</p>
+<p><img src="/images/ABAP/ABAP_Basis_2.png" alt="Header Line"></p>
 <ul>
 <li>系统会在此处自动创建工作区，此工作区称为 HEADER LINE</li>
 <li>工作区具有与内部表相同的数据类型，itab[] 来标识内表，itab 标识工作区</li>

@@ -12,13 +12,13 @@ tags:
 
 ---
 
-#### 工作区和内表的关系
-
-![自定义表创建](/images/ABAP/ABAP_Basis_1.png)
-
-### 工作区
+### 工作区和内表的关系
 
 工作区是单行数据与对应的内表具有相同的格式。 它用于一次处理一个内部表中的数据，相当于一维数组。
+
+![Internal Table & Structure](/images/ABAP/ABAP_Basis_1.png)
+
+### 工作区
 
 #### 间接定义
 
@@ -109,7 +109,9 @@ INTERNAL TABLE 用于对数据库表的子集执行表计算，也用于根据�
 - `DATA table_name TYPE TABLE OF structure [WITH HEADER LINE].`
 - `DATA table_name LIKE TABLE OF structure [WITH HEADER LINE].` ：定义内表，该内表和后面的结构字段一致
 
-WITH HEADER LINE 作用：
+`WITH HEADER LINE.` 作用：
+
+![Header Line](/images/ABAP/ABAP_Basis_2.png)
 
 - 系统会在此处自动创建工作区，此工作区称为 HEADER LINE
 - 工作区具有与内部表相同的数据类型，itab[] 来标识内表，itab 标识工作区

@@ -15,8 +15,14 @@ tags:
 **ALV** (SAP List Viewer) 是 SAP 常用的屏幕显示列表控件对象，通过传递数据内表方式显示数据； **ALV** 显示格式分为 Grid 和 List 两种模式。
 
 -  Grid 模式有栏位选择按钮功能，允许用户直接输出格式，操作更为灵活。
-
 - List 模式则固定格式，应用于较严格的标准报表。
+
+#### 创建 ALV 的不同方法
+
+- Basic：REUSE_ALV_GRID_DISPLAY / REUSE_ALV_GRID_DISPLAY_LVC 
+- OOALV：CL_GUI_ALV_GRID，使用面向对象的方式
+- [SALV](https://zevolving.com/category/salv-tutorial/salv-table/)：CL_SALV_TABLE，不提供编辑模式
+- [FALV](https://abapblog.com/falv) ：ZCL_FALV，开源可用的
 
 ### 报表组成
 
@@ -29,13 +35,17 @@ REPORT <report_name> no standard page heading
   message-id <message_class>.
 ```
 
-no standard page heading：为了抑制列表标题或程序名称。
+- no standard page heading：为了抑制列表标题或程序名称。
 
-line-size：设置报表的行大小。
 
-line-count：使用加法行数 n(n1) 来设置特定页面的行数。N 是页面的行数，N1 是为页脚保留的行数。
+- line-size：设置报表的行大小。
 
-message-id：为了显示程序执行的消息，向程序添加消息类：Message-id <消息类名称>。消息类在 SE91 中维护。
+
+- line-count：使用加法行数 n(n1) 来设置特定页面的行数。N 是页面的行数，N1 是为页脚保留的行数。
+
+
+- message-id：为了显示程序执行的消息，向程序添加消息类：Message-id <消息类名称>。消息类在 SE91 中维护。
+
 
 #### Report 主体内容
 
@@ -87,9 +97,9 @@ INCLUDE x：可以通过 include 方式保存报表的功能函数。
 ### 报表程序大体逻辑结构
 **抬  头:** 报表的主要信息 (抬头信息)。
 
-**行项目:** 查询出的每行记录信息。
+**行项目:** 查询出的每行记录信息的关键字段。
 
-**明  细:** 每个行项目出关键字外其他明细内容。
+**明  细:** 每个行项目除了关键字段外其他明细内容。
 
 ### 报表程序性能问题在业务层面的表现
 

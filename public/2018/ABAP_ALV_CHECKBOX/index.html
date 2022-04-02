@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" ALV 添加复选框，并添加全选，不全选 "/>
-<meta name="twitter:description" content="定义结构中定义该字段 DATA: BEGIN OF gt_print OCCURS 10, CHECKBOX TYPE flag, ...... DATA: END OF gt_print. FIELDCAT 添加 CheckBox &#34;$. Region ALV_Data&#34; TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &#39;CHECKBOX&#39;. alv_fieldcat-scrtext_m = &#39;Choose&#39;. alv_fieldcat-checkbox = &#39;X&#39;. alv_fieldcat-edit = &#39;X&#39;. alv_fieldcat-just = &#39;C&#39;. APPEND alv_fieldcat. 自定义按钮 FORM f_alv_user_command USING"/>
+<meta name="twitter:description" content="定义结构中定义该字段 TYPE: BEGIN OF str_print, checkbox TYPE flag, ... END OF str_print. DATA: gt_print TYPE TABLE OF gt_print WITH HEADER LINE. FIELDCAT 添加 CheckBox &#34;$. Region ALV_Data&#34; TYPE-POOLS:slis. DATA: alv_fieldcat TYPE STANDARD TABLE OF slis_fieldcat_alv WITH HEADER LINE, alv_layout TYPE slis_layout_alv. alv_fieldcat-fieldname = &#39;CHECKBOX&#39;. alv_fieldcat-scrtext_m = &#39;Choose&#39;. alv_fieldcat-checkbox = &#39;X&#39;. alv_fieldcat-edit = &#39;X&#39;. alv_fieldcat-just = &#39;C&#39;. APPEND alv_fieldcat. 自定"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  127 ,
+  "wordcount":  133 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_CHECKBOX\/",
   "datePublished": "2018-06-14T00:00:00\u002b00:00",
   "dateModified": "2018-06-14T00:00:00\u002b00:00",
@@ -172,10 +172,11 @@
           
 
           <h4 id="定义结构中定义该字段">定义结构中定义该字段</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: <span style="color:#66d9ef">BEGIN OF</span> gt_print OCCURS <span style="color:#ae81ff">10</span>,
-        CHECKBOX <span style="color:#66d9ef">TYPE </span>flag,
-        ......
-<span style="color:#66d9ef">DATA</span>: <span style="color:#66d9ef">END OF</span> gt_print.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP">TYPE: <span style="color:#66d9ef">BEGIN OF</span> str_print,
+        checkbox <span style="color:#66d9ef">TYPE </span>flag,
+        ...
+  <span style="color:#66d9ef">END OF</span> str_print.
+<span style="color:#66d9ef">DATA</span>: gt_print <span style="color:#66d9ef">TYPE TABLE OF</span> gt_print <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.
 </code></pre></div><h4 id="fieldcat-添加-checkbox">FIELDCAT 添加 CheckBox</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">&#34;$. Region ALV_Data&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">TYPE-POOLS</span>:slis.
@@ -188,14 +189,15 @@ alv_fieldcat<span style="color:#f92672">-</span>edit      <span style="color:#f9
 alv_fieldcat<span style="color:#f92672">-</span>just      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;C&#39;</span>.
 <span style="color:#66d9ef">APPEND</span> alv_fieldcat.
 </code></pre></div><h4 id="自定义按钮">自定义按钮</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">f_alv_user_command</span> <span style="color:#66d9ef">USING</span> r_ucomm <span style="color:#66d9ef">LIKE </span>sy<span style="color:#f92672">-</span>ucomm
-                              rs_selfield <span style="color:#66d9ef">TYPE </span>slis_selfield.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">frm_alv_user_command</span> <span style="color:#66d9ef">USING</span> r_ucomm <span style="color:#66d9ef">LIKE </span>sy<span style="color:#f92672">-</span>ucomm
+                                rs_selfield <span style="color:#66d9ef">TYPE </span>slis_selfield.
   <span style="color:#66d9ef">CASE</span> r_ucomm.
      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;&amp;SALL&#39;</span> <span style="color:#f92672">OR</span> <span style="color:#e6db74">&#39;&amp;UALL&#39;</span>.
-      <span style="color:#66d9ef">PERFORM</span> <span style="color:#a6e22e">f_select</span> <span style="color:#66d9ef">USING</span> r_ucomm.
+      <span style="color:#66d9ef">PERFORM</span> <span style="color:#a6e22e">frm_select</span> <span style="color:#66d9ef">USING</span> r_ucomm.
   <span style="color:#66d9ef">ENDCASE</span>.
 <span style="color:#66d9ef">ENDFORM</span>.
-<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">f_select</span> <span style="color:#66d9ef">USING</span> cmd <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>ucomm.
+
+<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">frm_select</span> <span style="color:#66d9ef">USING</span> cmd <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>ucomm.
   <span style="color:#66d9ef">DATA</span>: flag <span style="color:#66d9ef">TYPE </span>c.
   <span style="color:#66d9ef">CASE</span> cmd.
     <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;&amp;SALL&#39;</span>.
@@ -206,7 +208,7 @@ alv_fieldcat<span style="color:#f92672">-</span>just      <span style="color:#f9
       <span style="color:#66d9ef">RETURN</span>.
   <span style="color:#66d9ef">ENDCASE</span>.
   <span style="color:#66d9ef">LOOP AT </span>gt_print.
-    gt_print<span style="color:#f92672">-</span>CHECKBOX <span style="color:#f92672">=</span> flag.
+    gt_print<span style="color:#f92672">-</span>checkbox <span style="color:#f92672">=</span> flag.
     <span style="color:#66d9ef">MODIFY</span> gt_print <span style="color:#66d9ef">INDEX</span> sy<span style="color:#f92672">-</span>tabix.
   <span style="color:#66d9ef">ENDLOOP</span>.
 <span style="color:#66d9ef">ENDFORM</span>.                    <span style="color:#75715e">&#34;f_select&#34;
@@ -223,7 +225,7 @@ alv_fieldcat<span style="color:#f92672">-</span>just      <span style="color:#f9
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>127</span>
+                   <span>133</span>
             </p>
             
             <p class="copyright-item">
