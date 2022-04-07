@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abaputils",
-  "wordcount":  900 ,
+  "wordcount":  812 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_Memory\/",
   "datePublished": "2019-02-25T00:00:00\u002b00:00",
   "dateModified": "2019-02-25T00:00:00\u002b00:00",
@@ -189,19 +189,26 @@ SAP MEMORY：使用 set 和 get 参数将数据从一个主会话传递到另一
 </ul>
 <p>ABAP Memory使用EXPORT 和IMPORT</p>
 <ul>
-<li>EXPORT p_matnr = var_matnr TO MEMORY ID <strong>&lsquo;memory_id&rsquo;.</strong></li>
-<li>IMPORT p_matnr = var_matnr FROM MEMORY ID <strong>&lsquo;memory_id&rsquo;.</strong></li>
+<li>EXPORT p_matnr TO MEMORY ID <strong>&lsquo;memory_id&rsquo;.</strong></li>
+<li>IMPORT p_matnr FROM MEMORY ID <strong>&lsquo;memory_id&rsquo;.</strong></li>
 </ul>
+<p>清空 memory</p>
+<ul>
+<li>
 <p>FREE MEMORY ID &lsquo;ZTESTMAT&rsquo;. =&gt; 清空指定的ABAP memory</p>
+</li>
+<li>
 <p>FREE MEMORY. =&gt; 清空External Session内的所有ABAP memory</p>
+</li>
+</ul>
 <h4 id="共享范围不同">共享范围不同</h4>
-<p>SAP memory用于所有external session间.</p>
-<p>ABAP memory用于同一个external session的internal session间。</p>
+<p>SAP memory 用于所有external session 间。</p>
+<p>ABAP memory 用于同一个 external session 的 internal session 间。</p>
 <h4 id="作用范围不同就是生存期">作用范围不同（就是生存期）</h4>
 <p>SAP memory在登陆到退出这期间一直有效。</p>
 <p>ABAP memory只在同一个session(window) 内有效。</p>
-<h4 id="dialog获取sapmemory方式">Dialog获取SAPMemory方式</h4>
-<p>在dialog 屏幕上建一个input field, 然后Parameter ID属性与&rsquo;SAP_MMR&rsquo;绑定,并打上2个勾。</p>
+<h4 id="dialog-获取-sap-memory-方式">Dialog 获取 SAP Memory 方式</h4>
+<p>在 dialog 屏幕上建一个 input field，然后 Parameter ID 属性与 &lsquo;SAP_MMR&rsquo; 绑定，并打上2个勾。</p>
 <p>Set Parameter: 允许将屏幕值返回给SAP Memory (类似于执行SET PARAMETER ID语句)</p>
 <p>Get Parameter: 允许读取SAP Memory的值并默认显示(类似于执行GET PARAMETER ID语句).</p>
 <h3 id="创建共享内存对象类">创建共享内存对象类</h3>
@@ -297,7 +304,7 @@ SAP MEMORY：使用 set 和 get 参数将数据从一个主会话传递到另一
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>900</span>
+                   <span>812</span>
             </p>
             
             <p class="copyright-item">

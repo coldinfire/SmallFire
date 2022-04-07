@@ -28,18 +28,22 @@ SAP memory使用SET/GET parameters
 
 ABAP Memory使用EXPORT 和IMPORT
 
-- EXPORT p_matnr = var_matnr TO MEMORY ID **'memory_id'.**
-- IMPORT p_matnr = var_matnr FROM MEMORY ID **'memory_id'.**
+- EXPORT p_matnr TO MEMORY ID **'memory_id'.**
+- IMPORT p_matnr FROM MEMORY ID **'memory_id'.**
 
- FREE MEMORY ID 'ZTESTMAT'. => 清空指定的ABAP memory
+清空 memory
 
- FREE MEMORY. => 清空External Session内的所有ABAP memory    
+-  FREE MEMORY ID 'ZTESTMAT'. => 清空指定的ABAP memory
+
+
+-  FREE MEMORY. => 清空External Session内的所有ABAP memory    
+
 
 #### 共享范围不同
 
-SAP memory用于所有external session间.
+SAP memory 用于所有external session 间。
 
- ABAP memory用于同一个external session的internal session间。
+ ABAP memory 用于同一个 external session 的 internal session 间。
 
 #### 作用范围不同（就是生存期）
 
@@ -47,9 +51,9 @@ SAP memory在登陆到退出这期间一直有效。
 
 ABAP memory只在同一个session(window) 内有效。
 
-#### Dialog获取SAPMemory方式
+#### Dialog 获取 SAP Memory 方式
 
-在dialog 屏幕上建一个input field, 然后Parameter ID属性与'SAP_MMR'绑定,并打上2个勾。
+在 dialog 屏幕上建一个 input field，然后 Parameter ID 属性与 'SAP_MMR' 绑定，并打上2个勾。
 
 Set Parameter: 允许将屏幕值返回给SAP Memory (类似于执行SET PARAMETER ID语句)
 

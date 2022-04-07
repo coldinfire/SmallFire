@@ -1,6 +1,6 @@
 ---
 title: " GRID ALV Demo "
-date: 2018-06-26
+date: 2018-06-27
 draft: false
 author: Small Fire
 isCJKLanguage: true
