@@ -107,6 +107,15 @@
     </item>
     
     <item>
+      <title> ALV 中自定义搜索帮助 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_SearchHelp/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_SearchHelp/</guid>
+      <description>方法一 如果希望 ALV 中某字段具有搜索帮助，第一种办法当然是对表中某字段的引用，设置ref_table、ref_field，将自动触发该字段所带的</description>
+    </item>
+    
+    <item>
       <title> ALV 常用工具 </title>
       <link>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</link>
       <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>

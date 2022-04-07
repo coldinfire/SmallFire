@@ -297,10 +297,10 @@
     
     <item>
       <title> SAP 搜索帮助 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_ALV_SearchHelp/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_ALV_Screen_SearchHelp/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_ALV_SearchHelp/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_ALV_Screen_SearchHelp/</guid>
       <description>搜索帮助优先级 先 PROCESS ON VALUE-REQUEST 、AT SELECTION-SCREEN ON VALUE-REQUEST 再 PARAMETERS VALUE CHECK / SELECT-OPTIONS MATCHCODE OBJECT XXXX 其次是Check Table、再表（或结构 ）字段是否绑定了搜索帮助 然后检查 Data element 是否绑定了搜</description>
     </item>
     

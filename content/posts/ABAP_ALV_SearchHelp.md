@@ -1,6 +1,6 @@
 ---
-title: " SAP 搜索帮助 "
-date: 2019-10-12
+title: " ALV 中自定义搜索帮助 "
+date: 2018-08-24
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -8,257 +8,216 @@ categories:
   - ABAP
 
 tags: 
-  - abaputils
-
+  - ALV
 ---
 
-### 搜索帮助优先级
+### 方法一
 
-- 先 `PROCESS ON VALUE-REQUEST` 、`AT SELECTION-SCREEN ON VALUE-REQUEST`
+如果希望 ALV 中某字段具有搜索帮助，第一种办法当然是对表中某字段的引用，设置ref_table、ref_field，将自动触发该字段所带的搜索帮助。
 
-- 再 `PARAMETERS VALUE CHECK` / `SELECT-OPTIONS MATCHCODE OBJECT XXXX`
+### 方法二
 
-- 其次是`Check Table`、再表（或结构 ）字段是否绑定了搜索帮助
+第二种办法就是利用自定义代码来实现 ALV 的搜索帮助，显然它的功能更强大、更灵活。针对在 OO ALV 中实现搜索帮助，其主要步骤有：
 
-- 然后检查 Data element 是否绑定了搜索帮助 ，再检查 Domain 是否存在 Fixed Values
-
-- 最后才是SAP中的 DATS、TIMS 搜索帮助
-
-### VALUE CHECK
-
-`PARAMETER p_test TYPE mara-matnr VALUE CHECK.`
-
-如果选择屏幕字段参考数据元素所对应的 Domain 设置了 **固定值（ Fixed Values ）**或 **值表（ Value Table ）**时，使用 VALUE CHECK 选项后，会验证输入值是否在固定值或值表范围之内。
-
-- 若要使值表检查生效，则首先需要将此 Domain 引用到表字段，再对此表字段通过 Foreign Keys 按钮进行外键分配，并且外键一定是来自值表的主键，最后使用 PARAMETERS 定义屏幕参数时要参照此表字段，否则如果只是直接参照所对应的 Data Element 是不起作用， **即 Value Table 一定要经过转换为 Check Table 后再起作用**。
-
-- 如果要使用 VALUE CHECK 选项，则 Domain 的类型只能是 **C** 或者 **N** 类型 ， 否则运行会抛异常。另外， **如果未使用该选项，但** **F4 Help** **还是会出现** （有固定值或检查表的情况下），但不进行有效性检查。
-
-### 使用搜索帮助对象
-
-当某个表字段有检查表，并且又有搜索帮助，则数据一般来自源于检查表，而 **F4 的输入输出则由搜索帮助来决定**。 
-
-#### 定义 Search Help
-
-在命令字段中输入事务代码 SE11；选择搜索帮助单选按钮，然后输入自定义搜索帮助的名称。然后点击创建按钮。 
-
-1、在下一个屏幕上，选择 “基本搜索帮助” 选项。
-
-![Search Help](/images/ABAP/SearchHelp1.png)
-
-2、输入搜索帮助的描述。在选择方法字段中，应输入数据库表名称（我们将从该表中选择信息类型编号字段的值）。
-
-![Search Help](/images/ABAP/SearchHelp.png)
-
-3、选择对话框类型：Display values immediately
-
-4、下面的 “参数” 结构中，输入选择条件所需的字段并显示在值帮助上。参数的各种选项包括：
-
-| 属性                 | 描述                                                         |
-| -------------------- | ------------------------------------------------------------ |
-| **Search help para** | 来自数据源的字段，选择条件所需的字段                         |
-| **IMP**              | 输入参数，即将选择屏幕上的字段值传递给搜索帮助               |
-| **EXP**              | 输出参数，即将从搜索帮助中传递到报表屏幕上                   |
-| **LPOS**             | 控制选择列表中搜索帮助参数或字段出现在匹配列表中的位置，如果为 0 或留空的列则不会显示 |
-| **SPOS**             | 控制限制性对话框中的搜索帮助参数或字段显示的位置             |
-| **SDIS**             | 使该字段在选择屏幕中 “仅显示”                                |
-| **Data element**     | 设置搜索帮助参数的属性。通常由系统填写                       |
-| **MOD**              | 选中此框可以分配与系统提供的数据元素不同的数据元素           |
-| **Default**          | 以以下三种方式之一指定默认值："文字"(带引号)，参数ID（ZRD）或系统字段(SY-UNAME) |
-
-6、搜索帮助准备就绪后，将其选中并激活。
-
-#### 示例代码：Z_MIN_Z21
+1：在 ALV 的事件处理类中添加 Search Help Method，定义如下：
 
 ```ABAP
-SELECTION-SCREEN BEGIN OF LINE.
-SELECTION-SCREEN COMMENT 2(15) text1 .
-PARAMETERS: p_bwart(4) MATCHCODE OBJECT z_min_z21.
-SELECTION-SCREEN END OF LINE.
-INITIALIZATION.
-  text1 = 'Reason Code'.
+handle_onf4 FOR EVENT onf4 OF cl_gui_alv_grid
+            IMPORTING e_fieldname es_row_no er_event_data.
 ```
 
-![SE11 Serch help](/images/ABAP/SearchHelp2.png)
+- IMPLEMENTATION ：是我们希望执行的具体代码，用来弹出可选择对话框
+- e_fieldname：代表用户点击了 ALV 的哪个字段来触发搜索帮助
+- es_row_no：代表了当前行信息，
+- es_row_no-row_id：就是 ALV 中内表记录的 INDEX。er_event_data 代表了当前用户对 ALV 进行了哪些编辑的信息。在 Method 的最后，记得加上 `er_event_data->m_event_handled = 'X'.` 通知系统搜索事件处理完毕，这样就不会调用系统标准的Search Help。
 
-#### 搜索帮助出口 
+2：对需要自定义搜索帮助的字段，设置其 field catalog 时： `gs_fieldcat-f4availabl = 'X'.`
 
-`Z_REASON_CODE_MIN_Z21`
+3：在创建 ALV 对象之后，要对需要自定义搜索帮助的字段进行注册。
 
 ```ABAP
-FUNCTION Z_REASON_CODE_MIN_Z21.
-*----------------------------------------------------------------------
-*Local Interface:
-*  TABLES
-*      SHLP_TAB TYPE  SHLP_DESCT
-*      RECORD_TAB STRUCTURE  SEAHLPRES
-*  CHANGING
-*     VALUE(SHLP) TYPE  SHLP_DESCR
-*     VALUE(CALLCONTROL) LIKE  DDSHF4CTRL STRUCTURE  DDSHF4CTRL
-*----------------------------------------------------------------------
-DATA: it_ddshselopt TYPE TABLE OF ddshselopt WITH HEADER LINE,
-      it_ddshfprops TYPE TABLE OF ddshfprop WITH HEADER LINE,
-      BEGIN OF it_shlpfld OCCURS 0,
-        parameter TYPE shlpfield,
-        fieldname TYPE fnam_____4,
-        END OF it_shlpfld,
-      BEGIN OF rang_template OCCURS 0,
-        sign   TYPE tvarv_sign,
-        option TYPE tvarv_opti,
-        low    TYPE rsdsselop_,
-        high   TYPE rsdsselop_,
-        END OF rang_template,
-      " 用于存储从选择屏幕上传进的屏幕字段的选择条件值 "
-      ranges_bwart   LIKE TABLE OF rang_template WITH HEADER LINE,
-      ranges_grund   LIKE TABLE OF rang_template WITH HEADER LINE,
-      ranges_grtxt   LIKE TABLE OF rang_template WITH HEADER LINE.
-" 此内表用于存储命中清单数据. 注：字段的名称一定要与搜索参数名一样，但顺序可以不同 "
-DATA:BEGIN OF l_it_t157d OCCURS 0,
-       bwart TYPE bwart,
-       grund TYPE mb_grbew,
-       grtxt TYPE grtxt,
-      END OF l_it_t157d ,
-      l_it_tmp LIKE TABLE OF l_it_t157d WITH HEADER LINE.
-  FIELD-SYMBOLS <wa> like  l_it_t157d.
+DATA: lt_f4 TYPE lvc_t_f4 WITH HEADER LINE.
+  CLEAR lt_f4.
+  lt_f4-fieldname = 'FIELD_NAME'.
+  lt_f4-register = 'X'.
+  lt_f4-chngeafter = 'X'.
+  APPEND lt_f4.
+  CALL METHOD mygrid->register_f4_for_fields
+   EXPORTING
+    it_f4 = lt_f4[].
+```
 
-  it_ddshfprops[] = shlp-fieldprop.
-  LOOP AT it_ddshfprops WHERE shlplispos <> 0.
-    it_shlpfld-parameter = it_ddshfprops-fieldname.
-    it_shlpfld-fieldname = it_ddshfprops-fieldname.
-    APPEND it_shlpfld.
-  ENDLOOP.
-  "DISP：在命中清单显示之前调用,表示数据已经查出,下一步就该显示了。"
-  CHECK callcontrol-step = 'DISP'. 
-  "shlp-selopt存储的是经过映射转换后选择屏幕上字段的值，而不是直接为选择屏幕字段名，而是转映射为Help参数"
-  " 名后再存储到 selopt 内表中，屏幕字段到 Help 参数映射是通过 shlp-interface 来映射的。"
-  it_ddshselopt[] = shlp-selopt.
-  LOOP AT it_ddshselopt WHERE shlpfield = 'BWART'.
-    MOVE-CORRESPONDING it_ddshselopt TO ranges_bwart.
-    APPEND ranges_bwart.
-  ENDLOOP.
-  LOOP AT it_ddshselopt WHERE shlpfield = 'GRUND'.
-    MOVE-CORRESPONDING it_ddshselopt TO ranges_grund.
-    APPEND ranges_grund.
-  ENDLOOP.
-  LOOP AT it_ddshselopt WHERE shlpfield = 'GRTXT2'.
-    MOVE-CORRESPONDING it_ddshselopt TO ranges_grtxt.
-    APPEND ranges_grtxt.
-  ENDLOOP.
-  " 根据屏幕上传进的条件查询数据 "
-  SELECT bwart grund  INTO CORRESPONDING FIELDS OF TABLE l_it_t157d
-    FROM t157d
-   WHERE bwart IN ranges_bwart
-     AND grund IN ranges_grund
-     AND bwart = 'Z21'.
-  SELECT bwart grund grtxt INTO CORRESPONDING FIELDS OF TABLE l_it_tmp
-    FROM t157e
-    WHERE spras = 'E'
-      AND bwart IN ranges_bwart
-      AND grund IN ranges_grund
-      AND grtxt IN ranges_grtxt
-      AND bwart = 'Z21'.
-  SORT l_it_tmp BY bwart grund.
+lvc_s_f4 中的字段 getbefore 和 changeafter 应该代表是否触发 data_changed 事件。
 
-  LOOP AT l_it_t157d ASSIGNING <wa>.
-    CLEAR l_it_tmp.
-    READ TABLE l_it_tmp WITH KEY bwart = <wa>-bwart grund = <wa>-grund BINARY SEARCH.
-    <wa>-grtxt = l_it_tmp-grtxt.
-  ENDLOOP.
+4：为其指定事件处理类（假设go_evt_receiver是自定义事件处理类的一个对象）：
 
-  callcontrol-maxexceed = ''.
-  " 该函数的作用是将内表 lt_tab 中的数据转换成 record_tab ，即将某内表中的数据显示在命中清单中 "
-  LOOP AT it_shlpfld.
-    CALL FUNCTION 'F4UT_PARAMETER_RESULTS_PUT'
+```ABAP
+CREATE OBJECT go_evt_receiver.
+SET HANDLER go_evt_receiver->handle_onf4 FOR go_alv_grid.
+```
+
+### DEMO
+
+```ABAP
+TYPE-POOLS: slis.
+*---------------------------------------------------------------------*
+*       CLASS lcl_event_receiver DEFINITION
+*---------------------------------------------------------------------*
+CLASS lcl_event_receiver DEFINITION.
+  PUBLIC SECTION.
+    CLASS-METHODS:
+    handle_onf4 FOR EVENT onf4 OF cl_gui_alv_grid
+      IMPORTING e_fieldname es_row_no er_event_data,
+    on_f4 FOR EVENT onf4 OF cl_gui_alv_grid
+      IMPORTING sender e_fieldname e_fieldvalue es_row_no
+                er_event_data et_bad_cells e_display,
+    on_data_changed FOR EVENT data_changed OF cl_gui_alv_grid
+      IMPORTING e_onf4 e_onf4_before e_onf4_after er_data_changed
+                e_ucomm sender.
+  PRIVATE SECTION.
+    TYPES: ddshretval_table TYPE TABLE OF ddshretval.
+    CLASS-METHODS: my_f4 
+    IMPORTING sender TYPE REF TO cl_gui_alv_grid
+      et_bad_cells   TYPE lvc_t_modi
+      es_row_no      TYPE lvc_s_roid
+      er_event_data  TYPE REF TO cl_alv_event_data
+      e_display      TYPE c
+      e_fieldname    TYPE lvc_fname
+    EXPORTING im_lt_f4 TYPE ddshretval_table.
+ENDCLASS.                    "lcl_event_receiver DEFINITION"
+
+*---------------------------------------------------------------------*
+*       CLASS lcl_event_receiver IMPLEMENTATION
+*---------------------------------------------------------------------*
+CLASS lcl_event_receiver IMPLEMENTATION.
+  METHOD handle_onf4.
+    DATA: ls_modi TYPE lvc_s_modi,
+          lt_ret_tab TYPE TABLE OF ddshretval WITH HEADER LINE.
+    FIELD-SYMBOLS <modtab> TYPE lvc_t_modi.
+    IF e_fieldname = 'FIELD_NAME'. "我们自定义搜索的字段名"
+      READ TABLE gt_alv_data INDEX es_row_no-row_id.
+      CHECK sy-subrc = 0.
+**  这里可以添加代码以对lt_hitlist内表进行填充
+      CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
+        EXPORTING
+          retfield        = 'HIT_FIELD'
+          value_org       = 'S'
+        TABLES
+          value_tab       = lt_hitlist
+          return_tab      = lt_ret_tab
+        EXCEPTIONS
+          parameter_error = 1
+          no_values_found = 2
+          OTHERS          = 3.
+      IF sy-subrc = 0.
+**  Update the value in ALV cell
+        READ TABLE lt_ret_tab INDEX 1.
+        IF sy-subrc = 0. " User didn't cancel "
+          ls_modi-row_id = es_row_no-row_id.
+          ls_modi-fieldname = e_fieldname.
+          ls_modi-value = lt_ret_tab-fieldval.
+          ASSIGN er_event_data->m_data->* TO <modtab>.
+          APPEND ls_modi TO <modtab>.
+        ENDIF.
+      ENDIF.
+**  Inform ALV Grid that event 'onf4' has been processed
+      er_event_data->m_event_handled = 'X'.
+    ENDIF.
+  ENDMETHOD.                    "handle_onf4"
+  
+  METHOD on_f4.
+    DATA: ls_f4 TYPE ddshretval,
+          lt_f4 TYPE TABLE OF ddshretval.
+    FIELD-SYMBOLS: <itab> TYPE lvc_t_modi.
+    DATA: ls_modi TYPE lvc_s_modi.
+    CALL METHOD my_f4
       EXPORTING
-        parameter   = it_shlpfld-parameter
-        fieldname   = it_shlpfld-fieldname
+        sender        = sender
+        es_row_no     = es_row_no
+        er_event_data = er_event_data
+        et_bad_cells  = et_bad_cells
+        e_display     = e_display
+        e_fieldname   = e_fieldname
+      IMPORTING
+        im_lt_f4      = lt_f4.
+    ASSIGN er_event_data->m_data->* TO <itab>.
+    READ TABLE lt_f4 INTO ls_f4 WITH KEY fieldname = 'MTART'.
+    IF NOT ls_f4 IS INITIAL.
+      ls_modi-row_id    = es_row_no-row_id.
+      ls_modi-fieldname = 'MTART'.
+      ls_modi-value     = ls_f4-fieldval.
+      APPEND ls_modi TO <itab>.
+      ls_modi-row_id = es_row_no-row_id.
+      ls_modi-fieldname = 'VALUE'.
+      IF ls_f4-fieldval < 'D'.
+        ls_modi-value = 100.
+      ELSEIF ls_f4-fieldval < 'R'.
+        ls_modi-value = 1000.
+      ELSE.
+        ls_modi-value = 10000.
+      ENDIF.
+      APPEND ls_modi TO <itab>.
+    ENDIF.
+    READ TABLE lt_f4 INTO ls_f4 WITH KEY fieldname = 'MTBEZ'.
+    IF NOT ls_f4 IS INITIAL.
+      ls_modi-row_id    = es_row_no-row_id.
+      ls_modi-fieldname = 'MTBEZ'.
+      ls_modi-value     = ls_f4-fieldval.
+      APPEND ls_modi TO <itab>.
+    ENDIF.
+    er_event_data->m_event_handled = 'X'.
+  ENDMETHOD.                                                "on_f4"
+*---------------------------------------------------------------------*
+*       METHOD on_data_changed                                        *
+*---------------------------------------------------------------------*
+  METHOD on_data_changed.
+  ENDMETHOD.                    "on_data_changed"
+*---------------------------------------------------------------------*
+*       METHOD my_f4  insert here your own f4-help                    *
+*---------------------------------------------------------------------*
+  METHOD my_f4.
+    DATA: lw_tab      LIKE LINE OF gt_data,
+          lt_fcat     TYPE lvc_t_fcat,
+          ls_fieldcat TYPE lvc_s_fcat,
+          l_tabname   TYPE dd03v-tabname,
+          l_fieldname TYPE dd03v-fieldname,
+          l_help_valu TYPE help_info-fldvalue,
+          lt_bad_cell TYPE lvc_t_modi,
+    lp_wa       TYPE REF TO data.
+    FIELD-SYMBOLS: <l_field_value> TYPE ANY,
+                   <ls_wa>         TYPE ANY.
+    CALL METHOD sender->get_frontend_fieldcatalog
+      IMPORTING
+        et_fieldcatalog = lt_fcat.
+    READ TABLE gt_data INDEX es_row_no-row_id INTO lw_tab.
+    CREATE DATA lp_wa LIKE LINE OF gt_data.
+    ASSIGN lp_wa->* TO <ls_wa>.
+    <ls_wa> = lw_tab.
+    READ TABLE lt_fcat WITH KEY fieldname = e_fieldname INTO ls_fieldcat.
+    MOVE ls_fieldcat-ref_table TO l_tabname.
+    MOVE ls_fieldcat-fieldname TO l_fieldname.
+    ASSIGN COMPONENT ls_fieldcat-fieldname OF STRUCTURE lw_tab TO <l_field_value>.
+    WRITE <l_field_value> TO l_help_valu.
+    PERFORM f4_set USING sender
+          lt_fcat
+          lt_bad_cell
+          es_row_no-row_id
+          <ls_wa>.
+    CALL FUNCTION 'F4IF_FIELD_VALUE_REQUEST'
+      EXPORTING
+        tabname          = l_tabname
+        fieldname        = l_fieldname
+        display          = e_display
+        value            = l_help_valu
+        callback_program = 'ZTEST7'
+        callback_form    = 'F4'
       TABLES
-        shlp_tab    = shlp_tab   " Reference to field of Seatinfo "
-        record_tab  = record_tab " 结果集 "
-        source_tab  = l_it_t157d
-      CHANGING
-        shlp        = shlp
-        callcontrol = callcontrol.
-  ENDLOOP.
-ENDFUNCTION.
+        return_tab       = im_lt_f4
+      EXCEPTIONS
+        parameter_error  = 1
+        no_values_found  = 2
+        OTHERS           = 3.
+  ENDMETHOD.                        "my_f4"
+ENDCLASS.                    "lcl_event_receiver IMPLEMENTATION"
 ```
 
-### 搜索帮助创建函数
-
-在屏幕的 ON VALUE-REQUEST 事件中可以通过以下几个函数来创建搜索帮助：
-
-- F4IF_FIELD_VALUE_REQUEST：在程序运行时，可以动态的为屏幕上某个字段指定 Search Help。被引用的搜索帮助来自于某个表（结构）字段上绑定的 Search Help
-- F4IF_INT_TABLE_VALUE_REQUEST：在程序运行时，将某个内表动态的用作 Search Help 的数据，可实现联动效果
-- TR_F4_HELP：实现简单的 Search Help，数据来源于内表
-
-#### FM：F4IF_INT_TABLE_VALUE_REQUEST
-
-在程序运行时，将某个内表动态的用作 **Search help**  的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果。
-
-```ABAP
-parameters: p_bname LIKE usr02-bname,
-            p_class LIKE usr02-class.
-AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_bname.
-	PERFORM frm_valuereq_bwart.
-FORM frm_valuereq_bwart.
-" 需要显示的结果集 "
-DATA: BEGIN OF t_data OCCURS 1,
-    data(20),
-END OF t_data.
-" 字段 "
-DATA: lwa_dfies TYPE dfies,
-      h_field_wa LIKE dfies,
-      h_field_tab LIKE dfies occurs 0 with header line,
-      h_dselc LIKE dselc occurs 0 with header line.
-SELECT * FROM usr02.
-  t_data = usr02-bname. APPEND t_data.
-  t_data = usr02-class. APPEND t_data.
-ENDSELECT.
-PERFORM f_fieldinfo_get USING 'USR02' 'BNAME' CHANGING h_field_wa.
-APPEND h_field_wa TO h_field_tab.
-PERFORM f_fieldinfo_get USING 'USR02' 'CLASS' CHANGING h_field_wa.
-APPEND h_field_wa TO h_field_tab.
-
-h_dselc-fldname = 'BNAME'.
-h_dselc-dyfldname = 'P_BNAME'.
-APPEND h_dselc.
-h_dselc-fldname = 'CLASS'.
-h_dselc-dyfldname = 'P_CLASS'.
-APPEND h_dselc.
-CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
-  EXPORTING
-    retfield = 'P_BWART' "搜索帮助表返回到选择屏幕的字段的参数"
-    dynpprog = sy-repid
-    dynpnr   = sy-dynnr
-    dynprofield = 'P_BWART' "选择屏幕上需要添加F4帮助的字段"
-  * multiple_choice = ''
-    value_org = 'S'      "默认：C"
-  TABLES
-    value_tab = t_data   "F4 帮助值的表"
-    field_tab = h_field_tab
-  * return_tab = return_tab
-    DYNPFLD_MAPPING = h_dselc
-  EXCEPTIONS
-    OTHERS = 0.
-ENDFORM. 
-
-FORM f_fieldinfo_get USING fu_tabname fu_fieldname
-                     CHANGING fwa_field_tab.
-  CALL FUNCTION 'DDIF_FIELDINFO_GET'
-    EXPORTING
-      TABNAME = fu_tabname
-      FIELDNAME = fu_fieldname
-      LANGU     = sy-langu
-      LFIELDNAME = fu_fieldname
-    IMPORTING
-      DFIES_WA = fwa_field_tab
-    EXCEPTIONS
-      NOT_FOUND = 1
-      INTERNAL_ERROR = 2
-      OTHERS = 3.
-  IF SY-SUBRC <> 0.
-    MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
-    WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
-  ENDIF.
-ENDFORM.
-```
