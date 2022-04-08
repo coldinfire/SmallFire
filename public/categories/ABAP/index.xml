@@ -6,16 +6,7 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 23 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title> Screen 文件对话框 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_ALV_FileDialog/</link>
-      <pubDate>Tue, 23 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2021/ABAP_ALV_FileDialog/</guid>
-      <description>在 selection screen 中，经常要用到文件相关的对话框，比如选择本地文件上传，将数据从 iternal table 下载到本地等，为了增加程序的友好性，需要用到文件相关的对话框。 KD_GET_FILENAME_ON_F4 这个</description>
-    </item>
-    
+    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title> ABAP 动态函数调用 </title>
       <link>https://coldinfire.github.io/2021/ABAP_DynamicFM/</link>
@@ -1016,6 +1007,15 @@
     </item>
     
     <item>
+      <title> Screen 文件对话框 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_FileDialog/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_FileDialog/</guid>
+      <description>在 selection screen 中，经常要用到文件相关的对话框，比如选择本地文件上传，将数据从 iternal table 下载到本地等，为了增加程序的友好性，需要用到文件相关的对话框。 KD_GET_FILENAME_ON_F4 这个</description>
+    </item>
+    
+    <item>
       <title> 日期操作 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Utils_Date/</link>
       <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
@@ -1098,19 +1098,19 @@
     
     <item>
       <title> SAP Excel 文件操作 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Excel_TemplateOperate/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_EXCEL_TemplateOperate/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Excel_TemplateOperate/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_EXCEL_TemplateOperate/</guid>
       <description>操作 EXCEL 文件方式 使用类操作文件 CL_GUI_FRONTEND_SERVICES：该类提供了大量对操作系统文件的操作，如拷贝、列出文件名、打开文</description>
     </item>
     
     <item>
       <title> SAP 上传和下载 Excel </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Excel_Template/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_EXCEL_Template/</link>
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Excel_Template/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_EXCEL_Template/</guid>
       <description>上传模板 EXCEL 文档是通过 SMW0 上传的。 选择模板类型 根据Package和Name查找模板 编辑模板 创建模板，维护名称和描述后从本地选择文件上传 下载模板 通</description>
     </item>
     
