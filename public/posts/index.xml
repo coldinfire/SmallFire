@@ -1007,6 +1007,15 @@
     </item>
     
     <item>
+      <title> 内表导出到 Excel </title>
+      <link>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</guid>
+      <description>SAP 提供了 cl_salv_export_tool 类用于将 ALV 数据导出到 Excel，如果是早一点的版本，系统没有这个函数可以使用 XXL_SIMPLE_API。 XXL_SIMPLE_API 函数 XXL_SIMPLE_API 实现将 internal table 的数据</description>
+    </item>
+    
+    <item>
       <title> ABAP 学习网站记录 </title>
       <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
       <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
@@ -1589,15 +1598,6 @@
       
       <guid>https://coldinfire.github.io/2019/MM_Basis_GoodsReceive/</guid>
       <description>1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO GRIN清单： 供应商发票上的PO# 与Org PO #相同 供应商地址和采购订单地址匹配 物料数量应在Org PO中可用 发票价格</description>
-    </item>
-    
-    <item>
-      <title> 内表导出到 Excel </title>
-      <link>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</guid>
-      <description>SAP 提供了 cl_salv_export_tool 类用于将 ALV 数据导出到 Excel，如果是早一点的版本，系统没有这个函数可以使用 XXL_SIMPLE_API。 XXL_SIMPLE_API 函数 XXL_SIMPLE_API 实现将 internal table 的数据</description>
     </item>
     
     <item>

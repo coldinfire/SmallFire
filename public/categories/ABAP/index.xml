@@ -575,6 +575,15 @@
     </item>
     
     <item>
+      <title> 内表导出到 Excel </title>
+      <link>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</guid>
+      <description>SAP 提供了 cl_salv_export_tool 类用于将 ALV 数据导出到 Excel，如果是早一点的版本，系统没有这个函数可以使用 XXL_SIMPLE_API。 XXL_SIMPLE_API 函数 XXL_SIMPLE_API 实现将 internal table 的数据</description>
+    </item>
+    
+    <item>
       <title> ABAP 学习网站记录 </title>
       <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
       <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
@@ -968,15 +977,6 @@
       
       <guid>https://coldinfire.github.io/2019/SAP_JOB/</guid>
       <description>定义 Background Job SE38 执行可执行程序 菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo; 输入输出设备 选择开始时间（立刻执行，或</description>
-    </item>
-    
-    <item>
-      <title> 内表导出到 Excel </title>
-      <link>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</guid>
-      <description>SAP 提供了 cl_salv_export_tool 类用于将 ALV 数据导出到 Excel，如果是早一点的版本，系统没有这个函数可以使用 XXL_SIMPLE_API。 XXL_SIMPLE_API 函数 XXL_SIMPLE_API 实现将 internal table 的数据</description>
     </item>
     
     <item>
