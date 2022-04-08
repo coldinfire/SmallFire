@@ -27,10 +27,11 @@ tags:
 
 #### 使用 BAPI 操作文件
 
-F4 获取文件路径 
+F4 获取文件路径
 
 - KD_GET_FILENAME_ON_F4：打开选择框，并获取本地文件路径
 - WS_FILENAME_GET：打开选择框，并获取本地文件路径
+- F4_FILENAME：最简洁的方式
 
 判断文件是否存在
 
@@ -50,7 +51,7 @@ F4 获取文件路径
 
 ### 读取本地文件并转换为内表
 
-#### GUI 输入框选择文件 (F4)
+#### [GUI 输入框选择文件 (F4)](https://coldinfire.github.io/2018/ABAP_ALV_FileDialog/)
 
 ```ABAP
 TABLES: sscrfields.
@@ -68,39 +69,7 @@ AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_file.
     STOP.
     SET CURSOR FIELD p_file.
   ENDIF.
-" Method 1 "
-FORM frm_get_filename CHANGING cv_file.
-  CALL FUNCTION 'KD_GET_FILENAME_ON_F4'
-    CHANGING
-      file_name = cv_file.
-  IF sy-subrc <> 0.
-    MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-    EXIT.
-  ENDIF.
-ENDFORM.
-" METHOD 2 "
-FORM frm_get_filename CHANGING cv_file.
-  CALL FUNCTION 'WS_FILENAME_GET'
-   EXPORTING
-     mask                   = ',*.xlsx,*.XLSX,*.xls,*.XLS.'
-     mode                   = 'O'
-     title                  = 'Please check the input file local path'
-   IMPORTING
-     filename               = cv_file
-*     RC                     =
-   EXCEPTIONS
-     inv_winsys             = 1
-     no_batch               = 2
-     selection_cancel       = 3
-     selection_error        = 4
-     OTHERS                 = 5.
-  IF sy-subrc <> 0.
-*    MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
-*      WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
-  ENDIF.
-ENDFORM. 
-" Method 3 "
+" Method"
 FORM frm_get_filename  CHANGING cv_file.
   DATA: lt_file TYPE filetable,
         lv_rc   TYPE i.

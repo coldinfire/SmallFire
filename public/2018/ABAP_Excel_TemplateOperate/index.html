@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV, abaputils",
-  "wordcount":  1607 ,
+  "wordcount":  1519 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_EXCEL_TemplateOperate\/",
   "datePublished": "2018-11-13T00:00:00\u002b00:00",
   "dateModified": "2018-11-13T00:00:00\u002b00:00",
@@ -193,6 +193,7 @@
 <ul>
 <li>KD_GET_FILENAME_ON_F4：打开选择框，并获取本地文件路径</li>
 <li>WS_FILENAME_GET：打开选择框，并获取本地文件路径</li>
+<li>F4_FILENAME：最简洁的方式</li>
 </ul>
 <p>判断文件是否存在</p>
 <ul>
@@ -211,7 +212,7 @@
 <li>CALL FUNCTION &lsquo;GUI_UPLOAD&rsquo;：读取 txt 模板文件</li>
 </ul>
 <h3 id="读取本地文件并转换为内表">读取本地文件并转换为内表</h3>
-<h4 id="gui-输入框选择文件-f4">GUI 输入框选择文件 (F4)</h4>
+<h4 id="gui-输入框选择文件-f4httpscoldinfiregithubio2018abap_alv_filedialog"><a href="https://coldinfire.github.io/2018/ABAP_ALV_FileDialog/">GUI 输入框选择文件 (F4)</a></h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TABLES</span>: sscrfields.
 <span style="color:#66d9ef">TYPE-POOLS</span>: slis.
 <span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF BLOCK</span> blk1 <span style="color:#66d9ef">WITH FRAME</span> <span style="color:#66d9ef">TITLE</span> <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">001</span>.
@@ -227,39 +228,7 @@
     <span style="color:#66d9ef">STOP</span>.
     <span style="color:#66d9ef">SET CURSOR</span> <span style="color:#66d9ef">FIELD</span> p_file.
   <span style="color:#66d9ef">ENDIF</span>.
-<span style="color:#75715e">&#34; Method 1 &#34;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">frm_get_filename</span> <span style="color:#66d9ef">CHANGING</span> cv_file.
-  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;KD_GET_FILENAME_ON_F4&#39;</span>
-    <span style="color:#66d9ef">CHANGING</span>
-      file_name <span style="color:#f92672">=</span> cv_file.
-  <span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
-    <span style="color:#66d9ef">MESSAGE</span> <span style="color:#66d9ef">ID</span> sy<span style="color:#f92672">-</span>msgid <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>msgty <span style="color:#66d9ef">NUMBER</span> sy<span style="color:#f92672">-</span>msgno
-    <span style="color:#66d9ef">WITH</span> sy<span style="color:#f92672">-</span>msgv1 sy<span style="color:#f92672">-</span>msgv2 sy<span style="color:#f92672">-</span>msgv3 sy<span style="color:#f92672">-</span>msgv4.
-    <span style="color:#66d9ef">EXIT</span>.
-  <span style="color:#66d9ef">ENDIF</span>.
-<span style="color:#66d9ef">ENDFORM</span>.
-<span style="color:#75715e">&#34; METHOD 2 &#34;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">frm_get_filename</span> <span style="color:#66d9ef">CHANGING</span> cv_file.
-  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;WS_FILENAME_GET&#39;</span>
-   <span style="color:#66d9ef">EXPORTING</span>
-     mask                   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;,*.xlsx,*.XLSX,*.xls,*.XLS.&#39;</span>
-     mode                   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;O&#39;</span>
-     <span style="color:#66d9ef">title</span>                  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Please check the input file local path&#39;</span>
-   <span style="color:#66d9ef">IMPORTING</span>
-     filename               <span style="color:#f92672">=</span> cv_file
-<span style="color:#75715e">*     RC                     =</span>
-   <span style="color:#66d9ef">EXCEPTIONS</span>
-     inv_winsys             <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-     no_batch               <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-     selection_cancel       <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-     selection_error        <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-     <span style="color:#66d9ef">OTHERS</span>                 <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>.
-  <span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
-<span style="color:#75715e">*    MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO</span>
-<span style="color:#75715e">*      WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.</span>
-  <span style="color:#66d9ef">ENDIF</span>.
-<span style="color:#66d9ef">ENDFORM</span>. 
-<span style="color:#75715e">&#34; Method 3 &#34;
+<span style="color:#75715e">&#34; Method&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">frm_get_filename</span>  <span style="color:#66d9ef">CHANGING</span> cv_file.
   <span style="color:#66d9ef">DATA</span>: lt_file <span style="color:#66d9ef">TYPE </span>filetable,
         lv_rc   <span style="color:#66d9ef">TYPE </span>i.
@@ -423,7 +392,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1607</span>
+                   <span>1519</span>
             </p>
             
             <p class="copyright-item">
