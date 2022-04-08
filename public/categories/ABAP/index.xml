@@ -13,7 +13,7 @@
       <pubDate>Tue, 23 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_ALV_FileDialog/</guid>
-      <description>在 selection screen 中，经常要用到文件相关的对话框，比如选择本地文件上传，将数据从 iternal table 下载到本地等，为了增加程序的友好性，需要用到文件相关的对话框。 方法一</description>
+      <description>在 selection screen 中，经常要用到文件相关的对话框，比如选择本地文件上传，将数据从 iternal table 下载到本地等，为了增加程序的友好性，需要用到文件相关的对话框。 KD_GET_FILENAME_ON_F4 这个</description>
     </item>
     
     <item>

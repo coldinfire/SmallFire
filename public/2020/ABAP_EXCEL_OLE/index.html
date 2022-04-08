@@ -183,54 +183,54 @@
 <li>程序源码（ZOLE_EXCEL）</li>
 </ul>
 <h4 id="下载速度优化">下载速度优化</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#f92672">*</span> <span style="color:#a6e22e">将内表数据先放到剪切板上</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">全量粘贴</span>
-<span style="color:#a6e22e">DESCRIBE</span> <span style="color:#a6e22e">FIELD</span> <span style="color:#a6e22e">LW_ALV</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">LV_TYPE</span> <span style="color:#a6e22e">COMPONENTS</span> <span style="color:#a6e22e">LV_RC</span>.
-  <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">T_ALV</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">W_ALV</span>.
-    <span style="color:#a6e22e">LW_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">LINE1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">W_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">MANDT</span>.      
-    <span style="color:#a6e22e">LW_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">LINE2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">W_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">PERSNUMBER</span>.    
-    <span style="color:#a6e22e">LW_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">LINE3</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">W_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">NAME_LAST</span>.    
-    <span style="color:#a6e22e">LW_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">LINE4</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">W_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">NAME_TEXT</span>.    
-    <span style="color:#a6e22e">LW_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">LINE5</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">W_ALV</span><span style="color:#f92672">-</span><span style="color:#a6e22e">COMPANY</span>.    
-    <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">LW_CHAR</span><span style="color:#f92672">-</span><span style="color:#a6e22e">LINE</span>.
-    <span style="color:#a6e22e">DO</span> <span style="color:#a6e22e">LV_RC</span> <span style="color:#a6e22e">TIMES</span>.
-     <span style="color:#a6e22e">ASSIGN</span> <span style="color:#a6e22e">COMPONENT</span> <span style="color:#a6e22e">SY</span><span style="color:#f92672">-</span><span style="color:#a6e22e">INDEX</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">STRUCTURE</span> <span style="color:#a6e22e">LW_ALV</span> <span style="color:#a6e22e">TO</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">LV_FIELD</span><span style="color:#f92672">&gt;</span>.
-     <span style="color:#a6e22e">CONCATENATE</span> <span style="color:#a6e22e">LW_CHAR</span><span style="color:#f92672">-</span><span style="color:#a6e22e">LINE</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">LV_FIELD</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">CL_ABAP_CHAR_UTILITIES</span>=&gt;<span style="color:#a6e22e">HORIZONTAL_TAB</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">LW_CHAR</span><span style="color:#f92672">-</span><span style="color:#a6e22e">LINE</span>.
-    <span style="color:#a6e22e">ENDDO</span>.
-    <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">LW_CHAR</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">LT_CHAR</span>.
-  <span style="color:#a6e22e">ENDLOOP</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">将内表数据放到excel剪切板上</span>
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">CL_GUI_FRONTEND_SERVICES</span>=&gt;<span style="color:#a6e22e">CLIPBOARD_EXPORT</span>
-    <span style="color:#a6e22e">IMPORTING</span>
-      <span style="color:#a6e22e">DATA</span>                 <span style="color:#f92672">=</span> <span style="color:#a6e22e">LT_CHAR</span>  <span style="color:#e6db74">&#34;Data&#34;</span>
-    <span style="color:#a6e22e">CHANGING</span>
-      <span style="color:#a6e22e">RC</span>                   <span style="color:#f92672">=</span> <span style="color:#a6e22e">LV_RC</span>    <span style="color:#e6db74">&#34;Return Code&#34;</span>
-    <span style="color:#a6e22e">EXCEPTIONS</span>
-      <span style="color:#a6e22e">CNTL_ERROR</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-      <span style="color:#a6e22e">ERROR_NO_GUI</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-      <span style="color:#a6e22e">NOT_SUPPORTED_BY_GUI</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-<span style="color:#f92672">*</span>     <span style="color:#a6e22e">no_authority</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-      <span style="color:#a6e22e">OTHERS</span>               <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">* 将内表数据先放到剪切板上，全量粘贴</span>
+<span style="color:#66d9ef">DESCRIBE FIELD</span> LW_ALV <span style="color:#66d9ef">TYPE </span>LV_TYPE <span style="color:#66d9ef">COMPONENTS</span> LV_RC.
+  <span style="color:#66d9ef">LOOP AT </span>T_ALV <span style="color:#66d9ef">INTO</span> W_ALV.
+    LW_ALV<span style="color:#f92672">-</span>LINE1 <span style="color:#f92672">=</span> W_ALV<span style="color:#f92672">-</span>MANDT.      
+    LW_ALV<span style="color:#f92672">-</span>LINE2 <span style="color:#f92672">=</span> W_ALV<span style="color:#f92672">-</span>PERSNUMBER.    
+    LW_ALV<span style="color:#f92672">-</span>LINE3 <span style="color:#f92672">=</span> W_ALV<span style="color:#f92672">-</span>NAME_LAST.    
+    LW_ALV<span style="color:#f92672">-</span>LINE4 <span style="color:#f92672">=</span> W_ALV<span style="color:#f92672">-</span>NAME_TEXT.    
+    LW_ALV<span style="color:#f92672">-</span>LINE5 <span style="color:#f92672">=</span> W_ALV<span style="color:#f92672">-</span>COMPANY.    
+    <span style="color:#66d9ef">CLEAR</span> LW_CHAR<span style="color:#f92672">-</span>LINE.
+    <span style="color:#66d9ef">DO</span> LV_RC <span style="color:#66d9ef">TIMES</span>.
+     <span style="color:#66d9ef">ASSIGN</span> <span style="color:#66d9ef">COMPONENT</span> SY<span style="color:#f92672">-</span>INDEX <span style="color:#66d9ef">OF STRUCTURE</span> LW_ALV <span style="color:#66d9ef">TO</span> &lt;LV_FIELD&gt;.
+     <span style="color:#66d9ef">CONCATENATE</span> LW_CHAR<span style="color:#f92672">-</span>LINE &lt;LV_FIELD&gt; CL_ABAP_CHAR_UTILITIES<span style="color:#f92672">=&gt;</span>HORIZONTAL_TAB <span style="color:#66d9ef">INTO</span> LW_CHAR<span style="color:#f92672">-</span>LINE.
+    <span style="color:#66d9ef">ENDDO</span>.
+    <span style="color:#66d9ef">APPEND</span> LW_CHAR <span style="color:#66d9ef">TO</span> LT_CHAR.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+<span style="color:#75715e">* 将内表数据放到excel剪切板上</span>
+  <span style="color:#66d9ef">CALL METHOD</span> CL_GUI_FRONTEND_SERVICES<span style="color:#f92672">=&gt;</span>CLIPBOARD_EXPORT
+    <span style="color:#66d9ef">IMPORTING</span>
+      <span style="color:#66d9ef">DATA</span>                 <span style="color:#f92672">=</span> LT_CHAR  <span style="color:#75715e">&#34;Data&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">CHANGING</span>
+      RC                   <span style="color:#f92672">=</span> LV_RC    <span style="color:#75715e">&#34;Return Code&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">EXCEPTIONS</span>
+      CNTL_ERROR           <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+      ERROR_NO_GUI         <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+      NOT_SUPPORTED_BY_GUI <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+<span style="color:#75715e">*     no_authority         = 4</span>
+      <span style="color:#66d9ef">OTHERS</span>               <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>.
 
-  <span style="color:#a6e22e">GET</span> <span style="color:#a6e22e">PROPERTY</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">APPLICATION</span> <span style="color:#e6db74">&#39;ACTIVECELL&#39;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">SHEET</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">APPLICATION</span> <span style="color:#e6db74">&#39;Worksheets&#39;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">SHEET</span>
-    <span style="color:#a6e22e">EXPORTING</span>
+  <span style="color:#66d9ef">GET PROPERTY OF</span> APPLICATION <span style="color:#e6db74">&#39;ACTIVECELL&#39;</span> <span style="color:#f92672">=</span> SHEET.
+  <span style="color:#66d9ef">CALL METHOD</span> <span style="color:#66d9ef">OF</span> APPLICATION <span style="color:#e6db74">&#39;Worksheets&#39;</span> <span style="color:#f92672">=</span> SHEET
+    <span style="color:#66d9ef">EXPORTING</span>
       <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Sheet1&#39;</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">SHEET</span> <span style="color:#e6db74">&#39;Activate&#39;</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">Select</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">cell</span> <span style="color:#a6e22e">A1</span>
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">APPLICATION</span> <span style="color:#e6db74">&#39;CELLS&#39;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">CELL</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>  <span style="color:#e6db74">&#34; i_row &#34;</span>
-      <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.</span> <span style="color:#e6db74">&#34; i_col &#34;</span>
-
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">Paste</span> <span style="color:#a6e22e">clipboard</span> <span style="color:#a6e22e">from</span> <span style="color:#a6e22e">cell</span>
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">CELL</span> <span style="color:#e6db74">&#39;SELECT&#39;</span>. <span style="color:#e6db74">&#34; 选择单元格 &#34;</span>
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">SHEET</span> <span style="color:#e6db74">&#39;Paste&#39;</span>. <span style="color:#e6db74">&#34; 粘贴 &#34;</span>
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">APPLICATION</span> <span style="color:#e6db74">&#39;CELLS&#39;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">CELL</span>
-    <span style="color:#a6e22e">EXPORTING</span>
+  <span style="color:#66d9ef">CALL METHOD</span> <span style="color:#66d9ef">OF</span> SHEET <span style="color:#e6db74">&#39;Activate&#39;</span>.
+<span style="color:#75715e">* Select the cell A1</span>
+  <span style="color:#66d9ef">CALL METHOD</span> <span style="color:#66d9ef">OF</span> APPLICATION <span style="color:#e6db74">&#39;CELLS&#39;</span> <span style="color:#f92672">=</span> CELL
+    <span style="color:#66d9ef">EXPORTING</span>
+      <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>  <span style="color:#75715e">&#34; i_row &#34;
+</span><span style="color:#75715e"></span>      <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>. <span style="color:#75715e">&#34; i_col &#34;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">* Paste clipboard from cell</span>
+  <span style="color:#66d9ef">CALL METHOD</span> <span style="color:#66d9ef">OF</span> CELL <span style="color:#e6db74">&#39;SELECT&#39;</span>. <span style="color:#75715e">&#34; 选择单元格 &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CALL METHOD</span> <span style="color:#66d9ef">OF</span> SHEET <span style="color:#e6db74">&#39;Paste&#39;</span>. <span style="color:#75715e">&#34; 粘贴 &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CALL METHOD</span> <span style="color:#66d9ef">OF</span> APPLICATION <span style="color:#e6db74">&#39;CELLS&#39;</span> <span style="color:#f92672">=</span> CELL
+    <span style="color:#66d9ef">EXPORTING</span>
      <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
      <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> .
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">CELL</span> <span style="color:#e6db74">&#39;SELECT&#39;</span>. <span style="color:#e6db74">&#34; 取消全选&#34;</span>
-</code></pre></div><h4 id="程序源码">程序源码</h4>
+  <span style="color:#66d9ef">CALL METHOD</span> <span style="color:#66d9ef">OF</span> CELL <span style="color:#e6db74">&#39;SELECT&#39;</span>. <span style="color:#75715e">&#34; 取消全选&#34;
+</span></code></pre></div><h4 id="程序源码">程序源码</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TABLES</span>:ADRP.
 <span style="color:#75715e">&#34; Declare Internal Table TYPE &#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">TYPES</span>:<span style="color:#66d9ef">BEGIN OF</span> TP_ALV ,

@@ -28,7 +28,7 @@ tags:
 
 #### 下载速度优化
 
-```JS
+```ABAP
 * 将内表数据先放到剪切板上，全量粘贴
 DESCRIBE FIELD LW_ALV TYPE LV_TYPE COMPONENTS LV_RC.
   LOOP AT T_ALV INTO W_ALV.

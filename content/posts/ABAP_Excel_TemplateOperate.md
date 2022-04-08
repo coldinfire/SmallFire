@@ -27,7 +27,7 @@ tags:
 
 #### 使用 BAPI 操作文件
 
-F4 获取文件路径
+F4 获取文件路径 
 
 - KD_GET_FILENAME_ON_F4：打开选择框，并获取本地文件路径
 - WS_FILENAME_GET：打开选择框，并获取本地文件路径
