@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abapbasis",
-  "wordcount":  2203 ,
+  "wordcount":  2339 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_ObjectOriented_Features\/",
   "datePublished": "2019-06-25T00:00:00\u002b00:00",
   "dateModified": "2019-06-25T00:00:00\u002b00:00",
@@ -174,15 +174,30 @@
           <h3 id="对象创建与引用">对象创建与引用</h3>
 <p>ABAP 对象的创建和访问需要通过对象引用进行，引用类型是 ABAP 基本类型之一，其中包括&quot;数据引用&quot;和&quot;对象引用&quot;。其中对象引用又包括类引用和接口引用，对于普通类应使用类引用。</p>
 <p>在程序中，需要先根据对象类型声明引用类型变量，然后对该变量引用 ABAP 对象，该引用变量中实际上存储的是 ABAP 对象的内在地址，因而该引用类型变量也就是普通意义上的指向对象的指针。一个引用类型变量可以不指向任何内存地址或指向一个数据对象，但一个 ABAP 对象则可以同时存在多个指向它的指针，可以通过所有这些指针对其进行操作。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span> lo_test <span style="color:#66d9ef">TYPE REF TO</span> Z_CL_TEST.
-<span style="color:#66d9ef">CREATE OBJECT</span> lo_test1.
-<span style="color:#66d9ef">WRITE</span>: / lo_test1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">method</span>().
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">CLASS</span> class_1 <span style="color:#66d9ef">DEFINITION</span>.
+  <span style="color:#66d9ef">PUBLIC SECTION</span>.
+    <span style="color:#66d9ef">METHODS</span>: method1.
+<span style="color:#66d9ef">ENDCLASS</span>.
+<span style="color:#66d9ef">CLASS</span> class_1 <span style="color:#66d9ef">IMPLEMENTATION</span>.
+  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">method1</span>.
+    <span style="color:#66d9ef">WRITE</span>: / <span style="color:#e6db74">&#39;HELLO&#39;</span>.
+  <span style="color:#66d9ef">ENDMETHOD</span>.  
+<span style="color:#66d9ef">ENDCLASS</span>.
+<span style="color:#66d9ef">DATA</span> lo_test <span style="color:#66d9ef">TYPE REF TO</span> class_1.
+<span style="color:#66d9ef">CREATE OBJECT</span> lo_test.
+<span style="color:#66d9ef">WRITE</span>: / lo_test<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">method1</span>().
 </code></pre></div><ul>
 <li>
 <p>其中 DATA 语句创建了一个引用数据对象，该数据对象的类型定义为&quot;指向一个类名为 Z_CL_TEST 的对象的指针&quot;</p>
 </li>
 <li>
 <p>定义指针之后，CREATE OBJECT 语句则创建了一个类 Z_CL_TEST 的实例，并同时将该对象的地址指针赋给引用类型 lo_test1</p>
+</li>
+<li>
+<p>如果没有创建对象的实例，直接通过引用变量来调用对象的方法将出现下面的错误。</p>
+<ul>
+<li><code>Access via 'NULL' object reference not possible.</code></li>
+</ul>
 </li>
 </ul>
 <h4 id="访问对象组件">访问对象组件</h4>
@@ -256,9 +271,18 @@
 <h3 id="多态">多态</h3>
 <p>派生类通过继承基类的方法，并可以重写基类的公有或保护方法以实现方法的重载，该种情况实现了多态性。</p>
 <h4 id="方法重载">方法重载</h4>
-<p>在派生类中声明：<code>METHOD meth REDEFINITION.</code>该方法和基类方法具有相同的接口，和参数，内部可以增加不同的代码实现。</p>
-<p>方法重载过程中，使用基类的方法可以通过 <em><strong>SUPER</strong></em> 关键字来指定基类中对应的方法。</p>
-<h3 id="抽象和-final">抽象和 Final</h3>
+<p>在派生类中声明：<code>METHOD meth REDEFINITION.</code>该方法和基类方法具有相同的接口，和参数，在派生类的方法中，可以编写专属的方法实现。</p>
+<p>方法重载过程中不会自动调用父类方法的任何代码，使用基类的方法可以通过 <em><strong>SUPER</strong></em> 关键字来指定基类中对应的方法。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">CLASS</span> class_2 <span style="color:#66d9ef">DEFINITION</span> <span style="color:#66d9ef">INHERITING FROM</span> class_1.
+  <span style="color:#66d9ef">PUBLIC SECTION</span>.
+    <span style="color:#66d9ef">METHODS</span>: method1 <span style="color:#66d9ef">REDEFINITION</span>.
+<span style="color:#66d9ef">ENDCLASS</span>.
+<span style="color:#66d9ef">CLASS</span> class_2 <span style="color:#66d9ef">IMPLEMENTATION</span>.
+  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">method1</span>.
+    super<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">method1</span>( ).
+  <span style="color:#66d9ef">ENDMETHOD</span>.
+<span style="color:#66d9ef">ENDCLASS</span>.
+</code></pre></div><h3 id="抽象和-final">抽象和 Final</h3>
 <h4 id="抽象类">抽象类</h4>
 <p>一个基类可能包含多个派生类，但该基类只是作为模板出现的，并不需要有任何对象作为实例，则可以将该类声明为抽象类 (Abstract Class).</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">CLASS</span> class_1 <span style="color:#66d9ef">DEFINITION</span> <span style="color:#66d9ef">ABSTRACT</span>.
@@ -284,6 +308,10 @@
 <p>接口是一个独立结构，可以在其中定义一些成员并在具体类中实现，其作用是对类中已经定义的成员进行扩展。实现接口后，接口将成为类的公有成员， 但类可以自行对接口中的方法以其自身特定形式实现。这样，对于用户来说，不同的类对象包含相同的操作接口 (即接口中定义的成员名称), 但程序内部的具体实现则根据类的不同而有所区别。接口是 OOP 中除继承之外的另一个主要多态性的实现机制技术。</p>
 <p>一个接口可以被任意多个不同的类实现，该接口中定义的成员集在各个类中名称相同 (形成了一个标准接口)，然而各个类中成员的方法的实现方式则可以有差异， 也就形成了多态性。如果一个类中除接口之外没有定义任何类自身的公有成员方法，则接口就成了该类中的全部 &ldquo;外部接口&rdquo;。</p>
 <h4 id="定义">定义</h4>
+<ul>
+<li>只有定义部分，没有实现部分</li>
+<li>无 modifier 修饰，接口都是 public 的，不用显示标注</li>
+</ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">INTERFACE</span> interface1.
   <span style="color:#66d9ef">METHODS</span> m1.
 <span style="color:#66d9ef">ENDINTERFACE</span>.
@@ -330,7 +358,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2203</span>
+                   <span>2339</span>
             </p>
             
             <p class="copyright-item">

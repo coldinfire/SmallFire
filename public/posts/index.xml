@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title> Screen 文件对话框 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_ALV_FileDialog/</link>
+      <pubDate>Tue, 23 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_ALV_FileDialog/</guid>
+      <description>在 selection screen 中，经常要用到文件相关的对话框，比如选择本地文件上传，将数据从 iternal table 下载到本地等，为了增加程序的友好性，需要用到文件相关的对话框。 方法一</description>
+    </item>
+    
+    <item>
       <title> SAP HANA SQLScript 使用 </title>
       <link>https://coldinfire.github.io/2021/SAPHANA_SQLScript/</link>
       <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
@@ -3344,15 +3353,6 @@
       
       <guid>https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/</guid>
       <description>HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &amp;lt;!DOCTYPE html&amp;gt;; 编码统一为 &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;, 书写时实现层次分明的缩进； 所有编码均遵循 XHTML 标准，标签</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://coldinfire.github.io/1/Untitled/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/1/Untitled/</guid>
-      <description></description>
     </item>
     
   </channel>

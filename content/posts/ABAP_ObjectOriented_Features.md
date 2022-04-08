@@ -19,15 +19,27 @@ ABAP 对象的创建和访问需要通过对象引用进行，引用类型是 AB
 在程序中，需要先根据对象类型声明引用类型变量，然后对该变量引用 ABAP 对象，该引用变量中实际上存储的是 ABAP 对象的内在地址，因而该引用类型变量也就是普通意义上的指向对象的指针。一个引用类型变量可以不指向任何内存地址或指向一个数据对象，但一个 ABAP 对象则可以同时存在多个指向它的指针，可以通过所有这些指针对其进行操作。
 
 ```ABAP
-DATA lo_test TYPE REF TO Z_CL_TEST.
-CREATE OBJECT lo_test1.
-WRITE: / lo_test1->method().
+CLASS class_1 DEFINITION.
+  PUBLIC SECTION.
+    METHODS: method1.
+ENDCLASS.
+CLASS class_1 IMPLEMENTATION.
+  METHOD method1.
+    WRITE: / 'HELLO'.
+  ENDMETHOD.  
+ENDCLASS.
+DATA lo_test TYPE REF TO class_1.
+CREATE OBJECT lo_test.
+WRITE: / lo_test->method1().
 ```
 
 - 其中 DATA 语句创建了一个引用数据对象，该数据对象的类型定义为"指向一个类名为 Z_CL_TEST 的对象的指针"
 
 
 - 定义指针之后，CREATE OBJECT 语句则创建了一个类 Z_CL_TEST 的实例，并同时将该对象的地址指针赋给引用类型 lo_test1
+- 如果没有创建对象的实例，直接通过引用变量来调用对象的方法将出现下面的错误。
+
+  -  `Access via 'NULL' object reference not possible.`
 
 #### 访问对象组件
 
@@ -88,9 +100,21 @@ ENDCLASS.
 
 #### 方法重载
 
-在派生类中声明：`METHOD meth REDEFINITION.`该方法和基类方法具有相同的接口，和参数，内部可以增加不同的代码实现。
+在派生类中声明：`METHOD meth REDEFINITION.`该方法和基类方法具有相同的接口，和参数，在派生类的方法中，可以编写专属的方法实现。
 
-方法重载过程中，使用基类的方法可以通过 ***SUPER*** 关键字来指定基类中对应的方法。
+方法重载过程中不会自动调用父类方法的任何代码，使用基类的方法可以通过 ***SUPER*** 关键字来指定基类中对应的方法。
+
+```ABAP
+CLASS class_2 DEFINITION INHERITING FROM class_1.
+  PUBLIC SECTION.
+    METHODS: method1 REDEFINITION.
+ENDCLASS.
+CLASS class_2 IMPLEMENTATION.
+  METHOD method1.
+    super->method1( ).
+  ENDMETHOD.
+ENDCLASS.
+```
 
 ###  抽象和 Final 
 
@@ -143,6 +167,9 @@ Interfaces 即可以保证这些类外部看起来具有一致性，标准化的
 一个接口可以被任意多个不同的类实现，该接口中定义的成员集在各个类中名称相同 (形成了一个标准接口)，然而各个类中成员的方法的实现方式则可以有差异， 也就形成了多态性。如果一个类中除接口之外没有定义任何类自身的公有成员方法，则接口就成了该类中的全部 "外部接口"。
 
 #### 定义
+
+- 只有定义部分，没有实现部分
+- 无 modifier 修饰，接口都是 public 的，不用显示标注
 
 ```ABAP
 INTERFACE interface1.

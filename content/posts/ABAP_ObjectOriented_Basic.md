@@ -20,16 +20,16 @@ tags:
 
 类内定义的数据对象。
 
-- 实例属性：使用 DATA 定义
-- 静态属性：使用 CLASS-DATA 定义，在类声明的时候定义
+- 实例属性：使用 DATA 定义，属性属于对象的实例；通过对象变量以及`->` 符号调用
+- 静态属性：使用 CLASS-DATA 定义，在类声明的时候定义；属性属于类本身，在各个对象实例之间是共享的；通过类名以及 `=>` 符号调用
 - 常量属性：使用 CONSTANT 定义类常量，必须在类定义时指定其值
 
 #### 方法
 
 需要在类声明和实现两部分进行定义，声明部分说明方法的参数接口；实现部分通过代码完成方法的具体功能。有两中种方法类型：
 
-- 实例方法：使用 METHODS 定义
-- 静态方法：使用 CLASS-METHODS 定义，在类声明的时候定义
+- 实例方法：使用 METHODS 定义，方法属于对象的实例；通过对象变量以及`->` 符号调用
+- 静态方法：使用 CLASS-METHODS 定义，在类声明的时候定义；方法属于类本身，在各个对象实例之间是共享的；通过类名以及 `=>` 符号调用
 
 *方法定义*
 
@@ -54,11 +54,14 @@ oref->method|class=>method(
 
 #### 构造器
 
-每个类只有一个构造器，程序运行时在 Create object 语句中自动调用构造器。
+每个类只有一个构造器，程序运行时在 Create object 语句中自动调用构造器。定义 constructor 的时候，只能有 importing 参数，无 exporting 参数和 returning 参数。**构造方法主要的作用之一就是对 attributes 进行初始化**。
 
 - 必须在 public section 中定义和应用构造器
+- 定义了构造方法的类，在创建对象实例的时候必须指定 exporting 参数。
 
 #### Class Declarations
+
+在声明部分，`public section` 必须在 `private section` 前面。
 
 - PUBLIC SECTION：可被所有对象使用
 - PROTECTED SECTION：只能被类本身及其派生类中的方法使用
@@ -165,7 +168,7 @@ ENDCLASS.
 ```
 
 
-## SAP中定义并使用类
+## SAP 中定义并使用类
 
 ### 定义 Class
 
@@ -196,18 +199,48 @@ ENDCLASS.
 
 3. 使用 CREATE OBJECT 语句创建对象；
 
-4. 通过 -> 或 => 运算符访问对象或类组件；
+4. 通过 obj -> 或 class=> 访问对象或类组件；
 
 #### 使用实例
 
-CALL METHOD 已经是不推荐使用的 Statement，使用 `class->method( ).`。
+CALL METHOD 是传统调用对象方法的语法，如果方法只包含 importing 参数和 returning value 参数 (或者没有 returning 参数），调用的语法还可以作如下简化：使用 `class->method( ).`。
 
 ```ABAP
-DATA: go_veh1 TYPE REF TO z_cl_test.
-START-OF-SELECTION.
-CREATE OBJECT go_veh1.
+CLASS lcl_vehicle DEFINITION.
+  PUBLIC SECTION.
+    METHODS: accelerate IMPORTING delta TYPE i,
+             show_speed.
+  PRIVATE SECTION.
+    DATA speed TYPE i.
+ENDCLASS.
+CLASS lcl_vehicle IMPLEMENTATION.
+  METHOD accelerate.
+    me->speed = me->speed + delta.
+  ENDMETHOD.
+  METHOD show_speed.
+    WRITE: / me->speed.
+  ENDMETHOD.
+ENDCLASS.
+START-OF-SELECTION.cha
+  DATA: vehicle TYPE REF TO lcl_vehicle.
+  CREATE OBJECT vehicle.
 *CALL METHOD go_veh1->add.
-go_veh1->add( ).
+  vehicle->accelerate( 23 ).
+  vehicle->show_speed( ).
 ```
 
+#### 创建多个对象
+
+ABAP 没有数组，根据某一个类创建多个对象实例的时候，可以将对象变量存放在内表中，使用起来比较方便。
+
+```ABAP
+DATA: vehicle TYPE REF TO lcl_vehicle,
+      vehicle_tab TYPE TABLE OF REF TO lcl_vehicle.
+CREATE OBJECT vehicle.
+vehicle->accelerate( 23 ).
+APPEND vehicle TO vehicle_tab.
+LOOP AT vehicle_tab INTO vehicle.
+  vehicle->show_speed().
+ENDLOOP.
+```
 

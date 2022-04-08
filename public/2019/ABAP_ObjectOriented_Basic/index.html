@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abapbasis",
-  "wordcount":  1690 ,
+  "wordcount":  2059 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_ObjectOriented_Basic\/",
   "datePublished": "2019-06-23T00:00:00\u002b00:00",
   "dateModified": "2019-06-23T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                4 min
+                5 min
         </div>
     </header>
     <div class="post-content">
@@ -178,15 +178,15 @@
 <h4 id="属性">属性</h4>
 <p>类内定义的数据对象。</p>
 <ul>
-<li>实例属性：使用 DATA 定义</li>
-<li>静态属性：使用 CLASS-DATA 定义，在类声明的时候定义</li>
+<li>实例属性：使用 DATA 定义，属性属于对象的实例；通过对象变量以及<code>-&gt;</code> 符号调用</li>
+<li>静态属性：使用 CLASS-DATA 定义，在类声明的时候定义；属性属于类本身，在各个对象实例之间是共享的；通过类名以及 <code>=&gt;</code> 符号调用</li>
 <li>常量属性：使用 CONSTANT 定义类常量，必须在类定义时指定其值</li>
 </ul>
 <h4 id="方法">方法</h4>
 <p>需要在类声明和实现两部分进行定义，声明部分说明方法的参数接口；实现部分通过代码完成方法的具体功能。有两中种方法类型：</p>
 <ul>
-<li>实例方法：使用 METHODS 定义</li>
-<li>静态方法：使用 CLASS-METHODS 定义，在类声明的时候定义</li>
+<li>实例方法：使用 METHODS 定义，方法属于对象的实例；通过对象变量以及<code>-&gt;</code> 符号调用</li>
+<li>静态方法：使用 CLASS-METHODS 定义，在类声明的时候定义；方法属于类本身，在各个对象实例之间是共享的；通过类名以及 <code>=&gt;</code> 符号调用</li>
 </ul>
 <p><em>方法定义</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP">[CLASS<span style="color:#f92672">-</span>]METHODS <span style="color:#66d9ef">method</span>
@@ -202,11 +202,13 @@
   [EXCEPTION x1 <span style="color:#f92672">=</span> r1 ... Other <span style="color:#f92672">=</span> rn]
 ).
 </code></pre></div><h4 id="构造器">构造器</h4>
-<p>每个类只有一个构造器，程序运行时在 Create object 语句中自动调用构造器。</p>
+<p>每个类只有一个构造器，程序运行时在 Create object 语句中自动调用构造器。定义 constructor 的时候，只能有 importing 参数，无 exporting 参数和 returning 参数。<strong>构造方法主要的作用之一就是对 attributes 进行初始化</strong>。</p>
 <ul>
 <li>必须在 public section 中定义和应用构造器</li>
+<li>定义了构造方法的类，在创建对象实例的时候必须指定 exporting 参数。</li>
 </ul>
 <h4 id="class-declarations">Class Declarations</h4>
+<p>在声明部分，<code>public section</code> 必须在 <code>private section</code> 前面。</p>
 <ul>
 <li>PUBLIC SECTION：可被所有对象使用</li>
 <li>PROTECTED SECTION：只能被类本身及其派生类中的方法使用</li>
@@ -293,7 +295,7 @@
     ...
   <span style="color:#66d9ef">ENDMETHOD</span>.
 <span style="color:#66d9ef">ENDCLASS</span>.
-</code></pre></div><h2 id="sap中定义并使用类">SAP中定义并使用类</h2>
+</code></pre></div><h2 id="sap-中定义并使用类">SAP 中定义并使用类</h2>
 <h3 id="定义-class">定义 Class</h3>
 <p>通过事务代码：SE80 或 SE24 进入 Class Builder 进行创建类操作。</p>
 <p><img src="/images/ABAP/OO1.png" alt="Create"></p>
@@ -324,16 +326,42 @@
 <p>使用 CREATE OBJECT 语句创建对象；</p>
 </li>
 <li>
-<p>通过 -&gt; 或 =&gt; 运算符访问对象或类组件；</p>
+<p>通过 obj -&gt; 或 class=&gt; 访问对象或类组件；</p>
 </li>
 </ol>
 <h4 id="使用实例">使用实例</h4>
-<p>CALL METHOD 已经是不推荐使用的 Statement，使用 <code>class-&gt;method( ).</code>。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: go_veh1 <span style="color:#66d9ef">TYPE REF TO</span> z_cl_test.
-<span style="color:#66d9ef">START-OF-SELECTION</span>.
-<span style="color:#66d9ef">CREATE OBJECT</span> go_veh1.
+<p>CALL METHOD 是传统调用对象方法的语法，如果方法只包含 importing 参数和 returning value 参数 (或者没有 returning 参数），调用的语法还可以作如下简化：使用 <code>class-&gt;method( ).</code>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">CLASS</span> lcl_vehicle <span style="color:#66d9ef">DEFINITION</span>.
+  <span style="color:#66d9ef">PUBLIC SECTION</span>.
+    <span style="color:#66d9ef">METHODS</span>: accelerate <span style="color:#66d9ef">IMPORTING</span> delta <span style="color:#66d9ef">TYPE </span>i,
+             show_speed.
+  <span style="color:#66d9ef">PRIVATE SECTION</span>.
+    <span style="color:#66d9ef">DATA</span> speed <span style="color:#66d9ef">TYPE </span>i.
+<span style="color:#66d9ef">ENDCLASS</span>.
+<span style="color:#66d9ef">CLASS</span> lcl_vehicle <span style="color:#66d9ef">IMPLEMENTATION</span>.
+  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">accelerate</span>.
+    me<span style="color:#f92672">-&gt;</span>speed <span style="color:#f92672">=</span> me<span style="color:#f92672">-&gt;</span>speed <span style="color:#f92672">+</span> delta.
+  <span style="color:#66d9ef">ENDMETHOD</span>.
+  <span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">show_speed</span>.
+    <span style="color:#66d9ef">WRITE</span>: / me<span style="color:#f92672">-&gt;</span>speed.
+  <span style="color:#66d9ef">ENDMETHOD</span>.
+<span style="color:#66d9ef">ENDCLASS</span>.
+<span style="color:#66d9ef">START-OF-SELECTION</span>.cha
+  <span style="color:#66d9ef">DATA</span>: vehicle <span style="color:#66d9ef">TYPE REF TO</span> lcl_vehicle.
+  <span style="color:#66d9ef">CREATE OBJECT</span> vehicle.
 <span style="color:#75715e">*CALL METHOD go_veh1-&gt;add.</span>
-go_veh1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add</span>( ).
+  vehicle<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">accelerate</span>( <span style="color:#ae81ff">23</span> ).
+  vehicle<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">show_speed</span>( ).
+</code></pre></div><h4 id="创建多个对象">创建多个对象</h4>
+<p>ABAP 没有数组，根据某一个类创建多个对象实例的时候，可以将对象变量存放在内表中，使用起来比较方便。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: vehicle <span style="color:#66d9ef">TYPE REF TO</span> lcl_vehicle,
+      vehicle_tab <span style="color:#66d9ef">TYPE TABLE OF</span> <span style="color:#66d9ef">REF TO</span> lcl_vehicle.
+<span style="color:#66d9ef">CREATE OBJECT</span> vehicle.
+vehicle<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">accelerate</span>( <span style="color:#ae81ff">23</span> ).
+<span style="color:#66d9ef">APPEND</span> vehicle <span style="color:#66d9ef">TO</span> vehicle_tab.
+<span style="color:#66d9ef">LOOP AT </span>vehicle_tab <span style="color:#66d9ef">INTO</span> vehicle.
+  vehicle<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">show_speed</span>().
+<span style="color:#66d9ef">ENDLOOP</span>.
 </code></pre></div>
     </div>
 
@@ -347,7 +375,7 @@ go_veh1<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add</
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1690</span>
+                   <span>2059</span>
             </p>
             
             <p class="copyright-item">
