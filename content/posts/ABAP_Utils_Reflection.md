@@ -59,7 +59,7 @@ ENDLOOP.
 
 #### 动态获取内表的结构
 
-通过 cl_abap_typedescr 类的 describe_by_data 静态方法获取了内表变量的描述信息，然后再调用描述信息的 get_table_line_type 方法获取单行的类型变量。
+通过 cl_abap_typedescr 类的 describe_by_data / describe_by_data_ref 静态方法获取了内表变量的描述信息，然后再调用描述信息的 get_table_line_type 方法获取单行的类型变量。
 
 可通过单行变量动态获取结构中的各个字段名称、类型、长度及精度信息。
 

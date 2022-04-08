@@ -19,9 +19,9 @@ tags:
 
 #### 创建 ALV 的不同方法
 
-- Basic：REUSE_ALV_GRID_DISPLAY / REUSE_ALV_GRID_DISPLAY_LVC 
-- OOALV：CL_GUI_ALV_GRID，使用面向对象的方式
-- [SALV](https://zevolving.com/category/salv-tutorial/salv-table/)：CL_SALV_TABLE，不提供编辑模式
+- Basic：函数生成 ALV，REUSE_ALV_GRID_DISPLAY / REUSE_ALV_GRID_DISPLAY_LVC 
+- OOALV：以面向对象的方式实现，核心类 CL_GUI_ALV_GRID
+- [SALV](https://zevolving.com/category/salv-tutorial/salv-table/)：另一种面向对象的实现，简化了开发的复杂程度；核心类：CL_SALV_TABLE；不提供编辑模式
 - [FALV](https://abapblog.com/falv) ：ZCL_FALV，开源可用的
 
 ### 报表组成
@@ -59,7 +59,7 @@ INCLUDE x：可以通过 include 方式保存报表的功能函数。
 
 业务代码：在报表事件START-OF-SELECTION 后面实现报表的主要业务逻辑。
 
-显示报表：将处理后的业务数据以指定样式和格式显示。
+显示报表：将处理后的业务数据以指定样式和格式显示；使用 ALV 显示数据，首先需要知道输出什么**数据**(内表类型的数据结构)，还需要知道输出数据的**数据结构**（比如第一列显示什么，第二列显示什么，如何对齐，表头是什么，宽度多少，等等）。SAP 将这个数据结构称为 Field catalog。
 
 ### 执行程序的使用范围，报表事件
 

@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abaputils",
-  "wordcount":  1692 ,
+  "wordcount":  1694 ,
   "url": "https:\/\/coldinfire.github.io\/2021\/ABAP_Utils_Reflection\/",
   "datePublished": "2021-04-13T00:00:00\u002b00:00",
   "dateModified": "2021-04-13T00:00:00\u002b00:00",
@@ -212,7 +212,7 @@ lv_type <span style="color:#f92672">=</span> struct_type<span style="color:#f926
            gs_detail<span style="color:#f92672">-</span>decimals. 
 <span style="color:#66d9ef">ENDLOOP</span>.
 </code></pre></div><h4 id="动态获取内表的结构">动态获取内表的结构</h4>
-<p>通过 cl_abap_typedescr 类的 describe_by_data 静态方法获取了内表变量的描述信息，然后再调用描述信息的 get_table_line_type 方法获取单行的类型变量。</p>
+<p>通过 cl_abap_typedescr 类的 describe_by_data / describe_by_data_ref 静态方法获取了内表变量的描述信息，然后再调用描述信息的 get_table_line_type 方法获取单行的类型变量。</p>
 <p>可通过单行变量动态获取结构中的各个字段名称、类型、长度及精度信息。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: gt_itab <span style="color:#66d9ef">TYPE TABLE OF</span> spfli.  
 <span style="color:#66d9ef">DATA</span>: table_type <span style="color:#66d9ef">TYPE REF TO</span> cl_abap_tabledescr,  
@@ -355,7 +355,7 @@ itab_type <span style="color:#f92672">=</span> cl_abap_tabledescr<span style="co
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1692</span>
+                   <span>1694</span>
             </p>
             
             <p class="copyright-item">

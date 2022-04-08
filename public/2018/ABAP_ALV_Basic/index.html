@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  1092 ,
+  "wordcount":  1222 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Basic\/",
   "datePublished": "2018-06-18T00:00:00\u002b00:00",
   "dateModified": "2018-06-18T00:00:00\u002b00:00",
@@ -178,9 +178,9 @@
 </ul>
 <h4 id="创建-alv-的不同方法">创建 ALV 的不同方法</h4>
 <ul>
-<li>Basic：REUSE_ALV_GRID_DISPLAY / REUSE_ALV_GRID_DISPLAY_LVC</li>
-<li>OOALV：CL_GUI_ALV_GRID，使用面向对象的方式</li>
-<li><a href="https://zevolving.com/category/salv-tutorial/salv-table/">SALV</a>：CL_SALV_TABLE，不提供编辑模式</li>
+<li>Basic：函数生成 ALV，REUSE_ALV_GRID_DISPLAY / REUSE_ALV_GRID_DISPLAY_LVC</li>
+<li>OOALV：以面向对象的方式实现，核心类 CL_GUI_ALV_GRID</li>
+<li><a href="https://zevolving.com/category/salv-tutorial/salv-table/">SALV</a>：另一种面向对象的实现，简化了开发的复杂程度；核心类：CL_SALV_TABLE；不提供编辑模式</li>
 <li><a href="https://abapblog.com/falv">FALV</a> ：ZCL_FALV，开源可用的</li>
 </ul>
 <h3 id="报表组成">报表组成</h3>
@@ -209,7 +209,7 @@
 <p><a href="https://coldinfire.github.io/2018/ABAP_ALV_Screen/">选择屏幕</a>：指定程序应运行的输入值的屏幕，Parameters；Select-Options。</p>
 <p>报表事件：在报表事件中对选择屏幕内容进行处理。</p>
 <p>业务代码：在报表事件START-OF-SELECTION 后面实现报表的主要业务逻辑。</p>
-<p>显示报表：将处理后的业务数据以指定样式和格式显示。</p>
+<p>显示报表：将处理后的业务数据以指定样式和格式显示；使用 ALV 显示数据，首先需要知道输出什么<strong>数据</strong>(内表类型的数据结构)，还需要知道输出数据的<strong>数据结构</strong>（比如第一列显示什么，第二列显示什么，如何对齐，表头是什么，宽度多少，等等）。SAP 将这个数据结构称为 Field catalog。</p>
 <h3 id="执行程序的使用范围报表事件">执行程序的使用范围，报表事件</h3>
 <p>报表编程是一种事件驱动的编程。</p>
 <h4 id="选择屏幕事件">选择屏幕事件</h4>
@@ -283,7 +283,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1092</span>
+                   <span>1222</span>
             </p>
             
             <p class="copyright-item">

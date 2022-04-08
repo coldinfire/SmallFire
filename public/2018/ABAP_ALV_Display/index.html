@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  5557 ,
+  "wordcount":  5664 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Display\/",
   "datePublished": "2018-06-23T00:00:00\u002b00:00",
   "dateModified": "2018-06-23T00:00:00\u002b00:00",
@@ -463,7 +463,8 @@ fieldcat <span style="color:#e6db74">&#39;CARRID&#39;</span> <span style="color:
   <span style="color:#66d9ef">ENDCASE</span>.
   <span style="color:#66d9ef">CLEAR</span> gs_fieldcat.
 <span style="color:#66d9ef">ENDLOOP</span>.
-</code></pre></div><h3 id="lvc_s_fcat-字段参数">LVC_S_FCAT: 字段参数</h3>
+</code></pre></div><h4 id="通过反射自动创建-fieldcat">通过反射自动创建 fieldcat</h4>
+<h3 id="lvc_s_fcat-字段参数">LVC_S_FCAT: 字段参数</h3>
 <p>大部分和 <strong>SLIS</strong> 中定义的一致，下面列出部分不一致的字段。</p>
 <table>
 <thead>
@@ -982,7 +983,7 @@ fieldcat <span style="color:#e6db74">&#39;CARRID&#39;</span> <span style="color:
 <p><strong>某列可编辑</strong>：gs_fieldcat-edit = &lsquo;X&rsquo;</p>
 <p><strong>单元格可编辑</strong>：需要通过 OO 方式实现</p>
 <h2 id="设置工具导航栏-gui-status">设置工具导航栏 GUI Status</h2>
-<h4 id="copy-sap-标准-gui-status">Copy SAP 标准 GUI Status</h4>
+<h3 id="copy-sap-标准-gui-status">Copy SAP 标准 GUI Status</h3>
 <ul>
 <li>SE80 -&gt; SALV -&gt; STANDARD -&gt; Copy到自定义程序的GUI Status</li>
 </ul>
@@ -999,7 +1000,10 @@ fieldcat <span style="color:#e6db74">&#39;CARRID&#39;</span> <span style="color:
 <p>功能键(Function Key)：为按钮分配功能键代码，包括系统标题按钮(如返回、退出、关闭等)及通过Application ToolBar所定义的客制化按钮。</p>
 </li>
 </ol>
-<h4 id="在alv函数中使用-gui-status">在ALV函数中使用 GUI Status</h4>
+<h3 id="在alv函数中使用-gui-status">在ALV函数中使用 GUI Status</h3>
+<ul>
+<li><code>i_callback_pf_status_set</code>参数指定子例程，在子例程中设置 GUI Status</li>
+</ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">call function</span> <span style="color:#e6db74">&#39;REUSE_ALV_GRID_DISPLAY_LVC&#39;</span>
   <span style="color:#66d9ef">exporting</span>
     i_callback_program       <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>repid 
@@ -1031,6 +1035,9 @@ GUI TITLE设置<span style="color:#960050;background-color:#1e0010">：</span>
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">SET PF-STATUS</span> &lt;STATUS_NAME&gt; EXCLUDING extab. <span style="color:#75715e">&#34;输入自定义按钮工具的名称,并排除指定按钮&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">ENDFORM</span>.                    <span style="color:#75715e">&#34;pf_status_set&#34;
 </span></code></pre></div><h4 id="按钮处理">按钮处理</h4>
+<ul>
+<li><code>i_callback_user_command</code> 参数指定子例程，在子例程中定义用户操作的代码</li>
+</ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">Form</span> <span style="color:#a6e22e">user_command</span> <span style="color:#66d9ef">using</span> p_ucomm <span style="color:#66d9ef">type </span>sy<span style="color:#f92672">-</span>ucomm
                      i_selfield <span style="color:#66d9ef">type </span>slis_selfield.
   <span style="color:#66d9ef">data</span>:ls_stable <span style="color:#66d9ef">type </span>lvc_s_stbl.
@@ -1051,10 +1058,10 @@ GUI TITLE设置<span style="color:#960050;background-color:#1e0010">：</span>
         <span style="color:#66d9ef">return</span>.
       <span style="color:#66d9ef">endif</span>.
     <span style="color:#66d9ef">when</span> <span style="color:#e6db74">&#39;&amp;IC1&#39;</span>. <span style="color:#75715e">&#34;对操作代码进行相应处理&#34;
-</span><span style="color:#75715e"></span>	  <span style="color:#66d9ef">IF</span> i_selfield<span style="color:#f92672">-</span>fieldname <span style="color:#f92672">EQ</span> <span style="color:#e6db74">&#39;FieldName&#39;</span> <span style="color:#f92672">AND</span> i_selfield<span style="color:#f92672">-</span>value <span style="color:#f92672">NE</span> space.
-      	<span style="color:#66d9ef">DATA</span>: ls_upload <span style="color:#66d9ef">LIKE LINE OF</span> gt_upload.
- 		<span style="color:#66d9ef">READ</span> <span style="color:#66d9ef">TABLE</span> gt_upload <span style="color:#66d9ef">INTO</span> ls_upload <span style="color:#66d9ef">INDEX</span> rs_selfield<span style="color:#f92672">-</span>tabindex.
-  		<span style="color:#66d9ef">CHECK</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">EQ</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">AND</span> ls_upload<span style="color:#f92672">-</span>aufnr <span style="color:#f92672">NE</span> space.
+</span><span style="color:#75715e"></span>	  <span style="color:#66d9ef">IF</span> i_selfield<span style="color:#f92672">-</span>fieldname <span style="color:#f92672">EQ</span> <span style="color:#e6db74">&#39;FieldName&#39;</span> <span style="color:#f92672">AND</span> i_selfield<span style="color:#f92672">-</span>value <span style="color:#f92672">NE</span> space. <span style="color:#75715e">&#34;列名&amp;单元格值&#34;
+</span><span style="color:#75715e"></span>      	<span style="color:#66d9ef">DATA</span>: ls_upload <span style="color:#66d9ef">LIKE LINE OF</span> gt_upload.
+ 		<span style="color:#66d9ef">READ</span> <span style="color:#66d9ef">TABLE</span> gt_upload <span style="color:#66d9ef">INTO</span> ls_upload <span style="color:#66d9ef">INDEX</span> rs_selfield<span style="color:#f92672">-</span>tabindex. <span style="color:#75715e">&#34;所在行&#34;
+</span><span style="color:#75715e"></span>  		<span style="color:#66d9ef">CHECK</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">EQ</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">AND</span> ls_upload<span style="color:#f92672">-</span>aufnr <span style="color:#f92672">NE</span> space.
         <span style="color:#75715e">&#34;传入输入参数值并调用其他TCode&#34;
 </span><span style="color:#75715e"></span> 	    <span style="color:#66d9ef">SET PARAMETER</span> <span style="color:#66d9ef">ID</span> <span style="color:#e6db74">&#39;ANR&#39;</span> <span style="color:#66d9ef">FIELD</span> ls_upload<span style="color:#f92672">-</span>aufnr.
   	    <span style="color:#66d9ef">CALL TRANSACTION</span> <span style="color:#e6db74">&#39;CO03&#39;</span> <span style="color:#f92672">AND</span> <span style="color:#66d9ef">SKIP</span> FIRST SCREEN. <span style="color:#75715e">&#34;跳过第一屏屏幕&#34;
@@ -1087,7 +1094,7 @@ GUI TITLE设置<span style="color:#960050;background-color:#1e0010">：</span>
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>5557</span>
+                   <span>5664</span>
             </p>
             
             <p class="copyright-item">

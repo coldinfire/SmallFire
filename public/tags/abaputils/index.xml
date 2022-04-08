@@ -107,6 +107,15 @@
     </item>
     
     <item>
+      <title> Grid ALV:Fieldcat 自动填充工具 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Utils_GridALV_FieldcatCreate/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Utils_GridALV_FieldcatCreate/</guid>
+      <description>TOP TYPE-POOLS slis. FORM frm_get_fields USING pt_data type any table CHANGING pt_fields TYPE ddfields. DATA: lr_tabdescr TYPE REF TO cl_abap_structdescr, lr_data TYPE REF TO data, lt_fields TYPE ddfields. CREATE DATA lr_data LIKE LINE OF pt_data. lr_tabdescr ?= cl_abap_structdescr=&amp;gt;describe_by_data_ref( lr_data ). lt_fields = cl_salv_data_descr=&amp;gt;read_structdescr( lr_tabdescr ). pt_fields = lt_fields. ENDFORM. Z_FALV_FIELD_CATALOG IMPORT：IT_ALV TYPE ANY TABLE. TABL</description>
+    </item>
+    
+    <item>
       <title> ABAP 获取CLASS参数结果 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionClass/</link>
       <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
@@ -482,6 +491,15 @@
       
       <guid>https://coldinfire.github.io/2019/SAP_JOB/</guid>
       <description>定义 Background Job SE38 执行可执行程序 菜单栏‘program’&amp;mdash;&amp;gt;&amp;lsquo;Execute in Background&amp;rsquo; 输入输出设备 选择开始时间（立刻执行，或</description>
+    </item>
+    
+    <item>
+      <title> 内表导出到 Excel </title>
+      <link>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</guid>
+      <description>SAP 提供了 cl_salv_export_tool 类用于将 ALV 数据导出到 Excel，如果是早一点的版本，系统没有这个函数可以使用 XXL_SIMPLE_API。 XXL_SIMPLE_API 函数 XXL_SIMPLE_API 实现将 internal table 的数据</description>
     </item>
     
     <item>

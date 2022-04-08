@@ -520,6 +520,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2021/ABAP_Utils_GridALV_FieldcatCreate/</loc>
+      
+      <lastmod>2021-06-07T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2021/ExtJS_Component/</loc>
       
       <lastmod>2021-05-25T00:00:00+00:00</lastmod>
@@ -2943,6 +2957,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/2019/MM_Basis_GoodsReceive/</loc>
+      
+      <lastmod>2019-03-20T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</loc>
       
       <lastmod>2019-03-20T00:00:00+00:00</lastmod>
       

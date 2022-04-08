@@ -164,6 +164,8 @@ LOOP AT gt_fieldcat INTO gs_fieldcat.
 ENDLOOP.
 ```
 
+#### 通过反射自动创建 fieldcat
+
 ### LVC_S_FCAT: 字段参数
 
 大部分和 **SLIS** 中定义的一致，下面列出部分不一致的字段。
@@ -365,7 +367,7 @@ ALV 中的每行数据颜色是通过 Layout 的 `INFO_NAME`来控制的，可�
 
 ## 设置工具导航栏 GUI Status
 
-#### Copy SAP 标准 GUI Status
+### Copy SAP 标准 GUI Status
 
 - SE80 -> SALV -> STANDARD -> Copy到自定义程序的GUI Status
 
@@ -379,7 +381,9 @@ GUI Status 参数设置共包括3个部分：
 
 3. 功能键(Function Key)：为按钮分配功能键代码，包括系统标题按钮(如返回、退出、关闭等)及通过Application ToolBar所定义的客制化按钮。
 
-####  在ALV函数中使用 GUI Status
+###  在ALV函数中使用 GUI Status
+
+- `i_callback_pf_status_set`参数指定子例程，在子例程中设置 GUI Status
 
 ```ABAP
 call function 'REUSE_ALV_GRID_DISPLAY_LVC'
@@ -420,6 +424,8 @@ ENDFORM.                    "pf_status_set"
 
 #### 按钮处理 
 
+- `i_callback_user_command` 参数指定子例程，在子例程中定义用户操作的代码
+
 ```ABAP
 Form user_command using p_ucomm type sy-ucomm
                      i_selfield type slis_selfield.
@@ -441,9 +447,9 @@ Form user_command using p_ucomm type sy-ucomm
         return.
       endif.
     when '&IC1'. "对操作代码进行相应处理"
-	  IF i_selfield-fieldname EQ 'FieldName' AND i_selfield-value NE space.
+	  IF i_selfield-fieldname EQ 'FieldName' AND i_selfield-value NE space. "列名&单元格值"
       	DATA: ls_upload LIKE LINE OF gt_upload.
- 		READ TABLE gt_upload INTO ls_upload INDEX rs_selfield-tabindex.
+ 		READ TABLE gt_upload INTO ls_upload INDEX rs_selfield-tabindex. "所在行"
   		CHECK sy-subrc EQ 0 AND ls_upload-aufnr NE space.
         "传入输入参数值并调用其他TCode"
  	    SET PARAMETER ID 'ANR' FIELD ls_upload-aufnr.
