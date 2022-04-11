@@ -22,15 +22,17 @@ tags:
 
 嵌入在上下文中的每一行都可以包含提供值的简单字段，也可以包含嵌套结构/表/类实例，嵌套层数不受限制。
 
+![Context](/images/ABAP/ABAP_XLSXWorkbench0.gif)
+
 ### Step2：设计 XLSX 模板
 
 使用事务码 `ZXLWB_WORKBENCH` 来创建输出模板。
 
-![ZXLWB_WORKBENCH](/images/ABAP/ABAP_XLSXWorkbench1.png)
+![ZXLWB_WORKBENCH](/images/ABAP/ABAP_XLSXWorkbench2.png)
 
 执行结果：
 
-![XLSX Workbench](/images/ABAP/ABAP_XLSXWorkbench2.png)
+![XLSX Workbench](/images/ABAP/ABAP_XLSXWorkbench2_1.png)
 
 Workbench 分为三个大的功能区域：
 
@@ -39,6 +41,14 @@ Workbench 分为三个大的功能区域：
 2. 属性选项卡（用于树中当前选择的组件）
 
 3. Excel 模板
+
+#### 表格结构树
+
+![Form Structure](/images/ABAP/ABAP_XLSXWorkbench2_2.png)
+
+#### 属性选项卡
+
+#### Excel 模板
 
 ### 开发打印程序
 
@@ -89,22 +99,37 @@ Workbench 分为三个大的功能区域：
 #### DEMO
 
 ```ABAP
-REPORT  z_shipping_label.
-* declare a context
-DATA gs_context   TYPE zcontext_shipping_label .
+REPORT z_shipping_labels.
+* declare the context
+DATA:
+  gs_line         TYPE zcontext_shipping_label  ,
+  gt_context      TYPE zcontext_shipping_labels .
 * fill the context
-gs_context-to_name    = 'Dan Tedford' .
-gs_context-to_street  = '811 Alworth Avenue' .
-gs_context-to_town    = 'Middlefield' .
-gs_context-to_state   = 'CA' .
-gs_context-to_zip     = '98567' .
+gs_line-to_name    = 'Shane Hamby' .
+gs_line-to_street  = '852 Ocean View Rd.' .
+gs_line-to_town    = 'Bayshore' .
+gs_line-to_state   = 'CA' .
+gs_line-to_zip     = '94123' .
+APPEND gs_line TO gt_context .
+gs_line-to_name    = 'Dr.Henry Albrecht' .
+gs_line-to_street  = '522 Ravenswood' .
+gs_line-to_town    = 'East Bayshore' .
+gs_line-to_state   = 'CA' .
+gs_line-to_zip     = '93327' .
+APPEND gs_line TO gt_context .
+gs_line-to_name    = 'Hugh Molotsi' .
+gs_line-to_street  = '1980 N.Stonecrest Rd.' .
+gs_line-to_town    = 'West Middlefield' .
+gs_line-to_state   = 'CA' .
+gs_line-to_zip     = '12384' .
+APPEND gs_line TO gt_context .
 * call the form
 CALL FUNCTION 'ZXLWB_CALLFORM'
   EXPORTING
-    iv_formname    = 'SHIPPING_LABEL'
-    iv_context_ref = gs_context
+    iv_formname    = 'SHIPPING_LABELS'
+    iv_context_ref = gt_context[]
   EXCEPTIONS
-    OTHERS         = 2.
+    OTHERS         = 2 .
 IF sy-subrc NE 0 .
   MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
           WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 .
