@@ -46,7 +46,48 @@ Workbench 分为三个大的功能区域：
 
 ![Form Structure](/images/ABAP/ABAP_XLSXWorkbench2_2.png)
 
-#### 属性选项卡
+*Sheet*：在运行时与生成的 XLSX 文件的工作表有直接关系，应该在表单中创建与打印表单中所需的工作表（一个或多个）一样多的工作表。如果事先不知道张数，可以将其动态插入到生成的 XLSX 文件中。 可以通过组件 Loop 在上下文的嵌套表的行中循环，然后在其中包含 Sheet。
+
+![Sheet](/images/ABAP/ABAP_XLSXWorkbench2_3.png)
+
+*Folder*：是一个具有多种用途的表单组件。首先，它必须用于通过将其他组件（具有相同类别或用途等）包含到文件夹中来组织和排列表单结构；其次，文件夹传播包含在其中的所有后续组件的公共属性。
+
+![Folder](/images/ABAP/ABAP_XLSXWorkbench2_4.png)
+
+*Loop*：该表单组件可以处理嵌套在上下文中的内部表行（循环表的行）。它可以用于运行时组件的嵌套子树的多次复制。Loop 是表单中动态结构的基础。
+
+![Loop](/images/ABAP/ABAP_XLSXWorkbench2_5.png)
+
+*Pattern*：该表单组件是在生成的 XLSX 文件的工作表上（按用户定义的顺序）布置的片段。 必须在运行时（在生成的 XLSX 文件创建时）复制（在工作表上）。注意：在运行时将模式插入到打印表单的工作表中的序列，仅由表单结构树中的组件序列定义（而不由 Excel 模板中的当前位置定义）。
+
+![Pattern](/images/ABAP/ABAP_XLSXWorkbench2_6.png)
+
+*Pattern (resizable)*：是 Pattern 的一种，继承了 Pattern 的大部分属性和原理，但有自己的特点。它的主要特点是能够通过合并附近的单元格来调整宽度或高度。Resizable pattern 的运行时大小取决于子区域。 子区域是下层所有 Pattern 占用的区域。 子区域在表单结构的树中表示为 Resizable pattern 下的子组件。Resizable pattern 也可以有另一个 Resizable patterns 作为子组件来提供多级格式。
+
+![Pattern Resizable](/images/ABAP/ABAP_XLSXWorkbench2_7.png)
+
+*Grid*：是一个用于简化从打印程序到表单的导出表格的组件。该组件支持将“平面”表处理为“多级”表（即分配给上下文表的 Grid，其行中包含嵌套的子表，描述子级）。 如果处理了多级表，则会对分配给高级别的列执行自动单元格合并（rowspan）。
+
+![Grid](/images/ABAP/ABAP_XLSXWorkbench2_8.png)
+
+*Tree*：是用于将 ALV 树从打印程序导出到表单的组件。
+
+![Tree](/images/ABAP/ABAP_XLSXWorkbench2_9.png)
+
+*Value*：该组件始终作为子节点直接位于 Form 结构树中的 Patterm 节点下。 Value 组件将来自 Context 的源字段的数据提供给 Form 的目标单元格。注意：Value 的目标单元格应仅位于 Excel 模板中父 Pattern 的单元格范围内。
+
+![Value](/images/ABAP/ABAP_XLSXWorkbench2_10.png)
+
+*Drawing*：该组件可以在生成的 XLSX 文件的工作表上放置图像（像素或矢量）。 在表格结构树中，Drawing 位于 Pattern 的正下方。
+
+![Drawing](/images/ABAP/ABAP_XLSXWorkbench2_11.png)
+
+*Chart*：该组件基于两个特殊组件，可以将图表插入到打印表单中。
+
+- Chart model：它是 Excel 模板工作表上的任何图表，将用作示例格式：即图表类型（饼图、列、组合等）、系列数、样式、颜色、阴影、透明度、边框、 线宽、图表元素的相对定位和其他选项。 创建时使用 Excel 应用程序菜单：插入 --> 图表。
+- Dataset(Grid)：它是 Form 结构中的任何 Grid 组件，它为 Chart 提供数据。 反过来，Grid 的列与图表 Seres 相关联。
+
+![Drawing](/images/ABAP/ABAP_XLSXWorkbench2_12.png)
 
 #### Excel 模板
 
