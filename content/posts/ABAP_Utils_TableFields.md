@@ -16,11 +16,17 @@ tags:
 
 Reading Text on Tables or Types.
 
-![Parameter](/images/ABAP/ABAP_TableField1)
+SE37 执行 DDIF_NAMETAB_GET 输入表名：
 
-![Result](/images/ABAP/ABAP_TableField2)
+![Parameter](/images/ABAP/ABAP_TableField1.png)
 
-![Table Info](/images/ABAP/ABAP_TableField3)
+点击执行后，返回表信息：
+
+![Result](/images/ABAP/ABAP_TableField2.png)
+
+表字段的详细信息：
+
+![Table Info](/images/ABAP/ABAP_TableField3.png)
 
 ### 使用到的核心表
 
