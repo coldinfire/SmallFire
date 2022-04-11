@@ -6,7 +6,16 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> XLSXWorkbench 使用 </title>
+      <link>https://coldinfire.github.io/2022/ABAP_Utils_XLSXWorkbench/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/ABAP_Utils_XLSXWorkbench/</guid>
+      <description>XLSX Workbench 是一款开源的 SAP 插件工具，用于在 SAP 环境中设计基于 Excel 的表单。 由于开发表单的完全可视化方法（类似 SMARTFORMS），它非常易于学习和使用。</description>
+    </item>
+    
     <item>
       <title> SAP 获取表字段所有信息 </title>
       <link>https://coldinfire.github.io/2022/ABAP_Utils_TableFields/</link>
