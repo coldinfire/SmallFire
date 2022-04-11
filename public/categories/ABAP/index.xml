@@ -1660,7 +1660,7 @@
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Screen_Util/</guid>
-      <description>屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &amp;lt;pos(len)&amp;gt; &amp;lt;name&amp;gt; USER-COMMAND &amp;lt;ucom&amp;gt; [MODIF ID &amp;lt;key&amp;gt;]. /n :按钮初始时距离屏幕左边的位置 &amp;lt;pos(len)&amp;gt;：PUSHBUTTON按钮在屏幕生成的位置</description>
+      <description>屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &amp;lt;pos(len)&amp;gt; &amp;lt;name&amp;gt; USER-COMMAND &amp;lt;ucom&amp;gt; [MODIF ID &amp;lt;key&amp;gt;]. /n：按钮初始时距离屏幕左边的位置 &amp;lt;pos(len)&amp;gt;：PUSHBUTTON按钮在屏幕生成的位</description>
     </item>
     
     <item>

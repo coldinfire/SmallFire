@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  3124 ,
+  "wordcount":  3031 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Screen\/",
   "datePublished": "2018-06-21T00:00:00\u002b00:00",
   "dateModified": "2018-06-21T00:00:00\u002b00:00",
@@ -239,13 +239,13 @@
 <p><strong>注意：当从一个主屏幕中来调用其程序中的另一窗体时，必须使用CALL SELECTION-SCREEN方法</strong></p>
 <h4 id="定义屏幕块">定义屏幕块</h4>
 <p>在屏幕中定义一个 BLOCK 块：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">SELECTION</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SCREEN</span> <span style="color:#a6e22e">BEGIN</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">BLOCK</span> <span style="color:#a6e22e">blk_1</span> [<span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">FRAME</span>] [<span style="color:#a6e22e">TITLE</span> <span style="color:#a6e22e">title</span>] [<span style="color:#a6e22e">NO</span> <span style="color:#a6e22e">INTERVALS</span>].
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF BLOCK</span> blk_1 [<span style="color:#66d9ef">WITH FRAME</span>] [TITLE <span style="color:#66d9ef">title</span>] [<span style="color:#66d9ef">NO INTERVALS</span>].
   ......
-<span style="color:#a6e22e">SELECTION</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SCREEN</span> <span style="color:#a6e22e">END</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">BLOCK</span> <span style="color:#a6e22e">blk_1</span>.
-<span style="color:#a6e22e">扩展语法</span><span style="color:#960050;background-color:#1e0010">：</span>
-  <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">FRAME</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">创建一个框架</span>
-  <span style="color:#a6e22e">TITLE</span> <span style="color:#a6e22e">title</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">创建一个带标题的框架</span>
-  <span style="color:#a6e22e">NO</span> <span style="color:#a6e22e">INTERVALS</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">所创建的框架中限制SELECT只有一个输入项</span>
+<span style="color:#66d9ef">SELECTION-SCREEN END OF BLOCK</span> blk_1.
+扩展语法<span style="color:#960050;background-color:#1e0010">：</span>
+  <span style="color:#66d9ef">WITH FRAME</span><span style="color:#960050;background-color:#1e0010">：</span>创建一个框架
+  <span style="color:#66d9ef">TITLE</span> <span style="color:#66d9ef">title</span><span style="color:#960050;background-color:#1e0010">：</span>创建一个带标题的框架
+  <span style="color:#66d9ef">NO INTERVALS</span><span style="color:#960050;background-color:#1e0010">：</span>所创建的框架中限制SELECT只有一个输入项
 </code></pre></div><p>屏幕块中添加的其它元素：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">SELECTION-SCREEN INCLUDE BLOCKS</span> &lt;block1&gt;.  <span style="color:#75715e">&#34;调用已存在屏幕元素&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECTION-SCREEN ULINE</span>.          <span style="color:#75715e">&#34;划出横线，必须用在BLOCK中才能生效&#34;
@@ -255,14 +255,14 @@
   ......
 <span style="color:#66d9ef">SELECTION-SCREEN END OF LINE</span>.    <span style="color:#75715e">&#34;将所生成的屏幕元素控制在一行&#34;
 </span></code></pre></div><h4 id="屏幕元素单行添加">屏幕元素单行添加</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">SELECTION</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SCREEN</span> <span style="color:#a6e22e">BEGIN</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">LINE</span>.
-  <span style="color:#a6e22e">SELECTION</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SCREEN</span> <span style="color:#a6e22e">COMMENT</span> <span style="color:#a6e22e">n</span>(<span style="color:#a6e22e">m</span>) <span style="color:#a6e22e">TEXT</span><span style="color:#f92672">-</span><span style="color:#ae81ff">001</span> <span style="color:#a6e22e">FOR</span> <span style="color:#a6e22e">FIELD</span> <span style="color:#a6e22e">s_name</span>. <span style="color:#e6db74">&#34;文档信息&#34;</span>
-  <span style="color:#a6e22e">SELECTION</span><span style="color:#f92672">-</span><span style="color:#a6e22e">OPTION</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">s_name</span> <span style="color:#a6e22e">FOR</span> <span style="color:#a6e22e">itab</span><span style="color:#f92672">-</span><span style="color:#a6e22e">field</span>. <span style="color:#e6db74">&#34;设定类型&#34;</span>
-  <span style="color:#a6e22e">SELECTION</span><span style="color:#f92672">-</span><span style="color:#a6e22e">OPTION</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">seltab</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">FOR</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">f</span><span style="color:#f92672">&gt;</span> 
-    <span style="color:#a6e22e">NO</span> <span style="color:#a6e22e">INTERVALS</span>  <span style="color:#e6db74">&#34;删除HIGH值&#34;</span>
-    <span style="color:#a6e22e">NO</span><span style="color:#f92672">-</span><span style="color:#a6e22e">EXTENSION</span>  <span style="color:#e6db74">&#34;限制选择为单行，不会出现多条按钮&#34;</span>
-    <span style="color:#a6e22e">OBLIGATORY</span>    <span style="color:#e6db74">&#34;只有前面一个框中出现勾勾，只针对LOW字段有效&#34;</span>
-<span style="color:#a6e22e">SELECTION</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SCREEN</span> <span style="color:#a6e22e">END</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">LINE</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
+  <span style="color:#66d9ef">SELECTION-SCREEN COMMENT</span> n(m) <span style="color:#66d9ef">TEXT</span>-<span style="color:#ae81ff">001</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">FIELD</span> s_name. <span style="color:#75715e">&#34;文档信息&#34;
+</span><span style="color:#75715e"></span>  SELECTION<span style="color:#f92672">-</span>OPTION: s_name <span style="color:#66d9ef">FOR</span> itab<span style="color:#f92672">-</span>field. <span style="color:#75715e">&#34;设定类型&#34;
+</span><span style="color:#75715e"></span>  SELECTION<span style="color:#f92672">-</span>OPTION &lt;seltab&gt; <span style="color:#66d9ef">FOR</span> &lt;f&gt; 
+    <span style="color:#66d9ef">NO INTERVALS</span>  <span style="color:#75715e">&#34;删除HIGH值&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">NO-EXTENSION</span>  <span style="color:#75715e">&#34;限制选择为单行，不会出现多条按钮&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">OBLIGATORY</span>    <span style="color:#75715e">&#34;只有前面一个框中出现勾勾，只针对LOW字段有效&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECTION-SCREEN END OF LINE</span>.
 </code></pre></div><h3 id="parameters-单值输入框">PARAMETERS 单值输入框</h3>
 <p>PARAMETERS 参照数据字典具体字段或者自定义数据类型创建单值文本输入域以及单选/复选框等：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">PARAMETERS</span>: 
@@ -279,28 +279,28 @@
 <p><code>DEFAULT f</code>：定义默认值</p>
 </li>
 <li>
-<p><code>TYPE type</code>：参照某一类型对象定义PARAMETERS</p>
+<p><code>TYPE type</code>：参照某一类型对象定义 PARAMETERS</p>
 </li>
 <li>
 <p><code>DECIMALS dec</code>：定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)</p>
 </li>
 <li>
-<p><code>LIKE g</code>：參照某一字典对象定义PARAMETERS</p>
+<p><code>LIKE g</code>：參照某一字典对象定义 PARAMETERS</p>
 </li>
 <li>
-<p><code>MEMORY ID pi</code>：将PARAMETERS存储在SAP内存，参数名长度不能超过三位</p>
+<p><code>MEMORY ID pi</code>：将 PARAMETERS 存储在 SAP 内存，参数名长度不能超过三位</p>
 </li>
 <li>
-<p><code>NO-DISPLAY</code>：将PARAMETERS设置为隐藏，不会的屏幕上输出</p>
+<p><code>NO-DISPLAY</code>：将 PARAMETERS 设置为隐藏，不会的屏幕上输出</p>
 </li>
 <li>
 <p><code>LOWER CASE</code>：输入值中不允许输入小写字符，否则会自动转换为大写</p>
 </li>
 <li>
-<p><code>OBLIGATORY</code>：限制该PARAMETERS为必填，否则会提示输入</p>
+<p><code>OBLIGATORY</code>：限制该 PARAMETERS 为必填，否则会提示输入</p>
 </li>
 <li>
-<p><code>AS CHECKBOX</code>：创建CHECKBOX对象</p>
+<p><code>AS CHECKBOX</code>：创建 CHECKBOX 对象</p>
 </li>
 <li>
 <p><code>RADIO BUTTON GROUP radi</code>：创建（RADIO）单选框</p>
@@ -381,19 +381,22 @@
 <p><code>DEFAULT g TO h ... OPTION op ... SIGN s</code>：设置默认值的聚会范围及判断条件</p>
 </li>
 <li>
-<p><code>MEMORY ID pid</code>：将SELECT-OPTIONS分配参数名并存储在SAP内存，参数名长度不能超过三位</p>
+<p><code>MEMORY ID pid</code>：将 SELECT-OPTIONS 分配参数名并存储在 SAP 内存，参数名长度不能超过三位</p>
 </li>
 <li>
-<p><code>NO-DISPLAY</code>：将SELECT-OPTIONS设置为隐藏，不会在屏幕上输出</p>
+<p><code>NO-DISPLAY</code>：将 SELECT-OPTIONS 设置为隐藏，不会在屏幕上输出</p>
 </li>
 <li>
 <p><code>LOWER CASE</code>：输入值中不允许输入小写字符，否则会自动转换为大写</p>
 </li>
 <li>
-<p><code>OBLIGATORY</code>：限制该SELECT-OPTIONS为必须输入的项目，执行中系统会提示</p>
+<p><code>OBLIGATORY</code>：限制 SELECT-OPTIONS 为必须输入的项目，执行中系统会提示</p>
 </li>
 <li>
-<p><code>NO-EXTENSION</code>：限制该SELECT-OPTIONS只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏</p>
+<p><code>NO INTERVALS</code>：限制 SELECT-OPTIONS 只能输入单值，类似 Parameter</p>
+</li>
+<li>
+<p><code>NO-EXTENSION</code>：限制 SELECT-OPTIONS 只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏</p>
 </li>
 <li>
 <p><code>VISIBLE LENGTH vlen</code>：定义所显示数据的长度</p>
@@ -410,7 +413,7 @@
 <p>Text Symbols：实现自定义文本及符号,该文本使用对象为 SELECTION-SCREEN，以三位字符表示(TEXT-001)。</p>
 </li>
 <li>
-<p>图标符号：可以在 Text Symbols 通过@符号来进行引用，如&quot;@01@&quot;,可通过程序RSTXICON查看所有的图标。</p>
+<p>图标符号：可以在 Text Symbols 通过@符号来进行引用，如&quot;@01@&quot;，可通过程序 <code>RSTXICON</code> 查看所有的图标。</p>
 </li>
 </ul>
 <p><strong>多语言显示的维护</strong>：GOTO &ndash;&gt;Translation</p>
@@ -431,7 +434,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>3124</span>
+                   <span>3031</span>
             </p>
             
             <p class="copyright-item">

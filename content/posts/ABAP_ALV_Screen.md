@@ -115,7 +115,7 @@ SELECTION-SCREEN END OF SCREEN src_num.
 
 在屏幕中定义一个 BLOCK 块：
 
-```JS
+```ABAP
 SELECTION-SCREEN BEGIN OF BLOCK blk_1 [WITH FRAME] [TITLE title] [NO INTERVALS].
   ......
 SELECTION-SCREEN END OF BLOCK blk_1.
@@ -139,7 +139,7 @@ SELECTION-SCREEN END OF LINE.    "将所生成的屏幕元素控制在一行"
 
 #### 屏幕元素单行添加
 
-```JS
+```ABAP
 SELECTION-SCREEN BEGIN OF LINE.
   SELECTION-SCREEN COMMENT n(m) TEXT-001 FOR FIELD s_name. "文档信息"
   SELECTION-OPTION: s_name FOR itab-field. "设定类型"
@@ -170,28 +170,28 @@ PARAMETERS:
 - `DEFAULT f`：定义默认值
 
 
-- `TYPE type`：参照某一类型对象定义PARAMETERS
+- `TYPE type`：参照某一类型对象定义 PARAMETERS
 
 
 - `DECIMALS dec`：定义小数位，对输入参数自动格式化，该语法只对P类型有效(参数某一类型定义关键字TYPE)
 
 
-- `LIKE g`：參照某一字典对象定义PARAMETERS
+- `LIKE g`：參照某一字典对象定义 PARAMETERS
 
 
-- `MEMORY ID pi`：将PARAMETERS存储在SAP内存，参数名长度不能超过三位
+- `MEMORY ID pi`：将 PARAMETERS 存储在 SAP 内存，参数名长度不能超过三位
 
 
-- `NO-DISPLAY`：将PARAMETERS设置为隐藏，不会的屏幕上输出
+- `NO-DISPLAY`：将 PARAMETERS 设置为隐藏，不会的屏幕上输出
 
 
 - `LOWER CASE`：输入值中不允许输入小写字符，否则会自动转换为大写
 
 
-- `OBLIGATORY`：限制该PARAMETERS为必填，否则会提示输入
+- `OBLIGATORY`：限制该 PARAMETERS 为必填，否则会提示输入
 
 
-- `AS CHECKBOX`：创建CHECKBOX对象
+- `AS CHECKBOX`：创建 CHECKBOX 对象
 
 
 - `RADIO BUTTON GROUP radi`：创建（RADIO）单选框
@@ -278,19 +278,20 @@ SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过 8 �
 - `DEFAULT g TO h ... OPTION op ... SIGN s`：设置默认值的聚会范围及判断条件
 
 
-- `MEMORY ID pid`：将SELECT-OPTIONS分配参数名并存储在SAP内存，参数名长度不能超过三位
+- `MEMORY ID pid`：将 SELECT-OPTIONS 分配参数名并存储在 SAP 内存，参数名长度不能超过三位
 
 
-- `NO-DISPLAY`：将SELECT-OPTIONS设置为隐藏，不会在屏幕上输出
+- `NO-DISPLAY`：将 SELECT-OPTIONS 设置为隐藏，不会在屏幕上输出
 
 
 - `LOWER CASE`：输入值中不允许输入小写字符，否则会自动转换为大写
 
 
-- `OBLIGATORY`：限制该SELECT-OPTIONS为必须输入的项目，执行中系统会提示
+- `OBLIGATORY`：限制 SELECT-OPTIONS 为必须输入的项目，执行中系统会提示
+- `NO INTERVALS`：限制 SELECT-OPTIONS 只能输入单值，类似 Parameter 
 
 
--  `NO-EXTENSION`：限制该SELECT-OPTIONS只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏
+-  `NO-EXTENSION`：限制 SELECT-OPTIONS 只能输入一行数据，输入多行按钮（上图最右边按钮）被隐藏
 
 
 -  `VISIBLE LENGTH vlen`：定义所显示数据的长度
@@ -308,7 +309,7 @@ SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过 8 �
 - Text Symbols：实现自定义文本及符号,该文本使用对象为 SELECTION-SCREEN，以三位字符表示(TEXT-001)。
 
 
-- 图标符号：可以在 Text Symbols 通过@符号来进行引用，如"@01@",可通过程序RSTXICON查看所有的图标。
+- 图标符号：可以在 Text Symbols 通过@符号来进行引用，如"@01@"，可通过程序 `RSTXICON` 查看所有的图标。
 
 **多语言显示的维护**：GOTO -->Translation
 

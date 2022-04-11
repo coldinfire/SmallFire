@@ -17,7 +17,7 @@ tags:
 `  SELECTION-SCREEN: PUSHBUTTON [/n] <pos(len)> <name> USER-COMMAND <ucom> [MODIF ID <key>].
 `   
 
-`/n` :按钮初始时距离屏幕左边的位置
+`/n`：按钮初始时距离屏幕左边的位置
 
 `<pos(len)>`：PUSHBUTTON按钮在屏幕生成的位置与长度。
 
@@ -80,7 +80,7 @@ AT SELECTION-SCREEN.
 
 ### 屏幕单选框分组显示界面内容
 
-通过Group将GUI需要显示的界面进行分组，并在 `AT SELECTION-SCREEN OUTPUT.`事件中对每一个单选项选择进行判断，并激活对应的界面。
+通过 Group 将 GUI 需要显示的界面进行分组，并在 `AT SELECTION-SCREEN OUTPUT.`事件中对每一个单选项选择进行判断，并激活对应的界面。
 
 ```ABAP
 SELECTION-SCREEN BEGIN OF BLOCK BLK1 WITH FRAME TITLE TEXT-008.

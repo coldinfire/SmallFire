@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" ALV 屏幕其它功能设置 "/>
-<meta name="twitter:description" content="屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &lt;pos(len)&gt; &lt;name&gt; USER-COMMAND &lt;ucom&gt; [MODIF ID &lt;key&gt;]. /n :按钮初始时距离屏幕左边的位置 &lt;pos(len)&gt;：PUSHBUTTON按钮在屏幕生成的位置"/>
+<meta name="twitter:description" content="屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &lt;pos(len)&gt; &lt;name&gt; USER-COMMAND &lt;ucom&gt; [MODIF ID &lt;key&gt;]. /n：按钮初始时距离屏幕左边的位置 &lt;pos(len)&gt;：PUSHBUTTON按钮在屏幕生成的位"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  1124 ,
+  "wordcount":  1119 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Screen_Util\/",
   "datePublished": "2018-06-28T00:00:00\u002b00:00",
   "dateModified": "2018-06-28T00:00:00\u002b00:00",
@@ -173,7 +173,7 @@
 
           <h3 id="屏幕内创建按钮">屏幕内创建按钮</h3>
 <p><code>  SELECTION-SCREEN: PUSHBUTTON [/n] &lt;pos(len)&gt; &lt;name&gt; USER-COMMAND &lt;ucom&gt; [MODIF ID &lt;key&gt;].</code></p>
-<p><code>/n</code> :按钮初始时距离屏幕左边的位置</p>
+<p><code>/n</code>：按钮初始时距离屏幕左边的位置</p>
 <p><code>&lt;pos(len)&gt;</code>：PUSHBUTTON按钮在屏幕生成的位置与长度。</p>
 <p><code>&lt;name&gt;</code>：PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。</p>
 <p><code>&lt;ucom&gt;</code>：必须指定的字符代码，当用户在选择屏幕上触发按钮时，<code>&lt;ucom&gt;</code> 被输入到词典对象字段：SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。</p>
@@ -219,7 +219,7 @@
       p_cityfr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Chicago&#39;</span>.
   <span style="color:#66d9ef">ENDCASE</span>.
 </code></pre></div><h3 id="屏幕单选框分组显示界面内容">屏幕单选框分组显示界面内容</h3>
-<p>通过Group将GUI需要显示的界面进行分组，并在 <code>AT SELECTION-SCREEN OUTPUT.</code>事件中对每一个单选项选择进行判断，并激活对应的界面。</p>
+<p>通过 Group 将 GUI 需要显示的界面进行分组，并在 <code>AT SELECTION-SCREEN OUTPUT.</code>事件中对每一个单选项选择进行判断，并激活对应的界面。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF BLOCK</span> BLK1 <span style="color:#66d9ef">WITH FRAME</span> <span style="color:#66d9ef">TITLE</span> <span style="color:#66d9ef">TEXT</span>-<span style="color:#ae81ff">008</span>.
 <span style="color:#66d9ef">PARAMETERS</span>: P_R1 <span style="color:#66d9ef">TYPE </span>FLAG <span style="color:#66d9ef">RADIOBUTTON GROUP</span> C1 <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;X&#39;</span> USER<span style="color:#f92672">-</span>COMMAND US1,
             P_R2 <span style="color:#66d9ef">TYPE </span>FLAG <span style="color:#66d9ef">RADIOBUTTON GROUP</span> C1,
@@ -283,7 +283,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1124</span>
+                   <span>1119</span>
             </p>
             
             <p class="copyright-item">
