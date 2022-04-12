@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" LSMW 批处理使用方法 "/>
-<meta name="twitter:description" content="参考链接：https://fenginfo.com/1821.html 总述 在 SAP 系统中，批处理操作有多种方法。如果是对一个事物码（TCODE）"/>
+<meta name="twitter:description" content="参考链接：https://fenginfo.com/1821.html 总述 在 SAP 系统中，批处理操作有多种方法。如果是对一个标准的 TCODE 进行批处理操"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "utils, SAPbusiness",
-  "wordcount":  1393 ,
+  "wordcount":  1704 ,
   "url": "https:\/\/coldinfire.github.io\/2020\/SAP_LSMW\/",
   "datePublished": "2020-09-02T00:00:00\u002b00:00",
   "dateModified": "2020-09-02T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                3 min
+                4 min
         </div>
     </header>
     <div class="post-content">
@@ -175,22 +175,28 @@
 
           <p>参考链接：<a href="https://fenginfo.com/1821.html">https://fenginfo.com/1821.html</a></p>
 <h2 id="总述">总述</h2>
-<p>在 SAP 系统中，批处理操作有多种方法。如果是对一个事物码（TCODE）进行批处理操作，常用的是 LSMW。LSMW 全称是 Legacy System Migration Workbench。它能够对静态数据（如各类主数据）、动态数据（如初始化库存）、业务数据（如销售订单）等进行成批操作，是上线数据准备和运维期间大规模数据操作的主力武器。</p>
+<p>在 SAP 系统中，批处理操作有多种方法。如果是对一个标准的 TCODE 进行批处理操作，常用的是 LSMW（Legacy System Migration Workbench）。它能够对静态数据（如各类主数据）、动态数据（如初始化库存）、业务数据（如销售订单）等进行成批操作，是上线数据准备和运维期间大规模数据操作的主力武器。</p>
 <p>LSMW 的原理是设定批处理的模板，再将准备好的格式化数据传到 SAP 系统进行预转换，如果合适就进行实际转换。</p>
-<p>批处理模板可以有多种类型，包括系统已设定好的标准批输入对象（Standard Batch Input Object）、BAPI（Business Object Method）、IDC（Intermediate Document）、批输入记录（Batch Input Recorder）等；本文以批输入记录（Batch Input Recorder）为例进行介绍，此方法也可称为录像法。</p>
-<p>LSMW 录像法批导入的原理是对需要批处理操作的流程进行操作录像，然后设定模板，再将准备好的数据传入到 SAP 系统进行预转换，如果合适就进行实际的转换。</p>
+<p>批处理模板可以有多种类型：</p>
+<ul>
+<li>系统已设定好的标准批输入对象（Standard Batch Input Object）</li>
+<li>BAPI（Business Object Method）</li>
+<li>IDC（Intermediate Document）</li>
+<li>录屏：批输入记录（Batch Input Recorder）</li>
+</ul>
+<p>LSMW 录屏法批导入的原理：首先对需要批处理操作的流程进行操作录像，然后设定模板，再将准备好的数据传入到 SAP 系统进行预转换，如果合适就进行实际的转换。</p>
 <p>LSMW 导入数据操作分为以下几大步骤：</p>
 <ul>
 <li>准备需要导入的数据；</li>
 <li>转换模板定义；</li>
-<li>读取数据并预转换</li>
-<li>实际转换</li>
+<li>读取数据并预转换；</li>
+<li>实际转换。</li>
 </ul>
 <p>我们这个例子是在 SAP ERP 6.0 EHP7 下完成的，按经典的 14 个步骤进行讲解。</p>
-<p>录像法只能对前台执行的事物码（T-CODE）进行录像，如果是后台配置，需转化成前台可执行 T-CODE、SM30 维护视图或是 SM34 维护视图簇方式进行操作，参见《<a href="https://fenginfo.com/89.html">后台配置转至前台操作</a>》。</p>
+<p>录像法只能对前台执行的事物码（TCODE）进行录像，如果是后台配置，需转化成前台可执行 T-CODE、SM30 维护视图或是 SM34 维护视图簇方式进行操作，参见《<a href="https://fenginfo.com/89.html">后台配置转至前台操作</a>》。</p>
 <h2 id="操作界面说明">操作界面说明</h2>
 <h3 id="管理界面">管理界面</h3>
-<p>批导入的TCODE就是LSMW，在主窗口界面输入就可以进入。</p>
+<p>批导入的事物码就是 <code>LSMW</code>，在主窗口界面输入就可以进入。</p>
 <p><img src="/images/LSMW/LSMW1.png" alt="LSMW"></p>
 <p>这个界面主要解决以下几方面问题：</p>
 <p>（1）批导入对象的管理，包括新增、修改、删除、查找、导出、导入等操作。</p>
@@ -200,7 +206,7 @@
 <p>当批导出模板做好后，可以将其导出备份成本地文件，也可将本地的模板文件导入进 ERP 系统。通过导出、导入，可在不同 ERP 服务器之间互换模板资源。</p>
 <p><img src="/images/LSMW/LSMW3.png" alt="LSMW"></p>
 <h3 id="分步操作界面">分步操作界面</h3>
-<p>在管理界面选择 Project、Subproject、Object，选择执行按钮进入分步操作界面。</p>
+<p>LSMW 的特点之一是步骤比较多，如果我们把 LSMW 所有这些操作步骤分成三个大的方面，就比较容易理解。分步操作界面：</p>
 <p><img src="/images/LSMW/LSMW4.png" alt="LSMW"></p>
 <p>在分步操作的菜单中，用鼠标双击各菜单行可进入不同界面。这里共有 20 个步骤，在实际操作中我们不需要这么多，只需要 14 个就可以了，点击 “User Menu” 按钮进入选择用户菜单的对话框。在对话框中可以控制菜单显示。</p>
 <p><img src="/images/LSMW/LSMW5.png" alt="LSMW"></p>
@@ -209,6 +215,27 @@
 <li>Double Click = Display：控制双击菜单时是display还是直接change</li>
 </ul>
 <p>如果执行了相应的步骤，界面的右侧会显示最后操作的日期、时间、操作者。</p>
+<h4 id="指定对象的属性">指定对象的属性</h4>
+<p>第一个大的操作步骤是<strong>指定对象的属性</strong>，从 SAP 允许的四种导入方法中选择。如果为录屏，需要先录屏，然后在界面中选择录屏对应的 ID。</p>
+<h4 id="定义字段的对应关系">定义字段的对应关系</h4>
+<p>第二个大的操作步骤就是<strong>定义字段的对应关系</strong>。SAP 将步骤切分的很细，比如定义源结构，定义源结构包含的字段，定义映射关系等。</p>
+<p>操作步骤的细节说明：</p>
+<ul>
+<li>
+<p>录屏的时候对有值要录入的字段，建议手工输入这些值，不要从历史记录中选择</p>
+</li>
+<li>
+<p>录屏后要保存，保存操作也是动作的一部分，不能缺少</p>
+</li>
+<li>
+<p>在定义源结构包含字段的时候，参考目标结构中的字段，或者数据表 /SAPDMC/LSGBDC，LSMW 录屏的表在该表中记录，该表的字段可以查看到字段的数据类型和长度</p>
+</li>
+<li>
+<p>LSMW 只支持文本文件，字段的顺序建议与目标结构的顺序一致，比较方便的方式是使用 Excel 维护数据，然后另存为 Unicode 的文本文件。</p>
+</li>
+</ul>
+<h4 id="执行导入">执行导入</h4>
+<p>第三个大的操作步骤是<strong>执行导入</strong>。</p>
 <h2 id="实际操作步骤">实际操作步骤</h2>
 <p>做一个完整的批处理操作，需要很多步骤。这些步骤分为几大部分：</p>
 <ul>
@@ -244,7 +271,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1393</span>
+                   <span>1704</span>
             </p>
             
             <p class="copyright-item">
