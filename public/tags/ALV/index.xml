@@ -62,6 +62,24 @@
     </item>
     
     <item>
+      <title> ALVTree Demo </title>
+      <link>https://coldinfire.github.io/2019/ABAP_ALV_TreeDemo/</link>
+      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_ALV_TreeDemo/</guid>
+      <description>创建一个完整的 ALVTree Control SAP dynpro 程序 生成的 ALVTree Report 使用 OBJECT METHOD 功能来生成树结构的 ALV 输出。 创建 ALVtree Report 首先需要创建一个简单的程序来构建 ALV 详细信息(例如字段目录)，并</description>
+    </item>
+    
+    <item>
+      <title> ALVTree Event </title>
+      <link>https://coldinfire.github.io/2019/ABAP_ALV_TreeEvent/</link>
+      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_ALV_TreeEvent/</guid>
+      <description>事件处理 事件定义 *--------------------------------------------------------------* * INCLUDE BCALV_TREE_EVENT_RECEIVER * *--------------------------------------------------------------* CLASS lcl_tree_event_receiver DEFINITION. PUBLIC SECTION. METHODS handle_node_ctmenu_request FOR EVENT node_context_menu_request OF cl_gui_alv_tree IMPORTING node_key menu. METHODS handle_node_ctmenu_selected FOR EVENT node_context_menu_selected OF cl_gui_alv_tree IMPORTING node_key fcode. METHODS handle_item_ctmenu_request FOR EVENT item_context_menu_request OF cl_gui_alv_tree IMPORTING node_key fieldname menu. METHODS handle_item_ctmenu_selected FOR EVENT item_context_menu_selected OF cl_gui_alv_tree IMPORTING node_key fieldname fcode. METHODS handle_item_double_click FOR EVENT item_double_click OF cl_gui_alv_tree IMPORTING node_key</description>
+    </item>
+    
+    <item>
       <title> ALV Tree 系统标准程序 </title>
       <link>https://coldinfire.github.io/2019/ABAP_ALV_Tree/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
