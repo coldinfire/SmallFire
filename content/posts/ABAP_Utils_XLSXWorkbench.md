@@ -1,5 +1,5 @@
 ---
-title: " XLSXWorkbench 使用 "
+title: " XLSXWorkbench 安装和使用 "
 date: 2022-03-23
 draft: false
 author: Small Fire
@@ -13,6 +13,8 @@ tags:
 ---
 
 [XLSX Workbench](https://sites.google.com/site/sapxlwb/home/eng) 是一款开源的 SAP 插件工具，用于在 SAP 环境中设计基于 Excel 的表单。 由于开发表单的完全可视化方法（类似 SMARTFORMS），它非常易于学习和使用。
+
+XLSX Workbench 的安装可以参考标准文档一步步实现即可。这里着重介绍如何使用该工具。
 
 ### Step1：创建 Context
 
@@ -90,6 +92,8 @@ Workbench 分为三个大的功能区域：
 ![Drawing](/images/ABAP/ABAP_XLSXWorkbench2_12.png)
 
 #### Excel 模板
+
+Excel 模板是我们最终导出的文件模板，通过属性选项卡将表格结构树和模板进行关系映射。
 
 ### 开发打印程序
 

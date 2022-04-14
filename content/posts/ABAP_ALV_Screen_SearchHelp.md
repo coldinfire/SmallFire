@@ -1,5 +1,5 @@
 ---
-title: " SAP 搜索帮助 "
+title: " SAP 屏幕搜索帮助 "
 date: 2019-10-12
 draft: false
 author: Small Fire
@@ -14,19 +14,25 @@ tags:
 
 ### 搜索帮助优先级
 
-- 先 `PROCESS ON VALUE-REQUEST` 、`AT SELECTION-SCREEN ON VALUE-REQUEST`
+- 先检查 `PROCESS ON VALUE-REQUEST` 、`AT SELECTION-SCREEN ON VALUE-REQUEST`
 
-- 再 `PARAMETERS VALUE CHECK` / `SELECT-OPTIONS MATCHCODE OBJECT XXXX`
+- 再检查 `PARAMETERS VALUE CHECK` / `SELECT-OPTIONS MATCHCODE OBJECT XXXX`
 
-- 其次是`Check Table`、再表（或结构 ）字段是否绑定了搜索帮助
+- 其次是`Check Table`、然后检查表（或结构 ）字段是否绑定了搜索帮助
 
 - 然后检查 Data element 是否绑定了搜索帮助 ，再检查 Domain 是否存在 Fixed Values
 
-- 最后才是SAP中的 DATS、TIMS 搜索帮助
+- 最后才是 SAP 中的 DATS、TIMS 搜索帮助
+
+### 参照数据库字段
+
+参照数据库字段，用 SAP 数据字典自带的检索帮助，或者参照字段的定义域实现F4检索帮助。是最简单的方法，参照字段定义即可。
+
+- `PARAMETERS p_matnr TYPE mara-matnr.` 
 
 ### VALUE CHECK
 
-`PARAMETER p_test TYPE mara-matnr VALUE CHECK.`
+- `PARAMETER p_matnr TYPE mara-matnr VALUE CHECK.`
 
 如果选择屏幕字段参考数据元素所对应的 Domain 设置了 **固定值（ Fixed Values ）**或 **值表（ Value Table ）**时，使用 VALUE CHECK 选项后，会验证输入值是否在固定值或值表范围之内。
 
@@ -34,9 +40,11 @@ tags:
 
 - 如果要使用 VALUE CHECK 选项，则 Domain 的类型只能是 **C** 或者 **N** 类型 ， 否则运行会抛异常。另外， **如果未使用该选项，但** **F4 Help** **还是会出现** （有固定值或检查表的情况下），但不进行有效性检查。
 
-### 使用搜索帮助对象
+### 搜索帮助对象
 
-当某个表字段有检查表，并且又有搜索帮助，则数据一般来自源于检查表，而 **F4 的输入输出则由搜索帮助来决定**。 
+- `PARAMETERS p_bwart(4) MATCHCODE OBJECT zsh_bwart.`
+
+当某个表字段有检查表，并且又有搜索帮助，则数据一般来自源于检查表，而 **F4 的输入输出则由搜索帮助来决定**。 可以通过 SE11 里面创建一个检索帮助ID（search_help），然后在屏幕定义的时候，使用`MATCHCODE OBJECT search_help` 绑定即可。
 
 #### 定义 Search Help
 
@@ -68,12 +76,12 @@ tags:
 
 6、搜索帮助准备就绪后，将其选中并激活。
 
-#### 示例代码：Z_MIN_Z21
+#### 使用搜索帮助对象
 
 ```ABAP
 SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN COMMENT 2(15) text1 .
-PARAMETERS: p_bwart(4) MATCHCODE OBJECT z_min_z21.
+PARAMETERS p_bwart(4) MATCHCODE OBJECT zsh_bwart.
 SELECTION-SCREEN END OF LINE.
 INITIALIZATION.
   text1 = 'Reason Code'.
@@ -83,10 +91,10 @@ INITIALIZATION.
 
 #### 搜索帮助出口 
 
-`Z_REASON_CODE_MIN_Z21`
+`Z_REASON_CODE`
 
 ```ABAP
-FUNCTION Z_REASON_CODE_MIN_Z21.
+FUNCTION Z_REASON_CODE.
 *----------------------------------------------------------------------
 *Local Interface:
 *  TABLES
@@ -187,19 +195,40 @@ ENDFUNCTION.
 
 在屏幕的 ON VALUE-REQUEST 事件中可以通过以下几个函数来创建搜索帮助：
 
+- TR_F4_HELP：实现简单的 Search Help，数据来源于内表
 - F4IF_FIELD_VALUE_REQUEST：在程序运行时，可以动态的为屏幕上某个字段指定 Search Help。被引用的搜索帮助来自于某个表（结构）字段上绑定的 Search Help
 - F4IF_INT_TABLE_VALUE_REQUEST：在程序运行时，将某个内表动态的用作 Search Help 的数据，可实现联动效果
-- TR_F4_HELP：实现简单的 Search Help，数据来源于内表
+
+#### FM：F4IF_FIELD_VALUE_REQUEST
+
+运行这个函数就会弹出F4帮助界面的值选择窗口，窗口中的值就是 tabname 中字段 fieldname 的所有可选值，当选择某个值后，那么这个值和其相关的属性就会存放到表 return_tab 中。
+
+```ABAP
+CALL FUNCTION 'F4IF_FIELD_VALUE_REQUEST'
+  EXPORTING
+    tabname    = gs_selfields-tabname      "数据字典中的表名"
+    fieldname  = gt_Selfields-fieldname    "数据字典中的字段名"
+    * value    = selval
+  TABLES
+    return_tab = return_tab
+  EXCEPTIONS
+    FIELD_NOT_FOUND    = 1
+    NO_HELP_FOR_FIELD  =2
+    INCONSISTENT_HELP  =3
+    NO_VALUES_FOUND    = 4
+    OTHERS             = 5.
+```
 
 #### FM：F4IF_INT_TABLE_VALUE_REQUEST
 
 在程序运行时，将某个内表动态的用作 **Search help**  的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果。
 
 ```ABAP
-parameters: p_bname LIKE usr02-bname,
+PARAMETERS: p_bname LIKE usr02-bname,
             p_class LIKE usr02-class.
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_bname.
 	PERFORM frm_valuereq_bwart.
+	
 FORM frm_valuereq_bwart.
 " 需要显示的结果集 "
 DATA: BEGIN OF t_data OCCURS 1,
@@ -225,19 +254,20 @@ APPEND h_dselc.
 h_dselc-fldname = 'CLASS'.
 h_dselc-dyfldname = 'P_CLASS'.
 APPEND h_dselc.
+"将获取到的值绑定到对应屏幕字段"
 CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
   EXPORTING
-    retfield = 'P_BWART' "搜索帮助表返回到选择屏幕的字段的参数"
-    dynpprog = sy-repid
-    dynpnr   = sy-dynnr
-    dynprofield = 'P_BWART' "选择屏幕上需要添加F4帮助的字段"
-  * multiple_choice = ''
-    value_org = 'S'      "默认：C"
+    retfield         = 'P_BWART'    "搜索帮助表返回到选择屏幕的字段的参数"
+    dynpprog         = sy-repid
+    dynpnr           = sy-dynnr
+    dynprofield      = 'P_BWART' "选择屏幕上需要添加F4帮助的字段"
+  * multiple_choice  = ''
+    value_org        = 'S'         "默认：C"
   TABLES
-    value_tab = t_data   "F4 帮助值的表"
-    field_tab = h_field_tab
-  * return_tab = return_tab
-    DYNPFLD_MAPPING = h_dselc
+    value_tab        = t_data   "F4 帮助值的表"
+    field_tab        = h_field_tab
+  * return_tab       = return_tab
+    DYNPFLD_MAPPING  = h_dselc
   EXCEPTIONS
     OTHERS = 0.
 ENDFORM. 
@@ -246,14 +276,14 @@ FORM f_fieldinfo_get USING fu_tabname fu_fieldname
                      CHANGING fwa_field_tab.
   CALL FUNCTION 'DDIF_FIELDINFO_GET'
     EXPORTING
-      TABNAME = fu_tabname
-      FIELDNAME = fu_fieldname
-      LANGU     = sy-langu
+      TABNAME    = fu_tabname
+      FIELDNAME  = fu_fieldname
+      LANGU      = sy-langu
       LFIELDNAME = fu_fieldname
     IMPORTING
-      DFIES_WA = fwa_field_tab
+      DFIES_WA   = fwa_field_tab
     EXCEPTIONS
-      NOT_FOUND = 1
+      NOT_FOUND  = 1
       INTERNAL_ERROR = 2
       OTHERS = 3.
   IF SY-SUBRC <> 0.

@@ -16,23 +16,13 @@ tags:
 
 #### 系统标准Function
 
-```html
-CONVERSION_EXIT_IDATE_OUTPUT
-  INPUT:   20080203
-  OUTPUT:  03FEB2008
-
-CONVERT_DATE_TO_EXTERNAL
-  INPUT:   20080203
-  OUTPUT:  02/03/2008  "According to user's default setting.
-
-CONVERT_DATE_TO_INTERNAL
-  INPUT:   02/03/2008  "Should be same as the user's default setting
-  OUPUT:   20080203
-```
+- `CONVERSION_EXIT_IDATE_OUTPUT`：INPUT (20080203)；OUTPUT (03FEB2008)
+- `CONVERT_DATE_TO_EXTERNAL`：INPUT (20080203)；OUTPUT (02/03/2008) 输出结果参照用户默认设置的格式
+- `CONVERT_DATE_TO_INTERNAL`：INPUT (02/03/2008) 格式应与用户的默认设置相同；OUPUT (20080203)
 
 #### 自定义工具
 
-```html
+```ABAP
 FUNCTION ZCONVERT_DATE_FORMAT.
 *"----------------------------------------------------------------------
 *"*"Local interface:
@@ -49,10 +39,8 @@ DATA: date_format LIKE usr01-datfm,
   lv_year = zdate+0(4).
   lv_month = zdate+4(2).
   lv_day = zdate+6(2).
-  SELECT SINGLE datfm 
-    INTO lv_datfm FROM usr01
-    UP TO 1 ROWS 
-    WHERE bname = zname .
+  SELECT SINGLE datfm INTO lv_datfm FROM usr01 UP TO 1 ROWS 
+    WHERE bname = zname.
   IF sy-subrc = 0.
     CLEAR zdate.
     CASE lv_datfm.
@@ -80,46 +68,105 @@ ENDFUNCTION.
 
 ```ABAP
 INCLUDE rmcs0f0m.
-s_month FOR s001-spmon NO-EXTENSION NO INTERVALS OBLIGATORY.
+SELECT-OPTIONS: s_month FOR s001-spmon NO-EXTENSION NO INTERVALS OBLIGATORY.
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR s_month-low.
-   PERFORM monat_f4.
+   PERFORM monat_f4 USING s_month-low.
+   
+FORM monat_f4 USING month.
+  DATA lv_month TYPE isellist-month.
+  FIELD-SYMBOLS <fs_field> TYPE any.
+  lv_month = sy-datum+0(6).
+ 
+  CALL FUNCTION 'POPUP_TO_SELECT_MONTH'
+    EXPORTING
+      actual_month               = lv_month
+*     FACTORY_CALENDAR           = ' '
+*     HOLIDAY_CALENDAR           = ' '
+*     LANGUAGE                   = SY-LANGU
+*     START_COLUMN               = 8
+*     START_ROW                  = 5
+    IMPORTING
+      selected_month             = lv_month
+*     RETURN_CODE                =
+    EXCEPTIONS
+      factory_calendar_not_found = 1
+      holiday_calendar_not_found = 2
+      month_not_found            = 3
+      OTHERS                     = 4.
+  IF sy-subrc = 0.
+    CHECK lv_month <> '000000'.
+    ASSIGN month TO <fs_field>.
+    IF <fs_field> IS ASSIGNED.
+      <fs_field> = lv_month.
+      UNASSIGN <fs_field>.
+    ENDIF.
+  ENDIF.
+  
+ENDFORM.
 ```
 
 ### 常用的日期函数
 
 #### 日期有效性检查 
 
-```html
+```ABAP
 CALL FUNCTION 'DATE_CHECK_PLAUSIBILITY'
   EXPORTING
-    date                            = sy-datum
+    DATE                        = sy-datum
   EXCEPTIONS
-   PLAUSIBILITY_CHECK_FAILED       = 1
-   OTHERS                          = 2
-           .
+    PLAUSIBILITY_CHECK_FAILED   = 1
+    OTHERS                      = 2.
 IF sy-subrc <> 0.
   MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
-         WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
+     WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
 ENDIF.
 ```
 
 #### 根据日期计算另一个日期
 
+返回指定月以前的日期
+
+```ABAP
+DATA DATE LIKE SCAL-DATE.
+CALL FUNCTION ‘CCM_GO_BACK_MONTHS’ 
+  EXPORTING 
+    CURRDATE = sy-datum 
+    BACKMONTHS = 6 
+  IMPORTING 
+    NEWDATE = DATE . 
+```
+
 输入一个日期，输入间隔的天、月、年，输入运算符，函数返回计算出的日期。
 
-```html
+```ABAP
 CALL FUNCTION 'RP_CALC_DATE_IN_INTERVAL'
   EXPORTING
     DATE            = SY-DATUM
     DAYS            = 1
     MONTHS          = 0
-    SIGNUM          = '+'
+    SIGNUM          = '+' "+，-"
     YEARS           = 0
   IMPORTING
     CALC_DATE       = DATE_RESULT.
 ```
 
 #### 查询两个日期间的日间间隔
+
+返回两个日期之间的年数、月数、天数
+
+```ABAP
+CALL FUNCTION 'FIMA_DAYS_AND_MONTHS_AND_YEARS'
+  EXPORTING 
+    I_DATE_FROM = '20180202'
+* I_KEY_DAY_FROM = 
+    I_DATE_TO   = '20180919'
+* I_KEY_DAY_TO  = 
+* I_FLG_SEPARATE = ’ ’ 
+  IMPORTING 
+    E_DAYS   = E_DAYS    "229:相差天数"
+    E_MONTHS = E_MONTHS  "8:相差月数" 
+    E_YEARS  = E_YEARS . "1:相差年数"
+```
 
 两个日期作差，即是两个日期相减，包括当天时间。
 
@@ -158,20 +205,30 @@ CALL FUNCTION 'SALP_SM_CALC_TIME_DIFFERENCE'
 
 #### 获取日期所在的周数
 
-```html
-DATA WEEK LIKE SCAL-WEEK.
+```ABAP
+DATA week LIKE scal-week.
 CALL FUNCTION 'DATE_GET_WEEK'
   EXPORTING
     date               = sy-datum
   IMPORTING
-    WEEK               = WEEK
+    week               = week
   EXCEPTIONS
-    DATE_INVALID       = 1
-    OTHERS             = 2
-            .
+    date_invalid       = 1
+    others             = 2.
 IF sy-subrc <> 0.
   MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
          WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
 ENDIF.
+```
+
+#### 获得某周的第一天日期 
+
+```ABAP
+DATA DATE LIKE SCAL-DATE. 
+CALL FUNCTION ‘WEEK_GET_FIRST_DAY’ 
+  EXPORTING 
+    WEEK = '201848'
+  IMPORTING 
+    DATE = DATE.  "2018-11-26"
 ```
 
