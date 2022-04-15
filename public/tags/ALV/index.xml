@@ -202,7 +202,7 @@
       <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ALV_Demo_GridALV/</guid>
-      <description>GRID ALV 程序实例 *&amp;amp;-----------------------------------------------------------* *&amp;amp; Report ZGRID_ALV_DEMO *&amp;amp;-----------------------------------------------------------* REPORT zgrid_alv_demo. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. &amp;#34;Internal Table Data&amp;#34; TYPES: BEGIN OF str_alv, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_alv. DATA: gt_alv TYPE STANDARD TABLE OF str_alv, gs_alv TYPE str_alv. &amp;#34;ALV</description>
+      <description>GRID ALV 程序实例 *&amp;amp;-----------------------------------------------------------* *&amp;amp; Report ZDEMO_ALV_GRID *&amp;amp;-----------------------------------------------------------* *&amp;amp; Example of a simple ALV Grid Report *&amp;amp;-----------------------------------------------------------* REPORT zdemo_alv_grid. TYPE-POOLS: slis. TABLES: mara,marc,rlgrap. *Data Declaration TYPES: BEGIN OF str_alv, sel TYPE flag, id TYPE char25, &amp;#34; Red Green color &amp;#34; message TYPE string, &amp;#34; Message &amp;#34; index TYPE i, matnr TYPE mara-matnr, werks TYPE marc-werks, dismm TYPE marc-dismm, dispo TYPE marc-dispo, END OF str_alv. DATA: gt_alv TYPE</description>
     </item>
     
     <item>

@@ -124,3 +124,43 @@ ENDCHAIN.
 - 不能有 AT EXIT-COMMAND 模块
 - 使用的字段是全局字段时必须先在顶部声明
 - 如果使用来自另一个对话程序的子屏幕，除非您添加特定代码，否则不会发生数据传输。
+
+### 屏幕下拉列表
+
+使用 Listbox 选项将下拉列表添加到 SAP dynpro screen。
+
+打开 Screen 的 Layou，创建字段后双击输入字段，出现属性窗口。 更新 Dropdown 属性，使其设置为 Listbox 。
+
+#### PBO 中添加代码
+
+```ABAP
+*&---------------------------------------------------------------------*
+*&      Module  STATUS_0100  OUTPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE STATUS_0100 OUTPUT.
+*  SET PF-STATUS 'xxxxxxxx'.
+*  SET TITLEBAR 'xxx'.
+  TYPE-POOLS : VRM.
+  DATA: ld_field    TYPE VRM_ID ,
+        it_listbox  TYPE VRM_VALUES,
+        wa_listbox  LIKE LINE OF it_listbox.
+  DATA: it_mara TYPE STANDARD TABLE OF mara,
+        wa_mara TYPE mara.
+  SELECT * up TO 10 rows
+    FROM mara
+    INTO TABLE it_mara.
+  LOOP AT it_mara INTO wa_mara.
+    wa_listbox-key = wa_mara-matnr.
+    wa_listbox-text = wa_mara-matnr.
+    APPEND wa_listbox TO it_listbox.
+  ENDLOOP.
+  ld_field = 'EKKO-EBELN'.
+  CALL FUNCTION 'VRM_SET_VALUES'
+    EXPORTING
+      id     = ld_field
+      values = it_listbox.
+ENDMODULE.                 " STATUS_0100  OUTPUT "
+```
+

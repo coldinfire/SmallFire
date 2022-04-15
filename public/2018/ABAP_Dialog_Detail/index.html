@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "Dialog",
-  "wordcount":  1075 ,
+  "wordcount":  1242 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Dialog_Detail\/",
   "datePublished": "2018-07-03T00:00:00\u002b00:00",
   "dateModified": "2018-07-03T00:00:00\u002b00:00",
@@ -312,7 +312,39 @@ ENDCHAIN.
 <li>使用的字段是全局字段时必须先在顶部声明</li>
 <li>如果使用来自另一个对话程序的子屏幕，除非您添加特定代码，否则不会发生数据传输。</li>
 </ul>
-
+<h3 id="屏幕下拉列表">屏幕下拉列表</h3>
+<p>使用 Listbox 选项将下拉列表添加到 SAP dynpro screen。</p>
+<p>打开 Screen 的 Layou，创建字段后双击输入字段，出现属性窗口。 更新 Dropdown 属性，使其设置为 Listbox 。</p>
+<h4 id="pbo-中添加代码">PBO 中添加代码</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#75715e">*&amp;      Module  STATUS_0100  OUTPUT</span>
+<span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#75715e">*       text</span>
+<span style="color:#75715e">*----------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">MODULE</span> <span style="color:#a6e22e">STATUS_0100</span> <span style="color:#66d9ef">OUTPUT</span>.
+<span style="color:#75715e">*  SET PF-STATUS &#39;xxxxxxxx&#39;.</span>
+<span style="color:#75715e">*  SET TITLEBAR &#39;xxx&#39;.</span>
+  <span style="color:#66d9ef">TYPE-POOLS</span> : VRM.
+  <span style="color:#66d9ef">DATA</span>: ld_field    <span style="color:#66d9ef">TYPE </span>VRM_ID ,
+        it_listbox  <span style="color:#66d9ef">TYPE </span>VRM_VALUES,
+        wa_listbox  <span style="color:#66d9ef">LIKE LINE OF</span> it_listbox.
+  <span style="color:#66d9ef">DATA</span>: it_mara <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> mara,
+        wa_mara <span style="color:#66d9ef">TYPE </span>mara.
+  <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> up <span style="color:#66d9ef">TO</span> <span style="color:#ae81ff">10</span> rows
+    <span style="color:#66d9ef">FROM</span> mara
+    <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> it_mara.
+  <span style="color:#66d9ef">LOOP AT </span>it_mara <span style="color:#66d9ef">INTO</span> wa_mara.
+    wa_listbox<span style="color:#f92672">-</span>key <span style="color:#f92672">=</span> wa_mara<span style="color:#f92672">-</span>matnr.
+    wa_listbox<span style="color:#f92672">-</span>text <span style="color:#f92672">=</span> wa_mara<span style="color:#f92672">-</span>matnr.
+    <span style="color:#66d9ef">APPEND</span> wa_listbox <span style="color:#66d9ef">TO</span> it_listbox.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+  ld_field <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;EKKO-EBELN&#39;</span>.
+  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;VRM_SET_VALUES&#39;</span>
+    <span style="color:#66d9ef">EXPORTING</span>
+      <span style="color:#66d9ef">id</span>     <span style="color:#f92672">=</span> ld_field
+      <span style="color:#66d9ef">values</span> <span style="color:#f92672">=</span> it_listbox.
+<span style="color:#66d9ef">ENDMODULE</span>.                 <span style="color:#75715e">&#34; STATUS_0100  OUTPUT &#34;
+</span></code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -325,7 +357,7 @@ ENDCHAIN.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1075</span>
+                   <span>1242</span>
             </p>
             
             <p class="copyright-item">

@@ -17,12 +17,14 @@ tags:
 
 ```ABAP
 *&-----------------------------------------------------------*
-*& Report  ZGRID_ALV_DEMO
+*& Report  ZDEMO_ALV_GRID
 *&-----------------------------------------------------------*
-REPORT  zgrid_alv_demo.
+*& Example of a simple ALV Grid Report
+*&-----------------------------------------------------------*
+REPORT  zdemo_alv_grid.
 TYPE-POOLS: slis.
 TABLES: mara,marc,rlgrap.
-"Internal Table Data"
+*Data Declaration
 TYPES: BEGIN OF str_alv,
   sel TYPE flag,
   id TYPE char25,         " Red Green color "
@@ -35,14 +37,14 @@ TYPES: BEGIN OF str_alv,
 END OF str_alv.
 DATA: gt_alv TYPE STANDARD TABLE OF str_alv,
       gs_alv TYPE str_alv.
-"ALV Parameter"
+*ALV data declarations
 DATA: gt_fieldcat TYPE slis_t_fieldcat_alv,
       gs_fieldcat TYPE slis_fieldcat_alv,
       layout TYPE slis_layout_alv,
       gt_events TYPE slis_t_event,
       gs_events TYPE slis_alv_event,
       gs_grid_settings TYPE lvc_s_glay.
-"Select screen"
+*Select screen data declarations
 SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN POSITION 1.
 PARAMETERS: p_chk1 RADIOBUTTON GROUP zr01 DEFAULT 'X' USER-COMMAND zchg.
@@ -59,7 +61,7 @@ SELECTION-SCREEN BEGIN OF BLOCK blk2 WITH FRAME TITLE text-004.
 PARAMETERS: p_werks TYPE marc-werks MODIF ID z02.
 SELECT-OPTIONS: s_matnr FOR mara-matnr MODIF ID z02.
 SELECTION-SCREEN END OF BLOCK blk2.
-"Marco Define"
+*Marco declarations
 DEFINE mro_fcat.
   clear: gs_fieldcat.
   gs_fieldcat-fieldname = &1.
@@ -76,8 +78,7 @@ DEFINE mro_fcat.
   endif.
   append gs_fieldcat to gt_fieldcat.
 END-OF-DEFINITION.
-" Screen Group control "
-
+*Screen Group control
 AT SELECTION-SCREEN OUTPUT.
   LOOP AT SCREEN.
     IF p_chk1 EQ 'X'.
@@ -113,12 +114,10 @@ START-OF-SELECTION .
 *&      Form  FRM_EXTRACT_DATA
 *&---------------------------------------------------------------------*
 FORM frm_extract_data .
-  SELECT *
-  FROM mara INNER JOIN marc
-  ON mara~matnr = marc~matnr
-  INTO CORRESPONDING FIELDS OF TABLE gt_alv
-  WHERE mara~matnr IN s_matnr
-  AND werks EQ p_werks.
+  SELECT * INTO CORRESPONDING FIELDS OF TABLE gt_alv
+    FROM mara INNER JOIN marc ON mara~matnr = marc~matnr
+   WHERE mara~matnr IN s_matnr
+     AND werks EQ p_werks.
   IF gt_alv IS INITIAL.
     MESSAGE 'No data.' TYPE 'S' DISPLAY LIKE 'E'.
     LEAVE LIST-PROCESSING.

@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  5664 ,
+  "wordcount":  5972 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Display\/",
   "datePublished": "2018-06-23T00:00:00\u002b00:00",
   "dateModified": "2018-06-23T00:00:00\u002b00:00",
@@ -888,7 +888,7 @@ fieldcat <span style="color:#e6db74">&#39;CARRID&#39;</span> <span style="color:
 <h3 id="颜色设置httpblogsinacomcnsblog_3f2c03e30100mk1shtml"><a href="http://blog.sina.com.cn/s/blog_3f2c03e30100mk1s.html">颜色设置</a></h3>
 <p>颜色设置中有优先级顺序，单元格&mdash;&gt;行&mdash;&gt;列。</p>
 <h4 id="颜色编码">颜色编码</h4>
-<p>颜色值定义为 4 位字符型</p>
+<p>颜色值定义为 4 位字符型：C410</p>
 <ul>
 <li>
 <p>第 1 位固定为字母 C (Color)</p>
@@ -948,7 +948,7 @@ fieldcat <span style="color:#e6db74">&#39;CARRID&#39;</span> <span style="color:
 </table>
 </li>
 <li>
-<p>第 3 位表示输出文字是否高亮显示，由 0~1 表示。为 1 时表示高亮显示。</p>
+<p>第 3 位表示输出文字是否高亮显示，由 0 或则 1 表示。为 1 时表示高亮显示。</p>
 </li>
 <li>
 <p>第 4 位表示颜色反转。测试了一下，基本上 0~9 颜色都差不多，唯一就是当取值为 1 时，底色又回到了灰色（且只是在第 3 位为 0 时才有此效果）。</p>
@@ -964,25 +964,89 @@ fieldcat <span style="color:#e6db74">&#39;CARRID&#39;</span> <span style="color:
 <p>为某行设置颜色是有点复杂的，需要在 ALV 的数据内表中增加一个字段保存颜色值，这个字段不需要在字段目录中存在。而且该字段也要是 4 位的CHAR 型(rowcolor)，符合颜色编码的定义。</p>
 <p>ALV 中的每行数据颜色是通过 Layout 的 <code>INFO_NAME</code>来控制的，可以设置这个字段来告诉 ALV 颜色字段是哪个。刷新以后才起作用。</p>
 <ul>
-<li><code>layout-info_name = 'ROWCOLOR'.</code></li>
+<li><code>layout-info_name = 'ROWCOLOR'.</code>：</li>
 </ul>
-<h4 id="单元格颜色">单元格颜色</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> t_ekko,
+  ebeln <span style="color:#66d9ef">TYPE </span>ekpo<span style="color:#f92672">-</span>ebeln,
+  ebelp <span style="color:#66d9ef">TYPE </span>ekpo<span style="color:#f92672">-</span>ebelp,
+  line_color(<span style="color:#ae81ff">4</span>) <span style="color:#66d9ef">type </span>c,     <span style="color:#75715e">&#34;Used to store row color attributes&#34;
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">END OF</span> t_ekko.
+<span style="color:#66d9ef">DATA</span>: gt_ekko <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> t_ekko INITIAL <span style="color:#66d9ef">SIZE</span> <span style="color:#ae81ff">0</span>,
+      gs_ekko <span style="color:#66d9ef">TYPE </span>t_ekko.
+<span style="color:#66d9ef">DATA</span>: layout <span style="color:#66d9ef">type </span>slis_layout_alv.
+<span style="color:#66d9ef">CLEAR</span> layout.
+layout<span style="color:#f92672">-</span>info_fieldname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;LINE_COLOR&#39;</span>.
+<span style="color:#66d9ef">LOOP AT </span>gt_ekko <span style="color:#66d9ef">INTO</span> gs_ekko.
+  ld_color <span style="color:#f92672">=</span> ld_color <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>.
+  <span style="color:#66d9ef">IF</span> ld_color <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>.
+    ld_color <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>.
+  <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#66d9ef">CONCATENATE</span> <span style="color:#e6db74">&#39;C&#39;</span> ld_color <span style="color:#e6db74">&#39;10&#39;</span> <span style="color:#66d9ef">INTO</span> gs_ekko<span style="color:#f92672">-</span>line_color.
+  <span style="color:#66d9ef">MODIFY</span> gt_ekko <span style="color:#66d9ef">from</span> gs_ekko.
+  <span style="color:#66d9ef">CLEAR</span> gs_ekko.
+<span style="color:#66d9ef">ENDLOOP</span>.
+</code></pre></div><h4 id="单元格颜色">单元格颜色</h4>
 <p>设置单元格和设置行的颜色本质上没有什么大的区别，但是定位单元格需要 2 个参数。我们需要在数据内表中插入一个表类型的字段，这样我们的数据内表就变成了 DEEP 结构了。</p>
 <p>表类型字段的类型为 <code>LVC_T_SCOL</code>。</p>
 <ul>
 <li>FNAME：指定需要设置的是哪个字段，如果为空则会设置整行</li>
-<li>COLOR：用来设置颜色值</li>
+<li>COLOR：用来设置颜色值；COL (颜色编码)；INT (是否高亮)；INV (颜色反转)；</li>
 <li>NOKEYCOL：设置为关键列的一些字段，我们的颜色设置可能被覆盖。通过这个字段的设置，可以避免被关键列覆盖</li>
 </ul>
-<p>同样，ALV 在布局中有个字段 <code>CTAB_FNAME</code> 告诉我们，数据内表中，哪个字段是用来设置单元格的颜色的。</p>
+<p>同样，ALV 在布局中有个字段 <code>COLTAB_FIELDNAME</code> 告诉我们，数据内表中哪个字段是用来设置单元格的颜色的。</p>
 <ul>
-<li><code>layout-ctab_name = 'COLORTABLE'.</code></li>
+<li><code>layout-COLTAB_FIELDNAME = 'COLORTABLE'.</code></li>
 </ul>
-<h3 id="alv-可编辑">ALV 可编辑</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> t_ekko,
+  ebeln <span style="color:#66d9ef">TYPE </span>ekpo<span style="color:#f92672">-</span>ebeln,
+  ebelp <span style="color:#66d9ef">TYPE </span>ekpo<span style="color:#f92672">-</span>ebelp,
+  cellcolor <span style="color:#66d9ef">TYPE </span>lvc_t_scol,
+ <span style="color:#66d9ef">END OF</span> t_ekko.
+<span style="color:#66d9ef">DATA</span>: gt_ekko <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> t_ekko INITIAL <span style="color:#66d9ef">SIZE</span> <span style="color:#ae81ff">0</span>,
+      gs_ekko <span style="color:#66d9ef">TYPE </span>t_ekko.
+<span style="color:#66d9ef">DATA</span>: wa_cellcolor <span style="color:#66d9ef">TYPE </span>lvc_s_scol,
+      lv_index <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>tabix.
+<span style="color:#66d9ef">DATA</span>: layout <span style="color:#66d9ef">type </span>slis_layout_alv.
+<span style="color:#66d9ef">CLEAR</span> layout.
+layout<span style="color:#f92672">-</span>coltab_fieldname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CELLCOLOR&#39;</span>.
+<span style="color:#66d9ef">LOOP AT </span>gt_ekko <span style="color:#66d9ef">INTO</span> gs_ekko.
+  lv_index <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>tabix.
+  wa_cellcolor<span style="color:#f92672">-</span>fname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;EBELN&#39;</span>.
+  wa_cellcolor<span style="color:#f92672">-</span>color<span style="color:#f92672">-</span>col <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;4&#39;</span>.
+  wa_cellcolor<span style="color:#f92672">-</span>color<span style="color:#f92672">-</span>int <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>.
+  wa_cellcolor<span style="color:#f92672">-</span>color<span style="color:#f92672">-</span>inv <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span>.
+  <span style="color:#66d9ef">APPEND</span> wa_cellcolor <span style="color:#66d9ef">TO</span> gs_ekko<span style="color:#f92672">-</span>cellcolor.
+  <span style="color:#66d9ef">MODIFY</span> gt_ekko <span style="color:#66d9ef">from</span> gs_ekko <span style="color:#66d9ef">INDEX</span> ld_index TRANSPORTING cellcolor.
+  <span style="color:#66d9ef">CLEAR</span> gs_ekko.
+<span style="color:#66d9ef">ENDLOOP</span>.
+</code></pre></div><h3 id="alv-可编辑">ALV 可编辑</h3>
 <p><strong>整体可编辑</strong>：layout-edit = &lsquo;X&rsquo;</p>
 <p><strong>某列可编辑</strong>：gs_fieldcat-edit = &lsquo;X&rsquo;</p>
-<p><strong>单元格可编辑</strong>：需要通过 OO 方式实现</p>
-<h2 id="设置工具导航栏-gui-status">设置工具导航栏 GUI Status</h2>
+<p><strong>单元格可编辑</strong>：需要在数据内表中插入一个表类型的字段，通过 OO 方式实现；添加类型为 <code>LVC_T_STYL</code> 的字段 .</p>
+<ul>
+<li><code>layout-stylefname = 'FIELD_STYLE'.</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> t_ekko,
+  ebeln <span style="color:#66d9ef">TYPE </span>ekpo<span style="color:#f92672">-</span>ebeln,
+  ebelp <span style="color:#66d9ef">TYPE </span>ekpo<span style="color:#f92672">-</span>ebelp,
+  field_style <span style="color:#66d9ef">TYPE </span>lvc_t_styl,
+ <span style="color:#66d9ef">END OF</span> t_ekko.
+<span style="color:#66d9ef">DATA</span>: gt_ekko <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> t_ekko INITIAL <span style="color:#66d9ef">SIZE</span> <span style="color:#ae81ff">0</span>,
+      gs_ekko <span style="color:#66d9ef">TYPE </span>t_ekko.
+<span style="color:#66d9ef">DATA</span>: it_fieldcat <span style="color:#66d9ef">TYPE </span>lvc_t_fcat,
+      wa_fieldcat <span style="color:#66d9ef">TYPE </span>lvc_s_fcat,
+      layout    <span style="color:#66d9ef">TYPE </span>lvc_s_layo.
+<span style="color:#66d9ef">DATA</span> lt_styletab <span style="color:#66d9ef">TYPE </span>lvc_t_styl .
+<span style="color:#66d9ef">DATA</span> ls_stylerow <span style="color:#66d9ef">TYPE </span>lvc_s_styl .
+layout<span style="color:#f92672">-</span>stylefname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;FIELD_STYLE&#39;</span>.
+<span style="color:#66d9ef">LOOP AT </span>gt_ekko <span style="color:#66d9ef">INTO</span> gs_ekko.
+  ls_stylerow<span style="color:#f92672">-</span>fieldname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;NETPR&#39;</span> .
+  ls_stylerow<span style="color:#f92672">-</span>style <span style="color:#f92672">=</span> cl_gui_alv_grid<span style="color:#f92672">=&gt;</span>mc_style_disabled. <span style="color:#75715e">&#34;set field to disabled&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">INSERT</span> ls_stylerow <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">table</span> gs_ekko<span style="color:#f92672">-</span>field_style.
+  <span style="color:#66d9ef">MODIFY</span> gt_ekko <span style="color:#66d9ef">FROM</span> gs_ekko.
+  <span style="color:#66d9ef">CLEAR</span> gs_ekko.
+<span style="color:#66d9ef">ENDLOOP</span>.
+</code></pre></div><h2 id="设置工具导航栏-gui-status">设置工具导航栏 GUI Status</h2>
 <h3 id="copy-sap-标准-gui-status">Copy SAP 标准 GUI Status</h3>
 <ul>
 <li>SE80 -&gt; SALV -&gt; STANDARD -&gt; Copy到自定义程序的GUI Status</li>
@@ -1070,7 +1134,7 @@ GUI TITLE设置<span style="color:#960050;background-color:#1e0010">：</span>
  <span style="color:#66d9ef">call method</span> lr_grid<span style="color:#f92672">-&gt;</span>refresh_table_display.
 <span style="color:#66d9ef">ENDFORM</span>.                    <span style="color:#75715e">&#34;user_command&#34;
 </span></code></pre></div><h4 id="自定义按钮">自定义按钮</h4>
-<p>对于定义的按钮，我们可以通过系统变量SY-UCOMM来获取它的功能代码。</p>
+<p>对于定义的按钮，我们可以通过系统变量 SY-UCOMM 来获取它的功能代码。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">AT USER-COMMAND</span>.  <span style="color:#75715e">&#34;当单击某个按钮时，触发该事件&#34;
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CASE</span> sy<span style="color:#f92672">-</span>ucomm.  <span style="color:#75715e">&#34;获取所操作按钮的功能代码(FUNCTION Code)&#34;
 </span></code></pre></div><ul>
@@ -1094,7 +1158,7 @@ GUI TITLE设置<span style="color:#960050;background-color:#1e0010">：</span>
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>5664</span>
+                   <span>5972</span>
             </p>
             
             <p class="copyright-item">

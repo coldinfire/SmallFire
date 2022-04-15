@@ -306,7 +306,7 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
 
 #### 颜色编码
 
-颜色值定义为 4 位字符型
+颜色值定义为 4 位字符型：C410
 
 - 第 1 位固定为字母 C (Color)
 
@@ -323,7 +323,7 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
   | 6     | Red              | Negative threshold value |
   | 7     | Orange           | Control levels           |
 
-- 第 3 位表示输出文字是否高亮显示，由 0~1 表示。为 1 时表示高亮显示。
+- 第 3 位表示输出文字是否高亮显示，由 0 或则 1 表示。为 1 时表示高亮显示。
 
 - 第 4 位表示颜色反转。测试了一下，基本上 0~9 颜色都差不多，唯一就是当取值为 1 时，底色又回到了灰色（且只是在第 3 位为 0 时才有此效果）。
 
@@ -341,7 +341,29 @@ CALL function 'LVC_FIELDCATALOG_MERGE'
 
 ALV 中的每行数据颜色是通过 Layout 的 `INFO_NAME`来控制的，可以设置这个字段来告诉 ALV 颜色字段是哪个。刷新以后才起作用。
 
-- `layout-info_name = 'ROWCOLOR'.`
+- `layout-info_name = 'ROWCOLOR'.`：
+
+```ABAP
+TYPES: BEGIN OF t_ekko,
+  ebeln TYPE ekpo-ebeln,
+  ebelp TYPE ekpo-ebelp,
+  line_color(4) type c,     "Used to store row color attributes"
+ END OF t_ekko.
+DATA: gt_ekko TYPE STANDARD TABLE OF t_ekko INITIAL SIZE 0,
+      gs_ekko TYPE t_ekko.
+DATA: layout type slis_layout_alv.
+CLEAR layout.
+layout-info_fieldname = 'LINE_COLOR'.
+LOOP AT gt_ekko INTO gs_ekko.
+  ld_color = ld_color + 1.
+  IF ld_color = 8.
+    ld_color = 1.
+  ENDIF.
+  CONCATENATE 'C' ld_color '10' INTO gs_ekko-line_color.
+  MODIFY gt_ekko from gs_ekko.
+  CLEAR gs_ekko.
+ENDLOOP.
+```
 
 #### 单元格颜色
 
@@ -350,12 +372,37 @@ ALV 中的每行数据颜色是通过 Layout 的 `INFO_NAME`来控制的，可�
 表类型字段的类型为 `LVC_T_SCOL`。
 
 - FNAME：指定需要设置的是哪个字段，如果为空则会设置整行
-- COLOR：用来设置颜色值
+- COLOR：用来设置颜色值；COL (颜色编码)；INT (是否高亮)；INV (颜色反转)；
 - NOKEYCOL：设置为关键列的一些字段，我们的颜色设置可能被覆盖。通过这个字段的设置，可以避免被关键列覆盖
 
-同样，ALV 在布局中有个字段 `CTAB_FNAME` 告诉我们，数据内表中，哪个字段是用来设置单元格的颜色的。
+同样，ALV 在布局中有个字段 `COLTAB_FIELDNAME` 告诉我们，数据内表中哪个字段是用来设置单元格的颜色的。
 
-- `layout-ctab_name = 'COLORTABLE'.`
+- `layout-COLTAB_FIELDNAME = 'COLORTABLE'.`
+
+```ABAP
+TYPES: BEGIN OF t_ekko,
+  ebeln TYPE ekpo-ebeln,
+  ebelp TYPE ekpo-ebelp,
+  cellcolor TYPE lvc_t_scol,
+ END OF t_ekko.
+DATA: gt_ekko TYPE STANDARD TABLE OF t_ekko INITIAL SIZE 0,
+      gs_ekko TYPE t_ekko.
+DATA: wa_cellcolor TYPE lvc_s_scol,
+      lv_index TYPE sy-tabix.
+DATA: layout type slis_layout_alv.
+CLEAR layout.
+layout-coltab_fieldname = 'CELLCOLOR'.
+LOOP AT gt_ekko INTO gs_ekko.
+  lv_index = sy-tabix.
+  wa_cellcolor-fname = 'EBELN'.
+  wa_cellcolor-color-col = '4'.
+  wa_cellcolor-color-int = '1'.
+  wa_cellcolor-color-inv = '0'.
+  APPEND wa_cellcolor TO gs_ekko-cellcolor.
+  MODIFY gt_ekko from gs_ekko INDEX ld_index TRANSPORTING cellcolor.
+  CLEAR gs_ekko.
+ENDLOOP.
+```
 
 ### ALV 可编辑
 
@@ -363,7 +410,32 @@ ALV 中的每行数据颜色是通过 Layout 的 `INFO_NAME`来控制的，可�
 
 **某列可编辑**：gs_fieldcat-edit = 'X'
 
-**单元格可编辑**：需要通过 OO 方式实现
+**单元格可编辑**：需要在数据内表中插入一个表类型的字段，通过 OO 方式实现；添加类型为 `LVC_T_STYL` 的字段 .
+
+- `layout-stylefname = 'FIELD_STYLE'.`
+
+```ABAP
+TYPES: BEGIN OF t_ekko,
+  ebeln TYPE ekpo-ebeln,
+  ebelp TYPE ekpo-ebelp,
+  field_style TYPE lvc_t_styl,
+ END OF t_ekko.
+DATA: gt_ekko TYPE STANDARD TABLE OF t_ekko INITIAL SIZE 0,
+      gs_ekko TYPE t_ekko.
+DATA: it_fieldcat TYPE lvc_t_fcat,
+      wa_fieldcat TYPE lvc_s_fcat,
+      layout    TYPE lvc_s_layo.
+DATA lt_styletab TYPE lvc_t_styl .
+DATA ls_stylerow TYPE lvc_s_styl .
+layout-stylefname = 'FIELD_STYLE'.
+LOOP AT gt_ekko INTO gs_ekko.
+  ls_stylerow-fieldname = 'NETPR' .
+  ls_stylerow-style = cl_gui_alv_grid=>mc_style_disabled. "set field to disabled"
+  INSERT ls_stylerow into table gs_ekko-field_style.
+  MODIFY gt_ekko FROM gs_ekko.
+  CLEAR gs_ekko.
+ENDLOOP.
+```
 
 ## 设置工具导航栏 GUI Status
 
@@ -462,7 +534,7 @@ ENDFORM.                    "user_command"
 
 #### 自定义按钮
 
-对于定义的按钮，我们可以通过系统变量SY-UCOMM来获取它的功能代码。
+对于定义的按钮，我们可以通过系统变量 SY-UCOMM 来获取它的功能代码。
 
 ```ABAP
 AT USER-COMMAND.  "当单击某个按钮时，触发该事件"
