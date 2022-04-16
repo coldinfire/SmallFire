@@ -1,6 +1,6 @@
 ---
 title: " Dialog 编程技术 "
-date: 2018-08-30
+date: 2018-09-01
 draft: false
 author: Small Fire
 isCJKLanguage: true
