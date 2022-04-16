@@ -1,6 +1,6 @@
 ---
 title: " Dialog 逻辑控制 "
-date: 2018-07-03
+date: 2018-08-28
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -38,6 +38,8 @@ tags:
 
 ### 字段检查与逻辑流的控制
 
+有许多方法可以验证在 Dialog screen 程序的 dynpro 上创建的字段，一般在 PAI Module 中进行验证。
+
 #### 单字段检查
 
 - 单个字段检查： `FIELD <FLD1> MODULE <MDL1> .`
@@ -54,6 +56,16 @@ CHAIN.
   MODULE <MDL2>.
 ENDCHAIN.
 "表示FLD1,FLD2,FLD3,FLD4有MDL1与MDL2检查"
+```
+
+#### 直接通过 ABAP 表查询验证 dynpro 屏幕字段
+
+```ABAP
+FIELD scr_field-ebeln
+  SELECT * FROM ekko
+   WHERE ebeln = scr_field-ebeln
+    INTO ekko
+  WHENEVER NOT FOUND SEND ERRORMESSAGE 001 WITH 'Document Number' ON INPUT.
 ```
 
 #### 其它检查
@@ -83,15 +95,24 @@ ENDCHAIN.
 
 #### EXIT-COMMAND
 
-- `MODULE <mod> AT EXIT-COMMAND.` 在对话屏幕中，对于 E 类型的 Function Code 触发退出屏幕，其他字段值不会传递到 ABAP 程序中。
+`MODULE <mod> AT EXIT-COMMAND.` ：在 Dialog Screen 中，对于 E 类型的 Function Code 触发退出屏幕，其他字段值不会传递到 ABAP 程序中。
 
-- `AT SELECTION-SCREEN ON EXIT-COMMAND.`在选择屏幕中，按钮触发事件。
+```ABAP
+CASE sy-command .
+  WHEN 'BACK' .
+    CHECK abap_on
+       EQ lcl_workbench=>popup_to_confirm( iv_text = lcl_workbench=>v_text-t138 ).
+    LEAVE TO SCREEN 0 .
+ENDCASE.
+```
+
+`AT SELECTION-SCREEN ON EXIT-COMMAND.`：在选择屏幕中，按钮触发事件。
 
 ### CALL Subscreen
 
 子屏幕是显示在另一个（“主”）屏幕区域中的独立屏幕。子屏幕允许在运行时将一个屏幕嵌入到另一个屏幕中。 您可以在主屏幕上包含多个子屏幕。
 
-子屏幕既适用于您嵌入的屏幕，也适用于您放置它的主屏幕上的区域。 如果在屏幕属性中定义，则通过 SE51 事务创建的实际屏幕称为子屏幕屏幕。
+子屏幕既适用于嵌入的屏幕，也适用于放置它的主屏幕上的区域。 如果在屏幕属性中定义，则通过 SE51 事务创建的实际屏幕称为子屏幕屏幕。
 
 当使用子屏幕时，嵌入屏幕的流逻辑也嵌入到主屏幕的流逻辑中。因此，在屏幕上使用子屏幕就像在 ABAP 程序中使用包含一样。每当调用主屏幕时，都会调用主屏幕的 PBO。但是在显示之前，还调用了主屏幕上附有子屏幕区域的每个屏幕的PBO。
 
@@ -100,6 +121,26 @@ ENDCHAIN.
 - 定义屏幕上的子屏幕区域
 - 定义合适的子屏幕
 - 在子屏幕区域中包含子屏幕屏幕
+
+#### 创建子屏幕
+
+在 ABAP dynpro 屏幕上创建子屏幕是一个相当简单的过程，只需将子屏幕区域（SUB0）添加到主程序屏幕，然后在主屏幕的 PBO 流逻辑中添加相应的 ABAP 代码。
+
+添加子屏幕区域：SUB0
+
+![Subscreen](/images/ABAP/ABAP_Dialog_3.png)
+
+添加 ABAP 调用代码：
+
+```ABAP
+*Dynpro PBO flow logic for screen 0100
+PROCESS BEFORE OUTPUT.
+ MODULE STATUS_0100.
+ CALL SUBSCREEN sub0 INCLUDING 'call_prog' 'call_subscreen_number'.
+ "CALL SUBSCREEN sub0 INCLUDING 'ZSAPPROG'  '0110'."
+PROCESS AFTER INPUT.
+ MODULE USER_COMMAND_0100.
+```
 
 #### 使用子屏幕
 
@@ -116,14 +157,14 @@ ENDCHAIN.
 
 #### 注意事项
 
+- 子屏幕需要在主屏幕的流逻辑（PBO 和 PAI）中调用
 - 一个屏幕内的子屏幕元素的名称应该是唯一的
 - 不应该将 OK_CODE 或 FCODE 附加到子屏幕。主屏本身的 OK_CODE 就是副屏的 OK_CODE
 - 子屏幕不能有任何包含 SET TITLEBAR、SET PF-STATUS、SET SCREEN、LEAVE SCREEN 或 LEAVE TO SCREEN 的对话模块，这将导致运行时错误
-- 子屏幕需要在主屏幕的流逻辑（PBO 和 PAI）中调用
 - CHAIN..ENDCHAIN 和 LOOP ENDLOOP 语句中不允许 CALL SUBSCREEN
-- 不能有 AT EXIT-COMMAND 模块
+- 子屏幕不能有 AT EXIT-COMMAND 模块
 - 使用的字段是全局字段时必须先在顶部声明
-- 如果使用来自另一个对话程序的子屏幕，除非您添加特定代码，否则不会发生数据传输。
+- 如果使用来自另一个对话程序的子屏幕，除非添加特定代码，否则不会发生数据传输
 
 ### 屏幕下拉列表
 
@@ -162,5 +203,34 @@ MODULE STATUS_0100 OUTPUT.
       id     = ld_field
       values = it_listbox.
 ENDMODULE.                 " STATUS_0100  OUTPUT "
+```
+
+### Dynpro
+
+#### 操作单个abap dynpro 表控制字段属性
+
+如果将以下 ABAP 放入 "populate_screen" PBO 模块（流逻辑中的表控制循环中的 PBO 模块），它将设置第 2 行的 EBELN 字段仅显示。 代码的第一位根据当前顶部可查看的表格控制行计算当前正在处理的行。 一旦到达所需的行，它就会执行 "LOOP AT SCREEN" 以找到正确的字段并设置其属性。
+
+```ABAP
+MODULE populate_screen OUTPUT.
+    DATA: ld_line TYPE i.
+*   Set which line of itab is at the top of the table control
+    IF sy-stepl = 1.
+      tc100-lines = tc100-top_line + sy-loopc - 1.
+    ENDIF.
+*   move fields from work area to scrren fields
+    MOVE-CORRESPONDING wa_ekko TO ztc_ekko.
+    ld_line =  sy-stepl + tc100-top_line - 1.
+*   Changes individual field attributes of table control,
+*   Sets EBELN field on 3rd row of TC to not be an input field!
+    LOOP AT SCREEN.
+      IF ld_line EQ 3.
+        IF screen-name EQ 'ZTC_EKKO-EBELN'.
+          screen-input = 0.
+          MODIFY SCREEN.
+        ENDIF.
+      ENDIF.
+    ENDLOOP.
+  ENDMODULE.                 " populate_screen  OUTPUT "
 ```
 

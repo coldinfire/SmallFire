@@ -1,6 +1,6 @@
 ---
 title: " Dialog POH&POV "
-date: 2018-07-06
+date: 2018-08-29
 draft: false
 author: Small Fire
 isCJKLanguage: true

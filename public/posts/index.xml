@@ -2251,10 +2251,46 @@
     <item>
       <title> Dialog 程序实例 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Dialog_Template/</link>
-      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Template/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title> Dialog 表格控件 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_TableControl/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_TableControl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> Dialog POH&amp;POV </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</link>
+      <pubDate>Wed, 29 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</guid>
+      <description>POH：F1 帮助 当按下 F1 时，就会执行指定数据元素的 POH 事件。 如果屏幕的流程逻辑中不存在 PROCESS ON HELP-REQUEST 事件，则以 ABAP Dictionary 中该字段的文档为基础进行显示。 定义 要</description>
+    </item>
+    
+    <item>
+      <title> Dialog 逻辑控制 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</link>
+      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</guid>
+      <description>Dialog 屏幕操作 语法 Module ... END MODULE. SET screen xxxx . CALL screen xxxx. LEAVE screen. CALL screen xxx [starting at lc ur] [ending at rc lr]. (Modal dialog box类型) SET CURSOR FIELD &amp;lt;f&amp;gt; [offset &amp;lt;o&amp;gt;]. MODULE EXIT AT EXIT-COMMAND. Static Attributes Attribute Attribute Attribute Attribute Attribute Attribute screen-name screen-active screen-invisible screen-input screen-group1 screen-group3 screen-length screen-required screen-intensified screen-output screen-group2 screen-group4 字</description>
+    </item>
+    
+    <item>
+      <title> Dialog 程序简介 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</guid>
+      <description>SAP-ABAP 支持两种类型的程序：Report 和 Dialog。如果 ABAP 程序需要用户输入或则当我们需要在屏幕之间来回导航时，则使用 Dialog 编程。 对话程序的创建类型</description>
     </item>
     
     <item>
@@ -2507,33 +2543,6 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</guid>
       <description>OO ALV ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作。 使用了 ABAP 的对象以</description>
-    </item>
-    
-    <item>
-      <title> Dialog POH&amp;POV </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</link>
-      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</guid>
-      <description>POH：F1 帮助 当按下 F1 时，就会执行指定数据元素的 POH 事件。 如果屏幕的流程逻辑中不存在 PROCESS ON HELP-REQUEST 事件，则以 ABAP Dictionary 中该字段的文档为基础进行显示。 定义 要</description>
-    </item>
-    
-    <item>
-      <title> Dialog 逻辑控制 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</link>
-      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</guid>
-      <description>Dialog 屏幕操作 语法 Module ... END MODULE. SET screen xxxx . CALL screen xxxx. LEAVE screen. CALL screen xxx [starting at lc ur] [ending at rc lr]. (Modal dialog box类型) SET CURSOR FIELD &amp;lt;f&amp;gt; [offset &amp;lt;o&amp;gt;]. MODULE EXIT AT EXIT-COMMAND. Static Attributes Attribute Attribute Attribute Attribute Attribute Attribute screen-name screen-active screen-invisible screen-input screen-group1 screen-group3 screen-length screen-required screen-intensified screen-output screen-group2 screen-group4 字</description>
-    </item>
-    
-    <item>
-      <title> Dialog 程序简介 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</link>
-      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</guid>
-      <description>SAP-ABAP 支持两种类型的程序：Report 和 Dialog。如果 ABAP 程序需要用户输入或则当我们需要在屏幕之间来回导航时，则使用 Dialog 编程。 对话程序的创建类型</description>
     </item>
     
     <item>
