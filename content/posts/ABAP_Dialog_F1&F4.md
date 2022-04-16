@@ -1,6 +1,6 @@
 ---
 title: " Dialog POH&POV "
-date: 2018-08-29
+date: 2018-09-04
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -52,7 +52,7 @@ tags:
 
 要为屏幕上的字段定义可能的值，需要在屏幕流逻辑的 POV 事件中定义以下内容：
 
-`PROCESS ON VALUE-REQUEST FIELD <field>  MODULE <module>.`
+`PROCESS ON VALUE-REQUEST. FIELD <field>  MODULE <module>.`
 
 - FIELD：指定为哪个字段设置 F4 帮助
 - MODULE：为字段的取值添加程序逻辑
@@ -68,6 +68,7 @@ tags:
 
 ```ABAP
 MODULE VALUE_CARRIER INPUT.
+
   CALL FUNCTION 'F4IF_FIELD_VALUE_REQUEST'
     EXPORTING
       TABNAME     = 'DEMOF4HELP'

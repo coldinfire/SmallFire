@@ -17,21 +17,30 @@
     </item>
     
     <item>
-      <title> Dialog 表格控件 </title>
+      <title> Dialog POH&amp;POV </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</link>
+      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</guid>
+      <description>POH：F1 帮助 当按下 F1 时，就会执行指定数据元素的 POH 事件。 如果屏幕的流程逻辑中不存在 PROCESS ON HELP-REQUEST 事件，则以 ABAP Dictionary 中该字段的文档为基础进行显示。 定义 要</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://coldinfire.github.io/2018/ABAP_Dialog_TableControl/</link>
       <pubDate>Sat, 01 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Dialog_TableControl/</guid>
-      <description></description>
+      <description>Dynpro 操作单个abap dynpro 表控制字段属性 如果将以下 ABAP 放入 &amp;ldquo;populate_screen&amp;rdquo; PBO 模块（流逻辑中的表控制循环中的 PBO 模块），它将设置第 2 行的 EBELN 字段仅显示。 代码的第一位根据</description>
     </item>
     
     <item>
-      <title> Dialog POH&amp;POV </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</link>
-      <pubDate>Wed, 29 Aug 2018 00:00:00 +0000</pubDate>
+      <title> Dialog 编程技术 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_ProgrammingTechniques/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_F1F4/</guid>
-      <description>POH：F1 帮助 当按下 F1 时，就会执行指定数据元素的 POH 事件。 如果屏幕的流程逻辑中不存在 PROCESS ON HELP-REQUEST 事件，则以 ABAP Dictionary 中该字段的文档为基础进行显示。 定义 要</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_ProgrammingTechniques/</guid>
+      <description>ABAP Dialog 编程技术 模块池对象的命名约定：BC410 SAPMV45A：Program name MV45AF01：Form include MV45AO01：PBO include MV45</description>
     </item>
     
     <item>
