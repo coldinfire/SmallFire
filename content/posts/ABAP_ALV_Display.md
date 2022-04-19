@@ -22,6 +22,28 @@ tags:
 
 **REUSE_ALV_GRID_DISPLAY_LVC**：以 LVC 结尾的 Grid 格式的 ALV 报表，此函数中引用到的类型大部分都不再从类型池 slis 中来引用，而是直接引用字典中已定义好的表或结构类型，这种函数与面向对象的 CL_GUI_ALV_GRID 生成的 ALV 参数类型上基本相同，所以以后一般如果使用函数方式来产生 ALV，推荐使用 REUSE_ALV_GRID_DISPLAY_LVC 函数，因为这样方便修改面向对象方式的 ALV。
 
+#### GRID ALV DEMO
+
+```ABAP
+CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'
+  EXPORTING
+    i_interface_check           = ''                "接口一致性检查"
+    i_callback_program          = sy-repid          "当前程序名"
+    is_layout                   = layout            "输出样式"
+    it_fieldcat                 = fieldcat[]        "字段定义描述"
+    i_callback_pf_status_set    = 'PF_STATUS_SET'   "触发事件调用子程序"
+    i_callback_user_command     = 'USER_COMMAND'    "鼠标事件操作子程序"
+    it_events                   = it_events[]       "出口程序触发事件"
+    i_callback_html_top_of_page = 'ALV_TOP_OF_PAGE' "ALV输出表头设置
+    i_grid_setting              = wl_lvc_s_glay     "打印表头设置"
+    is_sort                     = sortable[]        "排序设置"
+  TABLES
+    t_outtab                    = itab_out          "输出数据表"
+  EXCEPTIONS
+    program_error               = 1
+    OTHERS                      = 2.
+```
+
 ### FIELDCATALOG 创建的函数
 
 如果 ALV 所要展示的列过多时，建议先在数据字典系统中创建相应的 Structure，这样可免去对输出列表头信息的繁琐编辑处理，代码行也会缩短。
@@ -62,7 +84,7 @@ DATA: gt_lvc_fieldcat TYPE lvc_t_fcat,
 | ROW_POS(10)                 | 行输出位置                                            | 1….n                                   |
 | COL_POS(10)                 | 列输出位置                                            | 1….n                                   |
 | **FIELDNAME**(30)           | 针对输出内表列进行设置，只有设置了的列才会显示在ALV中 | 内表中定义的字段名                     |
-| **TABNAME** (30)            | Fieldname字段对应的内表名称                           | 内表名称                               |
+| **TABNAME** (30)            | Fieldname 字段对应的内表名称                          | 内表名称                               |
 | **CURRENCY**(5)             | 货币单位                                              | 表 TCURX 中的货币名称                  |
 | **CFIELDNAME**(30)          | 货币单位字段名 Currency unit field name               | 当前输出内表中的货币单位字段的字段名称 |
 | **CTABNAME**(30)            | 货币单位表名 Currency unit table name                 | CFIELDNAME字段值对应的内表名称         |
@@ -76,7 +98,7 @@ DATA: gt_lvc_fieldcat TYPE lvc_t_fcat,
 | DDIC_OUTPUTLEN              | 数据字典输出长度                                      |                                        |
 | **NO_OUT**(1)               | 当前列隐藏输出                                        | X-隐藏，space-不隐藏                   |
 | **KEY**(1)                  | 将定义字段设置为KEY值                                 | X-设置，space-不设置                   |
-| ICON(1)                     | 将定义字段以ICON的形式显示,INCLUDE  list              | X-设置，space-不设置                   |
+| ICON(1)                     | 将定义字段以ICON的形式显示，INCLUDE  list             | X-设置，space-不设置                   |
 | CHECKBOX(1)                 | 将定义字段以CHECKBOX的形式显示                        | X-设置，space-不设置                   |
 | EDIT(1)                     | 是否可编辑                                            | X-可编辑，space-不可编辑               |
 | INPUT(1)                    | 输入                                                  | X-设置，space-不设置                   |

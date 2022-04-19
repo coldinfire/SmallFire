@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  5972 ,
+  "wordcount":  6189 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Display\/",
   "datePublished": "2018-06-23T00:00:00\u002b00:00",
   "dateModified": "2018-06-23T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                12 min
+                13 min
         </div>
     </header>
     <div class="post-content">
@@ -178,7 +178,25 @@
 <p><strong>REUSE_ALV_LIST_DISPLAY</strong>：List 格式的 ALV 模式为固定格式，应用于较严格的标准报表。</p>
 <p><strong>REUSE_ALV_GRID_DISPLAY</strong>：Grid 格式的 ALV 报表有栏位选择按钮功能，允许用户直接输出格式，操作更为灵活。</p>
 <p><strong>REUSE_ALV_GRID_DISPLAY_LVC</strong>：以 LVC 结尾的 Grid 格式的 ALV 报表，此函数中引用到的类型大部分都不再从类型池 slis 中来引用，而是直接引用字典中已定义好的表或结构类型，这种函数与面向对象的 CL_GUI_ALV_GRID 生成的 ALV 参数类型上基本相同，所以以后一般如果使用函数方式来产生 ALV，推荐使用 REUSE_ALV_GRID_DISPLAY_LVC 函数，因为这样方便修改面向对象方式的 ALV。</p>
-<h3 id="fieldcatalog-创建的函数">FIELDCATALOG 创建的函数</h3>
+<h4 id="grid-alv-demo">GRID ALV DEMO</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;REUSE_ALV_GRID_DISPLAY&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    i_interface_check           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>                <span style="color:#75715e">&#34;接口一致性检查&#34;
+</span><span style="color:#75715e"></span>    i_callback_program          <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>repid          <span style="color:#75715e">&#34;当前程序名&#34;
+</span><span style="color:#75715e"></span>    is_layout                   <span style="color:#f92672">=</span> layout            <span style="color:#75715e">&#34;输出样式&#34;
+</span><span style="color:#75715e"></span>    it_fieldcat                 <span style="color:#f92672">=</span> fieldcat[]        <span style="color:#75715e">&#34;字段定义描述&#34;
+</span><span style="color:#75715e"></span>    i_callback_pf_status_set    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PF_STATUS_SET&#39;</span>   <span style="color:#75715e">&#34;触发事件调用子程序&#34;
+</span><span style="color:#75715e"></span>    i_callback_user_command     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;USER_COMMAND&#39;</span>    <span style="color:#75715e">&#34;鼠标事件操作子程序&#34;
+</span><span style="color:#75715e"></span>    it_events                   <span style="color:#f92672">=</span> it_events[]       <span style="color:#75715e">&#34;出口程序触发事件&#34;
+</span><span style="color:#75715e"></span>    i_callback_html_top_of_page <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ALV_TOP_OF_PAGE&#39;</span> <span style="color:#75715e">&#34;ALV输出表头设置
+</span><span style="color:#75715e"></span>    i_grid_setting              <span style="color:#f92672">=</span> wl_lvc_s_glay     <span style="color:#75715e">&#34;打印表头设置&#34;
+</span><span style="color:#75715e"></span>    is_sort                     <span style="color:#f92672">=</span> sortable[]        <span style="color:#75715e">&#34;排序设置&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">TABLES</span>
+    t_outtab                    <span style="color:#f92672">=</span> itab_out          <span style="color:#75715e">&#34;输出数据表&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">EXCEPTIONS</span>
+    program_error               <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">OTHERS</span>                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>.
+</code></pre></div><h3 id="fieldcatalog-创建的函数">FIELDCATALOG 创建的函数</h3>
 <p>如果 ALV 所要展示的列过多时，建议先在数据字典系统中创建相应的 Structure，这样可免去对输出列表头信息的繁琐编辑处理，代码行也会缩短。</p>
 <p><strong>REUSE_ALV_FIELDCATALOG_MERGE</strong>：根据定义的结构生成 FIELDCAT 字段结构信息。</p>
 <p><strong>LVC_FIELDCATALOG_MERGE</strong>：针对 REUSE_ALV_GRID_DISPLAY_LVC 函数，生成 FIELDCAT 字段结构信信息。</p>
@@ -233,7 +251,7 @@
 </tr>
 <tr>
 <td><strong>TABNAME</strong> (30)</td>
-<td>Fieldname字段对应的内表名称</td>
+<td>Fieldname 字段对应的内表名称</td>
 <td>内表名称</td>
 </tr>
 <tr>
@@ -303,7 +321,7 @@
 </tr>
 <tr>
 <td>ICON(1)</td>
-<td>将定义字段以ICON的形式显示,INCLUDE  list</td>
+<td>将定义字段以ICON的形式显示，INCLUDE  list</td>
 <td>X-设置，space-不设置</td>
 </tr>
 <tr>
@@ -1158,7 +1176,7 @@ GUI TITLE设置<span style="color:#960050;background-color:#1e0010">：</span>
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>5972</span>
+                   <span>6189</span>
             </p>
             
             <p class="copyright-item">

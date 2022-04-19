@@ -26,14 +26,14 @@ tags:
 
 #### Basic Screen Processing 
 
-- Leave to screen 0.：Exits back to first screen
+- `Leave to screen 0.`：Exits back to first screen
 
-- Call screen 100. ：Calls screen 100
+- `Call screen 100. `：Calls screen 100
 
-- Set screen 100.：Reassigns next screen value
-- Leave screen. ：Leaves to next screen
+- `Set screen 100.`：Reassigns next screen value
+- `Leave screen. `：Leaves to next screen
 
-- Leave program. ：Leaves Program)
+- `Leave program. `：Leaves Program)
 
 #### Dialog GUI Components
 
@@ -46,23 +46,27 @@ tags:
 
 ```ABAP
 SET PF-STATUS <ZSTATUS>. 
-SET TITLEBAR <NNN>.	" i.e. 100 "
-
-SET pf-status 'STATUS' EXCLUDING 
-" Exclude multiple function codes. Itab would look like this: "
-Data: Begin of itab occurs 0. 
-  Fcode like sy-ucomm. 
+SET TITLEBAR <TITLE>.	" i.e. 100 "
+"Exclude multiple function codes. "
+Data: Begin of ex_tab occurs 0. 
+  fcode like sy-ucomm. 
 Data: End of itab. 
+ex_tab-fcode = '&ODN'. APPEND ex_tab. "升序"
+ex_tab-fcode = '&OUP'. APPEND ex_tab. "降序"
+SET PF-STATUS 'STATUS' EXCLUDING ex_tab. 
+"To deactivate previous status and activate default list"
+SET PF-STATUS SPACE.  
 
-SET pf-status SPACE. "To deactivate previous status and activate default list" 
-SET pf-status 'STATUS' WITH . 
+SET PF-STATUS 'STATUS' WITH . 
 ```
 
 **Function Codes** 
-Function Type: 
-' '	Normal 
-'E'	Exit 
-'S'	System 
-'T'	Transaction 
-'P'	Tabst. Control 
-'H'	Help request 
+
+Function Type:
+
+-  ' '：Normal 
+- 'E'：Exit 
+- 'S'：System 
+- 'T'：Transaction 
+- 'P'：Tabst. Control 
+- 'H'：Help request 
