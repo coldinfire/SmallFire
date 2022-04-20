@@ -53,12 +53,12 @@
     </item>
     
     <item>
-      <title> SAP 程序锁定 </title>
+      <title> ABAP 程序锁定 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_LockProgramer/</link>
       <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_Utils_LockProgramer/</guid>
-      <description>在 SAP 中对于一些重要的程序，可能会要求处理并发的情况，在有用户操作的情况下不允许其他用户进行操作，以此来保证数据及程序的安全。 使用技术 ENQUEUE_ES_PROG 和 DE</description>
+      <description>在 SAP 中对于一些重要的程序，可能会要求处理并发的情况，在有用户操作的情况下不允许其他用户进行操作，以此来保证数据及程序的安全。 使用锁对象 程序锁</description>
     </item>
     
     <item>

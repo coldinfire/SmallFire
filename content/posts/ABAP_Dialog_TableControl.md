@@ -1,6 +1,6 @@
 ---
-atitle: " Dialog 表格控件 "
-date: 2018-09-01
+title: " Dialog 表格控件使用 "
+date: 2018-09-02
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -9,7 +9,6 @@ categories:
 
 tags: 
   - Dialog
-
 ---
 
 ### 创建表格控件
