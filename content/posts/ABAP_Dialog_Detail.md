@@ -31,10 +31,11 @@ tags:
 
 #### Static Attributes
 
-| Attribute     | Attribute       | Attribute          | Attribute     | Attribute     | Attribute     |
-| ------------- | --------------- | ------------------ | ------------- | ------------- | ------------- |
-| screen-name   | screen-active   | screen-invisible   | screen-input  | screen-group1 | screen-group3 |
-| screen-length | screen-required | screen-intensified | screen-output | screen-group2 | screen-group4 |
+| Attribute     | Attribute       | Attribute          | Attribute          | Attribute     | Attribute     |
+| ------------- | --------------- | ------------------ | ------------------ | ------------- | ------------- |
+| screen-name   | screen-active   | screen-invisible   | screen-input       | screen-group1 | screen-group3 |
+| screen-length | screen-required | screen-intensified | screen-output      | screen-group2 | screen-group4 |
+| screen-color  | screen-request  | screen-value_help  | screen-intensified |               |               |
 
 ### 字段检查与逻辑流的控制
 
@@ -205,3 +206,8 @@ MODULE STATUS_0100 OUTPUT.
 ENDMODULE.                 " STATUS_0100  OUTPUT "
 ```
 
+### SAP dynpro 屏幕单选按钮分组 
+
+Dialog dynpro screen 上创建单选按钮时，默认情况下它们不会相互链接。因此需要将它们链接在一起，以便在选择其中一个时，SAP 知道取消选择已选择的那个。 
+
+打开图形布局编辑器并选择要组合在一起的单选按钮，选中后右键单击选择并选择 "Radio Buton Group => Define"。 单选按钮现在应该可以正常工作，并且每次只允许选择一个单选按钮。

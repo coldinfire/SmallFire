@@ -27,13 +27,16 @@ tags:
 #### Basic Screen Processing 
 
 - `Leave to screen 0.`：Exits back to first screen
-
+- `Leave to screen 200`：Leaves to screen 20
 - `Call screen 100. `：Calls screen 100
-
 - `Set screen 100.`：Reassigns next screen value
 - `Leave screen. `：Leaves to next screen
-
 - `Leave program. `：Leaves Program)
+
+#### Screen numbers
+
+- 大于 9000 的数字保留给 SAP 客户自定义屏幕
+- 数字 1000 到 1010 保留用于 ABAP 字典表的维护屏幕和标准选择屏幕报告
 
 #### Dialog GUI Components
 
@@ -56,8 +59,6 @@ ex_tab-fcode = '&OUP'. APPEND ex_tab. "降序"
 SET PF-STATUS 'STATUS' EXCLUDING ex_tab. 
 "To deactivate previous status and activate default list"
 SET PF-STATUS SPACE.  
-
-SET PF-STATUS 'STATUS' WITH . 
 ```
 
 **Function Codes** 
@@ -70,3 +71,15 @@ Function Type:
 - 'T'：Transaction 
 - 'P'：Tabst. Control 
 - 'H'：Help request 
+
+#### Get field clicked on
+
+```ABAP
+GET CURSOR FIELD fieldname [LINE] fieldname or structure(store rep line).
+```
+
+*CURSOR Position*
+
+- Within the ABAP(PBO)：`SET CURSOR field 'SFLIGHT-CONNID'. `
+- Within screen attributes (Settings) 
+

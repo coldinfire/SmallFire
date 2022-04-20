@@ -1147,7 +1147,7 @@
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAP_Lock/</guid>
-      <description>SAP 为什么要设置锁 1.保持数据的一致性 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防止第二个用户</description>
+      <description>SAP 为什么要设置锁 保持数据的一致性 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防止第二个用户进行</description>
     </item>
     
     <item>
@@ -1408,7 +1408,7 @@
       <pubDate>Sat, 01 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Dialog_TableControl/</guid>
-      <description>Dynpro 操作单个abap dynpro 表控制字段属性 如果将以下 ABAP 放入 &amp;ldquo;populate_screen&amp;rdquo; PBO 模块（流逻辑中的表控制循环中的 PBO 模块），它将设置第 2 行的 EBELN 字段仅显示。 代码的第一位根据</description>
+      <description>创建表格控件 Step1：创建 Structure 创建自定义 Structure ，包含需要显示在 Table Control 中的字段。 Step2：创建程序 使用事物码 SE80 (Object Navigator) -&amp;gt; Repository Browser -&amp;gt; Program；输入以 SAPMZ_</description>
     </item>
     
     <item>
@@ -1426,7 +1426,7 @@
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Detail/</guid>
-      <description>Dialog 屏幕操作 语法 Module ... END MODULE. SET screen xxxx . CALL screen xxxx. LEAVE screen. CALL screen xxx [starting at lc ur] [ending at rc lr]. (Modal dialog box类型) SET CURSOR FIELD &amp;lt;f&amp;gt; [offset &amp;lt;o&amp;gt;]. MODULE EXIT AT EXIT-COMMAND. Static Attributes Attribute Attribute Attribute Attribute Attribute Attribute screen-name screen-active screen-invisible screen-input screen-group1 screen-group3 screen-length screen-required screen-intensified screen-output screen-group2 screen-group4 字</description>
+      <description>Dialog 屏幕操作 语法 Module ... END MODULE. SET screen xxxx . CALL screen xxxx. LEAVE screen. CALL screen xxx [starting at lc ur] [ending at rc lr]. (Modal dialog box类型) SET CURSOR FIELD &amp;lt;f&amp;gt; [offset &amp;lt;o&amp;gt;]. MODULE EXIT AT EXIT-COMMAND. Static Attributes Attribute Attribute Attribute Attribute Attribute Attribute screen-name screen-active screen-invisible screen-input screen-group1 screen-group3 screen-length screen-required screen-intensified screen-output screen-group2 screen-group4 screen-color</description>
     </item>
     
     <item>

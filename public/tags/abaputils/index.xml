@@ -607,7 +607,7 @@
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/SAP_Lock/</guid>
-      <description>SAP 为什么要设置锁 1.保持数据的一致性 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防止第二个用户</description>
+      <description>SAP 为什么要设置锁 保持数据的一致性 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防止第二个用户进行</description>
     </item>
     
     <item>

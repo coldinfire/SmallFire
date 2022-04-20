@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" Dialog 逻辑控制 "/>
-<meta name="twitter:description" content="Dialog 屏幕操作 语法 Module ... END MODULE. SET screen xxxx . CALL screen xxxx. LEAVE screen. CALL screen xxx [starting at lc ur] [ending at rc lr]. (Modal dialog box类型) SET CURSOR FIELD &lt;f&gt; [offset &lt;o&gt;]. MODULE EXIT AT EXIT-COMMAND. Static Attributes Attribute Attribute Attribute Attribute Attribute Attribute screen-name screen-active screen-invisible screen-input screen-group1 screen-group3 screen-length screen-required screen-intensified screen-output screen-group2 screen-group4 字"/>
+<meta name="twitter:description" content="Dialog 屏幕操作 语法 Module ... END MODULE. SET screen xxxx . CALL screen xxxx. LEAVE screen. CALL screen xxx [starting at lc ur] [ending at rc lr]. (Modal dialog box类型) SET CURSOR FIELD &lt;f&gt; [offset &lt;o&gt;]. MODULE EXIT AT EXIT-COMMAND. Static Attributes Attribute Attribute Attribute Attribute Attribute Attribute screen-name screen-active screen-invisible screen-input screen-group1 screen-group3 screen-length screen-required screen-intensified screen-output screen-group2 screen-group4 screen-color"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "Dialog",
-  "wordcount":  1453 ,
+  "wordcount":  1618 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Dialog_Detail\/",
   "datePublished": "2018-08-28T00:00:00\u002b00:00",
   "dateModified": "2018-08-28T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                3 min
+                4 min
         </div>
     </header>
     <div class="post-content">
@@ -226,6 +226,14 @@
 <td>screen-output</td>
 <td>screen-group2</td>
 <td>screen-group4</td>
+</tr>
+<tr>
+<td>screen-color</td>
+<td>screen-request</td>
+<td>screen-value_help</td>
+<td>screen-intensified</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -365,7 +373,10 @@ ENDCHAIN.
       <span style="color:#66d9ef">id</span>     <span style="color:#f92672">=</span> ld_field
       <span style="color:#66d9ef">values</span> <span style="color:#f92672">=</span> it_listbox.
 <span style="color:#66d9ef">ENDMODULE</span>.                 <span style="color:#75715e">&#34; STATUS_0100  OUTPUT &#34;
-</span></code></pre></div>
+</span></code></pre></div><h3 id="sap-dynpro-屏幕单选按钮分组">SAP dynpro 屏幕单选按钮分组</h3>
+<p>Dialog dynpro screen 上创建单选按钮时，默认情况下它们不会相互链接。因此需要将它们链接在一起，以便在选择其中一个时，SAP 知道取消选择已选择的那个。</p>
+<p>打开图形布局编辑器并选择要组合在一起的单选按钮，选中后右键单击选择并选择 &ldquo;Radio Buton Group =&gt; Define&rdquo;。 单选按钮现在应该可以正常工作，并且每次只允许选择一个单选按钮。</p>
+
     </div>
 
     <div class="post-copyright">
@@ -378,7 +389,7 @@ ENDCHAIN.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1453</span>
+                   <span>1618</span>
             </p>
             
             <p class="copyright-item">
