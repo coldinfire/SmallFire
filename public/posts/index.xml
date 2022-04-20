@@ -2272,7 +2272,7 @@
       <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Dialog_TableControl/</guid>
-      <description>创建表格控件 Step1：创建 Structure 创建自定义 Structure ，包含需要显示在 Table Control 中的字段。 Step2：创建程序 使用事物码 SE80 (Object Navigator) -&amp;gt; Repository Browser -&amp;gt; Program；输入以 SAPMZ_</description>
+      <description>创建表格控件 Step1：创建 Structure 创建自定义 Structure：ZTC_EKKO ，包含需要显示在 Table Control 中的字段。 Step2：创建程序 使用事物码 SE80 (Object</description>
     </item>
     
     <item>
