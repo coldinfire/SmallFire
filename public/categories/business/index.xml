@@ -6,7 +6,25 @@
     <description>Recent content in business on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/business/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/business/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> SAP 获取Activate物料 </title>
+      <link>https://coldinfire.github.io/2022/MM_GetActivateMaterial/</link>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/MM_GetActivateMaterial/</guid>
+      <description>DEMO TYPES: BEGIN OF type_active, plwrk TYPE werks_d, werks TYPE werks_d, matnr LIKE mara-matnr, END OF type_active. DATA: gt_active TYPE TABLE OF type_active WITH HEADER LINE. SELECT plwrk plwrk AS werks matnr INTO CORRESPONDING FIELDS OF TABLE gt_active FROM mdkp AS a INNER JOIN mdtb AS b ON a~dtnum = b~dtnum WHERE a~matnr IN s_matnr AND a~plwrk IN s_werks AND b~mng01 &amp;gt; 0 AND a~dtart = &amp;#39;MD&amp;#39; AND ( b~plumi</description>
+    </item>
+    
+    <item>
+      <title> 物料主数据视图 </title>
+      <link>https://coldinfire.github.io/2022/MM_MaterialView/</link>
+      <pubDate>Sat, 12 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/MM_MaterialView/</guid>
+      <description>检查物料的现有视图 查看 MARA 的 PSTAT &amp;amp; VPSTA 字段：这些字段的值是一个字母序列，每个字母都应该表示一个活动视图： A：Work scheduling B：Accounting C：</description>
+    </item>
+    
     <item>
       <title> FB02 修改行文本函数 </title>
       <link>https://coldinfire.github.io/2022/FI_FM_ChangeDocument_FB02/</link>
