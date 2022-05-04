@@ -52,32 +52,30 @@ tags:
 DATA:l_aufnr type aufnr.
 DATA:it_jest type standard table jest.
 DATA:it_tj02t type standard table tj02t.
-call function 'STATUS_READ'     
-  exporting
-    OBJNR            = L_AUFNR
+CALL FUNCTION 'STATUS_READ'     
+  EXPORTING
+    OBJNR            = l_aufnr
     ONLY_ACTIVE      = 'X'
-  tables
-    STATUS           = IT_JEST
-  exceptions
+  TABLES
+    STATUS           = it_jest
+  EXCEPTIONS
     OBJECT_NOT_FOUND = 1
     others           = 2.
-if SY-SUBRC <> 0.
-endif.
-" to get the texts of statuses
-if not IT_JEST is initial.
-  select ISTAT TXT04
-    from TJ02T
-    into table IT_TJ02T
-    for all entries in IT_JEST
-    where ISTAT = IT_JEST-STAT
-      and SPRAS = SY-LANGU.
-endif.
+IF SY-SUBRC <> 0.
+ENDIF.
+" To get the texts of statuses "
+IF NOT it_jest IS INITIAL.
+  SELECT istat txt04 FROM TJ02T
+    INTO TABLE it_tj02t
+    FOR ALL ENTRIES IN it_jest
+   WHERE istat = it_jest-stat
+     AND spras = sy-langu.
+ENDIF.
 ```
 
 **STATUS_TEXT_EDIT**：获取和 CO03 显示的状态一样的数据
 
 ```ABAP
-
 CALL FUNCTION 'STATUS_TEXT_EDIT'
   EXPORTING
     flg_user_stat = 'X'
@@ -124,7 +122,7 @@ CALL FUNCTION 'STATUS_CHECK'
 
 通过JEST表中的状态判断读取,需要根据 AUFNR 在表 AUFK 中获取 OBJNR 字段
 
-```JS
+```ABAP
 DATA:jest type standard table jest.
 SELECT SINGLE * FROM aufk WHERE aufnr = it_table-aufnr. 
 " 判定工单状态 "

@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "PP",
-  "wordcount":  1498 ,
+  "wordcount":  1499 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/PP_ProductOrderStatus\/",
   "datePublished": "2019-08-25T00:00:00\u002b00:00",
   "dateModified": "2019-08-25T00:00:00\u002b00:00",
@@ -241,29 +241,27 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>:l_aufnr <span style="color:#66d9ef">type </span>aufnr.
 <span style="color:#66d9ef">DATA</span>:it_jest <span style="color:#66d9ef">type </span>standard <span style="color:#66d9ef">table</span> jest.
 <span style="color:#66d9ef">DATA</span>:it_tj02t <span style="color:#66d9ef">type </span>standard <span style="color:#66d9ef">table</span> tj02t.
-<span style="color:#66d9ef">call function</span> <span style="color:#e6db74">&#39;STATUS_READ&#39;</span>     
-  <span style="color:#66d9ef">exporting</span>
-    OBJNR            <span style="color:#f92672">=</span> L_AUFNR
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;STATUS_READ&#39;</span>     
+  <span style="color:#66d9ef">EXPORTING</span>
+    OBJNR            <span style="color:#f92672">=</span> l_aufnr
     ONLY_ACTIVE      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
-  <span style="color:#66d9ef">tables</span>
-    STATUS           <span style="color:#f92672">=</span> IT_JEST
-  <span style="color:#66d9ef">exceptions</span>
+  <span style="color:#66d9ef">TABLES</span>
+    STATUS           <span style="color:#f92672">=</span> it_jest
+  <span style="color:#66d9ef">EXCEPTIONS</span>
     OBJECT_NOT_FOUND <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
     <span style="color:#66d9ef">others</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>.
-<span style="color:#66d9ef">if</span> SY<span style="color:#f92672">-</span>SUBRC <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
-<span style="color:#66d9ef">endif</span>.
-<span style="color:#75715e">&#34; to get the texts of statuses
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> IT_JEST <span style="color:#f92672">is initial</span>.
-  <span style="color:#66d9ef">select</span> ISTAT TXT04
-    <span style="color:#66d9ef">from</span> TJ02T
-    <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">table</span> IT_TJ02T
-    <span style="color:#66d9ef">for</span> all entries <span style="color:#66d9ef">in</span> IT_JEST
-    <span style="color:#66d9ef">where</span> ISTAT <span style="color:#f92672">=</span> IT_JEST<span style="color:#f92672">-</span>STAT
-      <span style="color:#f92672">and</span> SPRAS <span style="color:#f92672">=</span> SY<span style="color:#f92672">-</span>LANGU.
-<span style="color:#66d9ef">endif</span>.
+<span style="color:#66d9ef">IF</span> SY<span style="color:#f92672">-</span>SUBRC <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
+<span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">&#34; To get the texts of statuses &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">IF</span> <span style="color:#f92672">NOT</span> it_jest <span style="color:#f92672">IS INITIAL</span>.
+  <span style="color:#66d9ef">SELECT</span> istat txt04 <span style="color:#66d9ef">FROM</span> TJ02T
+    <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> it_tj02t
+    <span style="color:#66d9ef">FOR</span> ALL ENTRIES <span style="color:#66d9ef">IN</span> it_jest
+   <span style="color:#66d9ef">WHERE</span> istat <span style="color:#f92672">=</span> it_jest<span style="color:#f92672">-</span>stat
+     <span style="color:#f92672">AND</span> spras <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>langu.
+<span style="color:#66d9ef">ENDIF</span>.
 </code></pre></div><p><strong>STATUS_TEXT_EDIT</strong>：获取和 CO03 显示的状态一样的数据</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP">
-<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;STATUS_TEXT_EDIT&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;STATUS_TEXT_EDIT&#39;</span>
   <span style="color:#66d9ef">EXPORTING</span>
     flg_user_stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
     objnr <span style="color:#f92672">=</span> caufvd<span style="color:#f92672">-</span>objnr
@@ -293,32 +291,32 @@
 <h3 id="状态判断">状态判断</h3>
 <h4 id="通过表关联判断">通过表关联判断</h4>
 <p>通过JEST表中的状态判断读取,需要根据 AUFNR 在表 AUFK 中获取 OBJNR 字段</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span><span style="color:#a6e22e">jest</span> <span style="color:#a6e22e">type</span> <span style="color:#a6e22e">standard</span> <span style="color:#a6e22e">table</span> <span style="color:#a6e22e">jest</span>.
-<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">SINGLE</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">aufk</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">aufnr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">it_table</span><span style="color:#f92672">-</span><span style="color:#a6e22e">aufnr</span>. 
-<span style="color:#e6db74">&#34; 判定工单状态 &#34;</span>
-<span style="color:#e6db74">&#34; 判定工单是否 RELASE &#34;</span>
-<span style="color:#a6e22e">CLEAR</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">jest</span>.
-<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">SINGLE</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">jest</span>
-  <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">objnr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">aufk</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objnr</span>
-  <span style="color:#a6e22e">AND</span> ( <span style="color:#a6e22e">stat</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0002&#39;</span> <span style="color:#a6e22e">OR</span>  <span style="color:#e6db74">&#34; RELEASE &#34;</span>
-	    <span style="color:#a6e22e">stat</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0042&#39;</span>)    <span style="color:#e6db74">&#34; Partial RELEASE &#34;</span>
-  <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">inact</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">space</span>.
-<span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0.</span>
-  <span style="color:#a6e22e">CONTINUE</span>.
-<span style="color:#a6e22e">ENDIF</span>.
-<span style="color:#e6db74">&#34; 判定工单状态 &#34;</span>
-<span style="color:#a6e22e">CLEAR</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">jest</span>.
-<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">SINGLE</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">jest</span>
-  <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">objnr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">aufk</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objnr</span>
-  <span style="color:#a6e22e">AND</span> ( <span style="color:#a6e22e">stat</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0045&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#34; TECO &#34;</span>
-        <span style="color:#a6e22e">stat</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0013&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#34; DELETE &#34;</span>
-        <span style="color:#a6e22e">stat</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0076&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#34; DELETE FLAG &#34;</span>
-        <span style="color:#a6e22e">stat</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0046&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#34; CLSD &#34;</span>
-        <span style="color:#a6e22e">stat</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0012 &#39;</span>)  <span style="color:#e6db74">&#34; DLV &#34;</span>
-  <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">inact</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">space</span>.
-<span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.</span>
-  <span style="color:#a6e22e">CONTINUE</span>.
-<span style="color:#a6e22e">ENDIF</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>:jest <span style="color:#66d9ef">type </span>standard <span style="color:#66d9ef">table</span> jest.
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SINGLE</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> aufk <span style="color:#66d9ef">WHERE</span> aufnr <span style="color:#f92672">=</span> it_table<span style="color:#f92672">-</span>aufnr. 
+<span style="color:#75715e">&#34; 判定工单状态 &#34;
+</span><span style="color:#75715e">&#34; 判定工单是否 RELASE &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CLEAR</span>: jest.
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SINGLE</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> jest
+  <span style="color:#66d9ef">WHERE</span> objnr <span style="color:#f92672">=</span> aufk<span style="color:#f92672">-</span>objnr
+  <span style="color:#f92672">AND</span> ( stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0002&#39;</span> <span style="color:#f92672">OR</span>  <span style="color:#75715e">&#34; RELEASE &#34;
+</span><span style="color:#75715e"></span>	    stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0042&#39;</span>)    <span style="color:#75715e">&#34; Partial RELEASE &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">AND</span> inact <span style="color:#f92672">=</span> space.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">CONTINUE</span>.
+<span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">&#34; 判定工单状态 &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CLEAR</span>: jest.
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SINGLE</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> jest
+  <span style="color:#66d9ef">WHERE</span> objnr <span style="color:#f92672">=</span> aufk<span style="color:#f92672">-</span>objnr
+  <span style="color:#f92672">AND</span> ( stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0045&#39;</span> <span style="color:#f92672">OR</span> <span style="color:#75715e">&#34; TECO &#34;
+</span><span style="color:#75715e"></span>        stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0013&#39;</span> <span style="color:#f92672">OR</span> <span style="color:#75715e">&#34; DELETE &#34;
+</span><span style="color:#75715e"></span>        stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0076&#39;</span> <span style="color:#f92672">OR</span> <span style="color:#75715e">&#34; DELETE FLAG &#34;
+</span><span style="color:#75715e"></span>        stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0046&#39;</span> <span style="color:#f92672">OR</span> <span style="color:#75715e">&#34; CLSD &#34;
+</span><span style="color:#75715e"></span>        stat <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I0012 &#39;</span>)  <span style="color:#75715e">&#34; DLV &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">AND</span> inact <span style="color:#f92672">=</span> space.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">CONTINUE</span>.
+<span style="color:#66d9ef">ENDIF</span>.
 </code></pre></div>
     </div>
 
@@ -332,7 +330,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1498</span>
+                   <span>1499</span>
             </p>
             
             <p class="copyright-item">
