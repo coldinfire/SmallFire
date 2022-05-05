@@ -202,6 +202,18 @@ IF sy-subrc <> 0.
 ENDIF.
 ```
 
+### Smartforms 标准 Demo
 
-
+| Program Name         | Description                                        |
+| :------------------- | :------------------------------------------------- |
+| SF_BATCH_GENERATE    | Program for Generating SMART FORMS in Batch        |
+| SF_EXAMPLE_01        | Sample Program for Form Printing Using Smart Forms |
+| SF_EXAMPLE_01_BACKUP | Sample Program for Form Printing Using Smart Forms |
+| SF_EXAMPLE_02        | Sample Program for Form Printing Using Smart Forms |
+| SF_EXAMPLE_02_BACKUP | Sample Program for Form Printing Using Smart Forms |
+| SF_EXAMPLE_03        | Sample Program for Form Printing Using Smart Forms |
+| SF_EXAMPLE_03_BACKUP | Sample Program for Form Printing Using Smart Forms |
+| SF_TOTALS            | Examples for Totalling Different Currencies        |
+| SF_XSF_DEMO          | Smart Forms: XSF Output - Demo Program             |
+| SF_XSF_DEMO_MAIL     | Send Form and Graphics by E-Mail                   |
 

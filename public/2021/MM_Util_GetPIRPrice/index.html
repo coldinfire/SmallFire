@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "MM",
-  "wordcount":  447 ,
+  "wordcount":  613 ,
   "url": "https:\/\/coldinfire.github.io\/2021\/MM_Util_GetPIRPrice\/",
   "datePublished": "2021-03-17T00:00:00\u002b00:00",
   "dateModified": "2021-03-17T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                1 min
+                2 min
         </div>
     </header>
     <div class="post-content">
@@ -198,11 +198,14 @@
 <li><strong>KNUMH</strong>：Condition record number</li>
 </ul>
 </li>
+<li><code>KONV</code>：Conditions for Transaction Data</li>
 <li><code>KONP</code>：Conditions (Item)
 <ul>
 <li><strong>KNUMH</strong>：Condition record number</li>
 </ul>
 </li>
+<li><code>KOND</code>：Conditions(Data)</li>
+<li><code>KONH</code>：Conditions(Header)</li>
 <li><code>KONM</code>：Conditions (1-Dimensional Quantity Scale)
 <ul>
 <li><strong>KNUMH</strong>：Condition record number, if the <em>KONP-KZBZG</em> eq &lsquo;C&rsquo;, there is a tiered price, normally, the highest price in <em>KONM</em> will be recorded into <em>KONP</em>.</li>
@@ -222,6 +225,106 @@
 </ul>
 </li>
 </ul>
+<h3 id="condition-types-t685t-table">Condition Types T685T Table</h3>
+<p>标准表 T685T 包含定价的所有 Condition Types。</p>
+<p>T685T Condition Types 表的字段是：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>T685T FIELDS</strong></th>
+<th style="text-align:left">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SPRAS</td>
+<td style="text-align:left">Language Key</td>
+</tr>
+<tr>
+<td style="text-align:left">KVEWE</td>
+<td style="text-align:left">Usage of the condition table</td>
+</tr>
+<tr>
+<td style="text-align:left">KAPPL</td>
+<td style="text-align:left">Application</td>
+</tr>
+<tr>
+<td style="text-align:left">KSCHL</td>
+<td style="text-align:left">Condition Type</td>
+</tr>
+<tr>
+<td style="text-align:left">VTEXT</td>
+<td style="text-align:left">Name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sap-most-common-condition-types">SAP Most Common Condition Types</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>CONDITION TYPES</strong></th>
+<th style="text-align:left">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">A001</td>
+<td style="text-align:left">Rebates</td>
+</tr>
+<tr>
+<td style="text-align:left">FRA1</td>
+<td style="text-align:left">Freight %</td>
+</tr>
+<tr>
+<td style="text-align:left">HB00</td>
+<td style="text-align:left">Header Surch.(Value)</td>
+</tr>
+<tr>
+<td style="text-align:left">HB01</td>
+<td style="text-align:left">Header Disc.(Value)</td>
+</tr>
+<tr>
+<td style="text-align:left">K000</td>
+<td style="text-align:left">Contrct HeaderDisc %</td>
+</tr>
+<tr>
+<td style="text-align:left">MM00</td>
+<td style="text-align:left">Minimum Qty (Amount)</td>
+</tr>
+<tr>
+<td style="text-align:left">MM01</td>
+<td style="text-align:left">Minimum Qty (%)</td>
+</tr>
+<tr>
+<td style="text-align:left">MP01</td>
+<td style="text-align:left">Market Price</td>
+</tr>
+<tr>
+<td style="text-align:left">MWST</td>
+<td style="text-align:left">Input Tax</td>
+</tr>
+<tr>
+<td style="text-align:left">P000</td>
+<td style="text-align:left">Gross Price</td>
+</tr>
+<tr>
+<td style="text-align:left">R000</td>
+<td style="text-align:left">Discount % on Gross</td>
+</tr>
+<tr>
+<td style="text-align:left">PA00</td>
+<td style="text-align:left">Promotion Price</td>
+</tr>
+<tr>
+<td style="text-align:left">P001</td>
+<td style="text-align:left">Gross Price</td>
+</tr>
+<tr>
+<td style="text-align:left">PRS</td>
+<td style="text-align:left">Total Price</td>
+</tr>
+</tbody>
+</table>
 
     </div>
 
@@ -235,7 +338,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>447</span>
+                   <span>613</span>
             </p>
             
             <p class="copyright-item">

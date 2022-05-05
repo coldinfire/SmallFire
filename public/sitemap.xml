@@ -128,9 +128,9 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2022/ABAP_Utils_XLSXWorkbench/</loc>
+      <loc>https://coldinfire.github.io/2022/ABAP_Utils_SplitFilePath/</loc>
       
-      <lastmod>2022-03-23T00:00:00+00:00</lastmod>
+      <lastmod>2022-04-13T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -144,7 +144,7 @@
     <url>
       <loc>https://coldinfire.github.io/categories/ABAP/</loc>
       
-      <lastmod>2022-03-23T00:00:00+00:00</lastmod>
+      <lastmod>2022-04-13T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -157,6 +157,20 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/abaputils/</loc>
+      
+      <lastmod>2022-04-13T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2022/ABAP_Utils_XLSXWorkbench/</loc>
       
       <lastmod>2022-03-23T00:00:00+00:00</lastmod>
       
@@ -215,6 +229,34 @@
       <loc>https://coldinfire.github.io/tags/FICO/</loc>
       
       <lastmod>2022-03-02T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2022/WM_BAPI_HUMove/</loc>
+      
+      <lastmod>2022-01-04T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/BAPI/</loc>
+      
+      <lastmod>2022-01-04T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -325,20 +367,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/2021/ABAP_Utils_CurrencyRate/</loc>
-      
-      <lastmod>2021-10-15T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/BAPI/</loc>
       
       <lastmod>2021-10-15T00:00:00+00:00</lastmod>
       

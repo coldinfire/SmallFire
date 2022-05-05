@@ -6,7 +6,16 @@
     <description>Recent content in ABAP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/categories/ABAP/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> 分割文件路径和文件名 </title>
+      <link>https://coldinfire.github.io/2022/ABAP_Utils_SplitFilePath/</link>
+      <pubDate>Wed, 13 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/ABAP_Utils_SplitFilePath/</guid>
+      <description>从文件完整路径中拆分路径和文件名。 FUNCTION：SO_SPLIT_FILE_AND_PATH DATA: lv_file_path TYPE string VALUE &amp;#39;D:\WORKFILES\ITAB.XLSX&amp;#39;. DATA: lv_path_only type string, lv_filename_only type string. CALL FUNCTION &amp;#39;SO_SPLIT_FILE_AND_PATH&amp;#39; EXPORTING full_name = lv_file_path IMPORTING stripped_name</description>
+    </item>
+    
     <item>
       <title> XLSXWorkbench 安装和使用 </title>
       <link>https://coldinfire.github.io/2022/ABAP_Utils_XLSXWorkbench/</link>
@@ -193,7 +202,7 @@
       <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionFM/</guid>
-      <description>获取FM的参数 REPORT zz_get_fm_detail. DATA: ls_trans_callstack TYPE sys_calls, lt_trans_callstack TYPE sys_callst. DATA: lv_trans_funtion_name TYPE string. DATA: ls_trans_fupararef TYPE fupararef, lt_trans_fupararef TYPE TABLE OF fupararef. CLEAR lt_trans_callstack[]. CALL FUNCTION &amp;#39;SYSTEM_CALLSTACK&amp;#39; IMPORTING * callstack = callstack et_callstack = lt_trans_callstack. CLEAR: ls_trans_callstack. READ TABLE lt_trans_callstack INTO ls_trans_callstack WITH KEY eventtype = &amp;#39;FUNC&amp;#39;. IF ls_trans_callstack IS INITIAL. EXIT. ENDIF. &amp;#34;获取FM的</description>
+      <description>获取FM的参数 REPORT zz_get_fm_detail. DATA: ls_trans_callstack TYPE sys_calls, lt_trans_callstack TYPE sys_callst. DATA: lv_trans_funtion_name TYPE string. DATA: ls_trans_fupararef TYPE fupararef, lt_trans_fupararef TYPE TABLE OF fupararef. FIELD-SYMBOLS: &amp;lt;fs_zz_trans_field&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_zz_trans_workarea&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_zz_trans_tab&amp;gt; TYPE ANY TABLE. CLEAR lt_trans_callstack[]. CALL FUNCTION &amp;#39;SYSTEM_CALLSTACK&amp;#39; IMPORTING * callstack = callstack et_callstack = lt_trans_callstack. CLEAR: ls_trans_callstack. READ TABLE lt_trans_callstack INTO ls_trans_callstack WITH KEY eventtype = &amp;#39;FUNC&amp;#39;. IF ls_trans_callstack IS</description>
     </item>
     
     <item>

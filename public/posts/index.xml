@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title> 分割文件路径和文件名 </title>
+      <link>https://coldinfire.github.io/2022/ABAP_Utils_SplitFilePath/</link>
+      <pubDate>Wed, 13 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/ABAP_Utils_SplitFilePath/</guid>
+      <description>从文件完整路径中拆分路径和文件名。 FUNCTION：SO_SPLIT_FILE_AND_PATH DATA: lv_file_path TYPE string VALUE &amp;#39;D:\WORKFILES\ITAB.XLSX&amp;#39;. DATA: lv_path_only type string, lv_filename_only type string. CALL FUNCTION &amp;#39;SO_SPLIT_FILE_AND_PATH&amp;#39; EXPORTING full_name = lv_file_path IMPORTING stripped_name</description>
+    </item>
+    
+    <item>
       <title> XLSXWorkbench 安装和使用 </title>
       <link>https://coldinfire.github.io/2022/ABAP_Utils_XLSXWorkbench/</link>
       <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
@@ -50,6 +59,15 @@
       
       <guid>https://coldinfire.github.io/2022/FI_FM_ChangeDocument_FB02/</guid>
       <description>FM：CHANGE_DOCUMENT data: lt_bkpf type table of bkpf with header line, lt_bseg type table of bseg with header line, lt_bkdf type table of bkdf with header line, lt_bsec type table of bsec with header line, lt_bset type table of bset with header line, lt_bsed type table of bsed with header line, lt_bseg2 type table</description>
+    </item>
+    
+    <item>
+      <title> HU_CREATE_GOODS_MOVEMENT </title>
+      <link>https://coldinfire.github.io/2022/WM_BAPI_HUMove/</link>
+      <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/WM_BAPI_HUMove/</guid>
+      <description>DATA: lv_posted TYPE sysubrc, ls_mess TYPE huitem_messages , lt_mess TYPE huitem_messages_t WITH HEADER LINE, ls_emkpf TYPE emkpf , lt_move_to TYPE hum_data_move_to_t, lt_exidv TYPE hum_exidv_t WITH HEADER LINE, ls_move_to TYPE hum_data_move_to, ls_hu_items TYPE hum_humseg, lv_venum TYPE vekp-venum, gv_temp_message TYPE string. DATA: lt_vepo TYPE TABLE OF vepo WITH HEADER LINE. lv_venum = &amp;#39;100000012&amp;#39;. &amp;#34; Internal HU Number &amp;#34; CLEAR: lt_vepo[]. SELECT * FROM vepo INTO TABLE lt_vepo WHERE venum = lv_venum. IF</description>
     </item>
     
     <item>
@@ -292,7 +310,7 @@
       <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2021/ABAP_Utils_ReflectionFM/</guid>
-      <description>获取FM的参数 REPORT zz_get_fm_detail. DATA: ls_trans_callstack TYPE sys_calls, lt_trans_callstack TYPE sys_callst. DATA: lv_trans_funtion_name TYPE string. DATA: ls_trans_fupararef TYPE fupararef, lt_trans_fupararef TYPE TABLE OF fupararef. CLEAR lt_trans_callstack[]. CALL FUNCTION &amp;#39;SYSTEM_CALLSTACK&amp;#39; IMPORTING * callstack = callstack et_callstack = lt_trans_callstack. CLEAR: ls_trans_callstack. READ TABLE lt_trans_callstack INTO ls_trans_callstack WITH KEY eventtype = &amp;#39;FUNC&amp;#39;. IF ls_trans_callstack IS INITIAL. EXIT. ENDIF. &amp;#34;获取FM的</description>
+      <description>获取FM的参数 REPORT zz_get_fm_detail. DATA: ls_trans_callstack TYPE sys_calls, lt_trans_callstack TYPE sys_callst. DATA: lv_trans_funtion_name TYPE string. DATA: ls_trans_fupararef TYPE fupararef, lt_trans_fupararef TYPE TABLE OF fupararef. FIELD-SYMBOLS: &amp;lt;fs_zz_trans_field&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_zz_trans_workarea&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_zz_trans_tab&amp;gt; TYPE ANY TABLE. CLEAR lt_trans_callstack[]. CALL FUNCTION &amp;#39;SYSTEM_CALLSTACK&amp;#39; IMPORTING * callstack = callstack et_callstack = lt_trans_callstack. CLEAR: ls_trans_callstack. READ TABLE lt_trans_callstack INTO ls_trans_callstack WITH KEY eventtype = &amp;#39;FUNC&amp;#39;. IF ls_trans_callstack IS</description>
     </item>
     
     <item>

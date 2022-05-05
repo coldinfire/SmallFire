@@ -6,7 +6,16 @@
     <description>Recent content in BAPI on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/BAPI/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/BAPI/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> HU_CREATE_GOODS_MOVEMENT </title>
+      <link>https://coldinfire.github.io/2022/WM_BAPI_HUMove/</link>
+      <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/WM_BAPI_HUMove/</guid>
+      <description>DATA: lv_posted TYPE sysubrc, ls_mess TYPE huitem_messages , lt_mess TYPE huitem_messages_t WITH HEADER LINE, ls_emkpf TYPE emkpf , lt_move_to TYPE hum_data_move_to_t, lt_exidv TYPE hum_exidv_t WITH HEADER LINE, ls_move_to TYPE hum_data_move_to, ls_hu_items TYPE hum_humseg, lv_venum TYPE vekp-venum, gv_temp_message TYPE string. DATA: lt_vepo TYPE TABLE OF vepo WITH HEADER LINE. lv_venum = &amp;#39;100000012&amp;#39;. &amp;#34; Internal HU Number &amp;#34; CLEAR: lt_vepo[]. SELECT * FROM vepo INTO TABLE lt_vepo WHERE venum = lv_venum. IF</description>
+    </item>
+    
     <item>
       <title> SAP 外币金额汇率转换 </title>
       <link>https://coldinfire.github.io/2021/ABAP_Utils_CurrencyRate/</link>

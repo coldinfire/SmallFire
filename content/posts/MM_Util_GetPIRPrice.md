@@ -30,8 +30,11 @@ tags:
   - **ESOKZ**：Purchasing info record category
   - **WERKS**：Plant
   - **KNUMH**：Condition record number
+- `KONV`：Conditions for Transaction Data
 - `KONP`：Conditions (Item)
   - **KNUMH**：Condition record number
+- `KOND`：Conditions(Data)
+- `KONH`：Conditions(Header)
 - `KONM`：Conditions (1-Dimensional Quantity Scale)
   - **KNUMH**：Condition record number, if the *KONP-KZBZG* eq 'C', there is a tiered price, normally, the highest price in *KONM* will be recorded into *KONP*.
 - `EORD`：Purchasing Source List
@@ -42,3 +45,35 @@ tags:
 - `LFA1`：Vendor Info
   - **LIFNR：Vendor Account Numbe**r
 
+### Condition Types T685T Table
+
+标准表 T685T 包含定价的所有 Condition Types。
+
+T685T Condition Types 表的字段是： 
+
+| **T685T FIELDS** | DESCRIPTION                  |
+| :--------------- | :--------------------------- |
+| SPRAS            | Language Key                 |
+| KVEWE            | Usage of the condition table |
+| KAPPL            | Application                  |
+| KSCHL            | Condition Type               |
+| VTEXT            | Name                         |
+
+#### SAP Most Common Condition Types
+
+| **CONDITION TYPES** | DESCRIPTION          |
+| :------------------ | :------------------- |
+| A001                | Rebates              |
+| FRA1                | Freight %            |
+| HB00                | Header Surch.(Value) |
+| HB01                | Header Disc.(Value)  |
+| K000                | Contrct HeaderDisc % |
+| MM00                | Minimum Qty (Amount) |
+| MM01                | Minimum Qty (%)      |
+| MP01                | Market Price         |
+| MWST                | Input Tax            |
+| P000                | Gross Price          |
+| R000                | Discount % on Gross  |
+| PA00                | Promotion Price      |
+| P001                | Gross Price          |
+| PRS                 | Total Price          |
