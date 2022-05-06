@@ -102,25 +102,19 @@ CALL FUNCTION 'STATUS_CHECK'
     STATUS_NOT_ACTIVE = 02.
 ```
 
-### 状态相关表
+### 直接从表获取生产订单状态
 
-根据工单可以去 AUFK 表中找到 Product Order 对应的 Object Number(OBJNR) 。
+1、根据生产订单从 AUFK 获取 Object Number（AUFK-OBJNR）
 
-状态表为：**JEST,** 字段 OBJNR 为 OR + 订单号，STAT 即为订单状态。但是 STAT 的都是 I 打头的状态，通过 **CO03** 看生产订单状态都是英文简短字段标识。两者间的关系保存在表 **TJ02** 中，**TJ02T**：系统状态文本表（一般文本表都是标准表后加T）。
+2、根据 AUFK-OBJNR = JEST-OBJNR 获取对象状态（JEST-STAT，JEST-INACT）
 
-![AUFK](/images/Resource/AUFK.png)
+3、根据 JEST-STAT 在 TJ02T 中获取对应的对象状态描述（TJ02T-TXT04）
 
-![JEST](/images/Resource/JEST.png)
+4、根据 JEST-STAT 在 TJ02 中获取对象状态的是否显示状态（TJ02-NODIS）
 
-![TJ02](/images/Resource/TJ02.png)
+![Order Status](/images/PP/OrderStatus.jpg)
 
-![TJ02T](/images/Resource/TJ02T.png)
-
-### 状态判断
-
-#### 通过表关联判断
-
-通过JEST表中的状态判断读取,需要根据 AUFNR 在表 AUFK 中获取 OBJNR 字段
+#### DEMO
 
 ```ABAP
 DATA:jest type standard table jest.

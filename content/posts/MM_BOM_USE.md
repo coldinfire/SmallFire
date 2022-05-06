@@ -17,85 +17,80 @@ tags:
 
 ### 相关表
 
-- MAST：Material BOM 
-
-
--   STKO : BOM Header 
-
-
-- STPO : BOM Positions (detail)     
-
-
-- MAPL : Assignment fo Task Lists to Materials 
-
-
-- PLKO : Routing Group Header 
-
-
-- PLSO : Routing Group Sequence 
-
-
-- PLPO : Routing Group Operations 
-
-
-- AFKO : Production Order Header 
-
-
-- AFPO : Production Order Position (details) 
+| Table | Description                           | Table | Description                         |
+| :---- | :------------------------------------ | :---- | :---------------------------------- |
+| MAST  | Material BOM                          | PLKO  | Routing Group Header                |
+| STKO  | BOM Header                            | PLSO  | Routing Group Sequence              |
+| STPO  | BOM Positions (detail)                | PLPO  | Routing Group Operations            |
+| MAPL  | Assignment fo Task Lists to Materials | AFKO  | Production Order Header             |
+| STZU  | Permanent BOM data                    | AFPO  | Production Order Position (details) |
 
 
 可用函数：`CSAP_MAT_BOM_READ`
 
 ### 读取逻辑 ###
 
+#### 查找 Material，Plant，Material Desc
+
+TABLE：MARA、MARC、MAKT
+
 ```ABAP
-1.查找Material,Plant,Material Desc [Table:MARA,MARC,MAKT]
-  MARA-MATNR    
-  MARC-WERKS   
-  MARA-MTART (Material type)
-  Note: Proceeding to Step 2 or 3 or 4 depends on the input radio button for 
-        Production or Engineering or ALL BOM option.
-2.Search for BOM – Engineering   [Table:MAST]
-   Material (MAST-MATNR) = Materials selected above
-   AND Plant (MAST–WERKS) = As in input 
-   AND BOM usage (MAST-STLAN) = 2 (Engineering usage).
-  ● Read BOM Header and Item
+MARA-MATNR    
+MARC-WERKS   
+MARA-MTART (Material type)
+Note: Proceeding to Step 2 or 3 or 4 depends on the input radio button for 
+      Production or Engineering or ALL BOM option.
+```
+
+#### 查找 BOM - Engineering
+
+TABLE：MAST、STKO、STOP、STZU
+
+```ABAP
+Material (MAST-MATNR) = Materials selected above
+  AND Plant (MAST–WERKS) = As in input 
+  AND BOM usage (MAST-STLAN) = 2 (Engineering usage).
+Read BOM Header and Item
       Read BOM Header from table  [STKO].
           BOM Number (STKO-STLNR) = BOM number got in previous step and
           BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
       Read BOM Item details from  [STOP].
           BOM number (STOP-STLNR) = STKO-STNLR.
       Read BOM text from table  STZU.
-3. Search BOM – Production.       [Table:MAST]
-    Material (MAST-MATNR) = Materials selected above and
-    Plant (MAST–WERKS) = As in input and
-    BOM usage (MAST-STLAN) = 1 (Production usage).
-  ● Read BOM Header and Item
-      Read BOM Header from table  [STKO]。
-          BOM Number (STKO-STLNR) = BOM number got in previous step and
-          BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
-      Read BOM Item details from  [STOP].
-          BOM number (STOP-STLNR) = STKO-STNLR.
-      Read BOM text from table STZU.
-  ● Search for Resource / Production Version (Production BOM’s only)   [MKAL]
-       Material number (MKAL–MATNR) = Material number from above selection (MAST) 
-       And Plant (MKAL–WERKS) = Plant from above selection (MAST)
-       And Alternative BOM (MKAL-STLAL) = Alternative BOM from above selection (MAST) 
-       And  BOM Usage (MKAL-STLAN) = 1 (Production BOM).
+```
+
+#### 查找 BOM – Production
+
+TABLE：MAST、STKO、STOP、STZU、MKAL
+
+```ABAP
+Material (MAST-MATNR) = Materials selected above AND Plant (MAST–WERKS) = As in input 
+  AND BOM usage (MAST-STLAN) = 1 (Production usage).
+Read BOM Header and Item
+  Read BOM Header from table  [STKO].
+    BOM Number (STKO-STLNR) = BOM number got in previous step
+    AND BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
+  Read BOM Item details from  [STOP].
+    BOM number (STOP-STLNR) = STKO-STNLR.
+  Read BOM text from table STZU.
+Search for Resource / Production Version (Production BOM’s only)   [MKAL]
+  Material number (MKAL–MATNR) = Material number from above selection (MAST) 
+    And Plant (MKAL–WERKS) = Plant from above selection (MAST)
+    And Alternative BOM (MKAL-STLAL) = Alternative BOM from above selection (MAST) 
+    And  BOM Usage (MKAL-STLAN) = 1 (Production BOM).
 Note:
-  1. If no production version exists for any of the BOM’s write such records at the bottom of the
-     report under the heading “No Production Version Exists (Production BOM’s)”.
-  2. Sort the output on Plant, Usage and then on Material.
-  3. If multiple plants then the report will be displayed Plant wise.
-        • Header to be displayed for Production / Engineering BOM option.
-  4. Material BOM Comparison.  [MAST]
-        Material (MAST-MATNR) = Materials selected above and
-        Plant (MAST–WERKS) = As in input.
-    ● Read BOM Header and Item
-  	Read BOM Header from table [STKO].
+1. If no production version exists for any of the BOM’s write such records at the bottom of 
+   the report under the heading “No Production Version Exists (Production BOM’s)”.
+2. Sort the output on Plant, Usage and then on Material.
+3. If multiple plants then the report will be displayed Plant wise.
+   • Header to be displayed for Production / Engineering BOM option.
+4. Material BOM Comparison.  [MAST]
+   Material (MAST-MATNR) = Materials selected above AND Plant (MAST–WERKS) = As in input.
+   ● Read BOM Header and Item
+  	 Read BOM Header from table [STKO].
     	  BOM Number (STKO-STLNR) = BOM number got in previous step and
     	  BOM alternative (STKO-STLAL) = BOM alternative got in previous step.
-  	Read BOM Item details from [STOP].
+  	 Read BOM Item details from [STOP].
           BOM number (STOP-STLNR) = STKO-STNLR.
 ```
 
@@ -104,19 +99,25 @@ Note:
 ### 顺查BOM（CS12）
 
 ```ABAP
+DATA: selpool TYPE TABLE OF cstmat WITH HEADER LINE.
+DATA: dstst_flg LIKE csdata-xfeld.
+DATA: matcat TYPE TABLE OF cscmat WITH HEADER LINE.
+DATA: stb TYPE STANDARD TABLE OF stpox WITH HEADER LINE.
+DATA: return TYPE TABLE OF bapireturn WITH HEADER LINE.
+
 CALL FUNCTION 'CS_BOM_EXPL_MAT_V2'
   EXPORTING
-    capid = pm_capid     "BOM应用程序，应用程序一般为PP01"
-    datuv = pm_datuv     "有效开始日通常为系统的当前日期"
+    capid = p_capid      "BOM应用程序，应用程序一般为PP01"
+    datuv = p_datuv      "有效开始日通常为系统的当前日期"
     emeng = menge        "需求数量"
-    mtnrv = pm_mtnrv     "物料专用号，要展开BOM的物料"
+    mtnrv = p_matnr      "物料专用号，要展开BOM的物料"
     mehrs = 'X'          "x表示多层展开﹐space表示只展开第一层"
     werks = pm_werks     "工厂"
     stlan = xxx          "BOM用途"
     stlal = xxxx         "BOM可选"
   IMPORTING
     topmat = selpool     "抬头明细"
-    dstst = dstst_flg
+    dstst  = dstst_flg
   TABLES
     stb = stb           "展开的BOM存放在该内表"
     matcat = matcat     "下面含有元件的物料存放在该内表"
@@ -179,7 +180,7 @@ DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
        OTHERS                     = 6.
 ```
 
-**T-Code：CS02** :确保递归BOM的比例在0.95左右。即：产品A，其BOM中的A的消耗量应该小于0.95. 
+**T-Code：CS02** :确保递归 BOM 的比例在 0.95 左右。即：产品 A，其 BOM 中的 A 的消耗量应该小于 0.95. 
 
 ### 批量删除BOM分配
 

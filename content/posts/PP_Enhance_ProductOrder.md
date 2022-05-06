@@ -24,25 +24,25 @@ tags:
 
 用于订单创建和执行的用户出口：存在于Function Group **XCO1**
 
-| Enhanment（SMOD） | Desc                                                         |
+| Enhanment（SMOD） | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |
-| PPCO0001          | Application development: PP orders                           |
+| **PPCO0001**      | 开发应用程序: PP orders                                      |
 | PPCO0002          | Check exit for setting delete mark / deletion indicator      |
 | PPCO0003          | Check exit for order changes from sales order                |
 | PPCO0004          | Sort and processing exit: Mass processing orders             |
 | PPCO0005          | Storage location/backflushing when order is created          |
-| PPCO0006          | Enhancement to specify defaults for fields in order header   |
-| PPCO0007          | Exit when saving production order                            |
+| **PPCO0006**      | 订单头部字段缺省值指定的增强                                 |
+| **PPCO0007**      | 保存生产订单时用户出口                                       |
 | PPCO0008          | Enhancement in the adding and changing of components         |
 | PPCO0009          | Enhancement in goods movements for prod. process order       |
 | PPCO0010          | Enhancement in make-to-order production - Unit of measure    |
-| PPCO0012          | Production Order: Display/Change Order Header Data           |
+| **PPCO0012**      | 生产订单：显示/更改订单抬头数据                              |
 | PPCO0013          | Change priorities of selection crit. for batch determination |
 | PPCO0015          | Additional check for document links from BOMs                |
 | PPCO0016          | Additional check for document links from master data         |
 | PPCO0017          | Additional check for online processing of document links     |
-| PPCO0018          | Check for changes to production order header                 |
-| PPCO0019          | Checks for changes to order operations                       |
+| **PPCO0018**      | 检查生产订单表头的更改                                       |
+| **PPCO0019**      | 检查订单操作的更改                                           |
 | PPCO0021          | Release Control for Automatic Batch Determination            |
 | PPCO0022          | Determination of Production Memo                             |
 | PPCO0023          | Checks Changes to Order Components.                          |
@@ -63,7 +63,7 @@ tags:
 
 这种增强使用事务码 SE18 定义、SE19 实现。
 
-SE18用于创建及维护BADI对象；SE19用于维护BADI的实例。
+SE18 用于创建及维护BADI对象；SE19 用于维护 BADI 的实例。
 
 SAP预定义了一些接口（Interface），客户可以自行定义实现Interface的类（Class），在标准程序中会调用客户自定义类的实例。
 

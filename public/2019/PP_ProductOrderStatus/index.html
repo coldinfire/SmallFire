@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "PP",
-  "wordcount":  1499 ,
+  "wordcount":  1470 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/PP_ProductOrderStatus\/",
   "datePublished": "2019-08-25T00:00:00\u002b00:00",
   "dateModified": "2019-08-25T00:00:00\u002b00:00",
@@ -281,16 +281,13 @@
   <span style="color:#66d9ef">EXCEPTIONS</span>
     OBJECT_NOT_FOUND <span style="color:#f92672">=</span> <span style="color:#ae81ff">01</span>
     STATUS_NOT_ACTIVE <span style="color:#f92672">=</span> <span style="color:#ae81ff">02</span>.
-</code></pre></div><h3 id="状态相关表">状态相关表</h3>
-<p>根据工单可以去 AUFK 表中找到 Product Order 对应的 Object Number(OBJNR) 。</p>
-<p>状态表为：<strong>JEST,</strong> 字段 OBJNR 为 OR + 订单号，STAT 即为订单状态。但是 STAT 的都是 I 打头的状态，通过 <strong>CO03</strong> 看生产订单状态都是英文简短字段标识。两者间的关系保存在表 <strong>TJ02</strong> 中，<strong>TJ02T</strong>：系统状态文本表（一般文本表都是标准表后加T）。</p>
-<p><img src="/images/Resource/AUFK.png" alt="AUFK"></p>
-<p><img src="/images/Resource/JEST.png" alt="JEST"></p>
-<p><img src="/images/Resource/TJ02.png" alt="TJ02"></p>
-<p><img src="/images/Resource/TJ02T.png" alt="TJ02T"></p>
-<h3 id="状态判断">状态判断</h3>
-<h4 id="通过表关联判断">通过表关联判断</h4>
-<p>通过JEST表中的状态判断读取,需要根据 AUFNR 在表 AUFK 中获取 OBJNR 字段</p>
+</code></pre></div><h3 id="直接从表获取生产订单状态">直接从表获取生产订单状态</h3>
+<p>1、根据生产订单从 AUFK 获取 Object Number（AUFK-OBJNR）</p>
+<p>2、根据 AUFK-OBJNR = JEST-OBJNR 获取对象状态（JEST-STAT，JEST-INACT）</p>
+<p>3、根据 JEST-STAT 在 TJ02T 中获取对应的对象状态描述（TJ02T-TXT04）</p>
+<p>4、根据 JEST-STAT 在 TJ02 中获取对象状态的是否显示状态（TJ02-NODIS）</p>
+<p><img src="/images/PP/OrderStatus.jpg" alt="Order Status"></p>
+<h4 id="demo">DEMO</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>:jest <span style="color:#66d9ef">type </span>standard <span style="color:#66d9ef">table</span> jest.
 <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SINGLE</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> aufk <span style="color:#66d9ef">WHERE</span> aufnr <span style="color:#f92672">=</span> it_table<span style="color:#f92672">-</span>aufnr. 
 <span style="color:#75715e">&#34; 判定工单状态 &#34;
@@ -330,7 +327,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1499</span>
+                   <span>1470</span>
             </p>
             
             <p class="copyright-item">
