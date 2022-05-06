@@ -83,7 +83,10 @@ lv_amount = lv_amount * rate / l_fact.
 
 1、Exporting 各个参数一定不能用常量，要用变量
 
-2、碰到比较变态的货币，例如日元，它们是没有小数点的，系统内存储的和你看到的不同，可以使用 BAPI：`BAPI_CURRENCY_CONV_TO_INTERNAL` 将从系统取出的值转换为实际看到的值
+2、碰到比较变态的货币，例如日元，它们是没有小数点的，系统内存储的和你看到的不同，这是因为有转换因子的存在，在存入表之前 SAP 会先将金额除以转换因子后再存入。可以使用以下 BAPI 进行相互转换：
+
+- `BAPI_CURRENCY_CONV_TO_INTERNAL` 将从系统取出的值转换为实际看到的值
+- `BAPI_CURRENCY_CONV_TO_EXTERNAL`：转换成外部实际金额
 
 ```ABAP
 REPORT ZTEST_CURRENCY_CONV.
