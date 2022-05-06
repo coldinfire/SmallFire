@@ -6,7 +6,16 @@
     <description>Recent content in PP on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/PP/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/PP/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> Product Order相关信息的获取 </title>
+      <link>https://coldinfire.github.io/2022/PP_GetProductOrderRelationInfo/</link>
+      <pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/PP_GetProductOrderRelationInfo/</guid>
+      <description>工序获取（TABLE：AFVC） 根据 Production Order 到表 AFKO 中获取 Routing 信息： AFKO-AUFPL；根据 Routing 到表 AFVC 中获取 Operation（工序）详细信息：AF</description>
+    </item>
+    
     <item>
       <title> COOIS 添加字段 </title>
       <link>https://coldinfire.github.io/2021/PP_Enhance_COOIS_AddFiled/</link>
