@@ -98,6 +98,15 @@ Note:
 
 ### 顺查BOM（CS12）
 
+`CS_BOM_EXPL_MAT_V2`：capid 参数，一般情况下所取的 BOM 都是生产用 BOM（capid = PP01）。
+
+- PP01：Production - general 
+- BEST：Inventory management
+- INST：Plant maintenance
+- PC01：Costing
+- PI01：Process manufacturing
+- SD01：Sales and distribution
+
 ```ABAP
 DATA: selpool TYPE TABLE OF cstmat WITH HEADER LINE.
 DATA: dstst_flg LIKE csdata-xfeld.
@@ -140,7 +149,9 @@ CALL FUNCTION 'CSAP_MAT_BOM_ITEM_SELECT'
     others                     = error_other.
 ```
 
-### 逆查BOM(CS15)
+### 逆查 BOM(CS15)：取物料的上层物料
+
+`CS_WHERE_USED_MAT`
 
 ```ABAP
 DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
@@ -153,19 +164,18 @@ DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
   CLEAR:IT_WULTB,IT_WULTB[].
   CALL FUNCTION 'CS_WHERE_USED_MAT'
     EXPORTING
-      DATUB        = SY-DATUM    "有效日期至"
-      DATUV        = SY-DATUM    "有效日期从"
-      MATNR        = P_C_MATNR   "物料号"
+      DATUB        = SY-DATUM    "有效日期To"
+      DATUV        = SY-DATUM    "有效日期From"
+      MATNR        = P_MATNR   "物料号"
 *     POSTP        = ' '
 *     RETCODE_ONLY = ' '
 *     STLAN        = ' '         "BOM用途"
-      MCLMT        = '00000000'
-      WERKS        = S2_WERKS
+*     MCLMT        = '00000000'
+      WERKS        = P_WERKS
 *    IMPORTING
 *    TOPMAT        =
     TABLES
-       WULTB       = IT_WULTB    "反查出的子件上层物料明细，包含上层编码、"
-                                 "上层编码描述、上层需求数量（默认是 BOM抬头基本数量）、子件需求数量等。"
+       WULTB       = IT_WULTB    "上层物料明细，包含编码、编码描述、上层需求数量、子件需求数量等"
        EQUICAT     = IT_EQUICAT
        KNDCAT      = IT_KNDCAT
        MATCAT      = IT_MATCAT   "反查出的子件上层物料明细（按物料号汇总后的结果）"
@@ -182,7 +192,15 @@ DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
 
 **T-Code：CS02** :确保递归 BOM 的比例在 0.95 左右。即：产品 A，其 BOM 中的 A 的消耗量应该小于 0.95. 
 
-### 批量删除BOM分配
+### 创建 BOM
+
+BAPI_MATERIAL_BOM_GROUP_CREATE：可以创建 BOM 组
+
+CSAP_MAT_BOM_CREATE：创建 BOM
+
+CSAP_MAT_BOM_MAINTAIN：维护 BOM，创建可选的 BOM 会有问题
+
+### 批量删除 BOM 分配
 
 ```ABAP
 CALL FUNCTION 'CSAP_MAT_BOM_ALLOC_DELETE'
