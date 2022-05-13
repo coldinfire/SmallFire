@@ -14,11 +14,16 @@ tags:
 
 ### BTE概念
 
-BTE(**Business Transaction Events**)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。SAP程序通过调用`OPEN_FI_PERFORM_<Number>`或`OUTBOUNT_CALL_<Number>`函数来调用BTE。
+BTE(**Business Transaction Events**)：BTE 是 SAP 中可用的增强技术之一，通常使用在财务会计模块，可由 SAP、第三方供应商（合作伙伴）和客户使用。SAP 程序通过调用`OPEN_FI_PERFORM_<Number>`或`OUTBOUNT_CALL_<Number>`函数来调用 BTE。
 
-以下是两种可用于实现BTE的类型：P/S 为检查用的 BTE，Processes 是修改用的。
+BTE 的设计思路更加简单，和 BADI 有点类似。在标准程序中留有 OPEN_FI 的出口，提供一个可配置的 Table，可以在里面针对某个特定的 Event 维护自己定义的出口函数，标准程序走到这里，如果查出用户定义了出口函数则会调用，达到了增强的目的。
+
+以下是两种可用于实现 BTE 的类型：类似于会计凭证的验证和替代
 
 ![BTE Type](/images/ABAP/BTE5.png)
+
+- P/S 函数模块 （Publish and Subscribe Interface）：只提供 SAP 数据源，可以供外部程序使用或则达到数据检查的目的
+- Processes 函数模块（Process Interface）：可以达到数据修改的目的，用来增强标准的业务流程。
 
 这些接口通知外部软件某些事件已在 SAP 标准应用程序中发生，并向其提供产生的数据。外部软件不会向 SAP Standard System 返回任何数据。它们不会以任何方式影响标准 R / 3 程序。
 
@@ -35,11 +40,9 @@ BTE(**Business Transaction Events**)：BTE是SAP中可用的增强技术之一�
 - BF_FUNCTIONS_FIND
 - PC_FUNCTION_FIND
 
-1）在 FM：`BF_FUNCTIONS_FIND`，设断点，然后查看 `CALL FUNCTION 'BF_FUNCTIONS_READ'` 里面的变量，可以
-  查看这个流程，会触发哪些 event，以及哪些customer FM，这样就可以在相应的 EVENT 开发对应的 ZFM。
+1）在 FM：`BF_FUNCTIONS_FIND`，设断点，然后查看 `CALL FUNCTION 'BF_FUNCTIONS_READ'` 里面的变量，可以查看这个流程，会触发哪些 event，以及哪些 customer FM，这样就可以在相应的 EVENT 开发对应的 ZFM。
 
-2）查找对应合适的 BTE：运行事务码 `XD02`，查找到对应的程序为 `SAPMF02D`，在此程序中搜索字符串
-  `OPEN_FI_PERFORM`，可以找到此程序中的所有用到的 BTE。  
+2）查找对应合适的 BTE：在标准程序中查找字符串 `OPEN_FI_PERFORM`，如果找到的函数结尾是 `_E`，则说明是 **P/S 函数模块**；如果是`_P`，则是 **Processes 模块**。  
 
 ### 配置BTE
 
@@ -55,7 +58,7 @@ Tcode：FIBF
 
 ![选择对应的事件和处理的函数](/images/ABAP/BTE4.png)
 
-###  BTE程序创建
+###  BTE 程序创建
 
 将光标放在已识别的 BTE 进程号上，单击示例功能模块，然后将其复制到 ZFM* 中并编写自己的功能。
 
@@ -63,30 +66,30 @@ Tcode：FIBF
 
 ![FM Tempate Implement](/images/ABAP/BTE10.png)
 
-### BTE系统间传输
+### BTE 系统间传输
 
 通过FIBF创建和配置完成的内容需要传输到其他系统，需要选中对应的Item，并执行下图步骤。可以将配置内容包含在TR中进行传输。
 
 ![Transfer](/images/ABAP/BTE11.png)
 
-###   BTE 相关的Tcode 和 Table
+###   BTE 相关的 Tcode 和 Table
 
 SAP Reference IMG -> Financial Accounting -> Financial Accounting Global Settings -> Business Transaction Events
 
-#### BTE事件与相关触发Tcode
+#### BTE 事件与相关触发 Tcode
 
 - F-02
 - VF01
 - FB70
 - FB01
 
-#### BTE存储的表
+#### BTE 存储的表
 
 TBE01 ：Library of the Publish&Subscribe Business Transaction Events
 
 TBE01T ：P&S BTE: Language-Specific Descriptions
 
-#### BTE相关的TCode
+#### BTE 相关的 TCode
 
 | TCode | Description                   | TCode | Description                     |
 | ----- | ----------------------------- | ----- | ------------------------------- |

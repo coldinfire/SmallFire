@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  3031 ,
+  "wordcount":  3113 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Screen\/",
   "datePublished": "2018-06-21T00:00:00\u002b00:00",
   "dateModified": "2018-06-21T00:00:00\u002b00:00",
@@ -210,7 +210,28 @@
 <li>INPUT：控制屏幕元素的可输入性</li>
 <li>ACTIVE：控制屏幕的可见性 (0:不可见  1:不可见)</li>
 </ul>
-<h4 id="at-selection-screen-on-">AT SELECTION-SCREEN ON &hellip;</h4>
+<p>多个复选框，实现单选功能：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: vcomm <span style="color:#66d9ef">TYPE </span>sscrfields<span style="color:#f92672">-</span>ucomm.
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
+<span style="color:#66d9ef">SELECTION-SCREEN COMMENT</span> <span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">007</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">FIELD</span> p_all.
+<span style="color:#66d9ef">PARAMETERS</span> p_all <span style="color:#66d9ef">AS CHECKBOX</span> USER<span style="color:#f92672">-</span>COMMAND CB1.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF LINE</span>.
+
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
+<span style="color:#66d9ef">SELECTION-SCREEN COMMENT</span> <span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">005</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">FIELD</span> p_active.
+<span style="color:#66d9ef">PARAMETERS</span> p_active <span style="color:#66d9ef">AS CHECKBOX</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;X&#39;</span> USER<span style="color:#f92672">-</span>COMMAND CB2.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF LINE</span>.
+
+<span style="color:#66d9ef">AT SELECTION-SCREEN</span>.
+  vcomm <span style="color:#f92672">=</span> sscrfields<span style="color:#f92672">-</span>ucomm.
+<span style="color:#66d9ef">AT SELECTION-SCREEN OUTPUT</span>.
+  <span style="color:#66d9ef">CASE</span> vcomm.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;CB1&#39;</span>.
+      p_active <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;CB2&#39;</span>.
+      p_all <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
+  <span style="color:#66d9ef">ENDCASE</span>.
+</code></pre></div><h4 id="at-selection-screen-on-">AT SELECTION-SCREEN ON &hellip;</h4>
 <p>选择屏幕显示之后，用来响应回车，F1，F4等事件。</p>
 <p>可选参数：</p>
 <ul>
@@ -434,7 +455,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>3031</span>
+                   <span>3113</span>
             </p>
             
             <p class="copyright-item">

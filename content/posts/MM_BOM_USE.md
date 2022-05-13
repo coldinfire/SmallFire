@@ -98,7 +98,7 @@ Note:
 
 ### 顺查BOM（CS12）
 
-`CS_BOM_EXPL_MAT_V2`：capid 参数，一般情况下所取的 BOM 都是生产用 BOM（capid = PP01）。
+`CS_BOM_EXPL_MAT_V2`：展 BOM 表。capid 参数，一般情况下所取的 BOM 都是生产用 BOM（capid = PP01）。
 
 - PP01：Production - general 
 - BEST：Inventory management
@@ -106,6 +106,19 @@ Note:
 - PC01：Costing
 - PI01：Process manufacturing
 - SD01：Sales and distribution
+
+#### 展开单层BOM、多层BOM
+
+| MDMPS (虚拟件) | MEHRS (多层展开) | 展开模式                                                 |
+| -------------- | ---------------- | -------------------------------------------------------- |
+| SPACE          | X                | 全展（显示包含虚拟件）                                   |
+| X              | X                | 展1或2层（下层遇虚拟件则展开至其下一层，显示包含虚拟件） |
+| SPACE          | SPACE            | 展一层（下层为虚拟件，不再向下展开）                     |
+| X              | SPACE            | 展一层 （同3，下层为虚拟件，不再向下展开）               |
+
+*  即：MEHRS置空，不论MDMPS如何设置，都只展一层，并且如果下层就是虚拟件，不展开虚拟件至其更下一层，与2）要区别开来
+
+#### BAPI 使用
 
 ```ABAP
 DATA: selpool TYPE TABLE OF cstmat WITH HEADER LINE.
@@ -151,7 +164,7 @@ CALL FUNCTION 'CSAP_MAT_BOM_ITEM_SELECT'
 
 ### 逆查 BOM(CS15)：取物料的上层物料
 
-`CS_WHERE_USED_MAT`
+`CS_WHERE_USED_MAT`：反查BOM表；反查单层BOM、多层BOM。
 
 ```ABAP
 DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,

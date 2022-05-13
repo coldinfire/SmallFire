@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" BTE 增强使用 "/>
-<meta name="twitter:description" content="BTE概念 BTE(Business Transaction Events)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。S"/>
+<meta name="twitter:description" content="BTE概念 BTE(Business Transaction Events)：BTE 是 SAP 中可用的增强技术之一，通常使用在财务会计模块，可由 SAP、第三方供应商（合作伙伴）和客户使用。SAP"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "Enhance",
-  "wordcount":  764 ,
+  "wordcount":  915 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_Enhance_BTE\/",
   "datePublished": "2019-12-21T00:00:00\u002b00:00",
   "dateModified": "2019-12-21T00:00:00\u002b00:00",
@@ -174,9 +174,14 @@
           
 
           <h3 id="bte概念">BTE概念</h3>
-<p>BTE(<strong>Business Transaction Events</strong>)：BTE是SAP中可用的增强技术之一，通常使用在财务会计模块,可由 SAP，第三方供应商（合作伙伴）和客户使用。SAP程序通过调用<code>OPEN_FI_PERFORM_&lt;Number&gt;</code>或<code>OUTBOUNT_CALL_&lt;Number&gt;</code>函数来调用BTE。</p>
-<p>以下是两种可用于实现BTE的类型：P/S 为检查用的 BTE，Processes 是修改用的。</p>
+<p>BTE(<strong>Business Transaction Events</strong>)：BTE 是 SAP 中可用的增强技术之一，通常使用在财务会计模块，可由 SAP、第三方供应商（合作伙伴）和客户使用。SAP 程序通过调用<code>OPEN_FI_PERFORM_&lt;Number&gt;</code>或<code>OUTBOUNT_CALL_&lt;Number&gt;</code>函数来调用 BTE。</p>
+<p>BTE 的设计思路更加简单，和 BADI 有点类似。在标准程序中留有 OPEN_FI 的出口，提供一个可配置的 Table，可以在里面针对某个特定的 Event 维护自己定义的出口函数，标准程序走到这里，如果查出用户定义了出口函数则会调用，达到了增强的目的。</p>
+<p>以下是两种可用于实现 BTE 的类型：类似于会计凭证的验证和替代</p>
 <p><img src="/images/ABAP/BTE5.png" alt="BTE Type"></p>
+<ul>
+<li>P/S 函数模块 （Publish and Subscribe Interface）：只提供 SAP 数据源，可以供外部程序使用或则达到数据检查的目的</li>
+<li>Processes 函数模块（Process Interface）：可以达到数据修改的目的，用来增强标准的业务流程。</li>
+</ul>
 <p>这些接口通知外部软件某些事件已在 SAP 标准应用程序中发生，并向其提供产生的数据。外部软件不会向 SAP Standard System 返回任何数据。它们不会以任何方式影响标准 R / 3 程序。</p>
 <p><img src="/images/ABAP/BTE6.png" alt="BTE事件"></p>
 <p><img src="/images/ABAP/BTE7.png" alt="BTE提供的FM Template"></p>
@@ -187,10 +192,8 @@
 <li>BF_FUNCTIONS_FIND</li>
 <li>PC_FUNCTION_FIND</li>
 </ul>
-<p>1）在 FM：<code>BF_FUNCTIONS_FIND</code>，设断点，然后查看 <code>CALL FUNCTION 'BF_FUNCTIONS_READ'</code> 里面的变量，可以
-查看这个流程，会触发哪些 event，以及哪些customer FM，这样就可以在相应的 EVENT 开发对应的 ZFM。</p>
-<p>2）查找对应合适的 BTE：运行事务码 <code>XD02</code>，查找到对应的程序为 <code>SAPMF02D</code>，在此程序中搜索字符串
-<code>OPEN_FI_PERFORM</code>，可以找到此程序中的所有用到的 BTE。</p>
+<p>1）在 FM：<code>BF_FUNCTIONS_FIND</code>，设断点，然后查看 <code>CALL FUNCTION 'BF_FUNCTIONS_READ'</code> 里面的变量，可以查看这个流程，会触发哪些 event，以及哪些 customer FM，这样就可以在相应的 EVENT 开发对应的 ZFM。</p>
+<p>2）查找对应合适的 BTE：在标准程序中查找字符串 <code>OPEN_FI_PERFORM</code>，如果找到的函数结尾是 <code>_E</code>，则说明是 <strong>P/S 函数模块</strong>；如果是<code>_P</code>，则是 <strong>Processes 模块</strong>。</p>
 <h3 id="配置bte">配置BTE</h3>
 <p>Tcode：FIBF</p>
 <p><img src="/images/ABAP/BTE1.png" alt="BTE"></p>
@@ -198,26 +201,26 @@
 <p><img src="/images/ABAP/BTE2.png" alt="创建P/S BTE"></p>
 <p>根据系统提供的事件模板，创建自定义的FM，并实现相应的业务逻辑。</p>
 <p><img src="/images/ABAP/BTE4.png" alt="选择对应的事件和处理的函数"></p>
-<h3 id="bte程序创建">BTE程序创建</h3>
+<h3 id="bte-程序创建">BTE 程序创建</h3>
 <p>将光标放在已识别的 BTE 进程号上，单击示例功能模块，然后将其复制到 ZFM* 中并编写自己的功能。</p>
 <p><img src="/images/ABAP/BTE9.png" alt="FM Tempate"></p>
 <p><img src="/images/ABAP/BTE10.png" alt="FM Tempate Implement"></p>
-<h3 id="bte系统间传输">BTE系统间传输</h3>
+<h3 id="bte-系统间传输">BTE 系统间传输</h3>
 <p>通过FIBF创建和配置完成的内容需要传输到其他系统，需要选中对应的Item，并执行下图步骤。可以将配置内容包含在TR中进行传输。</p>
 <p><img src="/images/ABAP/BTE11.png" alt="Transfer"></p>
-<h3 id="bte-相关的tcode-和-table">BTE 相关的Tcode 和 Table</h3>
+<h3 id="bte-相关的-tcode-和-table">BTE 相关的 Tcode 和 Table</h3>
 <p>SAP Reference IMG -&gt; Financial Accounting -&gt; Financial Accounting Global Settings -&gt; Business Transaction Events</p>
-<h4 id="bte事件与相关触发tcode">BTE事件与相关触发Tcode</h4>
+<h4 id="bte-事件与相关触发-tcode">BTE 事件与相关触发 Tcode</h4>
 <ul>
 <li>F-02</li>
 <li>VF01</li>
 <li>FB70</li>
 <li>FB01</li>
 </ul>
-<h4 id="bte存储的表">BTE存储的表</h4>
+<h4 id="bte-存储的表">BTE 存储的表</h4>
 <p>TBE01 ：Library of the Publish&amp;Subscribe Business Transaction Events</p>
 <p>TBE01T ：P&amp;S BTE: Language-Specific Descriptions</p>
-<h4 id="bte相关的tcode">BTE相关的TCode</h4>
+<h4 id="bte-相关的-tcode">BTE 相关的 TCode</h4>
 <table>
 <thead>
 <tr>
@@ -273,7 +276,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>764</span>
+                   <span>915</span>
             </p>
             
             <p class="copyright-item">
