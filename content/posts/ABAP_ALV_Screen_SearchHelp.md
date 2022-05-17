@@ -195,13 +195,12 @@ ENDFUNCTION.
 
 在屏幕的 ON VALUE-REQUEST 事件中可以通过以下几个函数来创建搜索帮助：
 
-- TR_F4_HELP：实现简单的 Search Help，数据来源于内表
 - F4IF_FIELD_VALUE_REQUEST：在程序运行时，可以动态的为屏幕上某个字段指定 Search Help。被引用的搜索帮助来自于某个表（结构）字段上绑定的 Search Help
 - F4IF_INT_TABLE_VALUE_REQUEST：在程序运行时，将某个内表动态的用作 Search Help 的数据，可实现联动效果
 
 #### FM：F4IF_FIELD_VALUE_REQUEST
 
-运行这个函数就会弹出F4帮助界面的值选择窗口，窗口中的值就是 tabname 中字段 fieldname 的所有可选值，当选择某个值后，那么这个值和其相关的属性就会存放到表 return_tab 中。
+运行这个函数就会弹出 F4 帮助界面的值选择窗口，窗口中的值就是 tabname 中字段 fieldname 的所有可选值，当选择某个值后，那么这个值和其相关的属性就会存放到表 return_tab 中。
 
 ```ABAP
 CALL FUNCTION 'F4IF_FIELD_VALUE_REQUEST'
@@ -213,8 +212,8 @@ CALL FUNCTION 'F4IF_FIELD_VALUE_REQUEST'
     return_tab = return_tab
   EXCEPTIONS
     FIELD_NOT_FOUND    = 1
-    NO_HELP_FOR_FIELD  =2
-    INCONSISTENT_HELP  =3
+    NO_HELP_FOR_FIELD  = 2
+    INCONSISTENT_HELP  = 3
     NO_VALUES_FOUND    = 4
     OTHERS             = 5.
 ```
@@ -223,53 +222,109 @@ CALL FUNCTION 'F4IF_FIELD_VALUE_REQUEST'
 
 在程序运行时，将某个内表动态的用作 **Search help**  的数据来源 ，即使用该函数可以将某个内表转换为 Search help ，可实现联动效果。
 
+单值选择
+
+```ABAP
+SELECT-OPTIONS: s_insmk FOR mseg-insmk NO INTERVALS.
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR s_insmk-low.
+  PERFORM frm_request_f4_insmk USING 'S_INSMK-LOW'.
+*&---------------------------------------------------------------------*
+*&      Form  FRM_REQUEST_F4_INSMK
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+FORM frm_request_f4_insmk USING pv_field TYPE help_info-dynprofld.
+  TYPES: BEGIN OF ty_value_tab,
+          insmk  TYPE mseg-insmk,
+          insmkt TYPE dd07t-ddtext,
+        END OF ty_value_tab.
+  DATA: lt_value_tab TYPE TABLE OF ty_value_tab WITH HEADER LINE. 
+
+  DEFINE add_value.
+    CLEAR lt_value_tab.
+    lt_value_tab-INSMK  = &1.
+    lt_value_tab-INSMKT = &2.
+    APPEND lt_value_tab.
+  END-OF-DEFINITION.
+ 
+  add_value 'U'  text-r03. " Unrestricted
+  add_value 'B'  text-r04. " Blocked
+  add_value 'Q'  text-r05. " Quality inspection
+  add_value 'T'  text-r06. " Transfer stock between storage location
+  add_value 'P'  text-r07. " Transfer stock between plant
+ 
+  CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
+    EXPORTING
+      retfield        = 'INSMK'
+      dynpprog        = sy-repid
+      dynpnr          = sy-dynnr
+      dynprofield     = pv_field
+      value_org       = 'S'
+    TABLES
+      value_tab       = lt_value_tab
+    EXCEPTIONS
+      parameter_error = 1
+      no_values_found = 2
+      OTHERS          = 3.
+  IF sy-subrc <> 0.
+*   Implement suitable error handling here
+  ENDIF.
+ENDFORM.
+```
+
+多个值选择，显示列名设置
+
 ```ABAP
 PARAMETERS: p_bname LIKE usr02-bname,
             p_class LIKE usr02-class.
-AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_bname.
-	PERFORM frm_valuereq_bwart.
-	
-FORM frm_valuereq_bwart.
-" 需要显示的结果集 "
-DATA: BEGIN OF t_data OCCURS 1,
-    data(20),
-END OF t_data.
-" 字段 "
-DATA: lwa_dfies TYPE dfies,
-      h_field_wa LIKE dfies,
-      h_field_tab LIKE dfies occurs 0 with header line,
-      h_dselc LIKE dselc occurs 0 with header line.
-SELECT * FROM usr02.
-  t_data = usr02-bname. APPEND t_data.
-  t_data = usr02-class. APPEND t_data.
-ENDSELECT.
-PERFORM f_fieldinfo_get USING 'USR02' 'BNAME' CHANGING h_field_wa.
-APPEND h_field_wa TO h_field_tab.
-PERFORM f_fieldinfo_get USING 'USR02' 'CLASS' CHANGING h_field_wa.
-APPEND h_field_wa TO h_field_tab.
 
-h_dselc-fldname = 'BNAME'.
-h_dselc-dyfldname = 'P_BNAME'.
-APPEND h_dselc.
-h_dselc-fldname = 'CLASS'.
-h_dselc-dyfldname = 'P_CLASS'.
-APPEND h_dselc.
-"将获取到的值绑定到对应屏幕字段"
-CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
-  EXPORTING
-    retfield         = 'P_BWART'    "搜索帮助表返回到选择屏幕的字段的参数"
-    dynpprog         = sy-repid
-    dynpnr           = sy-dynnr
-    dynprofield      = 'P_BWART' "选择屏幕上需要添加F4帮助的字段"
-  * multiple_choice  = ''
-    value_org        = 'S'         "默认：C"
-  TABLES
-    value_tab        = t_data   "F4 帮助值的表"
-    field_tab        = h_field_tab
-  * return_tab       = return_tab
-    DYNPFLD_MAPPING  = h_dselc
-  EXCEPTIONS
-    OTHERS = 0.
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_bname.
+	PERFORM frm_valuereq_bname.
+	
+FORM frm_valuereq_bname.
+  " 需要显示的结果集 "
+  DATA: BEGIN OF t_data OCCURS 1,
+      data(20),
+  END OF t_data.
+  " 字段 "
+  DATA: lv_retfield TYPE dfies-fieldname.
+  DATA: h_field_wa LIKE dfies,
+        h_field_tab LIKE dfies OCCURS 0 WITH HEADER LINE,
+        h_dselc LIKE dselc OCCURS 0 WITH HEADER LINE.
+  SELECT * FROM usr02.
+    t_data-data = usr02-bname. APPEND t_data. CLEAR t_data.
+    t_data-data = usr02-class. APPEND t_data. CLEAR t_data.
+  ENDSELECT.
+  "搜索帮助显示列表ALV的列名显示成用户指定的名称"
+  PERFORM f_fieldinfo_get USING 'USR02' 'BNAME' CHANGING h_field_wa.
+  APPEND h_field_wa TO h_field_tab.
+  PERFORM f_fieldinfo_get USING 'USR02' 'CLASS' CHANGING h_field_wa.
+  APPEND h_field_wa TO h_field_tab.
+
+  h_dselc-fldname = 'BNAME'.
+  h_dselc-dyfldname = 'P_BNAME'.
+  APPEND h_dselc.
+  h_dselc-fldname = 'CLASS'.
+  h_dselc-dyfldname = 'P_CLASS'.
+  APPEND h_dselc.
+  "将获取到的值绑定到对应屏幕字段"
+  lv_retfield = 'BNAME'.
+  CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
+    EXPORTING
+      retfield         = lv_retfield  "可选值表的字段名"
+      dynpprog         = sy-repid     "输入框所在主程序"
+      dynpnr           = sy-dynnr     "输入框所在屏幕"
+      dynprofield      = 'P_BNAME'    "选择屏幕上需要添加F4帮助的字段"
+*     multiple_choice  = 'X'          "多项选择，屏幕字段可输入多值时使用"
+      value_org        = 'S'          "C:CELL逐行，S:STRUCTURE结构化(在DILOG中必选S)"
+*     display          = 'C'          "C:只能显示不能选择"
+    TABLES
+      value_tab        = t_data       "F4 帮助可选值表"
+      field_tab        = h_field_tab  "自定义ALV显示列名"
+*    return_tab       = return_tab
+      dynprld_mapping  = h_dselc
+    EXCEPTIONS
+      OTHERS = 0.
 ENDFORM. 
 
 FORM f_fieldinfo_get USING fu_tabname fu_fieldname

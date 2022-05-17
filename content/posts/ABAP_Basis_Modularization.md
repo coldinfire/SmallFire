@@ -27,7 +27,7 @@ tags:
 
 - Macros：宏的使用
 - Include：包含文件的使用
-- Subroutines：Form 子程序的使用
+- Subroutine ：Form 子程序的使用 
 - Function Modules：功能模块的使用
 
 ### 全局变量，局部变量
@@ -71,7 +71,7 @@ Include Programs 仅用于模块化源代码，没有参数接口。
 
 包含程序允许在不同的程序中使用相同的源代码。 如果想在不同的程序中使用冗长的数据声明，它们会很有用。
 
-### Subroutines
+### Subroutine
 
 子程序是可以在任何 ABAP 程序中定义并且也可以从任何程序调用的过程。 子程序通常在内部调用，也就是说，它们包含在本地经常使用的代码或算法部分。
 

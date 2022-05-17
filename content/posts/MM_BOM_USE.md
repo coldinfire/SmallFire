@@ -98,7 +98,9 @@ Note:
 
 ### 顺查BOM（CS12）
 
-`CS_BOM_EXPL_MAT_V2`：展 BOM 表。capid 参数，一般情况下所取的 BOM 都是生产用 BOM（capid = PP01）。
+`CS_BOM_EXPL_MAT_V2`：展 BOM 表。
+
+capid 参数，一般情况下所取的 BOM 都是生产用 BOM（capid = PP01）。
 
 - PP01：Production - general 
 - BEST：Inventory management
@@ -106,6 +108,11 @@ Note:
 - PC01：Costing
 - PI01：Process manufacturing
 - SD01：Sales and distribution
+
+其它参数注意事项：
+
+*  DATUV 一定不能省，否则运行出错。
+*  输出的数量一般用 MNGKO 而不是 MENGE，因为 MNGKO 计算了用量、替代的实际值。
 
 #### 展开单层BOM、多层BOM
 
@@ -116,7 +123,13 @@ Note:
 | SPACE          | SPACE            | 展一层（下层为虚拟件，不再向下展开）                     |
 | X              | SPACE            | 展一层 （同3，下层为虚拟件，不再向下展开）               |
 
-*  即：MEHRS置空，不论MDMPS如何设置，都只展一层，并且如果下层就是虚拟件，不展开虚拟件至其更下一层，与2）要区别开来
+*  即：MEHRS 置空，不论 MDMPS 如何设置，都只展一层，并且如果下层就是虚拟件，不展开虚拟件至其更下一层，与2）要区别开来。
+
+BOM 说明：
+
+- MQ（成品）<——MC（虚拟件）
+  - MA <—— 底层材料 a、b、c
+  - MF <—— 底层材料 d、e、f
 
 #### BAPI 使用
 
@@ -129,20 +142,36 @@ DATA: return TYPE TABLE OF bapireturn WITH HEADER LINE.
 
 CALL FUNCTION 'CS_BOM_EXPL_MAT_V2'
   EXPORTING
-    capid = p_capid      "BOM应用程序，应用程序一般为PP01"
-    datuv = p_datuv      "有效开始日通常为系统的当前日期"
+    capid = 'PP01'       "BOM应用程序，应用程序一般为PP01"
+    datuv = sy-datum     "有效开始日通常为系统的当前日期"
+    ehndl = '1'
     emeng = menge        "需求数量"
     mtnrv = p_matnr      "物料专用号，要展开BOM的物料"
     mehrs = 'X'          "x表示多层展开﹐space表示只展开第一层"
-    werks = pm_werks     "工厂"
-    stlan = xxx          "BOM用途"
-    stlal = xxxx         "BOM可选"
+    werks = p_werks      "工厂"
+    stlan = '1'          "BOM用途"
+    stlal = '1'          "可选BOM的编号"
   IMPORTING
     topmat = selpool     "抬头明细"
     dstst  = dstst_flg
   TABLES
     stb = stb           "展开的BOM存放在该内表"
     matcat = matcat     "下面含有元件的物料存放在该内表"
+  EXCEPTIONS
+    ALT_NOT_FOUND               = 1
+    CALL_INVALID                = 2
+    MATERIAL_NOT_FOUND          = 3
+    MISSING_AUTHORIZATION       = 4
+    NO_BOM_FOUND                = 5
+    NO_PLANT_DATA               = 6
+    NO_SUITABLE_BOM_FOUND       = 7
+    CONVERSION_ERROR            = 8
+    OTHERS                      = 9
+            .
+IF SY-SUBRC <> 0.
+  MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
+        WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
+ENDIF.
 "获取物料BOM清单 Items"
 CALL FUNCTION 'CSAP_MAT_BOM_ITEM_SELECT'
   EXPORTING
@@ -167,19 +196,21 @@ CALL FUNCTION 'CSAP_MAT_BOM_ITEM_SELECT'
 `CS_WHERE_USED_MAT`：反查BOM表；反查单层BOM、多层BOM。
 
 ```ABAP
-DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
+DATA: WULTB LIKE STANDARD TABLE OF STPOV WITH HEADER LINE,
+      IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
       IT_EQUICAT LIKE CSCEQUI OCCURS 0 WITH HEADER LINE,
       IT_KNDCAT LIKE CSCKND OCCURS 0 WITH HEADER LINE,
       IT_MATCAT LIKE CSCMAT OCCURS 0 WITH HEADER LINE,
       IT_STDCAT LIKE CSCSTD OCCURS 0 WITH HEADER LINE,
       IT_TPLCAT LIKE CSCTPL OCCURS 0 WITH HEADER LINE,
       IT_PRJCAT LIKE CSCPRJ OCCURS 0 WITH HEADER LINE.
+FORM WHERE_USER_BOM .
   CLEAR:IT_WULTB,IT_WULTB[].
   CALL FUNCTION 'CS_WHERE_USED_MAT'
     EXPORTING
       DATUB        = SY-DATUM    "有效日期To"
       DATUV        = SY-DATUM    "有效日期From"
-      MATNR        = P_MATNR   "物料号"
+      MATNR        = MARA-MATNR  "物料号"
 *     POSTP        = ' '
 *     RETCODE_ONLY = ' '
 *     STLAN        = ' '         "BOM用途"
@@ -201,6 +232,53 @@ DATA: IT_WULTB LIKE STPOV OCCURS 0 WITH HEADER LINE,
        NO_WHERE_USED_REC_SELECTED = 4
        NO_WHERE_USED_REC_VALID    = 5
        OTHERS                     = 6.
+  IF SY-SUBRC <> 0. 
+    MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
+          WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
+  ENDIF.
+ENDFORM.   " WHERE_USER_BOM "
+
+FORM WHERE_USER_BOM_MULIT .
+  DATA: lv_index TYPE I,
+        p_matnr TYPE matnr.
+  DESCRIBE TABLE wultb LINES lv_index.
+  IF lv_index <> 0.
+    READ TABLE wultb INDEX lv_index.
+    p_matnr = wultb-matnr.
+  ENDIF.
+  CLEAR IT_WULTB[].
+  CALL  FUNCTION  'CS_WHERE_USED_MAT'
+     EXPORTING
+      DATUB              = SY-DATUM
+      DATUV              = SY-DATUM
+      MATNR              = p_matnr
+*     POSTP               = ' '
+*     RETCODE_ONLY        = ' '
+*     STLAN               = ' '
+      MCLMT              = '00000000'
+      WERKS              = p_werks
+*    IMPORTING
+*    TOPMAT              =
+     TABLES
+       WULTB           = IT_WULTB
+       EQUICAT         = IT_EQUICAT
+       KNDCAT          = IT_KNDCAT
+       MATCAT          = IT_MATCAT
+       STDCAT          = IT_STDCAT
+       TPLCAT          = IT_TPLCAT
+     EXCEPTIONS
+       CALL_INVALID        = 1
+       MATERIAL_NOT_FOUND          = 2
+       NO_WHERE_USED_REC_FOUND     = 3
+       NO_WHERE_USED_REC_SELECTED = 4
+       NO_WHERE_USED_REC_VALID     = 5
+       OTHERS              = 6.
+IF SY-SUBRC = 0."如果展开到最顶层，该值为3，不继续展开"
+    IT_WULTB-LEVEL = lv_index + 1.
+    APPEND IT_WULTB TO WULTB.
+    PERFORM WHERE_USER_BOM_MULIT.
+  ENDIF.
+ENDFORM.                    " WHERE_USER_BOM_MULIT "
 ```
 
 **T-Code：CS02** :确保递归 BOM 的比例在 0.95 左右。即：产品 A，其 BOM 中的 A 的消耗量应该小于 0.95. 
