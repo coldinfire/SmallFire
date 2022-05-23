@@ -141,15 +141,18 @@ ALV 提供给我们控制数据的输入，有两个事件：**data_changed** �
 ```ABAP
 CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
   EXPORTING
+    I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_ENTER. 
+CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
+  EXPORTING
     I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_MODIFIED. 
 ```
 
 
-- `I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.`
-- 在单元格修改后回车或者执行其他操作时触发事件,此类型可用于多个单元格修改后一起检查修改的值
-- `I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.`
+- `I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_ENTER.`	
 
-  - 当光标焦点移开被修改单元格后既触发事件,此类型可用于每个每个单元个的实时更新检查
+  - 在单元格修改后回车或者执行其他操作时触发事件，此类型可用于多个单元格修改后一起检查修改的值
+- `I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVENT_MODIFIES.`
+- 当光标焦点移开被修改单元格后既触发事件,此类型可用于每个每个单元个的实时更新检查
 
 #### 获取 ALV 字段修改信息
 
@@ -179,10 +182,13 @@ CALL METHOD ALV_GRID->REGISTER_EDIT_EVENT
 
 ```ABAP
 METHOD handle_data_changed.
-  DATA: mod_data TYPE lvc_s_modi.
+  DATA: mod_data TYPE lvc_s_modi,  "Modify Row"
+        ins_data TYPE lvc_s_moce,  "Insert Row"
         ls_output TYPE str_output,
         lv_menge  TYPE ekpo-netwr,
         lv_menge_ori TYPE ekpo-netwr.
+  FIELD-SYMBOLS: <fs> TYPE table.
+  
   SORT er_data_changed->mt_good_cells BY row_id.
   LOOP AT er_data_changed->mt_good_cells INTO mod_data.
     CLEAR: ls_output,lv_menge.
@@ -214,6 +220,13 @@ METHOD handle_data_changed.
             i_value     = lv_menge.
       ENDIF.
     ENDIF.
+  ENDLOOP.
+  LOOP AT er_data_changed->mt_inserted_rows INTO ins_data.
+    ASSIGN er_data_changed->mt_mod_rows->* TO <fs>.
+    LOOP AT <fs> INTO ls_outtab.
+      ls_outtab-xxx = 'XX'.
+      MODIFY <fs> FROM ls_outtab INDEX sy-tabix.
+    ENDLOOP.
   ENDLOOP.
 ENDMETHOD.
 ```

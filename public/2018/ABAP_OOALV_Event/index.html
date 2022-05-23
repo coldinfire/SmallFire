@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "OOALV",
-  "wordcount":  1692 ,
+  "wordcount":  1735 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_OOALV_Event\/",
   "datePublished": "2018-07-17T00:00:00\u002b00:00",
   "dateModified": "2018-07-17T00:00:00\u002b00:00",
@@ -274,19 +274,22 @@
 <p>除了设置 FIELDCAT 的 EDIT 属性。还需要在显示 ALV 后添加触发数据改变事件，必须设置一种方式，否则不会触发数据更新事件。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">CALL METHOD</span> ALV_GRID<span style="color:#f92672">-&gt;</span>REGISTER_EDIT_EVENT
   <span style="color:#66d9ef">EXPORTING</span>
+    I_EVENT_ID <span style="color:#f92672">=</span> CL_GUI_ALV_GRID<span style="color:#f92672">=&gt;</span>MC_EVT_ENTER. 
+<span style="color:#66d9ef">CALL METHOD</span> ALV_GRID<span style="color:#f92672">-&gt;</span>REGISTER_EDIT_EVENT
+  <span style="color:#66d9ef">EXPORTING</span>
     I_EVENT_ID <span style="color:#f92672">=</span> CL_GUI_ALV_GRID<span style="color:#f92672">=&gt;</span>MC_EVT_MODIFIED. 
 </code></pre></div><ul>
 <li>
 <p><code>I_EVENT_ID = CL_GUI_ALV_GRID=&gt;MC_EVENT_ENTER.</code></p>
-</li>
-<li>
-<p>在单元格修改后回车或者执行其他操作时触发事件,此类型可用于多个单元格修改后一起检查修改的值</p>
+<ul>
+<li>在单元格修改后回车或者执行其他操作时触发事件，此类型可用于多个单元格修改后一起检查修改的值</li>
+</ul>
 </li>
 <li>
 <p><code>I_EVENT_ID = CL_GUI_ALV_GRID=&gt;MC_EVENT_MODIFIES.</code></p>
-<ul>
-<li>当光标焦点移开被修改单元格后既触发事件,此类型可用于每个每个单元个的实时更新检查</li>
-</ul>
+</li>
+<li>
+<p>当光标焦点移开被修改单元格后既触发事件,此类型可用于每个每个单元个的实时更新检查</p>
 </li>
 </ul>
 <h4 id="获取-alv-字段修改信息">获取 ALV 字段修改信息</h4>
@@ -361,10 +364,13 @@
 </ul>
 <p>实现 DATA Change 事件方法</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">handle_data_changed</span>.
-  <span style="color:#66d9ef">DATA</span>: mod_data <span style="color:#66d9ef">TYPE </span>lvc_s_modi.
-        ls_output <span style="color:#66d9ef">TYPE </span>str_output,
+  <span style="color:#66d9ef">DATA</span>: mod_data <span style="color:#66d9ef">TYPE </span>lvc_s_modi,  <span style="color:#75715e">&#34;Modify Row&#34;
+</span><span style="color:#75715e"></span>        ins_data <span style="color:#66d9ef">TYPE </span>lvc_s_moce,  <span style="color:#75715e">&#34;Insert Row&#34;
+</span><span style="color:#75715e"></span>        ls_output <span style="color:#66d9ef">TYPE </span>str_output,
         lv_menge  <span style="color:#66d9ef">TYPE </span>ekpo<span style="color:#f92672">-</span>netwr,
         lv_menge_ori <span style="color:#66d9ef">TYPE </span>ekpo<span style="color:#f92672">-</span>netwr.
+  <span style="color:#66d9ef">FIELD-SYMBOLS</span>: &lt;fs&gt; <span style="color:#66d9ef">TYPE table</span>.
+  
   <span style="color:#66d9ef">SORT</span> er_data_changed<span style="color:#f92672">-&gt;</span>mt_good_cells BY row_id.
   <span style="color:#66d9ef">LOOP AT </span>er_data_changed<span style="color:#f92672">-&gt;</span>mt_good_cells <span style="color:#66d9ef">INTO</span> mod_data.
     <span style="color:#66d9ef">CLEAR</span>: ls_output,lv_menge.
@@ -396,6 +402,13 @@
             i_value     <span style="color:#f92672">=</span> lv_menge.
       <span style="color:#66d9ef">ENDIF</span>.
     <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+  <span style="color:#66d9ef">LOOP AT </span>er_data_changed<span style="color:#f92672">-&gt;</span>mt_inserted_rows <span style="color:#66d9ef">INTO</span> ins_data.
+    <span style="color:#66d9ef">ASSIGN</span> er_data_changed<span style="color:#f92672">-&gt;</span>mt_mod_rows-&gt;* <span style="color:#66d9ef">TO</span> &lt;fs&gt;.
+    LOOP <span style="color:#66d9ef">AT</span> &lt;fs&gt; <span style="color:#66d9ef">INTO</span> ls_outtab.
+      ls_outtab<span style="color:#f92672">-</span>xxx <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;XX&#39;</span>.
+      <span style="color:#66d9ef">MODIFY</span> &lt;fs&gt; <span style="color:#66d9ef">FROM</span> ls_outtab <span style="color:#66d9ef">INDEX</span> sy<span style="color:#f92672">-</span>tabix.
+    <span style="color:#66d9ef">ENDLOOP</span>.
   <span style="color:#66d9ef">ENDLOOP</span>.
 <span style="color:#66d9ef">ENDMETHOD</span>.
 </code></pre></div><h3 id="f4-help">F4 Help</h3>
@@ -453,7 +466,7 @@ ls_f4<span style="color:#f92672">-</span>internal <span style="color:#f92672">=<
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1692</span>
+                   <span>1735</span>
             </p>
             
             <p class="copyright-item">

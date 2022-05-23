@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abapbasis",
-  "wordcount":  1699 ,
+  "wordcount":  2098 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Basis_Variable\/",
   "datePublished": "2018-05-18T00:00:00\u002b00:00",
   "dateModified": "2018-05-18T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                4 min
+                5 min
         </div>
     </header>
     <div class="post-content">
@@ -500,7 +500,70 @@
 <h4 id="describe-distance">DESCRIBE DISTANCE</h4>
 <p><code>DESCRIBE DISTANCE BETWEEN dobj1 AND dobj2 INTO dst IN {BYTE|CHARACTER} MODE.</code></p>
 <ul>
-<li>dobj1 and dobj2 两个变量地址起始位置的距离</li>
+<li>dobj1 和 dobj2 两个变量地址起始位置的距离</li>
+</ul>
+<h3 id="sap-编码">SAP 编码</h3>
+<p><code>Character Encoding</code> 是一个名称（“utf-8”、“iso-8859-1”等）和一个等价表，其中包含一组字符和每个字符的八位字节值。</p>
+<p><code>Code Page</code> 是 SAP 使用的名称，而不是 Character Encoding。 Code Page 有一个 4 位数字而不是字符名称。</p>
+<h4 id="两种类型数据的对应关系">两种类型数据的对应关系</h4>
+<ul>
+<li>使用 FM：<code>SCP_CODEPAGE_BY_EXTERNAL_NAME</code>  获取国际字符编码对应的 SAP Code Page</li>
+<li>在表 TCP00A 中查找对应关系</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">SAP code page</th>
+<th style="text-align:left">Character encoding international name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">124</td>
+<td style="text-align:left">IBM EBCDIC 00697/00297</td>
+</tr>
+<tr>
+<td style="text-align:left">1100</td>
+<td style="text-align:left">ISO-8859-1</td>
+</tr>
+<tr>
+<td style="text-align:left">1105</td>
+<td style="text-align:left">US-ASCII (7 bits)</td>
+</tr>
+<tr>
+<td style="text-align:left">1160</td>
+<td style="text-align:left">windows-1252</td>
+</tr>
+<tr>
+<td style="text-align:left">4102</td>
+<td style="text-align:left">UTF-16BE</td>
+</tr>
+<tr>
+<td style="text-align:left">4103</td>
+<td style="text-align:left">UTF-16LE</td>
+</tr>
+<tr>
+<td style="text-align:left">4110</td>
+<td style="text-align:left">UTF-8</td>
+</tr>
+<tr>
+<td style="text-align:left">8000</td>
+<td style="text-align:left">Shift-JIS</td>
+</tr>
+<tr>
+<td style="text-align:left">8300</td>
+<td style="text-align:left">BIG5</td>
+</tr>
+</tbody>
+</table>
+<h4 id="编码转换httpswikiscnsapcomwikidisplayabapcl_abap_conv_obj"><a href="https://wiki.scn.sap.com/wiki/display/ABAP/CL_ABAP_CONV_OBJ">编码转换</a></h4>
+<p>SAP 提供 CCC 转换器程序将字符从一种编码转换为另一种编码。</p>
+<p>FM <code>SCP_TRANSLATE_CHARS</code> ，适用于所有版本。</p>
+<p><code>CL_ABAP_CODEPAGE</code> 类，从 7.02 开始可用。 代码页不能是 SAP 编号，它必须是“字符编码国际名称”或 java 语言中使用的名称。</p>
+<p><code>CL_ABAP_CONV_*</code> 类，从 6.10 开始，其中 CL_ABAP_CONV_OBJ 是主类，可以完全访问 CCC 转换器。</p>
+<ul>
+<li>CL_ABAP_CONV_IN_CE：将表示给定代码页中字符的字节转换为字符或字符串变量</li>
+<li>CL_ABAP_CONV_OUT_CE：将字符或字符串变量转换为表示给定代码页中字符的字节</li>
 </ul>
 
     </div>
@@ -515,7 +578,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1699</span>
+                   <span>2098</span>
             </p>
             
             <p class="copyright-item">

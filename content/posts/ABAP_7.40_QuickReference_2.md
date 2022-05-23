@@ -139,7 +139,7 @@ WRITE / |{ pa_date DATE = Environment }|. "Formatting setting of language enviro
 
 #### Definition
 
-CONV dtype|# ( ... )
+`CONV dtype|# ( ... )`
 
 #### Example
 

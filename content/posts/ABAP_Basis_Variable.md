@@ -203,10 +203,40 @@ OCCURS：内表所需要的初始化内存大小
 
 `DESCRIBE DISTANCE BETWEEN dobj1 AND dobj2 INTO dst IN {BYTE|CHARACTER} MODE.`
 
-- dobj1 and dobj2 两个变量地址起始位置的距离
+- dobj1 和 dobj2 两个变量地址起始位置的距离
 
+### SAP 编码
 
+`Character Encoding` 是一个名称（“utf-8”、“iso-8859-1”等）和一个等价表，其中包含一组字符和每个字符的八位字节值。
 
+`Code Page` 是 SAP 使用的名称，而不是 Character Encoding。 Code Page 有一个 4 位数字而不是字符名称。
 
+#### 两种类型数据的对应关系
 
+- 使用 FM：`SCP_CODEPAGE_BY_EXTERNAL_NAME`  获取国际字符编码对应的 SAP Code Page
+- 在表 TCP00A 中查找对应关系
 
+| SAP code page | Character encoding international name |
+| :------------ | :------------------------------------ |
+| 124           | IBM EBCDIC 00697/00297                |
+| 1100          | ISO-8859-1                            |
+| 1105          | US-ASCII (7 bits)                     |
+| 1160          | windows-1252                          |
+| 4102          | UTF-16BE                              |
+| 4103          | UTF-16LE                              |
+| 4110          | UTF-8                                 |
+| 8000          | Shift-JIS                             |
+| 8300          | BIG5                                  |
+
+#### [编码转换](https://wiki.scn.sap.com/wiki/display/ABAP/CL_ABAP_CONV_OBJ)
+
+SAP 提供 CCC 转换器程序将字符从一种编码转换为另一种编码。
+
+FM `SCP_TRANSLATE_CHARS` ，适用于所有版本。
+
+`CL_ABAP_CODEPAGE` 类，从 7.02 开始可用。 代码页不能是 SAP 编号，它必须是“字符编码国际名称”或 java 语言中使用的名称。
+
+`CL_ABAP_CONV_*` 类，从 6.10 开始，其中 CL_ABAP_CONV_OBJ 是主类，可以完全访问 CCC 转换器。 
+
+- CL_ABAP_CONV_IN_CE：将表示给定代码页中字符的字节转换为字符或字符串变量
+- CL_ABAP_CONV_OUT_CE：将字符或字符串变量转换为表示给定代码页中字符的字节

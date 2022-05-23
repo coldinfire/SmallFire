@@ -6,7 +6,16 @@
     <description>Recent content in HANA on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/HANA/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/HANA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> SAP CDS-Views </title>
+      <link>https://coldinfire.github.io/2021/SAPHANA_CDS/</link>
+      <pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/SAPHANA_CDS/</guid>
+      <description>Create CDS-Views CDS-Views Menu -&amp;gt; File -&amp;gt; New -&amp;gt; Other -&amp;gt; Core Data Services -&amp;gt; Data Definition * CDS-View als DDIC Objekt erstellen @AbapCatalog.sqlViewName: &amp;#39;ZCDS_MATNR_VIEW&amp;#39; @AbapCatalog.compiler.CompareFilter: true @AccessControl.authorizationCheck: #NOT_REQUIRED @EndUserText.label: &amp;#39;MATNR lesen&amp;#39; @Metadata.allowExtensions: true define view ZCDS_MATNR as select from mara as a inner join makt as b on a.matnr = b.matnr { key a.matnr as matnr, a.ernam as creator, a.vpsta as mainte_status, b.maktx as desc, case a.lvorm when &amp;#39;X&amp;#39;</description>
+    </item>
+    
     <item>
       <title> SAP HANA SQLScript 使用 </title>
       <link>https://coldinfire.github.io/2021/SAPHANA_SQLScript/</link>

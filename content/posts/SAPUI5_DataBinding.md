@@ -97,7 +97,7 @@ var oComboBox = new sap.ui.commons.ComboBox({
 
 - bindAggregation():
 
-​        `oComboBox.bindAggregation("items","/modelAggregation",oItemTemplate);`
+​    `oComboBox.bindAggregation("items","/modelAggregation",oItemTemplate);`
 
 - 工厂函数实现聚合绑定
 
@@ -111,7 +111,7 @@ var oComboBox = new sap.ui.commons.ComboBox({
 
 元素绑定指根据上下文(binding context)使用相对绑定的方式绑定到model数据的某一具体对象。尤其适用于**主从数据显示(master-detail data)**的情况。
 
-​	sap.m.List(sId?, mSettings?) : List控件适用于显示行项目，所有类型都可以。
+sap.m.List(sId?, mSettings?) : List控件适用于显示行项目，所有类型都可以。
 
 sap.m.ObjectListItem(sId?, mSettings?) : 适用于显示行项目的信息，主要使用title属性进行标识，text、icon、atrributes和statuses等属性可以用于提供对象更多信息。
 
