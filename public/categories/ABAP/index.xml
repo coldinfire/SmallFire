@@ -1314,10 +1314,10 @@
     
     <item>
       <title> SAP Field Symbols </title>
-      <link>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_FieldSymbol_RefTo/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_FieldSymbol/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_FieldSymbol_RefTo/</guid>
       <description>字段符号 定义 FIELD-SYMBOLS: &amp;lt;fs_tb&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs_wa&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE LINE OF &amp;lt;table&amp;gt;. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE &amp;lt;structure&amp;gt;. 使用 FIELD-SYMBOLS 必须和某个变量，结构或者内表绑定后才能使用，在使用字段符号前必须分配给某个变量，不然</description>
     </item>
     

@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abapbasis",
-  "wordcount":  3029 ,
+  "wordcount":  3032 ,
   "url": "https:\/\/coldinfire.github.io\/2020\/ABAP_7.40_QuickReference_1\/",
   "datePublished": "2020-07-14T00:00:00\u002b00:00",
   "dateModified": "2020-07-14T00:00:00\u002b00:00",
@@ -420,9 +420,11 @@ j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>.
   &lt;ls_tab&gt;<span style="color:#960050;background-color:#1e0010">–</span>col3 <span style="color:#f92672">=</span> j <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>.
 <span style="color:#66d9ef">ENDDO</span>.
 <span style="color:#75715e">*With 7.40</span>
-<span style="color:#66d9ef">DATA</span>(gt_itab) <span style="color:#f92672">=</span> <span style="color:#66d9ef">VALUE</span> ty_tab( <span style="color:#66d9ef">FOR</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span> THEN j <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span> UNTIL j <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">40</span>
-                              ( col1 <span style="color:#f92672">=</span> j col2 <span style="color:#f92672">=</span> j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> col3 <span style="color:#f92672">=</span> j <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> ) 
-                            ).
+<span style="color:#66d9ef">DATA</span>(gt_itab) <span style="color:#f92672">=</span> <span style="color:#66d9ef">VALUE</span> ty_tab( 
+   <span style="color:#66d9ef">FOR</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span> THEN j <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span> UNTIL j <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">40</span>
+     ( col1 <span style="color:#f92672">=</span> j col2 <span style="color:#f92672">=</span> j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> col3 <span style="color:#f92672">=</span> j <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> ) 
+).
+cl_demo_output<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">display</span>( gt_itab ).
 </code></pre></div><h4 id="reduce-结合-for-使用">REDUCE 结合 FOR 使用</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> ty_result,
     <span style="color:#66d9ef">sum</span>   <span style="color:#66d9ef">TYPE </span>i,
@@ -558,7 +560,7 @@ ty_filter_tab <span style="color:#66d9ef">TYPE HASHED TABLE OF</span> ty_filter 
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>3029</span>
+                   <span>3032</span>
             </p>
             
             <p class="copyright-item">

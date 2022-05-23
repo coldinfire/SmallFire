@@ -352,9 +352,11 @@ DO.
   <ls_tab>–col3 = j + 2.
 ENDDO.
 *With 7.40
-DATA(gt_itab) = VALUE ty_tab( FOR j = 11 THEN j + 10 UNTIL j > 40
-                              ( col1 = j col2 = j + 1 col3 = j + 2 ) 
-                            ).
+DATA(gt_itab) = VALUE ty_tab( 
+   FOR j = 11 THEN j + 10 UNTIL j > 40
+     ( col1 = j col2 = j + 1 col3 = j + 2 ) 
+).
+cl_demo_output=>display( gt_itab ).
 ```
 
 #### REDUCE 结合 FOR 使用

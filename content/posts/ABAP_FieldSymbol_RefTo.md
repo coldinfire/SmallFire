@@ -23,7 +23,7 @@ tags:
 
 #### 使用
 
-FIELD-SYMBOLS 必须和某个变量，结构或者内表绑定后才能使用，在使用字段符号前必须分配给某个变量，不然会发生 FIELD-SYMBOLS 未分配的运行时错误。如果 LOOP 内表时 ASSIGNING 到FIELD-SYMBOLS，之后假如有 REFRESH 内表的操作的话，FIELD-SYMBOLS 也会再次回到初始未被  ASSIGNING 的状态，这时如果使用 FIELD-SYMBOLS 也会发生字段符号未分配的 RUNTIME ERROR。
+FIELD-SYMBOLS 必须和某个变量，结构或者内表绑定后才能使用，在使用字段符号前必须分配给某个变量，不然会发生 FIELD-SYMBOLS 未分配的运行时错误。如果 LOOP 内表时 ASSIGNING 到 FIELD-SYMBOLS，之后假如有 REFRESH 内表的操作的话，FIELD-SYMBOLS 也会再次回到初始未被  ASSIGNING 的状态，这时如果使用 FIELD-SYMBOLS 也会发生字段符号未分配的 RUNTIME ERROR。
 
 `ASSIGN <value> TO <fs>.`
 
@@ -149,9 +149,57 @@ LOOP AT <dyn_table> ASSIGNING <dyn_wa>.
 ENDLOOP.
 ```
 
+### Data References
 
+数据引用是指向数据对象的指针。它们作为数据引用变量的内容出现在 ABAP 中，可以使用数据引用来动态创建数据对象。
 
+- `TYPES t_dref TYPE REF TO data.`
+- `DATA dref TYPE REF TO data`
 
+#### 动态创建数据对象
 
+`CREATE DATA dref {TYPE type}|{LIKE dobj}.`
 
+#### 获取数据对象的引用
 
+`GET REFERENCE OF dobj INTO dref.`
+
+#### 取消引用数据的引用
+
+要访问数据引用所指向的数据对象的内容，必须要取消引用它。
+
+`ASSIGN dref->* TO <fs> [CASTING ...].`
+
+- 此语句将数据对象分配给引用变量 dref 中的数据引用所指向的 `field symbol <fs>`。 如果分配成功，则 sy-subrc = 0。
+
+#### Demo
+
+```ABAP
+REPORT demo_data_reference.
+TYPES: BEGIN OF t_struct,
+    col1 TYPE i,
+    col2 TYPE i,
+  END OF t_struct.
+*创建引用
+DATA: dref1 TYPE REF TO data,
+      dref2 TYPE REF TO data.
+*声明字段符号
+FIELD-SYMBOLS: <fs1> TYPE t_struct,
+               <fs2> TYPE i.
+*动态对象创建
+CREATE DATA dref1 TYPE t_struct.
+*解除数据引用
+ASSIGN dref1->* TO <fs1>.
+
+<fs1>-col1 = 1.
+<fs1>-col2 = 2.
+dref2 = dref1.
+ASSIGN dref2->* TO <fs2> CASTING.
+WRITE: / 'Result 1:', <fs2>.
+GET REFERENCE OF <fs1>-col2 INTO dref2.
+ASSIGN dref2->* TO <fs2> .
+WRITE: / 'Result 2:', <fs2>.
+```
+
+- Result 1 : 1
+- Result 2 : 2
