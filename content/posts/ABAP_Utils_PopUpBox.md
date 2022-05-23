@@ -15,32 +15,94 @@ tags:
 
 ### 可输入弹出框：POPUP_GET_VALUES_USER_HELP
 
+在对话框中列出以选择一个或多个条目（或仅显示）弹出的 ALV 。
+
+#### 输入参数
+
+| Importing               | Description                                 |
+| :---------------------- | :------------------------------------------ |
+| I_TITLE                 | Dialog box title                            |
+| I_SELECTION             | X : Selection possible；space : Display     |
+| I_ALLOW_NO_SELECTION    | Allow copy although nothing is selected     |
+| I_ZEBRA                 | Line output with alternating color          |
+| I_SCREEN_START_COLUMN   | Coordinates for list in dialog box          |
+| I_SCREEN_START_LINE     | Coordinates for list in dialog box          |
+| I_SCREEN_END_COLUMN     | Coordinates for list in dialog box          |
+| I_SCREEN_END_LINE       | Coordinates for list in dialog box          |
+| I_CHECKBOX_FIELDNAME    | Output table checkbox field name            |
+| I_LINEMARK_FIELDNAME    | Line selection color information field name |
+| I_SCROLL_TO_SEL_LINE    | Scroll to default selection if necessary    |
+| I_TABNAME               | Table name with chosen values               |
+| I_STRUCTURE_NAME        | Internal output table structure name        |
+| IT_FIELDCAT             | Field catalog with field descriptions       |
+| IT_EXCLUDING            | Table of inactive function codes            |
+| I_CALLBACK_PROGRAM      | Name of the calling program                 |
+| I_CALLBACK_USER_COMMAND | USER_COMMAND handling form routine name     |
+
+输出参数 & TABLE
+
+| Parameter   | Description                           |
+| ----------- | ------------------------------------- |
+| ES_SELFIELD | 包含弹出 ALV 中简单选择的信息         |
+| E_EXIT      | 当用户取消操作时，此字段设置为 “X”    |
+| T_OUTTAB    | 包含要在弹出窗口中的 ALV 中显示的数据 |
+
+#### Sample
+
 ```ABAP
-"输入表格，SVAL相应的字段信息决定显示的效果："
-  tabname  = 'AFKO'.
-  fieldname = 'AUFNR'.
-  fieldtext = '生产订单号'.
-  field_attr = '02'.    "是否可输入和显示"
-  value = 'val'.
-CALL FUNCTION 'POPUP_GET_VALUES_USER_HELP'
-  EXPORTING
-  *   F1_FORMNAME     = ' '
-  *   F1_PROGRAMNAME  = ' '
-  *   F4_FORMNAME     = ' '
-  *   F4_PROGRAMNAME  = ' '
-  *   FORMNAME        = ' '
-  popup_title     = 'BAIDUSAP.COM'
-  *   PROGRAMNAME     = ' '
-  *   START_COLUMN    = '5'
-  *   START_ROW       = '5'
-  *   NO_CHECK_FOR_FIXED_VALUES = ' '
-  IMPORTING
-    returncode      = l_ret
-  TABLES
-    fields          = git_tab
-  EXCEPTIONS
-    error_in_fields = 1
-    OTHERS          = 2.
+REPORT  zpopup_sample.
+TYPE-POOLS: slis.
+DATA: gt_outtab TYPE sflight OCCURS 0,
+      gs_private TYPE slis_data_caller_exit,
+      gs_selfield TYPE slis_selfield,
+      gt_fieldcat TYPE slis_t_fieldcat_alv WITH HEADER LINE,
+      g_exit(1) TYPE c.
+PARAMETERS: p_title TYPE sy-title.
+START-OF-SELECTION.
+  SELECT * FROM sflight INTO TABLE gt_outtab UP TO 5 ROWS.
+  CALL FUNCTION 'REUSE_ALV_FIELDCATALOG_MERGE'
+    EXPORTING
+      i_structure_name = 'SFLIGHT'
+    CHANGING
+      ct_fieldcat      = gt_fieldcat[].
+  READ TABLE gt_fieldcat WITH KEY fieldname = 'PLANETYPE'.
+  IF sy-subrc = 0.
+    gt_fieldcat-no_out = 'X'.
+    MODIFY gt_fieldcat INDEX sy-tabix.
+  ENDIF.
+  CALL FUNCTION 'REUSE_ALV_POPUP_TO_SELECT'
+    EXPORTING
+      i_title                 = p_title
+      i_selection             = 'X'
+      i_zebra                 = 'X'
+      i_screen_start_column   = 10
+      i_screen_start_line     = 3
+      i_screen_end_column     = 100
+      i_screen_end_line       = 10
+*     I_CHECKBOX_FIELDNAME    =
+*     I_LINEMARK_FIELDNAME    =
+      i_scroll_to_sel_line    = 'X'
+      i_tabname               = '1'
+      it_fieldcat             = gt_fieldcat[]
+*     IT_EXCLUDING            =
+      i_callback_program      = sy-repid
+*     I_CALLBACK_USER_COMMAND =
+      is_private              = gs_private
+    IMPORTING
+      es_selfield             = gs_selfield
+      e_exit                  = g_exit
+    TABLES
+      t_outtab                = gt_outtab
+    EXCEPTIONS
+      program_error           = 1
+      OTHERS                  = 2.
+  IF sy-subrc <> 0.
+    MESSAGE i000(0k) WITH sy-subrc.
+  ENDIF.
+
+  WRITE: / g_exit,
+  gs_selfield-tabname,
+  gs_selfield-tabindex.
 ```
 
 ### 模仿系统标准弹出框：FB_MESSAGES_DISPLAY_POPUP

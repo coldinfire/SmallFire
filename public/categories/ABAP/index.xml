@@ -1498,7 +1498,7 @@
       <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Utils_PopUpBox/</guid>
-      <description>可输入弹出框：POPUP_GET_VALUES_USER_HELP &amp;#34;输入表格，SVAL相应的字段信息决定显示的效果：&amp;#34; tabname = &amp;#39;AFKO&amp;#39;.</description>
+      <description>可输入弹出框：POPUP_GET_VALUES_USER_HELP 在对话框中列出以选择一个或多个条目（或仅显示）弹出的 ALV 。 输入参数 Importing Description I_TITLE Dialog box</description>
     </item>
     
     <item>
