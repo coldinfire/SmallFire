@@ -24,10 +24,10 @@
   <title>
        
        
-            Goods Movement Create 解析及示例  | Small Fire`s Blog
+            SAP 物料移动BAPI介绍  | Small Fire`s Blog
        
   </title>
-  <meta name="title" content=" Goods Movement Create 解析及示例  | Small Fire`s Blog">
+  <meta name="title" content=" SAP 物料移动BAPI介绍  | Small Fire`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -35,14 +35,14 @@
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=" Goods Movement Create 解析及示例 "/>
-<meta name="twitter:description" content="Inventory Management 使用的 BAPI 解析 使用到的 BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证的以下信息"/>
+<meta name="twitter:title" content=" SAP 物料移动BAPI介绍 "/>
+<meta name="twitter:description" content="Inventory Management 使用的 BAPI 解析 使用到的 BAPI BAPI Description BAPI_GOODSMVT_CREATE universal BAPI for posting Goods Movements BAPI_GOODSMVT_CANCEL only for reverting Goods Movements；MBST BAPI_GOODSMVT_GETDETAIL 获得凭证明细 BAPI_GOODSMVT_GETITEMS 查询凭证 BAPI_GOODSMVT_SAPCREATE SAP 内部使用的 BAPI 两个用于事务处理的"/>
 
   <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": " Goods Movement Create 解析及示例 ",
+  "headline": " SAP 物料移动BAPI介绍 ",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https:\/\/coldinfire.github.io\/2019\/MM_BAPI_GoodMovementCreate\/"
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "MM, BAPI",
-  "wordcount":  650 ,
+  "wordcount":  719 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/MM_BAPI_GoodMovementCreate\/",
   "datePublished": "2019-07-04T00:00:00\u002b00:00",
   "dateModified": "2019-07-04T00:00:00\u002b00:00",
@@ -139,7 +139,7 @@
       		
 <article class="post-warp">
     <header class="post-header">
-        <h1 class="post-title"> Goods Movement Create 解析及示例 </h1>
+        <h1 class="post-title"> SAP 物料移动BAPI介绍 </h1>
         <div class="post-meta">
             Written by <a href="https://coldinfire.github.io" rel="author">Small Fire</a> with ♥ 
                 <span class="post-time">
@@ -173,18 +173,43 @@
 
           <h2 id="inventory-management-使用的-bapi-解析">Inventory Management 使用的 BAPI 解析</h2>
 <h3 id="使用到的-bapi">使用到的 BAPI</h3>
-<p>There are two BAPIs for posting Goods Movements:</p>
-<ul>
-<li>BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements)</li>
-<li>BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements)</li>
-</ul>
-<p>And two in combination with for the transactional handling:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">BAPI</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">BAPI_GOODSMVT_CREATE</td>
+<td style="text-align:left">universal BAPI for posting Goods Movements</td>
+</tr>
+<tr>
+<td style="text-align:left">BAPI_GOODSMVT_CANCEL</td>
+<td style="text-align:left">only for reverting Goods Movements；<strong>MBST</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">BAPI_GOODSMVT_GETDETAIL</td>
+<td style="text-align:left">获得凭证明细</td>
+</tr>
+<tr>
+<td style="text-align:left">BAPI_GOODSMVT_GETITEMS</td>
+<td style="text-align:left">查询凭证</td>
+</tr>
+<tr>
+<td style="text-align:left">BAPI_GOODSMVT_SAPCREATE</td>
+<td style="text-align:left">SAP 内部使用的 BAPI</td>
+</tr>
+</tbody>
+</table>
+<p>两个用于事务处理的 BAPI：</p>
 <ul>
 <li>BAPI_TRANSACTION_COMMIT (Commit the posting, general)</li>
 <li>BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general)</li>
 </ul>
 <h3 id="参数">参数</h3>
-<p>关于要创建的物料凭证的以下信息传递到 BAPI</p>
+<p>关于要创建的物料凭证的以下信息需要传递到 BAPI</p>
 <ul>
 <li>
 <p>A structure with the header data</p>
@@ -205,16 +230,16 @@
 <p>Messages are returned in the Return parameter</p>
 </li>
 <li>
-<p>BAPI 还提供了测试运行功能，传入  <code>TESTRUN = 'X'</code></p>
+<p>BAPI also provides a test running function, incoming  <code>TESTRUN = 'X'</code></p>
 </li>
 </ul>
 <p>输入参数规则</p>
 <ul>
 <li>Material number 18-character with leading zeros</li>
 <li>Batches with uppercase letters</li>
-<li>必输：PSTNG_DATE field &amp; DOC_DATE field (import structure GOODSMVT_HEADER)</li>
+<li>必输：<code>PSTNG_DATE</code> field &amp; <code>DOC_DATE</code> field (import structure GOODSMVT_HEADER)</li>
 </ul>
-<h4 id="goods-movement-code">Goods Movement Code</h4>
+<h4 id="goods-movement-codet158g">Goods Movement Code：T158G</h4>
 <table>
 <thead>
 <tr>
@@ -247,7 +272,7 @@
 <tr>
 <td>05</td>
 <td>MB1C</td>
-<td>Other goods receipt</td>
+<td>Enter Other goods receipt</td>
 </tr>
 <tr>
 <td>06</td>
@@ -359,7 +384,7 @@
       ...
     <span style="color:#66d9ef">ENDLOOP</span>.
   <span style="color:#66d9ef">ENDIF</span>.
-</code></pre></div><h4 id="循环调用-bapi-示例">循环调用 BAPI 示例</h4>
+</code></pre></div><h4 id="循环调用-gm-bapi-示例">循环调用 GM BAPI 示例</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
 <span style="color:#75715e">*&amp; Report  ZBAPI_GDSMVT</span>
 <span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
@@ -369,46 +394,48 @@
 <span style="color:#66d9ef">START-OF-SELECTION</span>.
 <span style="color:#75715e">* Prepare data for first Goods Movement</span>
 <span style="color:#75715e">* Call BAPI to create Goods Movement</span>
-<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_GOODSMVT_CREATE&#39;</span> DESTINATION <span style="color:#e6db74">&#39;NONE&#39;</span>
-<span style="color:#75715e">* If no error, commit</span>
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_GOODSMVT_CREATE&#39;</span> DESTINATION <span style="color:#e6db74">&#39;NONE&#39;</span>.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.
   <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_COMMIT&#39;</span> DESTINATION <span style="color:#e6db74">&#39;NONE&#39;</span>
     <span style="color:#66d9ef">EXPORTING</span>
       <span style="color:#66d9ef">wait</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-<span style="color:#75715e">* ELSE</span>
+<span style="color:#66d9ef">ELSE</span>.
 <span style="color:#75715e">* Error handling </span>
   <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_ROLLBACK&#39;</span> DESTINATION <span style="color:#e6db74">&#39;NONE&#39;</span>.
+<span style="color:#66d9ef">ENDIF</span>.
 <span style="color:#75715e">* Close RFC connection</span>
-  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;RFC_CONNECTION_CLOSE&#39;</span>
-    <span style="color:#66d9ef">EXPORTING</span>
-      destination <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;NONE&#39;</span>.
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;RFC_CONNECTION_CLOSE&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    destination <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;NONE&#39;</span>.
 <span style="color:#75715e">* Prepare data for next Goods Movement</span>
 <span style="color:#75715e">* Call BAPI to create Goods Movement</span>
-<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_GOODSMVT_CREATE&#39;</span> DESTINATION <span style="color:#e6db74">&#39;NONE&#39;</span>
-<span style="color:#75715e">* If no error, commit</span>
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_GOODSMVT_CREATE&#39;</span> DESTINATION <span style="color:#e6db74">&#39;NONE&#39;</span>.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.
   <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_COMMIT&#39;</span> DESTINATION <span style="color:#e6db74">&#39;NONE&#39;</span>
     <span style="color:#66d9ef">EXPORTING</span>
       <span style="color:#66d9ef">wait</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-<span style="color:#75715e">* ELSE</span>
+<span style="color:#66d9ef">ELSE</span>.
 <span style="color:#75715e">* Error handling </span>
   <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_ROLLBACK&#39;</span> DESTINATION <span style="color:#e6db74">&#39;NONE&#39;</span>.
+<span style="color:#66d9ef">ENDIF</span>.
 <span style="color:#75715e">* Close RFC connection</span>
-  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;RFC_CONNECTION_CLOSE&#39;</span>
-    <span style="color:#66d9ef">EXPORTING</span>
-      destination <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;NONE&#39;</span>.
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;RFC_CONNECTION_CLOSE&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    destination <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;NONE&#39;</span>.
 </code></pre></div><h3 id="特殊库存类型需要参数">特殊库存类型需要参数</h3>
 <p>Special stock (e.g. sales order, project, vendor etc.)</p>
 <h4 id="sales-order-stock">Sales Order Stock</h4>
 <ul>
-<li>SPEC_STOCK (Special stock indicator for Sales order stock)</li>
-<li>SALES_ORD &amp; S_ORD_ITEM</li>
-<li>VAL_SALES_ORD &amp; VAL_S_ORD_ITEM</li>
+<li><code>SPEC_STOCK</code>：Special stock indicator for Sales order stock</li>
+<li><code>SALES_ORD</code> &amp; <code>S_ORD_ITEM</code></li>
+<li><code>VAL_SALES_ORD</code> &amp; <code>VAL_S_ORD_ITEM</code></li>
 </ul>
 <h4 id="project-stock">Project Stock</h4>
 <ul>
-<li>SPEC_STOCK (Special stock indicator for Project stock)</li>
-<li>WBS_ELEM &amp; VAL_WBS_ELEM</li>
+<li><code>SPEC_STOCK</code>：Special stock indicator for Project stock</li>
+<li><code>WBS_ELEM</code> &amp; <code>VAL_WBS_ELEM</code></li>
 </ul>
-<p><strong>参考</strong></p>
+<h4 id="参考">参考</h4>
 <ul>
 <li><a href="https://wiki.scn.sap.com/wiki/display/ERPSCM/Goods+Movements+with+BAPI">Goods Movements with BAPI</a></li>
 </ul>
@@ -425,7 +452,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>650</span>
+                   <span>719</span>
             </p>
             
             <p class="copyright-item">
@@ -472,7 +499,7 @@
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '2019-07-04 00:00:00 \u002b0000 UTC',
-        title: ' Goods Movement Create 解析及示例 ',
+        title: ' SAP 物料移动BAPI介绍 ',
         clientID: 'd2cccd8844ae11b05792',
         clientSecret: 'cea63bc294ee16cb47a3344b693c350da1bb0753',
         repo: 'coldinfire.github.io',

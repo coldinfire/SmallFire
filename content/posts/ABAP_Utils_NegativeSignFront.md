@@ -28,25 +28,24 @@ CALL FUNCTION 'CLOI_PUT_SIGN_IN_FRONT'
 
 ### 自定义实现
 
-- 定义函数：CONVERSION_EXIT_Z001_OUTPUT.
-- 作用：
-  * 1.将金额类型等数字类型，负号实现前置；
-  * 2.可以保留千分位;
-  * 3.适用于多个这样的字段修改需求;
+定义函数：`CONVERSION_EXIT_Z001_OUTPUT.`
+
+作用：
+* 将金额类型等数字类型，负号实现前置
+* 可以保留千分位
+* 适用于多个这样的字段修改需求
+
+调用方式：
+* 在对应的 alv 设置 fieldcat 时，针对设置金额等数字类型的字段添加代码：`fcat-edit_mask = '==Z001'.`
 
 ```ABAP
 FUNCTION conversion_exit_z001_output.
 *"-------------------------------------------------------
-*"*"本地接口：
 *"  IMPORTING
 *"     REFERENCE(INPUT)
 *"  EXPORTING
 *"     REFERENCE(OUTPUT)
 *"--------------------------------------------------------
-
-*调用方式：
-* 在对应的alv设置fieldcat时针对设置金额等数字类型的字段添加代码：固定写成’ZXXX’形式。
-* WE_FIELDCAT-EDIT_MASK = '==Z001'.
 DATA: output1(20),
       output2(20),
       outnum(16) TYPE p DECIMALS 3.
@@ -68,4 +67,3 @@ ENDIF.
  CLEAR: output2.
 ENDFUNCTION.
 ```
-- ALV 的 fieldcat 中设置 EDIT_MASK，当传值'==Z001'会自动调用此函数将负号提前 wa_fieldcat-edit-mask = '==Z001'

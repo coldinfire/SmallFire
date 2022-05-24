@@ -6,7 +6,25 @@
     <description>Recent content in FICO on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/FICO/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/FICO/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> FB05 使用程序清账 </title>
+      <link>https://coldinfire.github.io/2022/FI_FM_FB05/</link>
+      <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/FI_FM_FB05/</guid>
+      <description>FM：POSTING_INTERFACE_CLEARING 目的：财务分别做预收款和开 billing，需要后续做清账对冲 DZ 和 RV。 逻辑：由于只</description>
+    </item>
+    
+    <item>
+      <title> FB02 修改行文本函数 </title>
+      <link>https://coldinfire.github.io/2022/FI_Enhance_VF01VF11/</link>
+      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/FI_Enhance_VF01VF11/</guid>
+      <description>V60A0001 &amp;amp; RV60AFZC 通过调整 SAP 预制的标准增强点（V60A0001）实现禁止跨月发票冲销需求，V60A0001 的触发点是用户敲下 VF01 或者 VF11 那一刻、但是还未填充</description>
+    </item>
+    
     <item>
       <title> FB02 修改行文本函数 </title>
       <link>https://coldinfire.github.io/2022/FI_FM_ChangeDocument_FB02/</link>

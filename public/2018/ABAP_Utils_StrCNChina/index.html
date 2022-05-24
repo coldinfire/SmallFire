@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" ABAP 截取中文字符串 "/>
-<meta name="twitter:description" content="截取包含中文字符串 strlen() 只能计算包含英文字符串的长度，不能计算中文字符串的长度。 可以通过cl_abap_list_utilities=&gt;d"/>
+<meta name="twitter:description" content="截取包含中文字符串 strlen()：只能计算包含英文字符串的长度，不能计算中文字符串的长度。 strlen(&lsquo;你好啊&rsquo;"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abaputils",
-  "wordcount":  220 ,
+  "wordcount":  278 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Utils_StrCNChina\/",
   "datePublished": "2018-06-16T00:00:00\u002b00:00",
   "dateModified": "2018-06-16T00:00:00\u002b00:00",
@@ -172,47 +172,52 @@
           
 
           <h3 id="截取包含中文字符串">截取包含中文字符串</h3>
-<p><code>strlen()</code> 只能计算包含英文字符串的长度，不能计算中文字符串的长度。</p>
-<p>可以通过<code>cl_abap_list_utilities=&gt;dynamic_output_length</code>获取精确长度。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">FUNCTION</span> <span style="color:#a6e22e">zotfm001</span>.
-<span style="color:#f92672">*</span><span style="color:#e6db74">&#34;----------------------------------------------------------------------
-</span><span style="color:#e6db74">*&#34;</span><span style="color:#f92672">*</span><span style="color:#e6db74">&#34;本地接口：
-</span><span style="color:#e6db74">*&#34;</span>  <span style="color:#a6e22e">IMPORTING</span>
-<span style="color:#f92672">*</span><span style="color:#e6db74">&#34;     VALUE(I_STRING) TYPE  STRING
-</span><span style="color:#e6db74">*&#34;</span>     <span style="color:#a6e22e">VALUE</span>(<span style="color:#a6e22e">I_STRLEN</span>) <span style="color:#a6e22e">TYPE</span>  <span style="color:#a6e22e">I</span>
-<span style="color:#f92672">*</span><span style="color:#e6db74">&#34;  EXPORTING
-</span><span style="color:#e6db74">*&#34;</span>     <span style="color:#a6e22e">VALUE</span>(<span style="color:#a6e22e">E_STRING1</span>) <span style="color:#a6e22e">TYPE</span>  <span style="color:#a6e22e">STRING</span>
-<span style="color:#f92672">*</span><span style="color:#e6db74">&#34;     VALUE(E_STRING2) TYPE  STRING
-</span><span style="color:#e6db74">*&#34;</span><span style="color:#f92672">----------------------------------------------------------------------</span>
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span><span style="color:#a6e22e">lv_char</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>,
-   <span style="color:#a6e22e">lv_len</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">i</span>,
-   <span style="color:#a6e22e">lv_st1</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">i</span>,
-   <span style="color:#a6e22e">lv_st2</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">i</span>,
-   <span style="color:#a6e22e">lv_str</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">i</span>.
-<span style="color:#a6e22e">CHECK</span> <span style="color:#a6e22e">i_string</span> <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">NOT</span> <span style="color:#a6e22e">INITIAL</span> <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">i_strlen</span> <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">NOT</span> <span style="color:#a6e22e">INITIAL</span>.
-<span style="color:#a6e22e">lv_str</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">strlen</span>( <span style="color:#a6e22e">i_string</span> ).
-<span style="color:#a6e22e">DO</span>.
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">lv_str</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">index</span>.
-   <span style="color:#a6e22e">lv_char</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i_string</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0</span>(<span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">index</span>).
-   <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">cl_abap_list_utilities</span>=&gt;<span style="color:#a6e22e">dynamic_output_length</span>
-     <span style="color:#a6e22e">EXPORTING</span>
-       <span style="color:#a6e22e">field</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lv_char</span>
-     <span style="color:#a6e22e">RECEIVING</span>
-       <span style="color:#a6e22e">len</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">lv_len</span>.
-    <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">lv_len</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">i_strlen</span>.
-      <span style="color:#a6e22e">e_string1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lv_char</span>.
-      <span style="color:#a6e22e">lv_st1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">strlen</span>( <span style="color:#a6e22e">lv_char</span> ).
-      <span style="color:#a6e22e">lv_st2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lv_str</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">lv_st1</span>.
-      <span style="color:#a6e22e">e_string2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i_string</span><span style="color:#f92672">+</span><span style="color:#a6e22e">lv_st1</span>(<span style="color:#a6e22e">lv_st2</span>).
-      <span style="color:#a6e22e">EXIT</span>.
-    <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#a6e22e">ELSE</span>.
-    <span style="color:#a6e22e">e_string1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i_string</span>.
-    <span style="color:#a6e22e">e_string2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
-    <span style="color:#a6e22e">EXIT</span>.
-  <span style="color:#a6e22e">ENDIF</span>.
-<span style="color:#a6e22e">ENDDO</span>.
-<span style="color:#a6e22e">ENDFUNCTION</span>.
+<p><code>strlen()</code>：只能计算包含英文字符串的长度，不能计算中文字符串的长度。</p>
+<ul>
+<li>strlen(&lsquo;你好啊&rsquo;) ：输出长度为 3</li>
+</ul>
+<p><code>cl_abap_list_utilities=&gt;dynamic_output_length</code>：计算的是字节数，可以获取精确长度。</p>
+<ul>
+<li>传入 field = &lsquo;你好啊&rsquo;，输出长度为 6</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">FUNCTION</span> zotfm001.
+<span style="color:#75715e">*&#34;----------------------------------------------------------------------</span>
+<span style="color:#75715e">*&#34;  IMPORTING</span>
+<span style="color:#75715e">*&#34;     VALUE(I_STRING) TYPE  STRING</span>
+<span style="color:#75715e">*&#34;     VALUE(I_STRLEN) TYPE  I</span>
+<span style="color:#75715e">*&#34;  EXPORTING</span>
+<span style="color:#75715e">*&#34;     VALUE(E_STRING1) TYPE  STRING</span>
+<span style="color:#75715e">*&#34;     VALUE(E_STRING2) TYPE  STRING</span>
+<span style="color:#75715e">*&#34;----------------------------------------------------------------------</span>
+<span style="color:#66d9ef">DATA</span>:lv_char <span style="color:#66d9ef">TYPE </span>string,
+     lv_len  <span style="color:#66d9ef">TYPE </span>i,
+     lv_st1  <span style="color:#66d9ef">TYPE </span>i,
+     lv_st2  <span style="color:#66d9ef">TYPE </span>i,
+     lv_str  <span style="color:#66d9ef">TYPE </span>i.
+<span style="color:#66d9ef">CHECK</span> i_string <span style="color:#f92672">IS NOT INITIAL</span> <span style="color:#f92672">AND</span> i_strlen <span style="color:#f92672">IS NOT INITIAL</span>.
+lv_str <span style="color:#f92672">=</span> strlen( i_string ).
+<span style="color:#66d9ef">DO</span>.
+  <span style="color:#66d9ef">IF</span> lv_str <span style="color:#f92672">&gt;=</span> sy<span style="color:#f92672">-</span>index.
+   lv_char <span style="color:#f92672">=</span> i_string<span style="color:#f92672">+</span><span style="color:#ae81ff">0</span>(sy<span style="color:#f92672">-</span>index).
+   <span style="color:#66d9ef">CALL METHOD</span> cl_abap_list_utilities<span style="color:#f92672">=&gt;</span>dynamic_output_length
+     <span style="color:#66d9ef">EXPORTING</span>
+       <span style="color:#66d9ef">field</span> <span style="color:#f92672">=</span> lv_char
+     RECEIVING
+       len   <span style="color:#f92672">=</span> lv_len.
+    <span style="color:#66d9ef">IF</span> lv_len <span style="color:#f92672">&gt;=</span> i_strlen.
+      e_string1 <span style="color:#f92672">=</span> lv_char.
+      lv_st1 <span style="color:#f92672">=</span> strlen( lv_char ).
+      lv_st2 <span style="color:#f92672">=</span> lv_str <span style="color:#f92672">-</span> lv_st1.
+      e_string2 <span style="color:#f92672">=</span> i_string<span style="color:#f92672">+</span>lv_st1(lv_st2).
+      <span style="color:#66d9ef">EXIT</span>.
+    <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#66d9ef">ELSE</span>.
+    e_string1 <span style="color:#f92672">=</span> i_string.
+    e_string2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
+    <span style="color:#66d9ef">EXIT</span>.
+  <span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#66d9ef">ENDDO</span>.
+<span style="color:#66d9ef">ENDFUNCTION</span>.
 </code></pre></div>
     </div>
 
@@ -226,7 +231,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>220</span>
+                   <span>278</span>
             </p>
             
             <p class="copyright-item">

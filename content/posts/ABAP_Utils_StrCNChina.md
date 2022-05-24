@@ -14,14 +14,17 @@ tags:
 
 ### 截取包含中文字符串 ###
 
-`strlen()` 只能计算包含英文字符串的长度，不能计算中文字符串的长度。
+`strlen()`：只能计算包含英文字符串的长度，不能计算中文字符串的长度。
 
-可以通过`cl_abap_list_utilities=>dynamic_output_length`获取精确长度。
+- strlen('你好啊') ：输出长度为 3
 
-```JS
+`cl_abap_list_utilities=>dynamic_output_length`：计算的是字节数，可以获取精确长度。
+
+- 传入 field = '你好啊'，输出长度为 6
+
+```ABAP
 FUNCTION zotfm001.
 *"----------------------------------------------------------------------
-*"*"本地接口：
 *"  IMPORTING
 *"     VALUE(I_STRING) TYPE  STRING
 *"     VALUE(I_STRLEN) TYPE  I
@@ -30,10 +33,10 @@ FUNCTION zotfm001.
 *"     VALUE(E_STRING2) TYPE  STRING
 *"----------------------------------------------------------------------
 DATA:lv_char TYPE string,
-   lv_len  TYPE i,
-   lv_st1  TYPE i,
-   lv_st2  TYPE i,
-   lv_str  TYPE i.
+     lv_len  TYPE i,
+     lv_st1  TYPE i,
+     lv_st2  TYPE i,
+     lv_str  TYPE i.
 CHECK i_string IS NOT INITIAL AND i_strlen IS NOT INITIAL.
 lv_str = strlen( i_string ).
 DO.

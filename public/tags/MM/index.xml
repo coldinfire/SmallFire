@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title> SAP 常用主数据及描述获取 </title>
+      <link>https://coldinfire.github.io/2022/MM_MaterialMastData/</link>
+      <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/MM_MaterialMastData/</guid>
+      <description>常用主数据表 DATA GT_Z0001 TYPE TABLE OF T001 WITH HEADER LINE. &amp;#34;公司代码&amp;#34; DATA GT_Z0002 TYPE TABLE OF T001W WITH HEADER LINE. &amp;#34;工厂&amp;#34; DATA GT_Z0003 TYPE TABLE OF T001L WITH HEADER LINE. &amp;#34;库存地点&amp;#</description>
+    </item>
+    
+    <item>
       <title> 物料主数据视图 </title>
       <link>https://coldinfire.github.io/2022/MM_MaterialView/</link>
       <pubDate>Sat, 12 Mar 2022 00:00:00 +0000</pubDate>
@@ -233,12 +242,12 @@
     </item>
     
     <item>
-      <title> Goods Movement Create 解析及示例 </title>
+      <title> SAP 物料移动BAPI介绍 </title>
       <link>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</link>
       <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</guid>
-      <description>Inventory Management 使用的 BAPI 解析 使用到的 BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证的以下信息</description>
+      <description>Inventory Management 使用的 BAPI 解析 使用到的 BAPI BAPI Description BAPI_GOODSMVT_CREATE universal BAPI for posting Goods Movements BAPI_GOODSMVT_CANCEL only for reverting Goods Movements；MBST BAPI_GOODSMVT_GETDETAIL 获得凭证明细 BAPI_GOODSMVT_GETITEMS 查询凭证 BAPI_GOODSMVT_SAPCREATE SAP 内部使用的 BAPI 两个用于事务处理的</description>
     </item>
     
     <item>

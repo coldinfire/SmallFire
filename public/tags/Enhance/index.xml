@@ -6,7 +6,16 @@
     <description>Recent content in Enhance on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/Enhance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/Enhance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> VA02 字段增强控制 </title>
+      <link>https://coldinfire.github.io/2021/SD_Enhance_VA02/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/SD_Enhance_VA02/</guid>
+      <description>MV45AFZZ SAP 预留的控制销售订单界面字段状态的增强。 FORM userexit_field_modification. IF sy-tcode EQ &amp;#39;VA02&amp;#39; AND vbak-auart = &amp;#39;ZXXX&amp;#39;. CASE screen-name. WHEN &amp;#39;VBKD-BSTKD&amp;#39;. screen-input = 0. WHEN &amp;#39;VBKD-BSTKD_E&amp;#39;. screen-input = 0. ENDCASE. ENDIF. ENDFORM.</description>
+    </item>
+    
     <item>
       <title> Text Enhancements </title>
       <link>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</link>

@@ -139,7 +139,7 @@
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_EXCEL_Template/</guid>
-      <description>上传模板 EXCEL 文档是通过 SMW0 上传的。 选择模板类型 根据Package和Name查找模板 编辑模板 创建模板，维护名称和描述后从本地选择文件上传 下载模板 通</description>
+      <description>上传模板 EXCEL 文档是通过 SMW0 上传的。SMW0 导入的对象都存储在表 WWWDATA 中，ABAP下载文件的逻辑就是从 WWWDATA 表获取要下载的文件的信息并执行下载。 选择模板类</description>
     </item>
     
     <item>

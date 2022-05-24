@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "MM",
-  "wordcount":  2196 ,
+  "wordcount":  2197 ,
   "url": "https:\/\/coldinfire.github.io\/2020\/MM_BAPI_PurchaseRequestCreate\/",
   "datePublished": "2020-06-12T00:00:00\u002b00:00",
   "dateModified": "2020-06-12T00:00:00\u002b00:00",
@@ -245,166 +245,166 @@
   <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">PREQ_NO</span>.
 <span style="color:#a6e22e">ENDIF</span>.
 </code></pre></div><h4 id="bapi_requisition_create-demo1">BAPI_REQUISITION_CREATE Demo1</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">FORM</span> <span style="color:#a6e22e">create_pr_batch</span> .
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">BEGIN</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">gt_data1</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">0</span>,
-    <span style="color:#a6e22e">bsart</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;凭证类型&#34;</span>
-    <span style="color:#a6e22e">bnfpo</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;项目&#34;</span>
-<span style="color:#f92672">*</span>   <span style="color:#a6e22e">KNTTP</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STRING</span>, <span style="color:#e6db74">&#34;科目分配类别&#34;</span>
-    <span style="color:#a6e22e">matnr</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;商品代码&#34;</span>
-<span style="color:#f92672">*</span>   <span style="color:#a6e22e">TXZ01</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STRING</span>, <span style="color:#e6db74">&#34;短文本&#34;</span>
-    <span style="color:#a6e22e">menge</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;数量&#34;</span>
-    <span style="color:#a6e22e">meins</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;单位&#34;</span>
-    <span style="color:#a6e22e">eeind</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;交货日期&#34;</span>
-<span style="color:#f92672">*</span>   <span style="color:#a6e22e">MATKL</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STRING</span>, <span style="color:#e6db74">&#34;物料组&#34;</span>
-    <span style="color:#a6e22e">werks</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;工厂&#34;</span>
-    <span style="color:#a6e22e">ekgrp</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;采购组&#34;</span>
-    <span style="color:#a6e22e">afnam</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;申请者&#34;</span>
-    <span style="color:#a6e22e">bednr</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;需求跟踪号&#34;</span>
-    <span style="color:#a6e22e">sakto</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;总帐科目&#34;</span>
-    <span style="color:#a6e22e">kostl</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;成本中心&#34;</span>
-    <span style="color:#a6e22e">anln1</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;资产&#34;</span>
-    <span style="color:#a6e22e">aufnr</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;订单&#34;</span>
-    <span style="color:#a6e22e">waers</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;币种&#34;</span>
-    <span style="color:#a6e22e">peinh</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;价格单位&#34;</span>
-    <span style="color:#a6e22e">dispo</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;MRP控制者&#34;</span>
-    <span style="color:#a6e22e">str1</span>    <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;行项目文本-传送文本&#34;</span>
-    <span style="color:#a6e22e">str2</span>    <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;行项目文本-预算年度&#34;</span>
-    <span style="color:#a6e22e">str3</span>    <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;行项目文本-资产类别&#34;</span>
-  <span style="color:#a6e22e">END</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">gt_data1</span>.
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">BEGIN</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">gt_data</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">0</span>,
-    <span style="color:#a6e22e">bednr</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;需求跟踪号&#34;</span>
-    <span style="color:#a6e22e">bsart</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;凭证类型&#34;</span>
-    <span style="color:#a6e22e">bnfpo</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;项目&#34;</span>
-<span style="color:#f92672">*</span>   <span style="color:#a6e22e">KNTTP</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STRING</span>, <span style="color:#e6db74">&#34;科目分配类别&#34;</span>
-    <span style="color:#a6e22e">matnr</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;商品代码&#34;</span>
-<span style="color:#f92672">*</span>   <span style="color:#a6e22e">TXZ01</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STRING</span>, <span style="color:#e6db74">&#34;短文本&#34;</span>
-    <span style="color:#a6e22e">menge</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;数量&#34;</span>
-    <span style="color:#a6e22e">meins</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;单位&#34;</span>
-    <span style="color:#a6e22e">eeind</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;交货日期&#34;</span>
-<span style="color:#f92672">*</span>   <span style="color:#a6e22e">MATKL</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STRING</span>, <span style="color:#e6db74">&#34;物料组&#34;</span>
-    <span style="color:#a6e22e">werks</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;工厂&#34;</span>
-    <span style="color:#a6e22e">ekgrp</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;采购组&#34;</span>
-    <span style="color:#a6e22e">afnam</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;申请者&#34;</span>
-    <span style="color:#a6e22e">sakto</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;总帐科目&#34;</span>
-    <span style="color:#a6e22e">kostl</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;成本中心&#34;</span>
-    <span style="color:#a6e22e">anln1</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;资产&#34;</span>
-    <span style="color:#a6e22e">aufnr</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;订单&#34;</span>
-    <span style="color:#a6e22e">preis</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;评估价格&#34;</span>
-    <span style="color:#a6e22e">waers</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;币种&#34;</span>
-    <span style="color:#a6e22e">peinh</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;价格单位&#34;</span>
-    <span style="color:#a6e22e">dispo</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;MRP控制者&#34;</span>
-    <span style="color:#a6e22e">str1</span>    <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;行项目文本-传送文本&#34;</span>
-    <span style="color:#a6e22e">str2</span>    <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;行项目文本-预算年度&#34;</span>
-    <span style="color:#a6e22e">str3</span>    <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34;行项目文本-资产类别&#34;</span>
-  <span style="color:#a6e22e">END</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">gt_data</span>.
-  <span style="color:#e6db74">&#34;=============== Upload File ===============&#34;</span>
-  <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">gt_data</span>.
-    <span style="color:#a6e22e">bnfpo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bnfpo</span>.
-    <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;CONVERSION_EXIT_ALPHA_INPUT&#39;</span>
-      <span style="color:#a6e22e">EXPORTING</span>
-        <span style="color:#a6e22e">input</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">bnfpo</span>
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bnfpo</span>.
-    <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;CONVERSION_EXIT_ALPHA_INPUT&#39;</span>
-      <span style="color:#a6e22e">EXPORTING</span>
-        <span style="color:#a6e22e">input</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">matnr</span>
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">matnr</span>.
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">doc_type</span>          <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bsart</span>.     <span style="color:#e6db74">&#34;凭证类型&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">preq_item</span>         <span style="color:#f92672">=</span> <span style="color:#a6e22e">bnfpo</span>.             <span style="color:#e6db74">&#34;项目&#34;</span>
-<span style="color:#f92672">*</span>   <span style="color:#a6e22e">PR_ITEM</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ACCTASSCAT</span>        <span style="color:#f92672">=</span> <span style="color:#a6e22e">GT_DATA</span><span style="color:#f92672">-</span><span style="color:#a6e22e">KNTTP</span>.     <span style="color:#e6db74">&#34;科目分配类别&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">material</span>          <span style="color:#f92672">=</span> <span style="color:#a6e22e">matnr</span>.             <span style="color:#e6db74">&#34;商品代码&#34;</span>
-<span style="color:#f92672">*</span>   <span style="color:#a6e22e">PR_ITEM</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SHORT_TEXT</span>        <span style="color:#f92672">=</span> <span style="color:#a6e22e">GT_DATA</span><span style="color:#f92672">-</span><span style="color:#a6e22e">TXZ01</span>.     <span style="color:#e6db74">&#34;短文本&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">quantity</span>          <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">menge</span>.     <span style="color:#e6db74">&#34;数量&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">unit</span>              <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">meins</span>.     <span style="color:#e6db74">&#34;单位&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">deliv_date</span>        <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">eeind</span>.     <span style="color:#e6db74">&#34;交货日期&#34;</span>
-<span style="color:#f92672">*</span>    <span style="color:#a6e22e">PR_ITEM</span><span style="color:#f92672">-</span><span style="color:#a6e22e">MAT_GRP</span>          <span style="color:#f92672">=</span> <span style="color:#a6e22e">GT_DATA</span><span style="color:#f92672">-</span><span style="color:#a6e22e">MATKL</span>.     <span style="color:#e6db74">&#34;物料组&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">plant</span>             <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">werks</span>.     <span style="color:#e6db74">&#34;工厂&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">pur_group</span>         <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ekgrp</span>.     <span style="color:#e6db74">&#34;采购组&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">preq_name</span>         <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">afnam</span>.     <span style="color:#e6db74">&#34;申请者&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">trackingno</span>        <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bednr</span>.     <span style="color:#e6db74">&#34;需求跟踪号&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">c_amt_bapi</span>        <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">preis</span>.     <span style="color:#e6db74">&#34;评估价格&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">currency</span>          <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">waers</span>.     <span style="color:#e6db74">&#34;货币码&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">price_unit</span>        <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">peinh</span>.     <span style="color:#e6db74">&#34;价格单位&#34;</span>
-    <span style="color:#a6e22e">pr_item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">mrp_contr</span>         <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">dispo</span>.     <span style="color:#e6db74">&#34;MRP控制者&#34;</span>
-    <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">pr_item</span>.
-    <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">pr_item</span>.
-    <span style="color:#a6e22e">pr_account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">preq_item</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bnfpo</span>.        <span style="color:#e6db74">&#34;项目&#34;</span>
-    <span style="color:#a6e22e">pr_account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">g_l_acct</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">sakto</span>. <span style="color:#e6db74">&#34;总帐科目&#34;</span>
-    <span style="color:#a6e22e">pr_account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">cost_ctr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">kostl</span>. <span style="color:#e6db74">&#34;成本中心&#34;</span>
-    <span style="color:#a6e22e">pr_account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">asset_no</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">anln1</span>. <span style="color:#e6db74">&#34;资产&#34;</span>
-    <span style="color:#a6e22e">pr_account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">order_no</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">aufnr</span>. <span style="color:#e6db74">&#34;订单&#34;</span>
-    <span style="color:#a6e22e">pr_account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">co_area</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BELL&#39;</span>.
-    <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">pr_account</span>.
-    <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">pr_account</span>.
-    <span style="color:#a6e22e">pr_item_id</span><span style="color:#f92672">-</span><span style="color:#a6e22e">preq_item</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bnfpo</span>.
-    <span style="color:#a6e22e">pr_item_id</span><span style="color:#f92672">-</span><span style="color:#a6e22e">text_id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;B03&#39;</span>.
-    <span style="color:#a6e22e">pr_item_id</span><span style="color:#f92672">-</span><span style="color:#a6e22e">text_line</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">str1</span>.<span style="color:#e6db74">&#34;行项目文本-传送文本&#34;</span>
-    <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">pr_item_id</span>.
-    <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">pr_item_id</span>.
-    <span style="color:#a6e22e">pr_item_id</span><span style="color:#f92672">-</span><span style="color:#a6e22e">preq_item</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bnfpo</span>.
-    <span style="color:#a6e22e">pr_item_id</span><span style="color:#f92672">-</span><span style="color:#a6e22e">text_id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;B07&#39;</span>.
-    <span style="color:#a6e22e">pr_item_id</span><span style="color:#f92672">-</span><span style="color:#a6e22e">text_line</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">str2</span>.<span style="color:#e6db74">&#34;行项目文本-预算年度&#34;</span>
-    <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">pr_item_id</span>.
-    <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">pr_item_id</span>.
-    <span style="color:#a6e22e">pr_item_id</span><span style="color:#f92672">-</span><span style="color:#a6e22e">preq_item</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bnfpo</span>.
-    <span style="color:#a6e22e">pr_item_id</span><span style="color:#f92672">-</span><span style="color:#a6e22e">text_id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;B08&#39;</span>.
-    <span style="color:#a6e22e">pr_item_id</span><span style="color:#f92672">-</span><span style="color:#a6e22e">text_line</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">str3</span>.<span style="color:#e6db74">&#34;行项目文本-资产类别&#34;</span>
-    <span style="color:#a6e22e">APPEND</span>  <span style="color:#a6e22e">pr_item_id</span>.
-    <span style="color:#a6e22e">CLEAR</span>  <span style="color:#a6e22e">pr_item_id</span>.
-    <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">END</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">bednr</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">create_pr_batch</span> .
+  <span style="color:#66d9ef">DATA</span>: <span style="color:#66d9ef">BEGIN OF</span> gt_data1 OCCURS <span style="color:#ae81ff">0</span>,
+    bsart   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;凭证类型&#34;
+</span><span style="color:#75715e"></span>    bnfpo   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;项目&#34;
+</span><span style="color:#75715e">*   KNTTP   TYPE STRING, &#34;科目分配类别&#34;</span>
+    matnr   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;商品代码&#34;
+</span><span style="color:#75715e">*   TXZ01   TYPE STRING, &#34;短文本&#34;</span>
+    menge   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;数量&#34;
+</span><span style="color:#75715e"></span>    meins   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;单位&#34;
+</span><span style="color:#75715e"></span>    eeind   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;交货日期&#34;
+</span><span style="color:#75715e">*   MATKL   TYPE STRING, &#34;物料组&#34;</span>
+    werks   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;工厂&#34;
+</span><span style="color:#75715e"></span>    ekgrp   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;采购组&#34;
+</span><span style="color:#75715e"></span>    afnam   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;申请者&#34;
+</span><span style="color:#75715e"></span>    bednr   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;需求跟踪号&#34;
+</span><span style="color:#75715e"></span>    sakto   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;总帐科目&#34;
+</span><span style="color:#75715e"></span>    kostl   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;成本中心&#34;
+</span><span style="color:#75715e"></span>    anln1   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;资产&#34;
+</span><span style="color:#75715e"></span>    aufnr   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;订单&#34;
+</span><span style="color:#75715e"></span>    waers   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;币种&#34;
+</span><span style="color:#75715e"></span>    peinh   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;价格单位&#34;
+</span><span style="color:#75715e"></span>    dispo   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;MRP控制者&#34;
+</span><span style="color:#75715e"></span>    str1    <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;行项目文本-传送文本&#34;
+</span><span style="color:#75715e"></span>    str2    <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;行项目文本-预算年度&#34;
+</span><span style="color:#75715e"></span>    str3    <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;行项目文本-资产类别&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">END OF</span> gt_data1.
+  <span style="color:#66d9ef">DATA</span>: <span style="color:#66d9ef">BEGIN OF</span> gt_data OCCURS <span style="color:#ae81ff">0</span>,
+    bednr   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;需求跟踪号&#34;
+</span><span style="color:#75715e"></span>    bsart   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;凭证类型&#34;
+</span><span style="color:#75715e"></span>    bnfpo   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;项目&#34;
+</span><span style="color:#75715e">*   KNTTP   TYPE STRING, &#34;科目分配类别&#34;</span>
+    matnr   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;商品代码&#34;
+</span><span style="color:#75715e">*   TXZ01   TYPE STRING, &#34;短文本&#34;</span>
+    menge   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;数量&#34;
+</span><span style="color:#75715e"></span>    meins   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;单位&#34;
+</span><span style="color:#75715e"></span>    eeind   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;交货日期&#34;
+</span><span style="color:#75715e">*   MATKL   TYPE STRING, &#34;物料组&#34;</span>
+    werks   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;工厂&#34;
+</span><span style="color:#75715e"></span>    ekgrp   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;采购组&#34;
+</span><span style="color:#75715e"></span>    afnam   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;申请者&#34;
+</span><span style="color:#75715e"></span>    sakto   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;总帐科目&#34;
+</span><span style="color:#75715e"></span>    kostl   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;成本中心&#34;
+</span><span style="color:#75715e"></span>    anln1   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;资产&#34;
+</span><span style="color:#75715e"></span>    aufnr   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;订单&#34;
+</span><span style="color:#75715e"></span>    preis   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;评估价格&#34;
+</span><span style="color:#75715e"></span>    waers   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;币种&#34;
+</span><span style="color:#75715e"></span>    peinh   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;价格单位&#34;
+</span><span style="color:#75715e"></span>    dispo   <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;MRP控制者&#34;
+</span><span style="color:#75715e"></span>    str1    <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;行项目文本-传送文本&#34;
+</span><span style="color:#75715e"></span>    str2    <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;行项目文本-预算年度&#34;
+</span><span style="color:#75715e"></span>    str3    <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34;行项目文本-资产类别&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">END OF</span> gt_data.
+  <span style="color:#75715e">&#34;=============== Upload File ===============&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">LOOP AT </span>gt_data.
+    bnfpo <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>bnfpo.
+    <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;CONVERSION_EXIT_ALPHA_INPUT&#39;</span>
+      <span style="color:#66d9ef">EXPORTING</span>
+        input  <span style="color:#f92672">=</span> bnfpo
+      <span style="color:#66d9ef">IMPORTING</span>
+        output <span style="color:#f92672">=</span> bnfpo.
+    <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;CONVERSION_EXIT_ALPHA_INPUT&#39;</span>
+      <span style="color:#66d9ef">EXPORTING</span>
+        input  <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>matnr
+      <span style="color:#66d9ef">IMPORTING</span>
+        output <span style="color:#f92672">=</span> matnr.
+    pr_item<span style="color:#f92672">-</span>doc_type          <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>bsart.     <span style="color:#75715e">&#34;凭证类型&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>preq_item         <span style="color:#f92672">=</span> bnfpo.             <span style="color:#75715e">&#34;项目&#34;
+</span><span style="color:#75715e">*   PR_ITEM-ACCTASSCAT        = GT_DATA-KNTTP.     &#34;科目分配类别&#34;</span>
+    pr_item<span style="color:#f92672">-</span>material          <span style="color:#f92672">=</span> matnr.             <span style="color:#75715e">&#34;商品代码&#34;
+</span><span style="color:#75715e">*   PR_ITEM-SHORT_TEXT        = GT_DATA-TXZ01.     &#34;短文本&#34;</span>
+    pr_item<span style="color:#f92672">-</span>quantity          <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>menge.     <span style="color:#75715e">&#34;数量&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>unit              <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>meins.     <span style="color:#75715e">&#34;单位&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>deliv_date        <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>eeind.     <span style="color:#75715e">&#34;交货日期&#34;
+</span><span style="color:#75715e">*    PR_ITEM-MAT_GRP          = GT_DATA-MATKL.     &#34;物料组&#34;</span>
+    pr_item<span style="color:#f92672">-</span>plant             <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>werks.     <span style="color:#75715e">&#34;工厂&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>pur_group         <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>ekgrp.     <span style="color:#75715e">&#34;采购组&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>preq_name         <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>afnam.     <span style="color:#75715e">&#34;申请者&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>trackingno        <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>bednr.     <span style="color:#75715e">&#34;需求跟踪号&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>c_amt_bapi        <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>preis.     <span style="color:#75715e">&#34;评估价格&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>currency          <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>waers.     <span style="color:#75715e">&#34;货币码&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>price_unit        <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>peinh.     <span style="color:#75715e">&#34;价格单位&#34;
+</span><span style="color:#75715e"></span>    pr_item<span style="color:#f92672">-</span>mrp_contr         <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>dispo.     <span style="color:#75715e">&#34;MRP控制者&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">APPEND</span> pr_item.
+    <span style="color:#66d9ef">CLEAR</span> pr_item.
+    pr_account<span style="color:#f92672">-</span>preq_item <span style="color:#f92672">=</span> bnfpo.        <span style="color:#75715e">&#34;项目&#34;
+</span><span style="color:#75715e"></span>    pr_account<span style="color:#f92672">-</span>g_l_acct <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>sakto. <span style="color:#75715e">&#34;总帐科目&#34;
+</span><span style="color:#75715e"></span>    pr_account<span style="color:#f92672">-</span>cost_ctr <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>kostl. <span style="color:#75715e">&#34;成本中心&#34;
+</span><span style="color:#75715e"></span>    pr_account<span style="color:#f92672">-</span>asset_no <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>anln1. <span style="color:#75715e">&#34;资产&#34;
+</span><span style="color:#75715e"></span>    pr_account<span style="color:#f92672">-</span>order_no <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>aufnr. <span style="color:#75715e">&#34;订单&#34;
+</span><span style="color:#75715e"></span>    pr_account<span style="color:#f92672">-</span>co_area <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BELL&#39;</span>.
+    <span style="color:#66d9ef">APPEND</span> pr_account.
+    <span style="color:#66d9ef">CLEAR</span> pr_account.
+    pr_item_id<span style="color:#f92672">-</span>preq_item <span style="color:#f92672">=</span> bnfpo.
+    pr_item_id<span style="color:#f92672">-</span>text_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;B03&#39;</span>.
+    pr_item_id<span style="color:#f92672">-</span>text_line <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>str1.<span style="color:#75715e">&#34;行项目文本-传送文本&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">APPEND</span> pr_item_id.
+    <span style="color:#66d9ef">CLEAR</span> pr_item_id.
+    pr_item_id<span style="color:#f92672">-</span>preq_item <span style="color:#f92672">=</span> bnfpo.
+    pr_item_id<span style="color:#f92672">-</span>text_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;B07&#39;</span>.
+    pr_item_id<span style="color:#f92672">-</span>text_line <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>str2.<span style="color:#75715e">&#34;行项目文本-预算年度&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">APPEND</span> pr_item_id.
+    <span style="color:#66d9ef">CLEAR</span> pr_item_id.
+    pr_item_id<span style="color:#f92672">-</span>preq_item <span style="color:#f92672">=</span> bnfpo.
+    pr_item_id<span style="color:#f92672">-</span>text_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;B08&#39;</span>.
+    pr_item_id<span style="color:#f92672">-</span>text_line <span style="color:#f92672">=</span> gt_data<span style="color:#f92672">-</span>str3.<span style="color:#75715e">&#34;行项目文本-资产类别&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">APPEND</span>  pr_item_id.
+    <span style="color:#66d9ef">CLEAR</span>  pr_item_id.
+    <span style="color:#66d9ef">AT END OF</span> bednr.
     
-    <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_REQUISITION_CREATE&#39;</span>
-	<span style="color:#e6db74">&#34; EXPORTING
-</span><span style="color:#e6db74">	&#34;</span>   <span style="color:#a6e22e">SKIP_ITEMS_WITH_ERROR</span>                <span style="color:#f92672">=</span>
-	<span style="color:#e6db74">&#34;   AUTOMATIC_SOURCE                     = &#39;X&#39;
-</span><span style="color:#e6db74">      IMPORTING
-</span><span style="color:#e6db74">        number                               = pr_no
-</span><span style="color:#e6db74">      TABLES
-</span><span style="color:#e6db74">        requisition_items                    = pr_item
-</span><span style="color:#e6db74">        requisition_account_assignment       = pr_account
-</span><span style="color:#e6db74">        requisition_item_text                = pr_item_id
-</span><span style="color:#e6db74">	&#34;</span>   <span style="color:#a6e22e">REQUISITION_LIMITS</span>                   <span style="color:#f92672">=</span>
-	<span style="color:#e6db74">&#34;   REQUISITION_CONTRACT_LIMITS          =
-</span><span style="color:#e6db74">	&#34;</span>   <span style="color:#a6e22e">REQUISITION_SERVICES</span>                 <span style="color:#f92672">=</span>
-	<span style="color:#e6db74">&#34;   REQUISITION_SRV_ACCASS_VALUES        =
-</span><span style="color:#e6db74">        return                               = pr_return
-</span><span style="color:#e6db74">	&#34;</span>   <span style="color:#a6e22e">REQUISITION_SERVICES_TEXT</span>            <span style="color:#f92672">=</span>
-	<span style="color:#e6db74">&#34;   REQUISITION_ADDRDELIVERY             =
-</span><span style="color:#e6db74">	&#34;</span>   <span style="color:#a6e22e">EXTENSIONIN</span>                          <span style="color:#f92672">=</span>
-                .
-      <span style="color:#a6e22e">CLEAR</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lv_message</span>.
-      <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">pr_return</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;E&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A&#39;</span>.
-        <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">ID</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgid</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgty</span> <span style="color:#a6e22e">NUMBER</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgno</span>
-			<span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">lv_message</span>
-            <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv1</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv2</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv3</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">msgv4</span>.
-      <span style="color:#a6e22e">ENDLOOP</span>.
-      <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.</span>
-        <span style="color:#a6e22e">CLEAR</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lv_message</span>.
-        <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_ROLLBACK&#39;</span>.
-        <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">pr_return</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">l_return</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;E&#39;</span> .
-          <span style="color:#a6e22e">CONCATENATE</span> <span style="color:#a6e22e">lv_message</span> <span style="color:#a6e22e">l_return</span><span style="color:#f92672">-</span><span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#39;;&#39;</span>
-            <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">lv_message</span>.
-        <span style="color:#a6e22e">ENDLOOP</span>.
-        <span style="color:#a6e22e">CONCATENATE</span> <span style="color:#a6e22e">gt_data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bednr</span> <span style="color:#a6e22e">lv_message</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">gt_out</span><span style="color:#f92672">-</span><span style="color:#a6e22e">text</span>.
-        <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">gt_out</span>.
-        <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">gt_out</span>.
-      <span style="color:#a6e22e">ELSE</span>.
-        <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_COMMIT&#39;</span>
-          <span style="color:#a6e22e">EXPORTING</span>
-            <span style="color:#a6e22e">wait</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-        <span style="color:#a6e22e">CONCATENATE</span> <span style="color:#a6e22e">pr_no</span> <span style="color:#e6db74">&#39;创建成功&#39;</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">gt_out</span><span style="color:#f92672">-</span><span style="color:#a6e22e">text</span>.
-        <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">gt_out</span>.
-        <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">gt_out</span>.
-      <span style="color:#a6e22e">ENDIF</span>.
-      <span style="color:#a6e22e">FREE</span> <span style="color:#a6e22e">pr_item</span>.
-      <span style="color:#a6e22e">FREE</span> <span style="color:#a6e22e">pr_account</span>.
-      <span style="color:#a6e22e">FREE</span> <span style="color:#a6e22e">pr_item_id</span>.
-      <span style="color:#a6e22e">FREE</span> <span style="color:#a6e22e">pr_return</span>.
-    <span style="color:#a6e22e">ENDAT</span>.
-  <span style="color:#a6e22e">ENDLOOP</span>.
-<span style="color:#a6e22e">ENDFORM</span>.                    <span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#a6e22e">CREATE_PR</span>
-</code></pre></div><p>Demo2</p>
+    <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_REQUISITION_CREATE&#39;</span>
+	<span style="color:#75715e">&#34; EXPORTING
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">&#34;   SKIP_ITEMS_WITH_ERROR                =
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">&#34;   AUTOMATIC_SOURCE                     = &#39;X&#39;
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">IMPORTING</span>
+        <span style="color:#66d9ef">number</span>                               <span style="color:#f92672">=</span> pr_no
+      <span style="color:#66d9ef">TABLES</span>
+        requisition_items                    <span style="color:#f92672">=</span> pr_item
+        requisition_account_assignment       <span style="color:#f92672">=</span> pr_account
+        requisition_item_text                <span style="color:#f92672">=</span> pr_item_id
+	<span style="color:#75715e">&#34;   REQUISITION_LIMITS                   =
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">&#34;   REQUISITION_CONTRACT_LIMITS          =
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">&#34;   REQUISITION_SERVICES                 =
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">&#34;   REQUISITION_SRV_ACCASS_VALUES        =
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span>                               <span style="color:#f92672">=</span> pr_return
+	<span style="color:#75715e">&#34;   REQUISITION_SERVICES_TEXT            =
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">&#34;   REQUISITION_ADDRDELIVERY             =
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">&#34;   EXTENSIONIN                          =
+</span><span style="color:#75715e"></span>                .
+      <span style="color:#66d9ef">CLEAR</span>: lv_message.
+      <span style="color:#66d9ef">LOOP AT </span>pr_return <span style="color:#66d9ef">WHERE</span> type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;E&#39;</span> <span style="color:#f92672">OR</span> type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A&#39;</span>.
+        <span style="color:#66d9ef">MESSAGE</span> <span style="color:#66d9ef">ID</span> sy<span style="color:#f92672">-</span>msgid <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>msgty <span style="color:#66d9ef">NUMBER</span> sy<span style="color:#f92672">-</span>msgno
+			<span style="color:#66d9ef">INTO</span> lv_message
+            <span style="color:#66d9ef">WITH</span> sy<span style="color:#f92672">-</span>msgv1 sy<span style="color:#f92672">-</span>msgv2 sy<span style="color:#f92672">-</span>msgv3 sy<span style="color:#f92672">-</span>msgv4.
+      <span style="color:#66d9ef">ENDLOOP</span>.
+      <span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.
+        <span style="color:#66d9ef">CLEAR</span>: lv_message.
+        <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_ROLLBACK&#39;</span>.
+        <span style="color:#66d9ef">LOOP AT </span>pr_return <span style="color:#66d9ef">INTO</span> l_return <span style="color:#66d9ef">WHERE</span> type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;E&#39;</span> .
+          <span style="color:#66d9ef">CONCATENATE</span> lv_message l_return<span style="color:#f92672">-</span>message <span style="color:#e6db74">&#39;;&#39;</span>
+            <span style="color:#66d9ef">INTO</span> lv_message.
+        <span style="color:#66d9ef">ENDLOOP</span>.
+        <span style="color:#66d9ef">CONCATENATE</span> gt_data<span style="color:#f92672">-</span>bednr lv_message <span style="color:#66d9ef">INTO</span> gt_out<span style="color:#f92672">-</span>text.
+        <span style="color:#66d9ef">APPEND</span> gt_out.
+        <span style="color:#66d9ef">CLEAR</span> gt_out.
+      <span style="color:#66d9ef">ELSE</span>.
+        <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_COMMIT&#39;</span>
+          <span style="color:#66d9ef">EXPORTING</span>
+            <span style="color:#66d9ef">wait</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+        <span style="color:#66d9ef">CONCATENATE</span> pr_no <span style="color:#e6db74">&#39;创建成功&#39;</span> <span style="color:#66d9ef">INTO</span> gt_out<span style="color:#f92672">-</span>text.
+        <span style="color:#66d9ef">APPEND</span> gt_out.
+        <span style="color:#66d9ef">CLEAR</span> gt_out.
+      <span style="color:#66d9ef">ENDIF</span>.
+      <span style="color:#66d9ef">FREE </span>pr_item.
+      <span style="color:#66d9ef">FREE </span>pr_account.
+      <span style="color:#66d9ef">FREE </span>pr_item_id.
+      <span style="color:#66d9ef">FREE </span>pr_return.
+    <span style="color:#66d9ef">ENDAT</span>.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+<span style="color:#66d9ef">ENDFORM</span>.                    <span style="color:#75715e">&#34; CREATE_PR &#34;
+</span></code></pre></div><p>Demo2</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
 <span style="color:#75715e">*&amp; BAPI_REQUISITION_CREATE 和 BAPI_PR_CREATE 相关问题查看NOTE</span>
 <span style="color:#75715e">*&amp; 499627 - FAQ BAPIs for purchase requisitions</span>
@@ -475,7 +475,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2196</span>
+                   <span>2197</span>
             </p>
             
             <p class="copyright-item">

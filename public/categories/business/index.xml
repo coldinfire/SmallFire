@@ -26,12 +26,39 @@
     </item>
     
     <item>
+      <title> SAP 常用主数据及描述获取 </title>
+      <link>https://coldinfire.github.io/2022/MM_MaterialMastData/</link>
+      <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/MM_MaterialMastData/</guid>
+      <description>常用主数据表 DATA GT_Z0001 TYPE TABLE OF T001 WITH HEADER LINE. &amp;#34;公司代码&amp;#34; DATA GT_Z0002 TYPE TABLE OF T001W WITH HEADER LINE. &amp;#34;工厂&amp;#34; DATA GT_Z0003 TYPE TABLE OF T001L WITH HEADER LINE. &amp;#34;库存地点&amp;#</description>
+    </item>
+    
+    <item>
       <title> 物料主数据视图 </title>
       <link>https://coldinfire.github.io/2022/MM_MaterialView/</link>
       <pubDate>Sat, 12 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2022/MM_MaterialView/</guid>
       <description>检查物料的现有视图 查看 MARA 的 PSTAT &amp;amp; VPSTA 字段：这些字段的值是一个字母序列，每个字母都应该表示一个活动视图： A：Work scheduling B：Accounting C：</description>
+    </item>
+    
+    <item>
+      <title> FB05 使用程序清账 </title>
+      <link>https://coldinfire.github.io/2022/FI_FM_FB05/</link>
+      <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/FI_FM_FB05/</guid>
+      <description>FM：POSTING_INTERFACE_CLEARING 目的：财务分别做预收款和开 billing，需要后续做清账对冲 DZ 和 RV。 逻辑：由于只</description>
+    </item>
+    
+    <item>
+      <title> FB02 修改行文本函数 </title>
+      <link>https://coldinfire.github.io/2022/FI_Enhance_VF01VF11/</link>
+      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/FI_Enhance_VF01VF11/</guid>
+      <description>V60A0001 &amp;amp; RV60AFZC 通过调整 SAP 预制的标准增强点（V60A0001）实现禁止跨月发票冲销需求，V60A0001 的触发点是用户敲下 VF01 或者 VF11 那一刻、但是还未填充</description>
     </item>
     
     <item>
@@ -49,7 +76,16 @@
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2022/WM_BAPI_HUMove/</guid>
-      <description>DATA: lv_posted TYPE sysubrc, ls_mess TYPE huitem_messages , lt_mess TYPE huitem_messages_t WITH HEADER LINE, ls_emkpf TYPE emkpf , lt_move_to TYPE hum_data_move_to_t, lt_exidv TYPE hum_exidv_t WITH HEADER LINE, ls_move_to TYPE hum_data_move_to, ls_hu_items TYPE hum_humseg, lv_venum TYPE vekp-venum, gv_temp_message TYPE string. DATA: lt_vepo TYPE TABLE OF vepo WITH HEADER LINE. lv_venum = &amp;#39;100000012&amp;#39;. &amp;#34; Internal HU Number &amp;#34; CLEAR: lt_vepo[]. SELECT * FROM vepo INTO TABLE lt_vepo WHERE venum = lv_venum. IF</description>
+      <description>BAPI：HU_CREATE_GOODS_MOVEMENT DATA: lv_posted TYPE sysubrc, ls_mess TYPE huitem_messages , lt_mess TYPE huitem_messages_t WITH HEADER LINE, ls_emkpf TYPE emkpf , lt_move_to TYPE hum_data_move_to_t, lt_exidv TYPE hum_exidv_t WITH HEADER LINE, ls_move_to TYPE hum_data_move_to, ls_hu_items TYPE hum_humseg, lv_venum TYPE vekp-venum, gv_temp_message TYPE string. DATA: lt_vepo</description>
+    </item>
+    
+    <item>
+      <title> VA02 字段增强控制 </title>
+      <link>https://coldinfire.github.io/2021/SD_Enhance_VA02/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/SD_Enhance_VA02/</guid>
+      <description>MV45AFZZ SAP 预留的控制销售订单界面字段状态的增强。 FORM userexit_field_modification. IF sy-tcode EQ &amp;#39;VA02&amp;#39; AND vbak-auart = &amp;#39;ZXXX&amp;#39;. CASE screen-name. WHEN &amp;#39;VBKD-BSTKD&amp;#39;. screen-input = 0. WHEN &amp;#39;VBKD-BSTKD_E&amp;#39;. screen-input = 0. ENDCASE. ENDIF. ENDFORM.</description>
     </item>
     
     <item>
@@ -68,6 +104,15 @@
       
       <guid>https://coldinfire.github.io/2021/MM_Util_GetPIRPrice/</guid>
       <description>Tables EINA：Purchasing Info Record: General Data INFNR：Number of Purchasing Info Record MATNR：Material Number LIFNR：Vendor Account Number EINE：</description>
+    </item>
+    
+    <item>
+      <title> WM 盘点 </title>
+      <link>https://coldinfire.github.io/2020/WM_CycleCount/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/WM_CycleCount/</guid>
+      <description>基本盘点流程 Step1：创建盘点凭证 MI01：逐行创建盘点凭证 MI31：批量输入创建盘点凭证（一次最多300行） Step2：打印盘点凭证 MI</description>
     </item>
     
     <item>
@@ -337,7 +382,7 @@
       <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/SD_BAPI_SalesorderChange/</guid>
-      <description>VA02：销售订单修改 UPDATEFLAGS：flg 值的三种不同意义 U = change D = delete I = add *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Form FRM_CHANGE_SALESORDER *&amp;amp;---------------------------------------------------------------------* * text *----------------------------------------------------------------------* * --&amp;gt;P_LT_ITEM text * --&amp;gt;P_LT_COND text * --&amp;gt;P_LT_MSG text * --&amp;gt;P_LS_HEAD text * &amp;lt;--P_LV_EIND text *----------------------------------------------------------------------* FORM frm_change_salesorder TABLES</description>
+      <description>VA02：销售订单修改 UPDATEFLAGS：flag 值的三种不同意义 U = change D = delete I = add *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Form FRM_CHANGE_SALESORDER *&amp;amp;---------------------------------------------------------------------* * text *----------------------------------------------------------------------* * --&amp;gt;P_LT_ITEM text * --&amp;gt;P_LT_COND text * --&amp;gt;P_LT_MSG text * --&amp;gt;P_LS_HEAD text * &amp;lt;--P_LV_EIND text *----------------------------------------------------------------------* FORM frm_change_salesorder</description>
     </item>
     
     <item>
@@ -422,12 +467,12 @@
     </item>
     
     <item>
-      <title> Goods Movement Create 解析及示例 </title>
+      <title> SAP 物料移动BAPI介绍 </title>
       <link>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</link>
       <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_BAPI_GoodMovementCreate/</guid>
-      <description>Inventory Management 使用的 BAPI 解析 使用到的 BAPI There are two BAPIs for posting Goods Movements: BAPI_GOODSMVT_CREATE (universal BAPI for posting Goods Movements) BAPI_GOODSMVT_CANCEL (only for reverting Goods Movements) And two in combination with for the transactional handling: BAPI_TRANSACTION_COMMIT (Commit the posting, general) BAPI_TRANSACTION_ROLLBACK (Rollback the posting, general) 参数 关于要创建的物料凭证的以下信息</description>
+      <description>Inventory Management 使用的 BAPI 解析 使用到的 BAPI BAPI Description BAPI_GOODSMVT_CREATE universal BAPI for posting Goods Movements BAPI_GOODSMVT_CANCEL only for reverting Goods Movements；MBST BAPI_GOODSMVT_GETDETAIL 获得凭证明细 BAPI_GOODSMVT_GETITEMS 查询凭证 BAPI_GOODSMVT_SAPCREATE SAP 内部使用的 BAPI 两个用于事务处理的</description>
     </item>
     
     <item>
