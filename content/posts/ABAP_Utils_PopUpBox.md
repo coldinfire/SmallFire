@@ -139,6 +139,43 @@ IF i_smesg[] IS NOT INITIAL.
 ENDIF.
 ```
 
+### 弹出警示框让用户确认：POPUP_TO_CONFIRM
+
+```ABAP
+DATA: quest TYPE string,
+      g_return TYPE c.
+CONCATENATE '是否确认删除数据' INTO quest.
+CALL FUNCTION 'POPUP_TO_CONFIRM'
+  EXPORTING
+*   TITLEBAR                    = ' '    "弹出标题"
+*   DIAGNOSE_OBJECT             = ' '    "诊断文本(通过 SE61 维护)"
+    TEXT_QUESTION               = quest  "弹出框提示的文本信息"
+*   TEXT_BUTTON_1               = 'Ja'   "第一个按钮上的文本"     
+*   ICON_BUTTON_1               = ' '    "第一个按钮上的图标"
+*   TEXT_BUTTON_2               = 'Nein' "第二个按钮上的文本"
+*   ICON_BUTTON_2               = ' '    "第二个按钮上的图标"
+*   DEFAULT_BUTTON              = '1'    "光标默认位置"
+*   DISPLAY_CANCEL_BUTTON       = 'X'
+*   USERDEFINED_F1_HELP         = ' '    "用户定义的F1帮助"
+*   START_COLUMN                = 25     "弹出框的起始列"
+*   START_ROW                   = 6      "弹出框的起始行"
+*   POPUP_TYPE                  =        "ICON type"
+*   IV_QUICKINFO_BUTTON_1       = ' '
+*   IV_QUICKINFO_BUTTON_2       = ' '
+  IMPORTING
+    ANSWER                      = g_return  "1 (Yes);2 (No);A (Abort)"
+* TABLES
+*   PARAMETER                   =
+  EXCEPTIONS
+    TEXT_NOT_FOUND              = 1
+    OTHERS                      = 2.
+IF g_return = '1'. 
+  MESSAGE '删除操作已确认！' TYPE 'S' .
+ELSEIF g_return = '2' OR g_return = 'A'.
+  MESSAGE '删除操作已经取消！' TYPE 'S' .
+ENDIF.
+```
+
 ### 展示单列信息弹出框：POPUP_TO_DECIDE_LIST
 
 ![弹出框](/images/ABAP/ABAP_Popup02.png)

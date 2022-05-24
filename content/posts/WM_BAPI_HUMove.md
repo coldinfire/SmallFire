@@ -11,7 +11,7 @@ tags:
   - BAPI
 ---
 
-
+### BAPI：HU_CREATE_GOODS_MOVEMENT
 
 ```ABAP
 DATA: lv_posted TYPE sysubrc,

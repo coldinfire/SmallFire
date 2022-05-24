@@ -14,7 +14,7 @@ tags:
 
 ### VA02：销售订单修改
 
-UPDATEFLAGS：flg 值的三种不同意义
+UPDATEFLAGS：flag 值的三种不同意义
 
 - U = change 
 - D = delete

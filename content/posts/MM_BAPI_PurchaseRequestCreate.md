@@ -85,7 +85,7 @@ ENDIF.
 
 #### BAPI_REQUISITION_CREATE Demo1
 
-```JS
+```ABAP
 FORM create_pr_batch .
   DATA: BEGIN OF gt_data1 OCCURS 0,
     bsart   TYPE string, "凭证类型"
@@ -244,7 +244,7 @@ FORM create_pr_batch .
       FREE pr_return.
     ENDAT.
   ENDLOOP.
-ENDFORM.                    " CREATE_PR
+ENDFORM.                    " CREATE_PR "
 ```
 
 Demo2
