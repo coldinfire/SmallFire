@@ -12,9 +12,9 @@ tags:
 
 ---
 
-### Send pdf file to ftp server
+### Send PDF file to FTP server
 
-```html
+```ABAP
 REPORT  zpdfsendtoftp.
 DATA : BEGIN OF t_vbak OCCURS 0,
          vbeln TYPE vbrk-vbeln,
@@ -170,7 +170,6 @@ CALL FUNCTION 'FTP_R3_TO_SERVER'
     command_error = 2
     data_error    = 3
     OTHERS        = 4.
-
 * To disconnect the FTP
 CALL FUNCTION 'FTP_DISCONNECT'
   EXPORTING

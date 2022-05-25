@@ -21,7 +21,7 @@ tags:
 #### Table
 
 `Table` 行为动态，数据输出时会根据列宽自动换行，可以固定列宽，
-但是默认情况下控制不了行高，如果要想 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （ table 控件）的高度来自动翻页.
+但是默认情况下控制不了行高，如果要想和 template 一样固定行高，需要将 table 的无换页属性打钩；通过 Main window （ table 控件）的高度来自动翻页.
 
 #### Template
 

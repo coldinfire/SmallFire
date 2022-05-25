@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "BDC",
-  "wordcount":  2586 ,
+  "wordcount":  2612 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_BDC\/",
   "datePublished": "2018-09-26T00:00:00\u002b00:00",
   "dateModified": "2018-09-26T00:00:00\u002b00:00",
@@ -304,7 +304,9 @@
 <span style="color:#75715e">&#34; BDC attribute define &#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>:bdcdata <span style="color:#66d9ef">LIKE </span>BDCDATA OCCURS <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.    <span style="color:#75715e">&#34;保存录屏过程中的变量及常量数据&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>:messtab <span style="color:#66d9ef">LIKE </span>BDCMSGCOLL OCCURS <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>. <span style="color:#75715e">&#34;记录BDC执行返回数据&#34; 
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>:ctu_params <span style="color:#66d9ef">LIKE </span>CTU_PARAMS.   <span style="color:#75715e">&#34;调事务代码时带的一些参数，是否前台执行，报错停止等&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>:e_msg <span style="color:#66d9ef">type </span>bapi_msg,
+     lv_msg <span style="color:#66d9ef">type </span>t100<span style="color:#f92672">-</span>text.
+<span style="color:#66d9ef">DATA</span>:ctu_params <span style="color:#66d9ef">LIKE </span>CTU_PARAMS.   <span style="color:#75715e">&#34;调事务代码时带的一些参数，是否前台执行，报错停止等&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">CLEAR</span> ctu_params.
 ctu_params<span style="color:#f92672">-</span>dismode  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;N&#39;</span>.
 ctu_params<span style="color:#f92672">-</span>updmode  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;S&#39;</span>.
@@ -329,6 +331,21 @@ ctu_params<span style="color:#f92672">-</span>racommit <span style="color:#f9267
   <span style="color:#66d9ef">CALL TRANSACTION</span> <span style="color:#e6db74">&#39;CO02&#39;</span> <span style="color:#66d9ef">USING</span> bdcdata
                           OPTIONS <span style="color:#66d9ef">FROM</span> ctu_params
                           MESSAGES <span style="color:#66d9ef">INTO</span> messtab.
+  <span style="color:#66d9ef">LOOP AT </span>messtab.
+    <span style="color:#66d9ef">CLEAR</span> lv_msg.
+    <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;MESSAGE_TEXT_BUILD&#39;</span>
+      <span style="color:#66d9ef">EXPORTING</span>
+        msgid  <span style="color:#f92672">=</span> messtab<span style="color:#f92672">-</span>msgid
+        msgnr  <span style="color:#f92672">=</span> messtab<span style="color:#f92672">-</span>msgnr
+        msgv1  <span style="color:#f92672">=</span> messtab<span style="color:#f92672">-</span>msgv1
+        msgv2  <span style="color:#f92672">=</span> messtab<span style="color:#f92672">-</span>msgv2
+        msgv3  <span style="color:#f92672">=</span> messtab<span style="color:#f92672">-</span>msgv3
+        msgv4  <span style="color:#f92672">=</span> messtab<span style="color:#f92672">-</span>msgv4
+      <span style="color:#66d9ef">IMPORTING</span>
+        message_text_output <span style="color:#f92672">=</span> lv_msg.
+    <span style="color:#66d9ef">CONCATENATE</span> e_msg lv_msg <span style="color:#66d9ef">INTO</span> e_msg.
+    <span style="color:#66d9ef">CLEAR</span>: lv_msg,messtab.
+  <span style="color:#66d9ef">ENDLOOP</span>.
 <span style="color:#66d9ef">ENDLOOP</span>.
 </code></pre></div><ul>
 <li>BDC_OKCODE  &lsquo;=BU&rsquo; 表示单击保存按钮</li>
@@ -343,9 +360,32 @@ ctu_params<span style="color:#f92672">-</span>racommit <span style="color:#f9267
 <ul>
 <li><code>DATA:messtab LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE.</code></li>
 </ul>
-<h4 id="两个固定-form尽量不要对其中的内容进行修改">两个固定 Form：尽量不要对其中的内容进行修改</h4>
-<p>参数值：</p>
-<table>
+<h4 id="两个固定-form">两个固定 FORM</h4>
+<p><em>BDC_DYNPRO</em>：指定 bdc_dynpro 的实参，告知系统 dialog 程序名称以及 Screen number。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*----------------------------------------------------------------*</span>
+<span style="color:#75715e">*        Start new screen                                        *</span>
+<span style="color:#75715e">*----------------------------------------------------------------*</span>
+<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">bdc_dynpro</span> <span style="color:#66d9ef">USING</span> <span style="color:#66d9ef">PROGRAM</span> dynpro.
+  <span style="color:#66d9ef">CLEAR</span> bdcdata.
+  bdcdata<span style="color:#f92672">-</span>program  <span style="color:#f92672">=</span> <span style="color:#66d9ef">program</span>.
+  bdcdata<span style="color:#f92672">-</span>dynpro   <span style="color:#f92672">=</span> dynpro.
+  bdcdata<span style="color:#f92672">-</span>dynbegin <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+  <span style="color:#66d9ef">APPEND</span> bdcdata.
+<span style="color:#66d9ef">ENDFORM</span>.
+</code></pre></div><p><em>BDC_FIELD</em>：指定 bdc_field 的实参，告知系统把光标放在哪个字段。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*----------------------------------------------------------------*</span>
+<span style="color:#75715e">*        Insert field                                            *</span>
+<span style="color:#75715e">*----------------------------------------------------------------*</span>
+<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">bdc_field</span> <span style="color:#66d9ef">USING</span> fnam fval.
+  <span style="color:#66d9ef">IF</span> fval <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">OR</span> fnam fval <span style="color:#f92672">IS NOT INITIAL</span>.
+    <span style="color:#66d9ef">CLEAR</span> bdcdata.
+    bdcdata<span style="color:#f92672">-</span>fnam <span style="color:#f92672">=</span> fnam.
+    bdcdata<span style="color:#f92672">-</span>fval <span style="color:#f92672">=</span> fval.
+    <span style="color:#66d9ef">CONDENSE</span> bdcdata<span style="color:#f92672">-</span>fval.
+    <span style="color:#66d9ef">APPEND</span> bdcdata.
+  <span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#66d9ef">ENDFORM</span>.
+</code></pre></div><table>
 <thead>
 <tr>
 <th style="text-align:left">Field name</th>
@@ -387,30 +427,7 @@ ctu_params<span style="color:#f92672">-</span>racommit <span style="color:#f9267
 </tr>
 </tbody>
 </table>
-<p>BDC_DYNPRO：指定 bdc_dynpro 的实参，告知系统 dialog 程序名称以及 Screen number。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*----------------------------------------------------------------*</span>
-<span style="color:#75715e">*        Start new screen                                        *</span>
-<span style="color:#75715e">*----------------------------------------------------------------*</span>
-<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">BDC_DYNPRO</span> <span style="color:#66d9ef">USING</span> <span style="color:#66d9ef">PROGRAM</span> DYNPRO.
-  <span style="color:#66d9ef">CLEAR</span> BDCDATA.
-  BDCDATA<span style="color:#f92672">-</span>PROGRAM  <span style="color:#f92672">=</span> <span style="color:#66d9ef">PROGRAM</span>.
-  BDCDATA<span style="color:#f92672">-</span>DYNPRO   <span style="color:#f92672">=</span> DYNPRO.
-  BDCDATA<span style="color:#f92672">-</span>DYNBEGIN <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-  <span style="color:#66d9ef">APPEND</span> BDCDATA.
-<span style="color:#66d9ef">ENDFORM</span>.
-</code></pre></div><p>BDC_FIELD：指定 bdc_field 的实参，告知系统把光标放在哪个字段。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*----------------------------------------------------------------*</span>
-<span style="color:#75715e">*        Insert field                                            *</span>
-<span style="color:#75715e">*----------------------------------------------------------------*</span>
-<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">BDC_FIELD</span> <span style="color:#66d9ef">USING</span> FNAM FVAL.
-  <span style="color:#66d9ef">IF</span> FVAL <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">OR</span> FVAL <span style="color:#f92672">IS NOT INITIAL</span>.
-    <span style="color:#66d9ef">CLEAR</span> BDCDATA.
-    BDCDATA<span style="color:#f92672">-</span>FNAM <span style="color:#f92672">=</span> FNAM.
-    BDCDATA<span style="color:#f92672">-</span>FVAL <span style="color:#f92672">=</span> FVAL.
-    <span style="color:#66d9ef">APPEND</span> BDCDATA.
-  <span style="color:#66d9ef">ENDIF</span>.
-<span style="color:#66d9ef">ENDFORM</span>.
-</code></pre></div><h3 id="bdc中按顺序使用的功能模块">BDC中按顺序使用的功能模块</h3>
+<h3 id="bdc中按顺序使用的功能模块">BDC中按顺序使用的功能模块</h3>
 <p>三个功能模块依次使用，使 BDC 编程成功进行数据传输。</p>
 <ul>
 <li>
@@ -484,7 +501,7 @@ ctu_params<span style="color:#f92672">-</span>defsize <span style="color:#f92672
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2586</span>
+                   <span>2612</span>
             </p>
             
             <p class="copyright-item">

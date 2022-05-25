@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" Smartforms 转换成PDF发送到FTP服务器 "/>
-<meta name="twitter:description" content="Send pdf file to ftp server REPORT zpdfsendtoftp. DATA : BEGIN OF t_vbak OCCURS 0, vbeln TYPE vbrk-vbeln, vkorg TYPE vbak-vkorg, vkbur TYPE vbak-vkbur, END OF t_vbak. DATA: function_name TYPE rs38l_fnam, form_name TYPE tdsfname VALUE &#39;ZTEST1&#39;. DATA: carr_id TYPE sbook-carrid, ctrlop TYPE ssfctrlop, compop TYPE ssfcompop, tab_otf_data TYPE ssfcrescl. DATA: pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE, tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE, bin_filesize TYPE i, pdf_xstring"/>
+<meta name="twitter:description" content="Send PDF file to FTP server REPORT zpdfsendtoftp. DATA : BEGIN OF t_vbak OCCURS 0, vbeln TYPE vbrk-vbeln, vkorg TYPE vbak-vkorg, vkbur TYPE vbak-vkbur, END OF t_vbak. DATA: function_name TYPE rs38l_fnam, form_name TYPE tdsfname VALUE &#39;ZTEST1&#39;. DATA: carr_id TYPE sbook-carrid, ctrlop TYPE ssfctrlop, compop TYPE ssfcompop, tab_otf_data TYPE ssfcrescl. DATA: pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE, tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE, bin_filesize TYPE i, pdf_xstring"/>
 
   <script type="application/ld+json">
 {
@@ -171,176 +171,175 @@
           
           
 
-          <h3 id="send-pdf-file-to-ftp-server">Send pdf file to ftp server</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">REPORT  zpdfsendtoftp.
-DATA : BEGIN OF t_vbak OCCURS 0,
-         vbeln TYPE vbrk-vbeln,
-         vkorg TYPE vbak-vkorg,
-         vkbur TYPE vbak-vkbur,
-       END OF t_vbak.
-DATA: function_name TYPE rs38l_fnam,
-      form_name  TYPE tdsfname VALUE &#39;ZTEST1&#39;.
-DATA: carr_id TYPE sbook-carrid,
-      ctrlop  TYPE ssfctrlop,
-      compop   TYPE ssfcompop,
-      tab_otf_data  TYPE ssfcrescl.
-DATA: pdf_tab       LIKE tline OCCURS 0 WITH HEADER LINE,
-      tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE,
-      bin_filesize  TYPE i,
-      pdf_xstring TYPE xstring,
-      file_name     TYPE string,
-      file_path     TYPE string,
-      full_path     TYPE string.
+          <h3 id="send-pdf-file-to-ftp-server">Send PDF file to FTP server</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">REPORT</span>  zpdfsendtoftp.
+<span style="color:#66d9ef">DATA</span> : <span style="color:#66d9ef">BEGIN OF</span> t_vbak OCCURS <span style="color:#ae81ff">0</span>,
+         vbeln <span style="color:#66d9ef">TYPE </span>vbrk<span style="color:#f92672">-</span>vbeln,
+         vkorg <span style="color:#66d9ef">TYPE </span>vbak<span style="color:#f92672">-</span>vkorg,
+         vkbur <span style="color:#66d9ef">TYPE </span>vbak<span style="color:#f92672">-</span>vkbur,
+       <span style="color:#66d9ef">END OF</span> t_vbak.
+<span style="color:#66d9ef">DATA</span>: function_name <span style="color:#66d9ef">TYPE </span>rs38l_fnam,
+      form_name  <span style="color:#66d9ef">TYPE </span>tdsfname <span style="color:#66d9ef">VALUE</span> <span style="color:#e6db74">&#39;ZTEST1&#39;</span>.
+<span style="color:#66d9ef">DATA</span>: carr_id <span style="color:#66d9ef">TYPE </span>sbook<span style="color:#f92672">-</span>carrid,
+      ctrlop  <span style="color:#66d9ef">TYPE </span>ssfctrlop,
+      compop   <span style="color:#66d9ef">TYPE </span>ssfcompop,
+      tab_otf_data  <span style="color:#66d9ef">TYPE </span>ssfcrescl.
+<span style="color:#66d9ef">DATA</span>: pdf_tab       <span style="color:#66d9ef">LIKE </span>tline OCCURS <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>,
+      tab_otf_final <span style="color:#66d9ef">TYPE </span>itcoo OCCURS <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>,
+      bin_filesize  <span style="color:#66d9ef">TYPE </span>i,
+      pdf_xstring <span style="color:#66d9ef">TYPE </span>xstring,
+      file_name     <span style="color:#66d9ef">TYPE </span>string,
+      file_path     <span style="color:#66d9ef">TYPE </span>string,
+      full_path     <span style="color:#66d9ef">TYPE </span>string.
 
-PARAMETERS : vbeln TYPE vbak-vbeln.   &#34; input parameter
-SELECT vbeln vkorg vkbur FROM vbak INTO TABLE t_vbak WHERE vbeln = vbeln.
-compop-tddest = &#39;LP01&#39;.
-ctrlop-no_dialog = &#39;X&#39;.
-ctrlop-preview = space.
-ctrlop-getotf = &#39;X&#39;.
-CALL FUNCTION &#39;SSF_FUNCTION_MODULE_NAME&#39;
-  EXPORTING
-    formname           = form_name
-  IMPORTING
-    fm_name            = function_name
-  EXCEPTIONS
-    no_form            = 1
-    no_function_module = 2
-    OTHERS             = 3.
-CALL FUNCTION function_name
-  EXPORTING
-    control_parameters = ctrlop
-    output_options     = compop
-    user_settings      = space
-    vbeln              = vbeln
-  IMPORTING
-    job_output_info    = tab_otf_data
-  TABLES
-    t_vbak             = t_vbak.
-&#34; Convert data to PDF &#34;
-tab_otf_final[] = tab_otf_data-otfdata[].
-CALL FUNCTION &#39;CONVERT_OTF&#39;
-  EXPORTING
-    format                = &#39;PDF&#39;
-    max_linewidth         = 132
-  IMPORTING
-    bin_filesize          = bin_filesize
-    bin_file              = pdf_xstring
-  TABLES
-    otf                   = tab_otf_final
-    lines                 = pdf_tab
-  EXCEPTIONS
-    err_max_linewidth     = 1
-    err_format            = 2
-    err_conv_not_possible = 3
-    err_bad_otf           = 4
-    OTHERS                = 5.
-IF sy-subrc <span style="color:#960050;background-color:#1e0010">&lt;</span>&gt; 0.
-  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-ENDIF.
-&#34; send pdf file to server &#34;
-DATA: handle   TYPE i,
-      key      TYPE i VALUE 26101957,
-      pwd_len  TYPE i,
-      command_index TYPE i.
-DATA: user(30) TYPE c VALUE &#39;ftptest123&#39;, &#34;user name of ftp server&#34;
-      pwd(30)  TYPE c VALUE &#39;pass123&#39;,    &#34;password of ftp server&#34;
-      host(64) TYPE c VALUE &#39;enter host&#39;, &#34;ip address of FTP server&#34;
-      dest     LIKE rfcdes-rfcdest VALUE &#39;SAPFTPA&#39;. &#34;Background RFC destination&#34;
-DATA filename TYPE char200.
-DATA bindata  TYPE TABLE OF blob WITH HEADER LINE.
-DATA result   TYPE TABLE OF text WITH HEADER LINE.
-DATA commands TYPE TABLE OF text WITH HEADER LINE.
+<span style="color:#66d9ef">PARAMETERS</span> : vbeln <span style="color:#66d9ef">TYPE </span>vbak<span style="color:#f92672">-</span>vbeln.   <span style="color:#75715e">&#34; input parameter
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> vbeln vkorg vkbur <span style="color:#66d9ef">FROM</span> vbak <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> t_vbak <span style="color:#66d9ef">WHERE</span> vbeln <span style="color:#f92672">=</span> vbeln.
+compop<span style="color:#f92672">-</span>tddest <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;LP01&#39;</span>.
+ctrlop<span style="color:#f92672">-</span>no_dialog <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+ctrlop<span style="color:#f92672">-</span>preview <span style="color:#f92672">=</span> space.
+ctrlop<span style="color:#f92672">-</span>getotf <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;SSF_FUNCTION_MODULE_NAME&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    formname           <span style="color:#f92672">=</span> form_name
+  <span style="color:#66d9ef">IMPORTING</span>
+    fm_name            <span style="color:#f92672">=</span> function_name
+  <span style="color:#66d9ef">EXCEPTIONS</span>
+    no_form            <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    no_function_module <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+    <span style="color:#66d9ef">OTHERS</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>.
+<span style="color:#66d9ef">CALL FUNCTION</span> function_name
+  <span style="color:#66d9ef">EXPORTING</span>
+    control_parameters <span style="color:#f92672">=</span> ctrlop
+    output_options     <span style="color:#f92672">=</span> compop
+    user_settings      <span style="color:#f92672">=</span> space
+    vbeln              <span style="color:#f92672">=</span> vbeln
+  <span style="color:#66d9ef">IMPORTING</span>
+    job_output_info    <span style="color:#f92672">=</span> tab_otf_data
+  <span style="color:#66d9ef">TABLES</span>
+    t_vbak             <span style="color:#f92672">=</span> t_vbak.
+<span style="color:#75715e">&#34; Convert data to PDF &#34;
+</span><span style="color:#75715e"></span>tab_otf_final[] <span style="color:#f92672">=</span> tab_otf_data<span style="color:#f92672">-</span>otfdata[].
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;CONVERT_OTF&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    <span style="color:#66d9ef">format</span>                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PDF&#39;</span>
+    max_linewidth         <span style="color:#f92672">=</span> <span style="color:#ae81ff">132</span>
+  <span style="color:#66d9ef">IMPORTING</span>
+    bin_filesize          <span style="color:#f92672">=</span> bin_filesize
+    bin_file              <span style="color:#f92672">=</span> pdf_xstring
+  <span style="color:#66d9ef">TABLES</span>
+    otf                   <span style="color:#f92672">=</span> tab_otf_final
+    <span style="color:#66d9ef">lines</span>                 <span style="color:#f92672">=</span> pdf_tab
+  <span style="color:#66d9ef">EXCEPTIONS</span>
+    err_max_linewidth     <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    err_format            <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+    err_conv_not_possible <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+    err_bad_otf           <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+    <span style="color:#66d9ef">OTHERS</span>                <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">MESSAGE</span> <span style="color:#66d9ef">ID</span> sy<span style="color:#f92672">-</span>msgid <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>msgty <span style="color:#66d9ef">NUMBER</span> sy<span style="color:#f92672">-</span>msgno
+    <span style="color:#66d9ef">WITH</span> sy<span style="color:#f92672">-</span>msgv1 sy<span style="color:#f92672">-</span>msgv2 sy<span style="color:#f92672">-</span>msgv3 sy<span style="color:#f92672">-</span>msgv4.
+<span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">&#34; send pdf file to server &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>: handle   <span style="color:#66d9ef">TYPE </span>i,
+      <span style="color:#66d9ef">key</span>      <span style="color:#66d9ef">TYPE </span>i <span style="color:#66d9ef">VALUE</span> <span style="color:#ae81ff">26101957</span>,
+      pwd_len  <span style="color:#66d9ef">TYPE </span>i,
+      command_index <span style="color:#66d9ef">TYPE </span>i.
+<span style="color:#66d9ef">DATA</span>: user(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">TYPE </span>c <span style="color:#66d9ef">VALUE</span> <span style="color:#e6db74">&#39;ftptest123&#39;</span>, <span style="color:#75715e">&#34;user name of ftp server&#34;
+</span><span style="color:#75715e"></span>      pwd(<span style="color:#ae81ff">30</span>)  <span style="color:#66d9ef">TYPE </span>c <span style="color:#66d9ef">VALUE</span> <span style="color:#e6db74">&#39;pass123&#39;</span>,    <span style="color:#75715e">&#34;password of ftp server&#34;
+</span><span style="color:#75715e"></span>      host(<span style="color:#ae81ff">64</span>) <span style="color:#66d9ef">TYPE </span>c <span style="color:#66d9ef">VALUE</span> <span style="color:#e6db74">&#39;enter host&#39;</span>, <span style="color:#75715e">&#34;ip address of FTP server&#34;
+</span><span style="color:#75715e"></span>      dest     <span style="color:#66d9ef">LIKE </span>rfcdes<span style="color:#f92672">-</span>rfcdest <span style="color:#66d9ef">VALUE</span> <span style="color:#e6db74">&#39;SAPFTPA&#39;</span>. <span style="color:#75715e">&#34;Background RFC destination&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span> filename <span style="color:#66d9ef">TYPE </span>char200.
+<span style="color:#66d9ef">DATA</span> bindata  <span style="color:#66d9ef">TYPE TABLE OF</span> blob <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.
+<span style="color:#66d9ef">DATA</span> <span style="color:#66d9ef">result   TYPE TABLE OF</span> text <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.
+<span style="color:#66d9ef">DATA</span> commands <span style="color:#66d9ef">TYPE TABLE OF</span> text <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.
 
-DATA i_tab_converted_data TYPE STANDARD TABLE OF char200 WITH HEADER LINE.
-TYPES:BEGIN OF str_xml,
-  data(256) TYPE x,
-END OF str_xml.
-DATA: xml_table TYPE TABLE OF str_xml,
-      xml_line  TYPE str_xml, &#34;Adjust as per requirement/OS limits&#34;
-      filepath(128) TYPE c,
-      command(200) TYPE c.
+<span style="color:#66d9ef">DATA</span> i_tab_converted_data <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> char200 <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.
+<span style="color:#66d9ef">TYPES</span>:<span style="color:#66d9ef">BEGIN OF</span> str_xml,
+  <span style="color:#66d9ef">data</span>(<span style="color:#ae81ff">256</span>) <span style="color:#66d9ef">TYPE </span>x,
+<span style="color:#66d9ef">END OF</span> str_xml.
+<span style="color:#66d9ef">DATA</span>: xml_table <span style="color:#66d9ef">TYPE TABLE OF</span> str_xml,
+      xml_line  <span style="color:#66d9ef">TYPE </span>str_xml, <span style="color:#75715e">&#34;Adjust as per requirement/OS limits&#34;
+</span><span style="color:#75715e"></span>      filepath(<span style="color:#ae81ff">128</span>) <span style="color:#66d9ef">TYPE </span>c,
+      command(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">TYPE </span>c.
 
-filepath = &#39;/home&#39;.
-OPEN DATASET filepath FOR OUTPUT IN BINARY MODE.
-IF sy-subrc = 0.
-  LOOP AT xml_table INTO xml_line.
-    TRANSFER xml_line TO filepath.
-  ENDLOOP.
-ENDIF.
-CLOSE DATASET filepath.
-&#34; Scramble the password provided in a format recognized by SAP.&#34;
-SET EXTENDED CHECK OFF.
-pwd_len = strlen( pwd ).
-CALL FUNCTION &#39;HTTP_SCRAMBLE&#39;
-  EXPORTING
-    source      = pwd
-    sourcelen   = pwd_len
-    key         = key
-  IMPORTING
-    destination = pwd.
-IF sy-subrc <span style="color:#960050;background-color:#1e0010">&lt;</span>&gt; 0.
-  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-ENDIF.
-&#34; To Connect to the Server using FTP &#34;
-CALL FUNCTION &#39;FTP_CONNECT&#39;
-  EXPORTING
-    user            = user
-    password        = pwd
-    host            = host
-    rfc_destination = dest
-  IMPORTING
-    handle          = handle
-  EXCEPTIONS
-    OTHERS          = 1.
-IF sy-subrc <span style="color:#960050;background-color:#1e0010">&lt;</span>&gt; 0.
-  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-ENDIF.
-&#34; Upload File &#34;
-CONCATENATE &#39;/&#39; &#39;test&#39; &#39;.pdf&#39; INTO filename.
-CALL FUNCTION &#39;SCMS_XSTRING_TO_BINARY&#39;
-  EXPORTING
-    buffer     = pdf_xstring
-  TABLES
-    binary_tab = bindata.
-CALL FUNCTION &#39;FTP_COMMAND&#39;
-  EXPORTING
-    handle        = handle
-    command       = &#39;set passive on&#39;
-  TABLES
-    data          = result
-  EXCEPTIONS
-    command_error = 1
-    tcpip_error   = 2.
-CALL FUNCTION &#39;FTP_R3_TO_SERVER&#39;
-  EXPORTING
-    handle        = handle
-    fname         = filename
-    blob_length   = bin_filesize
-  TABLES
-    blob          = pdf_tab
-  EXCEPTIONS
-    tcpip_error   = 1
-    command_error = 2
-    data_error    = 3
-    OTHERS        = 4.
-
-* To disconnect the FTP
-CALL FUNCTION &#39;FTP_DISCONNECT&#39;
-  EXPORTING
-    handle = handle
-  EXCEPTIONS
-    OTHERS = 1.
-* Disconnect the RFC connection between SAP and other system.
-CALL FUNCTION &#39;RFC_CONNECTION_CLOSE&#39;
-  EXPORTING
-    destination = dest
-  EXCEPTIONS
-    OTHERS      = 1.
-WRITE: &#39;pdf file send successfully&#39;.
+filepath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/home&#39;</span>.
+<span style="color:#66d9ef">OPEN DATASET</span> filepath <span style="color:#66d9ef">FOR</span> OUTPUT <span style="color:#66d9ef">IN</span> BINARY MODE.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">LOOP AT </span>xml_table <span style="color:#66d9ef">INTO</span> xml_line.
+    <span style="color:#66d9ef">TRANSFER</span> xml_line <span style="color:#66d9ef">TO</span> filepath.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+<span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#66d9ef">CLOSE DATASET</span> filepath.
+<span style="color:#75715e">&#34; Scramble the password provided in a format recognized by SAP.&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SET EXTENDED CHECK</span> <span style="color:#66d9ef">OFF</span>.
+pwd_len <span style="color:#f92672">=</span> strlen( pwd ).
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;HTTP_SCRAMBLE&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    source      <span style="color:#f92672">=</span> pwd
+    sourcelen   <span style="color:#f92672">=</span> pwd_len
+    <span style="color:#66d9ef">key</span>         <span style="color:#f92672">=</span> <span style="color:#66d9ef">key</span>
+  <span style="color:#66d9ef">IMPORTING</span>
+    destination <span style="color:#f92672">=</span> pwd.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">MESSAGE</span> <span style="color:#66d9ef">ID</span> sy<span style="color:#f92672">-</span>msgid <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>msgty <span style="color:#66d9ef">NUMBER</span> sy<span style="color:#f92672">-</span>msgno
+    <span style="color:#66d9ef">WITH</span> sy<span style="color:#f92672">-</span>msgv1 sy<span style="color:#f92672">-</span>msgv2 sy<span style="color:#f92672">-</span>msgv3 sy<span style="color:#f92672">-</span>msgv4.
+<span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">&#34; To Connect to the Server using FTP &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;FTP_CONNECT&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    user            <span style="color:#f92672">=</span> user
+    password        <span style="color:#f92672">=</span> pwd
+    host            <span style="color:#f92672">=</span> host
+    rfc_destination <span style="color:#f92672">=</span> dest
+  <span style="color:#66d9ef">IMPORTING</span>
+    handle          <span style="color:#f92672">=</span> handle
+  <span style="color:#66d9ef">EXCEPTIONS</span>
+    <span style="color:#66d9ef">OTHERS</span>          <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">MESSAGE</span> <span style="color:#66d9ef">ID</span> sy<span style="color:#f92672">-</span>msgid <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>msgty <span style="color:#66d9ef">NUMBER</span> sy<span style="color:#f92672">-</span>msgno
+    <span style="color:#66d9ef">WITH</span> sy<span style="color:#f92672">-</span>msgv1 sy<span style="color:#f92672">-</span>msgv2 sy<span style="color:#f92672">-</span>msgv3 sy<span style="color:#f92672">-</span>msgv4.
+<span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">&#34; Upload File &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CONCATENATE</span> <span style="color:#e6db74">&#39;/&#39;</span> <span style="color:#e6db74">&#39;test&#39;</span> <span style="color:#e6db74">&#39;.pdf&#39;</span> <span style="color:#66d9ef">INTO</span> filename.
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;SCMS_XSTRING_TO_BINARY&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    buffer     <span style="color:#f92672">=</span> pdf_xstring
+  <span style="color:#66d9ef">TABLES</span>
+    binary_tab <span style="color:#f92672">=</span> bindata.
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;FTP_COMMAND&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    handle        <span style="color:#f92672">=</span> handle
+    command       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;set passive on&#39;</span>
+  <span style="color:#66d9ef">TABLES</span>
+    <span style="color:#66d9ef">data</span>          <span style="color:#f92672">=</span> <span style="color:#66d9ef">result
+</span><span style="color:#66d9ef">  EXCEPTIONS</span>
+    command_error <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    tcpip_error   <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>.
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;FTP_R3_TO_SERVER&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    handle        <span style="color:#f92672">=</span> handle
+    fname         <span style="color:#f92672">=</span> filename
+    blob_length   <span style="color:#f92672">=</span> bin_filesize
+  <span style="color:#66d9ef">TABLES</span>
+    blob          <span style="color:#f92672">=</span> pdf_tab
+  <span style="color:#66d9ef">EXCEPTIONS</span>
+    tcpip_error   <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    command_error <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+    data_error    <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+    <span style="color:#66d9ef">OTHERS</span>        <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>.
+<span style="color:#75715e">* To disconnect the FTP</span>
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;FTP_DISCONNECT&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    handle <span style="color:#f92672">=</span> handle
+  <span style="color:#66d9ef">EXCEPTIONS</span>
+    <span style="color:#66d9ef">OTHERS</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>.
+<span style="color:#75715e">* Disconnect the RFC connection between SAP and other system.</span>
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;RFC_CONNECTION_CLOSE&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    destination <span style="color:#f92672">=</span> dest
+  <span style="color:#66d9ef">EXCEPTIONS</span>
+    <span style="color:#66d9ef">OTHERS</span>      <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>.
+<span style="color:#66d9ef">WRITE</span>: <span style="color:#e6db74">&#39;pdf file send successfully&#39;</span>.
 </code></pre></div>
     </div>
 

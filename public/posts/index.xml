@@ -2002,7 +2002,7 @@
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/</guid>
-      <description>Send pdf file to ftp server REPORT zpdfsendtoftp. DATA : BEGIN OF t_vbak OCCURS 0, vbeln TYPE vbrk-vbeln, vkorg TYPE vbak-vkorg, vkbur TYPE vbak-vkbur, END OF t_vbak. DATA: function_name TYPE rs38l_fnam, form_name TYPE tdsfname VALUE &amp;#39;ZTEST1&amp;#39;. DATA: carr_id TYPE sbook-carrid, ctrlop TYPE ssfctrlop, compop TYPE ssfcompop, tab_otf_data TYPE ssfcrescl. DATA: pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE, tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE, bin_filesize TYPE i, pdf_xstring</description>
+      <description>Send PDF file to FTP server REPORT zpdfsendtoftp. DATA : BEGIN OF t_vbak OCCURS 0, vbeln TYPE vbrk-vbeln, vkorg TYPE vbak-vkorg, vkbur TYPE vbak-vkbur, END OF t_vbak. DATA: function_name TYPE rs38l_fnam, form_name TYPE tdsfname VALUE &amp;#39;ZTEST1&amp;#39;. DATA: carr_id TYPE sbook-carrid, ctrlop TYPE ssfctrlop, compop TYPE ssfcompop, tab_otf_data TYPE ssfcrescl. DATA: pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE, tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE, bin_filesize TYPE i, pdf_xstring</description>
     </item>
     
     <item>
@@ -2560,7 +2560,7 @@
       <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms_DataTransfer/</guid>
-      <description>数据传输到Smart forms DATA: wf_name TYPE rs38l_fnam. DATA: lv_stp TYPE timestampl, lv_stp2(22). DATA: lv_buffid1(18), &amp;#34;header lv_buffid2(18). &amp;#34;detail DEFINE savebuffer. perform save_to_buffer using &amp;amp;1 &amp;amp;2. END-OF-DEFINITION. GET TIME STAMP FIELD lv_stp. lv_stp2 = lv_stp. CONCATENATE &amp;#39;HEADER&amp;#39; lv_stp2+8(14) INTO lv_buffid1. CONCATENATE &amp;#39;DETAIL&amp;#39; lv_stp2+8(14) INTO lv_buffid2. savebuffer it_header[] lv_buffid1. savebuffer it_detail[] lv_buffid2. CALL FUNCTION &amp;#39;SSF_FUNCTION_MODULE_NAME&amp;#39; EXPORTING formname = &amp;#39;Form_name&amp;#39; IMPORTING fm_name = wf_name EXCEPTIONS no_form</description>
+      <description>数据传输到 Smartforms Smartforms 是一个独立的外部 Function Module，对于 ABAP 程序内部定义的内表数据不能直接传递，需要定义外部的数据结构 Structure 或者使用标准的表结构。如果 ABAP</description>
     </item>
     
     <item>
@@ -2569,7 +2569,7 @@
       <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Smartforms/</guid>
-      <description>Smart Forms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出</description>
+      <description>Smartforms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出介</description>
     </item>
     
     <item>

@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" Smart Forms 使用 "/>
-<meta name="twitter:description" content="Smart Forms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出"/>
+<meta name="twitter:description" content="Smartforms 简介 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出介"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "smartforms",
-  "wordcount":  1863 ,
+  "wordcount":  1708 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_Smartforms\/",
   "datePublished": "2018-07-23T00:00:00\u002b00:00",
   "dateModified": "2018-07-23T00:00:00\u002b00:00",
@@ -173,44 +173,32 @@
           
           
 
-          <h3 id="smart-forms-简介">Smart Forms 简介</h3>
+          <h3 id="smartforms-简介">Smartforms 简介</h3>
 <p>在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出介质，SAP Smart Forms 支持打印机、传真、电子邮件或 Internet（通过使用生成的 XML 输出）。</p>
-<p>激活 Smart Forms 时，系统会在运行时自动生成一个独立的外部 Function Module，对于程序内部定义的内表数据不能直接传递，需要定义外部的数据结构 Structure 或者使用标准的表结构，如果程序变更，需要传递的数据发生变化，那么该 Sturcture 也需要修改，这是 Smart Forms 中不方便的地方。</p>
-<p>我们也可以在 Smart Forms 内部写取数据的逻辑，但是在 Smart Forms 中编程不是很方便，而且有时我们的数据需要首先以 List 或者 ALV List 的方式显示，然后再打印，所以在 Smart Forms 中书写取数据逻辑只能对一些要求非常简单的场合适用。</p>
-<p>Smart Forms 的执行顺序是根据左边菜单从上到下执行的。</p>
-<h3 id="查找-smart-forms">查找 Smart Forms</h3>
-<h4 id="方法-1">方法 1</h4>
-<p>查找表格名称和打印程序名称的最佳方法是使用 SE38，输入程序 RSNAST00。 在以下语句处保留断点。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP">PERFORM (TNAPR<span style="color:#f92672">-</span>RONAM) <span style="color:#66d9ef">IN PROGRAM</span> (TNAPR<span style="color:#f92672">-</span>PGNAM) 
-                         <span style="color:#66d9ef">USING</span> RETURNCODE US_SCREEN
-                         <span style="color:#66d9ef">IF FOUND</span>.
-</code></pre></div><ul>
-<li>TNAPR-FONAM 的值为表格名称</li>
-<li>TNAPR-PGNAM 的值为驱动程序名称</li>
-</ul>
-<h4 id="方法-2">方法 2</h4>
-<p>Run <code>SE03</code>, choose &ldquo;Search For Object in the request/transport&rdquo;：Here run the report for the hit：R3TR SSFO.</p>
-<h4 id="方法-3">方法 3</h4>
-<p>事物码 <code>NACE</code> 可以查找 (例如。采购订单，销售订单等)；如果不想找，可以直接在</p>
-<p>SSF_FUNCTION_MODULE_NAME 这个函数里打断点，只要调用smartfrom打印，总要走这个的。前台去执行打印操作，自然会进入这个function，然后看下对应的smartform名称即可。</p>
-<ul>
-<li>NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加的脚本表单或 Smartforms）的 Tcode。</li>
-</ul>
-<p><code>TNAPR</code> 表可以根据 smartform 名字查找对应的 smartform 程序。</p>
+<p>激活 Smartforms 时，系统会在运行时自动生成一个独立的外部 Function Module。</p>
+<p>Smartforms 的执行顺序是根据左边的树形菜单从上到下执行的。</p>
+<h3 id="style-样式制作">Style 样式制作</h3>
+<p>Style 定义文字类型、大小样式等属性，可在 Text 对象内使用不同的样式。</p>
+<h4 id="创建-style">创建 Style</h4>
+<p><img src="/images/ABAP/smartform6.png" alt="Smartforms Style"></p>
+<p><img src="/images/ABAP/smartform7.png" alt="Smartforms Style"></p>
+<p>Header data：表头数据，定义默认段落属性等参数。</p>
+<p>Paragraph formats：段落格式，字体属性，制表符以及轮廓和编号等，在设定对象时可以选择需要的段落。</p>
+<p>Character formats：字符格式，定义是否粗体、倾斜、上标、下标、大小等，在一段文字内设置不同的字体、颜色等。</p>
+<h4 id="使用-style">使用 Style</h4>
+<p>在 Smartforms 的 Form Attributes 中引入 Style。</p>
+<p><img src="/images/ABAP/smartform8.png" alt="Smartforms Style"></p>
+<h3 id="创建-smartform">创建 Smartform</h3>
 <h4 id="事物码-smartforms">事物码 smartforms</h4>
 <p><img src="/images/ABAP/smartform0.png" alt="smartforms"></p>
 <p><img src="/images/ABAP/smartform1.png" alt="smartforms"></p>
-<ul>
-<li>Navigation window：导航窗口由节点和子节点组成。包含表单的所有元素（文本、窗口等）</li>
-<li>Maintenance window：维护窗口显示元素的具体属性</li>
-<li>Form printer：表格打印机窗口显示页面布局</li>
-</ul>
-<h3 id="global-settings">Global Settings</h3>
-<h4 id="form-attributes">Form Attributes</h4>
-<p>表格属性，设置表格纸张大小及表格样式</p>
+<p>Navigation window：导航窗口由节点和子节点组成。包含表单的所有元素（文本、窗口等）</p>
+<p>Maintenance window：维护窗口显示元素的具体属性</p>
+<p>Form printer：表格打印机窗口显示页面布局</p>
+<h4 id="global-settings">Global Settings</h4>
+<p><em>Form Attributes</em>：表格属性，设置表格纸张大小及表格样式。</p>
 <p><img src="/images/ABAP/smartform2.png" alt="smartforms"></p>
-<h4 id="form-interface">Form Interface</h4>
-<p>表格接口，定义表格的输入参数，输出参数，tables 和异常信息。类似 BAPI 的接口参数。</p>
+<p><em>Form Interface</em>：表格接口，定义表格的输入参数，输出参数，tables 和异常信息。类似 BAPI 的接口参数。</p>
 <p><img src="/images/ABAP/smartform3.png" alt="smartforms"></p>
 <p><img src="/images/ABAP/smartform4.png" alt="smartforms"></p>
 <p>输入输出参数，异常处理参数，都会有默认值，是 Smartform 生成时自动产生的参数</p>
@@ -228,10 +216,9 @@
 <p>Tables 参数：主要用来传递调用 Smartform 时用来展示的内表数据</p>
 </li>
 </ul>
-<h4 id="global-definitions">Global Definitions</h4>
-<p>Global definitions 包含可以在整个表单中使用的数据，可进行数据定义和初始化。</p>
+<p><em>Global Definitions</em>：Global definitions 包含可以在整个表单中使用的数据，可进行数据定义和初始化。</p>
 <p><img src="/images/ABAP/smartform5.png" alt="smartforms"></p>
-<h3 id="form-内容设置">Form 内容设置</h3>
+<h4 id="form-内容设置">Form 内容设置</h4>
 <p>Pages and Windows</p>
 <ul>
 <li>一般 Form 里包含表头、表身、表尾；</li>
@@ -240,17 +227,6 @@
 <p>Form 内容显示为树形结构，在树结构中，为每个节点定义了一个选项卡，每个节点都可以链接到一个条件。当表单中满足条件时，系统将处理该节点，如果不满足，则系统不处理该节点。</p>
 <p>通过对树的节点布局，以及节点内部详细的信息处理可以实现复杂的 Form 内容设置。</p>
 <p>在一般情况下，树结构中的节点从上到下处理。每页上的分页数取决于当前页面上剩余的空间。</p>
-<h3 id="style-样式制作">Style 样式制作</h3>
-<p>Style 定义文字类型、大小样式等属性，可在 Text 对象内使用不同的样式。</p>
-<h4 id="创建-style">创建 Style</h4>
-<p><img src="/images/ABAP/smartform6.png" alt="Smartforms Style"></p>
-<p><img src="/images/ABAP/smartform7.png" alt="Smartforms Style"></p>
-<p>Header data：表头数据，定义默认段落属性等参数。 
-Paragraph formats：段落格式，字体属性，制表符以及轮廓和编号等，在设定对象时可以选择需要的段落。 
-Character formats：字符格式，定义是否粗体、倾斜、上标、下标、大小等，在一段文字内设置不同的字体、颜色等。</p>
-<h4 id="使用-style">使用 Style</h4>
-<p>在 Smartforms 的 Form Attributes 中引入 Style。</p>
-<p><img src="/images/ABAP/smartform8.png" alt="Smartforms Style"></p>
 <h3 id="smartforms-程序调用">Smartforms 程序调用</h3>
 <p>打印程序在运行时调用函数<code>SSF_FUNCTION_MODULE_NAME</code>可以获取 Smart Forms 生成的 FM，然后调用得到的 Function Module 来执行 smartform 。</p>
 <ul>
@@ -299,7 +275,7 @@ control_param<span style="color:#f92672">-</span>no_dialog <span style="color:#f
   <span style="color:#66d9ef">MESSAGE</span> <span style="color:#66d9ef">ID</span> sy<span style="color:#f92672">-</span>msgid <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>msgty <span style="color:#66d9ef">NUMBER</span> sy<span style="color:#f92672">-</span>msgno
     <span style="color:#66d9ef">WITH</span> sy<span style="color:#f92672">-</span>msgv1 sy<span style="color:#f92672">-</span>msgv2 sy<span style="color:#f92672">-</span>msgv3 sy<span style="color:#f92672">-</span>msgv4.
 <span style="color:#66d9ef">ENDIF</span>.
-</code></pre></div><h3 id="smartforms--调用异常信息获取">Smartforms  调用异常信息获取</h3>
+</code></pre></div><h4 id="smartforms--调用异常信息获取">Smartforms  调用异常信息获取</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
   <span style="color:#66d9ef">DATA</span> lt_errortab <span style="color:#66d9ef">TYPE </span>tsferror.
   <span style="color:#66d9ef">FIELD-SYMBOLS</span>: &lt;fs_errortab&gt;  <span style="color:#66d9ef">TYPE LINE OF</span> tsferror.
@@ -320,7 +296,24 @@ control_param<span style="color:#f92672">-</span>no_dialog <span style="color:#f
         <span style="color:#66d9ef">OTHERS</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>.
   <span style="color:#66d9ef">ENDLOOP</span>.
 <span style="color:#66d9ef">ENDIF</span>.
-</code></pre></div><h3 id="smartforms-标准-demo">Smartforms 标准 Demo</h3>
+</code></pre></div><h3 id="查找-smartform">查找 Smartform</h3>
+<h4 id="方法-1">方法 1</h4>
+<p>查找表格名称和打印程序名称的最佳方法是使用 SE38，输入程序 RSNAST00。 在以下语句处保留断点。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP">PERFORM (TNAPR<span style="color:#f92672">-</span>RONAM) <span style="color:#66d9ef">IN PROGRAM</span> (TNAPR<span style="color:#f92672">-</span>PGNAM) 
+  <span style="color:#66d9ef">USING</span> RETURNCODE US_SCREEN <span style="color:#66d9ef">IF FOUND</span>.
+</code></pre></div><ul>
+<li>TNAPR-FONAM 的值为表格名称</li>
+<li>TNAPR-PGNAM 的值为驱动程序名称</li>
+</ul>
+<h4 id="方法-2">方法 2</h4>
+<p>Run <code>SE03</code>, choose &ldquo;Search For Object in the request/transport&rdquo;：Here run the report for the hit：R3TR SSFO.</p>
+<h4 id="方法-3">方法 3</h4>
+<p>事物码 <code>NACE</code> 可以查找 (例如。采购订单，销售订单等)；如果不想找，可以直接在函数  SSF_FUNCTION_MODULE_NAME 里打断点，只要调用smartfrom打印，总要走这个的。前台去执行打印操作，自然会进入这个 FM，然后看下对应的 smartform 名称即可。</p>
+<ul>
+<li>NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加的脚本表单或 Smartforms）的 Tcode。</li>
+</ul>
+<p><code>TNAPR</code> 表可以根据 smartform 名字查找对应的 smartform 程序。</p>
+<h3 id="smartforms-标准-demo">Smartforms 标准 Demo</h3>
 <table>
 <thead>
 <tr>
@@ -384,7 +377,7 @@ control_param<span style="color:#f92672">-</span>no_dialog <span style="color:#f
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1863</span>
+                   <span>1708</span>
             </p>
             
             <p class="copyright-item">

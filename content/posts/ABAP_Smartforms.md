@@ -12,44 +12,37 @@ tags:
 
 ---
 
-### Smart Forms 简介
+### Smartforms 简介
 
 在 SAP 的 ABAP 编程中，一般开发过程都是在 Report 程序中取出所有需要的数据，将数据进行相应的处理以后保存到输出内表中，再打印内表中的数据。作为输出介质，SAP Smart Forms 支持打印机、传真、电子邮件或 Internet（通过使用生成的 XML 输出）。
 
-激活 Smart Forms 时，系统会在运行时自动生成一个独立的外部 Function Module，对于程序内部定义的内表数据不能直接传递，需要定义外部的数据结构 Structure 或者使用标准的表结构，如果程序变更，需要传递的数据发生变化，那么该 Sturcture 也需要修改，这是 Smart Forms 中不方便的地方。
+激活 Smartforms 时，系统会在运行时自动生成一个独立的外部 Function Module。
 
-我们也可以在 Smart Forms 内部写取数据的逻辑，但是在 Smart Forms 中编程不是很方便，而且有时我们的数据需要首先以 List 或者 ALV List 的方式显示，然后再打印，所以在 Smart Forms 中书写取数据逻辑只能对一些要求非常简单的场合适用。
+Smartforms 的执行顺序是根据左边的树形菜单从上到下执行的。
 
-Smart Forms 的执行顺序是根据左边菜单从上到下执行的。
+### Style 样式制作
 
-### 查找 Smart Forms
+Style 定义文字类型、大小样式等属性，可在 Text 对象内使用不同的样式。
 
-#### 方法 1
+#### 创建 Style
 
-查找表格名称和打印程序名称的最佳方法是使用 SE38，输入程序 RSNAST00。 在以下语句处保留断点。
+![Smartforms Style](/images/ABAP/smartform6.png)
 
-```ABAP
-PERFORM (TNAPR-RONAM) IN PROGRAM (TNAPR-PGNAM) 
-                         USING RETURNCODE US_SCREEN
-                         IF FOUND.
-```
+![Smartforms Style](/images/ABAP/smartform7.png)
 
-- TNAPR-FONAM 的值为表格名称
-- TNAPR-PGNAM 的值为驱动程序名称
+Header data：表头数据，定义默认段落属性等参数。 
 
-#### 方法 2
+Paragraph formats：段落格式，字体属性，制表符以及轮廓和编号等，在设定对象时可以选择需要的段落。 
 
-Run `SE03`, choose "Search For Object in the request/transport"：Here run the report for the hit：R3TR SSFO.
+Character formats：字符格式，定义是否粗体、倾斜、上标、下标、大小等，在一段文字内设置不同的字体、颜色等。
 
-#### 方法 3
+#### 使用 Style
 
-事物码 `NACE` 可以查找 (例如。采购订单，销售订单等)；如果不想找，可以直接在
+在 Smartforms 的 Form Attributes 中引入 Style。
 
-SSF_FUNCTION_MODULE_NAME 这个函数里打断点，只要调用smartfrom打印，总要走这个的。前台去执行打印操作，自然会进入这个function，然后看下对应的smartform名称即可。
+![Smartforms Style](/images/ABAP/smartform8.png)
 
-- NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加的脚本表单或 Smartforms）的 Tcode。
-
-`TNAPR` 表可以根据 smartform 名字查找对应的 smartform 程序。
+### 创建 Smartform
 
 #### 事物码 smartforms
 
@@ -57,21 +50,19 @@ SSF_FUNCTION_MODULE_NAME 这个函数里打断点，只要调用smartfrom打印�
 
 ![smartforms](/images/ABAP/smartform1.png)
 
-- Navigation window：导航窗口由节点和子节点组成。包含表单的所有元素（文本、窗口等）
-- Maintenance window：维护窗口显示元素的具体属性
-- Form printer：表格打印机窗口显示页面布局
+Navigation window：导航窗口由节点和子节点组成。包含表单的所有元素（文本、窗口等）
 
-### Global Settings
+Maintenance window：维护窗口显示元素的具体属性
 
-#### Form Attributes
+Form printer：表格打印机窗口显示页面布局
 
-表格属性，设置表格纸张大小及表格样式
+#### Global Settings
+
+*Form Attributes*：表格属性，设置表格纸张大小及表格样式。
 
 ![smartforms](/images/ABAP/smartform2.png)
 
-#### Form Interface
-
-表格接口，定义表格的输入参数，输出参数，tables 和异常信息。类似 BAPI 的接口参数。
+*Form Interface*：表格接口，定义表格的输入参数，输出参数，tables 和异常信息。类似 BAPI 的接口参数。
 
 ![smartforms](/images/ABAP/smartform3.png)
 
@@ -85,14 +76,11 @@ SSF_FUNCTION_MODULE_NAME 这个函数里打断点，只要调用smartfrom打印�
 
 - Tables 参数：主要用来传递调用 Smartform 时用来展示的内表数据
 
-
-#### Global Definitions
-
-Global definitions 包含可以在整个表单中使用的数据，可进行数据定义和初始化。
+*Global Definitions*：Global definitions 包含可以在整个表单中使用的数据，可进行数据定义和初始化。
 
 ![smartforms](/images/ABAP/smartform5.png)
 
-### Form 内容设置
+#### Form 内容设置
 
 Pages and Windows
 
@@ -104,26 +92,6 @@ Form 内容显示为树形结构，在树结构中，为每个节点定义了一
 通过对树的节点布局，以及节点内部详细的信息处理可以实现复杂的 Form 内容设置。
 
 在一般情况下，树结构中的节点从上到下处理。每页上的分页数取决于当前页面上剩余的空间。
-
-### Style 样式制作
-
-Style 定义文字类型、大小样式等属性，可在 Text 对象内使用不同的样式。
-
-#### 创建 Style
-
-![Smartforms Style](/images/ABAP/smartform6.png)
-
-![Smartforms Style](/images/ABAP/smartform7.png)
-
-Header data：表头数据，定义默认段落属性等参数。 
-Paragraph formats：段落格式，字体属性，制表符以及轮廓和编号等，在设定对象时可以选择需要的段落。 
-Character formats：字符格式，定义是否粗体、倾斜、上标、下标、大小等，在一段文字内设置不同的字体、颜色等。
-
-#### 使用 Style
-
-在 Smartforms 的 Form Attributes 中引入 Style。
-
-![Smartforms Style](/images/ABAP/smartform8.png)
 
 ### Smartforms 程序调用
 
@@ -177,7 +145,7 @@ IF sy-subrc <> 0.
 ENDIF.
 ```
 
-### Smartforms  调用异常信息获取
+#### Smartforms  调用异常信息获取
 
 ```ABAP
 IF sy-subrc <> 0.
@@ -201,6 +169,32 @@ IF sy-subrc <> 0.
   ENDLOOP.
 ENDIF.
 ```
+
+### 查找 Smartform
+
+#### 方法 1
+
+查找表格名称和打印程序名称的最佳方法是使用 SE38，输入程序 RSNAST00。 在以下语句处保留断点。
+
+```ABAP
+PERFORM (TNAPR-RONAM) IN PROGRAM (TNAPR-PGNAM) 
+  USING RETURNCODE US_SCREEN IF FOUND.
+```
+
+- TNAPR-FONAM 的值为表格名称
+- TNAPR-PGNAM 的值为驱动程序名称
+
+#### 方法 2
+
+Run `SE03`, choose "Search For Object in the request/transport"：Here run the report for the hit：R3TR SSFO.
+
+#### 方法 3
+
+事物码 `NACE` 可以查找 (例如。采购订单，销售订单等)；如果不想找，可以直接在函数  SSF_FUNCTION_MODULE_NAME 里打断点，只要调用smartfrom打印，总要走这个的。前台去执行打印操作，自然会进入这个 FM，然后看下对应的 smartform 名称即可。
+
+- NACE 是用于链接应用程序类型，输出类型及其处理例程（如驱动程序和附加的脚本表单或 Smartforms）的 Tcode。
+
+`TNAPR` 表可以根据 smartform 名字查找对应的 smartform 程序。
 
 ### Smartforms 标准 Demo
 

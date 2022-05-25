@@ -571,7 +571,7 @@
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/</guid>
-      <description>Send pdf file to ftp server REPORT zpdfsendtoftp. DATA : BEGIN OF t_vbak OCCURS 0, vbeln TYPE vbrk-vbeln, vkorg TYPE vbak-vkorg, vkbur TYPE vbak-vkbur, END OF t_vbak. DATA: function_name TYPE rs38l_fnam, form_name TYPE tdsfname VALUE &amp;#39;ZTEST1&amp;#39;. DATA: carr_id TYPE sbook-carrid, ctrlop TYPE ssfctrlop, compop TYPE ssfcompop, tab_otf_data TYPE ssfcrescl. DATA: pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE, tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE, bin_filesize TYPE i, pdf_xstring</description>
+      <description>Send PDF file to FTP server REPORT zpdfsendtoftp. DATA : BEGIN OF t_vbak OCCURS 0, vbeln TYPE vbrk-vbeln, vkorg TYPE vbak-vkorg, vkbur TYPE vbak-vkbur, END OF t_vbak. DATA: function_name TYPE rs38l_fnam, form_name TYPE tdsfname VALUE &amp;#39;ZTEST1&amp;#39;. DATA: carr_id TYPE sbook-carrid, ctrlop TYPE ssfctrlop, compop TYPE ssfcompop, tab_otf_data TYPE ssfcrescl. DATA: pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE, tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE, bin_filesize TYPE i, pdf_xstring</description>
     </item>
     
     <item>

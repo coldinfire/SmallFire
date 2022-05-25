@@ -123,6 +123,8 @@ PARAMETERS: dataset(132) LOWER CASE DEFAULT 'Program_name'.
 " BDC attribute define "
 DATA:bdcdata LIKE BDCDATA OCCURS 0 WITH HEADER LINE.    "保存录屏过程中的变量及常量数据"
 DATA:messtab LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE. "记录BDC执行返回数据" 
+DATA:e_msg type bapi_msg,
+     lv_msg type t100-text.
 DATA:ctu_params LIKE CTU_PARAMS.   "调事务代码时带的一些参数，是否前台执行，报错停止等"
 CLEAR ctu_params.
 ctu_params-dismode  = 'N'.
@@ -148,6 +150,21 @@ LOOP AT <DYN_TABLE> ASSIGNING <DYN_WA>.
   CALL TRANSACTION 'CO02' USING bdcdata
                           OPTIONS FROM ctu_params
                           MESSAGES INTO messtab.
+  LOOP AT messtab.
+    CLEAR lv_msg.
+    CALL FUNCTION 'MESSAGE_TEXT_BUILD'
+      EXPORTING
+        msgid  = messtab-msgid
+        msgnr  = messtab-msgnr
+        msgv1  = messtab-msgv1
+        msgv2  = messtab-msgv2
+        msgv3  = messtab-msgv3
+        msgv4  = messtab-msgv4
+      IMPORTING
+        message_text_output = lv_msg.
+    CONCATENATE e_msg lv_msg INTO e_msg.
+    CLEAR: lv_msg,messtab.
+  ENDLOOP.
 ENDLOOP.
 ```
 
@@ -164,9 +181,39 @@ Messages of call transaction：返回信息
 
 - `DATA:messtab LIKE BDCMSGCOLL OCCURS 0 WITH HEADER LINE.`
 
-#### 两个固定 Form：尽量不要对其中的内容进行修改
+#### 两个固定 FORM
 
-参数值：
+*BDC_DYNPRO*：指定 bdc_dynpro 的实参，告知系统 dialog 程序名称以及 Screen number。
+
+```ABAP
+*----------------------------------------------------------------*
+*        Start new screen                                        *
+*----------------------------------------------------------------*
+FORM bdc_dynpro USING PROGRAM dynpro.
+  CLEAR bdcdata.
+  bdcdata-program  = program.
+  bdcdata-dynpro   = dynpro.
+  bdcdata-dynbegin = 'X'.
+  APPEND bdcdata.
+ENDFORM.
+```
+
+*BDC_FIELD*：指定 bdc_field 的实参，告知系统把光标放在哪个字段。
+
+```ABAP
+*----------------------------------------------------------------*
+*        Insert field                                            *
+*----------------------------------------------------------------*
+FORM bdc_field USING fnam fval.
+  IF fval <> ' ' OR fnam fval IS NOT INITIAL.
+    CLEAR bdcdata.
+    bdcdata-fnam = fnam.
+    bdcdata-fval = fval.
+    CONDENSE bdcdata-fval.
+    APPEND bdcdata.
+  ENDIF.
+ENDFORM.
+```
 
 | Field name | Type | Length | Description       |
 | :--------- | :--- | :----- | :---------------- |
@@ -175,37 +222,6 @@ Messages of call transaction：返回信息
 | DYNBEGIN   | CHAR | 1      | Starting a dynpro |
 | FNAM       | CHAR | 35     | Field name        |
 | FVAL       | CHAR | 80     | Field value       |
-
-BDC_DYNPRO：指定 bdc_dynpro 的实参，告知系统 dialog 程序名称以及 Screen number。
-
-```ABAP
-*----------------------------------------------------------------*
-*        Start new screen                                        *
-*----------------------------------------------------------------*
-FORM BDC_DYNPRO USING PROGRAM DYNPRO.
-  CLEAR BDCDATA.
-  BDCDATA-PROGRAM  = PROGRAM.
-  BDCDATA-DYNPRO   = DYNPRO.
-  BDCDATA-DYNBEGIN = 'X'.
-  APPEND BDCDATA.
-ENDFORM.
-```
-
-BDC_FIELD：指定 bdc_field 的实参，告知系统把光标放在哪个字段。
-
-```ABAP
-*----------------------------------------------------------------*
-*        Insert field                                            *
-*----------------------------------------------------------------*
-FORM BDC_FIELD USING FNAM FVAL.
-  IF FVAL <> ' ' OR FVAL IS NOT INITIAL.
-    CLEAR BDCDATA.
-    BDCDATA-FNAM = FNAM.
-    BDCDATA-FVAL = FVAL.
-    APPEND BDCDATA.
-  ENDIF.
-ENDFORM.
-```
 
 ### BDC中按顺序使用的功能模块
 
