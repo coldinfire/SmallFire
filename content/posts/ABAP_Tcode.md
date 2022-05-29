@@ -28,6 +28,7 @@ tags:
 | SQ03/SQ02/SQ01    /SQVI | Query 报表                     | SLIN  | ABAP 扩展语法检查            |
 | SM21                    | 系统日志，记录系统的事件和问题 | SP01  | 打印需求查看                 |
 | AL08                    | 查看当前活动用户               | RZ01  | 图形化的JOB监视              |
+| ABAPDOCU                | ABAP 文档和范例                | BAPI  | BAPI 浏览器                  |
 
 ### Background Processing
 

@@ -377,6 +377,15 @@
     </item>
     
     <item>
+      <title> 获取Domain的 Value Range </title>
+      <link>https://coldinfire.github.io/2020/ABAP_Utils_GetDomainValueRange/</link>
+      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/ABAP_Utils_GetDomainValueRange/</guid>
+      <description>Function：DD_DOMVALUES_GET Domain 的 Value Range 值维护后，会保存到表 DD07V 中，函数 DD_DOMVALUES_GET 就是从该表中获取数据。 FORM FRM_GET_DOMAIN TABLES R_VALUE STRUCTURE DD07V USING PV_NAME. DATA: LV_RETURN TYPE SY-SUBRC. CALL FUNCTION</description>
+    </item>
+    
+    <item>
       <title> SAP 数据库连接配置 </title>
       <link>https://coldinfire.github.io/2020/ABAP_SQL_DBConnect/</link>
       <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
