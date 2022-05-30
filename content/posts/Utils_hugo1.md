@@ -18,23 +18,23 @@ tags:
 2. Git：用来发布博客内容 [https://git-scm.com/](https://git-scm.com/)
 3. Github：保存和显示博客内容 [https://github.com/](https://github.com/)
 4. MarkDown编辑软件：用来进行博客文章的编辑 [Typora](https://typora.io/)
-5. Cmder：替代Windows命令行的工具[https://cmder.net/](https://cmder.net/)
+5. Cmder：替代 Windows 命令行的工具[https://cmder.net/](https://cmder.net/)
 
-#### Hugo详情
+### Hugo
 
 Hugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。
 
 官方网址 [https://gohugo.io/](https://gohugo.io/)，关于Hugo的介绍十分详细。
 
-#### 安装Hugo
+#### 安装 Hugo
 
-在Github 仓库中选择合适的版本下载[版本库](https://github.com/gohugoio/hugo/releases)，解压，将解压出来的可执行文件(hugo.exe)放到自定义目录;将对应的文件夹路径配置到环境变量中；查看对应的版本确定是否配置正确。
+在 [Github 版本库](https://github.com/gohugoio/hugo/releases) 中选择合适的版本下载并解压，将解压出来的可执行文件(hugo.exe)放到自定义目录;将对应的文件夹路径配置到环境变量中；`hugo version`查看对应的版本。
 
 ![查看Hugo版本](/images/Blog/20180206105224.png)
 
-**初始化博客目录**
+#### 初始化博客目录
 
-选择一个自定义路径来存放博客，在该路径下执行`hugo new site myBlog`;会创建一个名为myBlog的文件夹存放博客内容，该名称可以修改。
+选择一个自定义路径来存放博客，在该路径下执行`hugo new site myBlog`；会创建一个名为 myBlog 的文件夹存放博客内容。
 
 初始化的目录结构：
 
@@ -49,17 +49,20 @@ Hugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、
 #└── themes：主题目录，可以将喜欢主题，下载到该目录下
 ```
 
-**安装主题：**
+#### 安装主题
 
-在 [themes.gohugo.io](http://themes.gohugo.io/) 选择喜欢的主题，下载到 themes 目录中，然后在 config.toml 中配置 `theme = "KeepIt"`即可
+在 [themes.gohugo.io](http://themes.gohugo.io/) 选择喜欢的主题，下载到 themes 目录中，然后在 config.toml 中配置 `theme = "KeepIt"`即可。
 
-- 在themes目录下执行
+- 在 themes 目录下执行
   - `git clone https://github.com/Fastbyte01/KeepIt`
 - 也可以添加到 git 的 submodule 中，优点是后面讲到用 travis 自动部署时比较方便。如果需要对主题做更改，最好 fork 主题再做改动。
   - `git submodule add https://github.com/Fastbyte01/KeepIt.git themes/KeepIt `
-  - 如果需要调整更改主题，需要在 themes/even 目录下重新 build:`cd themes/KeepIt && npm i && npm start`
+  - 如果需要调整更改主题，需要在 themes/even 目录下重新 build
+    - `cd themes/KeepIt`
+    -  `npm i`
+    - `npm start`
 
-**创建新文件：** `hugo new about.md`,会在content文件夹下产生一个about.md的文件。
+创建新文件：`hugo new about.md`，会在 content 文件夹下产生一个 about.md 的文件。
 
 文件抬头信息的设定：可以根据需求进行添加或则删除
 
@@ -68,15 +71,14 @@ Hugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、
 title: "My First Post"
 date: 2017-12-14T11:18:15+08:00
 keywords: ["hugo"]
-description: "第一篇文章"
+description: "The First"
 tags: ["hugo", "pages"]
 categories: ["pages"]
 author: ""
-
 ---
 ```
 
-**配置config.toml：** 该文件用于配置整个网站，根据自己的需求配置。
+配置config.toml：该文件用于配置整个网站，根据自己的需求配置。
 
 ```js
 # <head> 里面的 baseurl 信息，填你的博客地址
@@ -264,14 +266,26 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 
 生成网站：`hugo server -D -w`
 
-- -w:(监控更改，如果发生更改直接显示到博客上)
+- -w：监控更改，如果发生更改直接显示到博客上
 - 生成之后就可以通过 http://localhost:1313/ 查看网站效果。
 
-### 部署到Github Pages
+### 部署到 Github Pages
 
-为了后续通过Travis-CI自动部署，这里需要在Github上创建两个repo，一个是文件repo(自定义名称[blog]),一个是博客展示repo(必须为[username].github.io)。
+为了后续通过 Travis-CI 自动部署，这里需要在 Github 上创建两个 repo：一个是文件 repo ，自定义名称(blog)，一个是博客展示repo，必须为 `[username].github.io`。
 
-**配置Travis：**
+#### Git 连接 Github [远程仓库](https://blog.csdn.net/weixin_43233914/article/details/103502718)
+
+将修改后的内容发布到 blog 仓库中，Travis CI 会自动将生成的博客展示界面部署完成。通过`https://<user_name>.github.io/`可以访问博客。
+
+```java
+git add -a
+git commint -m "initial all files"
+git remote add origin https://github.com/<username>/blog
+git remote add origin git@github.
+git push -u origin master
+```
+
+#### 配置 Travis
 
 - 生成 [Github Access Token](https://github.com/settings/tokens/new)，只勾repo内容。
 
@@ -346,24 +360,11 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 
   - 在blog目录下创建并修改.gitignore，然后提交到github仓库
 
-    ```JS
+    ```js
     public/*
     themes/*
     resources/*
     ```
-
-**发布博客：**
-
-- 将修改后的内容发布到blog仓库中，Travis CI会自动将生成的博客展示界面部署完成。
-
-- 通过`https://<user_name>.github.io/`访问博客
-
-  ```JS
-  git add -A
-  git commint -m "initial all files"
-  git remote add origin https://github.com/<username>/blog
-  git push -u origin master
-  ```
 
 ### 添加Gittalk
 
