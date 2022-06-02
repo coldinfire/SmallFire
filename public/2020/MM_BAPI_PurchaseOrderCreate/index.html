@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" BAPI 操作 Purchase Order "/>
-<meta name="twitter:description" content="通过 BAPI 操作 Purchase Order 通过 BAPI：BAPI_PO_CREATE1 创建 PO TABLE 中的行项目参数 poitem 的货币字段 poitem-orderpr_un ：行项目的货币类型是根据供应商自动带出，不需要"/>
+<meta name="twitter:description" content="通过 BAPI：BAPI_PO_CREATE1 创建 PO TABLE 中的行项目参数 poitem 的货币字段 poitem-orderpr_un ：行项目的货币类型是根据供应商自动带出，不需要传入。 实际业务"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "MM",
-  "wordcount":  1569 ,
+  "wordcount":  1562 ,
   "url": "https:\/\/coldinfire.github.io\/2020\/MM_BAPI_PurchaseOrderCreate\/",
   "datePublished": "2020-06-16T00:00:00\u002b00:00",
   "dateModified": "2020-06-16T00:00:00\u002b00:00",
@@ -171,8 +171,7 @@
           
           
 
-          <h2 id="通过-bapi--操作-purchase-order">通过 BAPI  操作 Purchase Order</h2>
-<h3 id="通过-bapibapi_po_create1-创建-po">通过 BAPI：BAPI_PO_CREATE1 创建 PO</h3>
+          <h3 id="通过-bapibapi_po_create1-创建-po">通过 BAPI：BAPI_PO_CREATE1 创建 PO</h3>
 <p>TABLE 中的行项目参数 poitem 的货币字段 poitem-orderpr_un ：行项目的货币类型是根据供应商自动带出，不需要传入。</p>
 <p>实际业务中有可能创建 PO 的人员会变换货币的类型，通过设置抬头参数 poheader 的货币字段：poheader-currency = ‘货币’，这样即可实现对新建 PO 的货币类型的强制修改。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">FUNCTION</span> zcreate_po.
@@ -561,7 +560,7 @@ gs_poheaderx<span style="color:#f92672">-</span>pmnttrms  <span style="color:#f9
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1569</span>
+                   <span>1562</span>
             </p>
             
             <p class="copyright-item">

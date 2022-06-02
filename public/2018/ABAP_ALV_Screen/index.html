@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  3113 ,
+  "wordcount":  3311 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Screen\/",
   "datePublished": "2018-06-21T00:00:00\u002b00:00",
   "dateModified": "2018-06-21T00:00:00\u002b00:00",
@@ -210,28 +210,7 @@
 <li>INPUT：控制屏幕元素的可输入性</li>
 <li>ACTIVE：控制屏幕的可见性 (0:不可见  1:不可见)</li>
 </ul>
-<p>多个复选框，实现单选功能：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: vcomm <span style="color:#66d9ef">TYPE </span>sscrfields<span style="color:#f92672">-</span>ucomm.
-<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
-<span style="color:#66d9ef">SELECTION-SCREEN COMMENT</span> <span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">007</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">FIELD</span> p_all.
-<span style="color:#66d9ef">PARAMETERS</span> p_all <span style="color:#66d9ef">AS CHECKBOX</span> USER<span style="color:#f92672">-</span>COMMAND CB1.
-<span style="color:#66d9ef">SELECTION-SCREEN END OF LINE</span>.
-
-<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
-<span style="color:#66d9ef">SELECTION-SCREEN COMMENT</span> <span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">005</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">FIELD</span> p_active.
-<span style="color:#66d9ef">PARAMETERS</span> p_active <span style="color:#66d9ef">AS CHECKBOX</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;X&#39;</span> USER<span style="color:#f92672">-</span>COMMAND CB2.
-<span style="color:#66d9ef">SELECTION-SCREEN END OF LINE</span>.
-
-<span style="color:#66d9ef">AT SELECTION-SCREEN</span>.
-  vcomm <span style="color:#f92672">=</span> sscrfields<span style="color:#f92672">-</span>ucomm.
-<span style="color:#66d9ef">AT SELECTION-SCREEN OUTPUT</span>.
-  <span style="color:#66d9ef">CASE</span> vcomm.
-    <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;CB1&#39;</span>.
-      p_active <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
-    <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;CB2&#39;</span>.
-      p_all <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
-  <span style="color:#66d9ef">ENDCASE</span>.
-</code></pre></div><h4 id="at-selection-screen-on-">AT SELECTION-SCREEN ON &hellip;</h4>
+<h4 id="at-selection-screen-on-">AT SELECTION-SCREEN ON &hellip;</h4>
 <p>选择屏幕显示之后，用来响应回车，F1，F4等事件。</p>
 <p>可选参数：</p>
 <ul>
@@ -313,6 +292,9 @@
 </li>
 <li>
 <p><code>NO-DISPLAY</code>：将 PARAMETERS 设置为隐藏，不会的屏幕上输出</p>
+</li>
+<li>
+<p><code>MODIFY ID mx</code>：Modify ID 使屏幕分组，SCREEN-GROUP1 = &lsquo;mx&rsquo;</p>
 </li>
 <li>
 <p><code>LOWER CASE</code>：输入值中不允许输入小写字符，否则会自动转换为大写</p>
@@ -438,7 +420,51 @@
 </li>
 </ul>
 <p><strong>多语言显示的维护</strong>：GOTO &ndash;&gt;Translation</p>
-<h4 id="参考链接">参考链接</h4>
+<h3 id="屏幕常用控制逻辑">屏幕常用控制逻辑</h3>
+<h4 id="设置组内屏幕的显示和隐藏">设置组内屏幕的显示和隐藏</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">REPORT</span>  ZTEST_MODIFID.
+
+<span style="color:#66d9ef">PARAMETERS</span> show_all <span style="color:#66d9ef">AS CHECKBOX</span> USER<span style="color:#f92672">-</span>COMMAND all. 
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF BLOCK</span> b1 <span style="color:#66d9ef">WITH FRAME</span>. 
+<span style="color:#66d9ef">PARAMETERS</span>: p1 <span style="color:#66d9ef">TYPE </span>c <span style="color:#66d9ef">LENGTH</span> <span style="color:#ae81ff">10</span>, 
+            p2 <span style="color:#66d9ef">TYPE </span>c <span style="color:#66d9ef">LENGTH</span> <span style="color:#ae81ff">10</span>, 
+            p3 <span style="color:#66d9ef">TYPE </span>c <span style="color:#66d9ef">LENGTH</span> <span style="color:#ae81ff">10</span>. 
+<span style="color:#66d9ef">SELECTION-SCREEN END OF BLOCK</span> b1. 
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF BLOCK</span> b2 <span style="color:#66d9ef">WITH FRAME</span>. 
+<span style="color:#66d9ef">PARAMETERS</span>: p4 <span style="color:#66d9ef">TYPE </span>c <span style="color:#66d9ef">LENGTH</span> <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">MODIF ID</span> bl2, 
+            p5 <span style="color:#66d9ef">TYPE </span>c <span style="color:#66d9ef">LENGTH</span> <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">MODIF ID</span> bl2, 
+            p6 <span style="color:#66d9ef">TYPE </span>c <span style="color:#66d9ef">LENGTH</span> <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">MODIF ID</span> bl2. 
+<span style="color:#66d9ef">SELECTION-SCREEN END OF BLOCK</span> b2. 
+
+<span style="color:#66d9ef">AT SELECTION-SCREEN OUTPUT</span>.    <span style="color:#75715e">&#34;当show_all值改变时会触发此事件&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">LOOP AT SCREEN</span>. 
+    <span style="color:#66d9ef">IF</span> show_all <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;X&#39;</span> <span style="color:#f92672">AND</span> screen<span style="color:#f92672">-</span>group1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BL2&#39;</span>. 
+       screen<span style="color:#f92672">-</span>active <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span>.    <span style="color:#75715e">&#34;设置组内屏幕的显示和隐藏&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">ENDIF</span>. 
+    <span style="color:#66d9ef">MODIFY SCREEN</span>.
+  <span style="color:#66d9ef">ENDLOOP</span>. 
+</code></pre></div><h4 id="多个复选框实现单选框功能">多个复选框，实现单选框功能</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: vcomm <span style="color:#66d9ef">TYPE </span>sscrfields<span style="color:#f92672">-</span>ucomm.
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
+<span style="color:#66d9ef">SELECTION-SCREEN COMMENT</span> <span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">007</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">FIELD</span> p_all.
+<span style="color:#66d9ef">PARAMETERS</span> p_all <span style="color:#66d9ef">AS CHECKBOX</span> USER<span style="color:#f92672">-</span>COMMAND CB1.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF LINE</span>.
+
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
+<span style="color:#66d9ef">SELECTION-SCREEN COMMENT</span> <span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">005</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">FIELD</span> p_active.
+<span style="color:#66d9ef">PARAMETERS</span> p_active <span style="color:#66d9ef">AS CHECKBOX</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;X&#39;</span> USER<span style="color:#f92672">-</span>COMMAND CB2.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF LINE</span>.
+
+<span style="color:#66d9ef">AT SELECTION-SCREEN</span>.
+  vcomm <span style="color:#f92672">=</span> sscrfields<span style="color:#f92672">-</span>ucomm.
+<span style="color:#66d9ef">AT SELECTION-SCREEN OUTPUT</span>.
+  <span style="color:#66d9ef">CASE</span> vcomm.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;CB1&#39;</span>.
+      p_active <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;CB2&#39;</span>.
+      p_all <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
+  <span style="color:#66d9ef">ENDCASE</span>.
+</code></pre></div><h4 id="参考链接">参考链接</h4>
 <ul>
 <li><a href="https://www.cnblogs.com/foxting/archive/2012/07/01/2572243.html">https://www.cnblogs.com/foxting/archive/2012/07/01/2572243.html</a></li>
 </ul>
@@ -455,7 +481,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>3113</span>
+                   <span>3311</span>
             </p>
             
             <p class="copyright-item">

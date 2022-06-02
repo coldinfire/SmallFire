@@ -706,7 +706,7 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_PurchaseOrderCreate/</guid>
-      <description>通过 BAPI 操作 Purchase Order 通过 BAPI：BAPI_PO_CREATE1 创建 PO TABLE 中的行项目参数 poitem 的货币字段 poitem-orderpr_un ：行项目的货币类型是根据供应商自动带出，不需要</description>
+      <description>通过 BAPI：BAPI_PO_CREATE1 创建 PO TABLE 中的行项目参数 poitem 的货币字段 poitem-orderpr_un ：行项目的货币类型是根据供应商自动带出，不需要传入。 实际业务</description>
     </item>
     
     <item>
@@ -716,6 +716,15 @@
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/</guid>
       <description>Purchase Request 内容 PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期 PR Item : 物料编号、短文本、发货日期、采购订单数量、采购订单价格、分类 BAPI: ME51</description>
+    </item>
+    
+    <item>
+      <title> BAPI 创建 Purchase Request </title>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_VL09/</link>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_VL09/</guid>
+      <description>VL09：交货单冲销 FORM cx_dn USING gt_out TYPE typ_out. DATA: ls_emkpf TYPE emkpf, lt_mesg TYPE STANDARD TABLE OF mesg. SELECT SINGLE wbstk,vbtyp INTO @data(l_likp) FROM likp WHERE vbeln = gt_out-vbeln. CLEAR: ls_emkpf,lt_mesg. CALL FUNCTION &amp;#39;WS_REVERSE_GOODS_ISSUE&amp;#39; EXPORTING i_vbeln = gt_out-vbeln i_budat = gt_out-budat i_vbtyp = l_likp-vbtyp i_tcode = &amp;#39;VL09&amp;#39; IMPORTING es_emkpf = ls_emkpf TABLES t_mesg = lt_mesg EXCEPTIONS error_reverse_goods_issue = 1 others = 2.</description>
     </item>
     
     <item>
@@ -1255,7 +1264,7 @@
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_BAPI_GoodsMovementCancel/</guid>
-      <description>全部冲销 (Full reversal) 如果必须取消整个物料凭证，则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。 BAPI 参数 Import MATERIALDOCUMENT：Number of a Material Document MA</description>
+      <description>全部冲销 (Full reversal) 如果必须取消整个物料凭证， 冲销时把父行项目和他自动产生的行项目一起冲销。则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。 BAPI 参数 Import MATERI</description>
     </item>
     
     <item>

@@ -15,7 +15,9 @@ tags:
 
 ### 全部冲销 (Full reversal)
 
-如果必须取消整个物料凭证，则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。
+如果必须取消整个物料凭证， 冲销时把父行项目和他自动产生的行项目一起冲销。则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。
+
+冲销凭证存储在 MSEG 中。
 
 #### BAPI 参数
 
@@ -34,40 +36,49 @@ Tables
 
 - RETURN：BAPI 执行中产生的消息。
 - GOODSMVT_MATDOCITEM：可以输入要冲销的物料凭证行项目。 如果该表为空，则取消物料凭证中的所有行项目。
+  - 如果行项目是自动生成的，且指定了行项目参数，则自动产生的行项目必须要人工指定才会冲销
 
 #### 实例代码
 
 ```ABAP
-DATA:MATERIALDOCUMENT TYPE BAPI2017_GM_HEAD_02-MAT_DOC,
-     MATDOCUMENTYEAR TYPE BAPI2017_GM_HEAD_02-DOC_YEAR,
-     GOODSMVT_PSTNG_DATE TYPE BAPI2017_GM_HEAD_02-MAT_DOC,
-     GOODSMVT_PR_UNAME TYPE BAPI2017_GM_HEAD_01-PR_UNAME.
-DATA:GOODSMVT_HEADRET LIKE BAPI2017_GM_HEAD_RET,
-     GOODSMVT_MATDOCITEM LIKE TABLE OF BAPI2017_GM_ITEM_04.
+DATA:mat_doc TYPE BAPI2017_GM_HEAD_02-MAT_DOC,
+     doc_year TYPE BAPI2017_GM_HEAD_02-DOC_YEAR,
+     pstng_date TYPE BAPI2017_GM_HEAD_02-PSTNG_DATE,
+     pr_uname TYPE BAPI2017_GM_HEAD_01-PR_UNAME.
+DATA:header LIKE BAPI2017_GM_HEAD_RET,
+     matdoc_item TYPE TABLE OF BAPI2017_GM_ITEM_04 WITH HEADER LINE.
 DATA:lt_return LIKE TABLE OF bapiret2,
      ls_return LIKE bapiret2.
-
-MATERIALDOCUMENT = 'XXXXXXXXXX'.
-GOODSMVT_PSTNG_DATE = sy-datum.
-GOODSMVT_PR_UNAME =  sy-uname.
-CLEAR:GOODSMVT_MATDOCITEM[],GOODSMVT_MATDOCITEM.
+mat_doc = 'XXXXXXXXXX'.
+doc_year = sy-datum(4).
+pstng_date = sy-datum.
+pr_uname =  sy-uname.
+CLEAR:matdoc_item[],matdoc_item.
+"冲销时把父行项目和他自动产生的行项目一起冲销."
+SELECT zeile AS matdoc_item FROM mseg
+  INTO CORRESPONDING FIELDS OF TABLE matdoc_item
+ WHERE mblnr = mat_doc
+   AND urzei = mat_doc_item
+   AND cancelled NE 'X'.
 GOODSMVT_MATDOCITEM-MATDOC_ITEM = 0001.
 APPEND GOODSMVT_MATDOCITEM.
 CLEAR lt_return[].
 CALL FUNCTION 'BAPI_GOODSMVT_CANCEL'
   EXPORTING
-    materialdocument    = MATERIALDOCUMENT
-    matdocumentyear     = sy-datum(4)
-    goodsmvt_pstng_date = GOODSMVT_PSTNG_DATE
-    goodsmvt_pr_uname   = GOODSMVT_PR_UNAME
+    materialdocument    = mat_doc
+    matdocumentyear     = doc_year
+    goodsmvt_pstng_date = pstng_date
+    goodsmvt_pr_uname   = pr_uname
   IMPORTING
-    goodsmvt_headret    = GOODSMVT_HEADRET
+    goodsmvt_headret    = header
   TABLES
     return              = lt_return
-    goodsmvt_matdocitem = GOODSMVT_MATDOCITEM.
-CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
-  EXPORTING
-    wait = 'X'.
+    goodsmvt_matdocitem = matdoc_item.
+IF sy-subrc = 0.
+  CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+    EXPORTING
+      wait = 'X'.
+ENDIF.
 ```
 
 ### 部分冲销 (Partial reversal)

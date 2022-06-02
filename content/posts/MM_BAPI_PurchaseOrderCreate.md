@@ -12,8 +12,6 @@ tags:
 
 ---
 
-## 通过 BAPI  操作 Purchase Order
-
 ### 通过 BAPI：BAPI_PO_CREATE1 创建 PO
 
 TABLE 中的行项目参数 poitem 的货币字段 poitem-orderpr_un ：行项目的货币类型是根据供应商自动带出，不需要传入。

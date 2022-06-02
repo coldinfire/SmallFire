@@ -202,7 +202,7 @@
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_BAPI_GoodsMovementCancel/</guid>
-      <description>全部冲销 (Full reversal) 如果必须取消整个物料凭证，则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。 BAPI 参数 Import MATERIALDOCUMENT：Number of a Material Document MA</description>
+      <description>全部冲销 (Full reversal) 如果必须取消整个物料凭证， 冲销时把父行项目和他自动产生的行项目一起冲销。则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。 BAPI 参数 Import MATERI</description>
     </item>
     
     <item>

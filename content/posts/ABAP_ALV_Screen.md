@@ -66,31 +66,6 @@ AT SELECTION-SCREEN OUTPUT.
 - INPUT：控制屏幕元素的可输入性
 - ACTIVE：控制屏幕的可见性 (0:不可见  1:不可见)
 
-多个复选框，实现单选功能：
-
-```ABAP
-DATA: vcomm TYPE sscrfields-ucomm.
-SELECTION-SCREEN BEGIN OF LINE.
-SELECTION-SCREEN COMMENT 1(32) text-007 FOR FIELD p_all.
-PARAMETERS p_all AS CHECKBOX USER-COMMAND CB1.
-SELECTION-SCREEN END OF LINE.
-
-SELECTION-SCREEN BEGIN OF LINE.
-SELECTION-SCREEN COMMENT 1(32) text-005 FOR FIELD p_active.
-PARAMETERS p_active AS CHECKBOX DEFAULT 'X' USER-COMMAND CB2.
-SELECTION-SCREEN END OF LINE.
-
-AT SELECTION-SCREEN.
-  vcomm = sscrfields-ucomm.
-AT SELECTION-SCREEN OUTPUT.
-  CASE vcomm.
-    WHEN 'CB1'.
-      p_active = ''.
-    WHEN 'CB2'.
-      p_all = ''.
-  ENDCASE.
-```
-
 #### AT SELECTION-SCREEN ON ...
 
 选择屏幕显示之后，用来响应回车，F1，F4等事件。
@@ -208,6 +183,7 @@ PARAMETERS:
 
 
 - `NO-DISPLAY`：将 PARAMETERS 设置为隐藏，不会的屏幕上输出
+- `MODIFY ID mx`：Modify ID 使屏幕分组，SCREEN-GROUP1 = 'mx'
 
 
 - `LOWER CASE`：输入值中不允许输入小写字符，否则会自动转换为大写
@@ -337,6 +313,61 @@ SELECT-OPTIONS 参照数据库字段来建立输入域，命名不能超过 8 �
 - 图标符号：可以在 Text Symbols 通过@符号来进行引用，如"@01@"，可通过程序 `RSTXICON` 查看所有的图标。
 
 **多语言显示的维护**：GOTO -->Translation
+
+### 屏幕常用控制逻辑
+
+#### 设置组内屏幕的显示和隐藏
+
+```ABAP
+REPORT  ZTEST_MODIFID.
+
+PARAMETERS show_all AS CHECKBOX USER-COMMAND all. 
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME. 
+PARAMETERS: p1 TYPE c LENGTH 10, 
+            p2 TYPE c LENGTH 10, 
+            p3 TYPE c LENGTH 10. 
+SELECTION-SCREEN END OF BLOCK b1. 
+SELECTION-SCREEN BEGIN OF BLOCK b2 WITH FRAME. 
+PARAMETERS: p4 TYPE c LENGTH 10 MODIF ID bl2, 
+            p5 TYPE c LENGTH 10 MODIF ID bl2, 
+            p6 TYPE c LENGTH 10 MODIF ID bl2. 
+SELECTION-SCREEN END OF BLOCK b2. 
+
+AT SELECTION-SCREEN OUTPUT.    "当show_all值改变时会触发此事件"
+  LOOP AT SCREEN. 
+    IF show_all <> 'X' AND screen-group1 = 'BL2'. 
+       screen-active = '0'.    "设置组内屏幕的显示和隐藏"
+    ENDIF. 
+    MODIFY SCREEN.
+  ENDLOOP. 
+```
+
+#### 多个复选框，实现单选框功能
+
+```ABAP
+DATA: vcomm TYPE sscrfields-ucomm.
+SELECTION-SCREEN BEGIN OF LINE.
+SELECTION-SCREEN COMMENT 1(32) text-007 FOR FIELD p_all.
+PARAMETERS p_all AS CHECKBOX USER-COMMAND CB1.
+SELECTION-SCREEN END OF LINE.
+
+SELECTION-SCREEN BEGIN OF LINE.
+SELECTION-SCREEN COMMENT 1(32) text-005 FOR FIELD p_active.
+PARAMETERS p_active AS CHECKBOX DEFAULT 'X' USER-COMMAND CB2.
+SELECTION-SCREEN END OF LINE.
+
+AT SELECTION-SCREEN.
+  vcomm = sscrfields-ucomm.
+AT SELECTION-SCREEN OUTPUT.
+  CASE vcomm.
+    WHEN 'CB1'.
+      p_active = ''.
+    WHEN 'CB2'.
+      p_all = ''.
+  ENDCASE.
+```
+
+
 
 #### 参考链接
 

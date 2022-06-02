@@ -1458,6 +1458,20 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2020/MM_BAPI_VL09/</loc>
+      
+      <lastmod>2020-06-12T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2020/ABAP_Utils_MointPerformanceCheck/</loc>
       
       <lastmod>2020-06-07T00:00:00+00:00</lastmod>

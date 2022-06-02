@@ -12,7 +12,7 @@ tags:
 
 ---
 
-#### Purchase Request 内容
+### Purchase Request 内容
 
 - PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期
   
@@ -26,7 +26,7 @@ BAPI:
 
 #### BAPI_PR_CREATE 实例
 
-```JS
+```ABAP
 DATA:PREQ_NO      TYPE  BAPIMEREQHEADER-PREQ_NO,
      PRHEADER    TYPE  BAPIMEREQHEADER,
      PRHEADERX   TYPE  BAPIMEREQHEADERX,
@@ -83,7 +83,9 @@ ELSE.
 ENDIF.
 ```
 
-#### BAPI_REQUISITION_CREATE Demo1
+### BAPI_REQUISITION_CREATE 
+
+#### Demo1
 
 ```ABAP
 FORM create_pr_batch .
@@ -247,7 +249,7 @@ FORM create_pr_batch .
 ENDFORM.                    " CREATE_PR "
 ```
 
-Demo2
+#### Demo2
 
 ```ABAP
 *&---------------------------------------------------------------------*

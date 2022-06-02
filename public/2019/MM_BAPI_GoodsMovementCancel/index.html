@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" Goods Movement Cacel "/>
-<meta name="twitter:description" content="全部冲销 (Full reversal) 如果必须取消整个物料凭证，则应使用 BAPI_GOODSMVT_CANCEL &#43; BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。 BAPI 参数 Import MATERIALDOCUMENT：Number of a Material Document MA"/>
+<meta name="twitter:description" content="全部冲销 (Full reversal) 如果必须取消整个物料凭证， 冲销时把父行项目和他自动产生的行项目一起冲销。则应使用 BAPI_GOODSMVT_CANCEL &#43; BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。 BAPI 参数 Import MATERI"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "MM, BAPI",
-  "wordcount":  799 ,
+  "wordcount":  932 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/MM_BAPI_GoodsMovementCancel\/",
   "datePublished": "2019-07-05T00:00:00\u002b00:00",
   "dateModified": "2019-07-05T00:00:00\u002b00:00",
@@ -172,7 +172,8 @@
           
 
           <h3 id="全部冲销-full-reversal">全部冲销 (Full reversal)</h3>
-<p>如果必须取消整个物料凭证，则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。 冲销凭证存储在 MSEG 中。</p>
+<p>如果必须取消整个物料凭证， 冲销时把父行项目和他自动产生的行项目一起冲销。则应使用 BAPI_GOODSMVT_CANCEL + BAPI_TRANSACTION_COMMIT 。</p>
+<p>冲销凭证存储在 MSEG 中。</p>
 <h4 id="bapi-参数">BAPI 参数</h4>
 <p>Import</p>
 <ul>
@@ -188,39 +189,51 @@
 <p>Tables</p>
 <ul>
 <li>RETURN：BAPI 执行中产生的消息。</li>
-<li>GOODSMVT_MATDOCITEM：可以输入要冲销的物料凭证行项目。 如果该表为空，则取消物料凭证中的所有行项目。</li>
+<li>GOODSMVT_MATDOCITEM：可以输入要冲销的物料凭证行项目。 如果该表为空，则取消物料凭证中的所有行项目。
+<ul>
+<li>如果行项目是自动生成的，且指定了行项目参数，则自动产生的行项目必须要人工指定才会冲销</li>
+</ul>
+</li>
 </ul>
 <h4 id="实例代码">实例代码</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>:MATERIALDOCUMENT <span style="color:#66d9ef">TYPE </span>BAPI2017_GM_HEAD_02<span style="color:#f92672">-</span>MAT_DOC,
-     MATDOCUMENTYEAR <span style="color:#66d9ef">TYPE </span>BAPI2017_GM_HEAD_02<span style="color:#f92672">-</span>DOC_YEAR,
-     GOODSMVT_PSTNG_DATE <span style="color:#66d9ef">TYPE </span>BAPI2017_GM_HEAD_02<span style="color:#f92672">-</span>MAT_DOC,
-     GOODSMVT_PR_UNAME <span style="color:#66d9ef">TYPE </span>BAPI2017_GM_HEAD_01<span style="color:#f92672">-</span>PR_UNAME.
-<span style="color:#66d9ef">DATA</span>:GOODSMVT_HEADRET <span style="color:#66d9ef">LIKE </span>BAPI2017_GM_HEAD_RET,
-     GOODSMVT_MATDOCITEM <span style="color:#66d9ef">LIKE TABLE OF</span> BAPI2017_GM_ITEM_04.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>:mat_doc <span style="color:#66d9ef">TYPE </span>BAPI2017_GM_HEAD_02<span style="color:#f92672">-</span>MAT_DOC,
+     doc_year <span style="color:#66d9ef">TYPE </span>BAPI2017_GM_HEAD_02<span style="color:#f92672">-</span>DOC_YEAR,
+     pstng_date <span style="color:#66d9ef">TYPE </span>BAPI2017_GM_HEAD_02<span style="color:#f92672">-</span>PSTNG_DATE,
+     pr_uname <span style="color:#66d9ef">TYPE </span>BAPI2017_GM_HEAD_01<span style="color:#f92672">-</span>PR_UNAME.
+<span style="color:#66d9ef">DATA</span>:header <span style="color:#66d9ef">LIKE </span>BAPI2017_GM_HEAD_RET,
+     matdoc_item <span style="color:#66d9ef">TYPE TABLE OF</span> BAPI2017_GM_ITEM_04 <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.
 <span style="color:#66d9ef">DATA</span>:lt_return <span style="color:#66d9ef">LIKE TABLE OF</span> bapiret2,
      ls_return <span style="color:#66d9ef">LIKE </span>bapiret2.
-
-MATERIALDOCUMENT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;XXXXXXXXXX&#39;</span>.
-GOODSMVT_PSTNG_DATE <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>datum.
-GOODSMVT_PR_UNAME <span style="color:#f92672">=</span>  sy<span style="color:#f92672">-</span>uname.
-<span style="color:#66d9ef">CLEAR</span>:GOODSMVT_MATDOCITEM[],GOODSMVT_MATDOCITEM.
+mat_doc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;XXXXXXXXXX&#39;</span>.
+doc_year <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>datum(<span style="color:#ae81ff">4</span>).
+pstng_date <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>datum.
+pr_uname <span style="color:#f92672">=</span>  sy<span style="color:#f92672">-</span>uname.
+<span style="color:#66d9ef">CLEAR</span>:matdoc_item[],matdoc_item.
+<span style="color:#75715e">&#34;冲销时把父行项目和他自动产生的行项目一起冲销.&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> zeile <span style="color:#66d9ef">AS</span> matdoc_item <span style="color:#66d9ef">FROM</span> mseg
+  <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">CORRESPONDING FIELDS OF</span> <span style="color:#66d9ef">TABLE</span> matdoc_item
+ <span style="color:#66d9ef">WHERE</span> mblnr <span style="color:#f92672">=</span> mat_doc
+   <span style="color:#f92672">AND</span> urzei <span style="color:#f92672">=</span> mat_doc_item
+   <span style="color:#f92672">AND</span> cancelled <span style="color:#f92672">NE</span> <span style="color:#e6db74">&#39;X&#39;</span>.
 GOODSMVT_MATDOCITEM<span style="color:#f92672">-</span>MATDOC_ITEM <span style="color:#f92672">=</span> <span style="color:#ae81ff">0001</span>.
 <span style="color:#66d9ef">APPEND</span> GOODSMVT_MATDOCITEM.
 <span style="color:#66d9ef">CLEAR</span> lt_return[].
 <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_GOODSMVT_CANCEL&#39;</span>
   <span style="color:#66d9ef">EXPORTING</span>
-    materialdocument    <span style="color:#f92672">=</span> MATERIALDOCUMENT
-    matdocumentyear     <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>datum(<span style="color:#ae81ff">4</span>)
-    goodsmvt_pstng_date <span style="color:#f92672">=</span> GOODSMVT_PSTNG_DATE
-    goodsmvt_pr_uname   <span style="color:#f92672">=</span> GOODSMVT_PR_UNAME
+    materialdocument    <span style="color:#f92672">=</span> mat_doc
+    matdocumentyear     <span style="color:#f92672">=</span> doc_year
+    goodsmvt_pstng_date <span style="color:#f92672">=</span> pstng_date
+    goodsmvt_pr_uname   <span style="color:#f92672">=</span> pr_uname
   <span style="color:#66d9ef">IMPORTING</span>
-    goodsmvt_headret    <span style="color:#f92672">=</span> GOODSMVT_HEADRET
+    goodsmvt_headret    <span style="color:#f92672">=</span> header
   <span style="color:#66d9ef">TABLES</span>
     <span style="color:#66d9ef">return</span>              <span style="color:#f92672">=</span> lt_return
-    goodsmvt_matdocitem <span style="color:#f92672">=</span> GOODSMVT_MATDOCITEM.
-<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_COMMIT&#39;</span>
-  <span style="color:#66d9ef">EXPORTING</span>
-    <span style="color:#66d9ef">wait</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+    goodsmvt_matdocitem <span style="color:#f92672">=</span> matdoc_item.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;BAPI_TRANSACTION_COMMIT&#39;</span>
+    <span style="color:#66d9ef">EXPORTING</span>
+      <span style="color:#66d9ef">wait</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+<span style="color:#66d9ef">ENDIF</span>.
 </code></pre></div><h3 id="部分冲销-partial-reversal">部分冲销 (Partial reversal)</h3>
 <p>如果原始物料凭证仅应部分冲销（例如，只有整个数量的一部分必须冲销），则应使用 BAPI_GOODSMVT_CREATE，与 BAPI_GOODSMVT_CANCEL 一样，无法更改要冲销的凭证中的任何数据（ 比如减少数量）。</p>
 <h4 id="bapi-参数-1">BAPI 参数</h4>
@@ -295,7 +308,7 @@ GOODSMVT_MATDOCITEM<span style="color:#f92672">-</span>MATDOC_ITEM <span style="
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>799</span>
+                   <span>932</span>
             </p>
             
             <p class="copyright-item">
