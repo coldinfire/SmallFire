@@ -107,12 +107,21 @@
     </item>
     
     <item>
+      <title> BAPI: BAPI_ROUTING_CREATE </title>
+      <link>https://coldinfire.github.io/2019/PP_BAPI_CreateRouting/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/PP_BAPI_CreateRouting/</guid>
+      <description>示例代码 *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZPPRTEST *&amp;amp;---------------------------------------------------------------------* *&amp;amp; *&amp;amp;---------------------------------------------------------------------* REPORT ZPPRTEST. DATA: l_plnnr TYPE plnnr. DATA: lt_plko TYPE TABLE OF bapi1012_tsk_c, lt_mapl TYPE TABLE OF bapi1012_mtk_c, lt_plpo TYPE TABLE OF bapi1012_opr_c, lt_subplpo TYPE TABLE OF bapi1012_sub_opr_c, lt_bom TYPE TABLE OF bapi1012_com_c, lt_msg TYPE TABLE OF bapiret2, ls_plko TYPE bapi1012_tsk_c, ls_mapl TYPE bapi1012_mtk_c, ls_plpo TYPE bapi1012_opr_c, ls_subplpo TYPE bapi1012_sub_opr_c, ls_bom TYPE bapi1012_com_c, ls_msg TYPE bapiret2. ***表</description>
+    </item>
+    
+    <item>
       <title> PP 模块常用BAPI </title>
       <link>https://coldinfire.github.io/2019/PP_BAPI_ALL_List/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/PP_BAPI_ALL_List/</guid>
-      <description>生产计划的 BAPI 列表 Routing：工艺路线 BAPI Description BAPI_ROUTING_CREATE 创建工艺路线BAPI - CA03 BAPI_ROUTING_EXISTENCE_CHECK 检查工艺路线是否存在 Reference operation set：参考操作集 BAPI Description BAPI_REFSETOFOPERATIONS_CREATE 创建参考参考工序集 BAPI_REFSETOFOPR_EXISTENCE_CHK</description>
+      <description>生产计划的 BAPI 列表 Routing：工艺路线 BAPI Description BAPI_ROUTING_CREATE 创建工艺路线BAPI - CA01 BAPI_ROUTING_EXISTENCE_CHECK 检查工艺路线是否存在 Reference operation set：参考操作集 BAPI Description BAPI_REFSETOFOPERATIONS_CREATE 创建参考参考工序集 BAPI_REFSETOFOPR_EXISTENCE_CHK</description>
     </item>
     
     <item>

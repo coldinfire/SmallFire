@@ -125,16 +125,41 @@ SELECTION-SCREEN END OF BLOCK blk_1.
   NO INTERVALS：所创建的框架中限制SELECT只有一个输入项
 ```
 
-屏幕块中添加的其它元素：
+#### Other screen elements
 
 ```ABAP
 SELECTION-SCREEN INCLUDE BLOCKS <block1>.  "调用已存在屏幕元素"
 SELECTION-SCREEN ULINE.          "划出横线，必须用在BLOCK中才能生效"
 SELECTION-SCREEN SKIP <n>.       "在BLOCK中产生换行<n>"
 SELECTION-SCREEN POSITION <pos>. "在BLOCK中产生空格"
+SELECTION-SCREEN PUSHBUTTON [/][pos](len) button_text 
+                            USER-COMMAND fcode 
+                            [VISIBLE LENGTH vlen] 
+                            [MODIF ID modid] 
+                            [ldb_additions].  
 SELECTION-SCREEN BEGIN OF LINE.
   ......
 SELECTION-SCREEN END OF LINE.    "将所生成的屏幕元素控制在一行"
+```
+
+Push button 属性设置：
+
+```ABAP
+INCLUDE <icon>.
+SELECTION-SCREEN: PUSHBUTTON 1(22) BUT1 USER-COMMAND BT1.
+INITIALIZATION.
+  CALL FUNCTION 'ICON_CREATE'
+    EXPORTING
+      name                        = icon_oo_object
+     text                        = 'Download Template'
+     info                        = '下载模板文件'
+*     ADD_STDINF                  = 'X'
+   IMPORTING
+     RESULT                      = BUT1
+   EXCEPTIONS
+     icon_not_found              = 1
+     outputfield_too_short       = 2
+     OTHERS                      = 3.
 ```
 
 #### 屏幕元素单行添加

@@ -18,7 +18,7 @@ tags:
 
 | BAPI                         | Description             |
 | :--------------------------- | :---------------------- |
-| BAPI_ROUTING_CREATE          | 创建工艺路线BAPI - CA03 |
+| BAPI_ROUTING_CREATE          | 创建工艺路线BAPI - CA01 |
 | BAPI_ROUTING_EXISTENCE_CHECK | 检查工艺路线是否存在    |
 
 #### Reference operation set：参考操作集

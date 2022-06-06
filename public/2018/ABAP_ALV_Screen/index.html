@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  3311 ,
+  "wordcount":  3378 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Screen\/",
   "datePublished": "2018-06-21T00:00:00\u002b00:00",
   "dateModified": "2018-06-21T00:00:00\u002b00:00",
@@ -246,15 +246,36 @@
   <span style="color:#66d9ef">WITH FRAME</span><span style="color:#960050;background-color:#1e0010">：</span>创建一个框架
   <span style="color:#66d9ef">TITLE</span> <span style="color:#66d9ef">title</span><span style="color:#960050;background-color:#1e0010">：</span>创建一个带标题的框架
   <span style="color:#66d9ef">NO INTERVALS</span><span style="color:#960050;background-color:#1e0010">：</span>所创建的框架中限制SELECT只有一个输入项
-</code></pre></div><p>屏幕块中添加的其它元素：</p>
+</code></pre></div><h4 id="other-screen-elements">Other screen elements</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">SELECTION-SCREEN INCLUDE BLOCKS</span> &lt;block1&gt;.  <span style="color:#75715e">&#34;调用已存在屏幕元素&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECTION-SCREEN ULINE</span>.          <span style="color:#75715e">&#34;划出横线，必须用在BLOCK中才能生效&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECTION-SCREEN SKIP</span> &lt;n&gt;.       <span style="color:#75715e">&#34;在BLOCK中产生换行&lt;n&gt;&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECTION-SCREEN POSITION</span> &lt;pos&gt;. <span style="color:#75715e">&#34;在BLOCK中产生空格&#34;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECTION-SCREEN PUSHBUTTON</span> [/][pos](len) button_text 
+                            USER<span style="color:#f92672">-</span>COMMAND fcode 
+                            [<span style="color:#66d9ef">VISIBLE LENGTH</span> vlen] 
+                            [<span style="color:#66d9ef">MODIF ID</span> modid] 
+                            [ldb_additions].  
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
   ......
 <span style="color:#66d9ef">SELECTION-SCREEN END OF LINE</span>.    <span style="color:#75715e">&#34;将所生成的屏幕元素控制在一行&#34;
-</span></code></pre></div><h4 id="屏幕元素单行添加">屏幕元素单行添加</h4>
+</span></code></pre></div><p>Push button 属性设置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">INCLUDE</span> &lt;icon&gt;.
+<span style="color:#66d9ef">SELECTION-SCREEN: PUSHBUTTON</span> <span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">22</span>) BUT1 USER<span style="color:#f92672">-</span>COMMAND BT1.
+<span style="color:#66d9ef">INITIALIZATION</span>.
+  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;ICON_CREATE&#39;</span>
+    <span style="color:#66d9ef">EXPORTING</span>
+      name                        <span style="color:#f92672">=</span> icon_oo_object
+     text                        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Download Template&#39;</span>
+     info                        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;下载模板文件&#39;</span>
+<span style="color:#75715e">*     ADD_STDINF                  = &#39;X&#39;</span>
+   <span style="color:#66d9ef">IMPORTING</span>
+     RESULT                      <span style="color:#f92672">=</span> BUT1
+   <span style="color:#66d9ef">EXCEPTIONS</span>
+     icon_not_found              <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+     outputfield_too_short       <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+     <span style="color:#66d9ef">OTHERS</span>                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>.
+</code></pre></div><h4 id="屏幕元素单行添加">屏幕元素单行添加</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF LINE</span>.
   <span style="color:#66d9ef">SELECTION-SCREEN COMMENT</span> n(m) <span style="color:#66d9ef">TEXT</span>-<span style="color:#ae81ff">001</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">FIELD</span> s_name. <span style="color:#75715e">&#34;文档信息&#34;
 </span><span style="color:#75715e"></span>  SELECTION<span style="color:#f92672">-</span>OPTION: s_name <span style="color:#66d9ef">FOR</span> itab<span style="color:#f92672">-</span>field. <span style="color:#75715e">&#34;设定类型&#34;
@@ -481,7 +502,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>3311</span>
+                   <span>3378</span>
             </p>
             
             <p class="copyright-item">
