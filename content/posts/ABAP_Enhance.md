@@ -178,11 +178,22 @@ Enhancement-Point 技术与 BADI 是有区别的，首先 BADI 是 SAP 预留的
 
 BADI 创建和实现：[https://coldinfire.github.io/2019/ABAP_BADI/](https://coldinfire.github.io/2019/ABAP_BADI/)
 
+### 显式和隐式增强技术
+
+- [显式增强](https://blog.csdn.net/weixin_40672823/article/details/105994981)
+
+- [隐式增强](https://blog.csdn.net/weixin_40672823/article/details/106055695)
+
 ### 查找的功能程序：
 
 - [查找增强出口和 BADI](https://coldinfire.github.io/2018/ABAP_Enhance_Util1/)
-
 - [利用 t-code 查找增强出口的程序工具](https://coldinfire.github.io/2018/ABAP_Enhance_Util2/)
+
+### 增强实现
+
+
+
+
 
 
 
