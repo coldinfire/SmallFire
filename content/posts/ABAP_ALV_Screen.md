@@ -142,26 +142,6 @@ SELECTION-SCREEN BEGIN OF LINE.
 SELECTION-SCREEN END OF LINE.    "将所生成的屏幕元素控制在一行"
 ```
 
-Push button 属性设置：
-
-```ABAP
-INCLUDE <icon>.
-SELECTION-SCREEN: PUSHBUTTON 1(22) BUT1 USER-COMMAND BT1.
-INITIALIZATION.
-  CALL FUNCTION 'ICON_CREATE'
-    EXPORTING
-      name                        = icon_oo_object
-     text                        = 'Download Template'
-     info                        = '下载模板文件'
-*     ADD_STDINF                  = 'X'
-   IMPORTING
-     RESULT                      = BUT1
-   EXCEPTIONS
-     icon_not_found              = 1
-     outputfield_too_short       = 2
-     OTHERS                      = 3.
-```
-
 #### 屏幕元素单行添加
 
 ```ABAP

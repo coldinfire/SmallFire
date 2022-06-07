@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" ALV 屏幕其它功能设置 "/>
-<meta name="twitter:description" content="屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &lt;pos(len)&gt; &lt;name&gt; USER-COMMAND &lt;ucom&gt; [MODIF ID &lt;key&gt;]. /n：按钮初始时距离屏幕左边的位置 &lt;pos(len)&gt;：PUSHBUTTON按钮在屏幕生成的位"/>
+<meta name="twitter:description" content="屏幕内创建按钮 SELECTION-SCREEN: PUSHBUTTON [/n] &lt;pos(len)&gt; &lt;name&gt; USER-COMMAND &lt;ucom&gt; [MODIF ID &lt;key&gt;]. /n：按钮初始时距离屏幕左边的位置 &lt;pos(len)&gt;：PUSHBUTTON 按钮在屏幕生成的位"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "ALV",
-  "wordcount":  1119 ,
+  "wordcount":  1278 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/ABAP_ALV_Screen_Util\/",
   "datePublished": "2018-06-28T00:00:00\u002b00:00",
   "dateModified": "2018-06-28T00:00:00\u002b00:00",
@@ -174,23 +174,39 @@
           <h3 id="屏幕内创建按钮">屏幕内创建按钮</h3>
 <p><code>  SELECTION-SCREEN: PUSHBUTTON [/n] &lt;pos(len)&gt; &lt;name&gt; USER-COMMAND &lt;ucom&gt; [MODIF ID &lt;key&gt;].</code></p>
 <p><code>/n</code>：按钮初始时距离屏幕左边的位置</p>
-<p><code>&lt;pos(len)&gt;</code>：PUSHBUTTON按钮在屏幕生成的位置与长度。</p>
+<p><code>&lt;pos(len)&gt;</code>：PUSHBUTTON 按钮在屏幕生成的位置与长度。</p>
 <p><code>&lt;name&gt;</code>：PUSHBUTTON按钮的名称，给按钮赋值时要用到名字。</p>
-<p><code>&lt;ucom&gt;</code>：必须指定的字符代码，当用户在选择屏幕上触发按钮时，<code>&lt;ucom&gt;</code> 被输入到词典对象字段：SSCRFIELDS-UCOMM中，必须显式使用语句TABLES引用SSCRFIELDS。</p>
+<p><code>&lt;ucom&gt;</code>：必须指定的字符代码，当用户在选择屏幕上触发按钮时，<code>&lt;ucom&gt;</code> 被输入到词典对象字段：SSCRFIELDS-UCOMM 中，必须显式使用语句 TABLES 引用 SSCRFIELDS。</p>
 <p>实例：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TABLES</span> SSCRFIELDS. <span style="color:#75715e">&#34;引用词典对象&#34;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">INCLUDE</span>:&lt;icon&gt;.  <span style="color:#75715e">&#34;按钮中加入图标必须调用该类型库,图标请参考T-CODE：ICON&#34;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECTION-SCREEN PUSHBUTTON</span> /<span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">20</span>) PUBU1 USER<span style="color:#f92672">-</span>COMMAND ABCD.
-<span style="color:#66d9ef">SELECTION-SCREEN SKIP</span>.<span style="color:#75715e">&#34;换行&#34;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECTION-SCREEN PUSHBUTTON</span> /<span style="color:#ae81ff">10</span>(<span style="color:#ae81ff">25</span>) PUBU2 USER<span style="color:#f92672">-</span>COMMAND ABCE. <span style="color:#75715e">&#34;位置从10开始&#34;
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">AT SELECTION-SCREEN OUTPUT</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">TABLES</span> SSCRFIELDS.
+<span style="color:#66d9ef">INCLUDE</span>:&lt;icon&gt;.
+<span style="color:#66d9ef">SELECTION-SCREEN PUSHBUTTON</span> /<span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">20</span>) PUBU1 USER<span style="color:#f92672">-</span>COMMAND comd1.
+<span style="color:#66d9ef">SELECTION-SCREEN SKIP</span>.
+<span style="color:#66d9ef">SELECTION-SCREEN PUSHBUTTON</span> /<span style="color:#ae81ff">10</span>(<span style="color:#ae81ff">25</span>) PUBU2 USER<span style="color:#f92672">-</span>COMMAND comd2.
+<span style="color:#66d9ef">AT SELECTION-SCREEN OUTPUT</span>.
   <span style="color:#66d9ef">MOVE</span> <span style="color:#e6db74">&#39;CALL NEXT SCREEN&#39;</span> <span style="color:#66d9ef">TO</span> PUBU1. <span style="color:#75715e">&#34;给PUBU1按钮赋值描述&#34;
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">WRITE</span> ICON_OKAY <span style="color:#66d9ef">AS</span> ICON <span style="color:#66d9ef">TO</span> PUBU2. <span style="color:#75715e">&#34;给PUBU2按钮添加图标，并且在给按钮赋值之前，否则将会把文字替换。&#34;
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CONCATENATE</span> PUBU2 <span style="color:#e6db74">&#39;My Second Button&#39;</span> <span style="color:#66d9ef">INTO</span> PUBU2 <span style="color:#66d9ef">SEPARATED BY</span> SPACE. <span style="color:#75715e">&#34;给第二个按钮添加赋值描述&#34;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">AT SELECTION-SCREEN</span>.
- <span style="color:#66d9ef">IF</span> SSCRFIELDS<span style="color:#f92672">-</span>UCOMM <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ABCD&#39;</span>.
+ <span style="color:#66d9ef">IF</span> SSCRFIELDS<span style="color:#f92672">-</span>UCOMM <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;COMD1&#39;</span>.
    <span style="color:#66d9ef">PERFORM</span> <span style="color:#a6e22e">xxxx</span>.  <span style="color:#75715e">&#34;调用子程序&#34;
 </span><span style="color:#75715e"></span> <span style="color:#66d9ef">ENDIF</span>.
+</code></pre></div><p>函数设置 Push button 属性：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">INCLUDE</span> &lt;icon&gt;.
+<span style="color:#66d9ef">SELECTION-SCREEN: PUSHBUTTON</span> <span style="color:#ae81ff">1</span>(<span style="color:#ae81ff">22</span>) BUT1 USER<span style="color:#f92672">-</span>COMMAND BT1.
+<span style="color:#66d9ef">INITIALIZATION</span>.
+  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;ICON_CREATE&#39;</span>
+    <span style="color:#66d9ef">EXPORTING</span>
+      name                        <span style="color:#f92672">=</span> icon_oo_object
+     text                        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Download Template&#39;</span>
+     info                        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;下载模板文件&#39;</span>
+<span style="color:#75715e">*     ADD_STDINF                  = &#39;X&#39;</span>
+   <span style="color:#66d9ef">IMPORTING</span>
+     RESULT                      <span style="color:#f92672">=</span> BUT1
+   <span style="color:#66d9ef">EXCEPTIONS</span>
+     icon_not_found              <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+     outputfield_too_short       <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+     <span style="color:#66d9ef">OTHERS</span>                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>.
 </code></pre></div><h3 id="在工具栏上新增一个功能按钮">在工具栏上新增一个功能按钮</h3>
 <p><code>SELECTION-SCREEN FUNCTION KEY n.</code></p>
 <p>该按钮的定义保存在系统结构体 SSCRFIELDS 中，n 为一个整数序数最大至 5。</p>
@@ -270,6 +286,55 @@
     <span style="color:#66d9ef">ENDIF</span>.
     <span style="color:#66d9ef">MODIFY SCREEN</span>.
   <span style="color:#66d9ef">ENDLOOP</span>.
+</code></pre></div><h3 id="选择屏幕子屏幕">选择屏幕子屏幕</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#75715e">*&amp; Report  zsubscreen</span>
+<span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">REPORT</span>  zsubscreen.
+<span style="color:#66d9ef">TABLES</span> spfli.
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF SCREEN</span> <span style="color:#ae81ff">110</span> <span style="color:#66d9ef">AS SUBSCREEN</span>.
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF BLOCK</span> blk1 <span style="color:#66d9ef">WITH FRAME</span> <span style="color:#66d9ef">TITLE</span> <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">010</span>.
+<span style="color:#66d9ef">SELECT-OPTIONS</span>: s_carrid <span style="color:#66d9ef">FOR</span> spfli<span style="color:#f92672">-</span>carrid,
+s_conn <span style="color:#66d9ef">FOR</span> spfli<span style="color:#f92672">-</span>connid.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF BLOCK</span> blk1.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF SCREEN</span> <span style="color:#ae81ff">110</span>.
+
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF SCREEN</span> <span style="color:#ae81ff">120</span> <span style="color:#66d9ef">AS SUBSCREEN</span>.
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF BLOCK</span> blk2 <span style="color:#66d9ef">WITH FRAME</span> <span style="color:#66d9ef">TITLE</span> <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">011</span>.
+<span style="color:#66d9ef">SELECT-OPTIONS</span>: s_cntrfr <span style="color:#66d9ef">FOR</span> spfli<span style="color:#f92672">-</span>countryfr,
+s_cityfr <span style="color:#66d9ef">FOR</span> spfli<span style="color:#f92672">-</span>cityfrom,
+s_airpfr <span style="color:#66d9ef">FOR</span> spfli<span style="color:#f92672">-</span>airpfrom.
+<span style="color:#66d9ef">PARAMETERS</span>: s_depdt <span style="color:#66d9ef">LIKE </span>sy<span style="color:#f92672">-</span>datum.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF BLOCK</span> blk2.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF SCREEN</span> <span style="color:#ae81ff">120</span>.
+
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF SCREEN</span> <span style="color:#ae81ff">130</span> <span style="color:#66d9ef">AS SUBSCREEN</span>.
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF BLOCK</span> blk3 <span style="color:#66d9ef">WITH FRAME</span> <span style="color:#66d9ef">TITLE</span> <span style="color:#66d9ef">text</span>-<span style="color:#ae81ff">012</span>.
+<span style="color:#66d9ef">SELECT-OPTIONS</span>: s_cntrto <span style="color:#66d9ef">FOR</span> spfli<span style="color:#f92672">-</span>countryto,
+s_cityto <span style="color:#66d9ef">FOR</span> spfli<span style="color:#f92672">-</span>cityto,
+s_airpto <span style="color:#66d9ef">FOR</span> spfli<span style="color:#f92672">-</span>airpto.
+<span style="color:#66d9ef">PARAMETERS</span>: s_retdt <span style="color:#66d9ef">LIKE </span>sy<span style="color:#f92672">-</span>datum.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF BLOCK</span> blk3.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF SCREEN</span> <span style="color:#ae81ff">130</span>.
+
+<span style="color:#66d9ef">SELECTION-SCREEN BEGIN OF TABBED BLOCK</span> tab_block <span style="color:#66d9ef">FOR</span> <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">LINES</span>.
+SELECTION<span style="color:#f92672">-</span>SCREEN TAB (<span style="color:#ae81ff">20</span>) tab1 USER<span style="color:#f92672">-</span>COMMAND comm1
+<span style="color:#66d9ef">DEFAULT</span> SCREEN <span style="color:#ae81ff">110</span>.
+SELECTION<span style="color:#f92672">-</span>SCREEN TAB (<span style="color:#ae81ff">20</span>) tab2 USER<span style="color:#f92672">-</span>COMMAND comm2
+<span style="color:#66d9ef">DEFAULT</span> SCREEN <span style="color:#ae81ff">120</span>.
+SELECTION<span style="color:#f92672">-</span>SCREEN TAB (<span style="color:#ae81ff">20</span>) tab3 USER<span style="color:#f92672">-</span>COMMAND comm3
+<span style="color:#66d9ef">DEFAULT</span> SCREEN <span style="color:#ae81ff">130</span>.
+<span style="color:#66d9ef">SELECTION-SCREEN END OF BLOCK</span> tab_block.
+
+<span style="color:#66d9ef">INITIALIZATION</span>.
+  tab1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Connection&#39;</span>(<span style="color:#ae81ff">010</span>).
+  tab2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Departure. City&#39;</span>(<span style="color:#ae81ff">011</span>).
+  tab3 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Arrival City&#39;</span>(<span style="color:#ae81ff">012</span>).
+  tab_block<span style="color:#f92672">-</span>activetab <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;COMM1&#39;</span>.
+  tab_block<span style="color:#f92672">-</span>dynnr <span style="color:#f92672">=</span> <span style="color:#ae81ff">110</span>.
+
+<span style="color:#66d9ef">START-OF-SELECTION</span>.
+  <span style="color:#66d9ef">BREAK-POINT</span>.
 </code></pre></div>
     </div>
 
@@ -283,7 +348,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1119</span>
+                   <span>1278</span>
             </p>
             
             <p class="copyright-item">
