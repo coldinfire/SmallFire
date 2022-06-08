@@ -78,13 +78,33 @@ WRITE: len.
 
 #### 8.拆分字符串
 
-将字符串的值分配给具体变量
+将字符串的值分配给具体变量：`SPLIT dobj AT sep INTO res1 res2 ... resn.` 
 
-- `SPLIT dobj AT sep INTO res1 res2 ... resn.` 
+```ABAP
+DATA: str1 TYPE string,
+      str2 TYPE string,
+      str3 TYPE string,
+      itab TYPE TABLE OF string,
+      text TYPE string.
+text = `What a drag it is getting old`.
+SPLIT text AT space INTO: str1 str2 str3,TABLE itab. 
+```
 
-将字符串的值分配给一内表
+将字符串的值分配给一内表`SPLIT s_source AT sep INTO TABLE itab.`
 
-- `SPLIT s_source AT sep INTO TABLE itab.`
+```ABAP
+DATA : lv_string TYPE string .
+TYPES: BEGIN OF ty_string,
+    str(25) TYPE c,
+  END OF ty_string.
+DATA lt_string TYPE TABLE OF ty_string.
+DATA wa_string TYPE ty_string.
+lv_string = 'SPLIT ME AT SPACE'.
+SPLIT lv_string AT ' ' INTO TABLE lt_string .
+LOOP AT lt_string INTO wa_string.
+  WRITE :/ wa_string-str.
+ENDLOOP.
+```
 
 #### 9.比较字符串
 

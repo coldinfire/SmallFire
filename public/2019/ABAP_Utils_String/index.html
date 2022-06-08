@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "abaputils",
-  "wordcount":  1078 ,
+  "wordcount":  1173 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_Utils_String\/",
   "datePublished": "2019-09-18T00:00:00\u002b00:00",
   "dateModified": "2019-09-18T00:00:00\u002b00:00",
@@ -231,15 +231,27 @@ l_len <span style="color:#f92672">=</span> strlen(str1).
 </li>
 </ul>
 <h4 id="8拆分字符串">8.拆分字符串</h4>
-<p>将字符串的值分配给具体变量</p>
-<ul>
-<li><code>SPLIT dobj AT sep INTO res1 res2 ... resn.</code></li>
-</ul>
-<p>将字符串的值分配给一内表</p>
-<ul>
-<li><code>SPLIT s_source AT sep INTO TABLE itab.</code></li>
-</ul>
-<h4 id="9比较字符串">9.比较字符串</h4>
+<p>将字符串的值分配给具体变量：<code>SPLIT dobj AT sep INTO res1 res2 ... resn.</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span>: str1 <span style="color:#66d9ef">TYPE </span>string,
+      str2 <span style="color:#66d9ef">TYPE </span>string,
+      str3 <span style="color:#66d9ef">TYPE </span>string,
+      itab <span style="color:#66d9ef">TYPE TABLE OF</span> string,
+      text <span style="color:#66d9ef">TYPE </span>string.
+text <span style="color:#f92672">=</span> <span style="color:#e6db74">`What a drag it is getting old`</span>.
+<span style="color:#66d9ef">SPLIT</span> text <span style="color:#66d9ef">AT</span> space <span style="color:#66d9ef">INTO</span>: str1 str2 str3,TABLE itab. 
+</code></pre></div><p>将字符串的值分配给一内表<code>SPLIT s_source AT sep INTO TABLE itab.</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">DATA</span> : lv_string <span style="color:#66d9ef">TYPE </span>string .
+<span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> ty_string,
+    str(<span style="color:#ae81ff">25</span>) <span style="color:#66d9ef">TYPE </span>c,
+  <span style="color:#66d9ef">END OF</span> ty_string.
+<span style="color:#66d9ef">DATA</span> lt_string <span style="color:#66d9ef">TYPE TABLE OF</span> ty_string.
+<span style="color:#66d9ef">DATA</span> wa_string <span style="color:#66d9ef">TYPE </span>ty_string.
+lv_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SPLIT ME AT SPACE&#39;</span>.
+<span style="color:#66d9ef">SPLIT</span> lv_string <span style="color:#66d9ef">AT</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> lt_string .
+<span style="color:#66d9ef">LOOP AT </span>lt_string <span style="color:#66d9ef">INTO</span> wa_string.
+  <span style="color:#66d9ef">WRITE</span> :/ wa_string<span style="color:#f92672">-</span>str.
+<span style="color:#66d9ef">ENDLOOP</span>.
+</code></pre></div><h4 id="9比较字符串">9.比较字符串</h4>
 <p>判断是否包含特定值</p>
 <ul>
 <li>IF field CN &lsquo;0123456789&rsquo;.</li>
@@ -310,7 +322,7 @@ l_len <span style="color:#f92672">=</span> strlen(str1).
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1078</span>
+                   <span>1173</span>
             </p>
             
             <p class="copyright-item">
