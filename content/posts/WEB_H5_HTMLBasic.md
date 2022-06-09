@@ -219,7 +219,7 @@ tags:
 
 ### 标签属性声明顺序
 
-HTML属性应按照特定的顺序排列，以方便代码查阅。
+HTML 属性应按照特定的顺序排列，以方便代码查阅。
 
 - `class`
 - `id`, `name`
@@ -228,27 +228,21 @@ HTML属性应按照特定的顺序排列，以方便代码查阅。
 - `title`, `alt`
 - `role`, `aria-*`
 
-class 能让我们更好地重用组件，所以它打头阵；
+class：能让我们更好地重用组件，所以它打头阵；
 
-id 则更加特定和专属，应尽量控制其使用（例如：内页书签）。
+id：则更加特定和专属，应尽量控制其使用（例如：内页书签）。
 
 #### 属性命名规则
 
-class 遵循小驼峰命名法
+class：遵循小驼峰命名法 `class="nHeadTitle"`
 
-- class="nHeadTitle"
+id：遵循名称  &_ `id="n_head_title"`
 
-id 遵循名称 &_
-
-- id="n_head_title"
-
-name 属性命名遵循首个字母大写 &_
-
-- name="N_Head_Title"
+name：属性命名遵循首个字母大写 &_ `name="N_Head_Title"`
 
 ### 引用 CSS 和 JavaScript 文件
 
-按照 HTML5 规范，一般来说，当 CSS 和 JS 文件被引用时，都会默认以 `text/css`和 `text/javascript` 的方式，没必要特意为其指定 `type` 类型。
+按照 HTML5 规范，一般来说当 CSS 和 JS 文件被引用时，都会默认以 `text/css`和 `text/javascript` 的方式，没必要特意为其指定 `type` 类型。
 
 ```html
 <!-- CSS -->
@@ -316,12 +310,12 @@ name 属性命名遵循首个字母大写 &_
 
 SVG以XML格式定义了基于矢量的图形。
 
-#### SVG和Canvas之间的差异
+#### SVG 和 Canvas 之间的差异
 
-- SVG是用于描述XML中的2D图形的语言；Canvas可以实时绘制2D图形(使用JavaScript)
-- SVG基于XML，这意味着每个元素在 SVG DOM 中都可用。可以为元素附加JavaScript事件处理程序
-- 在SVG中，每个绘制的形状都被记住为一个对象。如果更改了SVG对象的属性，则浏览器可以自动重新渲染形状
-- Canvas逐像素渲染。在Canvas中，一旦绘制了图形，浏览器就会将其忘记。如果需要更改其位置，则需要重新绘制整个场景，包括图形可能覆盖的所有对象
+- SVG 是用于描述 XML 中的 2D 图形的语言；Canvas 可以实时绘制 2D 图形(使用 JavaScript )
+- SVG 基于 XML，这意味着每个元素在 SVG DOM 中都可用。可以为元素附加 JavaScript 事件处理程序
+- 在 SVG 中，每个绘制的形状都被记住为一个对象。如果更改了 SVG 对象的属性，则浏览器可以自动重新渲染形状
+- Canvas 逐像素渲染。在 Canvas 中，一旦绘制了图形，浏览器就会将其忘记。如果需要更改其位置，则需要重新绘制整个场景，包括图形可能覆盖的所有对象
 
 Canvas 和 SVG 的比较
 
