@@ -5252,34 +5252,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2018/WEB_H5_Frame_EasyUI/</loc>
-      
-      <lastmod>2018-03-13T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/EasyUI/</loc>
-      
-      <lastmod>2018-03-13T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2018/WEB_CI_Jenkins/</loc>
       
       <lastmod>2018-03-07T00:00:00+00:00</lastmod>
@@ -6487,6 +6459,20 @@
       <loc>https://coldinfire.github.io/2017/WEB_H5_CSS_Attributes/</loc>
       
       <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/2017/WEB_H5_HTML_Multimedia/</loc>
+      
+      <lastmod>2017-09-03T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

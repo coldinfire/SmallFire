@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" Web 页面布局 "/>
-<meta name="twitter:description" content="语义化标签 &lt;header&gt; — Defines a header for a document or a section &lt;nav&gt; — 定义一组导航链接 &lt;article&gt; — 定义一块独立的独立内容 &lt;section&gt; — 在文档中定义一块独立的内容主题分组部分 &lt;aside&gt; — 定义核心内容之外"/>
+<meta name="twitter:description" content="语义化标签 &lt;header&gt;：页眉，是简介形式的内容。 如果它是 body 的子元素，那么就是网站的全局页眉 如果它是 article 或section 的子元素"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "HTML",
-  "wordcount":  551 ,
+  "wordcount":  811 ,
   "url": "https:\/\/coldinfire.github.io\/2017\/WEB_H5_Layout\/",
   "datePublished": "2017-09-09T00:00:00\u002b00:00",
   "dateModified": "2017-09-09T00:00:00\u002b00:00",
@@ -175,17 +175,25 @@
 
           <h3 id="语义化标签">语义化标签</h3>
 <p><img src="/images/WEB/HTML_Layout.png" alt="Semantic Elements"></p>
-<p><code>&lt;header&gt;</code> — Defines a header for a document or a section</p>
-<p><code>&lt;nav&gt;</code> — 定义一组导航链接</p>
-<p><code>&lt;article&gt;</code> — 定义一块独立的独立内容</p>
-<p><code>&lt;section&gt;</code> — 在文档中定义一块独立的内容主题分组部分</p>
-<p><code>&lt;aside&gt;</code> — 定义核心内容之外的内容（如边栏）</p>
-<p><code>&lt;footer&gt;</code> — 定义文档或section的页脚</p>
+<p><code>&lt;header&gt;</code>：页眉，是简介形式的内容。</p>
+<ul>
+<li>如果它是 body 的子元素，那么就是网站的全局页眉</li>
+<li>如果它是 article 或section 的子元素，那么它是这些部分特有的页眉</li>
+</ul>
+<p><code>&lt;nav&gt;</code>：包含页面主导航功能。其中不应包含二级链接等内容</p>
+<p><code>&lt;main&gt;</code>：主内容。主内容中还可以有各种子内容区段，可用<code>&lt;article&gt;</code>、<code>&lt;section&gt;</code>、<code>&lt;div&gt;</code>等元素表示</p>
+<ul>
+<li>存放每个页面独有的内容。每个页面上只能用一次 <code>&lt;main&gt;</code>，且直接位于 <code>&lt;body&gt;</code> 中</li>
+</ul>
+<p><code>&lt;article&gt;</code>：包围的内容即一篇文章，与页面其它部分无关</p>
+<p><code>&lt;section&gt;</code>：与 article 类似，但 section 更适用于组织页面使其按功能分块</p>
+<p><code>&lt;aside&gt;</code>：定义核心内容之外的内容（如侧边栏）</p>
+<p><code>&lt;footer&gt;</code>：定义文档或 section 的页脚</p>
 <h3 id="页面布局整体思路">页面布局整体思路</h3>
 <p>Step1：确定页面的版心，既是页面的主题部分</p>
 <p>Step2：分析页面中的行模块，以及每个行模块中的列模块</p>
 <p>Step3：每行中的列模块经常浮动布局，先确定每个列的大小，之后确定列的位置</p>
-<p>Step4：制作HTML结构。遵循先有结构，后有样式的原则，结构永远重要</p>
+<p>Step4：制作 HTML 结构。遵循先有结构，后有样式的原则，结构永远重要</p>
 <p>Step5：先理清楚布局结构，后写代码实现整体布局和具体属性</p>
 <h3 id="网页布局总结">网页布局总结</h3>
 <p>一个完整的网页，是标准流、浮动、定位一起完成的布局，每个都有自己的专门用法。</p>
@@ -196,8 +204,8 @@
 <h4 id="定位">定位</h4>
 <p>定位最大的特点是有层叠的效果，就是可以让多个盒子前后叠压显示。如果元素自由在某个盒子内移动就用来定位布局。</p>
 <h3 id="常见布局技巧">常见布局技巧</h3>
-<h4 id="margin负值使用">margin负值使用</h4>
-<p>使用场景，多个盒子一行浮动排列时，相邻边框会出现double现象，可以通过设置 margin对应位置为负值，就可以使边框重合。</p>
+<h4 id="margin-负值使用">margin 负值使用</h4>
+<p>使用场景，多个盒子一行浮动排列时，相邻边框会出现 double 现象，可以通过设置 margin 对应位置为负值，就可以使边框重合。</p>
 <h4 id="行内块的巧妙运用">行内块的巧妙运用</h4>
 <p>盒子里面的行内块元素和行内元素可以通过 <code>text-align: center</code> 将其全部水平居中显示。</p>
 
@@ -213,7 +221,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>551</span>
+                   <span>811</span>
             </p>
             
             <p class="copyright-item">

@@ -11,7 +11,7 @@
   
   
   
-  <link rel="next" href="https://coldinfire.github.io/2017/WEB_H5_CSS_Attributes/" />
+  <link rel="next" href="https://coldinfire.github.io/2017/WEB_H5_HTML_Multimedia/" />
   <link rel="canonical" href="https://coldinfire.github.io/2017/WEB_H5_HTMLBasic/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" HTML 基础知识汇总 "/>
-<meta name="twitter:description" content="HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &lt;!DOCTYPE html&gt;; 编码统一为 &lt;meta charset=&quot;utf-8&quot; /&gt;, 书写时实现层次分明的缩进； 所有编码均遵循 XHTML 标准，标签"/>
+<meta name="twitter:description" content="HTML基础汇总 HTML书写规范 文档类型声明及编码：统一为 HTML5 声明类型 &lt;!DOCTYPE html&gt;；编码统一为 &lt;meta charset=&quot;utf-8&quot; /&gt;，书写时实现层次分明的缩进；"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "HTML",
-  "wordcount":  3300 ,
+  "wordcount":  3700 ,
   "url": "https:\/\/coldinfire.github.io\/2017\/WEB_H5_HTMLBasic\/",
   "datePublished": "2017-09-01T00:00:00\u002b00:00",
   "dateModified": "2017-09-01T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                7 min
+                8 min
         </div>
     </header>
     <div class="post-content">
@@ -177,7 +177,7 @@
 <h3 id="html书写规范">HTML书写规范</h3>
 <ol>
 <li>
-<p>文档类型声明及编码：统一为 HTML5 声明类型 <code>&lt;!DOCTYPE html&gt;</code>; 编码统一为 <code>&lt;meta charset=&quot;utf-8&quot; /&gt;</code>, 书写时实现层次分明的缩进；</p>
+<p>文档类型声明及编码：统一为 HTML5 声明类型 <code>&lt;!DOCTYPE html&gt;</code>；编码统一为 <code>&lt;meta charset=&quot;utf-8&quot; /&gt;</code>，书写时实现层次分明的缩进；</p>
 </li>
 <li>
 <p>所有编码均遵循 XHTML 标准，标签、属性、属性命名由小写字母、下划线、数字组成，且所有标签必须闭合，包括<code>&lt;br /&gt;</code>,<code> &lt;hr /&gt;</code> 等；属性值必须用双引号包括；</p>
@@ -191,26 +191,27 @@
 <li>
 <p>引入样式文件或 JavaScript 文件时，须略去默认类型声明，写法如下:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;…&#34;</span> /&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;favicon.ico&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/x-icon&#34;</span> /&gt;
 &lt;<span style="color:#f92672">style</span>&gt;<span style="color:#960050;background-color:#1e0010">…</span>&lt;/<span style="color:#f92672">style</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;…&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div></li>
 <li>
-<p>引入 JS 库文件，文件名须包含库名称及版本号及是否为压缩版，比如 jquery-1.4.1.min.js; 引入插件，文件名格式为库名称 + 插件名称，比如 jQuery.cookie.js；</p>
+<p>引入 JS 库文件，文件名须包含库名称及版本号及是否为压缩版，比如 jquery-1.4.1.min.js；引入插件，文件名格式为库名称 + 插件名称，比如 jQuery.cookie.js；</p>
 </li>
 <li>
-<p>充分利用无兼容性问题的 html 自身标签，比如 span, em, strong, label, 等等；需要为 html 元素添加自定义属性的时候，首先要考虑下有没有默认的已有的合适标签去设置，如果没有，可以使用须以 &ldquo;data-&rdquo; 为前缀来添加自定义属性，避免使用 &ldquo;data:&rdquo;  等其他命名方式；</p>
+<p>充分利用无兼容性问题的 html 自身标签，比如 span、em、strong、label 等等；需要为 html 元素添加自定义属性的时候，首先要考虑下有没有默认的已有的合适标签去设置，如果没有则可以使用须以 &ldquo;data-&rdquo; 为前缀来添加自定义属性，避免使用 &ldquo;data:&rdquo;  等其他命名方式；</p>
 </li>
 <li>
-<p>语义化 html ；如标题根据重要性用 h*(同一页面只能有一个 h1), 段落标记用 p, 列表用 ul, 内联元素中不可嵌套块级元素；</p>
+<p>语义化 html ；如标题根据重要性用 h*(同一页面只能有一个 h1)，段落标记用 p，列表用 ul，内联元素中不可嵌套块级元素；</p>
 </li>
 <li>
 <p>尽可能减少 div 嵌套；div作为一个块级的元素，主要应该用来描述布局；</p>
 </li>
 <li>
-<p>书写链接地址时，必须避免重定向，例如：href=&ldquo;<a href="https://www.google.com/%22,">https://www.google.com/&quot;,</a> 即须在 URL 地址后面加上 “/”；</p>
+<p>书写链接地址时，必须避免重定向，例如：href=&ldquo;<a href="https://www.google.com/%22">https://www.google.com/&quot;</a>，即须在 URL 地址后面加上 “/”；</p>
 </li>
 <li>
-<p>为含有描述性表单元素 (input, textarea) 添加 label, 如</p>
+<p>为含有描述性表单元素 (input、textarea) 添加 label，如</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt; 姓名: &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> /&gt;&lt;/<span style="color:#f92672">p</span> &gt; 
 须写成:
 &lt;<span style="color:#f92672">p</span>&gt;&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt; 姓名: &lt;/<span style="color:#f92672">label</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> /&gt;&lt;/<span style="color:#f92672">p</span>&gt;
@@ -219,7 +220,7 @@
 <p>图片总是添加 alt，width，height 属性；给重要的元素和截断的元素加上 title；</p>
 </li>
 <li>
-<p>能以背景形式呈现的图片，尽量写入 css 样式中</p>
+<p>能以背景形式呈现的图片，尽量写入 css 样式中。</p>
 </li>
 </ol>
 <h3 id="html标签">HTML标签</h3>
@@ -228,7 +229,7 @@
 <li><code>&lt;pre&gt;</code>预处理标签的主要作用：预格式化的文本。被包围在 pre 元素中的文本通常会保留空格和换行符。</li>
 </ul>
 <h4 id="自闭合标签">自闭合标签</h4>
-<p><code>&lt;br/&gt;</code> <code>&lt;hr/&gt;</code> <code>&lt;meta/&gt;</code> <code>&lt;img/&gt;</code> <code>&lt;input../&gt;</code> <code>&lt;option../&gt;</code> <code>&lt;link/&gt;</code></p>
+<p><code>&lt;br/&gt;</code>、 <code>&lt;hr/&gt;</code>、 <code>&lt;meta/&gt;</code>、 <code>&lt;img/&gt;</code>、 <code>&lt;input../&gt;</code>、 <code>&lt;option../&gt;</code>、 <code>&lt;link/&gt;</code>。</p>
 <h4 id="特殊字符">特殊字符</h4>
 <table>
 <thead>
@@ -275,30 +276,40 @@
 书签链接：&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tips&#34;</span>&gt; 提示部分 &lt;/<span style="color:#f92672">a</span>&gt; &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#tips&#34;</span>&gt; 跳到提示部分 &lt;/<span style="color:#f92672">a</span>&gt;
 </code></pre></div><p><code>target</code> 属性值</p>
 <ul>
-<li><code>_self</code> :默认值，在原页面打开链接</li>
-<li><code>_blank</code> :在新窗口打开链接</li>
-<li><code>_parent</code> :在父窗口中打开</li>
-<li><code>_top</code> :打开时忽略所有的框架</li>
+<li>_self：默认值，在原页面打开链接</li>
+<li>_blank：在新窗口打开链接</li>
+<li>_parent：在父窗口中打开</li>
+<li>_top：打开时忽略所有的框架</li>
 </ul>
 <h4 id="列表">列表</h4>
 <ul>
 <li>无序列表：<code>&lt;ul&gt;...&lt;li&gt;&lt;/li&gt;...&lt;/ul&gt;</code></li>
 <li>有序列表：<code>&lt;ol&gt;...&lt;li&gt;&lt;/li&gt;...&lt;/ol&gt;</code></li>
-<li>定义列表：<code>&lt;dl&gt;&lt;dt&gt;...&lt;dd&gt;&lt;/dd&gt;...&lt;/dt&gt;&lt;/dl&gt;</code></li>
+<li>定义列表：<code>&lt;dl&gt;...&lt;dt&gt;...&lt;dd&gt;&lt;/dd&gt;...&lt;/dt&gt;...&lt;/dl&gt;</code></li>
 </ul>
 <h4 id="表格">表格</h4>
-<p>创建表格的五个元素：table、caption、tr、th、td、</p>
+<p>创建表格的五个元素：table、caption、tr、th、td：</p>
 <ul>
-<li><code>&lt;table&gt;...&lt;/table&gt;</code>：整个表格以 &lt; table &gt; 标记开始、<!-- raw HTML omitted --> 标记结束。</li>
+<li><code>&lt;table&gt;...&lt;/table&gt;</code>：包含整个表格内容</li>
 <li><code>&lt;caption&gt;...&lt;/caption&gt;</code>：表格的标题行设置</li>
-<li><code>&lt;tr&gt;...&lt;/tr&gt;</code>：表格的一行，所以有几对 tr 表格就有几行。</li>
-<li><code>&lt;th&gt;...&lt;/th&gt;</code>：表格的头部的一个单元格，表格表头样式显示。</li>
-<li><code>&lt;td&gt;...&lt;/td&gt;</code>：表格的一个单元格，一行中包含几对 td 说明一行中就有几列。</li>
+<li><code>&lt;tr&gt;...&lt;/tr&gt;</code>：表格的一行，所以有几对 tr 表格就有几行</li>
+<li><code>&lt;th&gt;...&lt;/th&gt;</code>：表格的头部的一个单元格，表格表头样式显示</li>
+<li><code>&lt;td&gt;...&lt;/td&gt;</code>：表格的一个单元格，一行中包含几对 td 说明一行中就有几列</li>
+</ul>
+<p>表格属性：</p>
+<ul>
+<li>rowspan：跨行；colspan：跨列</li>
+</ul>
+<p>表格结构：</p>
+<ul>
+<li><code>&lt;thead&gt;</code> 需要嵌套在 table 元素中，放置在头部的位置，因为它通常代表第一行，第一行中往往都是每列的标题</li>
+<li><code>&lt;tbody&gt;</code> 需要嵌套在 table 元素中，放置在 <code>&lt;thead&gt;</code>的下面或者是 <code>&lt;tfoot&gt;</code> 的下面，这取决于你如何设计你的结构；<code>&lt;tbody&gt;</code> 总是包含在每个表中，如果你没有在代码中指定它，那就是隐式的。</li>
+<li><code>&lt;tfoot&gt;</code> 需要嵌套在 table 元素中，放置在底部 (页脚) 的位置，一般是最后一行，往往是对前面所有行的总结</li>
 </ul>
 <p>框架使用：<code>&lt;iframe src=&quot;demo_iframe.htm&quot; title=&quot;Iframe Example&quot;&gt;&lt;/iframe&gt;</code> 在一个页面中组织多个 html 文件</p>
 <h4 id="表单">表单</h4>
-<p><code>action</code> 定义在提交表单时执行的动作；向服务器提交表单的通常做法是使用<code>submit</code>按钮。通常，表单会被提交到 web 服务器上的网页。</p>
-<p><code>method</code> 定在提交表单时所用的 HTTP 方法(GET 或 POST)</p>
+<p><em><strong>action</strong></em>： 定义在提交表单时执行的动作；向服务器提交表单的通常做法是使用 <em><strong>submit</strong></em> 按钮。通常表单会被提交到 web 服务器上的网页。</p>
+<p><em><strong>method</strong></em> ：定义在提交表单时所用的 HTTP 方法 (GET 或 POST)</p>
 <ul>
 <li>
 <p>GET 提交时，表单数据在页面地址栏中是可见的</p>
@@ -307,7 +318,7 @@
 <p>POST 的安全性更加，因为在页面地址栏中被提交的数据是不可见的</p>
 </li>
 </ul>
-<p><code>name</code> 如果要表单数据正确地被提交，每个输入字段必须设置一个 name 属性。</p>
+<p><em><strong>name</strong></em>：如果要表单数据正确地被提交，每个输入字段必须设置一个 name 属性。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post/get&#34;</span>&gt;
   &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fname&#34;</span>&gt;User name:&lt;/<span style="color:#f92672">label</span>&gt;
   &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fname&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;40&#34;</span> <span style="color:#a6e22e">maxlength</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;50&#34;</span> <span style="color:#a6e22e">autofocus</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
@@ -330,8 +341,14 @@
   &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert(&#39;Hello World!&#39;)&#34;</span>&gt;Click Me&lt;/<span style="color:#f92672">button</span>&gt;
 &lt;/<span style="color:#f92672">form</span>&gt;
 </code></pre></div><p><em>表单分组元素</em></p>
-<p><code>&lt;fieldset&gt;</code>元素用于将表单中的相关数据分组。</p>
-<p><code>&lt;legend&gt;</code>元素为<code>&lt;fieldset&gt;</code>元素定义标题。</p>
+<ul>
+<li>
+<p><code>&lt;fieldset&gt;</code>：该元素用于将表单中的相关数据分组</p>
+</li>
+<li>
+<p><code>&lt;legend&gt;</code>：该元素为<code>&lt;fieldset&gt;</code>元素定义标题</p>
+</li>
+</ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#&#34;</span>&gt;
   &lt;<span style="color:#f92672">fieldset</span>&gt;
     &lt;<span style="color:#f92672">legend</span>&gt;Personalia:&lt;/<span style="color:#f92672">legend</span>&gt;
@@ -343,8 +360,14 @@
   &lt;/<span style="color:#f92672">fieldset</span>&gt;
 &lt;/<span style="color:#f92672">form</span>&gt;
 </code></pre></div><p><em>预定义元素</em></p>
-<p><code>&lt;datalist&gt;</code>元素为<code>&lt;input&gt;</code>元素指定预定义选项的列表，在输入框输入数据时将显示预定义选项的下拉列表。</p>
-<p><code>&lt;input&gt;</code>元素的 list 属性必须引用<code>&lt;datalist&gt;</code>元素的 id 属性。</p>
+<ul>
+<li>
+<p><code>&lt;datalist&gt;</code>元素为<code>&lt;input&gt;</code>元素指定预定义选项的列表，在输入框输入数据时将显示预定义选项的下拉列表</p>
+</li>
+<li>
+<p><code>&lt;input&gt;</code>元素的 list 属性必须引用<code>&lt;datalist&gt;</code>元素的 id 属性</p>
+</li>
+</ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#&#34;</span>&gt;
   &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">list</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;browsers&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;browser&#34;</span>&gt;
   &lt;<span style="color:#f92672">datalist</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;browsers&#34;</span>&gt;
@@ -571,7 +594,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>3300</span>
+                   <span>3700</span>
             </p>
             
             <p class="copyright-item">
@@ -601,7 +624,7 @@
     <div class="post-nav">
          
         
-        <a href="https://coldinfire.github.io/2017/WEB_H5_CSS_Attributes/" class="next" rel="next" title=" CSS 属性 "> CSS 属性 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        <a href="https://coldinfire.github.io/2017/WEB_H5_HTML_Multimedia/" class="next" rel="next" title=" HTML 多媒体 "> HTML 多媒体 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
         
     </div>
 
