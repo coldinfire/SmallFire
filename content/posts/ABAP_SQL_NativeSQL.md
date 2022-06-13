@@ -125,7 +125,7 @@ TRY.
     ENDEXEC.
   ENDLOOP.
   CATCH cx_sy_native_sql_error INTO sql_error. 
-    error_text = l_sql_error->get_text( ). 
+    error_text = sql_error->get_text( ). 
 ENDTRY. 
 ```
 

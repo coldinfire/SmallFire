@@ -272,7 +272,7 @@
     ENDEXEC.
   <span style="color:#66d9ef">ENDLOOP</span>.
   <span style="color:#66d9ef">CATCH</span> cx_sy_native_sql_error <span style="color:#66d9ef">INTO</span> sql_error. 
-    error_text <span style="color:#f92672">=</span> l_sql_error<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_text</span>( ). 
+    error_text <span style="color:#f92672">=</span> sql_error<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_text</span>( ). 
 <span style="color:#66d9ef">ENDTRY</span>. 
 </code></pre></div><h4 id="异常处理和连接断开">异常处理和连接断开</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">&#34;异常处理&#34;
