@@ -58,6 +58,13 @@ tags:
 
 - text-transform: [uppercase、lowercase、capitalize];
 
+#### 列表显示样式
+
+list-style-type
+
+- none：无样式
+- circle：空心圆圈
+
 ### 背景属性
 
 #### background-color
@@ -234,7 +241,7 @@ border-radius: 10px 10px 10px 10px;
 - outline 是不占空间的，既不会增加额外的 width 或者 height
 - outline的声明内容和border一致
 
-#### CSS3新增特性
+#### CSS3 新增特性
 
 CSS3 中可以通过 box-sizing 来指定盒模型，有2个值：即可指定为 content-box、border-box，这样就可以计算盒子大小的方式就发生了改变。
 

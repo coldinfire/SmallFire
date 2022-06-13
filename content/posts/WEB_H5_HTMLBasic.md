@@ -300,15 +300,15 @@ name：属性命名遵循首个字母大写 &_ `name="N_Head_Title"`
 
 #### Canvas
 
-`<canvas>`元素用于在网页上绘制图形。
+`<canvas>`：该元素用于在网页上绘制图形。
 
-`<canvas>`元素只是图形的容器，需要使用JavaScript实际绘制图形。
+`<canvas>`：该元素只是图形的容器，需要使用 JavaScript 实际绘制图形。
 
 画布有几种绘制路径，框，圆，文本和添加图像的方法。
 
 #### SVG：可缩放矢量图形
 
-SVG以XML格式定义了基于矢量的图形。
+SVG 以XML 格式定义了基于矢量的图形。
 
 #### SVG 和 Canvas 之间的差异
 
