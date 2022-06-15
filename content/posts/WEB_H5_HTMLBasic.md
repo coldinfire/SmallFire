@@ -119,23 +119,15 @@ tags:
 
 #### 表单
 
-***action***： 定义在提交表单时执行的动作；向服务器提交表单的通常做法是使用 ***submit*** 按钮。通常表单会被提交到 web 服务器上的网页。
-
-***method*** ：定义在提交表单时所用的 HTTP 方法 (GET 或 POST)
-
-- GET 提交时，表单数据在页面地址栏中是可见的
-
-- POST 的安全性更加，因为在页面地址栏中被提交的数据是不可见的
-
-***name***：如果要表单数据正确地被提交，每个输入字段必须设置一个 name 属性。
+***Input 标签类型***
 
 ```html
-<form action="#" method="post/get">
+<form action="#" method="post">
   <label for="fname">User name:</label>
   <input type="text" id="fname" name="name" size="40" maxlength="50" autofocus><br/>
-  <input type="password" name="password" placeholder="Enter pwd" required><br/>
-  <input type="checkbox" name="hoppy" checked="checked">
-  <input type="checkbox" name="hoppy"><br/>
+  <input type="password" name="pwd" placeholder="Enter password" required><br/>
+  <input type="checkbox" name="hoppy" checked="checked"> 跑步
+  <input type="checkbox" name="hoppy"> 游泳<br/>
   <input type="radio" name="gender" value="male" checked="checked">Male
   <input type="radio" name="gender" value="female">Female<br/>
   <input type="submit" value="send"><br/>
@@ -148,12 +140,23 @@ tags:
     <option value="fiat">Fiat</option>
     <option value="audi">Audi</option>
   </select><br/>
-  <textarea name="comment" rows="60" cols="20"></textarea>
+  <textarea name="comment" rows="10" cols="100"></textarea><br/>
   <button type="button" onclick="alert('Hello World!')">Click Me</button>
 </form>
 ```
 
-*表单分组元素*
+***标签属性***
+
+- *action*： 定义在提交表单时执行的动作；向服务器提交表单的通常做法是使用 ***submit*** 按钮。通常表单会被提交到 web 服务器上的网页。
+
+- *method* ：定义在提交表单时所用的 HTTP 方法 (GET 或 POST)
+  - GET 提交时，表单数据在页面地址栏中是可见的
+
+  - POST 的安全性更加，因为在页面地址栏中被提交的数据是不可见的
+
+- *name*：如果要表单数据正确地被提交，每个输入字段必须设置一个 name 属性。
+
+***表单分组元素***
 
 - `<fieldset>`：该元素用于将表单中的相关数据分组
 
@@ -172,7 +175,7 @@ tags:
 </form>
 ```
 
-*预定义元素*
+***预定义元素***
 
 - `<datalist>`元素为`<input>`元素指定预定义选项的列表，在输入框输入数据时将显示预定义选项的下拉列表
 
@@ -192,7 +195,7 @@ tags:
 
 #### 元素类型
 
-*块状元素* ：每个块级元素都从新的一行开始，并且其后的元素也另起一行；元素的高度、宽度、行高以及顶和底边距都可设置；元素宽度在不设置的情况下和父元素的宽度一致。
+***块状元素*** ：每个块级元素都从新的一行开始，并且其后的元素也另起一行；元素的高度、宽度、行高以及顶和底边距都可设置；元素宽度在不设置的情况下和父元素的宽度一致。
 
 - 通过代码 `display: block;` 将元素设置为块级元素
 
@@ -202,7 +205,7 @@ tags:
 | `<h1>...<h6>` | `<div>`        | `<p>,<pre>` | `<ul>,<ol>,<dl>` | `<table>`    | `<form>`   |
 | `<address>`   | `<blockquote>` | `<canvas>`  | `<video>`        | `<noscript>` | `<figure>` |
 
-*内联元素* ：和其他元素都在一行上；元素的高度、宽度、行高及顶部和底部边距不可设置；元素的宽度就是它包含的文字或图片的宽度，不可改变。
+***内联元素*** ：和其他元素都在一行上；元素的高度、宽度、行高及顶部和底部边距不可设置；元素的宽度就是它包含的文字或图片的宽度，不可改变。
 
 - 通过代码 `display: inline;` 将元素设置为行内元素
 
@@ -212,7 +215,7 @@ tags:
 | `<b>`     | `<strong>` | `<i>`      | `<em>`       | `<sub>`    | `<sup>`   |
 | `<input>` | `<label>`  | `<select>` | `<textarea>` | `<script>` | `<small>` |
 
-*内联块状元素* ：同时具备内联元素、块状元素的特点；和其他元素都在一行上；元素的高度、宽度、行高以及顶和底边距都可设置。
+***内联块状元素*** ：同时具备内联元素、块状元素的特点；和其他元素都在一行上；元素的高度、宽度、行高以及顶和底边距都可设置。
 
 - `<img>` `<input>`
 - 通过代码 `display: inline-block;` 将元素设置为内联块状元素

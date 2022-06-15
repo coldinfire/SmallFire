@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "HTML",
-  "wordcount":  3660 ,
+  "wordcount":  3684 ,
   "url": "https:\/\/coldinfire.github.io\/2017\/WEB_H5_HTMLBasic\/",
   "datePublished": "2017-09-01T00:00:00\u002b00:00",
   "dateModified": "2017-09-01T00:00:00\u002b00:00",
@@ -308,23 +308,13 @@
 </ul>
 <p>框架使用：<code>&lt;iframe src=&quot;demo_iframe.htm&quot; title=&quot;Iframe Example&quot;&gt;&lt;/iframe&gt;</code> 在一个页面中组织多个 html 文件</p>
 <h4 id="表单">表单</h4>
-<p><em><strong>action</strong></em>： 定义在提交表单时执行的动作；向服务器提交表单的通常做法是使用 <em><strong>submit</strong></em> 按钮。通常表单会被提交到 web 服务器上的网页。</p>
-<p><em><strong>method</strong></em> ：定义在提交表单时所用的 HTTP 方法 (GET 或 POST)</p>
-<ul>
-<li>
-<p>GET 提交时，表单数据在页面地址栏中是可见的</p>
-</li>
-<li>
-<p>POST 的安全性更加，因为在页面地址栏中被提交的数据是不可见的</p>
-</li>
-</ul>
-<p><em><strong>name</strong></em>：如果要表单数据正确地被提交，每个输入字段必须设置一个 name 属性。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post/get&#34;</span>&gt;
+<p><em><strong>Input 标签类型</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
   &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fname&#34;</span>&gt;User name:&lt;/<span style="color:#f92672">label</span>&gt;
   &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fname&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;40&#34;</span> <span style="color:#a6e22e">maxlength</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;50&#34;</span> <span style="color:#a6e22e">autofocus</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
-  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Enter pwd&#34;</span> <span style="color:#a6e22e">required</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
-  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hoppy&#34;</span> <span style="color:#a6e22e">checked</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checked&#34;</span>&gt;
-  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hoppy&#34;</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pwd&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Enter password&#34;</span> <span style="color:#a6e22e">required</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hoppy&#34;</span> <span style="color:#a6e22e">checked</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checked&#34;</span>&gt; 跑步
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hoppy&#34;</span>&gt; 游泳&lt;<span style="color:#f92672">br</span>/&gt;
   &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;radio&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gender&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;male&#34;</span> <span style="color:#a6e22e">checked</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checked&#34;</span>&gt;Male
   &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;radio&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gender&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;female&#34;</span>&gt;Female&lt;<span style="color:#f92672">br</span>/&gt;
   &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;send&#34;</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
@@ -337,10 +327,30 @@
     &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fiat&#34;</span>&gt;Fiat&lt;/<span style="color:#f92672">option</span>&gt;
     &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;audi&#34;</span>&gt;Audi&lt;/<span style="color:#f92672">option</span>&gt;
   &lt;/<span style="color:#f92672">select</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
-  &lt;<span style="color:#f92672">textarea</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;comment&#34;</span> <span style="color:#a6e22e">rows</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;60&#34;</span> <span style="color:#a6e22e">cols</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;20&#34;</span>&gt;&lt;/<span style="color:#f92672">textarea</span>&gt;
+  &lt;<span style="color:#f92672">textarea</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;comment&#34;</span> <span style="color:#a6e22e">rows</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span> <span style="color:#a6e22e">cols</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100&#34;</span>&gt;&lt;/<span style="color:#f92672">textarea</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
   &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert(&#39;Hello World!&#39;)&#34;</span>&gt;Click Me&lt;/<span style="color:#f92672">button</span>&gt;
 &lt;/<span style="color:#f92672">form</span>&gt;
-</code></pre></div><p><em>表单分组元素</em></p>
+</code></pre></div><p><em><strong>标签属性</strong></em></p>
+<ul>
+<li>
+<p><em>action</em>： 定义在提交表单时执行的动作；向服务器提交表单的通常做法是使用 <em><strong>submit</strong></em> 按钮。通常表单会被提交到 web 服务器上的网页。</p>
+</li>
+<li>
+<p><em>method</em> ：定义在提交表单时所用的 HTTP 方法 (GET 或 POST)</p>
+<ul>
+<li>
+<p>GET 提交时，表单数据在页面地址栏中是可见的</p>
+</li>
+<li>
+<p>POST 的安全性更加，因为在页面地址栏中被提交的数据是不可见的</p>
+</li>
+</ul>
+</li>
+<li>
+<p><em>name</em>：如果要表单数据正确地被提交，每个输入字段必须设置一个 name 属性。</p>
+</li>
+</ul>
+<p><em><strong>表单分组元素</strong></em></p>
 <ul>
 <li>
 <p><code>&lt;fieldset&gt;</code>：该元素用于将表单中的相关数据分组</p>
@@ -359,7 +369,7 @@
     &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Submit&#34;</span>&gt;
   &lt;/<span style="color:#f92672">fieldset</span>&gt;
 &lt;/<span style="color:#f92672">form</span>&gt;
-</code></pre></div><p><em>预定义元素</em></p>
+</code></pre></div><p><em><strong>预定义元素</strong></em></p>
 <ul>
 <li>
 <p><code>&lt;datalist&gt;</code>元素为<code>&lt;input&gt;</code>元素指定预定义选项的列表，在输入框输入数据时将显示预定义选项的下拉列表</p>
@@ -378,7 +388,7 @@
   &lt;/<span style="color:#f92672">datalist</span>&gt; 
 &lt;/<span style="color:#f92672">form</span>&gt;
 </code></pre></div><h4 id="元素类型">元素类型</h4>
-<p><em>块状元素</em> ：每个块级元素都从新的一行开始，并且其后的元素也另起一行；元素的高度、宽度、行高以及顶和底边距都可设置；元素宽度在不设置的情况下和父元素的宽度一致。</p>
+<p><em><strong>块状元素</strong></em> ：每个块级元素都从新的一行开始，并且其后的元素也另起一行；元素的高度、宽度、行高以及顶和底边距都可设置；元素宽度在不设置的情况下和父元素的宽度一致。</p>
 <ul>
 <li>通过代码 <code>display: block;</code> 将元素设置为块级元素</li>
 </ul>
@@ -420,7 +430,7 @@
 </tr>
 </tbody>
 </table>
-<p><em>内联元素</em> ：和其他元素都在一行上；元素的高度、宽度、行高及顶部和底部边距不可设置；元素的宽度就是它包含的文字或图片的宽度，不可改变。</p>
+<p><em><strong>内联元素</strong></em> ：和其他元素都在一行上；元素的高度、宽度、行高及顶部和底部边距不可设置；元素的宽度就是它包含的文字或图片的宽度，不可改变。</p>
 <ul>
 <li>通过代码 <code>display: inline;</code> 将元素设置为行内元素</li>
 </ul>
@@ -462,7 +472,7 @@
 </tr>
 </tbody>
 </table>
-<p><em>内联块状元素</em> ：同时具备内联元素、块状元素的特点；和其他元素都在一行上；元素的高度、宽度、行高以及顶和底边距都可设置。</p>
+<p><em><strong>内联块状元素</strong></em> ：同时具备内联元素、块状元素的特点；和其他元素都在一行上；元素的高度、宽度、行高以及顶和底边距都可设置。</p>
 <ul>
 <li><code>&lt;img&gt;</code> <code>&lt;input&gt;</code></li>
 <li>通过代码 <code>display: inline-block;</code> 将元素设置为内联块状元素</li>
@@ -585,7 +595,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>3660</span>
+                   <span>3684</span>
             </p>
             
             <p class="copyright-item">
