@@ -82,11 +82,15 @@ Classic BADI 和 new BADI 的不同：
 
 #### Create Implementation
 
-输入 Implementation name：`Z_<impl>`
+BADI 其实是使用面向对象语言的接口技术，增强其实就是实现 BADI 接口的方法，然后在实现的方法内写业务代码。
+
+- **SE19** 选择 Create Implementation 中的 Classic BADI  输入 Implementation name：`Z_<impl>`
 
 ![Create Implementation](/images/ABAP/BADI_05.png)
 
-创建实现后，自动生成实现类：`ZCL_IM_<impl>`
+创建实现后，自动生成实现类：`ZCL_IM_<impl>`。查看Implementing Class
+
+![Create Implementation](/images/ABAP/BADI_07.png)
 
 ![Create Implementation](/images/ABAP/BADI_06.png)
 
