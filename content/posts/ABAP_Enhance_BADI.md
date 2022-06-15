@@ -16,9 +16,9 @@ tags:
 
 BADI 维护是通过 SE18、SE19、SE24 事务来来维护的。
 
-- SE18：用于创建及维护 BADI 对象，定义接口功能，查看 BADI 的相关属性
-- SE19：用于维护 BADI 对象的实例，创建实现类并编码，查看 BADI 的相关实现
-- SE24：使用SE24 查看 CLASS Interface
+- SE18：用于创建及维护 BADI 对象。创建增强点、维护接口/类（Interface）、维护方法，维护方法的参数、维护实施 Implementation
+- SE19：用于维护 BADI 对象的实例，BADI 功能的实现
+- SE24：查看 CLASS Interface、查找相关事务代码的BADI增强出口
 
 **BADI 是基于 SAP 面向对象的 SAP 增强技术** ：SAP 预定义了 Interface，由客户来实例化相应的接口，应用程序通过调用来获得用户所定义 class 的 instance。
 
@@ -27,11 +27,23 @@ BADI 维护是通过 SE18、SE19、SE24 事务来来维护的。
 - Classic BADI ：在运行时进行实例化，old BADI
 - Kernel BADI ：在编译时进行实例化，new BADI
 
+Classic BADI 和 new BADI 的不同：
+
+- BADI Object
+  - 对于 Classic BADI，BADI 对象是通过调用工厂方法创建的，并通过 BADI 接口类型的引用变量进行引用
+  - 对于 New BADI，通过 ABAP 语句 `GET BADI` 创建一个 BADI 对象作为 BADI 方法调用的句柄，并通过 BADI 类型的引用变量进行引用。 BADI 对象是内部 BADI 类的实例，否则对外部是不可见的
+- 为过滤器传递比较值
+  - 对于 Classic BADI，过滤器值存储在一个结构中，并通过 BADI 方法的调用传递
+  - 对于 New BADI，过滤器的比较值在使用 GET BADI 创建 BADI 对象时传递
+- 调用 BADI 方法
+  - Classic BADI 只能调用一次，调用位置集中注册
+  - New BADI 可以进行多次调用，调用位置不会集中注册
+
 #### 命名规则
 
 - Enhancement Spot：`Z_ES_<Spot_name>`
 
-- BADI definition: `ZBADI_<BADI_name>>`
+- BADI definition: `ZBADI_<BADI_name>`
 
 - Interface: `ZIF_EX_<BADI_name>`
 
@@ -70,15 +82,17 @@ BADI 维护是通过 SE18、SE19、SE24 事务来来维护的。
 
 #### Create Implementation
 
+输入 Implementation name：`Z_<impl>`
+
 ![Create Implementation](/images/ABAP/BADI_05.png)
 
-创建实现后，自动生成实现类：ZCL_IM_CL_IM_XXX
+创建实现后，自动生成实现类：`ZCL_IM_<impl>`
 
 ![Create Implementation](/images/ABAP/BADI_06.png)
 
 #### BADI 调用
 
-Classic BADI 通过 **CL_EXITHANDLER=>GET_INSTANCE** 来获取实例，然后通过实例来调用Interface 中的方法。
+Classic BADI 通过 **CL_EXITHANDLER=>GET_INSTANCE** 来获取实例，然后通过实例来调用 Interface 中的方法。
 
 ```ABAP
 DATA: out TYPE string.

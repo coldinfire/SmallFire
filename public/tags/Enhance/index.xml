@@ -36,11 +36,11 @@
     
     <item>
       <title> BADI 维护 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_BADI/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_Enhance_BADI/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_BADI/</guid>
-      <description>BADI 基于类的增强 BADI 维护是通过 SE18、SE19、SE24 事务来来维护的。 SE18：用于创建及维护 BADI 对象，定义接口功能，查看 BADI 的相关属性 SE19</description>
+      <guid>https://coldinfire.github.io/2019/ABAP_Enhance_BADI/</guid>
+      <description>BADI 基于类的增强 BADI 维护是通过 SE18、SE19、SE24 事务来来维护的。 SE18：用于创建及维护 BADI 对象。创建增强点、维护接口/类（Interf</description>
     </item>
     
     <item>

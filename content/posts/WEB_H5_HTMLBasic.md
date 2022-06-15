@@ -63,7 +63,7 @@ tags:
 
 #### 自闭合标签
 
-`<br/>`、 `<hr/>`、 `<meta/>`、 `<img/>`、 `<input../>`、 `<option../>`、 `<link/>`。
+ `<meta/>`、 `<link/>`、`<br/>`、 `<hr/>`、 `<img/>`、 `<input../>`、 `<option../>`。
 
 #### 特殊字符
 
@@ -130,8 +130,9 @@ tags:
   <input type="checkbox" name="hoppy"> 游泳<br/>
   <input type="radio" name="gender" value="male" checked="checked">Male
   <input type="radio" name="gender" value="female">Female<br/>
+  <input type="file"  name="file" id="file" multiple><br/>
   <input type="submit" value="send"><br/>
-  <input type="reset" value="reset"><br/>
+  <input type="reset"  value="reset"><br/>
   <input type="button" onclick="alert('Hello World!')" value="Click Me!">
   <input type="hidden">
   <select name="cars" size="3" multiple>
@@ -227,9 +228,9 @@ HTML 属性应按照特定的顺序排列，以方便代码查阅。
 - `class`
 - `id`, `name`
 - `data-*`
-- `src`, `for`, `type`, `href`, `value`
-- `title`, `alt`
-- `role`, `aria-*`
+- `src`、`for`、 `type`、 `href`、 `value`
+- `title`、 `alt`
+- `role`、`aria-*`
 
 class：能让我们更好地重用组件，所以它打头阵；
 
