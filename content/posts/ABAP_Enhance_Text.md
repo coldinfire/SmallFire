@@ -14,7 +14,7 @@ tags:
 
 ### 文本增强
 
-用文本增强修改SAP标准屏幕中的字段名称，如修改 Internal Order 的 End of Work。
+用文本增强修改 SAP 标准屏幕中的字段名称，如修改 Internal Order 的 End of Work。
 
 #### Step 1：找到对应的Data Element
 

@@ -75,11 +75,6 @@ BADI 通过面向对象的方式来提供扩展点，它支持 Customer Exits �
 
 SAP 预定义了 Interface，由客户来实例化相应的接口，应用程序通过方法调用来获得用户所定义 class 的 instance。
 
-SAP BADI 的使用分类：
-
-- 非 Multiple Case 的 BADI 同时只能有一个 Active Implementation，要 Active 新生成的需要先 Inactive 旧的。
-- Multiple Case 的 BADI 则可同时有多个 Active Implementation，且所有的 Implementation 在没有  Filter 的情况下都会被遍历执行。
-
 在某些情况下，出于业务需求，可能存在多个开发内容需要放置在这种 BADI 的实施中。因为只有一个实施类可用，就可能会导致不同开发人员的代码发生碰撞，造成一些不好的结果。这时会自然地产生为这种 BADI 创造多个实施，并让它们依次执行的需求。解决方法：
 
 1. 为我们想要增强的类创建一个基本 BADI 实施，在该实施类中使用 cl_sic_configuration 获取 BADI 对应的所有自定义实施类的列表。

@@ -256,7 +256,7 @@
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_Enhance_Text/</guid>
-      <description>文本增强 用文本增强修改SAP标准屏幕中的字段名称，如修改 Internal Order 的 End of Work。 Step 1：找到对应的Data Element 事务 KO03 进入 Internal Order 主数据显示界面，选择 General data</description>
+      <description>文本增强 用文本增强修改 SAP 标准屏幕中的字段名称，如修改 Internal Order 的 End of Work。 Step 1：找到对应的Data Element 事务 KO03 进入 Internal Order 主数据显示界面，选择 General data 页签</description>
     </item>
     
     <item>
@@ -715,7 +715,7 @@
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/ABAP_Enhance_BADI/</guid>
-      <description>BADI 基于类的增强 BADI 维护是通过 SE18、SE19、SE24 事务来来维护的。 SE18：用于创建及维护 BADI 对象。创建增强点、维护接口/类（Interf</description>
+      <description>BADI 基于类的增强 BADI 是基于面向对象的 SAP 增强技术：SAP 预定义了 Interface，由客户来实例化相应的接口并重写其方法，应用程序通过调用客户所定</description>
     </item>
     
     <item>
