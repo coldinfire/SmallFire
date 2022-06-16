@@ -468,10 +468,10 @@
     
     <item>
       <title> SAP Domain 增强 </title>
-      <link>https://coldinfire.github.io/2020/ABAP_DomainEnhancement/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_Enhance_Domain/</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_DomainEnhancement/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_Enhance_Domain/</guid>
       <description>Domain 值范围增加固定值 Step1 : Fixed Value Append se11 进入domain 显示界面，选择 Goto -&amp;gt; Fixed Value Append 弹出下面对话框，输入自定义的 Fixed Value Append 名称： Step2: 维护添加值 保存并激活。 Ste</description>
     </item>
     
