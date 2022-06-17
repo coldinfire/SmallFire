@@ -105,12 +105,12 @@ Enhancement-Point 技术与 BADI 是有区别的，首先 BADI 是 SAP 预留的
 
 ***隐式增强和显式增强：***
 
-显式增强：就是手动加入到程序中的 Enhancement options，有两种显式增强
+显式增强：就是手动加入到程序中的 Enhancement options，显式增强有两种方式
 
 - **ENHANCEMENT-POINT（增强点）**：是在程序中直接插入代码，其概念与 USER EXIT 类似，标准程序预留了部分已定义好的增强点，没有代码，只有一个预留点。可以插入代码来实现这个增强（也可以自定义增强点，但不能自定义增强选项，增强选项一定是系统预留下来的，如果没有增强选项则该处不可做增强），但是不能做屏幕和菜单增强。
 - **ENHANCEMENT-SECTION（增强选项）**：定义和实现的方法与 ENHANCEMENT-POINT 一样。两者的区别是：增强点没有代码，只有一个预留点，允许在这个位置插入新代码（implementation）；而在 Enhancement-section 和 End-enhancement-section. 之间有代码，implementation  之后会替换旧代码，只执行新代码，原来的代码不再执行。
 
-隐式增强：在执行程序，包含程序，函数组，对话模块的结尾；Form例程，函数模块，方法等的开始和结尾；结构的结尾这些地方都会有。
+隐式增强：系统内置的 Enhancement options。在执行程序，包含程序，函数组，对话模块的结尾；Form例程，函数模块，方法等的开始和结尾；结构的结尾这些地方都会有。
 
 ***一般增强步骤***
 
@@ -182,6 +182,10 @@ BADI 创建和实现：[https://coldinfire.github.io/2019/ABAP_Enhance_BADI/](ht
 
 ### 显式和隐式增强技术
 
+![Customer Exits](/images/ABAP/ABAP_Enhance5.png)
+
+![Customer Exits](/images/ABAP/ABAP_Enhance6.png)
+
 - [显式增强](https://blog.csdn.net/weixin_40672823/article/details/105994981)
 
 - [隐式增强](https://blog.csdn.net/weixin_40672823/article/details/106055695)
@@ -190,8 +194,6 @@ BADI 创建和实现：[https://coldinfire.github.io/2019/ABAP_Enhance_BADI/](ht
 
 - [查找增强出口和 BADI](https://coldinfire.github.io/2018/ABAP_Enhance_Util1/)
 - [利用 t-code 查找增强出口的程序工具](https://coldinfire.github.io/2018/ABAP_Enhance_Util2/)
-
-### 增强实现
 
 
 

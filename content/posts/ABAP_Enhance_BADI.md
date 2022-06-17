@@ -243,9 +243,13 @@ Kernel BADI 通过 **GET BADI** 来获取实例，并调用 **CALL BADI** 来调
 
 ```ABAP
 REPORT ZBADI_TEST2.
+PARAMETERS: filter(3) TYPE c.
 DATA: lo_badi_demo TYPE REF TO ZBADI_DEMO, "ZBADI_DEMO为BADI定义名,不是接口也不是类"
       out TYPE string.
-GET BADI lo_badi_demo.
+filter = 'C01'.
+GET BADI lo_badi_demo
+  FILTERS
+    filter1 = filter.
 IF lo_badi_demo IS BOUND.
   CALL BADI lo_badi_demo->test
     EXPORTING
@@ -256,8 +260,16 @@ IF lo_badi_demo IS BOUND.
 ENDIF.
 ```
 
+ **多个BADI / Enhancement 实现时究竟调谁**
 
+相同的 Enhancement Implementation 中
+
+- 不同的 BADI Implementations 之间究竟选谁的问题，是由 Default Implementation、Implementation is active 选项共同来决定的，且在同一时间内只能有一个BADI Implementations 能被激活调用，所以要通过这两个选项来控制究竟谁被用来当作当前实现被使用，是否被使用也可通过 Runtime Behavior 的说明文字来查看。
+
+不同的 Enhancement Implementation 之间的调用由过滤器来决定。
 
 ### 参考文档
+
+- [BADI 的工作原理](https://blog.csdn.net/duanyu9879/article/details/7334164?spm=1001.2014.3001.5502)
 
 - [https://www.cnblogs.com/jiangzhengjun/p/4265513.html#_Toc410467160](https://www.cnblogs.com/jiangzhengjun/p/4265513.html#_Toc410467160)
