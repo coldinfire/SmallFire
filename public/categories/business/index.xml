@@ -427,7 +427,7 @@
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Outsourcing_Business/</guid>
-      <description>委外加工 是指由本公司提供材料（可能是部分）给外包商进行加工，完工后收回成品并向委外加工商支付加工费的业务方式。 1.创建委外加工订单 订单类型：</description>
+      <description>委外加工 是指由本公司提供材料（可能是部分）给外包商进行加工，完工后收回成品并向委外加工商支付加工费的业务方式。 创建委外加工订单 订单类型：NB</description>
     </item>
     
     <item>
@@ -517,7 +517,7 @@
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_STO/</guid>
-      <description>一、工厂间转储 （1）MB1B 移动类型 301 工厂到工厂（一步）转账 -&amp;gt; 简单明了一步转储；过账后会产生 GR，MITA 增加了，MIZH 减少了， MB03：</description>
+      <description>工厂间转储 MB1B 移动类型 301 工厂到工厂（一步）转账：简单明了一步转储；过账后会产生 GR，MITA 增加，MIZH 减少。 MB03 查看物料凭证：会产生 GR，如</description>
     </item>
     
     <item>
@@ -635,15 +635,6 @@
       
       <guid>https://coldinfire.github.io/2019/FI_Configure/</guid>
       <description>创建会计科目表 (A999账目表) 定义会计年度变式 (正常记账期间12、特殊期间4) 创建信贷控制范围 依据以上信息维护公司参数 定义科目账户组合编号</description>
-    </item>
-    
-    <item>
-      <title> MM 配置流程 </title>
-      <link>https://coldinfire.github.io/2019/MM_Basic_Confirg/</link>
-      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MM_Basic_Confirg/</guid>
-      <description>MM 模块主要配置流程 创建公司代码、工厂 创建库存地点 创建采购组织 创建采购组 创建 MRP Controller 分配工厂到公司代码 分配采购组织到公司代码 分配工厂到采购组织 定义</description>
     </item>
     
     <item>

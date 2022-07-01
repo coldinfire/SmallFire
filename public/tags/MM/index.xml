@@ -202,7 +202,7 @@
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Outsourcing_Business/</guid>
-      <description>委外加工 是指由本公司提供材料（可能是部分）给外包商进行加工，完工后收回成品并向委外加工商支付加工费的业务方式。 1.创建委外加工订单 订单类型：</description>
+      <description>委外加工 是指由本公司提供材料（可能是部分）给外包商进行加工，完工后收回成品并向委外加工商支付加工费的业务方式。 创建委外加工订单 订单类型：NB</description>
     </item>
     
     <item>
@@ -383,15 +383,6 @@
       
       <guid>https://coldinfire.github.io/2019/MM_Tcode/</guid>
       <description>MM 常用Tcode： Table Desc Table Desc MM01/02/03/04/06 物料：创建/修改/显示/显示修改/删除标记 MK01/02/03/05/06 供应商：创建/修改/显示/冻结/删除标记 ME01/02/0M 货源清单：创建/查看/物料</description>
-    </item>
-    
-    <item>
-      <title> MM 配置流程 </title>
-      <link>https://coldinfire.github.io/2019/MM_Basic_Confirg/</link>
-      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MM_Basic_Confirg/</guid>
-      <description>MM 模块主要配置流程 创建公司代码、工厂 创建库存地点 创建采购组织 创建采购组 创建 MRP Controller 分配工厂到公司代码 分配采购组织到公司代码 分配工厂到采购组织 定义</description>
     </item>
     
     <item>
