@@ -6,7 +6,25 @@
     <description>Recent content in utils on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/utils/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/utils/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> BRF&#43;:Design the rules in SAP</title>
+      <link>https://coldinfire.github.io/2022/SAP_BRF-/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/SAP_BRF-/</guid>
+      <description>参考： Introduction to SAP BRF+ Practical use of BRF+ Application to design the Rules in SAP</description>
+    </item>
+    
+    <item>
+      <title> SAP Document Management System </title>
+      <link>https://coldinfire.github.io/2022/SAP_DMS/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/SAP_DMS/</guid>
+      <description>参考：Document Management System SAP Document 管理系统了解</description>
+    </item>
+    
     <item>
       <title> SAP Note 使用 </title>
       <link>https://coldinfire.github.io/2021/SAP_Note/</link>

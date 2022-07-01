@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> BRF&#43;:Design the rules in SAP</title>
+      <link>https://coldinfire.github.io/2022/SAP_BRF-/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/SAP_BRF-/</guid>
+      <description>参考： Introduction to SAP BRF+ Practical use of BRF+ Application to design the Rules in SAP</description>
+    </item>
+    
+    <item>
+      <title> SAP Document Management System </title>
+      <link>https://coldinfire.github.io/2022/SAP_DMS/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/SAP_DMS/</guid>
+      <description>参考：Document Management System SAP Document 管理系统了解</description>
+    </item>
+    
     <item>
       <title> SAP 获取Activate物料 </title>
       <link>https://coldinfire.github.io/2022/MM_GetActivateMaterial/</link>
@@ -1769,6 +1787,15 @@
       
       <guid>https://coldinfire.github.io/2019/MM_Basis_InfoRecord/</guid>
       <description>创建 Info Record 信息记录 (Info record)：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。 创建方式：手工输入，报价单选择，采购订单，</description>
+    </item>
+    
+    <item>
+      <title> MM 自动过账配置(科目确定) </title>
+      <link>https://coldinfire.github.io/2019/MM_AutoPostAccount/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_AutoPostAccount/</guid>
+      <description>参考：自动过账</description>
     </item>
     
     <item>
