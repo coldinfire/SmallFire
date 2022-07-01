@@ -1,5 +1,5 @@
 ---
-title: " MM 概述(二) "
+title: " 库存采购基础 "
 date: 2019-03-11
 draft: false
 author: Small Fire

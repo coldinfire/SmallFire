@@ -261,10 +261,10 @@
     
     <item>
       <title> 报表开发&lt;概述&gt; </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Basis/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Basis/</guid>
       <description>ALV (SAP List Viewer) 是 SAP 常用的屏幕显示列表控件对象，通过传递数据内表方式显示数据； ALV 显示格式分为 Grid 和 List 两种模式。 Grid 模式有栏位选择按钮功能，允许用户直接输</description>
     </item>
     

@@ -54,10 +54,10 @@
     
     <item>
       <title> Dialog 程序简介 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basis/</link>
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basis/</guid>
       <description>SAP-ABAP 支持两种类型的程序：Report 和 Dialog。如果 ABAP 程序需要用户输入或则当我们需要在屏幕之间来回导航时，则使用 Dialog 编程。 对话程序的创建类型</description>
     </item>
     

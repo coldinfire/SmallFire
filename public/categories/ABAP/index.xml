@@ -423,10 +423,10 @@
     
     <item>
       <title> SAP Adobe Form </title>
-      <link>https://coldinfire.github.io/2020/ABAP_SFP_Basic/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_SFP_Basis/</link>
       <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Basic/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Basis/</guid>
       <description>SAP 中关于 Form 的设计有三种工具：Script Form，Smart Form 和 Interactive Form(Adobe Form). 要在 SAP 系统中展示 Adobe Form 需要 SAP 版本在 ECC6.0以上 ，而且要开发自定义的 Adobe</description>
     </item>
     
@@ -783,10 +783,10 @@
     
     <item>
       <title> BAPI 使用 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basis/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basis/</guid>
       <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，是标准化的编程接口（方法），使外部应用程序能够访问 R/3 系统中的业务</description>
     </item>
     
@@ -936,10 +936,10 @@
     
     <item>
       <title> SALV 使用简介 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Basis/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Basis/</guid>
       <description>引用自：https://www.cnblogs.com/jiangzhengjun/p/4291387.html 简介 SALV 可以使用函数方式生成 ALV</description>
     </item>
     
@@ -1440,10 +1440,10 @@
     
     <item>
       <title> Dialog 程序简介 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basis/</link>
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basis/</guid>
       <description>SAP-ABAP 支持两种类型的程序：Report 和 Dialog。如果 ABAP 程序需要用户输入或则当我们需要在屏幕之间来回导航时，则使用 Dialog 编程。 对话程序的创建类型</description>
     </item>
     
@@ -1692,10 +1692,10 @@
     
     <item>
       <title> OO ALV 使用 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basis/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basis/</guid>
       <description>OO ALV ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作。 使用了 ABAP 的对象以</description>
     </item>
     
@@ -1782,10 +1782,10 @@
     
     <item>
       <title> 报表开发&lt;概述&gt; </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Basis/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Basis/</guid>
       <description>ALV (SAP List Viewer) 是 SAP 常用的屏幕显示列表控件对象，通过传递数据内表方式显示数据； ALV 显示格式分为 Grid 和 List 两种模式。 Grid 模式有栏位选择按钮功能，允许用户直接输</description>
     </item>
     

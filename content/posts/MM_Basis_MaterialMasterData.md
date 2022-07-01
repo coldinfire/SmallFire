@@ -1,6 +1,6 @@
 ---
-title: " MM 概述(一) "
-date: 2019-03-10
+title: " MM 物料主数据管理 "
+date: 2019-03-12
 draft: false
 author: Small Fire
 isCJKLanguage: true
@@ -12,37 +12,16 @@ tags:
 
 ---
 
-### 企业组织结构 ###
-
-#### 整体架构
-
-集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。
-
-公司代码：一个公司代码代表一个独立的会计实体。每个公司代码都有它自己得到资产负债表和损益表。
-
-工厂：是公司内的组织单元，生产产品、提供服务或销售产品，工厂可以是（制造厂、仓库中转中心、 区域销售办公司、公司总部）。
-
-库存地点：是工厂内存放不同类型物料的组织单位，如：材料仓，成品仓，材损仓。
-
-采购组织：是负责为一个或多个工厂工厂采购物料和提供服务及与供应商协商价格和供货条款的主旨单位。价格条件在采购组织层次设置。如果一个采购组织为多个工厂采购，则价格在各个工厂都有效。
-
-采购组：是采购组织的进一步细分，负责日常的采购活动，一个采购组也可以为多个采购组织工作。
-
-#### 集团 / 公司代码 / 工厂 ####
-![架构关系](/images/MM/Client1.png)
-#### 公司代码 / 工厂 / 库存地点 ####
-![架构关系](/images/MM/Client2.png)
-
-### 物料主数据 ###
+###  Material Master Data ###
 
 #### 相关事物码
 
 - MM01/02/03：创建 / 修改 / 显示
 
 - MM06：立即删除标记。Material 的删除分两个层次：一个是加 Delete flag material 但号码还存在， 但强制使用还是可以的， 所以建议使用 Status 来控制，将所有的状态都 block 住。
-  
-![MM06](/images/MM/MM06_Delete.png)
-  
+
+  ![MM06](/images/MM/MM06_Delete.png)
+
 - MM17：批量维护物料主数据内容
 
 - MM50：物料视图扩充
@@ -54,6 +33,7 @@ tags:
 - MMD1：MRP文档创建
 
 #### 主要信息 ####
+
 描述性信息：描述，尺寸，体积等
 
 控制性信息：MRP类型，价格控制，采购组等
@@ -69,7 +49,6 @@ tags:
 物料编码：物料编码用来唯一地识别有关物料主记录，用户可在物料管理客户化修改中设置长度并记录物料编码的模式。
 
 - 号码范围：(Group、Material type、Number Ranges) 外部给号，内部给号范围的限制；允不允许外部给号，需要设置Group中包不包含外部Number range；
-  
 
 ![定义Number Ranger](/images/MM/MM_NR.png)
 
@@ -103,7 +82,7 @@ tags:
   ![Material Types Control](/images/MM/MM_material_type.png)        
 
   - External no. assignment w/o check, 如果选中就代表，建立 Material 并且外部给号的时候，不会去检查是否符合 External no range。
-  
+
 - 控制数量/价值更新：决定数量和价值的更新（客户供料：只会做数量更新，不会做价钱更新<不属于本公司>）
 
   ![Material Types Control](/images/MM/MM_material_type2.png)
@@ -117,7 +96,6 @@ tags:
   ![Material Types Control](/images/MM/MM_material_type3.png)        
 
 - 决定使用哪个G/L Account：过账时的总账分类账
-  
 
  ![Material Types Control](/images/MM/MM_material_type4.png) 
 
@@ -154,7 +132,7 @@ tags:
 
 - 辅助数据级别：在主数据级别外进行额外的信息补充
 
-   ![数据屏幕](/images/MM/MMScreen.png)
+  ![数据屏幕](/images/MM/MMScreen.png)
 
 字段控制：控制前台字段的显示状态
 
@@ -167,6 +145,7 @@ tags:
 ![各组别定义](/images/MM/MM_FS1.png)
 
 多个因素的优先级：
+
 - Hide
 - Display
 - Required entry field
@@ -180,7 +159,6 @@ tags:
 计量单位组：预先定义好单位转换 <通过后台设置关键字 设置计量单位组中进行设置的>）
 
 - 计量单位(计量单位组)
-  
 
 ![计量单位组定义](/images/MM/MM_DUMG.png)
 
@@ -263,51 +241,93 @@ End Item：直买直卖的物品必须勾选
 
 **Consting 1**
 
-### 消耗型物料 ###
-办公材料：成本中心、计算机系统：固定资产。
+### 后台配置操作
 
-- 消耗型物料时直接为了一个科目设置对象而购买的物料 (不需要办理入库和出库手续)
+#### 1.物料主数据视图：
 
+  - 包含：常规，采购，销售，库存， 计划，属性，备注等视图维护。
 
-- 库存管理未被执行
+#### 2.定义全球估价类型(Split Valuation configuration) : OMWC
 
-
-- 系统会自动更新有物料主记录的消耗型物料
-
-| 库存物料                     | 消耗型物料                                                   |
-| ---------------------------- | ------------------------------------------------------------ |
-| 输入要求的物料编号           | 可以输入物料编号，但不是必须的                               |
-| 无科目设置类别               | 强制科目设置类别                                             |
-| 过账到库存科目               | 过账到消耗科目                                               |
-| 在物料主记录中更新数量和价值 | 消耗品更新（只使用于物料主记录中的物料）、移动平均价格被调整 |
-
- - 非库存物料（NLAG）：有一定采购频率、是有物料主数据，但不做库存管理的物料。（价值，数量）。
-	- 使用该物料类型的物料，创建采购订单需要指定账户分类（如 K 等）；根据采购订单收货时，直接财务上消耗记账。
- - 未评估物料（UNBW）：做数量管理，不做价值管理
-     - 使用该物料类型的物料，创建采购订单需要指定账户分类（如 K 等）；根据采购订单收货时，直接财务消耗记账，更新库存数量；消耗时，只记录库存数量减少。
-
-### BOM ###
-BOM：物料清单 (零件结构表)，将产品的原材料、零配件、组件予以拆解，并将各单位项材料依材料编号、名称、
-规格、基本单位、单位用量、产品损耗等依制造流程的顺序记录下来，排列为一个清单，就是 BOM。
-
-### MRP ###
-MRP：物料需求计划，利用生产日程表（MPS）、零件结构表（BOM）、库存报表、已订购未交货订单等等
-各种相关资料，经正确计算而得出各种物料零件的变量需求，提出各种新的订购或修正各种以开出订购
-的物料管理技术。
-
-![MRP原理](/images/MM/MRP.png)
-![MRP](/images/MM/MRP2.png)
-
-#### MRP元素缩写
-
-| Detail                 | Detail           | Detail           | Detail                     |
-| ---------------------- | ---------------- | ---------------- | -------------------------- |
-| SimReq：简单需求       | BR：流程订单     | PrdOrd：生产订单 | BtchSt：批量库存           |
-| AR：相关预订           | OrdRes：订单需求 | PMOrdr：PM 订单  | CStock	客户库存         |
-| BA：采购申请           | PurRqs：采购申请 | FE：生产订单     | DD：有效外日期             |
-| BB：提供物料转包商需求 | SubReq：外协请求 | IH：维护订单     | E1：分包合同采购           |
-| BE：订单项目计划行     | PrcOrd：处理订单 | CH：批库存       | FH：计划时界末             |
-| BP：总需求计划         | OI-SL：采购订单  | KB：单独客户库存 | JI：JIT 提取/JIT：JIT 调用 |
+  - SPRO -> IMG -> MM -> valuation and account assign -> split valuation ->config split valuation
 
 
+   第一个屏幕（Global Types）
+
+   第二个屏幕（创建新的估价类型 Valuation Types：
+
+```JS
+Valuation type:识别估价类型的关键
+Ext.PO : 是否允许外部采购订单（0：不允许，1：允许，提示警告，2：允许）
+Int.PO  : 是否允许内部订单（0：不允许，1：允许，提示警告，2：允许）
+Acct cat : 账户参考必填字段。选择合适的值）
+     （创建新的估价类别： Valuation category :
+        Def ext.procure:默认外部采购
+        ext.procurement mand ： 复选框勾选则无法在PO级别更改评估类型
+        Def in-house:
+        val.type automatic: 复选框用于拆分评估和批次管理
+```
+#### 3.定义物料组： OMSF
+
+  - SPRO -> Logistic general -> MM -> Settings for Key Fields -> Define Material Group
+
+ 物料组：是物料统计分组的标识，属于无组织机构级别，它在采购信息记录、采购订单等中使用。在创建采购订单时， 当输入物料编号，物料组就自动被带出。物料组用于内部管理，分类较细。用户可以通过物料组获取整个采购状况及当前库存的标准SAP报表。
+
+- [物料组的实用功能](https://blog.csdn.net/weixin_40672823/article/details/109766124)
+
+#### 4.创建物料类型： OMS2
+
+  - SPRO -> Logistic general -> MM -> Basic Settings -> Material Types
+
+物料类型用来控制视图的范围，也用来控制物料的计价方式以及物料是否能够用于库存管理。也是SAP报表和分析涉及的重要对象。作为物料统计和分类的标准之一。如需新建物料类型，不能采用新建条目，只能采用复制方法，具体步骤是：
+
+  - <1>参考已有的物料类型进行复制，但不要修改条目细节的属性值；
+
+  - <2>对新建的物料类型进行修改，以其符合自身需求。
+
+```JS
+新建物料类型后，需要维护编码范围；维护数量/价值更新；字段状态维护。
+字段参考：为字段状态服务的分组码
+项目类别组：设定默认的项目类别组，用于销售项目类别确认、计划类别确认、交货项目类别确认
+账户分类参考：设计会计视图的可应用的评估类，与自动记账相关
+用户部门：根据业务需求选择部门内部，外部采购订单：根据业务要求选择值
+计价：
+价格控制：选择适用
+关联科目：从列表中选择，检查输入评估类是否允许维护物料主记录中的会计数据
+库存项目：不是库存项目，值更新；具有值的库存项目，数量更新和值更新
+```
+
+#### 5.Define industry Sectors ： OMS3
+
+  Industry sectors , industry desc , Field Reference.
+
+#### 6.Maintain company codes for material management
+
+  SPRO > Logistics > General > MM > Basic settings > Maintain company code for MM
+
+  CoCD,Company Name,Year,等字段信息更新保存。
+
+#### 7.定义MRP Controller
+
+ - SPRO > IMG > Production > MRP > Master Data > Define MRP Controllers(Plant,MRP Controller, Tel)
+
+  SAP MRP are planned for each plant and every plant has its own MRP data.
+
+#### 8.创建/修改/显示 物料主数据 : MM01/MM02/MM03
+
+  - SPRO > Logistics > MMt > MMa > Material > Create general
+
+#### 9.Create Purchasing info records : ME11/ME12/ME13
+
+  为不同的采购类型创建采购信息记录，例如标准、分包、管道、寄售。用于将供应商和物料在工厂级别或则采购组织数据作为主数据存储。
+
+![Info Record](/images/MM/MMInfoRecord.png)
+
+总账科目确认：
+
+ - 按物料级别设置科目：手动输入的科目
+
+ - 按仓库设置总账科目：仓库定义中的科目
+
+ - 按物料组设置总账科目：物料组定义中的科目
 

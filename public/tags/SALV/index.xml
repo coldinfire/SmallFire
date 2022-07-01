@@ -153,10 +153,10 @@
     
     <item>
       <title> SALV 使用简介 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Basis/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Basis/</guid>
       <description>引用自：https://www.cnblogs.com/jiangzhengjun/p/4291387.html 简介 SALV 可以使用函数方式生成 ALV</description>
     </item>
     

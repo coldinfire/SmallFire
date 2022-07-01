@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title> SAP Discontinuation Data设置 </title>
+      <link>https://coldinfire.github.io/2022/MM_Utils_DiscontinuationData/</link>
+      <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/MM_Utils_DiscontinuationData/</guid>
+      <description>Use You display and enter the data for discontinuation in a dialog box. Discontinuation indicator Discontinuation groups Follow-up groups Features Discontinuation Indicator for Discontinued Material If this indicator is set, the material is defined as &amp;lsquo;to be discontinued&amp;rsquo;. The material is then discontinued in MRP. MRP transfers dependent requirements that are no longer covered by stock of this material to the follow-up material. You maintain this indicator in the MRP</description>
+    </item>
+    
+    <item>
       <title> SAP 获取Activate物料 </title>
       <link>https://coldinfire.github.io/2022/MM_GetActivateMaterial/</link>
       <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
@@ -360,10 +369,10 @@
     
     <item>
       <title> ExtJS 基础知识 </title>
-      <link>https://coldinfire.github.io/2021/ExtJS_Basic/</link>
+      <link>https://coldinfire.github.io/2021/ExtJS_Basis/</link>
       <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ExtJS_Basic/</guid>
+      <guid>https://coldinfire.github.io/2021/ExtJS_Basis/</guid>
       <description>Ext JS 简介 Ext JS 是一个 JavaScript 框架，它具有面向对象编程的功能。Ext JS 是一个“JavaScript 优先”的框架。 也就是说，用户界面及其逻辑都是在 JavaScript 中定</description>
     </item>
     
@@ -477,10 +486,10 @@
     
     <item>
       <title> SAP 获取库存函数 </title>
-      <link>https://coldinfire.github.io/2020/MM_GetStock/</link>
+      <link>https://coldinfire.github.io/2020/MM_Utils_GetStock/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_GetStock/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_Utils_GetStock/</guid>
       <description>SAP 的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。 库存类型和对应表 库存类型 当前库存 历史库存 库存金额 库存历史金额 工厂级别库存 MARC &amp;amp;</description>
     </item>
     
@@ -837,10 +846,10 @@
     
     <item>
       <title> SAP Adobe Form </title>
-      <link>https://coldinfire.github.io/2020/ABAP_SFP_Basic/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_SFP_Basis/</link>
       <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Basic/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Basis/</guid>
       <description>SAP 中关于 Form 的设计有三种工具：Script Form，Smart Form 和 Interactive Form(Adobe Form). 要在 SAP 系统中展示 Adobe Form 需要 SAP 版本在 ECC6.0以上 ，而且要开发自定义的 Adobe</description>
     </item>
     
@@ -1377,10 +1386,10 @@
     
     <item>
       <title> BAPI 使用 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basis/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basis/</guid>
       <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，是标准化的编程接口（方法），使外部应用程序能够访问 R/3 系统中的业务</description>
     </item>
     
@@ -1530,10 +1539,10 @@
     
     <item>
       <title> SALV 使用简介 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_SALV_Basis/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Basic/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_SALV_Basis/</guid>
       <description>引用自：https://www.cnblogs.com/jiangzhengjun/p/4291387.html 简介 SALV 可以使用函数方式生成 ALV</description>
     </item>
     
@@ -1763,12 +1772,30 @@
     </item>
     
     <item>
+      <title> MRP:物料需求计划 </title>
+      <link>https://coldinfire.github.io/2019/MM_Basis_MRP/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_Basis_MRP/</guid>
+      <description>MRP MRP：物料需求计划，利用生产日程表（MPS）、零件结构表（BOM）、库存报表、已订购未交货订单等等 各种相关资料，经正确计算而得出各种物料</description>
+    </item>
+    
+    <item>
       <title> 库存管理 </title>
       <link>https://coldinfire.github.io/2019/MM_InventoryManagement/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_InventoryManagement/</guid>
       <description>基本介绍 库存类型 可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取 当前库存：一般保存在 MARD-LABST 字段中 在途库存：MARC-UMLMC（中转库存）+ MARC-TRAME（在途库</description>
+    </item>
+    
+    <item>
+      <title> SAP Outline agreements </title>
+      <link>https://coldinfire.github.io/2019/MM_Basis_OutlineAgreements/</link>
+      <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_Basis_OutlineAgreements/</guid>
+      <description>SAP 框架协议 框架协议：与供应商的长期购买协议，产品范围比较固定，供应商的特点比较固化。 框架协议是与供应商的长期购买协议，其中包含与供应商提供的</description>
     </item>
     
     <item>
@@ -1791,10 +1818,10 @@
     
     <item>
       <title> MM 自动过账配置(科目确定) </title>
-      <link>https://coldinfire.github.io/2019/MM_AutoPostAccount/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_AutoPostAccount/</link>
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_AutoPostAccount/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_AutoPostAccount/</guid>
       <description>参考：自动过账</description>
     </item>
     
@@ -1845,15 +1872,15 @@
     
     <item>
       <title> MM 物料主数据管理 </title>
-      <link>https://coldinfire.github.io/2019/MM_Basis_MasterData/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_MaterialMasterData/</link>
       <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_Basis_MasterData/</guid>
-      <description>Enterprise Struture 1.Define Company : OX15 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Define Company 1.Enter company 2.Enter company name 3.Update address 4.Enter country code of company 5.Enter language key 6.Enter local currency 2.Define Company Code : OX02 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Edit,Copy,Delete Company Code 3.Assign Company Code to Company : OX16 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition</description>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_MaterialMasterData/</guid>
+      <description>Material Master Data 相关事物码 MM01/02/03：创建 / 修改 / 显示 MM06：立即删除标记。Material 的删除分两个层次：一个是加 Delete flag material 但号码还存在，</description>
     </item>
     
     <item>
-      <title> MM 概述(二) </title>
+      <title> 库存采购基础 </title>
       <link>https://coldinfire.github.io/2019/MM_Basis_Detail2/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -1862,12 +1889,12 @@
     </item>
     
     <item>
-      <title> MM 概述(一) </title>
-      <link>https://coldinfire.github.io/2019/MM_Basis_Detail1/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <title> 消耗型物料 </title>
+      <link>https://coldinfire.github.io/2019/MM_Basis_ConsumptionMaterial/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_Basis_Detail1/</guid>
-      <description>企业组织结构 整体架构 集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。 公司代码：一</description>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_ConsumptionMaterial/</guid>
+      <description>Consumption Material 办公材料：成本中心、计算机系统：固定资产。 消耗型物料时直接为了一个科目设置对象而购买的物料 (不需要办理入库和出库手续) 库存管理未被执行 系</description>
     </item>
     
     <item>
@@ -1889,6 +1916,15 @@
     </item>
     
     <item>
+      <title> SAP 企业架构 </title>
+      <link>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStruture/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStruture/</guid>
+      <description>Enterprise Struture 整体架构 集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。 公司代码：一个公司代</description>
+    </item>
+    
+    <item>
       <title> MM 常用表 </title>
       <link>https://coldinfire.github.io/2019/MM_Table/</link>
       <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
@@ -1899,10 +1935,10 @@
     
     <item>
       <title> MM 概要 </title>
-      <link>https://coldinfire.github.io/2019/MM_Summary/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_Summary/</link>
       <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_Summary/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_Summary/</guid>
       <description>包含业务 (采购询价 ME41 / 报价 ME47 录入、ME49 报价比较)&amp;mdash;-&amp;gt; 采购申请 (PR)&amp;mdash;-&amp;gt; 采购订单 (PO)&amp;mdash;-&amp;gt; 发送采购单给供应商 &amp;lt; ME9F&amp;gt;&amp;mdash;-&amp;gt; 采购收货 (产生物料凭证</description>
     </item>
     
@@ -2439,10 +2475,10 @@
     
     <item>
       <title> Dialog 程序简介 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Dialog_Basis/</link>
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basic/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Dialog_Basis/</guid>
       <description>SAP-ABAP 支持两种类型的程序：Report 和 Dialog。如果 ABAP 程序需要用户输入或则当我们需要在屏幕之间来回导航时，则使用 Dialog 编程。 对话程序的创建类型</description>
     </item>
     
@@ -2691,10 +2727,10 @@
     
     <item>
       <title> OO ALV 使用 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_OOALV_Basis/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basic/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_OOALV_Basis/</guid>
       <description>OO ALV ALV GRID CONTROL 使用了控制器技术以实现屏幕显示，和所有的控制器一样，ALV GRID CONTROL 通过系统中的一个全局的类提供了方法，以响应它的动作。 使用了 ABAP 的对象以</description>
     </item>
     
@@ -2781,10 +2817,10 @@
     
     <item>
       <title> 报表开发&lt;概述&gt; </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Basis/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Basic/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Basis/</guid>
       <description>ALV (SAP List Viewer) 是 SAP 常用的屏幕显示列表控件对象，通过传递数据内表方式显示数据； ALV 显示格式分为 Grid 和 List 两种模式。 Grid 模式有栏位选择按钮功能，允许用户直接输</description>
     </item>
     

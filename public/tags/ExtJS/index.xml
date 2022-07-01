@@ -36,10 +36,10 @@
     
     <item>
       <title> ExtJS 基础知识 </title>
-      <link>https://coldinfire.github.io/2021/ExtJS_Basic/</link>
+      <link>https://coldinfire.github.io/2021/ExtJS_Basis/</link>
       <pubDate>Sun, 09 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ExtJS_Basic/</guid>
+      <guid>https://coldinfire.github.io/2021/ExtJS_Basis/</guid>
       <description>Ext JS 简介 Ext JS 是一个 JavaScript 框架，它具有面向对象编程的功能。Ext JS 是一个“JavaScript 优先”的框架。 也就是说，用户界面及其逻辑都是在 JavaScript 中定</description>
     </item>
     

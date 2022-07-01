@@ -6,7 +6,16 @@
     <description>Recent content in MM on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/MM/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/MM/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> SAP Discontinuation Data设置 </title>
+      <link>https://coldinfire.github.io/2022/MM_Utils_DiscontinuationData/</link>
+      <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2022/MM_Utils_DiscontinuationData/</guid>
+      <description>Use You display and enter the data for discontinuation in a dialog box. Discontinuation indicator Discontinuation groups Follow-up groups Features Discontinuation Indicator for Discontinued Material If this indicator is set, the material is defined as &amp;lsquo;to be discontinued&amp;rsquo;. The material is then discontinued in MRP. MRP transfers dependent requirements that are no longer covered by stock of this material to the follow-up material. You maintain this indicator in the MRP</description>
+    </item>
+    
     <item>
       <title> SAP 获取Activate物料 </title>
       <link>https://coldinfire.github.io/2022/MM_GetActivateMaterial/</link>
@@ -63,10 +72,10 @@
     
     <item>
       <title> SAP 获取库存函数 </title>
-      <link>https://coldinfire.github.io/2020/MM_GetStock/</link>
+      <link>https://coldinfire.github.io/2020/MM_Utils_GetStock/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/MM_GetStock/</guid>
+      <guid>https://coldinfire.github.io/2020/MM_Utils_GetStock/</guid>
       <description>SAP 的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。 库存类型和对应表 库存类型 当前库存 历史库存 库存金额 库存历史金额 工厂级别库存 MARC &amp;amp;</description>
     </item>
     
@@ -278,12 +287,30 @@
     </item>
     
     <item>
+      <title> MRP:物料需求计划 </title>
+      <link>https://coldinfire.github.io/2019/MM_Basis_MRP/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_Basis_MRP/</guid>
+      <description>MRP MRP：物料需求计划，利用生产日程表（MPS）、零件结构表（BOM）、库存报表、已订购未交货订单等等 各种相关资料，经正确计算而得出各种物料</description>
+    </item>
+    
+    <item>
       <title> 库存管理 </title>
       <link>https://coldinfire.github.io/2019/MM_InventoryManagement/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_InventoryManagement/</guid>
       <description>基本介绍 库存类型 可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取 当前库存：一般保存在 MARD-LABST 字段中 在途库存：MARC-UMLMC（中转库存）+ MARC-TRAME（在途库</description>
+    </item>
+    
+    <item>
+      <title> SAP Outline agreements </title>
+      <link>https://coldinfire.github.io/2019/MM_Basis_OutlineAgreements/</link>
+      <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_Basis_OutlineAgreements/</guid>
+      <description>SAP 框架协议 框架协议：与供应商的长期购买协议，产品范围比较固定，供应商的特点比较固化。 框架协议是与供应商的长期购买协议，其中包含与供应商提供的</description>
     </item>
     
     <item>
@@ -306,10 +333,10 @@
     
     <item>
       <title> MM 自动过账配置(科目确定) </title>
-      <link>https://coldinfire.github.io/2019/MM_AutoPostAccount/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_AutoPostAccount/</link>
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_AutoPostAccount/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_AutoPostAccount/</guid>
       <description>参考：自动过账</description>
     </item>
     
@@ -360,15 +387,15 @@
     
     <item>
       <title> MM 物料主数据管理 </title>
-      <link>https://coldinfire.github.io/2019/MM_Basis_MasterData/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_MaterialMasterData/</link>
       <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_Basis_MasterData/</guid>
-      <description>Enterprise Struture 1.Define Company : OX15 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Define Company 1.Enter company 2.Enter company name 3.Update address 4.Enter country code of company 5.Enter language key 6.Enter local currency 2.Define Company Code : OX02 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition -&amp;gt; Financial Account -&amp;gt; Edit,Copy,Delete Company Code 3.Assign Company Code to Company : OX16 SPRO -&amp;gt; IMG -&amp;gt;Enterprise Structure -&amp;gt; Definition</description>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_MaterialMasterData/</guid>
+      <description>Material Master Data 相关事物码 MM01/02/03：创建 / 修改 / 显示 MM06：立即删除标记。Material 的删除分两个层次：一个是加 Delete flag material 但号码还存在，</description>
     </item>
     
     <item>
-      <title> MM 概述(二) </title>
+      <title> 库存采购基础 </title>
       <link>https://coldinfire.github.io/2019/MM_Basis_Detail2/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -377,12 +404,12 @@
     </item>
     
     <item>
-      <title> MM 概述(一) </title>
-      <link>https://coldinfire.github.io/2019/MM_Basis_Detail1/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <title> 消耗型物料 </title>
+      <link>https://coldinfire.github.io/2019/MM_Basis_ConsumptionMaterial/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_Basis_Detail1/</guid>
-      <description>企业组织结构 整体架构 集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。 公司代码：一</description>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_ConsumptionMaterial/</guid>
+      <description>Consumption Material 办公材料：成本中心、计算机系统：固定资产。 消耗型物料时直接为了一个科目设置对象而购买的物料 (不需要办理入库和出库手续) 库存管理未被执行 系</description>
     </item>
     
     <item>
@@ -392,6 +419,15 @@
       
       <guid>https://coldinfire.github.io/2019/MM_Tcode/</guid>
       <description>MM 常用Tcode： Table Desc Table Desc MM01/02/03/04/06 物料：创建/修改/显示/显示修改/删除标记 MK01/02/03/05/06 供应商：创建/修改/显示/冻结/删除标记 ME01/02/0M 货源清单：创建/查看/物料</description>
+    </item>
+    
+    <item>
+      <title> SAP 企业架构 </title>
+      <link>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStruture/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStruture/</guid>
+      <description>Enterprise Struture 整体架构 集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。 公司代码：一个公司代</description>
     </item>
     
     <item>
@@ -405,10 +441,10 @@
     
     <item>
       <title> MM 概要 </title>
-      <link>https://coldinfire.github.io/2019/MM_Summary/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_Summary/</link>
       <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_Summary/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_Summary/</guid>
       <description>包含业务 (采购询价 ME41 / 报价 ME47 录入、ME49 报价比较)&amp;mdash;-&amp;gt; 采购申请 (PR)&amp;mdash;-&amp;gt; 采购订单 (PO)&amp;mdash;-&amp;gt; 发送采购单给供应商 &amp;lt; ME9F&amp;gt;&amp;mdash;-&amp;gt; 采购收货 (产生物料凭证</description>
     </item>
     

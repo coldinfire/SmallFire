@@ -225,10 +225,10 @@
     
     <item>
       <title> BAPI 使用 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basis/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basic/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basis/</guid>
       <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，是标准化的编程接口（方法），使外部应用程序能够访问 R/3 系统中的业务</description>
     </item>
     

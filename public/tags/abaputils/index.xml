@@ -270,10 +270,10 @@
     
     <item>
       <title> SAP Adobe Form </title>
-      <link>https://coldinfire.github.io/2020/ABAP_SFP_Basic/</link>
+      <link>https://coldinfire.github.io/2020/ABAP_SFP_Basis/</link>
       <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Basic/</guid>
+      <guid>https://coldinfire.github.io/2020/ABAP_SFP_Basis/</guid>
       <description>SAP 中关于 Form 的设计有三种工具：Script Form，Smart Form 和 Interactive Form(Adobe Form). 要在 SAP 系统中展示 Adobe Form 需要 SAP 版本在 ECC6.0以上 ，而且要开发自定义的 Adobe</description>
     </item>
     

@@ -97,8 +97,6 @@ tags:
 
 ME21N > Item > MM > Info Record Update
 
-#### 框架协议
-
 ### 更新
 
 Customizing：Define control of conditions at plan level
