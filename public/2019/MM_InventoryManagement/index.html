@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" 库存管理 "/>
-<meta name="twitter:description" content="一、基本介绍 1.库存类型 ​ 可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取 ​ 当前库存：一般保存在 MARD-LABST 字段中 ​ 在途库存：MARC-UMLMC（中转库存）&#43; MARC-TR"/>
+<meta name="twitter:description" content="基本介绍 库存类型 可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取 当前库存：一般保存在 MARD-LABST 字段中 在途库存：MARC-UMLMC（中转库存）&#43; MARC-TRAME（在途库"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "MM",
-  "wordcount":  960 ,
+  "wordcount":  740 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/MM_InventoryManagement\/",
   "datePublished": "2019-03-23T00:00:00\u002b00:00",
   "dateModified": "2019-03-23T00:00:00\u002b00:00",
@@ -171,53 +171,84 @@
           
           
 
-          <h2 id="一基本介绍">一、基本介绍</h2>
-<h4 id="1库存类型">1.库存类型</h4>
-<p>​      可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取</p>
-<p>​      当前库存：一般保存在 MARD-LABST 字段中</p>
-<p>​      在途库存：MARC-UMLMC（中转库存）+ MARC-TRAME（在途库存），在途库存是不存在库位关系的</p>
-<p>​      寄售库存：MSKU-KULAB，寄售库存是不存在库位关系的</p>
-<h4 id="2物料凭证-material-document---mb51查看物料凭证">2.物料凭证 Material Document  : MB51(查看物料凭证)</h4>
-<p>​      物料凭证批记录物料变动的单据：如收发货、调拨、销售、盘点过账等都会产生。</p>
-<p>​      凭证类型，即物料的移动类型，三位编码。常用物料移动类型：</p>
-<p>​        101 : 采购订单收货/生产订单收货 (MB01 采购订单的过账收货、MB31 按生产订单收货）</p>
-<p>​        102：反冲；</p>
-<p>​        103 : 入库冻结</p>
-<p>​        105 : 释放冻结库</p>
-<p>​        122：退货</p>
-<p>​        261：从仓库发货到订单的消耗（领料生产MB1A）</p>
-<p>​        301：跨工厂间一步库存转移</p>
-<p>​        311：同一工厂一步库存转移</p>
-<p>​        561：期初库存的导入</p>
-<p>​        601 : 成品、原材料的销售出库</p>
-<h4 id="3创建移动类型--omjj">3.创建移动类型 ： OMJJ</h4>
-<p>​    SPRO &gt; MM &gt; Inventory Management and Physical Inventory &gt; Movement Types</p>
-<h4 id="4-stock-transfer---me27me21">4. Stock Transfer  : ME27/ME21</h4>
-<p>​    库存转移：将物料从一个工厂转移到另一个存储地点，从工厂到工厂，从公司代码工厂转移到另一个公司代码工厂。发生库存转移时，两个工厂数量都回发生变化。</p>
+          <h3 id="基本介绍">基本介绍</h3>
+<h4 id="库存类型">库存类型</h4>
+<p>可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取</p>
+<p>当前库存：一般保存在 MARD-LABST 字段中</p>
+<p>在途库存：MARC-UMLMC（中转库存）+ MARC-TRAME（在途库存），在途库存是不存在库位关系的</p>
+<p>寄售库存：MSKU-KULAB，寄售库存是不存在库位关系的</p>
+<h4 id="material-documentmb51">Material Document：MB51</h4>
+<p>物料凭证是记录物料变动的单据：如收发货、调拨、销售、盘点过账等都会产生。凭证类型，即物料的移动类型。</p>
+<p>创建移动类型 ： OMJJ</p>
+<ul>
+<li>SPRO &gt; MM &gt; Inventory Management and Physical Inventory &gt; Movement Types</li>
+</ul>
+<h4 id="stock-transfer-order---me27me21">Stock Transfer Order  : ME27/ME21</h4>
+<p>库存转移：将物料从一个工厂转移到另一个存储地点，从工厂到工厂，从公司代码工厂转移到另一个公司代码工厂。发生库存转移时，两个工厂数量都发生变化。</p>
 <p>Transfer Posting : MB1B</p>
-<p>​    将物料从一个工厂移动到另一个工厂或则存储地点。</p>
-<p>​    &lt; 1.物料到物料，工厂到工厂过账</p>
-<p>​    &lt; 2.从估价类型转移过账到估价类型</p>
-<p>​    &lt; 3.释放(Q)质量检验库存，将库存转移到SAP中的(U)无限制使用状态</p>
-<p>​               库存转移 ME27/ME21                                           转移过账 / MB1B</p>
-<p>​    库存转移是货物的实际移动，是强制性的            货物的实物流动是转移过账的选项</p>
-<p>​    库存转移包括从发货点发货和收货点收货            特殊库存到公司库存和工厂间转移</p>
-<p>​    移动类型是 641-transfer，643-跨公司                 301-工厂到工厂  309 物料到物料</p>
-<p>​                                                                                 311库存地点到库存地点</p>
-<h2 id="二库存目的">二、库存目的</h2>
-<p>​     ★ 完成接收、发送和转储库存的流程</p>
-<p>​     ★ 设置库存主数据</p>
-<p>​     ★ 创建按批次和序列号管理的物料</p>
-<p>​     ★ 针对销售库存拣配和包装物料</p>
-<p>​     ★ 创建价格清单和特殊价格</p>
-<p>​     ★ 针对物料运输运行MRP</p>
-<h4 id="仓库管理流程">仓库管理流程：</h4>
-<p>​       1. 三个流程：【收货】   【库存转储】   【发货】</p>
-<p>​           主要单据：发货单，库存转储单，收货单</p>
-<p>​       2. 销售订单  —&gt;【拣配】 —&gt;  交货单创建  —&gt;【包装以交货】—&gt;  应收发票</p>
-<p>​       3. 定义计划数据—&gt;运行MRP—&gt;查看订单建议—&gt;生产订单/采购订单（建议结果）</p>
-<p>​       4.序列号：用于跟踪单个队形</p>
-<p>​          批次号：用于跟踪具有普遍性的物料组</p>
+<ul>
+<li>
+<p>物料到物料，工厂到工厂过账</p>
+</li>
+<li>
+<p>从估价类型转移过账到估价类型</p>
+</li>
+<li>
+<p>释放质量检验库存，将库存转移到 SAP 中的无限制使用状态</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">库存转移 ME27/ME21</th>
+<th style="text-align:left">转移过账 / MB1B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">库存转移是货物的实际移动，是强制性的</td>
+<td style="text-align:left">货物的实物流动是转移过账的选项</td>
+</tr>
+<tr>
+<td style="text-align:left">库存转移包括从发货点发货和收货点收货</td>
+<td style="text-align:left">特殊库存到公司库存和工厂间转移</td>
+</tr>
+<tr>
+<td style="text-align:left">移动类型是 641-transfer，643-跨公司</td>
+<td style="text-align:left">301-工厂到工厂 、309 物料到物料</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">311 库存地点到库存地点</td>
+</tr>
+</tbody>
+</table>
+<h3 id="库存目的">库存目的</h3>
+<ul>
+<li>完成接收、发送和转储库存的流程</li>
+<li>设置库存主数据</li>
+<li>创建按批次和序列号管理的物料</li>
+<li>针对销售库存拣配和包装物料</li>
+<li>创建价格清单和特殊价格</li>
+<li>针对物料运输运行MRP</li>
+</ul>
+<h4 id="仓库管理流程">仓库管理流程</h4>
+<p>三个流程：收货、库存转储、发货</p>
+<p>主要单据：收货单，库存转储单，发货单</p>
+<p>序列号：用于跟踪单个对象</p>
+<p>批次号：用于跟踪具有普遍性的物料组</p>
+<p>原料收货：</p>
+<ul>
+<li>采购订单/Delivery Note   —&gt;  Goods Receive   —&gt;  IR （应付发票校验）</li>
+</ul>
+<p>成品发货：</p>
+<ul>
+<li>销售订单  —&gt;  拣配  —&gt;  交货单创建  —&gt;  包装以交货  —&gt;  应收发票</li>
+</ul>
+<p>MRP：</p>
+<ul>
+<li>定义计划数据 —&gt;  运行MRP  —&gt;  查看订单建议  —&gt;  生产订单/采购订单（建议结果）</li>
+</ul>
 
     </div>
 
@@ -231,7 +262,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>960</span>
+                   <span>740</span>
             </p>
             
             <p class="copyright-item">

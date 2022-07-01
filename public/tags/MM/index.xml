@@ -67,7 +67,7 @@
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_GetStock/</guid>
-      <description>SAP 的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。 库存类型 非批次管理库存：MARD 批次库存：MCHB 销售库存：MSKA 项目库存</description>
+      <description>SAP 的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。 库存类型和对应表 库存类型 当前库存 历史库存 库存金额 库存历史金额 工厂级别库存 MARC &amp;amp;</description>
     </item>
     
     <item>
@@ -116,21 +116,21 @@
     </item>
     
     <item>
+      <title> BAPI 冲销 Delivery Note </title>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_VL09/</link>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_VL09/</guid>
+      <description>VL09：交货单冲销 FORM cx_dn USING gt_out TYPE typ_out. DATA: ls_emkpf TYPE emkpf, lt_mesg TYPE STANDARD TABLE OF mesg. SELECT SINGLE wbstk,vbtyp INTO @data(l_likp) FROM likp WHERE vbeln = gt_out-vbeln. CLEAR: ls_emkpf,lt_mesg. CALL FUNCTION &amp;#39;WS_REVERSE_GOODS_ISSUE&amp;#39; EXPORTING i_vbeln = gt_out-vbeln i_budat = gt_out-budat i_vbtyp = l_likp-vbtyp i_tcode = &amp;#39;VL09&amp;#39; IMPORTING es_emkpf = ls_emkpf TABLES t_mesg = lt_mesg EXCEPTIONS error_reverse_goods_issue = 1 others = 2.</description>
+    </item>
+    
+    <item>
       <title> BAPI 创建 Purchase Request </title>
       <link>https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/</link>
       <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_BAPI_PurchaseRequestCreate/</guid>
       <description>Purchase Request 内容 PR Header : 采购订单编号、供应商、货币、付款期限、采购订单日期 PR Item : 物料编号、短文本、发货日期、采购订单数量、采购订单价格、分类 BAPI: ME51</description>
-    </item>
-    
-    <item>
-      <title> BAPI 创建 Purchase Request </title>
-      <link>https://coldinfire.github.io/2020/MM_BAPI_VL09/</link>
-      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2020/MM_BAPI_VL09/</guid>
-      <description>VL09：交货单冲销 FORM cx_dn USING gt_out TYPE typ_out. DATA: ls_emkpf TYPE emkpf, lt_mesg TYPE STANDARD TABLE OF mesg. SELECT SINGLE wbstk,vbtyp INTO @data(l_likp) FROM likp WHERE vbeln = gt_out-vbeln. CLEAR: ls_emkpf,lt_mesg. CALL FUNCTION &amp;#39;WS_REVERSE_GOODS_ISSUE&amp;#39; EXPORTING i_vbeln = gt_out-vbeln i_budat = gt_out-budat i_vbtyp = l_likp-vbtyp i_tcode = &amp;#39;VL09&amp;#39; IMPORTING es_emkpf = ls_emkpf TABLES t_mesg = lt_mesg EXCEPTIONS error_reverse_goods_issue = 1 others = 2.</description>
     </item>
     
     <item>
@@ -157,7 +157,7 @@
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/MM_GoodMovementTypes/</guid>
-      <description>SAP 移动类型 SAP Good Movement Types 使用 3 个数字来标识 SAP Good Movement 的类型。 移动类型参考字段 MSEG-BWART，移动类型参考表T156，文本表是T156T。 SAP MM中</description>
+      <description>SAP 移动类型 SAP 使用 3 个数字来标识 Good Movement Type。 移动类型参考字段 MSEG-BWART，移动类型参考表 T156、T156T。 MM 中常用的移动类型 Movement Type</description>
     </item>
     
     <item>
@@ -283,7 +283,7 @@
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_InventoryManagement/</guid>
-      <description>一、基本介绍 1.库存类型 ​ 可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取 ​ 当前库存：一般保存在 MARD-LABST 字段中 ​ 在途库存：MARC-UMLMC（中转库存）+ MARC-TR</description>
+      <description>基本介绍 库存类型 可用库存：可通过 BAPI_MATERIAL_AVAILABILITY 来获取 当前库存：一般保存在 MARD-LABST 字段中 在途库存：MARC-UMLMC（中转库存）+ MARC-TRAME（在途库</description>
     </item>
     
     <item>
@@ -301,7 +301,7 @@
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Basis_InfoRecord/</guid>
-      <description>创建Info Record 信息记录 (Info record)**：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。 创建方式：手工输入，报价单选择，</description>
+      <description>创建 Info Record 信息记录 (Info record)：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。 创建方式：手工输入，报价单选择，采购订单，</description>
     </item>
     
     <item>
@@ -319,7 +319,7 @@
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Basis_Purchase/</guid>
-      <description>采购流程 单据流 仓库数量被预约(采购订单下达) 收货采购订单，总账增加，库存成本增加； 应付账款不改变库存数量，根据数量和价格计算价格； 采购物料：</description>
+      <description>采购流程 单据流 仓库数量被预约 (采购订单下达)。 采购订单收货，总账增加，库存成本增加。 应付账款不改变库存数量，根据数量和价格计算价格。 采购物料</description>
     </item>
     
     <item>
@@ -364,7 +364,7 @@
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Basis_Detail2/</guid>
-      <description>库存采购基础 采购流程： MRP &amp;amp; Purch.Req (Determination of reqmts)（确认需求） Source determination (购买方式和货源) Vendor selection （跟哪个供应商买） Request for Quotation (要求报价) Purchase Requisition (采购申请) PO processing</description>
+      <description>库存采购基础 采购流程 MRP &amp;amp; Purch.Req (Determination of reqmts)（确认需求） Source determination (购买方式和货源) Vendor selection （跟哪个供应商买） Request for Quotation (要求报价) Purchase Requisition (采购申请) PO processing （</description>
     </item>
     
     <item>
@@ -391,7 +391,7 @@
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Basic_Confirg/</guid>
-      <description>MM 模块主要配置流程 创建工厂、公司代码 创建库存地点 创建采购组织 创建采购组 MRP Controller 分配工厂到公司 分配采购组织到公司 分配工厂到采购组织 定义物料 定义计划</description>
+      <description>MM 模块主要配置流程 创建公司代码、工厂 创建库存地点 创建采购组织 创建采购组 创建 MRP Controller 分配工厂到公司代码 分配采购组织到公司代码 分配工厂到采购组织 定义</description>
     </item>
     
     <item>

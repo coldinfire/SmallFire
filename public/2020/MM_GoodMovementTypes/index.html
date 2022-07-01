@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" SAP 移动类型详解 "/>
-<meta name="twitter:description" content="SAP 移动类型 SAP Good Movement Types 使用 3 个数字来标识 SAP Good Movement 的类型。 移动类型参考字段 MSEG-BWART，移动类型参考表T156，文本表是T156T。 SAP MM中"/>
+<meta name="twitter:description" content="SAP 移动类型 SAP 使用 3 个数字来标识 Good Movement Type。 移动类型参考字段 MSEG-BWART，移动类型参考表 T156、T156T。 MM 中常用的移动类型 Movement Type"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "MM",
-  "wordcount":  2490 ,
+  "wordcount":  2764 ,
   "url": "https:\/\/coldinfire.github.io\/2020\/MM_GoodMovementTypes\/",
   "datePublished": "2020-05-20T00:00:00\u002b00:00",
   "dateModified": "2020-05-20T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                5 min
+                6 min
         </div>
     </header>
     <div class="post-content">
@@ -172,9 +172,9 @@
           
 
           <h3 id="sap-移动类型">SAP 移动类型</h3>
-<p>SAP Good Movement Types 使用 3 个数字来标识 SAP Good Movement 的类型。</p>
-<p>移动类型参考字段 MSEG-BWART，移动类型参考表T156，文本表是T156T。</p>
-<h3 id="sap-mm中重要的移动类型">SAP MM中重要的移动类型</h3>
+<p>SAP 使用 3 个数字来标识 Good Movement Type。</p>
+<p>移动类型参考字段 MSEG-BWART，移动类型参考表 T156、T156T。</p>
+<h3 id="mm-中常用的移动类型">MM 中常用的移动类型</h3>
 <table>
 <thead>
 <tr>
@@ -235,7 +235,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="sap-和收货相关的移动类型">SAP 和收货相关的移动类型</h3>
+<h3 id="收货相关的移动类型">收货相关的移动类型</h3>
 <table>
 <thead>
 <tr>
@@ -249,19 +249,19 @@
 <tr>
 <td>101 / 102</td>
 <td>Goods receipt for purchase order / Reversal</td>
-<td>采购订单的收货 / 冲销</td>
+<td>采购订单或生产订单的收货/ 冲销</td>
 <td>MIGO  / CO11N</td>
 </tr>
 <tr>
 <td>103 / 104</td>
 <td>Goods receipt for purchase order to GR blocked stock / Reversal</td>
-<td>采购订单收货到收货的冻结库存 / 冲销</td>
+<td>采购订单收货到GR的冻结库存 / 冲销</td>
 <td>MIGO</td>
 </tr>
 <tr>
 <td>105 / 106</td>
 <td>Release from the GR blocked stock for the purchase order / Reversal</td>
-<td>从采购订单的收货冻结中释放库存 / 冲销</td>
+<td>采购订单从GR冻结区释放到非限制库存 / 冲销</td>
 <td>MIGO</td>
 </tr>
 <tr>
@@ -279,7 +279,7 @@
 <tr>
 <td>124 / 125</td>
 <td>Return delivery to vendor from GR blocked stock / Reversal</td>
-<td>从收货冻结的库存退货给供应商 / 冲销</td>
+<td>从GR冻结的库存退货给供应商 / 冲销</td>
 <td>MIGO</td>
 </tr>
 <tr>
@@ -290,7 +290,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="sap-和收发货相关的移动类型">SAP 和收、发货相关的移动类型</h3>
+<h3 id="收发货相关的移动类型">收、发货相关的移动类型</h3>
 <table>
 <thead>
 <tr>
@@ -312,8 +312,8 @@
 </tr>
 <tr>
 <td>231 / 232</td>
-<td>Goods issue / receipt for  sales order</td>
-<td>有关销售订单的发货 / 收货</td>
+<td>Goods issue / receipt for  sales order (without Shipping)</td>
+<td>有关销售订单的发货（不带装运） / 收货</td>
 </tr>
 <tr>
 <td>241 / 242</td>
@@ -322,8 +322,8 @@
 </tr>
 <tr>
 <td>251 / 252</td>
-<td>Goods issue / receipt for sale (without sales order)</td>
-<td>有关销售的发货（无销售订单） MB1A</td>
+<td>Goods issue / receipt for sale (without customer order)</td>
+<td>有关销售的发货（无客户订单） MB1A</td>
 </tr>
 <tr>
 <td>261 / 262</td>
@@ -333,7 +333,7 @@
 <tr>
 <td>281 / 292</td>
 <td>Goods issue / receipt for a network</td>
-<td>network的发货(PS) / 收货</td>
+<td>network 的发货(PS) / 收货</td>
 </tr>
 <tr>
 <td>291 / 292</td>
@@ -374,7 +374,7 @@
 <tr>
 <td>309 / 310</td>
 <td>Transfer postings from material to material</td>
-<td>从物料到物料转移过帐</td>
+<td>从物料到物料转移过帐。前提：两物料的库存计量单位必须一致</td>
 </tr>
 <tr>
 <td>311 / 312</td>
@@ -393,33 +393,38 @@
 </tr>
 <tr>
 <td>321 / 322</td>
-<td>Transfer of inspection stock :  unrestricted-use stock</td>
-<td>检验库存的转移：非限制使用的库存</td>
+<td>Transfer posting stock in quality inspection - unrestricted-use stock</td>
+<td>质量检验库存到非限制的转帐</td>
 </tr>
 <tr>
 <td>323 / 324</td>
 <td>Transfer of storage location to storage location :  inspection stock</td>
-<td>将存储地点转移到存储地点：检验库存</td>
+<td>质检库存从库存地点到库存地点的转帐</td>
 </tr>
 <tr>
 <td>325 / 326</td>
 <td>Transfer of storage location to storage location :  blocked stock</td>
-<td>将存储地点转移到存储地点：冻结库存</td>
+<td>冻结库存从库存地点到库存地点的转帐</td>
 </tr>
 <tr>
 <td>331 / 332</td>
 <td>Sample from the inspection stock</td>
-<td>检验库存中的样品</td>
+<td>对质检库存抽样提取</td>
 </tr>
 <tr>
 <td>333 / 334</td>
 <td>Sample from the unrestricted-use stock</td>
-<td>非限制使用库存中的样本</td>
+<td>对非限制库存抽样提取</td>
 </tr>
 <tr>
 <td>335 / 336</td>
 <td>Sample from the blocked stock</td>
-<td>冻结库存中的样本</td>
+<td>对冻结库存抽样提取</td>
+</tr>
+<tr>
+<td>340</td>
+<td>Revaluation of batch</td>
+<td>批次重估，可以更改批次的评估类型 (MSC2N)</td>
 </tr>
 <tr>
 <td>341 / 342</td>
@@ -429,17 +434,17 @@
 <tr>
 <td>343 / 344</td>
 <td>Transfer of blocked stock :  unrestricted-use stock</td>
-<td>冻结库存的转移：非限制使用的库存</td>
+<td>从冻结库存到非限制使用的转帐</td>
 </tr>
 <tr>
 <td>349 / 350</td>
 <td>Transfer of blocked stock :  inspection stock</td>
-<td>冻结库存的转移：检验库存</td>
+<td>从冻结库存到质检库存的转帐</td>
 </tr>
 <tr>
 <td>351 / 352</td>
 <td>Goods issue for a stock transport order (without shipping)</td>
-<td>库存运输订单的发货（不发货）</td>
+<td>对库存转储订单(STO)发货，只用于在不带装运的交货单的情况下进行的发货过帐</td>
 </tr>
 </tbody>
 </table>
@@ -455,38 +460,43 @@
 <tbody>
 <tr>
 <td>411 / 412</td>
-<td>Transfer of special stock to own stock (only for sales order stock)</td>
-<td>特殊库存转为自有库存（仅用于销售订单库存）</td>
+<td>Transfer of special stock to own stock</td>
+<td>特殊库存（E、Q、K）转为自有库存，相应的特殊库存标识必须联合移动类型一起使用</td>
 </tr>
 <tr>
 <td>413 / 414</td>
 <td>Transfer posting to sales order stock</td>
-<td>将过帐转移到销售订单库存</td>
+<td>库存地点到销售订单的转帐</td>
+</tr>
+<tr>
+<td>415 / 416</td>
+<td>Transfer posting to project stock</td>
+<td>库存地点到项目库存的转帐</td>
 </tr>
 <tr>
 <td>451 / 452</td>
 <td>Returns from customer (without shipping)</td>
-<td>客户退货（不发货）</td>
+<td>客户退货到冻结库存(不带装运)</td>
 </tr>
 <tr>
 <td>453 /454</td>
 <td>Transfer of blocked stock returns to unrestricted-use stock</td>
-<td>将冻结的库存退货转移到非限制使用的库存</td>
+<td>退货冻结库存到非限制使用库存的转帐</td>
 </tr>
 <tr>
 <td>455 / 456</td>
-<td>Returns stock transfer</td>
-<td>返回库存转移</td>
+<td>Transfer posting storage location to storage location - blocked stock returns</td>
+<td>退货冻结库存从库存地点到库存地点的转帐</td>
 </tr>
 <tr>
 <td>457 / 458</td>
 <td>Transfer of blocked stock returns to inspection stock</td>
-<td>将冻结的退货库存转移到检验库存</td>
+<td>从退货冻结库存到质检库存的转帐</td>
 </tr>
 <tr>
 <td>459 / 460</td>
 <td>Transfer of blocked stock returns to blocked stock</td>
-<td>将冻结的库存退货转移到冻结的库存</td>
+<td>从退货冻结库存到冻结库存的转帐</td>
 </tr>
 </tbody>
 </table>
@@ -503,42 +513,47 @@
 <tr>
 <td>501 / 502</td>
 <td>Goods receipt without purchase order :  unrestricted-use stock</td>
-<td>无采购订单的收货：非限制使用的库存</td>
+<td>无采购订单到非限制使用库存的收货</td>
 </tr>
 <tr>
 <td>503 / 504</td>
 <td>Goods receipt without purchase order :  stock in quality inspection</td>
-<td>无采购订单的收货：检验库存</td>
+<td>无采购订单到质检库存的收货</td>
 </tr>
 <tr>
 <td>505 / 506</td>
 <td>Goods receipt without purchase order :  blocked stock</td>
-<td>无采购订单的收货：冻结库存</td>
+<td>无采购订单到冻结库存的收货</td>
+</tr>
+<tr>
+<td>511</td>
+<td>Free-of-charge delivery from vendor</td>
+<td>供应商免费交货</td>
 </tr>
 <tr>
 <td>521 / 522</td>
 <td>Goods receipt without order :  unrestricted-use stock</td>
-<td>无订单收货：非限制使用的库存</td>
+<td>无生产订单到非限制使用库存的收货</td>
 </tr>
 <tr>
 <td>523 / 524</td>
 <td>Goods receipt without order :  inspection stock</td>
-<td>无订单收货：检验库存</td>
+<td>无生产订单到质量检验库存的收货</td>
 </tr>
 <tr>
 <td>525 / 525</td>
 <td>Goods receipt without order :  blocked stock</td>
-<td>无订单收货：冻结库存</td>
+<td>无生产订单到冻结库存的收货</td>
 </tr>
 <tr>
 <td>531 / 532</td>
 <td>Goods receipt of by-products from order</td>
-<td>订单中副产品的收货</td>
+<td>订单中副产品到非限制使用库存的收货</td>
 </tr>
 <tr>
 <td>541 / 542</td>
 <td>Transfer of unrestricted-use stock to subcontracting stock</td>
-<td>将非限制使用的库存转移到分包库存</td>
+<td>从非限制自有库存到分包库存的转帐</td>
 </tr>
 <tr>
 <td>543 / 544</td>
@@ -548,22 +563,22 @@
 <tr>
 <td>545 /546</td>
 <td>Goods receipt of by-products from subcontracting</td>
-<td>分包的副产品收货</td>
+<td>分包中的副产品收货</td>
 </tr>
 <tr>
 <td>551 / 552</td>
 <td>Scrapping from unrestricted-use stock</td>
-<td>从非限制使用的库存中报废</td>
+<td>从非限制使用的库存中报废（发货）</td>
 </tr>
 <tr>
 <td>553 / 554</td>
 <td>Scrapping from inspection stock</td>
-<td>从检验库存中报废</td>
+<td>从检验库存中报废（发货）</td>
 </tr>
 <tr>
 <td>555 / 556</td>
 <td>Scrapping from blocked stock</td>
-<td>从冻结的库存中报废</td>
+<td>从冻结的库存中报废（发货）</td>
 </tr>
 <tr>
 <td>557 / 558</td>
@@ -573,17 +588,32 @@
 <tr>
 <td>561 / 562</td>
 <td>Initial entry of stock balances :  unrestricted-use stock</td>
-<td>库存余额的初始输入：非限制使用的库存</td>
+<td>期初库存分录（到非限制使用库存）</td>
 </tr>
 <tr>
 <td>563 / 564</td>
 <td>Initial entry of stock balances :  quality inspection</td>
-<td>库存余额的初始输入：质量检验</td>
+<td>期初库存分录（到质检库存）</td>
 </tr>
 <tr>
 <td>565 / 566</td>
 <td>Initial entry of stock balances :  blocked stock</td>
-<td>库存余额的初始输入：冻结库存</td>
+<td>期初库存分录（到冻结库存）</td>
+</tr>
+<tr>
+<td>571 / 572</td>
+<td>Goods receipt for assembly order to unrestricted-use</td>
+<td>装配订单到非限制使用库存的收货</td>
+</tr>
+<tr>
+<td>573 / 574</td>
+<td>Goods receipt for assembly order to quality inspection</td>
+<td>装配订单到质检库存的收货</td>
+</tr>
+<tr>
+<td>575 / 576</td>
+<td>Goods receipt for assembly order to blocked stock</td>
+<td>装配订单到冻结库存的收货</td>
 </tr>
 <tr>
 <td>581 / 582</td>
@@ -592,7 +622,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="与运输相关的sap移动类型">与运输相关的SAP移动类型</h3>
+<h3 id="与运输相关的移动类型">与运输相关的移动类型</h3>
 <p>主要功能是：</p>
 <ul>
 <li>商品包装</li>
@@ -613,98 +643,112 @@
 <tbody>
 <tr>
 <td>601</td>
-<td>Goods issue for delivery</td>
-<td>基于发货的发货</td>
+<td>Goods issue for delivery (Shipping)</td>
+<td>基于交货的发货(装运)</td>
 </tr>
 <tr>
 <td>603</td>
 <td>Goods issue for a stock transport order (shipping) with additional item</td>
-<td>带有其他物料的库存运输订单（装运）的发货</td>
+<td>为带附加项目的库存转储订单发货(带装运)</td>
 </tr>
 <tr>
 <td>605</td>
 <td>Goods receipt for a stock transport order (shipping) with additional item</td>
-<td>带有其他项目的库存运输订单（装运）的收货</td>
+<td>为带附加项目的库存转储订单收货(带装运)</td>
 </tr>
 <tr>
 <td>621</td>
 <td>Transfer of unrestricted-use stock :  returnable packaging with customer (shipping)</td>
-<td>无限制使用的库存的转移：与客户可回收的包装（装运）</td>
+<td>从非限制自有库存到客户可退回包装库存的转帐(带装运)</td>
 </tr>
 <tr>
 <td>623</td>
 <td>Goods issue from returnable packaging with customer (shipping)</td>
-<td>与客户进行可回收包装的发货（装运）</td>
+<td>从客户可退回包装库存发货/借出(带装运)</td>
 </tr>
 <tr>
 <td>631</td>
 <td>Transfer of unrestricted-use stock :  consignment stock at customer (shipping)</td>
-<td>非限制使用库存的转移：客户的寄售库存（装运）</td>
+<td>从非限制自有库存到客户代销库存的转帐(带装运)</td>
 </tr>
 <tr>
 <td>633</td>
 <td>Goods issue from consignment stock at customer (shipping)</td>
-<td>客户寄售库存中的发货（装运）</td>
+<td>从客户代销库存发货/消耗(带装运)</td>
 </tr>
 <tr>
 <td>641</td>
 <td>Goods issue for a stock transport order (shipping)</td>
-<td>库存运输订单的发货（装运）</td>
+<td>为库存转储订单发货(带装运)</td>
 </tr>
 <tr>
 <td>643</td>
 <td>Goods issue for a cross-company-code stock transport order</td>
-<td>跨公司代码库存运输订单的发货</td>
+<td>为跨公司库存转储订单发货(带装运)</td>
 </tr>
 <tr>
 <td>645</td>
 <td>Goods issue for a cross-company-code stock transport order performed in one step (shipping)</td>
-<td>一步执行的跨公司代码库存运输订单的发货（装运）</td>
+<td>为一步式跨公司库存转储订单发货(带装运)</td>
 </tr>
 <tr>
 <td>647</td>
 <td>Goods issue for a stock transport order performed in one step (shipping)</td>
-<td>一步执行库存运输订单的发货（装运）</td>
+<td>为一步式工厂间库存转储订单发货(带装运)</td>
 </tr>
 <tr>
 <td>651</td>
 <td>Returns from customer (shipping)</td>
-<td>客户退货(运输)</td>
+<td>客户退货到退货冻结库存(带装运)</td>
 </tr>
 <tr>
 <td>653</td>
 <td>Returns from customer (shipping) to unrestricted-use stock</td>
-<td>从客户（装运）到非限制使用库存的退货</td>
+<td>客户退货到非限制使用库存(带装运)</td>
 </tr>
 <tr>
 <td>655</td>
 <td>Returns from customer (shipping) to inspection stock</td>
-<td>从客户（装运）到检验库存的退货</td>
+<td>客户退货到质检库存(带装运)</td>
 </tr>
 <tr>
 <td>657</td>
 <td>Returns from customer (shipping) to blocked stock</td>
-<td>从客户（装运）到冻结库存的退货</td>
+<td>客户退货到冻结库存(带装运)</td>
 </tr>
 <tr>
 <td>661</td>
 <td>Returns to vendor using shipping</td>
-<td>使用运输退货给供应商</td>
+<td>通过装运退货给供应商</td>
+</tr>
+<tr>
+<td>671</td>
+<td>Returns for stock transport order via Shipping</td>
+<td>通过装运对库存转储订单退货</td>
 </tr>
 <tr>
 <td>673</td>
 <td>Returns for a cross-company-code stock transport order (shipping)</td>
-<td>跨公司代码库存运输订单（装运）的退货</td>
+<td>对跨公司库存转储订单退货(带装运)</td>
 </tr>
 <tr>
 <td>675</td>
 <td>Returns for a cross-company-code stock transport order (shipping) performed in one step</td>
-<td>一步执行的跨公司代码库存运输订单（装运）的退货</td>
+<td>对一步式跨公司库存转储订单退货(带装运)</td>
+</tr>
+<tr>
+<td>677</td>
+<td>Returns for stock transport order in one step (Shipping)</td>
+<td>对一步式库存转储订单退货(带装运)</td>
 </tr>
 </tbody>
 </table>
 <h3 id="sap-中的库存差异移动类型">SAP 中的库存差异移动类型</h3>
 <p>在SPA MM(物料管理)和SAP WM(仓库管理)中，与库存差异相关的移动类型。</p>
+<ul>
+<li>盘盈 = 收货</li>
+<li>盘亏 = 发货</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -716,41 +760,45 @@
 <tbody>
 <tr>
 <td>701</td>
-<td>Inventory difference in unrestricted-use stock</td>
-<td>非限制使用库存中的库存差异</td>
+<td>Inventory difference in unrestricted-use stock (MM-IM)</td>
+<td>IM非限制使用库存盘点差异</td>
 </tr>
 <tr>
 <td>702</td>
 <td>Inventory difference in quality inspection stock (MM-IM)</td>
-<td>质量检验库存中的库存差异（MM-IM）</td>
+<td>IM 质检库存盘点差异</td>
 </tr>
 <tr>
 <td>707</td>
-<td>Inventory difference in blocked stock</td>
-<td>冻结库存中的库存差异</td>
+<td>Inventory difference in blocked stock(MM-IM)</td>
+<td>IM 冻结库存盘点差异</td>
 </tr>
 <tr>
 <td>711</td>
 <td>Inventory difference in unrestricted-use stock (LE-WM)</td>
-<td>非限制使用库存（LE-WM）的库存差异</td>
+<td>WM 非限制使用库存盘点差异</td>
 </tr>
 <tr>
 <td>713</td>
-<td>Inventory difference in quality inspection stock (MM-IM)</td>
-<td>质量检验库存中的库存差异（MM-IM）</td>
+<td>Inventory difference in quality inspection stock (LE-WM)</td>
+<td>WM 质检库存盘点差异</td>
 </tr>
 <tr>
 <td>715</td>
-<td>Inventory difference for returns</td>
-<td>退货的库存差异</td>
+<td>Inventory difference in block stock returns (LE-WM)</td>
+<td>WM 退货冻结库存盘点差异</td>
 </tr>
 <tr>
 <td>717</td>
 <td>Inventory difference in blocked stock (LE-WM)</td>
-<td>冻结库存的库存差异（LE-WM）</td>
+<td>WM 冻结库存盘点差异</td>
 </tr>
 </tbody>
 </table>
+<h4 id="参考">参考</h4>
+<ul>
+<li><a href="https://blog.csdn.net/kangliujie/article/details/74990211">https://blog.csdn.net/kangliujie/article/details/74990211</a></li>
+</ul>
 
     </div>
 
@@ -764,7 +812,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2490</span>
+                   <span>2764</span>
             </p>
             
             <p class="copyright-item">

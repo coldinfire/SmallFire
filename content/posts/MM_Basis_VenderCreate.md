@@ -188,31 +188,31 @@ Bank Determination: Select the Paying Company
 
 Interest calculation on account balances  AND Interest calculation on areas
 
-<1.定义利息计算程序   :  OB46
+1.定义利息计算程序   :  OB46
 
 ![OB46](/images/MMVendorData/OB46.png)
 
-<2.准备账户余额利息计算  : OBAA
+2.准备账户余额利息计算  : OBAA
 
 ![OBAA](/images/MMVendorData/OBAA.png)
 
-<3.定义参考利率   : OBAC
+3.定义参考利率   : OBAC
 
 ![OBAC](/images/MMVendorData/OBAC.png)
 
-<4.定义基于时间的条款  :  OB81
+4.定义基于时间的条款  :  OB81
 
 ![OB81](/images/MMVendorData/OB81.png)
 
-<5.输入利息值  : OB83
+5.输入利息值  : OB83
 
 ![OB83](/images/MMVendorData/OB83.png)
 
-<6.创建总账科目    :  FS00
+6.创建总账科目    :  FS00
 
 为定期贷款、支付利息、收到的利息、贷款创建总账科目
 
-<7.准备总账科目余额利息计算配置程序  ： OBV2
+7.准备总账科目余额利息计算配置程序  ： OBV2
 
 ![OBV2](/images/MMVendorData/OBV2.png)
 

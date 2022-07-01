@@ -1,5 +1,5 @@
 ---
-title: " BAPI 创建 Purchase Request "
+title: " BAPI 冲销 Delivery Note "
 date: 2020-06-12
 draft: false
 author: Small Fire

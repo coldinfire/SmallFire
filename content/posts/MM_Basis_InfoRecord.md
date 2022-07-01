@@ -12,13 +12,13 @@ tags:
 
 ---
 
-### 创建Info Record
+### 创建 Info Record
 
-信息记录 (Info record)**：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。
+信息记录 (Info record)：一个物料在某个供应商那里，卖多少钱，有什么特殊条件等信息的存储。
 
 创建方式：手工输入，报价单选择，采购订单，框架协议更新
 
-#### 手工输入：ME11/12/13/14/15,MEMMASG
+#### 手工输入：ME11/12/13/14/15、MEMMASG
 
 - SPRO > IMG > MM > Purchasing > Main data > Info Recore
 
@@ -60,7 +60,7 @@ tags:
 
 - 控制
 
-  - 计划交货时间:Lead Timd=L/T，前置时间，（下PO到供应商送货日期）
+  - 计划交货时间：Lead Timd = L/T，前置时间，（下PO到供应商送货日期）
 
   - Underdel.tol/Overdeliv.tol：收货数量容差百分比  
 
@@ -91,11 +91,11 @@ tags:
 
 #### 报价单选择：A/B/C
 
-​	在报价单创建时，选择Info Record update。产生报价单时，会产生Info Record
+在报价单创建时，选择Info Record update。产生报价单时，会产生Info Record
 
 #### 采购订单
 
-​	ME21N > Item > MM > Info Record Update
+ME21N > Item > MM > Info Record Update
 
 #### 框架协议
 
@@ -109,14 +109,14 @@ Customizing：Define control of conditions at plan level
 
 ### 使用
 
-**Info Record和价钱决定：ME21n创建PO**
+**Info Record和价钱决定：ME21N 创建 PO**
 
 1）如果是手工输入价钱，得到输入的价钱
 
-2）如果手工没有输入，系统检查是否有 Info record，没有Info record 需要手工输入；如果有Info Record且Info Record中有有效的价钱，采用 Info record 价格。
+2）如果手工没有输入，系统检查是否有 Info record，没有 Info record 需要手工输入；如果有 Info Record 且 Info Record 中有有效的价格，采用 Info record 价格。
 
-3 ）如果Info record中没有Info record价格，最后采用Last  PO 价钱，也可以不从Last PO 带入价格。(Info record > 采购组织数据2 > 采购凭证)
+3 ）如果 Info record 中没有 Info record 价格，最后采用 Last  PO 价格，也可以不从 Last PO 带入价格。
 
-- 物料>采购>定义采购员的缺省值：定义采用价格>一直复制
-- Purchasing>Env Data >Define default values for Buyers
+- 物料 > 采购 > 定义采购员的缺省值：定义采用价格 > 一直复制
+- Purchasing > Env Data > Define default values for Buyers
 

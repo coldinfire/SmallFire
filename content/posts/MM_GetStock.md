@@ -14,19 +14,34 @@ tags:
 
 SAP 的库存种类有很多中取数逻辑，这里整理下，汇总成的一个接口函数。
 
-### 库存类型
+### 库存类型和对应表
 
-非批次管理库存：**MARD**
+| 库存类型       | 当前库存    | 历史库存 | 库存金额 | 库存历史金额 |
+| :------------- | :---------- | :------- | :------- | :----------- |
+| 工厂级别库存   | MARC & MBEW | MARCH    | MBEW     | MBEWH        |
+| 库存地点库存   | MARD        | MARDH    | MBEW     | MBEWH        |
+| 批次库存       | MCHB        | MCHBH    | MBEW     | MBEWH        |
+| 销售订单库存   | MSKA        | MSKAH    | EBEW     | EBEWH        |
+| 项目库存       | MSPR        | MSPRH    | QBEW     | QBEWH        |
+| 供应商寄售库存 | MKOL        | MKOLH    | MBEW     | MBEWH        |
+| 供应商外包库存 | MSLB        | MSLBH    | MBEW     | MBEWH        |
+| 客户寄售库存   | MSKU        | MSKUH    | MBEW     | MBEWH        |
 
-批次库存：**MCHB**
+MBEW：按照物料+工厂记录物料在工厂下的数量和金额。
 
-销售库存：**MSKA**
+MBWEH：记录历史库存，按照物料+工厂+月份记录物料特定月份在工厂下的数量和金额。
 
-项目库存：**MSPR**
+#### 相关的特殊库存标识
 
-已发货数量：**LIPS、LIKP**
+K：寄售库存 
 
-### 程序代码
+O：委外加工库存（分包） 
+
+E：销售订单库存 
+
+Q：项目库存
+
+### 获取库存函数
 
 ```ABAP
 FUNCTION zwi_get_stock.
@@ -51,18 +66,17 @@ FUNCTION zwi_get_stock.
         ls_mard TYPE mard,
         ls_mska TYPE mska,
         ls_mspr TYPE mspr.
-  DATA: menge_ur_status TYPE mng01.  "Valuated Unrestricted-Use Stock"
-  DATA: menge_qi_status TYPE mng01.  "Stock in Quality Inspection"
-  DATA: menge_blk_status TYPE mng01.  "Blocked Stock"
-  DATA: menge_return TYPE mng01. " Stock result
+  DATA: menge_ur TYPE mng01.     "Valuated Unrestricted-Use Stock"
+  DATA: menge_qi TYPE mng01.     "Stock in Quality Inspection"
+  DATA: menge_blocked TYPE mng01. "Blocked Stock"
+  DATA: menge_return TYPE mng01. "Stock Result"
 
   CLEAR: ls_mara.
   SELECT SINGLE matnr meins xchpf
     INTO (ls_mara-matnr, ls_mara-meins, ls_mara-xchpf)
     FROM mara
-    WHERE matnr = material.
-  IF ls_mara-xchpf = 'X'.
-    "Get batch management stock"
+   WHERE matnr = material.
+  IF ls_mara-xchpf = 'X'. "Get batch management stock"
     CLEAR: ls_mchb.
     SELECT SINGLE clabs cinsm cspem
       INTO  (ls_mchb-clabs,ls_mchb-cinsm,ls_mchb-cspem)
@@ -72,9 +86,9 @@ FUNCTION zwi_get_stock.
       AND lgort = stge_loc
       AND charg = batch.
     IF sy-subrc = 0.
-      menge_ur_status = ls_mchb-clabs.
-      menge_qi_status = ls_mchb-cinsm.
-      menge_blk_status = ls_mchb-cspem.
+      menge_ur = ls_mchb-clabs.
+      menge_qi = ls_mchb-cinsm.
+      menge_blocked = ls_mchb-cspem.
     ENDIF.
     "Get project stock"
     SELECT SINGLE prlab prins prspe
@@ -85,9 +99,9 @@ FUNCTION zwi_get_stock.
       AND lgort = stge_loc
       AND charg = batch.
     IF sy-subrc EQ 0 .
-      menge_ur_status = ls_mspr-prlab.
-      menge_qi_status = ls_mspr-prins.
-      menge_blk_status = ls_mspr-prspe.
+      menge_ur = ls_mspr-prlab.
+      menge_qi = ls_mspr-prins.
+      menge_blocked = ls_mspr-prspe.
     ENDIF.
   ELSE.
   "Get non-batch management stock"
@@ -99,9 +113,9 @@ FUNCTION zwi_get_stock.
       AND matnr = material
       AND lgort = stge_loc.
     IF sy-subrc = 0.
-      menge_ur_status = ls_mard-labst.
-      menge_qi_status = ls_mard-insme.
-      menge_blk_status = ls_mard-speme.
+      menge_ur = ls_mard-labst.
+      menge_qi = ls_mard-insme.
+      menge_blocked = ls_mard-speme.
     ENDIF.
   ENDIF.
   "Sales order stock"
@@ -116,18 +130,18 @@ FUNCTION zwi_get_stock.
         AND vbeln = vbeln
         AND posnr = posnr.
     IF sy-subrc = 0.
-      menge_ur_status = ls_mska-kalab.
-      menge_qi_status = ls_mska-kains.
-      menge_blk_status = ls_mska-kaspe.
+      menge_ur = ls_mska-kalab.
+      menge_qi = ls_mska-kains.
+      menge_blocked = ls_mska-kaspe.
     ENDIF.
   ENDIF.
 
-  IF STOCK_TYPE IS INITIAL.  "UR Stock"
-    menge_return = menge_ur_status.
-  ELSEIF STOCK_TYPE EQ 'QI'. "UR Stock"
-    menge_return = menge_qi_status.
-  ELSEIF STOCK_TYPE EQ 'BK'.
-    megne_return = menge_bkk_status.
+  IF STOCK_TYPE IS INITIAL.  
+    menge_return = menge_ur. "UR Stock"
+  ELSEIF STOCK_TYPE EQ 'QI'. 
+    menge_return = menge_qi. "QI Stock"
+  ELSEIF STOCK_TYPE EQ 'BK'. 
+    megne_return = menge_blocked. "Blocked Stock"
   ENDIF.
 
   CLEAR: menge_return.
