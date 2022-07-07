@@ -36,7 +36,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=" Hugo 添加搜索功能(Algolia) "/>
-<meta name="twitter:description" content="Algolia：博客框架 https://www.algolia.com/ Algolia配置 ​ ​ 记录API Keys相关信息： Application ID Search-Only API Key Admin API Key Hugo设置 在配置文件config中添加一下内容"/>
+<meta name="twitter:description" content="Algolia：博客框架 https://www.algolia.com/ Algolia 配置 记录 API Keys 相关信息： Application ID Search-Only API Key Admin API Key Hugo 设置 在配置文件 config 中添加一下内容： [outputFormats.Algolia] baseName = &#34;algolia&#34; isPlainText = true mediaType = &#34;application/json&#34; notAlternative = true #vars 是 Hugo 内置变量"/>
 
   <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "hugo",
-  "wordcount":  1024 ,
+  "wordcount":  975 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/Utils_hugo2\/",
   "datePublished": "2018-02-07T00:00:00\u002b00:00",
   "dateModified": "2018-02-07T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                3 min
+                2 min
         </div>
     </header>
     <div class="post-content">
@@ -174,19 +174,19 @@
           
 
           <p>Algolia：博客框架 <a href="https://www.algolia.com/">https://www.algolia.com/</a></p>
-<h3 id="algolia配置">Algolia配置</h3>
-<p>​	<img src="/images/Blog/algolia0.png" alt="Create Application"></p>
-<p>​	<img src="/images/Blog/algolia2.png" alt="Create index"></p>
-<p>记录API Keys相关信息：</p>
+<h3 id="algolia-配置">Algolia 配置</h3>
+<p><img src="/images/Blog/algolia0.png" alt="Create Application"></p>
+<p><img src="/images/Blog/algolia2.png" alt="Create index"></p>
+<p>记录 API Keys 相关信息：</p>
 <ul>
 <li>Application ID</li>
 <li>Search-Only API Key</li>
 <li>Admin API Key</li>
 </ul>
 <p><img src="/images/Blog/algolia3.png" alt="Create index"></p>
-<h3 id="hugo设置">Hugo设置</h3>
+<h3 id="hugo-设置">Hugo 设置</h3>
 <ol>
-<li>在配置文件config中添加一下内容：</li>
+<li>在配置文件 config 中添加一下内容：</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS">[<span style="color:#a6e22e">outputFormats</span>.<span style="color:#a6e22e">Algolia</span>]
   <span style="color:#a6e22e">baseName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;algolia&#34;</span>
@@ -214,13 +214,13 @@
 </code></pre></div><p>执行 hugo 命令之后，在 public 目录下产生 algolia.json 文件。</p>
 <h3 id="上传索引文件到algolia">上传索引文件到Algolia</h3>
 <p>安装 atomic-algolia 包</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">init</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">init</span>
 <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">atomic</span><span style="color:#f92672">-</span><span style="color:#a6e22e">algolia</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">save</span>
 </code></pre></div><p>会在目录中产生package.json 文件和package-lock.json文件，修改文件scripts 内容</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"> <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> {
-    <span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;echo \&#34;Error: no test specified\&#34; &amp;&amp; exit 1&#34;</span>,
-    <span style="color:#e6db74">&#34;algolia&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;atomic-algolia&#34;</span>
-  },
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> {
+  <span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;echo \&#34;Error: no test specified\&#34; &amp;&amp; exit 1&#34;</span>,
+  <span style="color:#e6db74">&#34;algolia&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;atomic-algolia&#34;</span>
+},
 </code></pre></div><p>在创建的Blog本地项目中添加 .env文件</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">ALGOLIA_APP_ID</span><span style="color:#f92672">=</span><span style="color:#a6e22e">Application</span> <span style="color:#a6e22e">ID</span>
 <span style="color:#a6e22e">ALGOLIA_ADMIN_KEY</span><span style="color:#f92672">=</span><span style="color:#a6e22e">Admin</span> <span style="color:#a6e22e">API</span> <span style="color:#a6e22e">Key</span>
@@ -229,9 +229,9 @@
 </code></pre></div><p>上传索引文件:通过Travis-CI触发，需要添加脚本命令</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">algolia</span>
 </code></pre></div><p><img src="/images/Blog/algolia3.png" alt="Create index"></p>
-<h3 id="主题ui添加">主题UI添加</h3>
-<p>在主题文件下的 layouts下创建文件夹search，文件夹内创建两个文件list.html,search.html.</p>
-<p>list.html</p>
+<h3 id="主题-ui-添加">主题 UI 添加</h3>
+<p>在主题文件下的 layouts下创建文件夹 search，文件夹内创建两个文件 list.html、search.html。</p>
+<h4 id="listhtml">list.html</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ define &#34;content&#34; }}
 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;main&#34;</span>&gt;
     &lt;<span style="color:#f92672">article</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
@@ -262,7 +262,7 @@
 </span><span style="color:#75715e">    &lt;/div&gt; --&gt;</span>
 &lt;/<span style="color:#f92672">div</span>&gt;
 {{ end }}
-</code></pre></div><p>search.html</p>
+</code></pre></div><h4 id="searchhtml">search.html</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ define &#34;content&#34; }}
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
@@ -376,7 +376,8 @@
 &lt;/<span style="color:#f92672">style</span>&gt;
 
 {{ end }}
-</code></pre></div><p>在layouts\partials\header.html中引入search.html,显示搜索结果</p>
+</code></pre></div><h4 id="显示搜索结果">显示搜索结果</h4>
+<p>在 layouts\partials\header.html 中引入 search.html。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">nav</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;navbar&#34;</span>&gt;
     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
         &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;navbar-header header-logo&#34;</span>&gt;
@@ -419,7 +420,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1024</span>
+                   <span>975</span>
             </p>
             
             <p class="copyright-item">

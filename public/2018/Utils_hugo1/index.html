@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "hugo",
-  "wordcount":  2540 ,
+  "wordcount":  2286 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/Utils_hugo1\/",
   "datePublished": "2018-02-03T00:00:00\u002b00:00",
   "dateModified": "2018-02-03T00:00:00\u002b00:00",
@@ -152,7 +152,7 @@
                         
                 </span>
                 <i class="iconfont icon-timer"></i>
-                6 min
+                5 min
         </div>
     </header>
     <div class="post-content">
@@ -179,25 +179,25 @@
 <li>Git：用来发布博客内容 <a href="https://git-scm.com/">https://git-scm.com/</a></li>
 <li>Github：保存和显示博客内容 <a href="https://github.com/">https://github.com/</a></li>
 <li>MarkDown编辑软件：用来进行博客文章的编辑 <a href="https://typora.io/">Typora</a></li>
-<li>Cmder：替代 Windows 命令行的工具<a href="https://cmder.net/">https://cmder.net/</a></li>
+<li>Cmder：替代 Windows 命令行的工具 <a href="https://cmder.net/">https://cmder.net/</a></li>
 </ol>
 <h3 id="hugo">Hugo</h3>
-<p>Hugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p>
-<p>官方网址 <a href="https://gohugo.io/">https://gohugo.io/</a>，关于Hugo的介绍十分详细。</p>
+<p>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p>
+<p>官方网址 <a href="https://gohugo.io/">https://gohugo.io/</a>，关于 Hugo 的介绍十分详细。</p>
 <h4 id="安装-hugo">安装 Hugo</h4>
 <p>在 <a href="https://github.com/gohugoio/hugo/releases">Github 版本库</a> 中选择合适的版本下载并解压，将解压出来的可执行文件(hugo.exe)放到自定义目录;将对应的文件夹路径配置到环境变量中；<code>hugo version</code>查看对应的版本。</p>
 <p><img src="/images/Blog/20180206105224.png" alt="查看Hugo版本"></p>
 <h4 id="初始化博客目录">初始化博客目录</h4>
 <p>选择一个自定义路径来存放博客，在该路径下执行<code>hugo new site myBlog</code>；会创建一个名为 myBlog 的文件夹存放博客内容。</p>
 <p>初始化的目录结构：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#960050;background-color:#1e0010">#├──</span> <span style="color:#a6e22e">archetypes</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">生成新文件时的默认模板配置</span>
-<span style="color:#960050;background-color:#1e0010">#│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> <span style="color:#66d9ef">default</span>.<span style="color:#a6e22e">md</span>
-<span style="color:#960050;background-color:#1e0010">#├──</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">toml</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">配置文件</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">在里面可以定义博客地址</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">构建配置</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">标题</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">导航栏等等</span><span style="color:#960050;background-color:#1e0010">。</span>
-<span style="color:#960050;background-color:#1e0010">#├──</span> <span style="color:#a6e22e">content</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">博客文章存放的目录</span>
-<span style="color:#960050;background-color:#1e0010">#├──</span> <span style="color:#a6e22e">data</span>
-<span style="color:#960050;background-color:#1e0010">#├──</span> <span style="color:#a6e22e">layouts</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">网站的模板文件</span>
-<span style="color:#960050;background-color:#1e0010">#├──</span> <span style="color:#66d9ef">static</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">图片</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">css</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">js</span> <span style="color:#a6e22e">等资源</span><span style="color:#960050;background-color:#1e0010">。</span>
-<span style="color:#960050;background-color:#1e0010">#└──</span> <span style="color:#a6e22e">themes</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">主题目录</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">可以将喜欢主题</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">下载到该目录下</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#960050;background-color:#1e0010">├─</span> <span style="color:#a6e22e">archetypes</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">生成新文件时的默认模板配置</span>
+<span style="color:#960050;background-color:#1e0010">│</span>  <span style="color:#960050;background-color:#1e0010">└─</span> <span style="color:#66d9ef">default</span>.<span style="color:#a6e22e">md</span>
+<span style="color:#960050;background-color:#1e0010">├─</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">toml</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">配置文件</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">在里面可以定义博客地址</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">构建配置</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">标题</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">导航栏等等</span>
+<span style="color:#960050;background-color:#1e0010">├─</span> <span style="color:#a6e22e">content</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">博客文章存放的目录</span>
+<span style="color:#960050;background-color:#1e0010">├─</span> <span style="color:#a6e22e">data</span>
+<span style="color:#960050;background-color:#1e0010">├─</span> <span style="color:#a6e22e">layouts</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">网站的模板文件</span>
+<span style="color:#960050;background-color:#1e0010">├─</span> <span style="color:#66d9ef">static</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">图片</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">css</span><span style="color:#960050;background-color:#1e0010">、</span><span style="color:#a6e22e">js</span> <span style="color:#a6e22e">等资源</span>
+<span style="color:#960050;background-color:#1e0010">└─</span> <span style="color:#a6e22e">themes</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">主题目录</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">可以将喜欢主题</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">下载到该目录下</span>
 </code></pre></div><h4 id="安装主题">安装主题</h4>
 <p>在 <a href="http://themes.gohugo.io/">themes.gohugo.io</a> 选择喜欢的主题，下载到 themes 目录中，然后在 config.toml 中配置 <code>theme = &quot;KeepIt&quot;</code>即可。</p>
 <ul>
@@ -219,7 +219,8 @@
 </ul>
 </li>
 </ul>
-<p>创建新文件：<code>hugo new about.md</code>，会在 content 文件夹下产生一个 about.md 的文件。</p>
+<h4 id="创建新文件">创建新文件</h4>
+<p><code>hugo new about.md</code>：会在 content 文件夹下产生一个 about.md 的文件。</p>
 <p>文件抬头信息的设定：可以根据需求进行添加或则删除</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#f92672">---</span>
 <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My First Post&#34;</span>
@@ -230,7 +231,8 @@
 <span style="color:#a6e22e">categories</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;pages&#34;</span>]
 <span style="color:#a6e22e">author</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>
 <span style="color:#f92672">---</span>
-</code></pre></div><p>配置config.toml：该文件用于配置整个网站，根据自己的需求配置。</p>
+</code></pre></div><h4 id="配置-configtoml">配置 config.toml</h4>
+<p>该文件用于配置整个网站，根据自己的需求配置。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">head</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">里面的</span> <span style="color:#a6e22e">baseurl</span> <span style="color:#a6e22e">信息</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">填你的博客地址</span>
 <span style="color:#a6e22e">baseURL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://example.com&#34;</span>
 <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">浏览器的标题</span>
@@ -242,8 +244,7 @@
 <span style="color:#a6e22e">hasCJKLanguage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> 
 <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">主题</span>     
 <span style="color:#a6e22e">theme</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;KeepIt&#34;</span> 
-
-<span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#a6e22e">是否禁止URL</span> <span style="color:#a6e22e">Path转小写</span>
+<span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">是否禁止URL</span> <span style="color:#a6e22e">Path转小写</span>
 <span style="color:#a6e22e">disablePathToLower</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
 <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">每页的文章数</span>
 <span style="color:#a6e22e">paginate</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
@@ -253,9 +254,6 @@
 <span style="color:#a6e22e">enableRobotsTXT</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> 
 <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Google</span> <span style="color:#a6e22e">统计</span> <span style="color:#a6e22e">id</span>
 <span style="color:#a6e22e">googleAnalytics</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> 
-<span style="color:#960050;background-color:#1e0010">#</span> 
-<span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">disqusShortname</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;yourdiscussshortname&#34;</span>
-
 [<span style="color:#a6e22e">sitemap</span>]
   <span style="color:#a6e22e">changefreq</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;monthly&#34;</span>
   <span style="color:#a6e22e">filename</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sitemap.xml&#34;</span>
@@ -285,10 +283,10 @@
     <span style="color:#a6e22e">weight</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
 [<span style="color:#a6e22e">params</span>]
   <span style="color:#a6e22e">since</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2017</span>
-  <span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Author</span><span style="color:#e6db74">&#39;s name
+  <span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>    <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Author</span><span style="color:#e6db74">&#39;s name
 </span><span style="color:#e6db74">  subtitle = &#34;If you&#39;</span><span style="color:#a6e22e">re</span> <span style="color:#a6e22e">not</span> <span style="color:#a6e22e">doing</span> <span style="color:#a6e22e">what</span> <span style="color:#a6e22e">you</span> <span style="color:#a6e22e">love</span>,<span style="color:#a6e22e">you</span><span style="color:#e6db74">&#39;re wasting your time&#34;
 </span><span style="color:#e6db74">  avatar = &#34;/images/me/avatar.jpg&#34; 
-</span><span style="color:#e6db74">  cdn_url = &#34;&#34;           # Base CDN URL
+</span><span style="color:#e6db74">  cdn_url = &#34;&#34;   # Base CDN URL
 </span><span style="color:#e6db74">  home_mode = &#34;&#34; # post or other
 </span><span style="color:#e6db74">  google_verification = &#34;&#34;
 </span><span style="color:#e6db74">  bing_verification = &#34;&#34;
@@ -297,84 +295,31 @@
 </span><span style="color:#e6db74">  baidu_verification = &#34;&#34;
 </span><span style="color:#e6db74">  socialShare = false
 </span><span style="color:#e6db74">  description = &#34;&#34; # site description
-</span><span style="color:#e6db74">  keywords = &#34;&#34; # site keywords
-</span><span style="color:#e6db74">  
-</span><span style="color:#e6db74">  # license= &#39;</span><span style="color:#a6e22e">Released</span> <span style="color:#a6e22e">under</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">a</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;license external nofollow noopener noreffer&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">CC</span> <span style="color:#a6e22e">BY</span><span style="color:#f92672">-</span><span style="color:#a6e22e">NC</span> <span style="color:#ae81ff">4.0</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/a&gt;&#39;</span>
-
+</span><span style="color:#e6db74">  keywords = &#34;&#34;    # site keywords
+</span><span style="color:#e6db74">  license= &#39;</span><span style="color:#a6e22e">Released</span> <span style="color:#a6e22e">under</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">a</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;license external nofollow noopener noreffer&#34;</span>
+     <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">CC</span> <span style="color:#a6e22e">BY</span><span style="color:#f92672">-</span><span style="color:#a6e22e">NC</span> <span style="color:#ae81ff">4.0</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/a&gt;&#39;</span>
 [<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">gravatar</span>]
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;example@gmail.com&#34;</span>   <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">uncomment</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">insert</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">email</span> <span style="color:#a6e22e">address</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">use</span> <span style="color:#a6e22e">gravatar</span>
+  <span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;example@gmail.com&#34;</span>  <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">uncomment</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">insert</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">email</span> <span style="color:#a6e22e">address</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">use</span> <span style="color:#a6e22e">gravatar</span>
 [<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">social</span>]
   <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">GitHub</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;XXXX&#34;</span>
   <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Linkedin</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
   <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Twitter</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
   <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Instagram</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
   <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Email</span>   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;XXXXX&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Facebook</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Telegram</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Medium</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Gitlab</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Youtubelegacy</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Youtubecustom</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Youtubechannel</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Tumblr</span> <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Quora</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Keybase</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Pinterest</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Codepen</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Bitbucket</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#a6e22e">Stackoverflow</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Weibo</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Odnoklassniki</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">VKontakte</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Flickr</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Xing</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Snapchat</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Soundcloud</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Spotify</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Bandcamp</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Paypal</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Fivehundredpx</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Mix</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Goodreads</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Lastfm</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Foursquare</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Hackernews</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Kickstarter</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Patreon</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Steam</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Twitch</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Strava</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Skype</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Whatsapp</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
   <span style="color:#a6e22e">Zhihu</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span>
   <span style="color:#a6e22e">Douban</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Angellist</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Slidershare</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Jsfiddle</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Deviantart</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Behance</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Dribble</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Wordpress</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Vine</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Googlescholar</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Researchgate</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Mastodon</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
-  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Thingiverse</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxx&#34;</span>
 [<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">share</span>]
-<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Twitter</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Facebook</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Reddit</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#a6e22e">Linkedin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Pinterest</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">HackerNews</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Mix</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Tumblr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">VKontakte</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#a6e22e">Douban</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Weibo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-<span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Used</span> <span style="color:#a6e22e">only</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">Seo</span> <span style="color:#a6e22e">schema</span> 
-<span style="color:#a6e22e">copyright</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.&#34;</span>
-
+  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Twitter</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Facebook</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Reddit</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#a6e22e">Linkedin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Pinterest</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">HackerNews</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Mix</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Tumblr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">VKontakte</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#a6e22e">Douban</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Weibo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
 [<span style="color:#a6e22e">author</span>]
   <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
   [<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">publisher</span>]
@@ -412,9 +357,10 @@
   <span style="color:#a6e22e">avatar</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mm&#39;</span>
   <span style="color:#a6e22e">placeholder</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;your comments ...&#39;</span>
   <span style="color:#a6e22e">visitor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-</code></pre></div><p>生成网站：<code>hugo server -D -w</code></p>
+</code></pre></div><h4 id="生成网站">生成网站</h4>
+<p><code>hugo server -D -w</code></p>
 <ul>
-<li>-w：监控更改，如果发生更改直接显示到博客上</li>
+<li><code>-w</code>：监控更改，如果发生更改直接显示到博客上</li>
 <li>生成之后就可以通过 http://localhost:1313/ 查看网站效果。</li>
 </ul>
 <h3 id="部署到-github-pages">部署到 Github Pages</h3>
@@ -427,12 +373,8 @@ git remote add origin https<span style="color:#f92672">:</span><span style="colo
 </span><span style="color:#75715e"></span>git remote add origin git<span style="color:#a6e22e">@github.</span>
 git push <span style="color:#f92672">-</span>u origin master
 </code></pre></div><h4 id="配置-travis">配置 Travis</h4>
-<ul>
-<li>
 <p>生成 <a href="https://github.com/settings/tokens/new">Github Access Token</a>，只勾repo内容。</p>
 <p><img src="/images/Blog/20180806161655.png" alt="生成Token"></p>
-</li>
-<li>
 <p>进入<a href="https://travis-ci.org/">Travis CI</a>关联Github账号，同步账号并激活blog repo。</p>
 <ul>
 <li>
@@ -440,8 +382,6 @@ git push <span style="color:#f92672">-</span>u origin master
 <p><img src="/images/Blog/20180806162631.png" alt="配置Token"></p>
 </li>
 </ul>
-</li>
-<li>
 <p>在blog 目录中添加触发部署文件<code>.travis.yml</code>，当blog repo文件发生变化时触发该文件内容</p>
 <ul>
 <li>默认情况下，travis 会自动下载 git submodules</li>
@@ -451,14 +391,14 @@ git push <span style="color:#f92672">-</span>u origin master
 <span style="color:#960050;background-color:#1e0010">language:</span> <span style="color:#960050;background-color:#1e0010">go</span>
 <span style="color:#960050;background-color:#1e0010">git:</span>
   <span style="color:#960050;background-color:#1e0010">depth:</span> <span style="color:#ae81ff">1</span>
-  
+
 <span style="color:#960050;background-color:#1e0010">go:</span>
   <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#e6db74">&#34;1.8&#34;</span>
-  
+
 <span style="color:#960050;background-color:#1e0010">install:</span>
   <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#960050;background-color:#1e0010">wget</span> <span style="color:#960050;background-color:#1e0010">https://github.com/gohugoio/hugo/releases/download/v</span><span style="color:#ae81ff">0.62</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">/hugo_</span><span style="color:#ae81ff">0.62</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">_Linux</span><span style="color:#ae81ff">-64</span><span style="color:#960050;background-color:#1e0010">bit.deb</span>
   <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#960050;background-color:#1e0010">sudo</span> <span style="color:#960050;background-color:#1e0010">dpkg</span> <span style="color:#960050;background-color:#1e0010">-i</span> <span style="color:#960050;background-color:#1e0010">hugo*.deb</span>
-  
+
 <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">install:</span> <span style="color:#960050;background-color:#1e0010">go</span> <span style="color:#960050;background-color:#1e0010">get</span> <span style="color:#960050;background-color:#1e0010">-v</span> <span style="color:#960050;background-color:#1e0010">github.com/gohugoio/hugo</span>
 <span style="color:#960050;background-color:#1e0010">script:</span>
   <span style="color:#960050;background-color:#1e0010">#运行HUGO命令</span>
@@ -494,9 +434,7 @@ git push <span style="color:#f92672">-</span>u origin master
   <span style="color:#960050;background-color:#1e0010">target_branch:</span> <span style="color:#960050;background-color:#1e0010">master</span>         <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">要将静态站点文件发布到哪个分支</span>
   <span style="color:#960050;background-color:#1e0010">email:</span> <span style="color:#960050;background-color:#1e0010">&lt;github_email&gt;</span>
   <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#960050;background-color:#1e0010">&lt;github_username&gt;</span>
-</code></pre></div></li>
-<li>
-<p>添加<code>.gitignore</code>文件</p>
+</code></pre></div><p>添加<code>.gitignore</code>文件</p>
 <ul>
 <li>
 <p>在 Hugo 本地编译时会产生 <code>public</code> 文件夹，但是这个文件夹中的内容对于blog repo来说是不需要的 (包括用来存放主题的 <code>themes</code> 文件夹和主题产生的 <code>resources</code> 文件夹也是不需要的)</p>
@@ -509,20 +447,11 @@ git push <span style="color:#f92672">-</span>u origin master
 <span style="color:#a6e22e">resources</span><span style="color:#f92672">/*</span>
 </code></pre></div></li>
 </ul>
-</li>
-</ul>
-<h3 id="添加gittalk">添加Gittalk</h3>
-<p><strong>创建Github Application:</strong></p>
-<ul>
-<li>
-<p>在Github上创建一个<a href="https://github.com/settings/applications/new">Github Application</a></p>
+<h3 id="添加-gittalk">添加 Gittalk</h3>
+<h4 id="创建-github-application">创建 Github Application</h4>
+<p>在 Github 上创建一个 <a href="https://github.com/settings/applications/new">Github Application</a>，记录下 ClientID 和 Client Secret，后面配置文件需要配置。</p>
 <p><img src="/images/Blog/20180806165108.png" alt="Github Application"></p>
-</li>
-<li>
-<p>记录下ClientID和Client Secret,后面配置文件需要配置</p>
-</li>
-</ul>
-<p><strong>配置config.toml文件：</strong></p>
+<h4 id="配置configtoml文件">配置config.toml文件</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS">[<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">gitalk</span>] 
   <span style="color:#a6e22e">clientID</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[Client ID]&#34;</span> <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Your</span> <span style="color:#a6e22e">client</span> <span style="color:#a6e22e">ID</span><span style="color:#e6db74">`
 </span><span style="color:#e6db74">  clientSecret = &#34;[Client Secret]&#34; # Your client secret`</span>
@@ -545,7 +474,7 @@ git push <span style="color:#f92672">-</span>u origin master
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2540</span>
+                   <span>2286</span>
             </p>
             
             <p class="copyright-item">

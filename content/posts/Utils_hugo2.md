@@ -14,13 +14,13 @@ tags:
 
 Algolia：博客框架 [https://www.algolia.com/](https://www.algolia.com/)
 
-### Algolia配置
+### Algolia 配置
 
-​	![Create Application](/images/Blog/algolia0.png)
+![Create Application](/images/Blog/algolia0.png)
 
-​	![Create index](/images/Blog/algolia2.png)
+![Create index](/images/Blog/algolia2.png)
 
-记录API Keys相关信息：
+记录 API Keys 相关信息：
 
 - Application ID
 - Search-Only API Key
@@ -28,9 +28,9 @@ Algolia：博客框架 [https://www.algolia.com/](https://www.algolia.com/)
 
 ![Create index](/images/Blog/algolia3.png)
 
-### Hugo设置
+### Hugo 设置
 
-1. 在配置文件config中添加一下内容：
+1. 在配置文件 config 中添加一下内容：
 
 ```JS
 [outputFormats.Algolia]
@@ -62,15 +62,13 @@ Algolia：博客框架 [https://www.algolia.com/](https://www.algolia.com/)
 {{- $.Scratch.Get "index" | jsonify -}}
 ```
 
-
-
 执行 hugo 命令之后，在 public 目录下产生 algolia.json 文件。
 
 ### 上传索引文件到Algolia
 
 安装 atomic-algolia 包
 
-```JS
+```js
 npm init
 npm install atomic-algolia --save
 ```
@@ -78,10 +76,10 @@ npm install atomic-algolia --save
 会在目录中产生package.json 文件和package-lock.json文件，修改文件scripts 内容
 
 ```JS
- "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "algolia": "atomic-algolia"
-  },
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "algolia": "atomic-algolia"
+},
 ```
 
 在创建的Blog本地项目中添加 .env文件
@@ -101,11 +99,11 @@ npm run algolia
 
 ![Create index](/images/Blog/algolia3.png)
 
-### 主题UI添加
+### 主题 UI 添加
 
-在主题文件下的 layouts下创建文件夹search，文件夹内创建两个文件list.html,search.html.
+在主题文件下的 layouts下创建文件夹 search，文件夹内创建两个文件 list.html、search.html。
 
-list.html
+#### list.html
 
 ```html
 {{ define "content" }}
@@ -140,9 +138,7 @@ list.html
 {{ end }}
 ```
 
-
-
-search.html
+#### search.html
 
 ```html
 {{ define "content" }}
@@ -260,9 +256,9 @@ search.start();
 {{ end }}
 ```
 
+#### 显示搜索结果
 
-
-在layouts\partials\header.html中引入search.html,显示搜索结果
+在 layouts\partials\header.html 中引入 search.html。
 
 ```html
 <nav class="navbar">
@@ -282,13 +278,9 @@ search.start();
 </nav>
 ```
 
-
-
 以上配置完成后即可在首页使用搜索功能。
 
 ![Create index](/images/Blog/algolia5.png)
-
-
 
 参考文档：
 

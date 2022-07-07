@@ -13,7 +13,7 @@
       <pubDate>Wed, 07 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/Utils_hugo2/</guid>
-      <description>Algolia：博客框架 https://www.algolia.com/ Algolia配置 ​ ​ 记录API Keys相关信息： Application ID Search-Only API Key Admin API Key Hugo设置 在配置文件config中添加一下内容</description>
+      <description>Algolia：博客框架 https://www.algolia.com/ Algolia 配置 记录 API Keys 相关信息： Application ID Search-Only API Key Admin API Key Hugo 设置 在配置文件 config 中添加一下内容： [outputFormats.Algolia] baseName = &amp;#34;algolia&amp;#34; isPlainText = true mediaType = &amp;#34;application/json&amp;#34; notAlternative = true #vars 是 Hugo 内置变量</description>
     </item>
     
     <item>
