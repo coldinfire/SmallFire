@@ -14,7 +14,7 @@ tags:
 
 ### 视图的整体介绍
 
-![View Layout](/images/webdynproABAP/14.png)
+![View Layout](/images/webdynpro/webdynproABAP/14.png)
 
 **Properties** ：VIEW的属性，一般引入一些系统控件如alv，select-option等
 
@@ -42,13 +42,13 @@ Step1：Select options 组件引入WDA程序。
 
 - SELECT_OPTIONS  <----->  WDR_SELECT_OPTIONS
 
-![Web Dynpro Used Components](/images/webdynproABAP/Portal25.png)
+![Web Dynpro Used Components](/images/webdynpro/webdynproABAP/Portal25.png)
 
 Step2：将组件加入使用的视图中。
 
 双击视图，选择Properties页签，在使用组件表格中点击创建，将组件对应的两个列表加进来。
 
-![Web Dynpro View Properties](/images/webdynproABAP/Portal26.png)
+![Web Dynpro View Properties](/images/webdynpro/webdynproABAP/Portal26.png)
 
 Step3：在视图的WDDOINIT方法中，初始化SELECT OPTIONS。
 
@@ -64,13 +64,13 @@ Step4：在视图的Layout中添加ViewContainerUIElement容器，该容器用�
 
 选中视图的ViewContainerUIElement容器，右键 ----> Embed View，弹出下图：
 
-![Web Dynpro View Properties](/images/webdynproABAP/Portal27.png)
+![Web Dynpro View Properties](/images/webdynpro/webdynproABAP/Portal27.png)
 
 选择SELECT_OPTIONS组件绑定：
 
-![Web Dynpro Window](/images/webdynproABAP/Portal28.png)
+![Web Dynpro Window](/images/webdynpro/webdynproABAP/Portal28.png)
 
-![Web Dynpro Window](/images/webdynproABAP/Portal29.png)
+![Web Dynpro Window](/images/webdynpro/webdynproABAP/Portal29.png)
 
 #### ALV 使用
 
@@ -100,8 +100,6 @@ Step3：初始化ALV。
 
 
 Step4：数据绑定。
-
-​	
 
 Step5：ALV控制器创建，并在窗口中添加，在视图的Layout中添加ViewContainerUIElement容器，该容器用来盛放ALV的结果。
 
@@ -146,7 +144,7 @@ Step5：ALV控制器创建，并在窗口中添加，在视图的Layout中添加
 
 HOOK 方法是 Web dynpro 编程中的标准 SAP 方法，由 SAP 自动创建，以控制 Web dynpro 应用程序的执行流程。
 
-![Web Dynpro Hook Method](/images/webdynproABAP/Portal31.png)
+![Web Dynpro Hook Method](/images/webdynpro/webdynproABAP/Portal31.png)
 
 #### WDDOINIT：
 

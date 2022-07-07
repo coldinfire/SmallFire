@@ -14,7 +14,7 @@ tags:
 
 ## Component Controller/INPUT_VIEW: WDDOINIT
 
-```JS
+```ABAP
 METHOD WDDOINIT.
 TYPES:BEGIN OF soption,
      typename TYPE string, " Selection screen field ref type element "

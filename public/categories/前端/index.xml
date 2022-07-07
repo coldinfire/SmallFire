@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title> BOM 创建修改保存时增强 </title>
-      <link>https://coldinfire.github.io/2021/MM_Enhance_BOM/</link>
-      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2021/MM_Enhance_BOM/</guid>
-      <description>使用 BADI BADI：BOM_UPDATE，CHANGE_AT_SAVE 方法就是 BOM 创建和修改保存时触发的方法，也就是CS01，CS02保存时触发。</description>
-    </item>
-    
-    <item>
       <title> ExtJS 应用程序创建 </title>
       <link>https://coldinfire.github.io/2021/ExtJS_Build/</link>
       <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
@@ -50,24 +41,6 @@
       
       <guid>https://coldinfire.github.io/2021/WEB_H5_ECS6/</guid>
       <description>新增变量声明 let 命令 let命令，用来声明变量。它的用法类似于 var，但是所声明的变量，只在 let 命令所在的代码块内有效。 var arr = [1,&amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;]; for (let i = 0; i &amp;lt; arr.length; i++)</description>
-    </item>
-    
-    <item>
-      <title> NPM 使用 </title>
-      <link>https://coldinfire.github.io/2018/Utils_NodeJs_NPM/</link>
-      <pubDate>Sat, 10 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Utils_NodeJs_NPM/</guid>
-      <description>NPM 使用介绍 NPM 是随同 NodeJS 一起安装的标准的软件包管理工具，能解决 NodeJS 代码部署上的很多问题，常见的使用场景有以下几种： 允许用户从 NPM 服务器下载别人编写的</description>
-    </item>
-    
-    <item>
-      <title> NodeJS 安装使用 </title>
-      <link>https://coldinfire.github.io/2018/Utils_NodeJs/</link>
-      <pubDate>Tue, 06 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/Utils_NodeJs/</guid>
-      <description>Node.js 使用 简单的说 Node.js 就是运行在服务端的 JavaScript。 Node.js 是一个基于 Chrome JavaScript 运行时建立的一个平台。 Node.js 是一个事件驱动 I/O 服务端 JavaScript 环境，基于 Google 的 V8 引擎</description>
     </item>
     
     <item>

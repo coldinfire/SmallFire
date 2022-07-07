@@ -8,7 +8,7 @@ categories:
   - JAVA
 
 tags: 
-  - SpringMVC
+  - Spring
 
 ---
 

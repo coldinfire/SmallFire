@@ -172,190 +172,190 @@
           
 
           <h3 id="alv_view-action-function程序实例">ALV_VIEW Action Function:程序实例</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">ONACTIONPRINT</span> .
-  <span style="color:#a6e22e">DATA</span> <span style="color:#a6e22e">lo_api_controller</span>     <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_controller</span>.
-  <span style="color:#a6e22e">DATA</span> <span style="color:#a6e22e">lo_message_manager</span>    <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_message_manager</span>.
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">LT_EKPO</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STANDARD</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">ZEKPO_asn</span>,
-        <span style="color:#a6e22e">LS_EKPO</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">ZEKPO_asn</span>,
-        <span style="color:#a6e22e">LT_EKPO_SUM</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STANDARD</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">ZEKPO_asn</span>,
-        <span style="color:#a6e22e">LS_EKPO_SUM</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">ZEKPO_asn</span>,
-        <span style="color:#a6e22e">LT_EKPO_SUM_TMP</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STANDARD</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">ZEKPO_asn</span>,
-        <span style="color:#a6e22e">LS_EKPO_SUM_TMP</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">ZEKPO_asn</span>.
-  <span style="color:#a6e22e">DATA</span>  <span style="color:#a6e22e">lo_lips</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_node</span>.
-  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lt_lips</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">ZSLIPSASN</span>,
-        <span style="color:#a6e22e">ls_lips</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">ZSLIPSASN</span>,
-        <span style="color:#a6e22e">lt_lips_tmp</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">ZSLIPSASN</span>,
-        <span style="color:#a6e22e">ls_lips_tmp</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">ZSLIPSASN</span>.
-  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l_index</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">tabix</span>,
-        <span style="color:#a6e22e">l_name1</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">name1</span>,
-        <span style="color:#a6e22e">l_werks</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">werks_d</span>,
-        <span style="color:#a6e22e">l_lines</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">I</span>,
-        <span style="color:#a6e22e">l_bpqnum</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">I</span>,
-        <span style="color:#a6e22e">l_result</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">flag</span>.
-  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lv_pdf_xstring</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">XSTRING</span>.
-  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lo_nd_zvendor</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_node</span>,
-        <span style="color:#a6e22e">lo_el_zvendor</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_element</span>,
-        <span style="color:#a6e22e">lo_nd_zwerks</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_node</span>,
-        <span style="color:#a6e22e">lo_el_zwerks</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_element</span>.
-  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l_dnnum</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">char10</span>,
-        <span style="color:#a6e22e">l_lifnr</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lifnr</span>.
-  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l_boxqty</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">char10</span>,
-        <span style="color:#a6e22e">l_bpq</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">char10</span>,
-        <span style="color:#a6e22e">l_boxtail</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">char10</span>.
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l_name</span>           <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>,
-        <span style="color:#a6e22e">l_elifn</span>          <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">elifn</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">ONACTIONPRINT</span> .
+  <span style="color:#66d9ef">DATA</span> lo_api_controller     <span style="color:#66d9ef">TYPE REF TO</span> if_wd_controller.
+  <span style="color:#66d9ef">DATA</span> lo_message_manager    <span style="color:#66d9ef">TYPE REF TO</span> if_wd_message_manager.
+  <span style="color:#66d9ef">DATA</span>: LT_EKPO <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> ZEKPO_asn,
+        LS_EKPO <span style="color:#66d9ef">TYPE </span>ZEKPO_asn,
+        LT_EKPO_SUM <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> ZEKPO_asn,
+        LS_EKPO_SUM <span style="color:#66d9ef">TYPE </span>ZEKPO_asn,
+        LT_EKPO_SUM_TMP <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> ZEKPO_asn,
+        LS_EKPO_SUM_TMP <span style="color:#66d9ef">TYPE </span>ZEKPO_asn.
+  <span style="color:#66d9ef">DATA</span>  lo_lips <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_node.
+  <span style="color:#66d9ef">data</span>: lt_lips <span style="color:#66d9ef">TYPE TABLE OF</span> ZSLIPSASN,
+        ls_lips <span style="color:#66d9ef">TYPE </span>ZSLIPSASN,
+        lt_lips_tmp <span style="color:#66d9ef">TYPE TABLE OF</span> ZSLIPSASN,
+        ls_lips_tmp <span style="color:#66d9ef">TYPE </span>ZSLIPSASN.
+  <span style="color:#66d9ef">data</span>: l_index <span style="color:#66d9ef">TYPE </span>sy<span style="color:#f92672">-</span>tabix,
+        l_name1 <span style="color:#66d9ef">TYPE </span>name1,
+        l_werks <span style="color:#66d9ef">TYPE </span>werks_d,
+        l_lines <span style="color:#66d9ef">TYPE </span>I,
+        l_bpqnum <span style="color:#66d9ef">TYPE </span>I,
+        l_result <span style="color:#66d9ef">TYPE </span>flag.
+  <span style="color:#66d9ef">data</span>: lv_pdf_xstring <span style="color:#66d9ef">TYPE </span>XSTRING.
+  <span style="color:#66d9ef">data</span>: lo_nd_zvendor   <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_node,
+        lo_el_zvendor   <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_element,
+        lo_nd_zwerks   <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_node,
+        lo_el_zwerks   <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_element.
+  <span style="color:#66d9ef">data</span>: l_dnnum <span style="color:#66d9ef">TYPE </span>char10,
+        l_lifnr <span style="color:#66d9ef">TYPE </span>lifnr.
+  <span style="color:#66d9ef">data</span>: l_boxqty <span style="color:#66d9ef">TYPE </span>char10,
+        l_bpq <span style="color:#66d9ef">TYPE </span>char10,
+        l_boxtail <span style="color:#66d9ef">TYPE </span>char10.
+  <span style="color:#66d9ef">DATA</span>: l_name           <span style="color:#66d9ef">TYPE </span>string,
+        l_elifn          <span style="color:#66d9ef">TYPE </span>elifn.
 
- <span style="color:#e6db74">&#34; 将Context内容传入到 ALV内表中 &#34;</span>
-  <span style="color:#a6e22e">lo_lips</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_context</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wdctx_zalv_lips</span> ).
-  <span style="color:#a6e22e">lo_lips</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_static_attributes_table</span>(
-  <span style="color:#a6e22e">IMPORTING</span>
-  <span style="color:#a6e22e">table</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lt_lips</span> ).
-<span style="color:#e6db74">&#34; 获取消息管理器 &#34;</span>
-  <span style="color:#a6e22e">lo_api_controller</span> <span style="color:#f92672">?=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_get_api</span>( ).
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">lo_api_controller</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_message_manager</span>
-    <span style="color:#a6e22e">RECEIVING</span>
-      <span style="color:#a6e22e">message_manager</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lo_message_manager</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">获取上下文节点中的单属性值</span>
-  <span style="color:#a6e22e">lo_nd_zwerks</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_context</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wdctx_zwerks</span> ).
-  <span style="color:#a6e22e">lo_el_zwerks</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lo_nd_zwerks</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_element</span>( ).
-  <span style="color:#a6e22e">lo_el_zwerks</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_attribute</span>(
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span>  <span style="color:#e6db74">`WERKS`</span>
-    <span style="color:#a6e22e">IMPORTING</span>
-      <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_werks</span> ).
-  <span style="color:#a6e22e">lt_lips_tmp</span>[] <span style="color:#f92672">=</span> <span style="color:#a6e22e">lt_lips</span>[].
-  <span style="color:#a6e22e">SORT</span> <span style="color:#a6e22e">lt_lips_tmp</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">vbeln</span>.
-  <span style="color:#a6e22e">DELETE</span> <span style="color:#a6e22e">lt_lips_tmp</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">zsele</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
-  <span style="color:#a6e22e">DELETE</span> <span style="color:#a6e22e">ADJACENT</span> <span style="color:#a6e22e">DUPLICATES</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">lt_lips_tmp</span> <span style="color:#a6e22e">COMPARING</span> <span style="color:#a6e22e">vbeln</span>.
-  <span style="color:#a6e22e">DESCRIBE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">lt_lips_tmp</span> <span style="color:#a6e22e">LINES</span> <span style="color:#a6e22e">l_lines</span>.
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">l_lines</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.</span>
-    <span style="color:#a6e22e">READ</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">lt_lips_tmp</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">ls_lips_tmp</span> <span style="color:#a6e22e">INDEX</span> <span style="color:#ae81ff">1.</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.</span>
-      <span style="color:#a6e22e">l_dnnum</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vbeln</span>.
-    <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#a6e22e">ELSEIF</span> <span style="color:#a6e22e">l_lines</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.</span>
-    <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">lo_message_manager</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">report_error_message</span>
-      <span style="color:#a6e22e">EXPORTING</span>
-        <span style="color:#a6e22e">message_text</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Select at least one line to print&#39;</span>.
+ <span style="color:#75715e">&#34; 将Context内容传入到 ALV内表中 &#34;
+</span><span style="color:#75715e"></span>  lo_lips <span style="color:#f92672">=</span> wd_context<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( name <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>wdctx_zalv_lips ).
+  lo_lips<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_static_attributes_table</span>(
+  <span style="color:#66d9ef">IMPORTING</span>
+  <span style="color:#66d9ef">table</span> <span style="color:#f92672">=</span> lt_lips ).
+<span style="color:#75715e">&#34; 获取消息管理器 &#34;
+</span><span style="color:#75715e"></span>  lo_api_controller <span style="color:#f92672">?=</span> wd_this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_get_api</span>( ).
+  <span style="color:#66d9ef">CALL METHOD</span> lo_api_controller<span style="color:#f92672">-&gt;</span>get_message_manager
+    RECEIVING
+      message_manager <span style="color:#f92672">=</span> lo_message_manager.
+<span style="color:#75715e">* 获取上下文节点中的单属性值</span>
+  lo_nd_zwerks <span style="color:#f92672">=</span> wd_context<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( name <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>wdctx_zwerks ).
+  lo_el_zwerks <span style="color:#f92672">=</span> lo_nd_zwerks<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_element</span>( ).
+  lo_el_zwerks<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_attribute</span>(
+    <span style="color:#66d9ef">EXPORTING</span>
+      name <span style="color:#f92672">=</span>  <span style="color:#e6db74">`WERKS`</span>
+    <span style="color:#66d9ef">IMPORTING</span>
+      <span style="color:#66d9ef">value</span> <span style="color:#f92672">=</span> l_werks ).
+  lt_lips_tmp[] <span style="color:#f92672">=</span> lt_lips[].
+  <span style="color:#66d9ef">SORT</span> lt_lips_tmp by vbeln.
+  <span style="color:#66d9ef">DELETE</span> lt_lips_tmp <span style="color:#66d9ef">WHERE</span> zsele <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
+  <span style="color:#66d9ef">DELETE ADJACENT DUPLICATES FROM</span> lt_lips_tmp <span style="color:#66d9ef">COMPARING</span> vbeln.
+  <span style="color:#66d9ef">DESCRIBE TABLE</span> lt_lips_tmp <span style="color:#66d9ef">LINES</span> l_lines.
+  <span style="color:#66d9ef">IF</span> l_lines <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>.
+    <span style="color:#66d9ef">READ</span> <span style="color:#66d9ef">TABLE</span> lt_lips_tmp <span style="color:#66d9ef">INTO</span> ls_lips_tmp <span style="color:#66d9ef">INDEX</span> <span style="color:#ae81ff">1</span>.
+    <span style="color:#66d9ef">if</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.
+      l_dnnum <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>vbeln.
+    <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#66d9ef">ELSEIF</span> l_lines <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.
+    <span style="color:#66d9ef">CALL METHOD</span> lo_message_manager<span style="color:#f92672">-&gt;</span>report_error_message
+      <span style="color:#66d9ef">EXPORTING</span>
+        message_text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Select at least one line to print&#39;</span>.
     <span style="color:#66d9ef">return</span>.
-  <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#a6e22e">lt_lips_tmp</span>[] <span style="color:#f92672">=</span> <span style="color:#a6e22e">lt_lips</span>[].
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FNAME</span>             <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">RS38L_FNAM</span>,
-    <span style="color:#a6e22e">PDF_TAB</span>               <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">TLINE</span>,
-    <span style="color:#a6e22e">LV_BIN_FILESIZE</span>       <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">I</span>,
-    <span style="color:#a6e22e">LV_CONTROL_PARAMETERS</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">SSFCTRLOP</span>,
-    <span style="color:#a6e22e">L_X</span>                   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">C</span> <span style="color:#a6e22e">VALUE</span> <span style="color:#e6db74">&#39;X&#39;</span>,
-    <span style="color:#a6e22e">LV_OUTPUT_OPTIONS</span>     <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">SSFCOMPOP</span>,
-    <span style="color:#a6e22e">TAB_OTF_DATA</span>          <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">SSFCRESCL</span>,
-    <span style="color:#a6e22e">LT_OTFDATA_tmp</span>        <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">ITCOO</span>,
-    <span style="color:#a6e22e">LT_OTFDATA</span>            <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">ITCOO</span>.
-<span style="color:#e6db74">&#34; Smart form &#34;</span>
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;SSF_FUNCTION_MODULE_NAME&#39;</span>
-  <span style="color:#a6e22e">EXPORTING</span>
-  <span style="color:#a6e22e">FORMNAME</span>           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZSF_ASN&#39;</span>
-<span style="color:#f92672">*</span>     <span style="color:#a6e22e">VARIANT</span>            <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">‘</span> <span style="color:#960050;background-color:#1e0010">‘</span>
-<span style="color:#f92672">*</span>     <span style="color:#a6e22e">DIRECT_CALL</span>        <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">‘</span> <span style="color:#960050;background-color:#1e0010">‘</span>
-  <span style="color:#a6e22e">IMPORTING</span>
-  <span style="color:#a6e22e">FM_NAME</span>            <span style="color:#f92672">=</span> <span style="color:#a6e22e">FNAME</span>
-  <span style="color:#a6e22e">EXCEPTIONS</span>
-  <span style="color:#a6e22e">NO_FORM</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-  <span style="color:#a6e22e">NO_FUNCTION_MODULE</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-  <span style="color:#a6e22e">OTHERS</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.</span>
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">SY</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SUBRC</span> <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0.</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">Implement</span> <span style="color:#a6e22e">suitable</span> <span style="color:#a6e22e">error</span> <span style="color:#a6e22e">handling</span> <span style="color:#a6e22e">here</span>
-  <span style="color:#a6e22e">ENDIF</span>.
+  <span style="color:#66d9ef">ENDIF</span>.
+  lt_lips_tmp[] <span style="color:#f92672">=</span> lt_lips[].
+  <span style="color:#66d9ef">DATA</span>: FNAME             <span style="color:#66d9ef">TYPE </span>RS38L_FNAM,
+    PDF_TAB               <span style="color:#66d9ef">TYPE TABLE OF</span> TLINE,
+    LV_BIN_FILESIZE       <span style="color:#66d9ef">TYPE </span>I,
+    LV_CONTROL_PARAMETERS <span style="color:#66d9ef">TYPE </span>SSFCTRLOP,
+    L_X                   <span style="color:#66d9ef">TYPE </span>C <span style="color:#66d9ef">VALUE</span> <span style="color:#e6db74">&#39;X&#39;</span>,
+    LV_OUTPUT_OPTIONS     <span style="color:#66d9ef">TYPE </span>SSFCOMPOP,
+    TAB_OTF_DATA          <span style="color:#66d9ef">TYPE </span>SSFCRESCL,
+    LT_OTFDATA_tmp        <span style="color:#66d9ef">TYPE TABLE OF</span> ITCOO,
+    LT_OTFDATA            <span style="color:#66d9ef">TYPE TABLE OF</span> ITCOO.
+<span style="color:#75715e">&#34; Smart form &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;SSF_FUNCTION_MODULE_NAME&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+  FORMNAME           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZSF_ASN&#39;</span>
+<span style="color:#75715e">*     VARIANT            = ‘ ‘</span>
+<span style="color:#75715e">*     DIRECT_CALL        = ‘ ‘</span>
+  <span style="color:#66d9ef">IMPORTING</span>
+  FM_NAME            <span style="color:#f92672">=</span> FNAME
+  <span style="color:#66d9ef">EXCEPTIONS</span>
+  NO_FORM            <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+  NO_FUNCTION_MODULE <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+  <span style="color:#66d9ef">OTHERS</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>.
+  <span style="color:#66d9ef">IF</span> SY<span style="color:#f92672">-</span>SUBRC <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
+<span style="color:#75715e">* Implement suitable error handling here</span>
+  <span style="color:#66d9ef">ENDIF</span>.
 
-  <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">lt_lips</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">zsele</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
-  <span style="color:#a6e22e">SORT</span> <span style="color:#a6e22e">lt_lips</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">vbeln</span>.
-  <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">ADJACENT</span> <span style="color:#a6e22e">DUPLICATES</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">lt_lips</span> <span style="color:#a6e22e">COMPARING</span> <span style="color:#a6e22e">vbeln</span>.
-  <span style="color:#a6e22e">loop</span> <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">lt_lips</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">ls_lips</span>.
-    <span style="color:#a6e22e">l_dnnum</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vbeln</span>.
-   <span style="color:#a6e22e">CLEAR</span><span style="color:#f92672">:</span><span style="color:#a6e22e">lt_ekpo</span>[],<span style="color:#a6e22e">ls_ekpo</span>,<span style="color:#a6e22e">LS_EKPO_SUM</span>,<span style="color:#a6e22e">LT_EKPO_SUM</span>[],<span style="color:#a6e22e">LT_EKPO_SUM_TMP</span>[].
-    <span style="color:#a6e22e">CLEAR</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l_lines</span>.
-    <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">lt_lips_tmp</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">ls_lips_tmp</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">vbeln</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_dnnum</span> <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">zsele</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-      <span style="color:#a6e22e">l_lines</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_lines</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.</span>
-      <span style="color:#a6e22e">LS_EKPO</span><span style="color:#f92672">-</span><span style="color:#a6e22e">NLINE</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_lines</span> .
-      <span style="color:#a6e22e">LS_EKPO</span><span style="color:#f92672">-</span><span style="color:#a6e22e">EBELN</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vgbel</span>.
-      <span style="color:#a6e22e">LS_EKPO</span><span style="color:#f92672">-</span><span style="color:#a6e22e">EBELP</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vgpos</span>.
-      <span style="color:#a6e22e">LS_EKPO</span><span style="color:#f92672">-</span><span style="color:#a6e22e">MEINS</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">meins</span>.
-      <span style="color:#a6e22e">LS_EKPO</span><span style="color:#f92672">-</span><span style="color:#a6e22e">MENGE</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">lfimg</span>.
-      <span style="color:#a6e22e">LS_EKPO</span><span style="color:#f92672">-</span><span style="color:#a6e22e">MATNR</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">matnr</span>.
-      <span style="color:#a6e22e">LS_EKPO</span><span style="color:#f92672">-</span><span style="color:#a6e22e">TXZ01</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ARKTX</span>.
-      <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">LS_EKPO</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">LT_EKPO</span>.
+  <span style="color:#66d9ef">delete</span> lt_lips <span style="color:#66d9ef">WHERE</span> zsele <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
+  <span style="color:#66d9ef">SORT</span> lt_lips by vbeln.
+  <span style="color:#66d9ef">delete ADJACENT DUPLICATES FROM</span> lt_lips <span style="color:#66d9ef">COMPARING</span> vbeln.
+  <span style="color:#66d9ef">loop at </span>lt_lips <span style="color:#66d9ef">INTO</span> ls_lips.
+    l_dnnum <span style="color:#f92672">=</span> ls_lips<span style="color:#f92672">-</span>vbeln.
+   <span style="color:#66d9ef">CLEAR</span>:lt_ekpo[],ls_ekpo,LS_EKPO_SUM,LT_EKPO_SUM[],LT_EKPO_SUM_TMP[].
+    <span style="color:#66d9ef">CLEAR</span>: l_lines.
+    <span style="color:#66d9ef">LOOP AT </span>lt_lips_tmp <span style="color:#66d9ef">INTO</span> ls_lips_tmp <span style="color:#66d9ef">WHERE</span> vbeln <span style="color:#f92672">=</span> l_dnnum <span style="color:#f92672">AND</span> zsele <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+      l_lines  <span style="color:#f92672">=</span> l_lines <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>.
+      LS_EKPO<span style="color:#f92672">-</span>NLINE <span style="color:#f92672">=</span> l_lines .
+      LS_EKPO<span style="color:#f92672">-</span>EBELN <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>vgbel.
+      LS_EKPO<span style="color:#f92672">-</span>EBELP <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>vgpos.
+      LS_EKPO<span style="color:#f92672">-</span>MEINS <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>meins.
+      LS_EKPO<span style="color:#f92672">-</span>MENGE <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>lfimg.
+      LS_EKPO<span style="color:#f92672">-</span>MATNR <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>matnr.
+      LS_EKPO<span style="color:#f92672">-</span>TXZ01 <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>ARKTX.
+      <span style="color:#66d9ef">APPEND</span> LS_EKPO <span style="color:#66d9ef">TO</span> LT_EKPO.
 
-      <span style="color:#a6e22e">LS_EKPO_SUM</span><span style="color:#f92672">-</span><span style="color:#a6e22e">MATNR</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">matnr</span>.
-      <span style="color:#a6e22e">LS_EKPO_SUM</span><span style="color:#f92672">-</span><span style="color:#a6e22e">TXZ01</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ARKTX</span>.
-      <span style="color:#a6e22e">LS_EKPO_SUM</span><span style="color:#f92672">-</span><span style="color:#a6e22e">MEINS</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">meins</span>.
-      <span style="color:#a6e22e">LS_EKPO_SUM</span><span style="color:#f92672">-</span><span style="color:#a6e22e">MENGE</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_lips_tmp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">lfimg</span>.
-      <span style="color:#a6e22e">COLLECT</span> <span style="color:#a6e22e">LS_EKPO_SUM</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">LT_EKPO_SUM</span>.
-      <span style="color:#a6e22e">CLEAR</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">LS_EKPO_SUM</span>.
-    <span style="color:#a6e22e">ENDLOOP</span>.
-    <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">LINES</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">LT_EKPO_SUM</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">LT_EKPO_SUM_TMP</span>.
-    <span style="color:#a6e22e">LT_EKPO_SUM</span>[] <span style="color:#f92672">=</span> <span style="color:#a6e22e">LT_EKPO_SUM_TMP</span>[].
+      LS_EKPO_SUM<span style="color:#f92672">-</span>MATNR <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>matnr.
+      LS_EKPO_SUM<span style="color:#f92672">-</span>TXZ01 <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>ARKTX.
+      LS_EKPO_SUM<span style="color:#f92672">-</span>MEINS <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>meins.
+      LS_EKPO_SUM<span style="color:#f92672">-</span>MENGE <span style="color:#f92672">=</span> ls_lips_tmp<span style="color:#f92672">-</span>lfimg.
+      <span style="color:#66d9ef">COLLECT</span> LS_EKPO_SUM <span style="color:#66d9ef">INTO</span> LT_EKPO_SUM.
+      <span style="color:#66d9ef">CLEAR</span>: LS_EKPO_SUM.
+    <span style="color:#66d9ef">ENDLOOP</span>.
+    <span style="color:#66d9ef">APPEND LINES OF</span> LT_EKPO_SUM <span style="color:#66d9ef">TO</span> LT_EKPO_SUM_TMP.
+    LT_EKPO_SUM[] <span style="color:#f92672">=</span> LT_EKPO_SUM_TMP[].
 
-    <span style="color:#a6e22e">l_name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wdr_task</span>=&gt;<span style="color:#a6e22e">client_window</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_parameter</span>( <span style="color:#e6db74">&#39;USERID&#39;</span> ).
-    <span style="color:#a6e22e">l_elifn</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_name</span>.
-    <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">L_DEVTYPE</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">RSPOPTYPE</span>.
-    <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;SSF_GET_DEVICE_TYPE&#39;</span>
-      <span style="color:#a6e22e">EXPORTING</span>
-        <span style="color:#a6e22e">I_LANGUAGE</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">SY</span><span style="color:#f92672">-</span><span style="color:#a6e22e">LANGU</span>
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">E_DEVTYPE</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">L_DEVTYPE</span>.
-    <span style="color:#a6e22e">LV_CONTROL_PARAMETERS</span><span style="color:#f92672">-</span><span style="color:#a6e22e">GETOTF</span>    <span style="color:#f92672">=</span> <span style="color:#a6e22e">L_X</span>.   <span style="color:#e6db74">&#34;OTF output&#34;</span>
-    <span style="color:#a6e22e">LV_CONTROL_PARAMETERS</span><span style="color:#f92672">-</span><span style="color:#a6e22e">NO_DIALOG</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">SPACE</span>. <span style="color:#e6db74">&#34;No print dialog&#34;</span>
-    <span style="color:#a6e22e">LV_CONTROL_PARAMETERS</span><span style="color:#f92672">-</span><span style="color:#a6e22e">PREVIEW</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">L_X</span>.   <span style="color:#e6db74">&#34;SPACE.No preview&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">lv_output_options</span><span style="color:#f92672">-</span><span style="color:#a6e22e">tdprinter</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;LP01&#39;</span>.
-    <span style="color:#a6e22e">LV_OUTPUT_OPTIONS</span><span style="color:#f92672">-</span><span style="color:#a6e22e">TDPRINTER</span>     <span style="color:#f92672">=</span>  <span style="color:#a6e22e">L_DEVTYPE</span>.
-   <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;CONVERSION_EXIT_ALPHA_OUTPUT&#39;</span>
-      <span style="color:#a6e22e">EXPORTING</span>
-        <span style="color:#a6e22e">INPUT</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_dnnum</span>
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">OUTPUT</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_dnnum</span>.
-   <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#a6e22e">FNAME</span>
-      <span style="color:#a6e22e">EXPORTING</span>
-        <span style="color:#a6e22e">CONTROL_PARAMETERS</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">LV_CONTROL_PARAMETERS</span>
-        <span style="color:#a6e22e">OUTPUT_OPTIONS</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">LV_OUTPUT_OPTIONS</span>
-        <span style="color:#a6e22e">USER_SETTINGS</span>      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
-        <span style="color:#a6e22e">LIFNR</span>              <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_elifn</span>
-        <span style="color:#a6e22e">NAME1</span>              <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_NAME1</span>
-        <span style="color:#a6e22e">VBELN</span>              <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_dnnum</span>
-        <span style="color:#a6e22e">werks</span>              <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_werks</span>
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">JOB_OUTPUT_INFO</span>    <span style="color:#f92672">=</span> <span style="color:#a6e22e">TAB_OTF_DATA</span>
-      <span style="color:#a6e22e">TABLES</span>
-        <span style="color:#a6e22e">IT_EKPO</span>            <span style="color:#f92672">=</span> <span style="color:#a6e22e">LT_EKPO</span>
-        <span style="color:#a6e22e">IT_EKPO_SUM</span>        <span style="color:#f92672">=</span> <span style="color:#a6e22e">LT_EKPO_SUM</span>.
-    <span style="color:#a6e22e">LT_OTFDATA_TMP</span>[] <span style="color:#f92672">=</span> <span style="color:#a6e22e">TAB_OTF_DATA</span><span style="color:#f92672">-</span><span style="color:#a6e22e">OTFDATA</span>[].
-    <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">LINES</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">LT_OTFDATA_TMP</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">LT_OTFDATA</span>.
-  <span style="color:#a6e22e">ENDLOOP</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;CONVERT_OTF&#39;</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">FORMAT</span>                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PDF&#39;</span>
-      <span style="color:#a6e22e">MAX_LINEWIDTH</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">132</span>
-    <span style="color:#a6e22e">IMPORTING</span>
-      <span style="color:#a6e22e">BIN_FILESIZE</span>          <span style="color:#f92672">=</span> <span style="color:#a6e22e">LV_BIN_FILESIZE</span>
-      <span style="color:#a6e22e">BIN_FILE</span>              <span style="color:#f92672">=</span> <span style="color:#a6e22e">LV_PDF_XSTRING</span>
-    <span style="color:#a6e22e">TABLES</span>
-      <span style="color:#a6e22e">OTF</span>                   <span style="color:#f92672">=</span> <span style="color:#a6e22e">LT_OTFDATA</span>
-      <span style="color:#a6e22e">LINES</span>                 <span style="color:#f92672">=</span> <span style="color:#a6e22e">PDF_TAB</span>
-    <span style="color:#a6e22e">EXCEPTIONS</span>
-      <span style="color:#a6e22e">ERR_MAX_LINEWIDTH</span>     <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-      <span style="color:#a6e22e">ERR_FORMAT</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-      <span style="color:#a6e22e">ERR_CONV_NOT_POSSIBLE</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-      <span style="color:#a6e22e">ERR_BAD_OTF</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-      <span style="color:#a6e22e">OTHERS</span>                <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.</span>
-<span style="color:#f92672">*</span>  <span style="color:#a6e22e">FORMSTRING</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">LV_PDF_XSTRING</span>.
-  <span style="color:#a6e22e">CHECK</span> <span style="color:#a6e22e">lv_pdf_xstring</span> <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">NOT</span> <span style="color:#a6e22e">INITIAL</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">Open</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">PDF</span>
-  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l_filename</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STRING</span>.
-  <span style="color:#a6e22e">CONCATENATE</span> <span style="color:#e6db74">&#39;Page_&#39;</span> <span style="color:#a6e22e">l_dnnum</span> <span style="color:#e6db74">&#39;.pdf&#39;</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">l_filename</span>.
-  <span style="color:#a6e22e">cl_wd_runtime_services</span>=&gt;<span style="color:#a6e22e">attach_file_to_response</span>(
-    <span style="color:#a6e22e">i_filename</span>       <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_filename</span>
-    <span style="color:#a6e22e">i_content</span>        <span style="color:#f92672">=</span> <span style="color:#a6e22e">lv_pdf_xstring</span>
-    <span style="color:#a6e22e">i_mime_type</span>      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PDF&#39;</span> <span style="color:#e6db74">&#34;application/pdf&#34;</span>
-    <span style="color:#a6e22e">I_IN_NEW_WINDOW</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ABAP_TRUE</span> ).
-<span style="color:#f92672">*</span>  <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">fire_OUT_ALV_TO_ASN_view_plg</span>(  ).
-<span style="color:#a6e22e">ENDMETHOD</span>.
+    l_name <span style="color:#f92672">=</span> wdr_task<span style="color:#f92672">=&gt;</span>client_window<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_parameter</span>( <span style="color:#e6db74">&#39;USERID&#39;</span> ).
+    l_elifn <span style="color:#f92672">=</span> l_name.
+    <span style="color:#66d9ef">DATA</span>: L_DEVTYPE <span style="color:#66d9ef">TYPE </span>RSPOPTYPE.
+    <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;SSF_GET_DEVICE_TYPE&#39;</span>
+      <span style="color:#66d9ef">EXPORTING</span>
+        I_LANGUAGE <span style="color:#f92672">=</span> SY<span style="color:#f92672">-</span>LANGU
+      <span style="color:#66d9ef">IMPORTING</span>
+        E_DEVTYPE  <span style="color:#f92672">=</span> L_DEVTYPE.
+    LV_CONTROL_PARAMETERS<span style="color:#f92672">-</span>GETOTF    <span style="color:#f92672">=</span> L_X.   <span style="color:#75715e">&#34;OTF output&#34;
+</span><span style="color:#75715e"></span>    LV_CONTROL_PARAMETERS<span style="color:#f92672">-</span>NO_DIALOG <span style="color:#f92672">=</span> SPACE. <span style="color:#75715e">&#34;No print dialog&#34;
+</span><span style="color:#75715e"></span>    LV_CONTROL_PARAMETERS<span style="color:#f92672">-</span>PREVIEW   <span style="color:#f92672">=</span> L_X.   <span style="color:#75715e">&#34;SPACE.No preview&#34;
+</span><span style="color:#75715e">*lv_output_options-tdprinter     = &#39;LP01&#39;.</span>
+    LV_OUTPUT_OPTIONS<span style="color:#f92672">-</span>TDPRINTER     <span style="color:#f92672">=</span>  L_DEVTYPE.
+   <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;CONVERSION_EXIT_ALPHA_OUTPUT&#39;</span>
+      <span style="color:#66d9ef">EXPORTING</span>
+        INPUT  <span style="color:#f92672">=</span> l_dnnum
+      <span style="color:#66d9ef">IMPORTING</span>
+        OUTPUT <span style="color:#f92672">=</span> l_dnnum.
+   <span style="color:#66d9ef">CALL FUNCTION</span> FNAME
+      <span style="color:#66d9ef">EXPORTING</span>
+        CONTROL_PARAMETERS <span style="color:#f92672">=</span> LV_CONTROL_PARAMETERS
+        OUTPUT_OPTIONS     <span style="color:#f92672">=</span> LV_OUTPUT_OPTIONS
+        USER_SETTINGS      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
+        LIFNR              <span style="color:#f92672">=</span> l_elifn
+        NAME1              <span style="color:#f92672">=</span> l_NAME1
+        VBELN              <span style="color:#f92672">=</span> l_dnnum
+        werks              <span style="color:#f92672">=</span> l_werks
+      <span style="color:#66d9ef">IMPORTING</span>
+        JOB_OUTPUT_INFO    <span style="color:#f92672">=</span> TAB_OTF_DATA
+      <span style="color:#66d9ef">TABLES</span>
+        IT_EKPO            <span style="color:#f92672">=</span> LT_EKPO
+        IT_EKPO_SUM        <span style="color:#f92672">=</span> LT_EKPO_SUM.
+    LT_OTFDATA_TMP[] <span style="color:#f92672">=</span> TAB_OTF_DATA<span style="color:#f92672">-</span>OTFDATA[].
+    <span style="color:#66d9ef">APPEND LINES OF</span> LT_OTFDATA_TMP <span style="color:#66d9ef">to</span> LT_OTFDATA.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;CONVERT_OTF&#39;</span>
+    <span style="color:#66d9ef">EXPORTING</span>
+      <span style="color:#66d9ef">FORMAT</span>                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PDF&#39;</span>
+      MAX_LINEWIDTH         <span style="color:#f92672">=</span> <span style="color:#ae81ff">132</span>
+    <span style="color:#66d9ef">IMPORTING</span>
+      BIN_FILESIZE          <span style="color:#f92672">=</span> LV_BIN_FILESIZE
+      BIN_FILE              <span style="color:#f92672">=</span> LV_PDF_XSTRING
+    <span style="color:#66d9ef">TABLES</span>
+      OTF                   <span style="color:#f92672">=</span> LT_OTFDATA
+      <span style="color:#66d9ef">LINES</span>                 <span style="color:#f92672">=</span> PDF_TAB
+    <span style="color:#66d9ef">EXCEPTIONS</span>
+      ERR_MAX_LINEWIDTH     <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+      ERR_FORMAT            <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+      ERR_CONV_NOT_POSSIBLE <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+      ERR_BAD_OTF           <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+      <span style="color:#66d9ef">OTHERS</span>                <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>.
+<span style="color:#75715e">*  FORMSTRING = LV_PDF_XSTRING.</span>
+  <span style="color:#66d9ef">CHECK</span> lv_pdf_xstring <span style="color:#f92672">IS NOT INITIAL</span>.
+<span style="color:#75715e">* Open the PDF</span>
+  <span style="color:#66d9ef">data</span>: l_filename <span style="color:#66d9ef">TYPE </span>STRING.
+  <span style="color:#66d9ef">CONCATENATE</span> <span style="color:#e6db74">&#39;Page_&#39;</span> l_dnnum <span style="color:#e6db74">&#39;.pdf&#39;</span> <span style="color:#66d9ef">INTO</span> l_filename.
+  cl_wd_runtime_services<span style="color:#f92672">=&gt;</span><span style="color:#a6e22e">attach_file_to_response</span>(
+    i_filename       <span style="color:#f92672">=</span> l_filename
+    i_content        <span style="color:#f92672">=</span> lv_pdf_xstring
+    i_mime_type      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PDF&#39;</span> <span style="color:#75715e">&#34;application/pdf&#34;
+</span><span style="color:#75715e"></span>    I_IN_NEW_WINDOW <span style="color:#f92672">=</span> ABAP_TRUE ).
+<span style="color:#75715e">*  wd_this-&gt;fire_OUT_ALV_TO_ASN_view_plg(  ).</span>
+<span style="color:#66d9ef">ENDMETHOD</span>.
 </code></pre></div>
     </div>
 

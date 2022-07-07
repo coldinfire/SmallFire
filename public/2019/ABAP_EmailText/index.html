@@ -54,7 +54,7 @@
     "height":  600 
   },
   "genre": "posts",
-  "keywords": "abaputils",
+  "keywords": "abaputils, DEMO",
   "wordcount":  893 ,
   "url": "https:\/\/coldinfire.github.io\/2019\/ABAP_EmailText\/",
   "datePublished": "2019-05-23T00:00:00\u002b00:00",
@@ -173,137 +173,137 @@
 
           <p>转自 <a href="http://blog.chinaunix.net/uid-20591812-id-1918813.html">http://blog.chinaunix.net/uid-20591812-id-1918813.html</a></p>
 <h3 id="程序实例">程序实例</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#f92672">*&amp;</span> <span style="color:#a6e22e">Report</span>  <span style="color:#a6e22e">Z14841_TEST010</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#a6e22e">REPORT</span>  <span style="color:#a6e22e">z14841_test010</span>.
-<span style="color:#a6e22e">TYPES</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">BEGIN</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">stru_master</span>,
-	<span style="color:#a6e22e">kunnr</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">kunnr</span>, <span style="color:#e6db74">&#34; 客户编号 1&#34;</span>
-	<span style="color:#a6e22e">bukrs</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">bukrs</span>, <span style="color:#e6db74">&#34; 公司代码&#34;</span>
-	<span style="color:#a6e22e">pro_mill</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">werks_d</span>,  <span style="color:#e6db74">&#34; 工厂&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">quota</span>     <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">zcdfquota</span>,  <span style="color:#e6db74">&#34; 额度&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">account</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">char10</span>,     <span style="color:#e6db74">&#34; 帐期&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">zdays</span>     <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">zcdfdays</span>,   <span style="color:#e6db74">&#34; 天数&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">valid_beg</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">zcdfdatum1</span>, <span style="color:#e6db74">&#34; 有效起始日期&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">valid_end</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">zcdfdatum2</span>, <span style="color:#e6db74">&#34; 有效结束日期&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">docno</span>     <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">zcdfdocno</span>,  <span style="color:#e6db74">&#34; 授信申请编号&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">name1</span>     <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">name1_gp</span>,   <span style="color:#e6db74">&#34; 名称 1&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">assure_mode</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">char10</span>,   <span style="color:#e6db74">&#34; 授信类别&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">quota1</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">zcdfquota</span>,     <span style="color:#e6db74">&#34; 额度&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">route</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">char1</span>,         <span style="color:#e6db74">&#34; 审批路径&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">uname</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">uname</span>,         <span style="color:#e6db74">&#34; 签准人&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">zlevel</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">zcdflevel</span>,     <span style="color:#e6db74">&#34; 评级&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">zclass</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">zcdfclass</span>,     <span style="color:#e6db74">&#34; 客户类型&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">zjye</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">dmbtr</span>,         <span style="color:#e6db74">&#34; 当月交易额&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">zqmye</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">dmbtr</span>,         <span style="color:#e6db74">&#34; 期末余额&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#a6e22e">zyqzk</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">dmbtr</span>,         <span style="color:#e6db74">&#34; 逾期金额&#34;</span>
-<span style="color:#a6e22e">END</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">stru_master</span>.
-<span style="color:#a6e22e">TYPES</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">tab_master</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">stru_master</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span><span style="color:#a6e22e">lt_master</span> <span style="color:#a6e22e">TYPE</span>	<span style="color:#a6e22e">tab_master</span>,
- 	 <span style="color:#a6e22e">wa_master</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">stru_master</span>.
-<span style="color:#f92672">*************************************************************</span>
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">object_hd_change</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">sood1</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">HEADER</span> <span style="color:#a6e22e">LINE</span>,<span style="color:#e6db74">&#34; 邮件正文的头信息 &#34;</span>
-	  <span style="color:#a6e22e">receivers</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">soos1</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">HEADER</span> <span style="color:#a6e22e">LINE</span>,
-      <span style="color:#a6e22e">packing_list</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">soxpl</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">HEADER</span> <span style="color:#a6e22e">LINE</span>,<span style="color:#e6db74">&#34; 邮件附件的头信息 &#34;</span>
-      <span style="color:#a6e22e">objcont</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">soli</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">HEADER</span> <span style="color:#a6e22e">LINE</span>,      <span style="color:#e6db74">&#34; 邮件正文 &#34;</span>
-      <span style="color:#a6e22e">att_cont</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">soli</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">HEADER</span> <span style="color:#a6e22e">LINE</span>,     <span style="color:#e6db74">&#34; 邮件附件 &#34;</span>
-      <span style="color:#a6e22e">att_head</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">soli</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">HEADER</span> <span style="color:#a6e22e">LINE</span>.     <span style="color:#e6db74">&#34; 头行 &#34;</span>
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">count</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">i</span>,
-      <span style="color:#a6e22e">length</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">i</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lc_item1</span>(<span style="color:#ae81ff">24</span>) <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">c</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lc_item2</span>(<span style="color:#ae81ff">24</span>) <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">c</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lc_line_sub</span>(<span style="color:#ae81ff">29</span>) <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">c</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lc_line_sub2</span>(<span style="color:#ae81ff">52</span>) <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">c</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ls_data</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">li_len</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">i</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ls_title</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">gs_string</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>.
-<span style="color:#a6e22e">REFRESH</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">objcont</span>,<span style="color:#a6e22e">receivers</span>,<span style="color:#a6e22e">packing_list</span>,<span style="color:#a6e22e">objcont</span>,<span style="color:#a6e22e">att_cont</span>,<span style="color:#a6e22e">att_head</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#75715e">*&amp; Report  Z14841_TEST010</span>
+<span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">REPORT</span>  z14841_test010.
+<span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> stru_master,
+	kunnr  <span style="color:#66d9ef">TYPE </span>kunnr, <span style="color:#75715e">&#34; 客户编号 1&#34;
+</span><span style="color:#75715e"></span>	bukrs  <span style="color:#66d9ef">TYPE </span>bukrs, <span style="color:#75715e">&#34; 公司代码&#34;
+</span><span style="color:#75715e"></span>	pro_mill  <span style="color:#66d9ef">TYPE </span>werks_d,  <span style="color:#75715e">&#34; 工厂&#34;
+</span><span style="color:#75715e">*quota     TYPE zcdfquota,  &#34; 额度&#34;</span>
+<span style="color:#75715e">*account   TYPE char10,     &#34; 帐期&#34;</span>
+<span style="color:#75715e">*zdays     TYPE zcdfdays,   &#34; 天数&#34;</span>
+<span style="color:#75715e">*valid_beg TYPE zcdfdatum1, &#34; 有效起始日期&#34;</span>
+<span style="color:#75715e">*valid_end TYPE zcdfdatum2, &#34; 有效结束日期&#34;</span>
+<span style="color:#75715e">*docno     TYPE zcdfdocno,  &#34; 授信申请编号&#34;</span>
+<span style="color:#75715e">*name1     TYPE name1_gp,   &#34; 名称 1&#34;</span>
+<span style="color:#75715e">*assure_mode TYPE char10,   &#34; 授信类别&#34;</span>
+<span style="color:#75715e">*quota1 TYPE zcdfquota,     &#34; 额度&#34;</span>
+<span style="color:#75715e">*route  TYPE char1,         &#34; 审批路径&#34;</span>
+<span style="color:#75715e">*uname  TYPE uname,         &#34; 签准人&#34;</span>
+<span style="color:#75715e">*zlevel TYPE zcdflevel,     &#34; 评级&#34;</span>
+<span style="color:#75715e">*zclass TYPE zcdfclass,     &#34; 客户类型&#34;</span>
+<span style="color:#75715e">*zjye   TYPE dmbtr,         &#34; 当月交易额&#34;</span>
+<span style="color:#75715e">*zqmye  TYPE dmbtr,         &#34; 期末余额&#34;</span>
+<span style="color:#75715e">*zyqzk  TYPE dmbtr,         &#34; 逾期金额&#34;</span>
+<span style="color:#66d9ef">END OF</span> stru_master.
+<span style="color:#66d9ef">TYPES</span> : tab_master <span style="color:#66d9ef">TYPE TABLE OF</span> stru_master.
+<span style="color:#66d9ef">DATA</span>:lt_master <span style="color:#66d9ef">TYPE	</span>tab_master,
+ 	 wa_master <span style="color:#66d9ef">TYPE </span>stru_master.
+<span style="color:#75715e">*************************************************************</span>
+<span style="color:#66d9ef">DATA</span>: object_hd_change <span style="color:#66d9ef">LIKE </span>sood1 OCCURS <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>,<span style="color:#75715e">&#34; 邮件正文的头信息 &#34;
+</span><span style="color:#75715e"></span>	  receivers <span style="color:#66d9ef">LIKE </span>soos1 OCCURS <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>,
+      packing_list <span style="color:#66d9ef">LIKE </span>soxpl OCCURS <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>,<span style="color:#75715e">&#34; 邮件附件的头信息 &#34;
+</span><span style="color:#75715e"></span>      objcont <span style="color:#66d9ef">LIKE </span>soli OCCURS <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>,      <span style="color:#75715e">&#34; 邮件正文 &#34;
+</span><span style="color:#75715e"></span>      att_cont <span style="color:#66d9ef">LIKE </span>soli OCCURS <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>,     <span style="color:#75715e">&#34; 邮件附件 &#34;
+</span><span style="color:#75715e"></span>      att_head <span style="color:#66d9ef">LIKE </span>soli OCCURS <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">HEADER LINE</span>.     <span style="color:#75715e">&#34; 头行 &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>: count <span style="color:#66d9ef">TYPE </span>i,
+      <span style="color:#66d9ef">length</span> <span style="color:#66d9ef">TYPE </span>i.
+<span style="color:#66d9ef">DATA</span>: lc_item1(<span style="color:#ae81ff">24</span>) <span style="color:#66d9ef">TYPE </span>c.
+<span style="color:#66d9ef">DATA</span>: lc_item2(<span style="color:#ae81ff">24</span>) <span style="color:#66d9ef">TYPE </span>c.
+<span style="color:#66d9ef">DATA</span>: lc_line_sub(<span style="color:#ae81ff">29</span>) <span style="color:#66d9ef">TYPE </span>c.
+<span style="color:#66d9ef">DATA</span>: lc_line_sub2(<span style="color:#ae81ff">52</span>) <span style="color:#66d9ef">TYPE </span>c.
+<span style="color:#66d9ef">DATA</span>: ls_data <span style="color:#66d9ef">TYPE </span>string.
+<span style="color:#66d9ef">DATA</span>: li_len <span style="color:#66d9ef">TYPE </span>i.
+<span style="color:#66d9ef">DATA</span>: ls_title <span style="color:#66d9ef">TYPE </span>string.
+<span style="color:#66d9ef">DATA</span>: gs_string <span style="color:#66d9ef">TYPE </span>string.
+<span style="color:#66d9ef">REFRESH</span>: objcont,receivers,packing_list,objcont,att_cont,att_head.
 
-<span style="color:#a6e22e">CLEAR</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">att_cont</span><span style="color:#f92672">-</span><span style="color:#a6e22e">line</span>.
-<span style="color:#a6e22e">att_cont</span><span style="color:#f92672">-</span><span style="color:#a6e22e">line</span> <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39; 附件文本的标题 &#39;</span>.
-<span style="color:#a6e22e">ls_title</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">att_cont</span><span style="color:#f92672">-</span><span style="color:#a6e22e">line</span>.
-<span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">att_cont</span>.
+<span style="color:#66d9ef">CLEAR</span>: att_cont<span style="color:#f92672">-</span>line.
+att_cont<span style="color:#f92672">-</span>line <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39; 附件文本的标题 &#39;</span>.
+ls_title <span style="color:#f92672">=</span> att_cont<span style="color:#f92672">-</span>line.
+<span style="color:#66d9ef">APPEND</span> att_cont.
 
-<span style="color:#a6e22e">CLEAR</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">att_cont</span><span style="color:#f92672">-</span><span style="color:#a6e22e">line</span>.
-<span style="color:#a6e22e">att_cont</span><span style="color:#f92672">-</span><span style="color:#a6e22e">line</span> <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39; 附件文本内容 &#39;</span>.
-<span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">att_cont</span>. <span style="color:#e6db74">&#34; 如果有行内容，可以 append 多次 &#34;</span>
-<span style="color:#a6e22e">MOVE</span>  <span style="color:#e6db74">&#39; 邮件内容标题 &#39;</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">objcont</span><span style="color:#f92672">-</span><span style="color:#a6e22e">line</span>.
-<span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">objcont</span>.
-<span style="color:#a6e22e">MOVE</span> <span style="color:#e6db74">&#39;file&#39;</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">att_head</span><span style="color:#f92672">-</span><span style="color:#a6e22e">line</span>.
-<span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">att_head</span>.
+<span style="color:#66d9ef">CLEAR</span>: att_cont<span style="color:#f92672">-</span>line.
+att_cont<span style="color:#f92672">-</span>line <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39; 附件文本内容 &#39;</span>.
+<span style="color:#66d9ef">APPEND</span> att_cont. <span style="color:#75715e">&#34; 如果有行内容，可以 append 多次 &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">MOVE</span>  <span style="color:#e6db74">&#39; 邮件内容标题 &#39;</span> <span style="color:#66d9ef">TO</span> objcont<span style="color:#f92672">-</span>line.
+<span style="color:#66d9ef">APPEND</span> objcont.
+<span style="color:#66d9ef">MOVE</span> <span style="color:#e6db74">&#39;file&#39;</span> <span style="color:#66d9ef">TO</span> att_head<span style="color:#f92672">-</span>line.
+<span style="color:#66d9ef">APPEND</span> att_head.
 
-<span style="color:#a6e22e">DESCRIBE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">objcont</span> <span style="color:#a6e22e">LINES</span> <span style="color:#a6e22e">count</span>.
-<span style="color:#a6e22e">DESCRIBE</span> <span style="color:#a6e22e">FIELD</span> <span style="color:#a6e22e">objcont</span><span style="color:#f92672">-</span><span style="color:#a6e22e">line</span> <span style="color:#a6e22e">LENGTH</span> <span style="color:#a6e22e">length</span> <span style="color:#a6e22e">IN</span> <span style="color:#a6e22e">BYTE</span> <span style="color:#a6e22e">MODE</span> .
-<span style="color:#a6e22e">object_hd_change</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objla</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;E&#39;</span>.         <span style="color:#e6db74">&#34; 创建文档使用的语言 &#34;</span>
-<span style="color:#a6e22e">object_hd_change</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objnam</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;LIST&#39;</span>.     <span style="color:#e6db74">&#34; 文档，文件夹或分配清单的名称 &#34;</span>
-<span style="color:#a6e22e">object_hd_change</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objdes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gs_string</span>.  <span style="color:#e6db74">&#34; 内容的简短描述 CHAR50 &#34;</span>
-<span style="color:#a6e22e">object_hd_change</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objsns</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;O&#39;</span>.        <span style="color:#e6db74">&#34; 对象：灵敏度  P 机密 F 功能 O 标准 &#34;</span>
-<span style="color:#a6e22e">object_hd_change</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objlen</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">length</span>. <span style="color:#e6db74">&#34; 文档内容的大小 &#34;</span>
-<span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">object_hd_change</span>.
+<span style="color:#66d9ef">DESCRIBE TABLE</span> objcont <span style="color:#66d9ef">LINES</span> count.
+<span style="color:#66d9ef">DESCRIBE FIELD</span> objcont<span style="color:#f92672">-</span>line <span style="color:#66d9ef">LENGTH</span> <span style="color:#66d9ef">length</span> <span style="color:#66d9ef">IN BYTE MODE</span> .
+object_hd_change<span style="color:#f92672">-</span>objla <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;E&#39;</span>.         <span style="color:#75715e">&#34; 创建文档使用的语言 &#34;
+</span><span style="color:#75715e"></span>object_hd_change<span style="color:#f92672">-</span>objnam <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;LIST&#39;</span>.     <span style="color:#75715e">&#34; 文档，文件夹或分配清单的名称 &#34;
+</span><span style="color:#75715e"></span>object_hd_change<span style="color:#f92672">-</span>objdes <span style="color:#f92672">=</span> gs_string.  <span style="color:#75715e">&#34; 内容的简短描述 CHAR50 &#34;
+</span><span style="color:#75715e"></span>object_hd_change<span style="color:#f92672">-</span>objsns <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;O&#39;</span>.        <span style="color:#75715e">&#34; 对象：灵敏度  P 机密 F 功能 O 标准 &#34;
+</span><span style="color:#75715e"></span>object_hd_change<span style="color:#f92672">-</span>objlen <span style="color:#f92672">=</span> count <span style="color:#f92672">*</span> <span style="color:#66d9ef">length</span>. <span style="color:#75715e">&#34; 文档内容的大小 &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">APPEND</span> object_hd_change.
 
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">接收者</span>
-<span style="color:#a6e22e">receivers</span><span style="color:#f92672">-</span><span style="color:#a6e22e">recextnam</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;coldfire@163.com&#39;</span>](<span style="color:#a6e22e">mailto</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;coldfire@163.com&#39;</span>).
-<span style="color:#a6e22e">receivers</span><span style="color:#f92672">-</span><span style="color:#a6e22e">recesc</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;U&#39;</span>.   <span style="color:#e6db74">&#34; 地址类型， U: 互联网地址 &#34;</span>
-<span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">receivers</span>.         <span style="color:#e6db74">&#34; 收件人地址 &#34;</span>
-
-<span style="color:#a6e22e">DESCRIBE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">att_cont</span> <span style="color:#a6e22e">LINES</span> <span style="color:#a6e22e">count</span>.     <span style="color:#e6db74">&#34; 邮件附件总行数 &#34;</span>
-<span style="color:#a6e22e">DESCRIBE</span> <span style="color:#a6e22e">FIELD</span> <span style="color:#a6e22e">att_cont</span><span style="color:#f92672">-</span><span style="color:#a6e22e">line</span> <span style="color:#a6e22e">LENGTH</span> <span style="color:#a6e22e">length</span> <span style="color:#a6e22e">IN</span> <span style="color:#a6e22e">BYTE</span> <span style="color:#a6e22e">MODE</span>.      <span style="color:#e6db74">&#34; 邮件每行的长度 &#34;</span>
-<span style="color:#a6e22e">packing_list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">head_start</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>.           <span style="color:#e6db74">&#34; 传输包中的对象表头开始行 &#34;</span>
-<span style="color:#a6e22e">packing_list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">body_start</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>.           <span style="color:#e6db74">&#34; 对象包中的对象内容开始行 &#34;</span> 
-<span style="color:#a6e22e">packing_list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">head_num</span>   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span>.           <span style="color:#e6db74">&#34; 在对象包内的对象表头行号 &#34;</span>
-<span style="color:#a6e22e">packing_list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">body_num</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">length</span>.<span style="color:#e6db74">&#34; 在对象包内的对象内容行号 &#34;</span>
-<span style="color:#a6e22e">packing_list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objtp</span>      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;RAW&#39;</span>.         <span style="color:#e6db74">&#34; 文档类别代码 &#34;</span>
-<span style="color:#a6e22e">packing_list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objdes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gs_string</span>.
-<span style="color:#a6e22e">packing_list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objnam</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gs_string</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">OBJDES</span> <span style="color:#a6e22e">OBJNAM</span>
-<span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">packing_list</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">调用函数发送邮件</span>
-<span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;SO_OBJECT_SEND&#39;</span>
-  <span style="color:#a6e22e">EXPORTING</span>
-   <span style="color:#e6db74">&#34;New object: General header data&#34;</span>
-    <span style="color:#a6e22e">object_hd_change</span>    <span style="color:#f92672">=</span> <span style="color:#a6e22e">object_hd_change</span>
-    <span style="color:#a6e22e">object_type</span>         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;RAW&#39;</span>       <span style="color:#e6db74">&#34; RAW  SAP 编辑程序文件 &#34;</span>
-    <span style="color:#a6e22e">sender</span>              <span style="color:#f92672">=</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">uname</span>    <span style="color:#e6db74">&#34; 发送者用户名 &#34;</span>
-  <span style="color:#a6e22e">TABLES</span>
-    <span style="color:#a6e22e">objcont</span>             <span style="color:#f92672">=</span> <span style="color:#a6e22e">objcont</span>     <span style="color:#e6db74">&#34; Content &#34;</span>
-	<span style="color:#e6db74">&#34;Recipient table with send attributes&#34;</span>
-    <span style="color:#a6e22e">receivers</span>           <span style="color:#f92672">=</span> <span style="color:#a6e22e">receivers</span>    <span style="color:#e6db74">&#34; 接收人地址
-</span><span style="color:#e6db74">    packing_list        = packing_list &#34;</span> <span style="color:#a6e22e">邮件内容</span>
-    <span style="color:#a6e22e">att_cont</span>            <span style="color:#f92672">=</span> <span style="color:#a6e22e">att_cont</span>     <span style="color:#e6db74">&#34; 附件
-</span><span style="color:#e6db74">    att_head            = att_head     &#34;</span> <span style="color:#a6e22e">标题</span>
-  <span style="color:#a6e22e">EXCEPTIONS</span>
-    <span style="color:#a6e22e">active_user_not_exist</span>      <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#a6e22e">communication_failure</span>      <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-    <span style="color:#a6e22e">component_not_available</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-    <span style="color:#a6e22e">folder_not_exist</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-    <span style="color:#a6e22e">folder_no_authorization</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
-    <span style="color:#a6e22e">forwarder_not_exist</span>        <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
-    <span style="color:#a6e22e">note_not_exist</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>
-    <span style="color:#a6e22e">object_not_exist</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
-    <span style="color:#a6e22e">object_not_sent</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>
-    <span style="color:#a6e22e">object_no_authorization</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-    <span style="color:#a6e22e">object_type_not_exist</span>      <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>
-    <span style="color:#a6e22e">operation_no_authorization</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>
-    <span style="color:#a6e22e">owner_not_exist</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">13</span>
-    <span style="color:#a6e22e">parameter_error</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
-    <span style="color:#a6e22e">substitute_not_active</span>      <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>
-    <span style="color:#a6e22e">substitute_not_defined</span>     <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>
-    <span style="color:#a6e22e">system_failure</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>
-    <span style="color:#a6e22e">too_much_receivers</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>
-    <span style="color:#a6e22e">user_not_exist</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">19</span>
-    <span style="color:#a6e22e">originator_not_exist</span>       <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
-    <span style="color:#a6e22e">x_error</span>                    <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>
-    <span style="color:#a6e22e">OTHERS</span>                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">22.</span>
-<span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.</span>
-  <span style="color:#a6e22e">COMMIT</span> <span style="color:#a6e22e">WORK</span>.
-<span style="color:#a6e22e">ENDIF</span>.
-<span style="color:#f92672">*</span><span style="color:#a6e22e">Instructs</span> <span style="color:#a6e22e">mail</span> <span style="color:#a6e22e">send</span> <span style="color:#a6e22e">program</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">SAPCONNECT</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">send</span> <span style="color:#a6e22e">email</span>(<span style="color:#a6e22e">rsconn01</span>)
-<span style="color:#f92672">*</span><span style="color:#a6e22e">PERFORM</span> <span style="color:#a6e22e">initiate_mail_execute_program</span>.
-<span style="color:#a6e22e">WAIT</span> <span style="color:#a6e22e">UP</span> <span style="color:#a6e22e">TO</span> <span style="color:#ae81ff">2</span> <span style="color:#a6e22e">SECONDS</span>.
-<span style="color:#a6e22e">SUBMIT</span> <span style="color:#a6e22e">rsconn01</span> <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">mode</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;INT&#39;</span>
-                <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
-                <span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">RETURN</span>.
+<span style="color:#75715e">* 接收者</span>
+receivers<span style="color:#f92672">-</span>recextnam <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;coldfire@163.com&#39;</span>](mailto:<span style="color:#e6db74">&#39;coldfire@163.com&#39;</span>).
+receivers<span style="color:#f92672">-</span>recesc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;U&#39;</span>.   <span style="color:#75715e">&#34; 地址类型， U: 互联网地址 &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">APPEND</span> receivers.         <span style="color:#75715e">&#34; 收件人地址 &#34;
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">DESCRIBE TABLE</span> att_cont <span style="color:#66d9ef">LINES</span> count.     <span style="color:#75715e">&#34; 邮件附件总行数 &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DESCRIBE FIELD</span> att_cont<span style="color:#f92672">-</span>line <span style="color:#66d9ef">LENGTH</span> <span style="color:#66d9ef">length</span> <span style="color:#66d9ef">IN BYTE MODE</span>.      <span style="color:#75715e">&#34; 邮件每行的长度 &#34;
+</span><span style="color:#75715e"></span>packing_list<span style="color:#f92672">-</span>head_start <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>.           <span style="color:#75715e">&#34; 传输包中的对象表头开始行 &#34;
+</span><span style="color:#75715e"></span>packing_list<span style="color:#f92672">-</span>body_start <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>.           <span style="color:#75715e">&#34; 对象包中的对象内容开始行 &#34; 
+</span><span style="color:#75715e"></span>packing_list<span style="color:#f92672">-</span>head_num   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span>.           <span style="color:#75715e">&#34; 在对象包内的对象表头行号 &#34;
+</span><span style="color:#75715e"></span>packing_list<span style="color:#f92672">-</span>body_num   <span style="color:#f92672">=</span> count <span style="color:#f92672">*</span> <span style="color:#66d9ef">length</span>.<span style="color:#75715e">&#34; 在对象包内的对象内容行号 &#34;
+</span><span style="color:#75715e"></span>packing_list<span style="color:#f92672">-</span>objtp      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;RAW&#39;</span>.         <span style="color:#75715e">&#34; 文档类别代码 &#34;
+</span><span style="color:#75715e"></span>packing_list<span style="color:#f92672">-</span>objdes <span style="color:#f92672">=</span> gs_string.
+packing_list<span style="color:#f92672">-</span>objnam <span style="color:#f92672">=</span> gs_string.
+<span style="color:#75715e">* OBJDES OBJNAM</span>
+<span style="color:#66d9ef">APPEND</span> packing_list.
+<span style="color:#75715e">* 调用函数发送邮件</span>
+<span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;SO_OBJECT_SEND&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+   <span style="color:#75715e">&#34;New object: General header data&#34;
+</span><span style="color:#75715e"></span>    object_hd_change    <span style="color:#f92672">=</span> object_hd_change
+    object_type         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;RAW&#39;</span>       <span style="color:#75715e">&#34; RAW  SAP 编辑程序文件 &#34;
+</span><span style="color:#75715e"></span>    sender              <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>uname    <span style="color:#75715e">&#34; 发送者用户名 &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">TABLES</span>
+    objcont             <span style="color:#f92672">=</span> objcont     <span style="color:#75715e">&#34; Content &#34;
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">&#34;Recipient table with send attributes&#34;
+</span><span style="color:#75715e"></span>    receivers           <span style="color:#f92672">=</span> receivers    <span style="color:#75715e">&#34; 接收人地址
+</span><span style="color:#75715e"></span>    packing_list        <span style="color:#f92672">=</span> packing_list <span style="color:#75715e">&#34; 邮件内容
+</span><span style="color:#75715e"></span>    att_cont            <span style="color:#f92672">=</span> att_cont     <span style="color:#75715e">&#34; 附件
+</span><span style="color:#75715e"></span>    att_head            <span style="color:#f92672">=</span> att_head     <span style="color:#75715e">&#34; 标题
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">EXCEPTIONS</span>
+    active_user_not_exist      <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    communication_failure      <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+    component_not_available    <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+    folder_not_exist           <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+    folder_no_authorization    <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+    forwarder_not_exist        <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+    note_not_exist             <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>
+    object_not_exist           <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+    object_not_sent            <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>
+    object_no_authorization    <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+    object_type_not_exist      <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>
+    operation_no_authorization <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>
+    owner_not_exist            <span style="color:#f92672">=</span> <span style="color:#ae81ff">13</span>
+    parameter_error            <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
+    substitute_not_active      <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>
+    substitute_not_defined     <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>
+    system_failure             <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>
+    too_much_receivers         <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>
+    user_not_exist             <span style="color:#f92672">=</span> <span style="color:#ae81ff">19</span>
+    originator_not_exist       <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
+    x_error                    <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>
+    <span style="color:#66d9ef">OTHERS</span>                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">22</span>.
+<span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.
+  <span style="color:#66d9ef">COMMIT</span> WORK.
+<span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">*Instructs mail send program for SAPCONNECT to send email(rsconn01)</span>
+<span style="color:#75715e">*PERFORM initiate_mail_execute_program.</span>
+<span style="color:#66d9ef">WAIT</span> UP <span style="color:#66d9ef">TO</span> <span style="color:#ae81ff">2</span> SECONDS.
+<span style="color:#66d9ef">SUBMIT</span> rsconn01 <span style="color:#66d9ef">WITH</span> mode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;INT&#39;</span>
+                <span style="color:#66d9ef">WITH</span> output <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
+                <span style="color:#66d9ef">AND RETURN</span>.
 </code></pre></div>
     </div>
 
@@ -335,6 +335,9 @@
             
             <span class="tag"><a href="https://coldinfire.github.io/tags/abaputils/">
                     #abaputils</a></span>
+            
+            <span class="tag"><a href="https://coldinfire.github.io/tags/DEMO/">
+                    #DEMO</a></span>
             
             </section>
         

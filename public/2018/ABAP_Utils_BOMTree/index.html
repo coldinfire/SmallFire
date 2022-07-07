@@ -172,275 +172,275 @@
           
 
           <h3 id="实例代码">实例代码</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">REPORT</span> <span style="color:#a6e22e">z_barry_alv_tree1_bom</span> <span style="color:#a6e22e">MESSAGE</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ID</span> <span style="color:#a6e22e">oo</span>.
-<span style="color:#a6e22e">TABLES</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stpox</span>.
-<span style="color:#a6e22e">INCLUDE</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">icon</span><span style="color:#f92672">&gt;</span>.
-<span style="color:#a6e22e">CLASS</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">cl_gui_column_tree</span> <span style="color:#a6e22e">DEFINITION</span> <span style="color:#a6e22e">LOAD</span>,
-       <span style="color:#a6e22e">cl_gui_cfw</span> <span style="color:#a6e22e">DEFINITION</span> <span style="color:#a6e22e">LOAD</span> .
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tree1</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_gui_alv_tree</span> ,
-      <span style="color:#a6e22e">mr_toolbar</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_gui_toolbar</span> .
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">gs_stpox</span>       <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">stpox</span>,
-      <span style="color:#a6e22e">gt_stpox</span>       <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">stpox</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">0</span>,
-      <span style="color:#a6e22e">gt_fieldcatalog</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_t_fcat</span>,
-      <span style="color:#a6e22e">gt_item_layout</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_t_laci</span>,
-      <span style="color:#a6e22e">gs_item_layout</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_s_laci</span>,
-      <span style="color:#a6e22e">okcode</span>           <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ucomm</span> .
-<span style="color:#a6e22e">TYPES</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">BEGIN</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">gs_f</span>.
-        <span style="color:#a6e22e">INCLUDE</span> <span style="color:#a6e22e">STRUCTURE</span> <span style="color:#a6e22e">stpox</span>.
-<span style="color:#a6e22e">TYPES</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">node_key</span>      <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span>,
-       <span style="color:#a6e22e">END</span>   <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">gs_f</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">gs_xstpox</span>       <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">gs_f</span> ,
-      <span style="color:#a6e22e">gt_xstpox</span>       <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">gs_f</span> <span style="color:#a6e22e">OCCURS</span> <span style="color:#ae81ff">0.</span>
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l_custom_container</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_gui_custom_container</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">wa_topmat</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">cstmat</span>,
-      <span style="color:#a6e22e">wa_dstst</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">csdata</span><span style="color:#f92672">-</span><span style="color:#a6e22e">xfeld</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">it_matcat</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">STANDARD</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">cscmat</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">REPORT</span> z_barry_alv_tree1_bom <span style="color:#66d9ef">MESSAGE-ID</span> oo.
+<span style="color:#66d9ef">TABLES</span>: stpox.
+<span style="color:#66d9ef">INCLUDE</span> &lt;icon&gt;.
+<span style="color:#66d9ef">CLASS</span>: cl_gui_column_tree <span style="color:#66d9ef">DEFINITION</span> <span style="color:#66d9ef">LOAD</span>,
+       cl_gui_cfw <span style="color:#66d9ef">DEFINITION</span> <span style="color:#66d9ef">LOAD</span> .
+<span style="color:#66d9ef">DATA</span>: tree1  <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_alv_tree ,
+      mr_toolbar <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_toolbar .
+<span style="color:#66d9ef">DATA</span>: gs_stpox       <span style="color:#66d9ef">TYPE </span>stpox,
+      gt_stpox       <span style="color:#66d9ef">TYPE </span>stpox OCCURS <span style="color:#ae81ff">0</span>,
+      gt_fieldcatalog  <span style="color:#66d9ef">TYPE </span>lvc_t_fcat,
+      gt_item_layout   <span style="color:#66d9ef">TYPE </span>lvc_t_laci,
+      gs_item_layout   <span style="color:#66d9ef">TYPE </span>lvc_s_laci,
+      okcode           <span style="color:#66d9ef">LIKE </span>sy<span style="color:#f92672">-</span>ucomm .
+<span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> gs_f.
+        <span style="color:#66d9ef">INCLUDE</span> STRUCTURE stpox.
+<span style="color:#66d9ef">TYPES</span>: node_key      <span style="color:#66d9ef">TYPE </span>lvc_nkey,
+       <span style="color:#66d9ef">END   OF</span> gs_f.
+<span style="color:#66d9ef">DATA</span>: gs_xstpox       <span style="color:#66d9ef">TYPE </span>gs_f ,
+      gt_xstpox       <span style="color:#66d9ef">TYPE </span>gs_f OCCURS <span style="color:#ae81ff">0</span>.
+<span style="color:#66d9ef">DATA</span>: l_custom_container <span style="color:#66d9ef">TYPE REF TO</span> cl_gui_custom_container.
+<span style="color:#66d9ef">DATA</span>: wa_topmat <span style="color:#66d9ef">TYPE </span>cstmat,
+      wa_dstst <span style="color:#66d9ef">TYPE </span>csdata<span style="color:#f92672">-</span>xfeld.
+<span style="color:#66d9ef">DATA</span>: it_matcat <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> cscmat.
 
-<span style="color:#a6e22e">PARAMETERS</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">p_matnr</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">mara</span><span style="color:#f92672">-</span><span style="color:#a6e22e">matnr</span> <span style="color:#a6e22e">DEFAULT</span> <span style="color:#e6db74">&#39;YW25K&#39;</span>,
-            <span style="color:#a6e22e">p_werks</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">ekpo</span><span style="color:#f92672">-</span><span style="color:#a6e22e">werks</span> <span style="color:#a6e22e">DEFAULT</span> <span style="color:#e6db74">&#39;1010&#39;</span> .
+<span style="color:#66d9ef">PARAMETERS</span>: p_matnr <span style="color:#66d9ef">LIKE </span>mara<span style="color:#f92672">-</span>matnr <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;YW25K&#39;</span>,
+            p_werks <span style="color:#66d9ef">LIKE </span>ekpo<span style="color:#f92672">-</span>werks <span style="color:#66d9ef">DEFAULT</span> <span style="color:#e6db74">&#39;1010&#39;</span> .
 
-<span style="color:#a6e22e">START</span><span style="color:#f92672">-</span><span style="color:#a6e22e">OF</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SELECTION</span>.
-  <span style="color:#a6e22e">PERFORM</span> <span style="color:#a6e22e">getdata</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">SCREEN</span> <span style="color:#ae81ff">9000.</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#f92672">*&amp;</span>      <span style="color:#a6e22e">Form</span>  <span style="color:#a6e22e">getdata</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#a6e22e">FORM</span> <span style="color:#a6e22e">getdata</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;CS_BOM_EXPL_MAT_V2&#39;</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">capid</span>                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CAD1&#39;</span>     <span style="color:#e6db74">&#34;p_capid&#34;</span>
-      <span style="color:#a6e22e">datuv</span>                 <span style="color:#f92672">=</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">datum</span>
-      <span style="color:#a6e22e">mehrs</span>                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>        <span style="color:#e6db74">&#34;p_mehrs&#34;</span>
-      <span style="color:#a6e22e">stlal</span>                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;01&#39;</span>       <span style="color:#e6db74">&#34;可选 BOM&#34;</span>
-      <span style="color:#a6e22e">stlan</span>                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2&#39;</span>        <span style="color:#e6db74">&#34;BOM 用途&#34;</span>
-      <span style="color:#a6e22e">mtnrv</span>                 <span style="color:#f92672">=</span> <span style="color:#a6e22e">P_MATNR</span>
-      <span style="color:#a6e22e">werks</span>                 <span style="color:#f92672">=</span> <span style="color:#a6e22e">P_WERKS</span>
-      <span style="color:#a6e22e">emeng</span>                 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#a6e22e">IMPORTING</span>
-      <span style="color:#a6e22e">topmat</span>                <span style="color:#f92672">=</span> <span style="color:#a6e22e">wa_topmat</span>
-      <span style="color:#a6e22e">dstst</span>                 <span style="color:#f92672">=</span> <span style="color:#a6e22e">wa_dstst</span>
-    <span style="color:#a6e22e">TABLES</span>
-      <span style="color:#a6e22e">stb</span>                   <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_stpox</span>
-      <span style="color:#a6e22e">matcat</span>                <span style="color:#f92672">=</span> <span style="color:#a6e22e">it_matcat</span>
-    <span style="color:#a6e22e">EXCEPTIONS</span>
-      <span style="color:#a6e22e">alt_not_found</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-      <span style="color:#a6e22e">call_invalid</span>          <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-      <span style="color:#a6e22e">material_not_found</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-      <span style="color:#a6e22e">missing_authorization</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-      <span style="color:#a6e22e">no_bom_found</span>          <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
-      <span style="color:#a6e22e">no_plant_data</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
-      <span style="color:#a6e22e">no_suitable_bom_found</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>
-      <span style="color:#a6e22e">conversion_error</span>      <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
-      <span style="color:#a6e22e">OTHERS</span>                <span style="color:#f92672">=</span> <span style="color:#ae81ff">9.</span>
-  <span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> .
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#ae81ff">1</span> .
-      <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e899</span>(<span style="color:#a6e22e">fi</span>) <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39;alt_not_found&#39;</span>.
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#ae81ff">2</span> .
-      <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e899</span>(<span style="color:#a6e22e">fi</span>) <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39;call_invalid &#39;</span>.
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#ae81ff">3</span> .
-      <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e899</span>(<span style="color:#a6e22e">fi</span>) <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39;material_not_found&#39;</span>.
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#ae81ff">4</span> .
-      <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e899</span>(<span style="color:#a6e22e">fi</span>) <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39;missing_authorization&#39;</span>.
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#ae81ff">5</span> .
-      <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e899</span>(<span style="color:#a6e22e">fi</span>) <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39;no_bom_found&#39;</span>.
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#ae81ff">6</span> .
-      <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e899</span>(<span style="color:#a6e22e">fi</span>) <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39;no_plant_data&#39;</span>.
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#ae81ff">7</span> .
-      <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e899</span>(<span style="color:#a6e22e">fi</span>) <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39;no_suitable_bom_found&#39;</span>.
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#ae81ff">8</span> .
-      <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e899</span>(<span style="color:#a6e22e">fi</span>) <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39;conversion_error&#39;</span>.
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#ae81ff">9</span> .
-      <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e899</span>(<span style="color:#a6e22e">fi</span>) <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39;OTHERS Error&#39;</span>.
-  <span style="color:#a6e22e">ENDCASE</span>.
-  <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">gt_stpox</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">gs_stpox</span>.
-    <span style="color:#a6e22e">MOVE</span><span style="color:#f92672">-</span><span style="color:#a6e22e">CORRESPONDING</span> <span style="color:#a6e22e">gs_stpox</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">gs_xstpox</span> .
-    <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">gs_xstpox</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">gt_xstpox</span>.
-  <span style="color:#a6e22e">ENDLOOP</span>.
-<span style="color:#a6e22e">ENDFORM</span>.                    <span style="color:#e6db74">&#34;getdata&#34;</span>
-<span style="color:#f92672">*----------------------------------------------------------------------*</span>
-<span style="color:#f92672">*</span>  <span style="color:#a6e22e">MODULE</span> <span style="color:#a6e22e">status_9000</span> <span style="color:#a6e22e">OUTPUT</span>
-<span style="color:#f92672">*----------------------------------------------------------------------*</span>
-<span style="color:#a6e22e">MODULE</span> <span style="color:#a6e22e">status_9000</span> <span style="color:#a6e22e">OUTPUT</span>.
-  <span style="color:#a6e22e">SET</span> <span style="color:#a6e22e">PF</span><span style="color:#f92672">-</span><span style="color:#a6e22e">STATUS</span> <span style="color:#e6db74">&#39;MAIN&#39;</span>.
-  <span style="color:#a6e22e">SET</span> <span style="color:#a6e22e">TITLEBAR</span> <span style="color:#e6db74">&#39;TITLE&#39;</span>.
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">tree1</span> <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">INITIAL</span>.
-    <span style="color:#a6e22e">PERFORM</span> <span style="color:#a6e22e">init_tree</span>.
-  <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">cl_gui_cfw</span>=&gt;<span style="color:#a6e22e">flush</span>.
-<span style="color:#a6e22e">ENDMODULE</span>.                 <span style="color:#e6db74">&#34; PBO_9000  OUTPUT &#34;</span>
-<span style="color:#f92672">*----------------------------------------------------------------------*</span>
-<span style="color:#f92672">*</span>  <span style="color:#a6e22e">MODULE</span> <span style="color:#a6e22e">user_command_9000</span> <span style="color:#a6e22e">INPUT</span>
-<span style="color:#f92672">*----------------------------------------------------------------------*</span>
-<span style="color:#a6e22e">MODULE</span> <span style="color:#a6e22e">user_command_9000</span> <span style="color:#a6e22e">INPUT</span>.
-  <span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">okcode</span>.
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;EXIT&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#39;BACK&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#39;CANC&#39;</span>.
-      <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">tree1</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">free</span>.
-      <span style="color:#a6e22e">LEAVE</span> <span style="color:#a6e22e">PROGRAM</span> .
-    <span style="color:#a6e22e">WHEN</span> <span style="color:#a6e22e">OTHERS</span>.
-      <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">cl_gui_cfw</span>=&gt;<span style="color:#a6e22e">dispatch</span>.
-  <span style="color:#a6e22e">ENDCASE</span>.
-  <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">okcode</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">cl_gui_cfw</span>=&gt;<span style="color:#a6e22e">flush</span>.
-<span style="color:#a6e22e">ENDMODULE</span>.                 <span style="color:#e6db74">&#34; okcode  INPUT &#34;</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#f92672">*&amp;</span>      <span style="color:#a6e22e">Form</span>  <span style="color:#a6e22e">init_tree</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#a6e22e">FORM</span> <span style="color:#a6e22e">init_tree</span> .
-  <span style="color:#a6e22e">PERFORM</span> <span style="color:#a6e22e">build_fieldcatalog</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">batch</span> <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">INITIAL</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">CREATE</span> <span style="color:#a6e22e">OBJECT</span> <span style="color:#a6e22e">l_custom_container</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">EXPORTING</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">container_name</span>              <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;TREE1&#39;</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">EXCEPTIONS</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">cntl_error</span>                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">cntl_system_error</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">create_error</span>                <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">lifetime_error</span>              <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">lifetime_dynpro_dynpro_link</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0.</span>
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e000</span> <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39; 创建容器：TREE1 错误 &#39;</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">ENDIF</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#a6e22e">CREATE</span> <span style="color:#a6e22e">OBJECT</span> <span style="color:#a6e22e">tree1</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-<span style="color:#f92672">*</span>     <span style="color:#a6e22e">parent</span>                      <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_custom_container</span>
-      <span style="color:#a6e22e">parent</span>                      <span style="color:#f92672">=</span> <span style="color:#a6e22e">cl_gui_container</span>=&gt;<span style="color:#a6e22e">screen0</span>
-      <span style="color:#a6e22e">node_selection_mode</span>         <span style="color:#f92672">=</span> <span style="color:#a6e22e">cl_gui_column_tree</span>=&gt;<span style="color:#a6e22e">node_sel_mode_single</span>
-      <span style="color:#a6e22e">item_selection</span>              <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
-      <span style="color:#a6e22e">no_html_header</span>              <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
-      <span style="color:#a6e22e">no_toolbar</span>                  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39; &#39;</span>
-    <span style="color:#a6e22e">EXCEPTIONS</span>
-      <span style="color:#a6e22e">cntl_error</span>                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-      <span style="color:#a6e22e">cntl_system_error</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-      <span style="color:#a6e22e">create_error</span>                <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-      <span style="color:#a6e22e">lifetime_error</span>              <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-      <span style="color:#a6e22e">illegal_node_selection_mode</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
-      <span style="color:#a6e22e">failed</span>                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
-      <span style="color:#a6e22e">illegal_column_name</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">7.</span>
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subrc</span> <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0.</span>
-    <span style="color:#a6e22e">MESSAGE</span> <span style="color:#a6e22e">e000</span> <span style="color:#a6e22e">WITH</span> <span style="color:#e6db74">&#39; 创建 TREE 错误 &#39;</span>.
-  <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#a6e22e">DATA</span> <span style="color:#a6e22e">l_hierarchy_header</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">treev_hhdr</span>.
-  <span style="color:#a6e22e">PERFORM</span> <span style="color:#a6e22e">build_hierarchy_header</span> <span style="color:#a6e22e">CHANGING</span> <span style="color:#a6e22e">l_hierarchy_header</span>.
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ls_variant</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">disvariant</span>.
-  <span style="color:#a6e22e">ls_variant</span><span style="color:#f92672">-</span><span style="color:#a6e22e">report</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">repid</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">tree1</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_table_for_first_display</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">is_hierarchy_header</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_hierarchy_header</span>
-      <span style="color:#a6e22e">i_background_id</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ALV_BACKGROUND&#39;</span>
-      <span style="color:#a6e22e">i_save</span>              <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A&#39;</span>
-      <span style="color:#a6e22e">is_variant</span>          <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_variant</span>
-    <span style="color:#a6e22e">CHANGING</span>
-      <span style="color:#a6e22e">it_outtab</span>           <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_stpox</span>        <span style="color:#e6db74">&#34;table must be emty !!&#34;</span>
-      <span style="color:#a6e22e">it_fieldcatalog</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_fieldcatalog</span>.
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l1</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span> ,<span style="color:#a6e22e">l2</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span> ,<span style="color:#a6e22e">l3</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span> ,<span style="color:#a6e22e">l4</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span> ,
-        <span style="color:#a6e22e">l5</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span> ,<span style="color:#a6e22e">l6</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span> ,<span style="color:#a6e22e">l7</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span> ,<span style="color:#a6e22e">l8</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span> ,
-        <span style="color:#a6e22e">l_key</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span>,
-        <span style="color:#a6e22e">l_last_key</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span>  ,
-        <span style="color:#a6e22e">added</span> .
-  <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">gt_xstpox</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">gs_xstpox</span> .
-    <span style="color:#a6e22e">MOVE</span><span style="color:#f92672">-</span><span style="color:#a6e22e">CORRESPONDING</span> <span style="color:#a6e22e">gs_xstpox</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">gs_stpox</span>.
-    <span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">gs_stpox</span><span style="color:#f92672">-</span><span style="color:#a6e22e">stufe</span> .
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;1&#39;</span>.
-        <span style="color:#a6e22e">l_key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;2&#39;</span>.
-        <span style="color:#a6e22e">l_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l1</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;3&#39;</span>.
-        <span style="color:#a6e22e">l_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l2</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;4&#39;</span>.
-        <span style="color:#a6e22e">l_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l3</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;5&#39;</span>.
-        <span style="color:#a6e22e">l_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l4</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;6&#39;</span>.
-        <span style="color:#a6e22e">l_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l5</span>.
-    <span style="color:#a6e22e">ENDCASE</span>.
-    <span style="color:#a6e22e">PERFORM</span> <span style="color:#a6e22e">add_complete_line</span> <span style="color:#a6e22e">USING</span>  <span style="color:#a6e22e">gs_stpox</span> <span style="color:#a6e22e">l_key</span>
-                            <span style="color:#a6e22e">CHANGING</span> <span style="color:#a6e22e">l_last_key</span>.
-    <span style="color:#a6e22e">gs_xstpox</span><span style="color:#f92672">-</span><span style="color:#a6e22e">node_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_last_key</span>.
-    <span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">gs_stpox</span><span style="color:#f92672">-</span><span style="color:#a6e22e">stufe</span> .
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;1&#39;</span>.
-        <span style="color:#a6e22e">l1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_last_key</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;2&#39;</span>.
-        <span style="color:#a6e22e">l2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_last_key</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;3&#39;</span>.
-        <span style="color:#a6e22e">l3</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_last_key</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;4&#39;</span>.
-        <span style="color:#a6e22e">l4</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_last_key</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;5&#39;</span>.
-        <span style="color:#a6e22e">l5</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_last_key</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;6&#39;</span>.
-        <span style="color:#a6e22e">l6</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_last_key</span>.
-    <span style="color:#a6e22e">ENDCASE</span>.
-    <span style="color:#a6e22e">MODIFY</span> <span style="color:#a6e22e">gt_xstpox</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">gs_xstpox</span> .
-  <span style="color:#a6e22e">ENDLOOP</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">tree1</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">update_calculations</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">tree1</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">frontend_update</span>.
-<span style="color:#a6e22e">ENDFORM</span>.                    <span style="color:#e6db74">&#34; init_tree &#34;</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#f92672">*&amp;</span>      <span style="color:#a6e22e">Form</span>  <span style="color:#a6e22e">build_fieldcatalog</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#a6e22e">FORM</span> <span style="color:#a6e22e">build_fieldcatalog</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;LVC_FIELDCATALOG_MERGE&#39;</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">i_structure_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;STPOX&#39;</span>
-    <span style="color:#a6e22e">CHANGING</span>
-      <span style="color:#a6e22e">ct_fieldcat</span>      <span style="color:#f92672">=</span> <span style="color:#a6e22e">gt_fieldcatalog</span>.
+<span style="color:#66d9ef">START-OF-SELECTION</span>.
+  <span style="color:#66d9ef">PERFORM</span> <span style="color:#a6e22e">getdata</span>.
+  <span style="color:#66d9ef">CALL SCREEN</span> <span style="color:#ae81ff">9000</span>.
+<span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#75715e">*&amp;      Form  getdata</span>
+<span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">getdata</span>.
+  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;CS_BOM_EXPL_MAT_V2&#39;</span>
+    <span style="color:#66d9ef">EXPORTING</span>
+      capid                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CAD1&#39;</span>     <span style="color:#75715e">&#34;p_capid&#34;
+</span><span style="color:#75715e"></span>      datuv                 <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>datum
+      mehrs                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>        <span style="color:#75715e">&#34;p_mehrs&#34;
+</span><span style="color:#75715e"></span>      stlal                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;01&#39;</span>       <span style="color:#75715e">&#34;可选 BOM&#34;
+</span><span style="color:#75715e"></span>      stlan                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2&#39;</span>        <span style="color:#75715e">&#34;BOM 用途&#34;
+</span><span style="color:#75715e"></span>      mtnrv                 <span style="color:#f92672">=</span> P_MATNR
+      werks                 <span style="color:#f92672">=</span> P_WERKS
+      emeng                 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">IMPORTING</span>
+      topmat                <span style="color:#f92672">=</span> wa_topmat
+      dstst                 <span style="color:#f92672">=</span> wa_dstst
+    <span style="color:#66d9ef">TABLES</span>
+      stb                   <span style="color:#f92672">=</span> gt_stpox
+      matcat                <span style="color:#f92672">=</span> it_matcat
+    <span style="color:#66d9ef">EXCEPTIONS</span>
+      alt_not_found         <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+      call_invalid          <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+      material_not_found    <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+      missing_authorization <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+      no_bom_found          <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+      no_plant_data         <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+      no_suitable_bom_found <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>
+      conversion_error      <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+      <span style="color:#66d9ef">OTHERS</span>                <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>.
+  <span style="color:#66d9ef">CASE</span> sy<span style="color:#f92672">-</span>subrc .
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#ae81ff">1</span> .
+      <span style="color:#66d9ef">MESSAGE</span> e899(fi) <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39;alt_not_found&#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#ae81ff">2</span> .
+      <span style="color:#66d9ef">MESSAGE</span> e899(fi) <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39;call_invalid &#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#ae81ff">3</span> .
+      <span style="color:#66d9ef">MESSAGE</span> e899(fi) <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39;material_not_found&#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#ae81ff">4</span> .
+      <span style="color:#66d9ef">MESSAGE</span> e899(fi) <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39;missing_authorization&#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#ae81ff">5</span> .
+      <span style="color:#66d9ef">MESSAGE</span> e899(fi) <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39;no_bom_found&#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#ae81ff">6</span> .
+      <span style="color:#66d9ef">MESSAGE</span> e899(fi) <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39;no_plant_data&#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#ae81ff">7</span> .
+      <span style="color:#66d9ef">MESSAGE</span> e899(fi) <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39;no_suitable_bom_found&#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#ae81ff">8</span> .
+      <span style="color:#66d9ef">MESSAGE</span> e899(fi) <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39;conversion_error&#39;</span>.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#ae81ff">9</span> .
+      <span style="color:#66d9ef">MESSAGE</span> e899(fi) <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39;OTHERS Error&#39;</span>.
+  <span style="color:#66d9ef">ENDCASE</span>.
+  <span style="color:#66d9ef">LOOP AT </span>gt_stpox <span style="color:#66d9ef">INTO</span> gs_stpox.
+    <span style="color:#66d9ef">MOVE-CORRESPONDING</span> gs_stpox <span style="color:#66d9ef">TO</span> gs_xstpox .
+    <span style="color:#66d9ef">APPEND</span> gs_xstpox <span style="color:#66d9ef">TO</span> gt_xstpox.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+<span style="color:#66d9ef">ENDFORM</span>.                    <span style="color:#75715e">&#34;getdata&#34;
+</span><span style="color:#75715e">*----------------------------------------------------------------------*</span>
+<span style="color:#75715e">*  MODULE status_9000 OUTPUT</span>
+<span style="color:#75715e">*----------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">MODULE</span> <span style="color:#a6e22e">status_9000</span> <span style="color:#66d9ef">OUTPUT</span>.
+  <span style="color:#66d9ef">SET PF-STATUS</span> <span style="color:#e6db74">&#39;MAIN&#39;</span>.
+  <span style="color:#66d9ef">SET TITLEBAR</span> <span style="color:#e6db74">&#39;TITLE&#39;</span>.
+  <span style="color:#66d9ef">IF</span> tree1 <span style="color:#f92672">IS INITIAL</span>.
+    <span style="color:#66d9ef">PERFORM</span> <span style="color:#a6e22e">init_tree</span>.
+  <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#66d9ef">CALL METHOD</span> cl_gui_cfw<span style="color:#f92672">=&gt;</span>flush.
+<span style="color:#66d9ef">ENDMODULE</span>.                 <span style="color:#75715e">&#34; PBO_9000  OUTPUT &#34;
+</span><span style="color:#75715e">*----------------------------------------------------------------------*</span>
+<span style="color:#75715e">*  MODULE user_command_9000 INPUT</span>
+<span style="color:#75715e">*----------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">MODULE</span> <span style="color:#a6e22e">user_command_9000</span> <span style="color:#66d9ef">INPUT</span>.
+  <span style="color:#66d9ef">CASE</span> okcode.
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;EXIT&#39;</span> <span style="color:#f92672">OR</span> <span style="color:#e6db74">&#39;BACK&#39;</span> <span style="color:#f92672">OR</span> <span style="color:#e6db74">&#39;CANC&#39;</span>.
+      <span style="color:#66d9ef">CALL METHOD</span> tree1<span style="color:#f92672">-&gt;</span>free.
+      <span style="color:#66d9ef">LEAVE</span> <span style="color:#66d9ef">PROGRAM</span> .
+    <span style="color:#66d9ef">WHEN</span> <span style="color:#66d9ef">OTHERS</span>.
+      <span style="color:#66d9ef">CALL METHOD</span> cl_gui_cfw<span style="color:#f92672">=&gt;</span>dispatch.
+  <span style="color:#66d9ef">ENDCASE</span>.
+  <span style="color:#66d9ef">CLEAR</span> okcode.
+  <span style="color:#66d9ef">CALL METHOD</span> cl_gui_cfw<span style="color:#f92672">=&gt;</span>flush.
+<span style="color:#66d9ef">ENDMODULE</span>.                 <span style="color:#75715e">&#34; okcode  INPUT &#34;
+</span><span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#75715e">*&amp;      Form  init_tree</span>
+<span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">init_tree</span> .
+  <span style="color:#66d9ef">PERFORM</span> <span style="color:#a6e22e">build_fieldcatalog</span>.
+<span style="color:#75715e">* IF sy-batch IS INITIAL.</span>
+<span style="color:#75715e">* CREATE OBJECT l_custom_container</span>
+<span style="color:#75715e">* EXPORTING</span>
+<span style="color:#75715e">* container_name              = &#39;TREE1&#39;</span>
+<span style="color:#75715e">* EXCEPTIONS</span>
+<span style="color:#75715e">* cntl_error                  = 1</span>
+<span style="color:#75715e">* cntl_system_error           = 2</span>
+<span style="color:#75715e">* create_error                = 3</span>
+<span style="color:#75715e">* lifetime_error              = 4</span>
+<span style="color:#75715e">* lifetime_dynpro_dynpro_link = 5.</span>
+<span style="color:#75715e">* IF sy-subrc &lt;&gt; 0.</span>
+<span style="color:#75715e">* MESSAGE e000 WITH &#39; 创建容器：TREE1 错误 &#39;.</span>
+<span style="color:#75715e">* ENDIF.</span>
+<span style="color:#75715e">* ENDIF.</span>
+  <span style="color:#66d9ef">CREATE OBJECT</span> tree1
+    <span style="color:#66d9ef">EXPORTING</span>
+<span style="color:#75715e">*     parent                      = l_custom_container</span>
+      parent                      <span style="color:#f92672">=</span> cl_gui_container<span style="color:#f92672">=&gt;</span>screen0
+      node_selection_mode         <span style="color:#f92672">=</span> cl_gui_column_tree<span style="color:#f92672">=&gt;</span>node_sel_mode_single
+      item_selection              <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
+      no_html_header              <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
+      no_toolbar                  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39; &#39;</span>
+    <span style="color:#66d9ef">EXCEPTIONS</span>
+      cntl_error                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+      cntl_system_error           <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+      create_error                <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+      lifetime_error              <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+      illegal_node_selection_mode <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+      failed                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+      illegal_column_name         <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>.
+  <span style="color:#66d9ef">IF</span> sy<span style="color:#f92672">-</span>subrc <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">0</span>.
+    <span style="color:#66d9ef">MESSAGE</span> e000 <span style="color:#66d9ef">WITH</span> <span style="color:#e6db74">&#39; 创建 TREE 错误 &#39;</span>.
+  <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#66d9ef">DATA</span> l_hierarchy_header <span style="color:#66d9ef">TYPE </span>treev_hhdr.
+  <span style="color:#66d9ef">PERFORM</span> <span style="color:#a6e22e">build_hierarchy_header</span> <span style="color:#66d9ef">CHANGING</span> l_hierarchy_header.
+  <span style="color:#66d9ef">DATA</span>: ls_variant <span style="color:#66d9ef">TYPE </span>disvariant.
+  ls_variant<span style="color:#f92672">-</span>report <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>repid.
+  <span style="color:#66d9ef">CALL METHOD</span> tree1<span style="color:#f92672">-&gt;</span>set_table_for_first_display
+    <span style="color:#66d9ef">EXPORTING</span>
+      is_hierarchy_header <span style="color:#f92672">=</span> l_hierarchy_header
+      i_background_id     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ALV_BACKGROUND&#39;</span>
+      i_save              <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A&#39;</span>
+      is_variant          <span style="color:#f92672">=</span> ls_variant
+    <span style="color:#66d9ef">CHANGING</span>
+      it_outtab           <span style="color:#f92672">=</span> gt_stpox        <span style="color:#75715e">&#34;table must be emty !!&#34;
+</span><span style="color:#75715e"></span>      it_fieldcatalog     <span style="color:#f92672">=</span> gt_fieldcatalog.
+  <span style="color:#66d9ef">DATA</span>: l1 <span style="color:#66d9ef">TYPE </span>lvc_nkey ,l2 <span style="color:#66d9ef">TYPE </span>lvc_nkey ,l3 <span style="color:#66d9ef">TYPE </span>lvc_nkey ,l4 <span style="color:#66d9ef">TYPE </span>lvc_nkey ,
+        l5 <span style="color:#66d9ef">TYPE </span>lvc_nkey ,l6 <span style="color:#66d9ef">TYPE </span>lvc_nkey ,l7 <span style="color:#66d9ef">TYPE </span>lvc_nkey ,l8 <span style="color:#66d9ef">TYPE </span>lvc_nkey ,
+        l_key <span style="color:#66d9ef">TYPE </span>lvc_nkey,
+        l_last_key <span style="color:#66d9ef">TYPE </span>lvc_nkey  ,
+        added .
+  <span style="color:#66d9ef">LOOP AT </span>gt_xstpox <span style="color:#66d9ef">INTO</span> gs_xstpox .
+    <span style="color:#66d9ef">MOVE-CORRESPONDING</span> gs_xstpox <span style="color:#66d9ef">TO</span> gs_stpox.
+    <span style="color:#66d9ef">CASE</span> gs_stpox<span style="color:#f92672">-</span>stufe .
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;1&#39;</span>.
+        l_key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;2&#39;</span>.
+        l_key <span style="color:#f92672">=</span> l1.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;3&#39;</span>.
+        l_key <span style="color:#f92672">=</span> l2.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;4&#39;</span>.
+        l_key <span style="color:#f92672">=</span> l3.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;5&#39;</span>.
+        l_key <span style="color:#f92672">=</span> l4.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;6&#39;</span>.
+        l_key <span style="color:#f92672">=</span> l5.
+    <span style="color:#66d9ef">ENDCASE</span>.
+    <span style="color:#66d9ef">PERFORM</span> <span style="color:#a6e22e">add_complete_line</span> <span style="color:#66d9ef">USING</span>  gs_stpox l_key
+                            <span style="color:#66d9ef">CHANGING</span> l_last_key.
+    gs_xstpox<span style="color:#f92672">-</span>node_key <span style="color:#f92672">=</span> l_last_key.
+    <span style="color:#66d9ef">CASE</span> gs_stpox<span style="color:#f92672">-</span>stufe .
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;1&#39;</span>.
+        l1 <span style="color:#f92672">=</span> l_last_key.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;2&#39;</span>.
+        l2 <span style="color:#f92672">=</span> l_last_key.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;3&#39;</span>.
+        l3 <span style="color:#f92672">=</span> l_last_key.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;4&#39;</span>.
+        l4 <span style="color:#f92672">=</span> l_last_key.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;5&#39;</span>.
+        l5 <span style="color:#f92672">=</span> l_last_key.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;6&#39;</span>.
+        l6 <span style="color:#f92672">=</span> l_last_key.
+    <span style="color:#66d9ef">ENDCASE</span>.
+    <span style="color:#66d9ef">MODIFY</span> gt_xstpox <span style="color:#66d9ef">FROM</span> gs_xstpox .
+  <span style="color:#66d9ef">ENDLOOP</span>.
+  <span style="color:#66d9ef">CALL METHOD</span> tree1<span style="color:#f92672">-&gt;</span>update_calculations.
+  <span style="color:#66d9ef">CALL METHOD</span> tree1<span style="color:#f92672">-&gt;</span>frontend_update.
+<span style="color:#66d9ef">ENDFORM</span>.                    <span style="color:#75715e">&#34; init_tree &#34;
+</span><span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#75715e">*&amp;      Form  build_fieldcatalog</span>
+<span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">build_fieldcatalog</span>.
+  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;LVC_FIELDCATALOG_MERGE&#39;</span>
+    <span style="color:#66d9ef">EXPORTING</span>
+      i_structure_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;STPOX&#39;</span>
+    <span style="color:#66d9ef">CHANGING</span>
+      ct_fieldcat      <span style="color:#f92672">=</span> gt_fieldcatalog.
 
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ls_fieldcatalog</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_s_fcat</span>.
-  <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">gt_fieldcatalog</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">ls_fieldcatalog</span>.
+  <span style="color:#66d9ef">DATA</span>: ls_fieldcatalog <span style="color:#66d9ef">TYPE </span>lvc_s_fcat.
+  <span style="color:#66d9ef">LOOP AT </span>gt_fieldcatalog <span style="color:#66d9ef">INTO</span> ls_fieldcatalog.
 
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">ls_fieldcatalog</span><span style="color:#f92672">-</span><span style="color:#a6e22e">fieldname</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;CARRID&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#39;CONNID&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#39;FLDATE&#39;</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">ls_fieldcatalog</span><span style="color:#f92672">-</span><span style="color:#a6e22e">no_out</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">ls_fieldcatalog</span><span style="color:#f92672">-</span><span style="color:#a6e22e">key</span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;PRICE&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#39;SEATSOCC&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#39;SEATSMAX&#39;</span> <span style="color:#a6e22e">OR</span> <span style="color:#e6db74">&#39;PAYMENTSUM&#39;</span>.
-<span style="color:#f92672">**</span>        <span style="color:#a6e22e">ls_fieldcatalog</span><span style="color:#f92672">-</span><span style="color:#a6e22e">do_sum</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;PLANETYPE&#39;</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">ls_fieldcatalog</span><span style="color:#f92672">-</span><span style="color:#a6e22e">edit</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">ls_fieldcatalog</span><span style="color:#f92672">-</span><span style="color:#a6e22e">style</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cl_gui_alv_grid</span>=&gt;<span style="color:#a6e22e">mc_style_enabled</span> .
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">ENDCASE</span>.
-  <span style="color:#a6e22e">MODIFY</span> <span style="color:#a6e22e">gt_fieldcatalog</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">ls_fieldcatalog</span>.
-  <span style="color:#a6e22e">ENDLOOP</span>.
-  <span style="color:#a6e22e">ENDFORM</span>.                               <span style="color:#e6db74">&#34; build_fieldcatalog &#34;</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#f92672">*&amp;</span>      <span style="color:#a6e22e">Form</span>  <span style="color:#a6e22e">build_hierarchy_header</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#a6e22e">FORM</span> <span style="color:#a6e22e">build_hierarchy_header</span> <span style="color:#a6e22e">CHANGING</span> <span style="color:#a6e22e">p_hierarchy_header</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">treev_hhdr</span>.
-  <span style="color:#a6e22e">p_hierarchy_header</span><span style="color:#f92672">-</span><span style="color:#a6e22e">heading</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BOM 层次 &#39;</span>.
-  <span style="color:#a6e22e">p_hierarchy_header</span><span style="color:#f92672">-</span><span style="color:#a6e22e">tooltip</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ToolTip&#39;</span>.
-  <span style="color:#a6e22e">p_hierarchy_header</span><span style="color:#f92672">-</span><span style="color:#a6e22e">width</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">30.</span>
-  <span style="color:#a6e22e">p_hierarchy_header</span><span style="color:#f92672">-</span><span style="color:#a6e22e">width_pix</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
-<span style="color:#a6e22e">ENDFORM</span>.                               <span style="color:#e6db74">&#34; build_hierarchy_header &#34;</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#f92672">*&amp;</span>      <span style="color:#a6e22e">Form</span>  <span style="color:#a6e22e">add_complete_line</span>
-<span style="color:#f92672">*&amp;---------------------------------------------------------------------*</span>
-<span style="color:#a6e22e">FORM</span> <span style="color:#a6e22e">add_complete_line</span> <span style="color:#a6e22e">USING</span>  <span style="color:#a6e22e">ps_stpox</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">stpox</span>
-                              <span style="color:#a6e22e">p_relat_key</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span>
-                     <span style="color:#a6e22e">CHANGING</span> <span style="color:#a6e22e">p_node_key</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_nkey</span>.
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l_node_text</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_value</span>.
-<span style="color:#f92672">*</span><span style="color:#a6e22e">Set</span> <span style="color:#a6e22e">item</span><span style="color:#f92672">-</span><span style="color:#a6e22e">layout</span>
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lt_item_layout</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_t_layi</span>,
-        <span style="color:#a6e22e">ls_item_layout</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">lvc_s_layi</span>.
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stufe_num</span>(<span style="color:#ae81ff">2</span>) <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">n</span>.
-  <span style="color:#a6e22e">ls_item_layout</span><span style="color:#f92672">-</span><span style="color:#a6e22e">fieldname</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tree1</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">c_hierarchy_column_name</span>.
-  <span style="color:#a6e22e">ls_item_layout</span><span style="color:#f92672">-</span><span style="color:#66d9ef">class</span>     <span style="color:#f92672">=</span> <span style="color:#a6e22e">cl_gui_column_tree</span>=&gt;<span style="color:#a6e22e">item_class_text</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">ls_item_layout</span><span style="color:#f92672">-</span><span style="color:#a6e22e">editable</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">ls_item_layout</span><span style="color:#f92672">-</span><span style="color:#a6e22e">chosen</span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.  <span style="color:#e6db74">&#34;设置为选中状态&#34;</span>
-  <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">ls_item_layout</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">lt_item_layout</span>.
-<span style="color:#f92672">*</span> <span style="color:#a6e22e">l_node_text</span> <span style="color:#f92672">=</span>  <span style="color:#a6e22e">ps_stpox</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ojtxp</span>.
-  <span style="color:#a6e22e">stufe_num</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ps_stpox</span><span style="color:#f92672">-</span><span style="color:#a6e22e">stufe</span>.
-  <span style="color:#a6e22e">CONCATENATE</span> <span style="color:#a6e22e">stufe_num</span> <span style="color:#e6db74">&#39;,&#39;</span> <span style="color:#a6e22e">ps_stpox</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ojtxp</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">l_node_text</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">tree1</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_node</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">i_relat_node_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">p_relat_key</span>
-      <span style="color:#a6e22e">i_relationship</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">cl_gui_column_tree</span>=&gt;<span style="color:#a6e22e">relat_last_child</span>
-      <span style="color:#a6e22e">is_outtab_line</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">ps_stpox</span>
-      <span style="color:#a6e22e">i_node_text</span>      <span style="color:#f92672">=</span> <span style="color:#a6e22e">l_node_text</span>
-      <span style="color:#a6e22e">it_item_layout</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">lt_item_layout</span>
-    <span style="color:#a6e22e">IMPORTING</span>
-      <span style="color:#a6e22e">e_new_node_key</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">p_node_key</span>.
-<span style="color:#a6e22e">ENDFORM</span>.                               <span style="color:#e6db74">&#34; add_complete_line &#34;</span>
-</code></pre></div>
+<span style="color:#75715e">* CASE ls_fieldcatalog-fieldname.</span>
+<span style="color:#75715e">* WHEN &#39;CARRID&#39; OR &#39;CONNID&#39; OR &#39;FLDATE&#39;.</span>
+<span style="color:#75715e">* ls_fieldcatalog-no_out = &#39;X&#39;.</span>
+<span style="color:#75715e">* ls_fieldcatalog-key    = &#39;&#39;.</span>
+<span style="color:#75715e">* WHEN &#39;PRICE&#39; OR &#39;SEATSOCC&#39; OR &#39;SEATSMAX&#39; OR &#39;PAYMENTSUM&#39;.</span>
+<span style="color:#75715e">**        ls_fieldcatalog-do_sum = &#39;X&#39;.</span>
+<span style="color:#75715e">* WHEN &#39;PLANETYPE&#39;.</span>
+<span style="color:#75715e">* ls_fieldcatalog-edit = &#39;X&#39;.</span>
+<span style="color:#75715e">* ls_fieldcatalog-style = cl_gui_alv_grid=&gt;mc_style_enabled .</span>
+<span style="color:#75715e">* ENDCASE.</span>
+  <span style="color:#66d9ef">MODIFY</span> gt_fieldcatalog <span style="color:#66d9ef">FROM</span> ls_fieldcatalog.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+  <span style="color:#66d9ef">ENDFORM</span>.                               <span style="color:#75715e">&#34; build_fieldcatalog &#34;
+</span><span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#75715e">*&amp;      Form  build_hierarchy_header</span>
+<span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">build_hierarchy_header</span> <span style="color:#66d9ef">CHANGING</span> p_hierarchy_header <span style="color:#66d9ef">TYPE </span>treev_hhdr.
+  p_hierarchy_header<span style="color:#f92672">-</span>heading <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BOM 层次 &#39;</span>.
+  p_hierarchy_header<span style="color:#f92672">-</span>tooltip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ToolTip&#39;</span>.
+  p_hierarchy_header<span style="color:#f92672">-</span>width <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>.
+  p_hierarchy_header<span style="color:#f92672">-</span>width_pix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>.
+<span style="color:#66d9ef">ENDFORM</span>.                               <span style="color:#75715e">&#34; build_hierarchy_header &#34;
+</span><span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#75715e">*&amp;      Form  add_complete_line</span>
+<span style="color:#75715e">*&amp;---------------------------------------------------------------------*</span>
+<span style="color:#66d9ef">FORM</span> <span style="color:#a6e22e">add_complete_line</span> <span style="color:#66d9ef">USING</span>  ps_stpox <span style="color:#66d9ef">TYPE </span>stpox
+                              p_relat_key <span style="color:#66d9ef">TYPE </span>lvc_nkey
+                     <span style="color:#66d9ef">CHANGING</span> p_node_key <span style="color:#66d9ef">TYPE </span>lvc_nkey.
+  <span style="color:#66d9ef">DATA</span>: l_node_text <span style="color:#66d9ef">TYPE </span>lvc_value.
+<span style="color:#75715e">*Set item-layout</span>
+  <span style="color:#66d9ef">DATA</span>: lt_item_layout <span style="color:#66d9ef">TYPE </span>lvc_t_layi,
+        ls_item_layout <span style="color:#66d9ef">TYPE </span>lvc_s_layi.
+  <span style="color:#66d9ef">DATA</span>: stufe_num(<span style="color:#ae81ff">2</span>) <span style="color:#66d9ef">TYPE </span>n.
+  ls_item_layout<span style="color:#f92672">-</span>fieldname <span style="color:#f92672">=</span> tree1<span style="color:#f92672">-&gt;</span>c_hierarchy_column_name.
+  ls_item_layout<span style="color:#f92672">-</span>class     <span style="color:#f92672">=</span> cl_gui_column_tree<span style="color:#f92672">=&gt;</span>item_class_text.
+<span style="color:#75715e">* ls_item_layout-editable  = &#39;X&#39;.</span>
+<span style="color:#75715e">* ls_item_layout-chosen    = &#39;X&#39;.  &#34;设置为选中状态&#34;</span>
+  <span style="color:#66d9ef">APPEND</span> ls_item_layout <span style="color:#66d9ef">TO</span> lt_item_layout.
+<span style="color:#75715e">* l_node_text =  ps_stpox-ojtxp.</span>
+  stufe_num <span style="color:#f92672">=</span> ps_stpox<span style="color:#f92672">-</span>stufe.
+  <span style="color:#66d9ef">CONCATENATE</span> stufe_num <span style="color:#e6db74">&#39;,&#39;</span> ps_stpox<span style="color:#f92672">-</span>ojtxp <span style="color:#66d9ef">INTO</span> l_node_text.
+  <span style="color:#66d9ef">CALL METHOD</span> tree1<span style="color:#f92672">-&gt;</span>add_node
+    <span style="color:#66d9ef">EXPORTING</span>
+      i_relat_node_key <span style="color:#f92672">=</span> p_relat_key
+      i_relationship   <span style="color:#f92672">=</span> cl_gui_column_tree<span style="color:#f92672">=&gt;</span>relat_last_child
+      is_outtab_line   <span style="color:#f92672">=</span> ps_stpox
+      i_node_text      <span style="color:#f92672">=</span> l_node_text
+      it_item_layout   <span style="color:#f92672">=</span> lt_item_layout
+    <span style="color:#66d9ef">IMPORTING</span>
+      e_new_node_key   <span style="color:#f92672">=</span> p_node_key.
+<span style="color:#66d9ef">ENDFORM</span>.                               <span style="color:#75715e">&#34; add_complete_line &#34;
+</span></code></pre></div>
     </div>
 
     <div class="post-copyright">

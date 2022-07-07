@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "WebDynpro",
-  "wordcount":  1681 ,
+  "wordcount":  1668 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/SAPWebDynproABAP_SearchOVS\/",
   "datePublished": "2018-10-27T00:00:00\u002b00:00",
   "dateModified": "2018-10-27T00:00:00\u002b00:00",
@@ -182,367 +182,307 @@
 <p><strong>Step2</strong> ：在需要使用的视图中，添加步骤1中定义的OVS组件</p>
 <p>双击视图，在视图属性页签，点击新建将Step1中的两个组件全部添加进视图中。</p>
 <p><strong>Step3</strong> ：将定义的OVS组件添加到节点属性字段的搜索帮助</p>
-<p><img src="/images/webdynproABAP/Portal30.png" alt="Web Dynpro OVS"></p>
+<p><img src="/images/webdynpro/webdynproABAP/Portal30.png" alt="Web Dynpro OVS"></p>
 <p><strong>Step4</strong> ：为OVS事件定义方法</p>
 <p>输入方法名，选择事件类型为EVENT，在事件里F4选择前面定义的OVS事件。</p>
 <p><strong>Step5</strong> ：代码实现OVS搜索帮助</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">method ON_OVS_OWNER .
-  types:
-    begin of lty_stru_input,&#34;定义查询参数结构
-      CODEGRUPPE type QCODEGRP,
-    end of lty_stru_input.
-  types:
-    begin of lty_stru_list,&#34;定义搜搜帮助返回结果字段列表
-      CODEGRUPPE type QCODEGRP,
-      CODE type QCODE,
-      KURZTEXT type QTXT_CODE,
-      GROUPTEXT type QKTEXTGR,
-    end of lty_stru_list.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">on_ovs_owner</span> .
+  <span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> ty_stru_input, <span style="color:#75715e">&#34;定义查询参数结构&#34;
+</span><span style="color:#75715e"></span>    codegruppe <span style="color:#66d9ef">TYPE </span>qcodegrp,
+  <span style="color:#66d9ef">END OF</span> ty_stru_input.
+  <span style="color:#66d9ef">TYPES</span>: <span style="color:#66d9ef">BEGIN OF</span> ty_stru_list,  <span style="color:#75715e">&#34;定义搜搜帮助返回结果字段列表&#34;
+</span><span style="color:#75715e"></span>    codegruppe <span style="color:#66d9ef">TYPE </span>qcodegrp,
+    code <span style="color:#66d9ef">TYPE </span>qcode,
+    kurztext <span style="color:#66d9ef">TYPE </span>qtxt_code,
+    grouptext <span style="color:#66d9ef">TYPE </span>qktextgr,
+  <span style="color:#66d9ef">END OF</span> ty_stru_list.
+  <span style="color:#66d9ef">DATA</span>: ls_search_input  <span style="color:#66d9ef">TYPE </span>ty_stru_input,
+        ls_select_list   <span style="color:#66d9ef">TYPE </span>ty_stru_list,
+        lt_select_list   <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> ty_stru_list,
+        ls_text          <span style="color:#66d9ef">TYPE </span>wdr_name_value,
+        lt_label_texts   <span style="color:#66d9ef">TYPE </span>wdr_name_value_list,
+        lt_column_texts  <span style="color:#66d9ef">TYPE </span>wdr_name_value_list,
+        lv_window_title  <span style="color:#66d9ef">TYPE </span>string,
+        lv_group_header  <span style="color:#66d9ef">TYPE </span>string,
+        lv_table_header  <span style="color:#66d9ef">TYPE </span>string.
+  <span style="color:#66d9ef">DATA</span>: ls_order_qcode <span style="color:#66d9ef">TYPE </span>zv_order_qcode,
+        lt_order_qcode <span style="color:#66d9ef">TYPE TABLE OF</span>  zv_order_qcode.
+  <span style="color:#66d9ef">FIELD-SYMBOLS</span>: &lt;ls_query_params&gt; <span style="color:#66d9ef">TYPE </span>lty_stru_input,
+                 &lt;ls_selection&gt;    <span style="color:#66d9ef">TYPE </span>lty_stru_list.
+  <span style="color:#66d9ef">DATA</span> lo_nd_l_so_header_n <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_node.
+  <span style="color:#66d9ef">DATA</span> lo_el_l_so_header_n <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_element.
+  <span style="color:#66d9ef">DATA</span> ls_l_so_header_n <span style="color:#66d9ef">TYPE </span>wd_this<span style="color:#f92672">-&gt;</span>element_l_so_header_n.
+  <span style="color:#66d9ef">DATA</span> lv_symptoms_code_g <span style="color:#66d9ef">TYPE </span>wd_this<span style="color:#f92672">-&gt;</span>element_l_so_header_n<span style="color:#f92672">-</span>symptoms_code_g.
+  lo_nd_l_so_header_n <span style="color:#f92672">=</span> wd_context<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( name <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>wdctx_l_so_header_n ).
+  lo_el_l_so_header_n <span style="color:#f92672">=</span> lo_nd_l_so_header_n<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_element</span>( ).
+  lo_el_l_so_header_n<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_attribute</span>(
+  <span style="color:#66d9ef">EXPORTING</span>
+    name <span style="color:#f92672">=</span>  <span style="color:#e6db74">`SYMPTOMS_CODE_G`</span>
+  <span style="color:#66d9ef">IMPORTING</span>
+    <span style="color:#66d9ef">value</span> <span style="color:#f92672">=</span> lv_symptoms_code_g ).
 
-  data: ls_search_input  type lty_stru_input,
-        ls_select_list   type lty_stru_list,
-        lt_select_list   type standard table of lty_stru_list,
-        ls_text          type wdr_name_value,
-        lt_label_texts   type wdr_name_value_list,
-        lt_column_texts  type wdr_name_value_list,
-        lv_window_title  type string,
-        lv_group_header  type string,
-        lv_table_header  type string.
-
-  DATA: ls_ORDER_QCODE type ZV_ORDER_QCODE,
-        lt_ORDER_QCODE type table of  ZV_ORDER_QCODE.
-
-  field-symbols: &lt;<span style="color:#f92672">ls_query_params</span>&gt; type lty_stru_input,
-                 &lt;<span style="color:#f92672">ls_selection</span>&gt;    type lty_stru_list.
-
-  DATA lo_nd_l_so_header_n TYPE REF TO if_wd_context_node.
-
-  DATA lo_el_l_so_header_n TYPE REF TO if_wd_context_element.
-  DATA ls_l_so_header_n TYPE wd_this-&gt;Element_l_so_header_n.
-  DATA lv_symptoms_code_g TYPE wd_this-&gt;Element_l_so_header_n-symptoms_code_g.
-
-  lo_nd_l_so_header_n = wd_context-&gt;get_child_node( name = wd_this-&gt;wdctx_l_so_header_n ).
-  lo_el_l_so_header_n = lo_nd_l_so_header_n-&gt;get_element( ).
-  lo_el_l_so_header_n-&gt;get_attribute(
-    EXPORTING
-      name =  `SYMPTOMS_CODE_G`
-    IMPORTING
-      value = lv_symptoms_code_g ).
-
-  case ovs_callback_object-&gt;phase_indicator.
-    when if_wd_ovs=&gt;co_phase_0.
-      lv_window_title = &#39;Choice Symptoms Code:&#39;.
-      ovs_callback_object-&gt;set_configuration(
-                label_texts  = lt_label_texts
-                column_texts = lt_column_texts
-                group_header = lv_group_header
-                window_title = lv_window_title
-                table_header = lv_table_header
-                col_count    = 3
-                row_count    = 20 ).
-
-    when if_wd_ovs=&gt;co_phase_1.
-
-    when if_wd_ovs=&gt;co_phase_2.
-      select * into corresponding fields of table lt_ORDER_QCODE
-      from ZV_ORDER_QCODE
-      where KATALOGART = &#39;Z1&#39;
-        and CODEGRUPPE = lv_symptoms_code_g
-        AND SPRACHE = SY-LANGU.&#34;ADD DEFAULT LANGU BY LY 20170113 .
-
-      clear: lt_select_list.
-
-      loop at lt_ORDER_QCODE into ls_ORDER_QCODE.
-        ls_select_list-CODEGRUPPE = ls_ORDER_QCODE-CODEGRUPPE.
-        ls_select_list-GROUPTEXT = ls_ORDER_QCODE-GROUPTEXT.
-        ls_select_list-CODE = ls_ORDER_QCODE-CODE.
-        ls_select_list-KURZTEXT = ls_ORDER_QCODE-KURZTEXT.
-
-        append ls_select_list to lt_select_list.
-      endloop.
-      ovs_callback_object-&gt;set_output_table( output = lt_select_list ).
-
-    when if_wd_ovs=&gt;co_phase_3.
-      if ovs_callback_object-&gt;selection is not bound.
-      endif.
-
-      assign ovs_callback_object-&gt;selection-&gt;* to &lt;<span style="color:#f92672">ls_selection</span>&gt;.
-      if &lt;<span style="color:#f92672">ls_selection</span>&gt; is assigned.&#34;返回选择结果，可返回多个字段
-        ovs_callback_object-&gt;context_element-&gt;set_attribute(
-                               name  = `SYMPTOMS_CODE`
-                               value = &lt;<span style="color:#f92672">ls_selection</span>&gt;-CODE ).
-      endif.
-  endcase.
-
-endmethod.
-</code></pre></div><h3 id="select-option中设置ovs">Select Option中设置OVS</h3>
+  <span style="color:#66d9ef">CASE</span> ovs_callback_object<span style="color:#f92672">-&gt;</span>phase_indicator.
+    <span style="color:#66d9ef">WHEN</span> if_wd_ovs<span style="color:#f92672">=&gt;</span>co_phase_0.
+      lv_window_title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Choice Symptoms Code:&#39;</span>.
+      ovs_callback_object<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_configuration</span>(
+        label_texts  <span style="color:#f92672">=</span> lt_label_texts
+        column_texts <span style="color:#f92672">=</span> lt_column_texts
+        group_header <span style="color:#f92672">=</span> lv_group_header
+        window_title <span style="color:#f92672">=</span> lv_window_title
+        table_header <span style="color:#f92672">=</span> lv_table_header
+        col_count    <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+        row_count    <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span> ).
+    <span style="color:#66d9ef">WHEN</span> if_wd_ovs<span style="color:#f92672">=&gt;</span>co_phase_1.
+      <span style="color:#75715e">&#34;&#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">WHEN</span> if_wd_ovs<span style="color:#f92672">=&gt;</span>co_phase_2.
+      <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">CORRESPONDING FIELDS OF</span> <span style="color:#66d9ef">TABLE</span> lt_order_qcode
+        <span style="color:#66d9ef">FROM</span> zv_order_qcode
+       <span style="color:#66d9ef">WHERE</span> katalogart <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Z1&#39;</span>
+         <span style="color:#f92672">AND</span> codegruppe <span style="color:#f92672">=</span> lv_symptoms_code_g
+         <span style="color:#f92672">AND</span> sprache <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>langu.<span style="color:#75715e">&#34;ADD DEFAULT LANGU BY LY 20170113 .&#34;
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">CLEAR</span>: lt_select_list.
+      <span style="color:#66d9ef">LOOP AT </span>lt_order_qcode <span style="color:#66d9ef">INTO</span> ls_order_qcode.
+        ls_select_list<span style="color:#f92672">-</span>codegruppe <span style="color:#f92672">=</span> ls_order_qcode<span style="color:#f92672">-</span>codegruppe.
+        ls_select_list<span style="color:#f92672">-</span>grouptext <span style="color:#f92672">=</span> ls_order_qcode<span style="color:#f92672">-</span>grouptext.
+        ls_select_list<span style="color:#f92672">-</span>code <span style="color:#f92672">=</span> ls_order_qcode<span style="color:#f92672">-</span>code.
+        ls_select_list<span style="color:#f92672">-</span>kurztext <span style="color:#f92672">=</span> ls_order_qcode<span style="color:#f92672">-</span>kurztext.
+        <span style="color:#66d9ef">APPEND</span> ls_select_list <span style="color:#66d9ef">TO</span> lt_select_list.
+      <span style="color:#66d9ef">ENDLOOP</span>.
+      ovs_callback_object<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_output_table</span>( output <span style="color:#f92672">=</span> lt_select_list ).
+    <span style="color:#66d9ef">WHEN</span> if_wd_ovs<span style="color:#f92672">=&gt;</span>co_phase_3.
+      <span style="color:#66d9ef">IF</span> ovs_callback_object<span style="color:#f92672">-&gt;</span>selection <span style="color:#f92672">IS NOT BOUND</span>.
+      <span style="color:#66d9ef">ENDIF</span>.
+      <span style="color:#66d9ef">ASSIGN</span> ovs_callback_object<span style="color:#f92672">-&gt;</span>selection-&gt;* <span style="color:#66d9ef">TO</span> &lt;ls_selection&gt;.
+      <span style="color:#66d9ef">IF</span> &lt;ls_selection&gt; <span style="color:#f92672">IS ASSIGNED</span>.  <span style="color:#75715e">&#34;返回选择结果，可返回多个字段&#34;
+</span><span style="color:#75715e"></span>        ovs_callback_object<span style="color:#f92672">-&gt;</span>context_element<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_attribute</span>(
+          name  <span style="color:#f92672">=</span> <span style="color:#e6db74">`SYMPTOMS_CODE`</span>
+          <span style="color:#66d9ef">value</span> <span style="color:#f92672">=</span> &lt;ls_selection&gt;<span style="color:#f92672">-</span>code ).
+      <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#66d9ef">ENDCASE</span>.
+<span style="color:#66d9ef">ENDMETHOD</span>.                    <span style="color:#75715e">&#34;ON_OVS_OWNER&#34;
+</span></code></pre></div><h3 id="select-option中设置ovs">Select Option中设置OVS</h3>
 <p>与普通字段不同的是需要在SELECT OPTION中添加OVS对象</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">METHOD init_select_options .
-  DATA:
-    lt_range_table TYPE REF TO data,
-    rt_range_table TYPE REF TO data,
-    read_only      TYPE abap_bool,
-    typename       TYPE string,
-    lv_value       TYPE string.
-  DATA:
-    lr_componentcontroller TYPE REF TO ig_componentcontroller,
-    l_ref_cmp_usage        TYPE REF TO if_wd_component_usage.
-  DATA:
-    display_btn_cancel  TYPE abap_bool,
-    display_btn_check   TYPE abap_bool,
-    display_btn_reset   TYPE abap_bool,
-    display_btn_execute TYPE abap_bool.
-  DATA:gt_value_set TYPE wdy_key_value_table,
-       gw_value_set TYPE wdy_key_value,
-       gt_type      TYPE TABLE OF crmc_proc_type_t,
-       gw_type      LIKE LINE OF gt_type.
-
-* create the used component
-  l_ref_cmp_usage = wd_this-&gt;wd_cpuse_selection( ).
-  IF l_ref_cmp_usage-&gt;has_active_component( ) IS INITIAL.
-    l_ref_cmp_usage-&gt;create_component( ).
-  ENDIF.
-* get a pointer to the interface controller of the select options
-*component
-  wd_this-&gt;m_wd_select_options = wd_this-&gt;wd_cpifc_selection( ).
-
-* init the select screen
-  wd_this-&gt;m_handler =
-  wd_this-&gt;m_wd_select_options-&gt;init_selection_screen( ).
-
-  &#34;sales_org
-* create a range table that consists of this new data element
-  lt_range_table = wd_this-&gt;m_handler-&gt;create_range_table( i_typename = &#39;CRMT_SALES_ORG&#39; ).
-* add a new field to the selection
-  wd_this-&gt;m_handler-&gt;add_selection_field(
-                          i_id = &#39;SALES_ORG&#39;
-                          it_result = lt_range_table
-                          i_read_only = read_only ).
-
-
-
-* create a range table that consists of this new data element
-  lt_range_table = wd_this-&gt;m_handler-&gt;create_range_table( i_typename = &#39;CRMT_OBJECT_ID_DB&#39; ).
-* add a new field to the selection
-  wd_this-&gt;m_handler-&gt;add_selection_field(
-                          i_id = &#39;OBJECT_ID&#39;
-                          it_result = lt_range_table
-                          i_read_only = read_only ).
-
-* create a range table PROCESS TYPE
-  lt_range_table = wd_this-&gt;m_handler-&gt;create_range_table( i_typename = &#39;CRMT_PROCESS_TYPE&#39; ).
-  &#34;ADD DEFAULT VALUE SET
-  SELECT * INTO TABLE gt_type FROM crmc_proc_type_t
-    WHERE process_type IN (&#39;ZSO2&#39;,&#39;ZSO3&#39;,&#39;ZSO5&#39;)
-    AND   langu        = sy-langu.
-  LOOP AT gt_type INTO gw_type.
-    gw_value_set-key = gw_type-process_type.
-    gw_value_set-value = gw_type-p_description.
-    APPEND gw_value_set TO gt_value_set.
-  ENDLOOP.
-* add a new field to the selection
-  wd_this-&gt;m_handler-&gt;add_selection_field(
-                          i_id = &#39;PROCESS_TYPE&#39;
-                          it_result = lt_range_table
-                          it_value_set = gt_value_set
-                          i_read_only = read_only ).
-
-* create a range table that consists of this new data element
-  lt_range_table = wd_this-&gt;m_handler-&gt;create_range_table( i_typename = &#39;BU_PARTNER&#39; ).
-* add a new field to the selection
-  wd_this-&gt;m_handler-&gt;add_selection_field(
-                          i_id = &#39;PARTNER&#39;
-                          it_result = lt_range_table
-                          i_read_only = read_only ).
-
-* create a range table that consists of this new data element
-  lt_range_table = wd_this-&gt;m_handler-&gt;create_range_table( i_typename = &#39;CRMT_POSTING_DATE&#39; ).
-* add a new field to the selection
-  wd_this-&gt;m_handler-&gt;add_selection_field(
-                          i_id = &#39;POSTING_DATE&#39;
-                          i_description = lv_value
-                          it_result = lt_range_table
-                          i_read_only = read_only ).
-
-* create a range table that consists of this new data element
-  lt_range_table = wd_this-&gt;m_handler-&gt;create_range_table( i_typename = &#39;CRM_J_STATUS&#39; ).
-* add a new field to the selection
-  wd_this-&gt;m_handler-&gt;add_selection_field(
-                          i_id = &#39;STAT&#39;
-                          it_result = lt_range_table
-                          i_value_help_type = &#39;OVR&#39;
-                          i_value_help_id = &#39;OVS&#39;
-                          i_read_only = read_only ).
-
-
-*End add
-* adjust the global options
-  wd_this-&gt;m_handler-&gt;set_global_options(
-      i_display_btn_cancel  = display_btn_cancel
-      i_display_btn_check   = display_btn_check
-      i_display_btn_reset   = display_btn_reset
-      i_display_btn_execute = display_btn_execute ).
-
-
-ENDMETHOD.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">init_select_options</span> .
+  <span style="color:#66d9ef">DATA</span>:lt_range_table <span style="color:#66d9ef">TYPE REF TO</span> <span style="color:#66d9ef">data</span>,
+       rt_range_table <span style="color:#66d9ef">TYPE REF TO</span> <span style="color:#66d9ef">data</span>,
+       read_only      <span style="color:#66d9ef">TYPE </span>abap_bool,
+       typename       <span style="color:#66d9ef">TYPE </span>string,
+       lv_value       <span style="color:#66d9ef">TYPE </span>string.
+  <span style="color:#66d9ef">DATA</span>:lr_componentcontroller <span style="color:#66d9ef">TYPE REF TO</span> ig_componentcontroller,
+       l_ref_cmp_usage        <span style="color:#66d9ef">TYPE REF TO</span> if_wd_component_usage.
+  <span style="color:#66d9ef">DATA</span>:display_btn_cancel  <span style="color:#66d9ef">TYPE </span>abap_bool,
+       display_btn_check   <span style="color:#66d9ef">TYPE </span>abap_bool,
+       display_btn_reset   <span style="color:#66d9ef">TYPE </span>abap_bool,
+       display_btn_execute <span style="color:#66d9ef">TYPE </span>abap_bool.
+  <span style="color:#66d9ef">DATA</span>:gt_value_set <span style="color:#66d9ef">TYPE </span>wdy_key_value_table,
+       gw_value_set <span style="color:#66d9ef">TYPE </span>wdy_key_value,
+       gt_type      <span style="color:#66d9ef">TYPE TABLE OF</span> crmc_proc_type_t,
+       gw_type      <span style="color:#66d9ef">LIKE LINE OF</span> gt_type.
+<span style="color:#75715e">* create the used component</span>
+  l_ref_cmp_usage <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpuse_selection</span>( ).
+  <span style="color:#66d9ef">IF</span> l_ref_cmp_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">has_active_component</span>( ) <span style="color:#f92672">IS INITIAL</span>.
+    l_ref_cmp_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_component</span>( ).
+  <span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">* get a pointer to the interface controller of the select options</span>
+<span style="color:#75715e">*component</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_wd_select_options <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpifc_selection</span>( ).
+<span style="color:#75715e">* init the select screen</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_handler <span style="color:#f92672">=</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_wd_select_options<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">init_selection_screen</span>( ).
+  <span style="color:#75715e">&#34;sales_org&#34;
+</span><span style="color:#75715e">* create a range table that consists of this new data element</span>
+  lt_range_table <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_range_table</span>( i_typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CRMT_SALES_ORG&#39;</span> ).
+<span style="color:#75715e">* add a new field to the selection</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_selection_field</span>(
+                          i_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SALES_ORG&#39;</span>
+                          it_result <span style="color:#f92672">=</span> lt_range_table
+                          i_read_only <span style="color:#f92672">=</span> read_only ).
+<span style="color:#75715e">* create a range table that consists of this new data element</span>
+  lt_range_table <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_range_table</span>( i_typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CRMT_OBJECT_ID_DB&#39;</span> ).
+<span style="color:#75715e">* add a new field to the selection</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_selection_field</span>(
+                          i_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;OBJECT_ID&#39;</span>
+                          it_result <span style="color:#f92672">=</span> lt_range_table
+                          i_read_only <span style="color:#f92672">=</span> read_only ).
+<span style="color:#75715e">* create a range table PROCESS TYPE</span>
+  lt_range_table <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_range_table</span>( i_typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CRMT_PROCESS_TYPE&#39;</span> ).
+  <span style="color:#75715e">&#34;ADD DEFAULT VALUE SET&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> gt_type <span style="color:#66d9ef">FROM</span> crmc_proc_type_t
+    <span style="color:#66d9ef">WHERE</span> process_type <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;ZSO2&#39;</span>,<span style="color:#e6db74">&#39;ZSO3&#39;</span>,<span style="color:#e6db74">&#39;ZSO5&#39;</span>)
+    <span style="color:#f92672">AND</span>   langu        <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>langu.
+  <span style="color:#66d9ef">LOOP AT </span>gt_type <span style="color:#66d9ef">INTO</span> gw_type.
+    gw_value_set<span style="color:#f92672">-</span>key <span style="color:#f92672">=</span> gw_type<span style="color:#f92672">-</span>process_type.
+    gw_value_set<span style="color:#f92672">-</span>value <span style="color:#f92672">=</span> gw_type<span style="color:#f92672">-</span>p_description.
+    <span style="color:#66d9ef">APPEND</span> gw_value_set <span style="color:#66d9ef">TO</span> gt_value_set.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+<span style="color:#75715e">* add a new field to the selection</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_selection_field</span>(
+                          i_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PROCESS_TYPE&#39;</span>
+                          it_result <span style="color:#f92672">=</span> lt_range_table
+                          it_value_set <span style="color:#f92672">=</span> gt_value_set
+                          i_read_only <span style="color:#f92672">=</span> read_only ).
+<span style="color:#75715e">* create a range table that consists of this new data element</span>
+  lt_range_table <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_range_table</span>( i_typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BU_PARTNER&#39;</span> ).
+<span style="color:#75715e">* add a new field to the selection</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_selection_field</span>(
+                          i_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PARTNER&#39;</span>
+                          it_result <span style="color:#f92672">=</span> lt_range_table
+                          i_read_only <span style="color:#f92672">=</span> read_only ).
+<span style="color:#75715e">* create a range table that consists of this new data element</span>
+  lt_range_table <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_range_table</span>( i_typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CRMT_POSTING_DATE&#39;</span> ).
+<span style="color:#75715e">* add a new field to the selection</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_selection_field</span>(
+                          i_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;POSTING_DATE&#39;</span>
+                          i_description <span style="color:#f92672">=</span> lv_value
+                          it_result <span style="color:#f92672">=</span> lt_range_table
+                          i_read_only <span style="color:#f92672">=</span> read_only ).
+<span style="color:#75715e">* create a range table that consists of this new data element</span>
+  lt_range_table <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_range_table</span>( i_typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CRM_J_STATUS&#39;</span> ).
+<span style="color:#75715e">* add a new field to the selection</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_selection_field</span>(
+                          i_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;STAT&#39;</span>
+                          it_result <span style="color:#f92672">=</span> lt_range_table
+                          i_value_help_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;OVR&#39;</span>
+                          i_value_help_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;OVS&#39;</span>
+                          i_read_only <span style="color:#f92672">=</span> read_only ).
+<span style="color:#75715e">* adjust the global options</span>
+  wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_global_options</span>(
+      i_display_btn_cancel  <span style="color:#f92672">=</span> display_btn_cancel
+      i_display_btn_check   <span style="color:#f92672">=</span> display_btn_check
+      i_display_btn_reset   <span style="color:#f92672">=</span> display_btn_reset
+      i_display_btn_execute <span style="color:#f92672">=</span> display_btn_execute ).
+<span style="color:#66d9ef">ENDMETHOD</span>.
 </code></pre></div><p>然后就与普通字段相同的设置</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">METHOD ovs .
-  CHECK i_ovs_data-m_selection_field_id EQ &#39;STAT&#39;.
-
-  TYPES:
-    BEGIN OF lty_stru_input,
-      stsma TYPE j_stsma,    &#34;搜索条件
-      estat TYPE j_estat,
-      txt30 TYPE j_txt30,
-    END OF lty_stru_input.
-  TYPES:
-    BEGIN OF lty_stru_list,
-*   add fields for the selection list here
-      stsma TYPE j_stsma,    &#34;搜索条件
-      estat TYPE j_estat,
-      txt04 TYPE j_txt04,
-      txt30 TYPE j_txt30,
-    END OF lty_stru_list.
-
-  DATA: ls_search_input TYPE lty_stru_input,
-        lt_select_list  TYPE STANDARD TABLE OF lty_stru_list,
-        ls_select_list  TYPE lty_stru_list,
-        ls_text         TYPE wdr_name_value,
-        lt_label_texts  TYPE wdr_name_value_list,
-        lt_column_texts TYPE wdr_name_value_list,
-        lv_window_title TYPE string,
-        lv_group_header TYPE string,
-        lv_table_header TYPE string,
-        gt_tj30t        TYPE TABLE OF tj30t,
-        gw_tj30t        LIKE LINE OF gt_tj30t.
-
-  FIELD-SYMBOLS: &lt;<span style="color:#f92672">ls_query_params</span>&gt; TYPE lty_stru_input,
-                 &lt;<span style="color:#f92672">ls_selection</span>&gt;    TYPE lty_stru_list.
-
-  CASE i_ovs_data-m_ovs_callback_object-&gt;phase_indicator.
-
-    WHEN if_wd_ovs=&gt;co_phase_0.  &#34;configuration phase, may be omitted
-*   in this phase you have the possibility to define the texts,
-*   if you do not want to use the defaults (DDIC-texts)
-
-      ls_text-name = `STSMA`.  &#34;must match a field name of search
-      ls_text-value = `Status Profile`. &#34;wd_assist-&gt;get_text( `001` ).
-      INSERT ls_text INTO TABLE lt_label_texts.
-
-      ls_text-name = `ESTAT`.  &#34;must match a field name of search
-      ls_text-value = `User Status`. &#34;wd_assist-&gt;get_text( `001` ).
-      INSERT ls_text INTO TABLE lt_label_texts.
-
-      ls_text-name = `TXT30`.  &#34;must match a field name of search
-      ls_text-value = `Object status`. &#34;wd_assist-&gt;get_text( `001` ).
-      INSERT ls_text INTO TABLE lt_label_texts.
-
-      ls_text-name = `STSMA`.  &#34;must match a field in list structure
-      ls_text-value = `Status Profile`. &#34;wd_assist-&gt;get_text( `002` ).
-      INSERT ls_text INTO TABLE lt_column_texts.
-
-      ls_text-name = `ESTAT`.  &#34;must match a field in list structure
-      ls_text-value = `User Status`. &#34;wd_assist-&gt;get_text( `002` ).
-      INSERT ls_text INTO TABLE lt_column_texts.
-
-      ls_text-name = `TXT04`.  &#34;must match a field in list structure
-      ls_text-value = `Individual status of an object`. &#34;wd_assist-&gt;get_text( `002` ).
-      INSERT ls_text INTO TABLE lt_column_texts.
-
-      ls_text-name = `TXT30`.  &#34;must match a field in list structure
-      ls_text-value = `Object status`. &#34;wd_assist-&gt;get_text( `002` ).
-      INSERT ls_text INTO TABLE lt_column_texts.
-
-*      lv_window_title = wd_assist-&gt;get_text( `003` ).
-*      lv_group_header = wd_assist-&gt;get_text( `004` ).
-*      lv_table_header = wd_assist-&gt;get_text( `005` ).
-
-      i_ovs_data-m_ovs_callback_object-&gt;set_configuration(
-                label_texts  = lt_label_texts
-                column_texts = lt_column_texts
-                group_header = lv_group_header
-                window_title = lv_window_title
-                table_header = lv_table_header
-                col_count    = 4
-                row_count    = 20 ).
-
-
-    WHEN if_wd_ovs=&gt;co_phase_1.  &#34;set search structure and defaults
-*   In this phase you can set the structure and default values
-*   of the search structure. If this phase is omitted, the search
-*   fields will not be displayed, but the selection table is
-*   displayed directly.
-*   Read values of the original context (not necessary, but you
-*   may set these as the defaults). A reference to the context
-*   element is available in the callback object.
-
-      i_ovs_data-m_ovs_callback_object-&gt;context_element-&gt;get_static_attributes(
-          IMPORTING static_attributes = ls_search_input ).
-*     pass the values to the OVS component
-      i_ovs_data-m_ovs_callback_object-&gt;set_input_structure(
-          input = ls_search_input ).
-
-
-    WHEN if_wd_ovs=&gt;co_phase_2.
-*   If phase 1 is implemented, use the field input for the
-*   selection of the table.
-*   If phase 1 is omitted, use values from your own context.
-
-      IF i_ovs_data-m_ovs_callback_object-&gt;query_parameters IS NOT BOUND.
-******** TODO exception handling
-      ENDIF.
-      ASSIGN i_ovs_data-m_ovs_callback_object-&gt;query_parameters-&gt;*
-                              TO &lt;<span style="color:#f92672">ls_query_params</span>&gt;.
-      IF NOT &lt;<span style="color:#f92672">ls_query_params</span>&gt; IS ASSIGNED.
-******** TODO exception handling
-      ENDIF.
-
-      REFRESH:gt_tj30t.
-      DATA: rt_object_id TYPE REF TO data.
-      DATA:gt_file TYPE TABLE OF crmc_proc_type,
-           gw_file LIKE LINE OF gt_file.
-      FIELD-SYMBOLS: &lt;<span style="color:#f92672">process_type</span>&gt; TYPE table.
-      rt_object_id = wd_this-&gt;m_handler-&gt;get_range_table_of_sel_field( i_id = &#39;PROCESS_TYPE&#39; ).
-      ASSIGN rt_object_id-&gt;* TO &lt;<span style="color:#f92672">process_type</span>&gt;.
-      IF &lt;<span style="color:#f92672">process_type</span>&gt; IS ASSIGNED.
-        SELECT * INTO TABLE gt_file FROM crmc_proc_type
-          WHERE process_type IN &lt;<span style="color:#f92672">process_type</span>&gt;
-          AND process_type IN (&#39;ZSO2&#39;,&#39;ZSO3&#39;,&#39;ZSO5&#39;).
-      ELSE.
-        SELECT * INTO TABLE gt_file FROM crmc_proc_type WHERE process_type IN (&#39;ZSO2&#39;,&#39;ZSO3&#39;,&#39;ZSO5&#39;).
-      ENDIF.
-      IF gt_file IS NOT INITIAL.
-        SELECT * INTO CORRESPONDING FIELDS OF TABLE lt_select_list
-          FROM tj30t FOR ALL ENTRIES IN gt_file WHERE stsma = gt_file-user_stat_proc
-          AND spras = sy-langu.
-      ENDIF.
-
-
-*     call business logic for a table of possible values
-*     lt_select_list = ???
-
-      i_ovs_data-m_ovs_callback_object-&gt;set_output_table( output = lt_select_list ).
-
-
-    WHEN if_wd_ovs=&gt;co_phase_3.
-*   apply result
-      FIELD-SYMBOLS : &lt;<span style="color:#f92672">lt_sel_opt_result</span>&gt; TYPE STANDARD TABLE.
-
-      IF i_ovs_data-m_ovs_callback_object-&gt;selection IS NOT BOUND.
-******** TODO exception handling
-      ENDIF.
-
-      ASSIGN i_ovs_data-m_ovs_callback_object-&gt;selection-&gt;* TO &lt;<span style="color:#f92672">ls_selection</span>&gt;.
-      IF &lt;<span style="color:#f92672">ls_selection</span>&gt; IS ASSIGNED.
-        ASSIGN i_ovs_data-mt_selected_values-&gt;* TO &lt;<span style="color:#f92672">lt_sel_opt_result</span>&gt;.
-        INSERT &lt;<span style="color:#f92672">ls_selection</span>&gt;-estat INTO TABLE &lt;<span style="color:#f92672">lt_sel_opt_result</span>&gt;.
-*      or
-*        I_OVS_DATA-m_ovs_callback_object-&gt;context_element-&gt;set_static_attributes(
-*                               static_attributes = &lt;<span style="color:#f92672">ls_selection</span>&gt; ).
-
-      ENDIF.
-  ENDCASE.
-ENDMETHOD.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">ovs</span> .
+  <span style="color:#66d9ef">CHECK</span> i_ovs_data<span style="color:#f92672">-</span>m_selection_field_id <span style="color:#f92672">EQ</span> <span style="color:#e6db74">&#39;STAT&#39;</span>.
+  <span style="color:#66d9ef">TYPES</span>:
+    <span style="color:#66d9ef">BEGIN OF</span> lty_stru_input,
+      stsma <span style="color:#66d9ef">TYPE </span>j_stsma,    <span style="color:#75715e">&#34;搜索条件&#34;
+</span><span style="color:#75715e"></span>      estat <span style="color:#66d9ef">TYPE </span>j_estat,
+      txt30 <span style="color:#66d9ef">TYPE </span>j_txt30,
+    <span style="color:#66d9ef">END OF</span> lty_stru_input.
+  <span style="color:#66d9ef">TYPES</span>:
+    <span style="color:#66d9ef">BEGIN OF</span> lty_stru_list,
+<span style="color:#75715e">*   add fields for the selection list here</span>
+      stsma <span style="color:#66d9ef">TYPE </span>j_stsma,    <span style="color:#75715e">&#34;搜索条件&#34;
+</span><span style="color:#75715e"></span>      estat <span style="color:#66d9ef">TYPE </span>j_estat,
+      txt04 <span style="color:#66d9ef">TYPE </span>j_txt04,
+      txt30 <span style="color:#66d9ef">TYPE </span>j_txt30,
+    <span style="color:#66d9ef">END OF</span> lty_stru_list.
+  <span style="color:#66d9ef">DATA</span>: ls_search_input <span style="color:#66d9ef">TYPE </span>lty_stru_input,
+        lt_select_list  <span style="color:#66d9ef">TYPE STANDARD TABLE OF</span> lty_stru_list,
+        ls_select_list  <span style="color:#66d9ef">TYPE </span>lty_stru_list,
+        ls_text         <span style="color:#66d9ef">TYPE </span>wdr_name_value,
+        lt_label_texts  <span style="color:#66d9ef">TYPE </span>wdr_name_value_list,
+        lt_column_texts <span style="color:#66d9ef">TYPE </span>wdr_name_value_list,
+        lv_window_title <span style="color:#66d9ef">TYPE </span>string,
+        lv_group_header <span style="color:#66d9ef">TYPE </span>string,
+        lv_table_header <span style="color:#66d9ef">TYPE </span>string,
+        gt_tj30t        <span style="color:#66d9ef">TYPE TABLE OF</span> tj30t,
+        gw_tj30t        <span style="color:#66d9ef">LIKE LINE OF</span> gt_tj30t.
+  <span style="color:#66d9ef">FIELD-SYMBOLS</span>: &lt;ls_query_params&gt; <span style="color:#66d9ef">TYPE </span>lty_stru_input,
+                 &lt;ls_selection&gt;    <span style="color:#66d9ef">TYPE </span>lty_stru_list.
+  <span style="color:#66d9ef">CASE</span> i_ovs_data<span style="color:#f92672">-</span>m_ovs_callback_object<span style="color:#f92672">-&gt;</span>phase_indicator.
+    <span style="color:#66d9ef">WHEN</span> if_wd_ovs<span style="color:#f92672">=&gt;</span>co_phase_0.  <span style="color:#75715e">&#34;configuration phase, may be omitted&#34;
+</span><span style="color:#75715e">*   in this phase you have the possibility to define the texts,</span>
+<span style="color:#75715e">*   if you do not want to use the defaults (DDIC-texts)</span>
+      ls_text<span style="color:#f92672">-</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">`STSMA`</span>.  <span style="color:#75715e">&#34;must match a field name of search&#34;
+</span><span style="color:#75715e"></span>      ls_text<span style="color:#f92672">-</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">`Status Profile`</span>. <span style="color:#75715e">&#34;wd_assist-&gt;get_text( `001` ).&#34;
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">INSERT</span> ls_text <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> lt_label_texts.
+      ls_text<span style="color:#f92672">-</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">`ESTAT`</span>.  <span style="color:#75715e">&#34;must match a field name of search&#34;
+</span><span style="color:#75715e"></span>      ls_text<span style="color:#f92672">-</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">`User Status`</span>. <span style="color:#75715e">&#34;wd_assist-&gt;get_text( `001` ).&#34;
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">INSERT</span> ls_text <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> lt_label_texts.
+      ls_text<span style="color:#f92672">-</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">`TXT30`</span>.  <span style="color:#75715e">&#34;must match a field name of search&#34;
+</span><span style="color:#75715e"></span>      ls_text<span style="color:#f92672">-</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">`Object status`</span>. <span style="color:#75715e">&#34;wd_assist-&gt;get_text( `001` ).&#34;
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">INSERT</span> ls_text <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> lt_label_texts.
+      ls_text<span style="color:#f92672">-</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">`STSMA`</span>.  <span style="color:#75715e">&#34;must match a field in list structure&#34;
+</span><span style="color:#75715e"></span>      ls_text<span style="color:#f92672">-</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">`Status Profile`</span>. <span style="color:#75715e">&#34;wd_assist-&gt;get_text( `002` ).&#34;
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">INSERT</span> ls_text <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> lt_column_texts.
+      ls_text<span style="color:#f92672">-</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">`ESTAT`</span>.  <span style="color:#75715e">&#34;must match a field in list structure&#34;
+</span><span style="color:#75715e"></span>      ls_text<span style="color:#f92672">-</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">`User Status`</span>. <span style="color:#75715e">&#34;wd_assist-&gt;get_text( `002` ).&#34;
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">INSERT</span> ls_text <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> lt_column_texts.
+      ls_text<span style="color:#f92672">-</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">`TXT04`</span>.  <span style="color:#75715e">&#34;must match a field in list structure&#34;
+</span><span style="color:#75715e"></span>      ls_text<span style="color:#f92672">-</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">`Individual status of an object`</span>. <span style="color:#75715e">&#34;wd_assist-&gt;get_text( `002` ).&#34;
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">INSERT</span> ls_text <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> lt_column_texts.
+      ls_text<span style="color:#f92672">-</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">`TXT30`</span>.  <span style="color:#75715e">&#34;must match a field in list structure&#34;
+</span><span style="color:#75715e"></span>      ls_text<span style="color:#f92672">-</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">`Object status`</span>. <span style="color:#75715e">&#34;wd_assist-&gt;get_text( `002` ).&#34;
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">INSERT</span> ls_text <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> lt_column_texts.
+<span style="color:#75715e">*      lv_window_title = wd_assist-&gt;get_text( `003` ).</span>
+<span style="color:#75715e">*      lv_group_header = wd_assist-&gt;get_text( `004` ).</span>
+<span style="color:#75715e">*      lv_table_header = wd_assist-&gt;get_text( `005` ).</span>
+      i_ovs_data<span style="color:#f92672">-</span>m_ovs_callback_object<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_configuration</span>(
+                label_texts  <span style="color:#f92672">=</span> lt_label_texts
+                column_texts <span style="color:#f92672">=</span> lt_column_texts
+                group_header <span style="color:#f92672">=</span> lv_group_header
+                window_title <span style="color:#f92672">=</span> lv_window_title
+                table_header <span style="color:#f92672">=</span> lv_table_header
+                col_count    <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+                row_count    <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span> ).
+    <span style="color:#66d9ef">WHEN</span> if_wd_ovs<span style="color:#f92672">=&gt;</span>co_phase_1.  <span style="color:#75715e">&#34;set search structure and defaults&#34;
+</span><span style="color:#75715e">*   In this phase you can set the structure and default values</span>
+<span style="color:#75715e">*   of the search structure. If this phase is omitted, the search</span>
+<span style="color:#75715e">*   fields will not be displayed, but the selection table is</span>
+<span style="color:#75715e">*   displayed directly.</span>
+<span style="color:#75715e">*   Read values of the original context (not necessary, but you</span>
+<span style="color:#75715e">*   may set these as the defaults). A reference to the context</span>
+<span style="color:#75715e">*   element is available in the callback object.</span>
+      i_ovs_data<span style="color:#f92672">-</span>m_ovs_callback_object<span style="color:#f92672">-&gt;</span>context_element<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_static_attributes</span>(
+          <span style="color:#66d9ef">IMPORTING</span> static_attributes <span style="color:#f92672">=</span> ls_search_input ).
+<span style="color:#75715e">*     pass the values to the OVS component</span>
+      i_ovs_data<span style="color:#f92672">-</span>m_ovs_callback_object<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_input_structure</span>(
+          input <span style="color:#f92672">=</span> ls_search_input ).
+    <span style="color:#66d9ef">WHEN</span> if_wd_ovs<span style="color:#f92672">=&gt;</span>co_phase_2.
+<span style="color:#75715e">*   If phase 1 is implemented, use the field input for the</span>
+<span style="color:#75715e">*   selection of the table.</span>
+<span style="color:#75715e">*   If phase 1 is omitted, use values from your own context.</span>
+      <span style="color:#66d9ef">IF</span> i_ovs_data<span style="color:#f92672">-</span>m_ovs_callback_object<span style="color:#f92672">-&gt;</span>query_parameters <span style="color:#f92672">IS NOT BOUND</span>.
+<span style="color:#75715e">******** TODO exception handling</span>
+      <span style="color:#66d9ef">ENDIF</span>.
+      <span style="color:#66d9ef">ASSIGN</span> i_ovs_data<span style="color:#f92672">-</span>m_ovs_callback_object<span style="color:#f92672">-&gt;</span>query_parameters-&gt;*
+                              <span style="color:#66d9ef">TO</span> &lt;ls_query_params&gt;.
+      <span style="color:#66d9ef">IF</span> <span style="color:#f92672">NOT</span> &lt;ls_query_params&gt; <span style="color:#f92672">IS ASSIGNED</span>.
+<span style="color:#75715e">******** TODO exception handling</span>
+      <span style="color:#66d9ef">ENDIF</span>.
+      <span style="color:#66d9ef">REFRESH</span>:gt_tj30t.
+      <span style="color:#66d9ef">DATA</span>: rt_object_id <span style="color:#66d9ef">TYPE REF TO</span> <span style="color:#66d9ef">data</span>.
+      <span style="color:#66d9ef">DATA</span>:gt_file <span style="color:#66d9ef">TYPE TABLE OF</span> crmc_proc_type,
+           gw_file <span style="color:#66d9ef">LIKE LINE OF</span> gt_file.
+      <span style="color:#66d9ef">FIELD-SYMBOLS</span>: &lt;process_type&gt; <span style="color:#66d9ef">TYPE table</span>.
+      rt_object_id <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_range_table_of_sel_field</span>( i_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;PROCESS_TYPE&#39;</span> ).
+      <span style="color:#66d9ef">ASSIGN</span> rt_object_id-&gt;* <span style="color:#66d9ef">TO</span> &lt;process_type&gt;.
+      <span style="color:#66d9ef">IF</span> &lt;process_type&gt; <span style="color:#f92672">IS ASSIGNED</span>.
+        <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> gt_file <span style="color:#66d9ef">FROM</span> crmc_proc_type
+          <span style="color:#66d9ef">WHERE</span> process_type <span style="color:#66d9ef">IN</span> &lt;process_type&gt;
+          <span style="color:#f92672">AND</span> process_type <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;ZSO2&#39;</span>,<span style="color:#e6db74">&#39;ZSO3&#39;</span>,<span style="color:#e6db74">&#39;ZSO5&#39;</span>).
+      <span style="color:#66d9ef">ELSE</span>.
+        <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> gt_file <span style="color:#66d9ef">FROM</span> crmc_proc_type 
+          <span style="color:#66d9ef">WHERE</span> process_type <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;ZSO2&#39;</span>,<span style="color:#e6db74">&#39;ZSO3&#39;</span>,<span style="color:#e6db74">&#39;ZSO5&#39;</span>).
+      <span style="color:#66d9ef">ENDIF</span>.
+      <span style="color:#66d9ef">IF</span> gt_file <span style="color:#f92672">IS NOT INITIAL</span>.
+        <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">CORRESPONDING FIELDS OF</span> <span style="color:#66d9ef">TABLE</span> lt_select_list
+          <span style="color:#66d9ef">FROM</span> tj30t <span style="color:#66d9ef">FOR</span> ALL ENTRIES <span style="color:#66d9ef">IN</span> gt_file
+         <span style="color:#66d9ef">WHERE</span> stsma <span style="color:#f92672">=</span> gt_file<span style="color:#f92672">-</span>user_stat_proc
+           <span style="color:#f92672">AND</span> spras <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>langu.
+      <span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">*     call business logic for a table of possible values</span>
+<span style="color:#75715e">*     lt_select_list = ???</span>
+      i_ovs_data<span style="color:#f92672">-</span>m_ovs_callback_object<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_output_table</span>( output <span style="color:#f92672">=</span> lt_select_list ).
+    <span style="color:#66d9ef">WHEN</span> if_wd_ovs<span style="color:#f92672">=&gt;</span>co_phase_3.
+<span style="color:#75715e">*   apply result</span>
+      <span style="color:#66d9ef">FIELD-SYMBOLS</span> : &lt;lt_sel_opt_result&gt; <span style="color:#66d9ef">TYPE </span>STANDARD <span style="color:#66d9ef">TABLE</span>.
+      <span style="color:#66d9ef">IF</span> i_ovs_data<span style="color:#f92672">-</span>m_ovs_callback_object<span style="color:#f92672">-&gt;</span>selection <span style="color:#f92672">IS NOT BOUND</span>.
+<span style="color:#75715e">******** TODO exception handling</span>
+      <span style="color:#66d9ef">ENDIF</span>.
+      <span style="color:#66d9ef">ASSIGN</span> i_ovs_data<span style="color:#f92672">-</span>m_ovs_callback_object<span style="color:#f92672">-&gt;</span>selection-&gt;* <span style="color:#66d9ef">TO</span> &lt;ls_selection&gt;.
+      <span style="color:#66d9ef">IF</span> &lt;ls_selection&gt; <span style="color:#f92672">IS ASSIGNED</span>.
+        <span style="color:#66d9ef">ASSIGN</span> i_ovs_data<span style="color:#f92672">-</span>mt_selected_values-&gt;* <span style="color:#66d9ef">TO</span> &lt;lt_sel_opt_result&gt;.
+        <span style="color:#66d9ef">INSERT</span> &lt;ls_selection&gt;<span style="color:#f92672">-</span>estat <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> &lt;lt_sel_opt_result&gt;.
+<span style="color:#75715e">*      or</span>
+<span style="color:#75715e">*        I_OVS_DATA-m_ovs_callback_object-&gt;context_element-&gt;set_static_attributes(</span>
+<span style="color:#75715e">*                               static_attributes = &lt;ls_selection&gt; ).</span>
+      <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#66d9ef">ENDCASE</span>.
+<span style="color:#66d9ef">ENDMETHOD</span>.
 </code></pre></div>
     </div>
 
@@ -556,7 +496,7 @@ ENDMETHOD.
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>1681</span>
+                   <span>1668</span>
             </p>
             
             <p class="copyright-item">

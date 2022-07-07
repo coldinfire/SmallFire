@@ -69,14 +69,12 @@ SE30： 分析某个事务或程序的执行时间，有一些性能分析的例
     shere从句中使用IS NULL条件
     ```
 
-    - 使用内表批量操作数据库，而不要使用工作区一条条操作,如：
+    使用内表批量操作数据库，而不要使用工作区一条条操作,如：
 
-    ```JS
-    SELECT ... INTO TABLE itab
-    INSERT dbtab FROM TABLE itab
-    DELETE dbtab FROM TABLE itab
-    UPDATE/MODIFY dbtab FROM TABLE itab		 
-    ```
+    - INSERT dbtab FROM TABLE itab
+    - DELETE dbtab FROM TABLE itab
+    - MODIFY dbtab FROM TABLE itab	
+    - SELECT ... INTO TABLE itab
 
 19. 针对 STANDARD TABLE 排序后可以进行二分法查找，使用 SORTED TABLE 也可进行二分法查找，那么二者有什么区别呢？
 

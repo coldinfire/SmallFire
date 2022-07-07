@@ -14,7 +14,7 @@ tags:
 
 ### Context Component Controller
 
-![Web Dynpro Context](/images/webdynproABAP/Portal34.png)
+![Web Dynpro Context](/images/webdynpro/webdynproABAP/Portal34.png)
 
 ### WDDOINIT
 

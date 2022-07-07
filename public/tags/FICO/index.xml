@@ -62,6 +62,15 @@
     </item>
     
     <item>
+      <title> FI 常用 BAPI </title>
+      <link>https://coldinfire.github.io/2020/FI_BAPI_ALL_List/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/FI_BAPI_ALL_List/</guid>
+      <description>FI BAPI List BAPI Description K_HIERARCHY_TABLES_READ 成本要素组明细 BAPI_ACC_DOCUMENT_POST 创建会计凭证 BAPI_ACC_DOCUMENT_REV_POST 反冲会计凭证；可以冲销自开发程序生成的凭证，必须传入交易码参数 BAPI_ACC_GL_POSTING_REV_POST 只能冲销标准TCODE生成的凭证 FCOM_COSTCENTER_CHANGEMULTIPLE</description>
+    </item>
+    
+    <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据退货PO创建贷项凭证 </title>
       <link>https://coldinfire.github.io/2019/MM_BAPI_MIRO_INCOMINGINVOICE_CREATE/</link>
       <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
@@ -95,6 +104,15 @@
       
       <guid>https://coldinfire.github.io/2019/MM_BAPI_ACC_DOCUMENT_REV/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/0RoUY8nyWfONjKTItjTouA BAPI_ACC_DOCUMENT_REV_POST 凭证冲销 前台操作： FB08 直接点保存</description>
+    </item>
+    
+    <item>
+      <title> FI 配置流程 </title>
+      <link>https://coldinfire.github.io/2019/FI_Configure/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/FI_Configure/</guid>
+      <description>创建会计科目表 (A999账目表) 定义会计年度变式 (正常记账期间12、特殊期间4) 创建信贷控制范围 依据以上信息维护公司参数 定义科目账户组合编号</description>
     </item>
     
   </channel>

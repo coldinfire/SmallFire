@@ -40,7 +40,7 @@ tags:
 
 ### 通过函数获取
 
-```js
+```ABAP
 DATA name TYPE thead-tdname.
 DATA langu LIKE sy-langu VALUE 'EN'.
 DATA lines TYPE STANDARD TABLE OF tline WITH HEADER LINE.

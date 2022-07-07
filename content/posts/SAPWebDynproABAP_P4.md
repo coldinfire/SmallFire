@@ -14,7 +14,7 @@ tags:
 
 ### ALV_VIEW Action Function:程序实例
 
-```JS
+```ABAP
 METHOD ONACTIONPRINT .
   DATA lo_api_controller     TYPE REF TO if_wd_controller.
   DATA lo_message_manager    TYPE REF TO if_wd_message_manager.

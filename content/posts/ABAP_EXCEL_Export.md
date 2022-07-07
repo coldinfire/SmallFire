@@ -10,6 +10,7 @@ categories:
 tags: 
   - abaputils
   - ALV
+
 ---
 
 SAP 提供了 cl_salv_export_tool 类用于将 ALV 数据导出到 Excel，如果是早一点的版本，系统没有这个函数可以使用 XXL_SIMPLE_API。

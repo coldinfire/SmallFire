@@ -22,7 +22,7 @@
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_EXCEL_OLE/</guid>
-      <description>OLE 下载 EXCEL 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员自定义下载数据程序。 步骤： 上传模板 tcod</description>
+      <description>OLE 下载 EXCEL 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员自定义下载数据程序。 步骤： 上传模板事务码：</description>
     </item>
     
     <item>

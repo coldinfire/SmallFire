@@ -306,10 +306,10 @@
     
     <item>
       <title> RFC-BAPI-BADI-BDC 区别 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Utils_FunctionDiff/</link>
+      <link>https://coldinfire.github.io/2021/ABAP_Basis_FunctionDiff/</link>
       <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2021/ABAP_Utils_FunctionDiff/</guid>
+      <guid>https://coldinfire.github.io/2021/ABAP_Basis_FunctionDiff/</guid>
       <description>RFC RFC 代表远程函数调用。 它是 SAP 环境中不同系统应用程序之间通信的协议，包括 SAP 系统之间以及 SAP 系统与非 SAP 系统之间的连接。 它是用于不同 SAP 系统之间通信的</description>
     </item>
     
@@ -859,7 +859,7 @@
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_Table_Adjust/</guid>
-      <description>当业务场景发生变化，或则其它原因需要变更透明表的Key值时，保存和激活时会报错，需要使用SE14进行处理。 勾选Direct,Save Data</description>
+      <description>当业务场景发生变化，或则其它原因需要变更透明表的 Key 值时，保存和激活时会报错，需要使用 SE14 进行处理。 勾选Direct,Save Data;然后点击</description>
     </item>
     
     <item>
@@ -881,7 +881,7 @@
     </item>
     
     <item>
-      <title> FI 常用BAPI </title>
+      <title> FI 常用 BAPI </title>
       <link>https://coldinfire.github.io/2020/FI_BAPI_ALL_List/</link>
       <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
       
@@ -895,7 +895,7 @@
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_EXCEL_OLE/</guid>
-      <description>OLE 下载 EXCEL 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员自定义下载数据程序。 步骤： 上传模板 tcod</description>
+      <description>OLE 下载 EXCEL 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员自定义下载数据程序。 步骤： 上传模板事务码：</description>
     </item>
     
     <item>
@@ -990,10 +990,10 @@
     
     <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</link>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_MIRO_Create/</link>
       <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_MIRO_Create/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw BAPI_INCOMINGINVOICE_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZTEST_MIRO. *&amp;amp;---------------------------------------------------------------------* REPORT ZTEST_MIRO. DATA: LS_HEADERDATA LIKE BAPI_INCINV_CREATE_HEADER, LT_RETURN LIKE TABLE OF</description>
     </item>
     
@@ -1188,10 +1188,10 @@
     
     <item>
       <title> ABAP 学习网站记录 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
+      <link>https://coldinfire.github.io/2019/ABAP_Basis_WebSiteCollect/</link>
       <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</guid>
+      <guid>https://coldinfire.github.io/2019/ABAP_Basis_WebSiteCollect/</guid>
       <description>http://www.saptechnical.com/index.htm：需要检索关键信息 https://sapcodes.com/：包含</description>
     </item>
     
@@ -1971,10 +1971,10 @@
     
     <item>
       <title> SAP Webservice 使用 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_Webservice/</link>
+      <link>https://coldinfire.github.io/2019/SAP_Utils_Webservice/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/ABAP_Webservice/</guid>
+      <guid>https://coldinfire.github.io/2019/SAP_Utils_Webservice/</guid>
       <description>ABAP 调用外部 Webservice 创建代理类 Step1：SE80 选择 package，点击创建 Enterprise Service / Web service-proxy client Step2：参数填写，没有错误的话，会根据指定的 wsdl 文件，产</description>
     </item>
     
@@ -2349,19 +2349,19 @@
     
     <item>
       <title> SAP Field Symbols </title>
-      <link>https://coldinfire.github.io/2018/ABAP_FieldSymbol_RefTo/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_FieldSymbol/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_FieldSymbol_RefTo/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_FieldSymbol/</guid>
       <description>字段符号 定义 FIELD-SYMBOLS: &amp;lt;fs_tb&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs_wa&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE LINE OF &amp;lt;table&amp;gt;. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE &amp;lt;structure&amp;gt;. 使用 FIELD-SYMBOLS 必须和某个变量，结构或者内表绑定后才能使用，在使用字段符号前必须分配给某个变量，不然</description>
     </item>
     
     <item>
       <title> BDC 屏幕录制 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_BDC/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_BDC/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_BDC/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_BDC/</guid>
       <description>定义BDC (Batch Data Communication) BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输. 使用 BDC 的基本流程 Step1：获取源数据 一</description>
     </item>
     
@@ -2862,10 +2862,10 @@
     
     <item>
       <title> 小数后面去除后缀0 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_EndZero/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_EndZero/</link>
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_EndZero/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_EndZero/</guid>
       <description>小数后面去除后缀 0 FORM DATA_DELETE_ZERO using p_field z_result. DATA: var1 TYPE p DECIMALS 3, var2 TYPE p DECIMALS 2, var3 TYPE p DECIMALS 1, var4 TYPE i. move p_field to var1. move p_field to var2. move p_field to var3. move p_field to var4. IF var2 = var1. IF var3 = var1. IF var4 = var1. z_result = var4. ELSE. z_result = var3. ENDIF. ELSE.</description>
     </item>
     
@@ -2880,10 +2880,10 @@
     
     <item>
       <title> ABAP 事件终止 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Utils_EventTerminated/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_EventTerminated/</link>
       <pubDate>Sat, 09 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Utils_EventTerminated/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_EventTerminated/</guid>
       <description>事件终止 RETURN 用来退出当前执行的程序块，而不仅仅是退出循环。如FORM，METHOD，报表事件块 STOP INITIALIZATION 中 STOP 会导致跳转到 AT SELECTION-SCREEN OUTPUT 事件块 如果 STOP 在 AT SELECTION-SCREEN OUTPUT 块</description>
     </item>
     
@@ -2916,10 +2916,10 @@
     
     <item>
       <title> ABAP Message 处理 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Message/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_Message/</link>
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Message/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Message/</guid>
       <description>MESSAGE 简单操作 SAP Message 存储的内表 T100、T100C、T100S、T100U、T160M T100：该表包括所有的消息 T100C：通常包括修改后的消息</description>
     </item>
     

@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "WebDynpro",
-  "wordcount":  2344 ,
+  "wordcount":  2343 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/SAPWebDynproABAP_View\/",
   "datePublished": "2018-10-19T00:00:00\u002b00:00",
   "dateModified": "2018-10-19T00:00:00\u002b00:00",
@@ -174,7 +174,7 @@
           
 
           <h3 id="视图的整体介绍">视图的整体介绍</h3>
-<p><img src="/images/webdynproABAP/14.png" alt="View Layout"></p>
+<p><img src="/images/webdynpro/webdynproABAP/14.png" alt="View Layout"></p>
 <p><strong>Properties</strong> ：VIEW的属性，一般引入一些系统控件如alv，select-option等</p>
 <p><strong>Layout</strong> ：视图布局，显示的样式，选择字段的排版</p>
 <p><strong>Inbound Plugs</strong> ：转入的连接(内向链接)，一般视图跳转需要带些参数什么的，需要在这里定义plugs和参数相关信息</p>
@@ -190,10 +190,10 @@
 <ul>
 <li>SELECT_OPTIONS  &lt;&mdash;&ndash;&gt;  WDR_SELECT_OPTIONS</li>
 </ul>
-<p><img src="/images/webdynproABAP/Portal25.png" alt="Web Dynpro Used Components"></p>
+<p><img src="/images/webdynpro/webdynproABAP/Portal25.png" alt="Web Dynpro Used Components"></p>
 <p>Step2：将组件加入使用的视图中。</p>
 <p>双击视图，选择Properties页签，在使用组件表格中点击创建，将组件对应的两个列表加进来。</p>
-<p><img src="/images/webdynproABAP/Portal26.png" alt="Web Dynpro View Properties"></p>
+<p><img src="/images/webdynpro/webdynproABAP/Portal26.png" alt="Web Dynpro View Properties"></p>
 <p>Step3：在视图的WDDOINIT方法中，初始化SELECT OPTIONS。</p>
 <p>在视图的Attributes页签中，添加组件对象</p>
 <ul>
@@ -205,10 +205,10 @@
 </ul>
 <p>Step4：在视图的Layout中添加ViewContainerUIElement容器，该容器用来盛放Select-options的内容；在Window中将SELECT-OPTION组件嵌套视图中。</p>
 <p>选中视图的ViewContainerUIElement容器，右键 &mdash;-&gt; Embed View，弹出下图：</p>
-<p><img src="/images/webdynproABAP/Portal27.png" alt="Web Dynpro View Properties"></p>
+<p><img src="/images/webdynpro/webdynproABAP/Portal27.png" alt="Web Dynpro View Properties"></p>
 <p>选择SELECT_OPTIONS组件绑定：</p>
-<p><img src="/images/webdynproABAP/Portal28.png" alt="Web Dynpro Window"></p>
-<p><img src="/images/webdynproABAP/Portal29.png" alt="Web Dynpro Window"></p>
+<p><img src="/images/webdynpro/webdynproABAP/Portal28.png" alt="Web Dynpro Window"></p>
+<p><img src="/images/webdynpro/webdynproABAP/Portal29.png" alt="Web Dynpro Window"></p>
 <h4 id="alv-使用">ALV 使用</h4>
 <p>ALV是WDA的组件，封装好的，和SELECT OPTION一样。所以使用的方法一般就是：</p>
 <ul>
@@ -231,7 +231,6 @@
 <li><a href="https://coldinfire.github.io/2018/SAPWebDynproABAP_P1/">ALV_VIEW : WDDOINIT</a></li>
 </ul>
 <p>Step4：数据绑定。</p>
-<p>​</p>
 <p>Step5：ALV控制器创建，并在窗口中添加，在视图的Layout中添加ViewContainerUIElement容器，该容器用来盛放ALV的结果。</p>
 <p>选中视图的ViewContainerUIElement容器，右键 &mdash;-&gt; Embed View，选择ALV Table绑定。</p>
 <h3 id="layout-界面元素">Layout 界面元素</h3>
@@ -360,7 +359,7 @@
 </table>
 <h3 id="view-controller-中的-hook-方法">View Controller 中的 HOOK 方法</h3>
 <p>HOOK 方法是 Web dynpro 编程中的标准 SAP 方法，由 SAP 自动创建，以控制 Web dynpro 应用程序的执行流程。</p>
-<p><img src="/images/webdynproABAP/Portal31.png" alt="Web Dynpro Hook Method"></p>
+<p><img src="/images/webdynpro/webdynproABAP/Portal31.png" alt="Web Dynpro Hook Method"></p>
 <h4 id="wddoinit">WDDOINIT：</h4>
 <p>用于初始化逻辑的方法，这是在显示视图之前显示的第一个方法。此方法用于初始化变量，默认数据等。</p>
 <h4 id="wdmodifyview">WDMODIFYVIEW：</h4>
@@ -413,7 +412,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2344</span>
+                   <span>2343</span>
             </p>
             
             <p class="copyright-item">

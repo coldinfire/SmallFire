@@ -53,6 +53,15 @@
     </item>
     
     <item>
+      <title> BAPI:VIEW_MAINTENANCE_CALL 使用 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Table_BAPI_Maintenance/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Table_BAPI_Maintenance/</guid>
+      <description>BAPI: VIEW_MAINTENANCE_CALL DATA:LT_SELLIST LIKE TABLE OF VIMSELLIST WITH HEADER LINE. CLEAR:LT_SELLIST. REFRESH: LT_SELLIST. LT_SELLIST-VIEWFIELD = &amp;#39;BUKRS&amp;#39;. LT_SELLIST-OPERATOR = &amp;#39;EQ&amp;#39;. LT_SELLIST-VALUE = P_BUKRS. LT_SELLIST-AND_OR = &amp;#39;AND&amp;#39;. APPEND LT_SELLIST. CALL FUNCTION &amp;#39;VIEW_MAINTENANCE_CALL&amp;#39; EXPORTING ACTION = &amp;#39;U&amp;#39; &amp;#34;S = Display U = Change T = Transport&amp;#34; VIEW_NAME = &amp;#39;ZCO002&amp;#39; TABLES DBA_SELLIST = LT_SELLIST EXCEPTIONS CLIENT_REFERENCE = 1 FOREIGN_LOCK = 2 INVALID_ACTION = 3 NO_CLIENTINDEPENDENT_AUTH = 4 NO_DATABASE_FUNCTION = 5 NO_EDITOR_FUNCTION = 6 NO_SHOW_AUTH</description>
+    </item>
+    
+    <item>
       <title> WM 盘点 </title>
       <link>https://coldinfire.github.io/2020/WM_CycleCount/</link>
       <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
@@ -80,6 +89,15 @@
     </item>
     
     <item>
+      <title> BAPI 冲销 Delivery Note </title>
+      <link>https://coldinfire.github.io/2020/MM_BAPI_VL09/</link>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2020/MM_BAPI_VL09/</guid>
+      <description>VL09：交货单冲销 FORM cx_dn USING gt_out TYPE typ_out. DATA: ls_emkpf TYPE emkpf, lt_mesg TYPE STANDARD TABLE OF mesg. SELECT SINGLE wbstk,vbtyp INTO @data(l_likp) FROM likp WHERE vbeln = gt_out-vbeln. CLEAR: ls_emkpf,lt_mesg. CALL FUNCTION &amp;#39;WS_REVERSE_GOODS_ISSUE&amp;#39; EXPORTING i_vbeln = gt_out-vbeln i_budat = gt_out-budat i_vbtyp = l_likp-vbtyp i_tcode = &amp;#39;VL09&amp;#39; IMPORTING es_emkpf = ls_emkpf TABLES t_mesg = lt_mesg EXCEPTIONS error_reverse_goods_issue = 1 others = 2.</description>
+    </item>
+    
+    <item>
       <title> Transfer Order(L_TO_CREATE_SINGLE) </title>
       <link>https://coldinfire.github.io/2020/WM_BAPI_TransferOrder_1/</link>
       <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
@@ -89,7 +107,7 @@
     </item>
     
     <item>
-      <title> FI 常用BAPI </title>
+      <title> FI 常用 BAPI </title>
       <link>https://coldinfire.github.io/2020/FI_BAPI_ALL_List/</link>
       <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
       
@@ -144,10 +162,10 @@
     
     <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</link>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_MIRO_Create/</link>
       <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_MIRO_Create/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw BAPI_INCOMINGINVOICE_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZTEST_MIRO. *&amp;amp;---------------------------------------------------------------------* REPORT ZTEST_MIRO. DATA: LS_HEADERDATA LIKE BAPI_INCINV_CREATE_HEADER, LT_RETURN LIKE TABLE OF</description>
     </item>
     

@@ -22,15 +22,15 @@ Modify the WebDynpro Application and add the Parameter:
 
 ​	`WDDISABLEUSERPERSONALIZATION = X`.
 
-![method1](/images/ABAP/ABAP_Webdynpro1.png)
+![method1](/images/webdynpro/webdynproABAP/ABAP_Webdynpro1.png)
 
 #### Method 2
 
 Alternatively  you can call the webdynpro application `WD_GLOBAL_SETTING` in `SE80 `and globally disable all user personalization for all applications. This avoids endusers from calling helpdesk because "fields are gone" etc. pretty well.
 
-![method2](/images/ABAP/ABAP_Webdynpro2.png)
+![method2](/images/webdynpro/webdynproABAP/ABAP_Webdynpro2.png)
 
-![method2](/images/ABAP/ABAP_Webdynpro3.png)
+![method2](/images/webdynpro/webdynproABAP/ABAP_Webdynpro3.png)
 
 ### JAVA Enviroment
 

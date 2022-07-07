@@ -172,112 +172,112 @@
           
 
           <h2 id="alv_view-wddoinit">ALV_VIEW: WDDOINIT</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">WDDOINIT</span> .
-<span style="color:#f92672">*</span><span style="color:#ae81ff">1.</span><span style="color:#a6e22e">数据定义</span>
-<span style="color:#f92672">*=========================================================</span>
- <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">alv_usage</span>       <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_component_usage</span>,  <span style="color:#e6db74">&#34;①&#34;</span>
-       <span style="color:#a6e22e">alv_controller</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">iwci_salv_wd_table</span>,     <span style="color:#e6db74">&#34;②&#34;</span>
-       <span style="color:#a6e22e">alv_config</span>      <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_config_table</span>.<span style="color:#e6db74">&#34;③&#34;</span>
- <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">column_settings</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_salv_wd_column_settings</span>,
-       <span style="color:#a6e22e">table_settings</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_salv_wd_table_settings</span>,
-       <span style="color:#a6e22e">column_nd</span>       <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_column</span>,
-       <span style="color:#a6e22e">column_header</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_column_header</span>,
-       <span style="color:#66d9ef">function</span>        <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_function</span>,
-       <span style="color:#a6e22e">button</span>          <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_fe_button</span>.
- <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">columns</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">salv_wd_t_column_ref</span>,
-       <span style="color:#a6e22e">column</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">salv_wd_s_column_ref</span>,
-       <span style="color:#a6e22e">fields</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">dfies</span>,
-       <span style="color:#a6e22e">field</span>    <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">dfies</span>.
-<span style="color:#e6db74">&#34; Add Check Box &#34;</span>
- <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span><span style="color:#a6e22e">checkbox</span>      <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_uie_checkbox</span>,
-      <span style="color:#a6e22e">input_field</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_uie_input_field</span>.
- <span style="color:#e6db74">&#34; Get Context note &#34;</span>
- <span style="color:#a6e22e">DATA</span> <span style="color:#a6e22e">context_node</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_node</span>.
- <span style="color:#a6e22e">context_node</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_context</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wdctx_ZALV_ZPEFF_TOTAL</span> ).
-<span style="color:#f92672">*</span><span style="color:#ae81ff">2.</span><span style="color:#a6e22e">实例化alv</span> <span style="color:#a6e22e">组件</span>
-<span style="color:#f92672">*=========================================================</span>
-<span style="color:#e6db74">&#34; 实例化ALV 组件 &#34;</span>
-  <span style="color:#a6e22e">alv_usage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpuse_alv</span>( ). <span style="color:#e6db74">&#34;① 将引用的ALV组件实例(ALV)复制给参数&#34;</span>
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">alv_usage</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">has_active_component</span>( ) <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">INITIAL</span>.
-    <span style="color:#a6e22e">alv_usage</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_component</span>( ).
-  <span style="color:#a6e22e">ENDIF</span>.
-<span style="color:#e6db74">&#34; 通过向导引入控制器中的Context节点和其对应的SET_DATA方法，并将节点传入控制器 &#34;</span>
-  <span style="color:#a6e22e">alv_controller</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpifc_alv</span>( ). <span style="color:#e6db74">&#34;② 将引用的ALV组件实例（ALV_OUTPUT）复制给参数&#34;</span>
-  <span style="color:#a6e22e">alv_controller</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_data</span>( <span style="color:#a6e22e">r_node_data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lo_nd_node</span> ). <span style="color:#e6db74">&#34;上面定义的节点参数&#34;</span>  
-<span style="color:#e6db74">&#34; 获取参考模型 &#34;</span>
-  <span style="color:#a6e22e">alv_config</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">alv_controller</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_model</span>( ). <span style="color:#e6db74">&#34;③ 获取控制器的GET_MODEL方法，实现ALV定制&#34;</span>
-  <span style="color:#a6e22e">column_settings</span> <span style="color:#f92672">?=</span> <span style="color:#a6e22e">alv_config</span>.
-  <span style="color:#a6e22e">table_settings</span>  <span style="color:#f92672">?=</span> <span style="color:#a6e22e">alv_config</span>.
-<span style="color:#f92672">*</span><span style="color:#ae81ff">3.</span><span style="color:#a6e22e">ALV</span> <span style="color:#a6e22e">Table</span> <span style="color:#a6e22e">Standard</span> <span style="color:#a6e22e">Functions</span> <span style="color:#a6e22e">Setting</span>
-<span style="color:#f92672">*=========================================================</span>
-  <span style="color:#a6e22e">alv_config</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions</span><span style="color:#f92672">~</span><span style="color:#a6e22e">set_export_allowed</span>( <span style="color:#a6e22e">abap_true</span> ) .<span style="color:#e6db74">&#34;设置是否可以导出&#34;</span>
-  <span style="color:#a6e22e">alv_config</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions</span><span style="color:#f92672">~</span><span style="color:#a6e22e">set_edit_append_row_allowed</span>( <span style="color:#a6e22e">abap_false</span> ). <span style="color:#e6db74">&#34;附加行&#34;</span>
-  <span style="color:#a6e22e">alv_config</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions</span><span style="color:#f92672">~</span><span style="color:#a6e22e">set_edit_delete_row_allowed</span>( <span style="color:#a6e22e">abap_false</span> ). <span style="color:#e6db74">&#34;删除行&#34;</span>
-  <span style="color:#a6e22e">alv_config</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions</span><span style="color:#f92672">~</span><span style="color:#a6e22e">set_edit_insert_row_allowed</span>( <span style="color:#a6e22e">abap_false</span> ). <span style="color:#e6db74">&#34;插入行&#34;</span>
-  <span style="color:#a6e22e">alv_config</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions</span><span style="color:#f92672">~</span><span style="color:#a6e22e">set_pdf_allowed</span>( <span style="color:#a6e22e">abap_false</span> ).             <span style="color:#e6db74">&#34;打印版本&#34;</span>
-  <span style="color:#a6e22e">alv_config</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions</span><span style="color:#f92672">~</span><span style="color:#a6e22e">set_count_records_allowed</span>( <span style="color:#a6e22e">abap_true</span> ). <span style="color:#e6db74">&#34;Count Records&#34;</span>
-  <span style="color:#a6e22e">alv_config</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions</span><span style="color:#f92672">~</span><span style="color:#a6e22e">set_edit_check_available</span>( <span style="color:#a6e22e">abap_false</span> ). <span style="color:#e6db74">&#34;控制是否显示检查按钮&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#ae81ff">4.</span><span style="color:#a6e22e">ALV</span> <span style="color:#a6e22e">Table</span> <span style="color:#a6e22e">设置</span>
-<span style="color:#f92672">*=========================================================</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_READ_ONLY</span>( <span style="color:#a6e22e">ABAP_FALSE</span> ).<span style="color:#e6db74">&#34;设置ALV整体不可编辑&#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_VISIBLE_ROW_COUNT</span>( <span style="color:#e6db74">&#39;50&#39;</span> ).<span style="color:#e6db74">&#34;设置可见行&#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_FIXED_TABLE_LAYOUT</span>( <span style="color:#a6e22e">ABAP_FALSE</span> ).  <span style="color:#e6db74">&#34;使列宽可自动调节&#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_ROW_SELECTABLE</span>( <span style="color:#a6e22e">ABAP_TRUE</span> ).<span style="color:#e6db74">&#34;设置行选择&#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_SCROLLABLE_COL_COUNT</span>( <span style="color:#e6db74">&#39;10&#39;</span> ).<span style="color:#e6db74">&#34;设置滚动条&#34;</span>
-  <span style="color:#e6db74">&#34; 控制是否有默认的选择黄条 &#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_SELECTION_MODE</span>( <span style="color:#a6e22e">cl_wd_table</span>=&gt;<span style="color:#a6e22e">e_selection_mode</span><span style="color:#f92672">-</span><span style="color:#a6e22e">single_no_lead</span> ).
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_WIDTH</span>( <span style="color:#e6db74">&#39;80%&#39;</span> ).<span style="color:#e6db74">&#34;设置ALV宽度&#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_EDIT_MODE</span>( <span style="color:#a6e22e">IF_SALV_WD_C_TABLE_SETTINGS</span>=&gt;<span style="color:#a6e22e">EDIT_MODE</span> ).  <span style="color:#e6db74">&#34;设置编辑模式&#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_EDIT_MODE</span>( <span style="color:#a6e22e">IF_SALV_WD_C_TABLE_SETTINGS</span>=&gt;<span style="color:#a6e22e">EDIT_MODE_STANDARD</span> ).<span style="color:#e6db74">&#34;设置不可编辑模式&#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_ENABLED</span>( <span style="color:#a6e22e">ABAP_TRUE</span> ) .<span style="color:#e6db74">&#34;可处理的&#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_EMPTY_TABLE_TEXT</span>( <span style="color:#e6db74">&#39;Empty&#39;</span> ) .<span style="color:#e6db74">&#34;设置空表时显示的文本&#34;</span>
-  <span style="color:#a6e22e">table_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_DISPLAY_EMPTY_ROWS</span>( <span style="color:#a6e22e">ABAP_FALSE</span> ).  <span style="color:#e6db74">&#34;不展示空表&#34;</span>
-<span style="color:#f92672">*</span><span style="color:#ae81ff">5.</span><span style="color:#a6e22e">ALV</span> <span style="color:#a6e22e">Columns</span> <span style="color:#a6e22e">设置</span>
-<span style="color:#f92672">*=========================================================</span>
-  <span style="color:#a6e22e">columns</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">column_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>(  ).
-  <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">columns</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">column</span>. 
-    <span style="color:#a6e22e">column_nd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">column</span><span style="color:#f92672">-</span><span style="color:#a6e22e">r_column</span>.
-    <span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">column</span><span style="color:#f92672">-</span><span style="color:#a6e22e">id</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;WERKS&#39;</span>.
-        <span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_position</span>( <span style="color:#ae81ff">0</span> ).
-        <span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_RESIZABLE</span>( <span style="color:#a6e22e">abap_true</span> ).
-        <span style="color:#a6e22e">column_header</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_header</span>(  ) .
-        <span style="color:#a6e22e">column_header</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_ddic_binding_field</span>(  ).
-        <span style="color:#a6e22e">column_header</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_text</span>(<span style="color:#e6db74">&#39;Plant&#39;</span>).
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;MEINS&#39;</span>.
-        <span style="color:#a6e22e">column_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">delete_column</span>( <span style="color:#a6e22e">column</span><span style="color:#f92672">-</span><span style="color:#a6e22e">id</span> ).
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;STAT&#39;</span>.  <span style="color:#e6db74">&#34;设置文本色: TEXT_BACKG =&gt; WDY_UIE_LIBRARY_ENUM_TYPE&#34;</span>
-      	<span style="color:#a6e22e">DATA</span> <span style="color:#a6e22e">cell_editor</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_uie</span>.
-        <span style="color:#a6e22e">DATA</span> <span style="color:#a6e22e">text_view</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_uie_text_view</span>.
-        <span style="color:#a6e22e">cell_editor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_cell_editor</span>( ).
-        <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">cell_editor</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">editor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">if_salv_wd_c_column_settings</span>=&gt;<span style="color:#a6e22e">cell_editor_text_view</span>.
-          <span style="color:#a6e22e">text_view</span> <span style="color:#f92672">?=</span> <span style="color:#a6e22e">cell_editor</span>.
-          <span style="color:#a6e22e">text_view</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_semantic_color_fieldname</span>( <span style="color:#e6db74">&#39;TEXT_BACKG&#39;</span> ).
-        <span style="color:#a6e22e">ENDIF</span>.
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;DATE&#39;</span>. <span style="color:#e6db74">&#34;设置列背景色 COL_BACKG =&gt; WDY_UIE_LIBRARY_ENUM_TYPE&#34;</span>
-		<span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_design</span>( <span style="color:#a6e22e">cl_wd_abstr_master_table_col</span>=&gt;<span style="color:#a6e22e">e_cell_design</span><span style="color:#f92672">-</span><span style="color:#a6e22e">positive</span> ).
-      <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#39;OTHERS&#39;</span>. <span style="color:#e6db74">&#34;COLOR:单元格背景色&#34;</span>
-        <span style="color:#e6db74">&#34; Setting Color field:WDUI_TABLE_CELL_DESIGN (Table Cell Design) &#34;</span>
-        <span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_design_fieldname</span>( <span style="color:#e6db74">&#39;COLOR&#39;</span> ). 
-    <span style="color:#a6e22e">ENDCASE</span>.
-  <span style="color:#a6e22e">ENDLOOP</span>.
-  <span style="color:#a6e22e">column_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">delete_column</span>( <span style="color:#e6db74">&#39;COLOR&#39;</span> ). <span style="color:#e6db74">&#34;Delete column&#34;</span>
-  <span style="color:#a6e22e">column_nd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">column_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;BDAUT&#39;</span> ). <span style="color:#e6db74">&#34;Get column&#34;</span>
-  <span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_visible</span>( <span style="color:#a6e22e">cl_wd_uielement</span>=&gt;<span style="color:#a6e22e">e_visible</span><span style="color:#f92672">-</span><span style="color:#a6e22e">none</span> ). <span style="color:#e6db74">&#34; Set colums not display in alv &#34;</span>
-<span style="color:#f92672">*</span><span style="color:#ae81ff">6.</span><span style="color:#a6e22e">ALV</span> <span style="color:#a6e22e">Table设置选择按钮和ALV</span> <span style="color:#a6e22e">hearder</span> <span style="color:#a6e22e">text</span> <span style="color:#a6e22e">设置</span>,<span style="color:#a6e22e">ZSELE添加在Context中</span>
-<span style="color:#f92672">*==========================================================</span>
-  <span style="color:#a6e22e">CREATE</span> <span style="color:#a6e22e">OBJECT</span> <span style="color:#a6e22e">checkbox</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">checked_fieldname</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZSELE&#39;</span>.
-  <span style="color:#a6e22e">column_nd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">column_settings</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;ZSELE&#39;</span> ).
-  <span style="color:#a6e22e">CREATE</span> <span style="color:#a6e22e">OBJECT</span> <span style="color:#a6e22e">input_field</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">value_fieldname</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZSELE&#39;</span>.
-  <span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_editor</span>( <span style="color:#a6e22e">input_field</span> ).
-  <span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_editor</span>( <span style="color:#a6e22e">checkbox</span> ).
-  <span style="color:#a6e22e">column_header</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">column_nd</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_header</span>( ).
-  <span style="color:#a6e22e">column_header</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_text</span>( <span style="color:#e6db74">&#39;Selected&#39;</span> ).
-<span style="color:#a6e22e">endmethod</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">WDDOINIT</span> .
+<span style="color:#75715e">*1.数据定义</span>
+<span style="color:#75715e">*=========================================================</span>
+ <span style="color:#66d9ef">DATA</span>: alv_usage       <span style="color:#66d9ef">TYPE REF TO</span> if_wd_component_usage,  <span style="color:#75715e">&#34;①&#34;
+</span><span style="color:#75715e"></span>       alv_controller  <span style="color:#66d9ef">TYPE REF TO</span> iwci_salv_wd_table,     <span style="color:#75715e">&#34;②&#34;
+</span><span style="color:#75715e"></span>       alv_config      <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_config_table.<span style="color:#75715e">&#34;③&#34;
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">DATA</span>: column_settings <span style="color:#66d9ef">TYPE REF TO</span> if_salv_wd_column_settings,
+       table_settings  <span style="color:#66d9ef">TYPE REF TO</span> if_salv_wd_table_settings,
+       column_nd       <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_column,
+       column_header   <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_column_header,
+       <span style="color:#66d9ef">function</span>        <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_function,
+       button          <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_fe_button.
+ <span style="color:#66d9ef">DATA</span>: columns  <span style="color:#66d9ef">TYPE </span>salv_wd_t_column_ref,
+       column   <span style="color:#66d9ef">TYPE </span>salv_wd_s_column_ref,
+       <span style="color:#66d9ef">fields</span>   <span style="color:#66d9ef">TYPE TABLE OF</span> dfies,
+       <span style="color:#66d9ef">field</span>    <span style="color:#66d9ef">TYPE </span>dfies.
+<span style="color:#75715e">&#34; Add Check Box &#34;
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">DATA</span>:checkbox      <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_uie_checkbox,
+      input_field   <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_uie_input_field.
+ <span style="color:#75715e">&#34; Get Context note &#34;
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">DATA</span> context_node <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_node.
+ context_node <span style="color:#f92672">=</span> wd_context<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( name <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>wdctx_ZALV_ZPEFF_TOTAL ).
+<span style="color:#75715e">*2.实例化alv 组件</span>
+<span style="color:#75715e">*=========================================================</span>
+<span style="color:#75715e">&#34; 实例化ALV 组件 &#34;
+</span><span style="color:#75715e"></span>  alv_usage <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpuse_alv</span>( ). <span style="color:#75715e">&#34;① 将引用的ALV组件实例(ALV)复制给参数&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">IF</span> alv_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">has_active_component</span>( ) <span style="color:#f92672">IS INITIAL</span>.
+    alv_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_component</span>( ).
+  <span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#75715e">&#34; 通过向导引入控制器中的Context节点和其对应的SET_DATA方法，并将节点传入控制器 &#34;
+</span><span style="color:#75715e"></span>  alv_controller <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpifc_alv</span>( ). <span style="color:#75715e">&#34;② 将引用的ALV组件实例（ALV_OUTPUT）复制给参数&#34;
+</span><span style="color:#75715e"></span>  alv_controller<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_data</span>( r_node_data <span style="color:#f92672">=</span> lo_nd_node ). <span style="color:#75715e">&#34;上面定义的节点参数&#34;  
+</span><span style="color:#75715e">&#34; 获取参考模型 &#34;
+</span><span style="color:#75715e"></span>  alv_config <span style="color:#f92672">=</span> alv_controller<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_model</span>( ). <span style="color:#75715e">&#34;③ 获取控制器的GET_MODEL方法，实现ALV定制&#34;
+</span><span style="color:#75715e"></span>  column_settings <span style="color:#f92672">?=</span> alv_config.
+  table_settings  <span style="color:#f92672">?=</span> alv_config.
+<span style="color:#75715e">*3.ALV Table Standard Functions Setting</span>
+<span style="color:#75715e">*=========================================================</span>
+  alv_config<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions~set_export_allowed</span>( abap_true ) .<span style="color:#75715e">&#34;设置是否可以导出&#34;
+</span><span style="color:#75715e"></span>  alv_config<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions~set_edit_append_row_allowed</span>( abap_false ). <span style="color:#75715e">&#34;附加行&#34;
+</span><span style="color:#75715e"></span>  alv_config<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions~set_edit_delete_row_allowed</span>( abap_false ). <span style="color:#75715e">&#34;删除行&#34;
+</span><span style="color:#75715e"></span>  alv_config<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions~set_edit_insert_row_allowed</span>( abap_false ). <span style="color:#75715e">&#34;插入行&#34;
+</span><span style="color:#75715e"></span>  alv_config<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions~set_pdf_allowed</span>( abap_false ).             <span style="color:#75715e">&#34;打印版本&#34;
+</span><span style="color:#75715e"></span>  alv_config<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions~set_count_records_allowed</span>( abap_true ). <span style="color:#75715e">&#34;Count Records&#34;
+</span><span style="color:#75715e"></span>  alv_config<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_salv_wd_std_functions~set_edit_check_available</span>( abap_false ). <span style="color:#75715e">&#34;控制是否显示检查按钮&#34;
+</span><span style="color:#75715e">*4.ALV Table 设置</span>
+<span style="color:#75715e">*=========================================================</span>
+  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_READ_ONLY</span>( ABAP_FALSE ).<span style="color:#75715e">&#34;设置ALV整体不可编辑&#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_VISIBLE_ROW_COUNT</span>( <span style="color:#e6db74">&#39;50&#39;</span> ).<span style="color:#75715e">&#34;设置可见行&#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_FIXED_TABLE_LAYOUT</span>( ABAP_FALSE ).  <span style="color:#75715e">&#34;使列宽可自动调节&#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_ROW_SELECTABLE</span>( ABAP_TRUE ).<span style="color:#75715e">&#34;设置行选择&#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_SCROLLABLE_COL_COUNT</span>( <span style="color:#e6db74">&#39;10&#39;</span> ).<span style="color:#75715e">&#34;设置滚动条&#34;
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">&#34; 控制是否有默认的选择黄条 &#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_SELECTION_MODE</span>( cl_wd_table<span style="color:#f92672">=&gt;</span>e_selection_mode<span style="color:#f92672">-</span>single_no_lead ).
+  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_WIDTH</span>( <span style="color:#e6db74">&#39;80%&#39;</span> ).<span style="color:#75715e">&#34;设置ALV宽度&#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_EDIT_MODE</span>( IF_SALV_WD_C_TABLE_SETTINGS<span style="color:#f92672">=&gt;</span>EDIT_MODE ).  <span style="color:#75715e">&#34;设置编辑模式&#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_EDIT_MODE</span>( IF_SALV_WD_C_TABLE_SETTINGS<span style="color:#f92672">=&gt;</span>EDIT_MODE_STANDARD ).<span style="color:#75715e">&#34;设置不可编辑模式&#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_ENABLED</span>( ABAP_TRUE ) .<span style="color:#75715e">&#34;可处理的&#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_EMPTY_TABLE_TEXT</span>( <span style="color:#e6db74">&#39;Empty&#39;</span> ) .<span style="color:#75715e">&#34;设置空表时显示的文本&#34;
+</span><span style="color:#75715e"></span>  table_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_DISPLAY_EMPTY_ROWS</span>( ABAP_FALSE ).  <span style="color:#75715e">&#34;不展示空表&#34;
+</span><span style="color:#75715e">*5.ALV Columns 设置</span>
+<span style="color:#75715e">*=========================================================</span>
+  columns <span style="color:#f92672">=</span> column_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_columns</span>(  ).
+  <span style="color:#66d9ef">LOOP AT </span>columns <span style="color:#66d9ef">INTO</span> column. 
+    column_nd <span style="color:#f92672">=</span> column<span style="color:#f92672">-</span>r_column.
+    <span style="color:#66d9ef">CASE</span> column<span style="color:#f92672">-</span>id.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;WERKS&#39;</span>.
+        column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_position</span>( <span style="color:#ae81ff">0</span> ).
+        column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">SET_RESIZABLE</span>( abap_true ).
+        column_header <span style="color:#f92672">=</span> column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_header</span>(  ) .
+        column_header<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_ddic_binding_field</span>(  ).
+        column_header<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_text</span>(<span style="color:#e6db74">&#39;Plant&#39;</span>).
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;MEINS&#39;</span>.
+        column_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">delete_column</span>( column<span style="color:#f92672">-</span>id ).
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;STAT&#39;</span>.  <span style="color:#75715e">&#34;设置文本色: TEXT_BACKG =&gt; WDY_UIE_LIBRARY_ENUM_TYPE&#34;
+</span><span style="color:#75715e"></span>      	<span style="color:#66d9ef">DATA</span> cell_editor <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_uie.
+        <span style="color:#66d9ef">DATA</span> text_view <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_uie_text_view.
+        cell_editor <span style="color:#f92672">=</span> column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_cell_editor</span>( ).
+        <span style="color:#66d9ef">IF</span> cell_editor<span style="color:#f92672">-&gt;</span>editor <span style="color:#f92672">=</span> if_salv_wd_c_column_settings<span style="color:#f92672">=&gt;</span>cell_editor_text_view.
+          text_view <span style="color:#f92672">?=</span> cell_editor.
+          text_view<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_semantic_color_fieldname</span>( <span style="color:#e6db74">&#39;TEXT_BACKG&#39;</span> ).
+        <span style="color:#66d9ef">ENDIF</span>.
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;DATE&#39;</span>. <span style="color:#75715e">&#34;设置列背景色 COL_BACKG =&gt; WDY_UIE_LIBRARY_ENUM_TYPE&#34;
+</span><span style="color:#75715e"></span>		column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_design</span>( cl_wd_abstr_master_table_col<span style="color:#f92672">=&gt;</span>e_cell_design<span style="color:#f92672">-</span>positive ).
+      <span style="color:#66d9ef">WHEN</span> <span style="color:#e6db74">&#39;OTHERS&#39;</span>. <span style="color:#75715e">&#34;COLOR:单元格背景色&#34;
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">&#34; Setting Color field:WDUI_TABLE_CELL_DESIGN (Table Cell Design) &#34;
+</span><span style="color:#75715e"></span>        column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_design_fieldname</span>( <span style="color:#e6db74">&#39;COLOR&#39;</span> ). 
+    <span style="color:#66d9ef">ENDCASE</span>.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+  column_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">delete_column</span>( <span style="color:#e6db74">&#39;COLOR&#39;</span> ). <span style="color:#75715e">&#34;Delete column&#34;
+</span><span style="color:#75715e"></span>  column_nd <span style="color:#f92672">=</span> column_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;BDAUT&#39;</span> ). <span style="color:#75715e">&#34;Get column&#34;
+</span><span style="color:#75715e"></span>  column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_visible</span>( cl_wd_uielement<span style="color:#f92672">=&gt;</span>e_visible<span style="color:#f92672">-</span>none ). <span style="color:#75715e">&#34; Set colums not display in alv &#34;
+</span><span style="color:#75715e">*6.ALV Table设置选择按钮和ALV hearder text 设置,ZSELE添加在Context中</span>
+<span style="color:#75715e">*==========================================================</span>
+  <span style="color:#66d9ef">CREATE OBJECT</span> checkbox
+    <span style="color:#66d9ef">EXPORTING</span>
+      checked_fieldname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZSELE&#39;</span>.
+  column_nd <span style="color:#f92672">=</span> column_settings<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_column</span>( <span style="color:#e6db74">&#39;ZSELE&#39;</span> ).
+  <span style="color:#66d9ef">CREATE OBJECT</span> input_field
+    <span style="color:#66d9ef">EXPORTING</span>
+      value_fieldname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZSELE&#39;</span>.
+  column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_editor</span>( input_field ).
+  column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_cell_editor</span>( checkbox ).
+  column_header <span style="color:#f92672">=</span> column_nd<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_header</span>( ).
+  column_header<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_text</span>( <span style="color:#e6db74">&#39;Selected&#39;</span> ).
+<span style="color:#66d9ef">endmethod</span>.
 </code></pre></div>
     </div>
 

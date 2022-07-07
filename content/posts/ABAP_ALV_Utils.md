@@ -9,7 +9,7 @@ categories:
 
 tags: 
   - ALV
-
+  - abaputils
 ---
 
 ## 单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中

@@ -172,125 +172,125 @@
           
 
           <h2 id="component-controllerinput_view-wddoinit">Component Controller/INPUT_VIEW: WDDOINIT</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">WDDOINIT</span>.
-<span style="color:#a6e22e">TYPES</span><span style="color:#f92672">:</span><span style="color:#a6e22e">BEGIN</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">soption</span>,
-     <span style="color:#a6e22e">typename</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34; Selection screen field ref type element &#34;</span>
-     <span style="color:#a6e22e">id</span>       <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>, <span style="color:#e6db74">&#34; selection screen field name &#34;</span>
-   <span style="color:#a6e22e">END</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">soption</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">it_soption</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">soption</span>,
-      <span style="color:#a6e22e">wa_soption</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">soption</span>.
-<span style="color:#a6e22e">DATA</span> <span style="color:#a6e22e">it_range_table</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">data</span>.
-<span style="color:#e6db74">&#34; ALV Object Setting &#34;</span>
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">alv_cmp_usage</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_component_usage</span>,  
-      <span style="color:#a6e22e">alv_controller</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">iwci_salv_wd_table</span>,     
-      <span style="color:#a6e22e">alv_config</span>      <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_config_table</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">column_settings</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_salv_wd_column_settings</span>,
-      <span style="color:#a6e22e">table_settings</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_salv_wd_table_settings</span>,
-      <span style="color:#a6e22e">column_nd</span>       <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_column</span>,
-      <span style="color:#a6e22e">column_header</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">cl_salv_wd_column_header</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fields</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">dfies</span>,
-      <span style="color:#a6e22e">field</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">dfies</span>,
-      <span style="color:#a6e22e">l_fieldname</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>,
-      <span style="color:#a6e22e">l_invisible</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">c</span>,
-      <span style="color:#a6e22e">l_position</span>  <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">i</span>.
-<span style="color:#e6db74">&#34; Select Screen option node setting &#34;</span>
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">soption_cmp_usage</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_component_usage</span>,
-      <span style="color:#a6e22e">select_options</span>    <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">iwci_wdr_select_options</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">nd_zoption</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_node</span>,
-      <span style="color:#a6e22e">el_zoption</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_element</span>.
-<span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lt_zoption</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">elements_zoption</span>,
-      <span style="color:#a6e22e">ls_zoption</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">element_zoption</span>,
-      <span style="color:#a6e22e">p_total</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">element_zoption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">p_total</span>,
-      <span style="color:#a6e22e">p_detail</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">element_zoption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">p_detail</span>.
-<span style="color:#e6db74">&#34; Create the alv component usage &#34;</span>
-  <span style="color:#a6e22e">alv_cmp_usage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpuse_alv</span>( ).
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">alv_cmp_usage</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">has_active_component</span>( ) <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">INITIAL</span>.
-    <span style="color:#a6e22e">alv_cmp_usage</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_component</span>( ).
-  <span style="color:#a6e22e">ENDIF</span>. 
-  <span style="color:#e6db74">&#34; Get Option Node Field &#34;</span>
-  <span style="color:#a6e22e">nd_zoption</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_context</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wdctx_zoption</span> ).
-  <span style="color:#e6db74">&#34; Get Option Element &#34;</span>
-  <span style="color:#a6e22e">el_zoption</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nd_zoption</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_element</span>( ).
-  <span style="color:#e6db74">&#34; Set Attribute status &#34;</span>
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">el_zoption</span> <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">NOT</span> <span style="color:#a6e22e">INITIAL</span>.
-    <span style="color:#e6db74">&#34; Set attribute &#34;</span>
-    <span style="color:#a6e22e">el_zoption</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_attribute</span>(
-        <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span>  <span style="color:#e6db74">`P_DETAIL`</span>
-        <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span> ).
-    <span style="color:#e6db74">&#34; Get attribute &#34;</span>
-    <span style="color:#a6e22e">el_zoption</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_attribute</span>(
-      <span style="color:#a6e22e">EXPORTING</span>
-        <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span>  <span style="color:#e6db74">`P_TOTAL`</span>
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">p_total</span> ).
-    <span style="color:#e6db74">&#34; Get all declared attributes &#34;</span>
-    <span style="color:#a6e22e">el_zoption</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_static_attributes</span>(
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">STATIC_ATTRIBUTES</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ls_zoption</span> ).
-    <span style="color:#a6e22e">el_zoption</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_static_attributes_table</span>(
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">NEW_ITEMS</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lt_zoption</span> ).
-  <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#e6db74">&#34; Create the select options component usage &#34;</span> 
-  <span style="color:#a6e22e">soption_cmp_usage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpuse_select_options</span>( ).
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">soption_cmp_usage</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">has_active_component</span>( ) <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">INITIAL</span>.
-    <span style="color:#a6e22e">soption_cmp_usage</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_component</span>( ).
-  <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#e6db74">&#34; Get the select option usage &#34;</span>
-  <span style="color:#a6e22e">select_options</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpifc_select_options</span>( ).
-  <span style="color:#e6db74">&#34; Init the select option &#34;</span>
-  <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">m_handler</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">select_options</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">init_selection_screen</span>( ).
-  <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">m_handler</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_global_options</span>(
-                              <span style="color:#a6e22e">i_display_btn_cancel</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">abap_false</span>
-                              <span style="color:#a6e22e">i_display_btn_check</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">abap_false</span>
-                              <span style="color:#a6e22e">i_display_btn_reset</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">abap_false</span>
-                              <span style="color:#a6e22e">i_display_btn_execute</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">abap_false</span> ).
-  <span style="color:#e6db74">&#34; Collect all select options element &#34;</span>
-  <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">wa_soption</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">typename</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ARBPL&#39;</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">id</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ARBPL&#39;</span>.
-  <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">wa_soption</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">it_soption</span>.
-  <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">wa_soption</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">typename</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;KOSTL&#39;</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">id</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;KOSTL&#39;</span>.
-  <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">wa_soption</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">it_soption</span>.
-  <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">wa_soption</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">typename</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUFNR&#39;</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">id</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUFNR&#39;</span>.
-  <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">wa_soption</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">it_soption</span>.
-  <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">wa_soption</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">typename</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUFART&#39;</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">id</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUART&#39;</span>.
-  <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">wa_soption</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">it_soption</span>.
-  <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">wa_soption</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">typename</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BUDAT&#39;</span>.
-  <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">id</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BUDAT&#39;</span>.
-  <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">wa_soption</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">it_soption</span>.
-  <span style="color:#e6db74">&#34; Select screen default value define &#34;</span>
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lt_budat_table</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">RANGE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">datum</span> .
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ls_budat_table</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">LINE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">lt_budat_table</span> .
-  <span style="color:#a6e22e">FIELD</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SYMBOLS</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">it_budat_table</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">LIKE</span> <span style="color:#a6e22e">lt_budat_table</span> .
-  <span style="color:#e6db74">&#34; Cycle create Range Table &#34;</span>
-  <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">it_soption</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">wa_soption</span>.
-    <span style="color:#e6db74">&#34; Create one range table &#34;</span>
-    <span style="color:#a6e22e">it_range_table</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">m_handler</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_range_table</span>( <span style="color:#a6e22e">i_typename</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">typename</span> ).
-    <span style="color:#e6db74">&#34; 界面ranges给初始值 &#34;</span>
-    <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">typename</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BUDAT&#39;</span>.
-      <span style="color:#a6e22e">ASSIGN</span> <span style="color:#a6e22e">it_range_table</span><span style="color:#f92672">-&gt;*</span> <span style="color:#a6e22e">TO</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">it_budat_table</span><span style="color:#f92672">&gt;</span> .
-      <span style="color:#a6e22e">ls_budat_table</span><span style="color:#f92672">-</span><span style="color:#a6e22e">sign</span>   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I&#39;</span> .
-      <span style="color:#a6e22e">ls_budat_table</span><span style="color:#f92672">-</span><span style="color:#a6e22e">option</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;EQ&#39;</span> .
-      <span style="color:#a6e22e">ls_budat_table</span><span style="color:#f92672">-</span><span style="color:#a6e22e">low</span>    <span style="color:#f92672">=</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">datum</span> .
-      <span style="color:#a6e22e">APPEND</span> <span style="color:#a6e22e">ls_budat_table</span> <span style="color:#a6e22e">TO</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">it_budat_table</span><span style="color:#f92672">&gt;</span> .
-    <span style="color:#a6e22e">ENDIF</span>.
-    <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">m_handler</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_selection_field</span>( <span style="color:#a6e22e">i_id</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">wa_soption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">id</span>
-                                        <span style="color:#a6e22e">it_result</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">it_range_table</span>
-                                      <span style="color:#a6e22e">i_read_only</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">ABAP_FALSE</span>
-                                      <span style="color:#a6e22e">i_obligatory</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ABAP_FALSE</span>
-                                    <span style="color:#a6e22e">i_no_extension</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ABAP_FALSE</span>
-                                    <span style="color:#a6e22e">i_no_intervals</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ABAP_FALSE</span> ).
-    <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">wa_soption</span>.	
-  <span style="color:#a6e22e">ENDLOOP</span>.
-<span style="color:#a6e22e">endmethod</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">WDDOINIT</span>.
+<span style="color:#66d9ef">TYPES</span>:<span style="color:#66d9ef">BEGIN OF</span> soption,
+     typename <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34; Selection screen field ref type element &#34;
+</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">id</span>       <span style="color:#66d9ef">TYPE </span>string, <span style="color:#75715e">&#34; selection screen field name &#34;
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">END OF</span> soption.
+<span style="color:#66d9ef">DATA</span>: it_soption <span style="color:#66d9ef">TYPE TABLE OF</span> soption,
+      wa_soption <span style="color:#66d9ef">TYPE </span>soption.
+<span style="color:#66d9ef">DATA</span> it_range_table  <span style="color:#66d9ef">TYPE REF TO</span> <span style="color:#66d9ef">data</span>.
+<span style="color:#75715e">&#34; ALV Object Setting &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>: alv_cmp_usage   <span style="color:#66d9ef">TYPE REF TO</span> if_wd_component_usage,  
+      alv_controller  <span style="color:#66d9ef">TYPE REF TO</span> iwci_salv_wd_table,     
+      alv_config      <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_config_table.
+<span style="color:#66d9ef">DATA</span>: column_settings <span style="color:#66d9ef">TYPE REF TO</span> if_salv_wd_column_settings,
+      table_settings  <span style="color:#66d9ef">TYPE REF TO</span> if_salv_wd_table_settings,
+      column_nd       <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_column,
+      column_header   <span style="color:#66d9ef">TYPE REF TO</span> cl_salv_wd_column_header.
+<span style="color:#66d9ef">DATA</span>: <span style="color:#66d9ef">fields</span> <span style="color:#66d9ef">TYPE TABLE OF</span> dfies,
+      <span style="color:#66d9ef">field</span>  <span style="color:#66d9ef">TYPE </span>dfies,
+      l_fieldname <span style="color:#66d9ef">TYPE </span>string,
+      l_invisible <span style="color:#66d9ef">TYPE </span>c,
+      l_position  <span style="color:#66d9ef">TYPE </span>i.
+<span style="color:#75715e">&#34; Select Screen option node setting &#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DATA</span>: soption_cmp_usage <span style="color:#66d9ef">TYPE REF TO</span> if_wd_component_usage,
+      select_options    <span style="color:#66d9ef">TYPE REF TO</span> iwci_wdr_select_options.
+<span style="color:#66d9ef">DATA</span>: nd_zoption <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_node,
+      el_zoption <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_element.
+<span style="color:#66d9ef">DATA</span>: lt_zoption <span style="color:#66d9ef">TYPE </span>wd_this<span style="color:#f92672">-&gt;</span>elements_zoption,
+      ls_zoption <span style="color:#66d9ef">TYPE </span>wd_this<span style="color:#f92672">-&gt;</span>element_zoption,
+      p_total <span style="color:#66d9ef">TYPE </span>wd_this<span style="color:#f92672">-&gt;</span>element_zoption<span style="color:#f92672">-</span>p_total,
+      p_detail <span style="color:#66d9ef">TYPE </span>wd_this<span style="color:#f92672">-&gt;</span>element_zoption<span style="color:#f92672">-</span>p_detail.
+<span style="color:#75715e">&#34; Create the alv component usage &#34;
+</span><span style="color:#75715e"></span>  alv_cmp_usage <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpuse_alv</span>( ).
+  <span style="color:#66d9ef">IF</span> alv_cmp_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">has_active_component</span>( ) <span style="color:#f92672">IS INITIAL</span>.
+    alv_cmp_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_component</span>( ).
+  <span style="color:#66d9ef">ENDIF</span>. 
+  <span style="color:#75715e">&#34; Get Option Node Field &#34;
+</span><span style="color:#75715e"></span>  nd_zoption <span style="color:#f92672">=</span> wd_context<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( name <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>wdctx_zoption ).
+  <span style="color:#75715e">&#34; Get Option Element &#34;
+</span><span style="color:#75715e"></span>  el_zoption <span style="color:#f92672">=</span> nd_zoption<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_element</span>( ).
+  <span style="color:#75715e">&#34; Set Attribute status &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">IF</span> el_zoption <span style="color:#f92672">IS NOT INITIAL</span>.
+    <span style="color:#75715e">&#34; Set attribute &#34;
+</span><span style="color:#75715e"></span>    el_zoption<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_attribute</span>(
+        name <span style="color:#f92672">=</span>  <span style="color:#e6db74">`P_DETAIL`</span>
+        <span style="color:#66d9ef">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span> ).
+    <span style="color:#75715e">&#34; Get attribute &#34;
+</span><span style="color:#75715e"></span>    el_zoption<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_attribute</span>(
+      <span style="color:#66d9ef">EXPORTING</span>
+        name <span style="color:#f92672">=</span>  <span style="color:#e6db74">`P_TOTAL`</span>
+      <span style="color:#66d9ef">IMPORTING</span>
+        <span style="color:#66d9ef">value</span> <span style="color:#f92672">=</span> p_total ).
+    <span style="color:#75715e">&#34; Get all declared attributes &#34;
+</span><span style="color:#75715e"></span>    el_zoption<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_static_attributes</span>(
+      <span style="color:#66d9ef">IMPORTING</span>
+        STATIC_ATTRIBUTES <span style="color:#f92672">=</span> ls_zoption ).
+    el_zoption<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_static_attributes_table</span>(
+      <span style="color:#66d9ef">IMPORTING</span>
+        NEW_ITEMS <span style="color:#f92672">=</span> lt_zoption ).
+  <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#75715e">&#34; Create the select options component usage &#34; 
+</span><span style="color:#75715e"></span>  soption_cmp_usage <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpuse_select_options</span>( ).
+  <span style="color:#66d9ef">IF</span> soption_cmp_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">has_active_component</span>( ) <span style="color:#f92672">IS INITIAL</span>.
+    soption_cmp_usage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_component</span>( ).
+  <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#75715e">&#34; Get the select option usage &#34;
+</span><span style="color:#75715e"></span>  select_options <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wd_cpifc_select_options</span>( ).
+  <span style="color:#75715e">&#34; Init the select option &#34;
+</span><span style="color:#75715e"></span>  wd_this<span style="color:#f92672">-&gt;</span>m_handler <span style="color:#f92672">=</span> select_options<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">init_selection_screen</span>( ).
+  wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_global_options</span>(
+                              i_display_btn_cancel  <span style="color:#f92672">=</span> abap_false
+                              i_display_btn_check   <span style="color:#f92672">=</span> abap_false
+                              i_display_btn_reset   <span style="color:#f92672">=</span> abap_false
+                              i_display_btn_execute <span style="color:#f92672">=</span> abap_false ).
+  <span style="color:#75715e">&#34; Collect all select options element &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CLEAR</span> wa_soption.
+  wa_soption<span style="color:#f92672">-</span>typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ARBPL&#39;</span>.
+  wa_soption<span style="color:#f92672">-</span>id       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ARBPL&#39;</span>.
+  <span style="color:#66d9ef">APPEND</span> wa_soption <span style="color:#66d9ef">TO</span> it_soption.
+  <span style="color:#66d9ef">CLEAR</span> wa_soption.
+  wa_soption<span style="color:#f92672">-</span>typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;KOSTL&#39;</span>.
+  wa_soption<span style="color:#f92672">-</span>id       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;KOSTL&#39;</span>.
+  <span style="color:#66d9ef">APPEND</span> wa_soption <span style="color:#66d9ef">TO</span> it_soption.
+  <span style="color:#66d9ef">CLEAR</span> wa_soption.
+  wa_soption<span style="color:#f92672">-</span>typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUFNR&#39;</span>.
+  wa_soption<span style="color:#f92672">-</span>id       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUFNR&#39;</span>.
+  <span style="color:#66d9ef">APPEND</span> wa_soption <span style="color:#66d9ef">TO</span> it_soption.
+  <span style="color:#66d9ef">CLEAR</span> wa_soption.
+  wa_soption<span style="color:#f92672">-</span>typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUFART&#39;</span>.
+  wa_soption<span style="color:#f92672">-</span>id       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUART&#39;</span>.
+  <span style="color:#66d9ef">APPEND</span> wa_soption <span style="color:#66d9ef">TO</span> it_soption.
+  <span style="color:#66d9ef">CLEAR</span> wa_soption.
+  wa_soption<span style="color:#f92672">-</span>typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BUDAT&#39;</span>.
+  wa_soption<span style="color:#f92672">-</span>id       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BUDAT&#39;</span>.
+  <span style="color:#66d9ef">APPEND</span> wa_soption <span style="color:#66d9ef">TO</span> it_soption.
+  <span style="color:#75715e">&#34; Select screen default value define &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">DATA</span>: lt_budat_table <span style="color:#66d9ef">TYPE RANGE OF</span> datum .
+  <span style="color:#66d9ef">DATA</span>: ls_budat_table <span style="color:#66d9ef">LIKE LINE OF</span> lt_budat_table .
+  <span style="color:#66d9ef">FIELD-SYMBOLS</span>: &lt;it_budat_table&gt; <span style="color:#66d9ef">LIKE </span>lt_budat_table .
+  <span style="color:#75715e">&#34; Cycle create Range Table &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">LOOP AT </span>it_soption <span style="color:#66d9ef">INTO</span> wa_soption.
+    <span style="color:#75715e">&#34; Create one range table &#34;
+</span><span style="color:#75715e"></span>    it_range_table <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">create_range_table</span>( i_typename <span style="color:#f92672">=</span> wa_soption<span style="color:#f92672">-</span>typename ).
+    <span style="color:#75715e">&#34; 界面ranges给初始值 &#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">IF</span> wa_soption<span style="color:#f92672">-</span>typename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BUDAT&#39;</span>.
+      <span style="color:#66d9ef">ASSIGN</span> it_range_table-&gt;* <span style="color:#66d9ef">TO</span> &lt;it_budat_table&gt; .
+      ls_budat_table<span style="color:#f92672">-</span>sign   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;I&#39;</span> .
+      ls_budat_table<span style="color:#f92672">-</span>option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;EQ&#39;</span> .
+      ls_budat_table<span style="color:#f92672">-</span>low    <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>datum .
+      <span style="color:#66d9ef">APPEND</span> ls_budat_table <span style="color:#66d9ef">TO</span> &lt;it_budat_table&gt; .
+    <span style="color:#66d9ef">ENDIF</span>.
+    wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">add_selection_field</span>( i_id  <span style="color:#f92672">=</span> wa_soption<span style="color:#f92672">-</span>id
+                                        it_result  <span style="color:#f92672">=</span> it_range_table
+                                      i_read_only  <span style="color:#f92672">=</span> ABAP_FALSE
+                                      i_obligatory <span style="color:#f92672">=</span> ABAP_FALSE
+                                    i_no_extension <span style="color:#f92672">=</span> ABAP_FALSE
+                                    i_no_intervals <span style="color:#f92672">=</span> ABAP_FALSE ).
+    <span style="color:#66d9ef">CLEAR</span> wa_soption.	
+  <span style="color:#66d9ef">ENDLOOP</span>.
+<span style="color:#66d9ef">endmethod</span>.
 </code></pre></div>
     </div>
 

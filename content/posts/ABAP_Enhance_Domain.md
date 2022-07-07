@@ -5,7 +5,7 @@ draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-  - business
+  - ABAP
 
 tags: 
   - abaputils

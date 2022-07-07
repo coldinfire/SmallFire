@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title> XLSXWorkbench 安装和使用 </title>
-      <link>https://coldinfire.github.io/2022/ABAP_Utils_XLSXWorkbench/</link>
-      <pubDate>Wed, 23 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2022/ABAP_Utils_XLSXWorkbench/</guid>
-      <description>XLSX Workbench 是一款开源的 SAP 插件工具，用于在 SAP 环境中设计基于 Excel 的表单。 由于开发表单的完全可视化方法（类似 SMARTFORMS），它非常易于学习和使用。</description>
-    </item>
-    
-    <item>
       <title> SAP 获取表字段所有信息 </title>
       <link>https://coldinfire.github.io/2022/ABAP_Utils_TableFields/</link>
       <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
@@ -104,15 +95,6 @@
       
       <guid>https://coldinfire.github.io/2021/ABAP_SQL_DBCO_Result/</guid>
       <description>查询 DBCO 执行结果 Step1：执行程序 ADBC_QUERY DB Connection Name：DBCO 中配置的数据库连接名称 Table Name：DBCO 配置连接的数据库对应数据表的表名称 Ste</description>
-    </item>
-    
-    <item>
-      <title> RFC-BAPI-BADI-BDC 区别 </title>
-      <link>https://coldinfire.github.io/2021/ABAP_Utils_FunctionDiff/</link>
-      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2021/ABAP_Utils_FunctionDiff/</guid>
-      <description>RFC RFC 代表远程函数调用。 它是 SAP 环境中不同系统应用程序之间通信的协议，包括 SAP 系统之间以及 SAP 系统与非 SAP 系统之间的连接。 它是用于不同 SAP 系统之间通信的</description>
     </item>
     
     <item>
@@ -215,15 +197,6 @@
     </item>
     
     <item>
-      <title> SAP 系统间数据表的复制 </title>
-      <link>https://coldinfire.github.io/2020/ABAP_Utils_ClientTableCopy/</link>
-      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2020/ABAP_Utils_ClientTableCopy/</guid>
-      <description>需求场景 在功能开发完成后，需要使用一些测试数据来进行测试，有时可能需要将一些比较新的生产数据复制到测试系统，为了完成数据表的复制，需要使用一</description>
-    </item>
-    
-    <item>
       <title> 函数创建用户并分配权限 </title>
       <link>https://coldinfire.github.io/2020/ABAP_CreateUser/</link>
       <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
@@ -283,16 +256,7 @@
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_Table_Adjust/</guid>
-      <description>当业务场景发生变化，或则其它原因需要变更透明表的Key值时，保存和激活时会报错，需要使用SE14进行处理。 勾选Direct,Save Data</description>
-    </item>
-    
-    <item>
-      <title> SAP ABAP 代码扫描工具 </title>
-      <link>https://coldinfire.github.io/2020/ABAP_Utils_CodeSearch/</link>
-      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2020/ABAP_Utils_CodeSearch/</guid>
-      <description>使用场景 在不知道某功能模块的名称，并且需要查找使用 RFC 的位置，则可以使用诸如 CALL FUNCTION 或DESTINATION 之类的关键字来运行 ABAP 代码扫描工具。 当增</description>
+      <description>当业务场景发生变化，或则其它原因需要变更透明表的 Key 值时，保存和激活时会报错，需要使用 SE14 进行处理。 勾选Direct,Save Data;然后点击</description>
     </item>
     
     <item>
@@ -301,7 +265,7 @@
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2020/ABAP_EXCEL_OLE/</guid>
-      <description>OLE 下载 EXCEL 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员自定义下载数据程序。 步骤： 上传模板 tcod</description>
+      <description>OLE 下载 EXCEL 问题描述: 当项目中对导出数据EXCEL模板有要求时，ALV标准导出功能不能满足需要开发人员自定义下载数据程序。 步骤： 上传模板事务码：</description>
     </item>
     
     <item>
@@ -383,15 +347,6 @@
       
       <guid>https://coldinfire.github.io/2019/ABAP_EXCEL_Export/</guid>
       <description>SAP 提供了 cl_salv_export_tool 类用于将 ALV 数据导出到 Excel，如果是早一点的版本，系统没有这个函数可以使用 XXL_SIMPLE_API。 XXL_SIMPLE_API 函数 XXL_SIMPLE_API 实现将 internal table 的数据</description>
-    </item>
-    
-    <item>
-      <title> ABAP 学习网站记录 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</link>
-      <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_WebSiteCollect/</guid>
-      <description>http://www.saptechnical.com/index.htm：需要检索关键信息 https://sapcodes.com/：包含</description>
     </item>
     
     <item>
@@ -530,24 +485,6 @@
     </item>
     
     <item>
-      <title> SAP Background Job </title>
-      <link>https://coldinfire.github.io/2019/SAP_JOB/</link>
-      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/SAP_JOB/</guid>
-      <description>定义 Background Job SE38 执行可执行程序 菜单栏 program &amp;mdash;&amp;gt; Execute in Background 输入输出设备 选择开始时间（立刻执行，或定义日期时间，也可周期执行）后保存。 SM36 定义作业名 填写 JOB 名称、优</description>
-    </item>
-    
-    <item>
-      <title> STVARV 使用详情 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</link>
-      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_Utils_Stvarv/</guid>
-      <description>STVARV 使用 该配置不能跨 Client 因此需要在每个 Client 单独配置；使用事物码STVARV进入配置界面，可以新建、修改、删除记录。 程序内使用 程序内只是取出配置的值</description>
-    </item>
-    
-    <item>
       <title> SAP Memory 使用 </title>
       <link>https://coldinfire.github.io/2019/ABAP_Memory/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
@@ -563,24 +500,6 @@
       
       <guid>https://coldinfire.github.io/2019/ABAP_EXCEL_DOI/</guid>
       <description>概述 DOI（Desktop office Integration）采用 OO 的思想实现与 Office 的结合使用，通过 DOI 对文档进行操作和处理。SAP 标准DEMO： SAPR</description>
-    </item>
-    
-    <item>
-      <title> SAP Webservice 使用 </title>
-      <link>https://coldinfire.github.io/2019/ABAP_Webservice/</link>
-      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/ABAP_Webservice/</guid>
-      <description>ABAP 调用外部 Webservice 创建代理类 Step1：SE80 选择 package，点击创建 Enterprise Service / Web service-proxy client Step2：参数填写，没有错误的话，会根据指定的 wsdl 文件，产</description>
-    </item>
-    
-    <item>
-      <title> Smartforms 转换成PDF发送到FTP服务器 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/</link>
-      <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_SmartformsToFTP/</guid>
-      <description>Send PDF file to FTP server REPORT zpdfsendtoftp. DATA : BEGIN OF t_vbak OCCURS 0, vbeln TYPE vbrk-vbeln, vkorg TYPE vbak-vkorg, vkbur TYPE vbak-vkbur, END OF t_vbak. DATA: function_name TYPE rs38l_fnam, form_name TYPE tdsfname VALUE &amp;#39;ZTEST1&amp;#39;. DATA: carr_id TYPE sbook-carrid, ctrlop TYPE ssfctrlop, compop TYPE ssfcompop, tab_otf_data TYPE ssfcrescl. DATA: pdf_tab LIKE tline OCCURS 0 WITH HEADER LINE, tab_otf_final TYPE itcoo OCCURS 0 WITH HEADER LINE, bin_filesize TYPE i, pdf_xstring</description>
     </item>
     
     <item>
@@ -620,15 +539,6 @@
     </item>
     
     <item>
-      <title> SAP 锁机制 </title>
-      <link>https://coldinfire.github.io/2018/SAP_Lock/</link>
-      <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/SAP_Lock/</guid>
-      <description>SAP 为什么要设置锁 保持数据的一致性 同时多个用户操作同一数据，防止数据出现不一致性而采用了锁机制。一般 sap 会在操作数据前设置锁，防止第二个用户进行</description>
-    </item>
-    
-    <item>
       <title> SAP Excel 文件操作 </title>
       <link>https://coldinfire.github.io/2018/ABAP_EXCEL_TemplateOperate/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
@@ -665,12 +575,12 @@
     </item>
     
     <item>
-      <title> SAP Field Symbols </title>
-      <link>https://coldinfire.github.io/2018/ABAP_FieldSymbol_RefTo/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <title> BDC 屏幕录制 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_BDC/</link>
+      <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_FieldSymbol_RefTo/</guid>
-      <description>字段符号 定义 FIELD-SYMBOLS: &amp;lt;fs_tb&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs_wa&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE LINE OF &amp;lt;table&amp;gt;. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE &amp;lt;structure&amp;gt;. 使用 FIELD-SYMBOLS 必须和某个变量，结构或者内表绑定后才能使用，在使用字段符号前必须分配给某个变量，不然</description>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_BDC/</guid>
+      <description>定义BDC (Batch Data Communication) BDC：SAP常用的一种数据传输方法。用于一些数据量大，但对速度要求不高的数据传输. 使用 BDC 的基本流程 Step1：获取源数据 一</description>
     </item>
     
     <item>
@@ -689,6 +599,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_Table_CopyFields/</guid>
       <description>有时需要创建一个结构，但是字段和其他表或则结构类似，就可以采用复制的方式快速创建，而不用一个一个字段去输入。 1.SE11选择需要添加字段的表</description>
+    </item>
+    
+    <item>
+      <title> ALV 常用工具 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</link>
+      <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_ALV_Utils/</guid>
+      <description>单元格中的数据被修改后，将ALV单元格中的数据立即刷新到ABAP对应的内表中 方法一：通过对 REUSE_ALV_GRID_DISPLAY 函数参数 i_grid_settings-edt_cll_cb 进行设置 DATA:gs_grid_settings TYPE lv_s_glay. gs_grid_settings-edt_cll_cb = &amp;#39;X&amp;#39;. CALL FUNCTION &amp;#39;REUSE_ALV_GRID_DISPLAY&amp;#39; EXPORTING i_grid_settings = gs_grid_settings 方法</description>
     </item>
     
     <item>
@@ -764,20 +683,11 @@
     </item>
     
     <item>
-      <title> ALV 显示红绿灯 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_ALV_TrafficLight/</link>
-      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_ALV_TrafficLight/</guid>
-      <description>定义 TYPE-POOLS:icon,sym,slis,col. DATA: l_alv_filed TYPE slis_fieldcat_alv, l_alv_filedcat TYPE slis_t_fieldcat_alv. TYPES:BEGIN OF str_alv, id TYPE char25, xxx TYPE xxx, xxx TYPE xxx, xxx TYPE xxx, xxx TYPE string, END OF str_alv. DATA:it_alv TYPE STANDARD TABLE OF str_alv WITH HEADER LINE. CONSTANTS: c_green TYPE icon-id VALUE &amp;#39;@08@&amp;#39;, c_yellow TYPE icon-id VALUE &amp;#39;@09@&amp;#39;, c_red TYPE icon-id VALUE &amp;#39;@0A@&amp;#39;. 赋值 IF it_return-type = &amp;#39;E&amp;#39;. it_alv-id = c_red. CALL FUNCTION &amp;#39;BAPI_TRANSACTION_ROLLBACK&amp;#39;. ELSE. it_alv-id</description>
-    </item>
-    
-    <item>
       <title> 小数后面去除后缀0 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_EndZero/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Utils_EndZero/</link>
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_EndZero/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Utils_EndZero/</guid>
       <description>小数后面去除后缀 0 FORM DATA_DELETE_ZERO using p_field z_result. DATA: var1 TYPE p DECIMALS 3, var2 TYPE p DECIMALS 2, var3 TYPE p DECIMALS 1, var4 TYPE i. move p_field to var1. move p_field to var2. move p_field to var3. move p_field to var4. IF var2 = var1. IF var3 = var1. IF var4 = var1. z_result = var4. ELSE. z_result = var3. ENDIF. ELSE.</description>
     </item>
     
@@ -791,30 +701,12 @@
     </item>
     
     <item>
-      <title> ABAP 事件终止 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Utils_EventTerminated/</link>
-      <pubDate>Sat, 09 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Utils_EventTerminated/</guid>
-      <description>事件终止 RETURN 用来退出当前执行的程序块，而不仅仅是退出循环。如FORM，METHOD，报表事件块 STOP INITIALIZATION 中 STOP 会导致跳转到 AT SELECTION-SCREEN OUTPUT 事件块 如果 STOP 在 AT SELECTION-SCREEN OUTPUT 块</description>
-    </item>
-    
-    <item>
       <title> 数据输入输出转换 </title>
       <link>https://coldinfire.github.io/2018/ABAP_Utils_DataConversion/</link>
       <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_Utils_DataConversion/</guid>
       <description>输入输出转换 如果某个变量参照的数据所对应的Domain具有转换规则，在(Write,ALV,文本框显示)，最后结果会自动转换。 通过转换规则输</description>
-    </item>
-    
-    <item>
-      <title> ABAP 技能树 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</link>
-      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</guid>
-      <description>ABAP 学习 ABAP语法详解 全面掌握 SAP 的开发环境，ABAP 语法等基础知识。 报表开发全面总结 全面总结 SAP 系统中各种类型报表的实现方案和技术细节，开发者</description>
     </item>
     
   </channel>

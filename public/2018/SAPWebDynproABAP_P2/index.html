@@ -172,113 +172,113 @@
           
 
           <h2 id="component-controller-data_load">Component Controller: DATA_LOAD</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">DATA_LOAD</span> .
-  <span style="color:#e6db74">&#34; ALV 输出的结构定义 &#34;</span>
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lt_ZALV_ZPEFF_TOTAL</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">ZALV_ZPEFF_TOTAL</span>,
-        <span style="color:#a6e22e">ls_ZALV_ZPEFF_TOTAL</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">ZALV_ZPEFF_TOTAL</span>,
-        <span style="color:#a6e22e">lt_ZALV_PROD_EFF</span>      <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">OF</span> <span style="color:#a6e22e">ZALV_PROD_EFF</span>,
-        <span style="color:#a6e22e">ls_ZALV_PROD_EFF</span>      <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">ZALV_PROD_EFF</span>,
-        <span style="color:#a6e22e">lo_node</span>               <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_node</span>.
-  <span style="color:#e6db74">&#34;  选择屏幕数据的单属性定义 &#34;</span>
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">lo_nd_zoption</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_node</span>,
-        <span style="color:#a6e22e">lo_el_zoption</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">if_wd_context_element</span>,
-        <span style="color:#a6e22e">ls_zoption</span>      <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">element_zoption</span>,
-        <span style="color:#a6e22e">lv_p_total</span>      <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">element_zoption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">p_total</span>,
-        <span style="color:#a6e22e">lv_p_detail</span>     <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">element_zoption</span><span style="color:#f92672">-</span><span style="color:#a6e22e">p_detail</span>. 
-  <span style="color:#e6db74">&#34; 选择屏幕数据的多属性定义 &#34;</span>
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RARBPL</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">data</span>,
-        <span style="color:#a6e22e">RKOSTL</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">data</span>,
-        <span style="color:#a6e22e">RAUFNR</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">data</span>,
-        <span style="color:#a6e22e">RAUART</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">data</span>,
-        <span style="color:#a6e22e">RBUDAT</span>   <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">REF</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">data</span>.
-  <span style="color:#a6e22e">FIELD</span><span style="color:#f92672">-</span><span style="color:#a6e22e">SYMBOLS</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RARBPL</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">table</span>,
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RKOSTL</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">table</span>,
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RAUFNR</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">table</span>,
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RAUART</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">table</span>,
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RBUDAT</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">table</span>.
-  <span style="color:#a6e22e">DATA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">l_name</span> <span style="color:#a6e22e">TYPE</span> <span style="color:#a6e22e">string</span>.
-  <span style="color:#e6db74">&#34; 获取用户名:需要在Content Administration中配置 Application Para &#39;userid=&lt;User.LogonUid&gt;&#39; &#34;</span>
-  <span style="color:#a6e22e">l_name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wdr_task</span>=&gt;<span style="color:#a6e22e">client_window</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_wdr_client_info_object</span><span style="color:#f92672">~</span><span style="color:#a6e22e">get_parameter</span>( <span style="color:#e6db74">&#39;USERID&#39;</span> ).
-  <span style="color:#a6e22e">TRANSLATE</span> <span style="color:#a6e22e">l_name</span> <span style="color:#a6e22e">TO</span> <span style="color:#a6e22e">UPPER</span> <span style="color:#a6e22e">CASE</span>.
-  <span style="color:#e6db74">&#34; 选择屏幕数据的单属性获取 &#34;</span>
-  <span style="color:#a6e22e">lo_nd_zoption</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_context</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">wdctx_zoption</span> ).
-  <span style="color:#a6e22e">lo_el_zoption</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lo_nd_zoption</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_element</span>( ).
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">lo_el_zoption</span> <span style="color:#a6e22e">IS</span> <span style="color:#a6e22e">NOT</span> <span style="color:#a6e22e">INITIAL</span>.
-    <span style="color:#a6e22e">lo_el_zoption</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_attribute</span>(
-      <span style="color:#a6e22e">EXPORTING</span>
-        <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39;P_TOTAL&#39;</span>
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lv_p_total</span> ).
-    <span style="color:#a6e22e">lo_el_zoption</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_attribute</span>(
-      <span style="color:#a6e22e">EXPORTING</span>
-        <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39;P_DETAIL&#39;</span>
-      <span style="color:#a6e22e">IMPORTING</span>
-        <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lv_p_detail</span> ).
-  <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#e6db74">&#34; 选择屏幕数据的多属性获取 &#34;</span>
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">m_handler</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_range_table_of_sel_field</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">i_id</span>           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ARBPL&#39;</span>
-    <span style="color:#a6e22e">RECEIVING</span>
-      <span style="color:#a6e22e">rt_range_table</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">RARBPL</span>.
-  <span style="color:#a6e22e">ASSIGN</span> <span style="color:#a6e22e">RARBPL</span><span style="color:#f92672">-&gt;*</span> <span style="color:#a6e22e">TO</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RARBPL</span><span style="color:#f92672">&gt;</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">m_handler</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_range_table_of_sel_field</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">i_id</span>           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;KOSTL&#39;</span>
-    <span style="color:#a6e22e">RECEIVING</span>
-      <span style="color:#a6e22e">rt_range_table</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">RKOSTL</span>.
-  <span style="color:#a6e22e">ASSIGN</span> <span style="color:#a6e22e">RKOSTL</span><span style="color:#f92672">-&gt;*</span> <span style="color:#a6e22e">TO</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RKOSTL</span><span style="color:#f92672">&gt;</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">m_handler</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_range_table_of_sel_field</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">i_id</span>           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUFNR&#39;</span>
-    <span style="color:#a6e22e">RECEIVING</span>
-      <span style="color:#a6e22e">rt_range_table</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">RAUFNR</span>.
-  <span style="color:#a6e22e">ASSIGN</span> <span style="color:#a6e22e">RAUFNR</span><span style="color:#f92672">-&gt;*</span> <span style="color:#a6e22e">TO</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RAUFNR</span><span style="color:#f92672">&gt;</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">m_handler</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_range_table_of_sel_field</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">i_id</span>           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUART&#39;</span>
-    <span style="color:#a6e22e">RECEIVING</span>
-      <span style="color:#a6e22e">rt_range_table</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">RAUART</span>.
-  <span style="color:#a6e22e">ASSIGN</span> <span style="color:#a6e22e">RAUART</span><span style="color:#f92672">-&gt;*</span> <span style="color:#a6e22e">TO</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RAUART</span><span style="color:#f92672">&gt;</span>.
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">METHOD</span> <span style="color:#a6e22e">wd_this</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">m_handler</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_range_table_of_sel_field</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">i_id</span>           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BUDAT&#39;</span>
-    <span style="color:#a6e22e">RECEIVING</span>
-      <span style="color:#a6e22e">rt_range_table</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">RBUDAT</span>.
-  <span style="color:#a6e22e">ASSIGN</span> <span style="color:#a6e22e">RBUDAT</span><span style="color:#f92672">-&gt;*</span> <span style="color:#a6e22e">TO</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RBUDAT</span><span style="color:#f92672">&gt;</span>.
-  <span style="color:#e6db74">&#34; 调用SAP Funciton 获取数据 &#34;</span>
-  <span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;Z_GET_ZPEFF&#39;</span> <span style="color:#a6e22e">DESTINATION</span> <span style="color:#e6db74">&#39;WIKR3&#39;</span>
-    <span style="color:#a6e22e">EXPORTING</span>
-      <span style="color:#a6e22e">iv_total</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">lv_p_total</span>
-      <span style="color:#a6e22e">iv_detail</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lv_p_detail</span>
-   <span style="color:#a6e22e">TABLES</span>
-      <span style="color:#a6e22e">IT_ARBPL</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RARBPL</span><span style="color:#f92672">&gt;</span>
-	  <span style="color:#a6e22e">IT_KOSTL</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RKOSTL</span><span style="color:#f92672">&gt;</span>
-	  <span style="color:#a6e22e">IT_AUFNR</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RAUFNR</span><span style="color:#f92672">&gt;</span>
-	  <span style="color:#a6e22e">IT_AUART</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RAUART</span><span style="color:#f92672">&gt;</span>
-	  <span style="color:#a6e22e">IT_BUDAT</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">RBUDAT</span><span style="color:#f92672">&gt;</span>
-	  <span style="color:#a6e22e">IT_TOTAL</span> <span style="color:#f92672">=</span>  <span style="color:#a6e22e">lt_ZALV_ZPEFF_TOTAL</span>
-	  <span style="color:#a6e22e">IT_DETAIL</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lt_ZALV_PROD_EFF</span>.
-  <span style="color:#e6db74">&#34; 结果集的上下文节点绑定 &#34;</span>
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">lv_p_total</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-    <span style="color:#a6e22e">lo_node</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_context</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZALV_ZPEFF_TOTAL&#39;</span> ).
-    <span style="color:#a6e22e">lo_node</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bind_table</span>( <span style="color:#a6e22e">lt_ZALV_ZPEFF_TOTAL</span> ).
-  <span style="color:#a6e22e">ENDIF</span>.
-  <span style="color:#e6db74">&#34; Color field setting &#34;</span>
-  <span style="color:#a6e22e">LOOP</span> <span style="color:#a6e22e">AT</span> <span style="color:#a6e22e">lt_ZALV_PROD_EFF</span> <span style="color:#a6e22e">into</span> <span style="color:#a6e22e">ls_ZALV_PROD_EFF</span>.
-  	<span style="color:#a6e22e">ls_ZALV_PROD_EFF</span><span style="color:#f92672">-</span><span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cl_wd_abstr_master_table_col</span>=&gt;<span style="color:#a6e22e">e_cell_design</span><span style="color:#f92672">-</span><span style="color:#a6e22e">calendar_green</span>.
-    <span style="color:#e6db74">&#34; ls_ZALV_PROD_EFF-color = &#39;27&#39;. &#34;</span>
-    <span style="color:#e6db74">&#34; ls_ZALV_PROD_EFF-color = &#39;02&#39;. &#34;</span>
-    <span style="color:#e6db74">&#34; ls_ZALV_PROD_EFF-color = cl_wd_abstr_master_table_col=&gt;e_cell_design-badvalue_dark. &#34;</span>
-    <span style="color:#a6e22e">MODIFY</span> <span style="color:#a6e22e">lt_ZALV_PROD_EFF</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">ls_ZALV_PROD_EFF</span>.
-    <span style="color:#a6e22e">CLEAR</span> <span style="color:#a6e22e">ls_ZALV_PROD_EFF</span>.
-  <span style="color:#a6e22e">ENDLOOP</span>.
-  <span style="color:#a6e22e">IF</span> <span style="color:#a6e22e">lv_p_detail</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
-    <span style="color:#a6e22e">lo_node</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wd_context</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZALV_PROD_EFF&#39;</span> ).
-    <span style="color:#a6e22e">lo_node</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bind_table</span>( <span style="color:#a6e22e">lt_ZALV_PROD_EFF</span> ).
-  <span style="color:#a6e22e">ENDIF</span>.
-<span style="color:#a6e22e">ENDMETHOD</span>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">METHOD</span> <span style="color:#a6e22e">DATA_LOAD</span> .
+  <span style="color:#75715e">&#34; ALV 输出的结构定义 &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">DATA</span>: lt_ZALV_ZPEFF_TOTAL   <span style="color:#66d9ef">TYPE TABLE OF</span> ZALV_ZPEFF_TOTAL,
+        ls_ZALV_ZPEFF_TOTAL   <span style="color:#66d9ef">TYPE </span>ZALV_ZPEFF_TOTAL,
+        lt_ZALV_PROD_EFF      <span style="color:#66d9ef">TYPE TABLE OF</span> ZALV_PROD_EFF,
+        ls_ZALV_PROD_EFF      <span style="color:#66d9ef">TYPE </span>ZALV_PROD_EFF,
+        lo_node               <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_node.
+  <span style="color:#75715e">&#34;  选择屏幕数据的单属性定义 &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">DATA</span>: lo_nd_zoption   <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_node,
+        lo_el_zoption   <span style="color:#66d9ef">TYPE REF TO</span> if_wd_context_element,
+        ls_zoption      <span style="color:#66d9ef">TYPE </span>wd_this<span style="color:#f92672">-&gt;</span>element_zoption,
+        lv_p_total      <span style="color:#66d9ef">TYPE </span>wd_this<span style="color:#f92672">-&gt;</span>element_zoption<span style="color:#f92672">-</span>p_total,
+        lv_p_detail     <span style="color:#66d9ef">TYPE </span>wd_this<span style="color:#f92672">-&gt;</span>element_zoption<span style="color:#f92672">-</span>p_detail. 
+  <span style="color:#75715e">&#34; 选择屏幕数据的多属性定义 &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">DATA</span>: RARBPL   <span style="color:#66d9ef">TYPE REF TO</span> <span style="color:#66d9ef">data</span>,
+        RKOSTL   <span style="color:#66d9ef">TYPE REF TO</span> <span style="color:#66d9ef">data</span>,
+        RAUFNR   <span style="color:#66d9ef">TYPE REF TO</span> <span style="color:#66d9ef">data</span>,
+        RAUART   <span style="color:#66d9ef">TYPE REF TO</span> <span style="color:#66d9ef">data</span>,
+        RBUDAT   <span style="color:#66d9ef">TYPE REF TO</span> <span style="color:#66d9ef">data</span>.
+  <span style="color:#66d9ef">FIELD-SYMBOLS</span>:
+        &lt;RARBPL&gt; <span style="color:#66d9ef">TYPE table</span>,
+        &lt;RKOSTL&gt; <span style="color:#66d9ef">TYPE table</span>,
+        &lt;RAUFNR&gt; <span style="color:#66d9ef">TYPE table</span>,
+        &lt;RAUART&gt; <span style="color:#66d9ef">TYPE table</span>,
+        &lt;RBUDAT&gt; <span style="color:#66d9ef">TYPE table</span>.
+  <span style="color:#66d9ef">DATA</span>: l_name <span style="color:#66d9ef">TYPE </span>string.
+  <span style="color:#75715e">&#34; 获取用户名:需要在Content Administration中配置 Application Para &#39;userid=&lt;User.LogonUid&gt;&#39; &#34;
+</span><span style="color:#75715e"></span>  l_name <span style="color:#f92672">=</span> wdr_task<span style="color:#f92672">=&gt;</span>client_window<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">if_wdr_client_info_object~get_parameter</span>( <span style="color:#e6db74">&#39;USERID&#39;</span> ).
+  <span style="color:#66d9ef">TRANSLATE</span> l_name <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">UPPER CASE</span>.
+  <span style="color:#75715e">&#34; 选择屏幕数据的单属性获取 &#34;
+</span><span style="color:#75715e"></span>  lo_nd_zoption <span style="color:#f92672">=</span> wd_context<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( name <span style="color:#f92672">=</span> wd_this<span style="color:#f92672">-&gt;</span>wdctx_zoption ).
+  lo_el_zoption <span style="color:#f92672">=</span> lo_nd_zoption<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_element</span>( ).
+  <span style="color:#66d9ef">IF</span> lo_el_zoption <span style="color:#f92672">IS NOT INITIAL</span>.
+    lo_el_zoption<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_attribute</span>(
+      <span style="color:#66d9ef">EXPORTING</span>
+        name <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39;P_TOTAL&#39;</span>
+      <span style="color:#66d9ef">IMPORTING</span>
+        <span style="color:#66d9ef">value</span> <span style="color:#f92672">=</span> lv_p_total ).
+    lo_el_zoption<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_attribute</span>(
+      <span style="color:#66d9ef">EXPORTING</span>
+        name <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#39;P_DETAIL&#39;</span>
+      <span style="color:#66d9ef">IMPORTING</span>
+        <span style="color:#66d9ef">value</span> <span style="color:#f92672">=</span> lv_p_detail ).
+  <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#75715e">&#34; 选择屏幕数据的多属性获取 &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CALL METHOD</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span>get_range_table_of_sel_field
+    <span style="color:#66d9ef">EXPORTING</span>
+      i_id           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ARBPL&#39;</span>
+    RECEIVING
+      rt_range_table <span style="color:#f92672">=</span> RARBPL.
+  <span style="color:#66d9ef">ASSIGN</span> RARBPL-&gt;* <span style="color:#66d9ef">TO</span> &lt;RARBPL&gt;.
+  <span style="color:#66d9ef">CALL METHOD</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span>get_range_table_of_sel_field
+    <span style="color:#66d9ef">EXPORTING</span>
+      i_id           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;KOSTL&#39;</span>
+    RECEIVING
+      rt_range_table <span style="color:#f92672">=</span> RKOSTL.
+  <span style="color:#66d9ef">ASSIGN</span> RKOSTL-&gt;* <span style="color:#66d9ef">TO</span> &lt;RKOSTL&gt;.
+  <span style="color:#66d9ef">CALL METHOD</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span>get_range_table_of_sel_field
+    <span style="color:#66d9ef">EXPORTING</span>
+      i_id           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUFNR&#39;</span>
+    RECEIVING
+      rt_range_table <span style="color:#f92672">=</span> RAUFNR.
+  <span style="color:#66d9ef">ASSIGN</span> RAUFNR-&gt;* <span style="color:#66d9ef">TO</span> &lt;RAUFNR&gt;.
+  <span style="color:#66d9ef">CALL METHOD</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span>get_range_table_of_sel_field
+    <span style="color:#66d9ef">EXPORTING</span>
+      i_id           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUART&#39;</span>
+    RECEIVING
+      rt_range_table <span style="color:#f92672">=</span> RAUART.
+  <span style="color:#66d9ef">ASSIGN</span> RAUART-&gt;* <span style="color:#66d9ef">TO</span> &lt;RAUART&gt;.
+  <span style="color:#66d9ef">CALL METHOD</span> wd_this<span style="color:#f92672">-&gt;</span>m_handler<span style="color:#f92672">-&gt;</span>get_range_table_of_sel_field
+    <span style="color:#66d9ef">EXPORTING</span>
+      i_id           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BUDAT&#39;</span>
+    RECEIVING
+      rt_range_table <span style="color:#f92672">=</span> RBUDAT.
+  <span style="color:#66d9ef">ASSIGN</span> RBUDAT-&gt;* <span style="color:#66d9ef">TO</span> &lt;RBUDAT&gt;.
+  <span style="color:#75715e">&#34; 调用SAP Funciton 获取数据 &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;Z_GET_ZPEFF&#39;</span> DESTINATION <span style="color:#e6db74">&#39;WIKR3&#39;</span>
+    <span style="color:#66d9ef">EXPORTING</span>
+      iv_total  <span style="color:#f92672">=</span> lv_p_total
+      iv_detail <span style="color:#f92672">=</span> lv_p_detail
+   <span style="color:#66d9ef">TABLES</span>
+      IT_ARBPL <span style="color:#f92672">=</span> &lt;RARBPL&gt;
+	  IT_KOSTL <span style="color:#f92672">=</span> &lt;RKOSTL&gt;
+	  IT_AUFNR <span style="color:#f92672">=</span> &lt;RAUFNR&gt;
+	  IT_AUART <span style="color:#f92672">=</span> &lt;RAUART&gt;
+	  IT_BUDAT <span style="color:#f92672">=</span> &lt;RBUDAT&gt;
+	  IT_TOTAL <span style="color:#f92672">=</span>  lt_ZALV_ZPEFF_TOTAL
+	  IT_DETAIL <span style="color:#f92672">=</span> lt_ZALV_PROD_EFF.
+  <span style="color:#75715e">&#34; 结果集的上下文节点绑定 &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">IF</span> lv_p_total <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+    lo_node <span style="color:#f92672">=</span> wd_context<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZALV_ZPEFF_TOTAL&#39;</span> ).
+    lo_node<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bind_table</span>( lt_ZALV_ZPEFF_TOTAL ).
+  <span style="color:#66d9ef">ENDIF</span>.
+  <span style="color:#75715e">&#34; Color field setting &#34;
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">LOOP AT </span>lt_ZALV_PROD_EFF <span style="color:#66d9ef">into</span> ls_ZALV_PROD_EFF.
+  	ls_ZALV_PROD_EFF<span style="color:#f92672">-</span>color <span style="color:#f92672">=</span> cl_wd_abstr_master_table_col<span style="color:#f92672">=&gt;</span>e_cell_design<span style="color:#f92672">-</span>calendar_green.
+    <span style="color:#75715e">&#34; ls_ZALV_PROD_EFF-color = &#39;27&#39;. &#34;
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">&#34; ls_ZALV_PROD_EFF-color = &#39;02&#39;. &#34;
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">&#34; ls_ZALV_PROD_EFF-color = cl_wd_abstr_master_table_col=&gt;e_cell_design-badvalue_dark. &#34;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">MODIFY</span> lt_ZALV_PROD_EFF <span style="color:#66d9ef">FROM</span> ls_ZALV_PROD_EFF.
+    <span style="color:#66d9ef">CLEAR</span> ls_ZALV_PROD_EFF.
+  <span style="color:#66d9ef">ENDLOOP</span>.
+  <span style="color:#66d9ef">IF</span> lv_p_detail <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>.
+    lo_node <span style="color:#f92672">=</span> wd_context<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get_child_node</span>( name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZALV_PROD_EFF&#39;</span> ).
+    lo_node<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bind_table</span>( lt_ZALV_PROD_EFF ).
+  <span style="color:#66d9ef">ENDIF</span>.
+<span style="color:#66d9ef">ENDMETHOD</span>.
 </code></pre></div>
     </div>
 

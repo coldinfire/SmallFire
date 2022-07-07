@@ -15,7 +15,7 @@ tags:
 
 ### 实例代码
 
-```JS
+```ABAP
 REPORT z_barry_alv_tree1_bom MESSAGE-ID oo.
 TABLES: stpox.
 INCLUDE <icon>.

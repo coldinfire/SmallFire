@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "WebDynpro",
-  "wordcount":  582 ,
+  "wordcount":  581 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/SAPWebDynproABAP_TriggerEvents\/",
   "datePublished": "2018-10-23T00:00:00\u002b00:00",
   "dateModified": "2018-10-23T00:00:00\u002b00:00",
@@ -181,9 +181,9 @@
 <h3 id="在-web-dynpro-组件中注册-alv-事件处理程序">在 Web Dynpro 组件中注册 ALV 事件处理程序</h3>
 <p>要在 Web Dynpro 中触发 ALV 事件，例如 ON_CLICK 或 ON_CELL_ACTION， ABAP开发人员应为相应的事件方法注册事件处理程序，并应在 Web Dynpro 组件的 WDDOMODIFYVIEW 方法中启用相关事件。</p>
 <p>为了注册上述事件，请转到 View 对象，ABAP 开发人员将在其中显示 ALV 表对象。然后切换到 Methods 选项卡，如下面的屏幕截图所示:</p>
-<p><img src="/images/webdynproABAP/Portal32.png" alt="Method Types"></p>
+<p><img src="/images/webdynpro/webdynproABAP/Portal32.png" alt="Method Types"></p>
 <p>首先从 Method Type 下拉列中选择 <strong>Event Handler</strong>。然后在 <strong>Event</strong> 的列上使用搜索帮助,选择相关组件使用所需的事件。然后键入事件处理程序方法的名称和描述。</p>
-<p><img src="/images/webdynproABAP/Portal33.png" alt="Event Types"></p>
+<p><img src="/images/webdynpro/webdynproABAP/Portal33.png" alt="Event Types"></p>
 <h3 id="在-web-dynpro-wddomodifyview-方法中启用-alv-事件">在 Web Dynpro WDDOMODIFYVIEW 方法中启用 ALV 事件</h3>
 <p>在成功触发 ALV 事件之前，应修改 Web Dynpro 组件 WDDOMODIFYVIEW 方法以启用 ALV 事件。以下 ABAP 代码可用于启用 WDDOMODIFYVIEW 方法中的 ALV 事件。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#75715e">* Data Declaration</span>
@@ -202,7 +202,7 @@ alv_config <span style="color:#f92672">=</span> lalv_controller<span style="colo
 <span style="color:#66d9ef">call method</span> alv_config<span style="color:#f92672">-&gt;</span>if_salv_wd_table_settings~set_cell_action_event_enabled
  <span style="color:#66d9ef">exporting</span>
   <span style="color:#66d9ef">value</span> <span style="color:#f92672">=</span> ABAP_TRUE .
-</code></pre></div><p>当您单击 ALV 行或在可编辑的 ALV 表单元上按 Enter 键时，将触发这些事件处理程序。可以在这些 ALV 事件处理程序方法中添加自定义代码。</p>
+</code></pre></div><p>当单击 ALV 行或在可编辑的 ALV 表单元上按 Enter 键时，将触发这些事件处理程序。可以在这些 ALV 事件处理程序方法中添加自定义代码。</p>
 
     </div>
 
@@ -216,7 +216,7 @@ alv_config <span style="color:#f92672">=</span> lalv_controller<span style="colo
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>582</span>
+                   <span>581</span>
             </p>
             
             <p class="copyright-item">

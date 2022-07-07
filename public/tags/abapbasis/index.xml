@@ -6,7 +6,16 @@
     <description>Recent content in abapbasis on Small Fire`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/abapbasis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coldinfire.github.io/tags/abapbasis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> RFC-BAPI-BADI-BDC 区别 </title>
+      <link>https://coldinfire.github.io/2021/ABAP_Basis_FunctionDiff/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/ABAP_Basis_FunctionDiff/</guid>
+      <description>RFC RFC 代表远程函数调用。 它是 SAP 环境中不同系统应用程序之间通信的协议，包括 SAP 系统之间以及 SAP 系统与非 SAP 系统之间的连接。 它是用于不同 SAP 系统之间通信的</description>
+    </item>
+    
     <item>
       <title> ABAP 7.40 Quick Reference Part2 </title>
       <link>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_2/</link>
@@ -23,6 +32,15 @@
       
       <guid>https://coldinfire.github.io/2020/ABAP_7.40_QuickReference_1/</guid>
       <description>Inline Declarations - 内联声明 DATA(...) 内联声明方便了我们的使用，有了它我们在访问数据库的时候，直接写 SELECT 就可以了，不需要再去构建各式各样的內表和表类型了。在内表中它</description>
+    </item>
+    
+    <item>
+      <title> ABAP 学习网站记录 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_Basis_WebSiteCollect/</link>
+      <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_Basis_WebSiteCollect/</guid>
+      <description>http://www.saptechnical.com/index.htm：需要检索关键信息 https://sapcodes.com/：包含</description>
     </item>
     
     <item>
@@ -53,6 +71,15 @@
     </item>
     
     <item>
+      <title> BAPI 使用 </title>
+      <link>https://coldinfire.github.io/2019/ABAP_BAPI_Basis/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/ABAP_BAPI_Basis/</guid>
+      <description>BAPI 简介 BAPI：Business Application Process Interface(业务应用编辑接口)，是标准化的编程接口（方法），使外部应用程序能够访问 R/3 系统中的业务</description>
+    </item>
+    
+    <item>
       <title> RFC 介绍 </title>
       <link>https://coldinfire.github.io/2018/ABAP_RFC/</link>
       <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
@@ -62,12 +89,30 @@
     </item>
     
     <item>
+      <title> SAP Field Symbols </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_FieldSymbol/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_FieldSymbol/</guid>
+      <description>字段符号 定义 FIELD-SYMBOLS: &amp;lt;fs_tb&amp;gt; TYPE ANY TABLE. FIELD-SYMBOLS: &amp;lt;fs_wa&amp;gt; TYPE ANY. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE LINE OF &amp;lt;table&amp;gt;. FIELD-SYMBOLS: &amp;lt;fs_struc&amp;gt; LIKE &amp;lt;structure&amp;gt;. 使用 FIELD-SYMBOLS 必须和某个变量，结构或者内表绑定后才能使用，在使用字段符号前必须分配给某个变量，不然</description>
+    </item>
+    
+    <item>
       <title> ABAP 性能优化(程序逻辑) </title>
       <link>https://coldinfire.github.io/2018/ABAP_ProgramOpt/</link>
       <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2018/ABAP_ProgramOpt/</guid>
       <description>性能分析工具 ​ SE30(旧)；SAT(新)：运行时间分析工具 ​ ST12：Single transaction analysis 程序优化 READ TABLE &amp;hellip;WITH [TABLE] KEY&amp;hellip;BINARY SEARCH读取标准内表使用二分查</description>
+    </item>
+    
+    <item>
+      <title> ABAP 事件终止 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_EventTerminated/</link>
+      <pubDate>Sat, 09 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_EventTerminated/</guid>
+      <description>事件终止 RETURN 用来退出当前执行的程序块，而不仅仅是退出循环。如FORM，METHOD，报表事件块 STOP INITIALIZATION 中 STOP 会导致跳转到 AT SELECTION-SCREEN OUTPUT 事件块 如果 STOP 在 AT SELECTION-SCREEN OUTPUT 块</description>
     </item>
     
     <item>
@@ -90,10 +135,10 @@
     
     <item>
       <title> ABAP Message 处理 </title>
-      <link>https://coldinfire.github.io/2018/ABAP_Message/</link>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_Message/</link>
       <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2018/ABAP_Message/</guid>
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_Message/</guid>
       <description>MESSAGE 简单操作 SAP Message 存储的内表 T100、T100C、T100S、T100U、T160M T100：该表包括所有的消息 T100C：通常包括修改后的消息</description>
     </item>
     
@@ -149,6 +194,15 @@
       
       <guid>https://coldinfire.github.io/2018/ABAP_Basis_Variable/</guid>
       <description>ABAP 数据类型 数据类型在 ABAP 程序中用于定义具体的变量类型。 基本数据类型 ABAP 基本数据类型是系统内部定义的数据类型。 Type Description Length Type Description Length C 文本字段（字母数字字符</description>
+    </item>
+    
+    <item>
+      <title> ABAP 技能树 </title>
+      <link>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2018/ABAP_Basis_GoalTree/</guid>
+      <description>ABAP 学习 ABAP语法详解 全面掌握 SAP 的开发环境，ABAP 语法等基础知识。 报表开发全面总结 全面总结 SAP 系统中各种类型报表的实现方案和技术细节，开发者</description>
     </item>
     
     <item>

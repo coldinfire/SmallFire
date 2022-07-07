@@ -19,10 +19,10 @@ tags:
 
 步骤：
 
-- 上传模板 tcode：SMW0
+- 上传模板事务码：SMW0
 - 获取并展示数据
 - 自定义按钮
-- 将ALV数据下载到EXCEL模板中
+- 将 ALV 数据下载到 EXCEL 模板中
 - 下载速度的优化
 - 程序源码（ZOLE_EXCEL）
 

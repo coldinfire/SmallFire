@@ -5,7 +5,7 @@ draft: false
 author: Small Fire
 isCJKLanguage: true
 categories: 
-  - 前端
+  - 工具
 
 tags: 
   - NodeJs

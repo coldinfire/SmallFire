@@ -62,6 +62,15 @@
     </item>
     
     <item>
+      <title> BOM 创建修改保存时增强 </title>
+      <link>https://coldinfire.github.io/2021/MM_Enhance_BOM/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2021/MM_Enhance_BOM/</guid>
+      <description>使用 BADI BADI：BOM_UPDATE，CHANGE_AT_SAVE 方法就是 BOM 创建和修改保存时触发的方法，也就是CS01，CS02保存时触发。</description>
+    </item>
+    
+    <item>
       <title> 获取 Purchase Info Record Price </title>
       <link>https://coldinfire.github.io/2021/MM_Util_GetPIRPrice/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
@@ -198,10 +207,10 @@
     
     <item>
       <title> BAPI:BAPI_INCOMINGINVOICE_CREATE MIRO根据物料创建贷项凭证 </title>
-      <link>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</link>
+      <link>https://coldinfire.github.io/2019/MM_BAPI_MIRO_Create/</link>
       <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/FI_BAPI_MIRO_Create/</guid>
+      <guid>https://coldinfire.github.io/2019/MM_BAPI_MIRO_Create/</guid>
       <description>引用链接：https://mp.weixin.qq.com/s/7Wvo452ZJN3MBemD-ehJlw BAPI_INCOMINGINVOICE_CREATE *&amp;amp;---------------------------------------------------------------------* *&amp;amp; Report ZTEST_MIRO. *&amp;amp;---------------------------------------------------------------------* REPORT ZTEST_MIRO. DATA: LS_HEADERDATA LIKE BAPI_INCINV_CREATE_HEADER, LT_RETURN LIKE TABLE OF</description>
     </item>
     
@@ -284,6 +293,15 @@
       
       <guid>https://coldinfire.github.io/2019/MM_Enhance_MasterData1/</guid>
       <description>Reference: https://blogs.sap.com/2015/03/06/additional-fields-on-the-material-master/ MM01中的Screen完全是通过一个个的subscreen，像一个个的component组合而成的。在原有的subscreen不在cu</description>
+    </item>
+    
+    <item>
+      <title> STO 详解 </title>
+      <link>https://coldinfire.github.io/2019/MM_STO/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coldinfire.github.io/2019/MM_STO/</guid>
+      <description>工厂间转储 MB1B 移动类型 301 工厂到工厂（一步）转账：简单明了一步转储；过账后会产生 GR，MITA 增加，MIZH 减少。 MB03 查看物料凭证：会产生 GR，如</description>
     </item>
     
     <item>

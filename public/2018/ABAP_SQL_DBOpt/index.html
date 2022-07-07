@@ -10,7 +10,7 @@
   
   
   
-  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP_Message/" />
+  <link rel="prev" href="https://coldinfire.github.io/2018/ABAP_Basis_Message/" />
   <link rel="next" href="https://coldinfire.github.io/2018/ABAP_ProgramCall/" />
   <link rel="canonical" href="https://coldinfire.github.io/2018/ABAP_SQL_DBOpt/" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
@@ -238,14 +238,14 @@
 <span style="color:#a6e22e">joins</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">使用JOIN时</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">会绕过SAP缓存</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">可以使用FOR</span> <span style="color:#a6e22e">ALL</span> <span style="color:#a6e22e">ENTRIES来代替</span>
 <span style="color:#a6e22e">where从句中使用Sub</span> <span style="color:#a6e22e">queries</span><span style="color:#960050;background-color:#1e0010">（</span><span style="color:#a6e22e">子查询</span><span style="color:#960050;background-color:#1e0010">）</span>
 <span style="color:#a6e22e">shere从句中使用IS</span> <span style="color:#a6e22e">NULL条件</span>
-</code></pre></div><ul>
-<li>使用内表批量操作数据库，而不要使用工作区一条条操作,如：</li>
+</code></pre></div><p>使用内表批量操作数据库，而不要使用工作区一条条操作,如：</p>
+<ul>
+<li>INSERT dbtab FROM TABLE itab</li>
+<li>DELETE dbtab FROM TABLE itab</li>
+<li>MODIFY dbtab FROM TABLE itab</li>
+<li>SELECT &hellip; INTO TABLE itab</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">SELECT</span> ... <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">itab</span>
-<span style="color:#a6e22e">INSERT</span> <span style="color:#a6e22e">dbtab</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">itab</span>
-<span style="color:#a6e22e">DELETE</span> <span style="color:#a6e22e">dbtab</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">itab</span>
-<span style="color:#a6e22e">UPDATE</span><span style="color:#f92672">/</span><span style="color:#a6e22e">MODIFY</span> <span style="color:#a6e22e">dbtab</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">TABLE</span> <span style="color:#a6e22e">itab</span>		 
-</code></pre></div></li>
+</li>
 <li>
 <p>针对 STANDARD TABLE 排序后可以进行二分法查找，使用 SORTED TABLE 也可进行二分法查找，那么二者有什么区别呢？</p>
 <ol>
@@ -302,7 +302,7 @@
 
     <div class="post-nav">
         
-        <a href="https://coldinfire.github.io/2018/ABAP_Message/" class="prev" rel="prev" title=" ABAP Message 处理 "><i class="iconfont icon-dajiantou"></i>&nbsp; ABAP Message 处理 </a>
+        <a href="https://coldinfire.github.io/2018/ABAP_Basis_Message/" class="prev" rel="prev" title=" ABAP Message 处理 "><i class="iconfont icon-dajiantou"></i>&nbsp; ABAP Message 处理 </a>
          
         
         <a href="https://coldinfire.github.io/2018/ABAP_ProgramCall/" class="next" rel="next" title=" ABAP 程序间调用 "> ABAP 程序间调用 &nbsp;<i class="iconfont icon-xiaojiantou"></i></a>

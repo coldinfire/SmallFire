@@ -14,7 +14,7 @@ tags:
 
 ## Component Controller: DATA_LOAD
 
-```JS
+```ABAP
 METHOD DATA_LOAD .
   " ALV 输出的结构定义 "
   DATA: lt_ZALV_ZPEFF_TOTAL   TYPE TABLE OF ZALV_ZPEFF_TOTAL,

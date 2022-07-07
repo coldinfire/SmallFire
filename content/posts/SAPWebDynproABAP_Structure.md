@@ -14,7 +14,7 @@ tags:
 
 ### 一般的程序框架
 
-![Web Dynpro Role](/images/webdynproABAP/Portal24.png)
+![Web Dynpro Role](/images/webdynpro/webdynproABAP/Portal24.png)
 
 #### Component Controller
 

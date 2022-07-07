@@ -28,11 +28,11 @@ tags:
 
 为了注册上述事件，请转到 View 对象，ABAP 开发人员将在其中显示 ALV 表对象。然后切换到 Methods 选项卡，如下面的屏幕截图所示:
 
-![Method Types](/images/webdynproABAP/Portal32.png)
+![Method Types](/images/webdynpro/webdynproABAP/Portal32.png)
 
 首先从 Method Type 下拉列中选择 **Event Handler**。然后在 **Event** 的列上使用搜索帮助,选择相关组件使用所需的事件。然后键入事件处理程序方法的名称和描述。
 
-![Event Types](/images/webdynproABAP/Portal33.png)
+![Event Types](/images/webdynpro/webdynproABAP/Portal33.png)
 
 ### 在 Web Dynpro WDDOMODIFYVIEW 方法中启用 ALV 事件
 
@@ -57,4 +57,4 @@ call method alv_config->if_salv_wd_table_settings~set_cell_action_event_enabled
   value = ABAP_TRUE .
 ```
 
-当您单击 ALV 行或在可编辑的 ALV 表单元上按 Enter 键时，将触发这些事件处理程序。可以在这些 ALV 事件处理程序方法中添加自定义代码。
+当单击 ALV 行或在可编辑的 ALV 表单元上按 Enter 键时，将触发这些事件处理程序。可以在这些 ALV 事件处理程序方法中添加自定义代码。
