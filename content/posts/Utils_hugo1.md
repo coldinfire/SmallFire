@@ -28,9 +28,9 @@ Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效�
 
 #### 安装 Hugo
 
-在 [Github 版本库](https://github.com/gohugoio/hugo/releases) 中选择合适的版本下载并解压，将解压出来的可执行文件(hugo.exe)放到自定义目录;将对应的文件夹路径配置到环境变量中；`hugo version`查看对应的版本。
+在 [Github 版本库](https://github.com/gohugoio/hugo/releases) 中选择合适的版本下载并解压，将解压出来的可执行文件 hugo.exe 放到自定义目录。将对应的文件夹路径配置到环境变量中；`hugo version`查看对应的版本。
 
-![查看Hugo版本](/images/Blog/20180206105224.png)
+![hugo version](/images/Utils/Blog/hugo_version.png)
 
 #### 初始化博客目录
 
@@ -220,7 +220,7 @@ googleAnalytics = ""
 
 ### 部署到 Github Pages
 
-为了后续通过 Travis-CI 自动部署，这里需要在 Github 上创建两个 repo：一个是文件 repo ，自定义名称(blog)，一个是博客展示repo，必须为 `[username].github.io`。
+为了后续通过 Travis-CI 自动部署，这里需要在 Github 上创建两个 repo：一个是文件 repo ，自定义名称(blog)，一个是博客展示 repo，必须为 `[username].github.io`。
 
 #### Git 连接 Github [远程仓库](https://blog.csdn.net/weixin_43233914/article/details/103502718)
 
@@ -236,20 +236,20 @@ git push -u origin master
 
 #### 配置 Travis
 
-生成 [Github Access Token](https://github.com/settings/tokens/new)，只勾repo内容。
+生成 [Github Access Token](https://github.com/settings/tokens/new)，只勾 repo 内容。
 
-![生成Token](/images/Blog/20180806161655.png)
+![生成Token](/images/Utils/Blog/GithubAccessToken.png)
 
-进入[Travis CI](https://travis-ci.org/)关联Github账号，同步账号并激活blog repo。
+进入 [Travis CI](https://travis-ci.org/) 关联 Github 账号，同步账号并激活 blog repo。
 
-- 进入blog的设置界面设置自动部署触发条件；并把刚刚生成的 GitHub Access Token 添加到环境变量`GITHUB_TOKEN`里。
+- 进入 blog 的设置界面设置自动部署触发条件；并把刚刚生成的 GitHub Access Token 添加到环境变量`GITHUB_TOKEN`里。
 
-  ![配置Token](/images/Blog/20180806162631.png)
+  ![配置Token](/images/Utils/Blog/GithubToken.png)
 
-在blog 目录中添加触发部署文件`.travis.yml`，当blog repo文件发生变化时触发该文件内容
+在 blog 目录中添加触发部署文件`.travis.yml`，当 blog repo 文件发生变化时触发该文件内容
 
 - 默认情况下，travis 会自动下载 git submodules
-- github_token: $GITHUB_TOKEN 要和 travis 设置的环境变量名一致
+- github_token：$GITHUB_TOKEN 要和 travis 设置的环境变量名一致
 
 ```json
 sudo: false
@@ -303,11 +303,11 @@ deploy:
 
 添加`.gitignore`文件
 
-- 在 Hugo 本地编译时会产生 `public` 文件夹，但是这个文件夹中的内容对于blog repo来说是不需要的 (包括用来存放主题的 `themes` 文件夹和主题产生的 `resources` 文件夹也是不需要的)
+- 在 Hugo 本地编译时会产生 `public` 文件夹，但是这个文件夹中的内容对于 blog repo 来说是不需要的 (包括用来存放主题的 `themes` 文件夹和主题产生的 `resources` 文件夹也是不需要的)
 
   我们可以用一个`.gitignore` 文件来排除这些内容
 
-- 在blog目录下创建并修改.gitignore，然后提交到github仓库
+- 在 blog 目录下创建并修改 .gitignore，然后提交到 github 仓库
 
   ```js
   public/*
@@ -321,7 +321,7 @@ deploy:
 
 在 Github 上创建一个 [Github Application](https://github.com/settings/applications/new)，记录下 ClientID 和 Client Secret，后面配置文件需要配置。
 
-![Github Application](/images/Blog/20180806165108.png)	
+![Github Application](/images/Utils/Blog/Gittalk.png)	
 
 #### 配置config.toml文件
 

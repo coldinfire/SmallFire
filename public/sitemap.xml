@@ -30,6 +30,104 @@
     </url>
   
     <url>
+      <loc>https://coldinfire.github.io/2022/FI_Enhance_KS13/</loc>
+      
+      <lastmod>2022-06-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/business/</loc>
+      
+      <lastmod>2022-06-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/categories/</loc>
+      
+      <lastmod>2022-06-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/FICO/</loc>
+      
+      <lastmod>2022-06-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/posts/</loc>
+      
+      <lastmod>2022-06-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/</loc>
+      
+      <lastmod>2022-06-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://coldinfire.github.io/tags/</loc>
+      
+      <lastmod>2022-06-28T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://coldinfire.github.io/2022/SAP_BRF-/</loc>
       
       <lastmod>2022-06-21T00:00:00+00:00</lastmod>
@@ -58,48 +156,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/categories/business/</loc>
-      
-      <lastmod>2022-06-21T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/categories/</loc>
-      
-      <lastmod>2022-06-21T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/posts/</loc>
-      
-      <lastmod>2022-06-21T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/tags/SAPbusiness/</loc>
       
       <lastmod>2022-06-21T00:00:00+00:00</lastmod>
@@ -115,34 +171,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/saputils/</loc>
-      
-      <lastmod>2022-06-21T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/</loc>
-      
-      <lastmod>2022-06-21T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/</loc>
       
       <lastmod>2022-06-21T00:00:00+00:00</lastmod>
       
@@ -339,20 +367,6 @@
   
     <url>
       <loc>https://coldinfire.github.io/tags/DEMO/</loc>
-      
-      <lastmod>2022-03-07T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://coldinfire.github.io/tags/FICO/</loc>
       
       <lastmod>2022-03-07T00:00:00+00:00</lastmod>
       
@@ -3404,20 +3418,6 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MM_Tcode/</loc>
-      
-      <lastmod>2019-03-06T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://coldinfire.github.io/2019/FI_Configure/</loc>
       
       <lastmod>2019-03-04T00:00:00+00:00</lastmod>
@@ -3432,7 +3432,7 @@
     </url>
   
     <url>
-      <loc>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStruture/</loc>
+      <loc>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStructure/</loc>
       
       <lastmod>2019-03-04T00:00:00+00:00</lastmod>
       

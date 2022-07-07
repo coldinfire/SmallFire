@@ -16,9 +16,9 @@ Algolia：博客框架 [https://www.algolia.com/](https://www.algolia.com/)
 
 ### Algolia 配置
 
-![Create Application](/images/Blog/algolia0.png)
+![Create Application](/images/Utils/Blog/algolia1.png)
 
-![Create index](/images/Blog/algolia2.png)
+![Create index](/images/Utils/Blog/algolia2.png)
 
 记录 API Keys 相关信息：
 
@@ -26,7 +26,7 @@ Algolia：博客框架 [https://www.algolia.com/](https://www.algolia.com/)
 - Search-Only API Key
 - Admin API Key
 
-![Create index](/images/Blog/algolia3.png)
+![Create index](/images/Utils/Blog/algolia3.png)
 
 ### Hugo 设置
 
@@ -97,7 +97,7 @@ ALGOLIA_INDEX_FILE=public/algolia.json
 npm run algolia
 ```
 
-![Create index](/images/Blog/algolia3.png)
+![Create index](/images/Utils/Blog/algolia4.png)
 
 ### 主题 UI 添加
 
@@ -280,7 +280,7 @@ search.start();
 
 以上配置完成后即可在首页使用搜索功能。
 
-![Create index](/images/Blog/algolia5.png)
+![Create index](/images/Utils/Blog/algolia5.png)
 
 参考文档：
 

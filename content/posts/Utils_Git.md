@@ -14,7 +14,7 @@ tags:
 
 ## Git本地结构
 
-![git](/images/git/git.jpg)
+![git](/images/Utils/Git/git.jpg)
 
 **Workspace：** 工作区，实际操作的目录。
 
@@ -30,11 +30,11 @@ Git 与 Github 远程代码库，进行操作。
 
 **团队协作：**
 
-![git-github](/images/git/github.jpg)
+![git-github](/images/Utils/Git/github.jpg)
 
 **跨团队协作：**
 
-![git-github](/images/git/github2.png)
+![git-github](/images/Utils/Git/github2.png)
 
 ## Git设置签名
 
@@ -121,7 +121,7 @@ Git 与 Github 远程代码库，进行操作。
 - git log -S [keyword]：根据关键词搜索提交历史
 -  git diff [first-branch]...[second-branch]：显示两次提交之间的差异
 
-![git_log](/images/git/gitlog.jpg)
+![git_log](/images/Utils/Git/gitlog.jpg)
 
 ## Head
 
@@ -274,7 +274,7 @@ Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来�
 
 ## GitFlow
 
-![Git工作流](/images/git/branch.jpg)
+![Git工作流](/images/Utils/Git/branch.jpg)
 
 ## 多人协作工作模式
 

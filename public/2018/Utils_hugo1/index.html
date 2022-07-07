@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "hugo",
-  "wordcount":  2286 ,
+  "wordcount":  2258 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/Utils_hugo1\/",
   "datePublished": "2018-02-03T00:00:00\u002b00:00",
   "dateModified": "2018-02-03T00:00:00\u002b00:00",
@@ -185,8 +185,8 @@
 <p>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p>
 <p>官方网址 <a href="https://gohugo.io/">https://gohugo.io/</a>，关于 Hugo 的介绍十分详细。</p>
 <h4 id="安装-hugo">安装 Hugo</h4>
-<p>在 <a href="https://github.com/gohugoio/hugo/releases">Github 版本库</a> 中选择合适的版本下载并解压，将解压出来的可执行文件(hugo.exe)放到自定义目录;将对应的文件夹路径配置到环境变量中；<code>hugo version</code>查看对应的版本。</p>
-<p><img src="/images/Blog/20180206105224.png" alt="查看Hugo版本"></p>
+<p>在 <a href="https://github.com/gohugoio/hugo/releases">Github 版本库</a> 中选择合适的版本下载并解压，将解压出来的可执行文件 hugo.exe 放到自定义目录。将对应的文件夹路径配置到环境变量中；<code>hugo version</code>查看对应的版本。</p>
+<p><img src="/images/Utils/Blog/hugo_version.png" alt="hugo version"></p>
 <h4 id="初始化博客目录">初始化博客目录</h4>
 <p>选择一个自定义路径来存放博客，在该路径下执行<code>hugo new site myBlog</code>；会创建一个名为 myBlog 的文件夹存放博客内容。</p>
 <p>初始化的目录结构：</p>
@@ -364,7 +364,7 @@
 <li>生成之后就可以通过 http://localhost:1313/ 查看网站效果。</li>
 </ul>
 <h3 id="部署到-github-pages">部署到 Github Pages</h3>
-<p>为了后续通过 Travis-CI 自动部署，这里需要在 Github 上创建两个 repo：一个是文件 repo ，自定义名称(blog)，一个是博客展示repo，必须为 <code>[username].github.io</code>。</p>
+<p>为了后续通过 Travis-CI 自动部署，这里需要在 Github 上创建两个 repo：一个是文件 repo ，自定义名称(blog)，一个是博客展示 repo，必须为 <code>[username].github.io</code>。</p>
 <h4 id="git-连接-github-远程仓库httpsblogcsdnnetweixin_43233914articledetails103502718">Git 连接 Github <a href="https://blog.csdn.net/weixin_43233914/article/details/103502718">远程仓库</a></h4>
 <p>将修改后的内容发布到 blog 仓库中，Travis CI 会自动将生成的博客展示界面部署完成。通过<code>https://&lt;user_name&gt;.github.io/</code>可以访问博客。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">git add <span style="color:#f92672">-</span>a
@@ -373,19 +373,19 @@ git remote add origin https<span style="color:#f92672">:</span><span style="colo
 </span><span style="color:#75715e"></span>git remote add origin git<span style="color:#a6e22e">@github.</span>
 git push <span style="color:#f92672">-</span>u origin master
 </code></pre></div><h4 id="配置-travis">配置 Travis</h4>
-<p>生成 <a href="https://github.com/settings/tokens/new">Github Access Token</a>，只勾repo内容。</p>
-<p><img src="/images/Blog/20180806161655.png" alt="生成Token"></p>
-<p>进入<a href="https://travis-ci.org/">Travis CI</a>关联Github账号，同步账号并激活blog repo。</p>
+<p>生成 <a href="https://github.com/settings/tokens/new">Github Access Token</a>，只勾 repo 内容。</p>
+<p><img src="/images/Utils/Blog/GithubAccessToken.png" alt="生成Token"></p>
+<p>进入 <a href="https://travis-ci.org/">Travis CI</a> 关联 Github 账号，同步账号并激活 blog repo。</p>
 <ul>
 <li>
-<p>进入blog的设置界面设置自动部署触发条件；并把刚刚生成的 GitHub Access Token 添加到环境变量<code>GITHUB_TOKEN</code>里。</p>
-<p><img src="/images/Blog/20180806162631.png" alt="配置Token"></p>
+<p>进入 blog 的设置界面设置自动部署触发条件；并把刚刚生成的 GitHub Access Token 添加到环境变量<code>GITHUB_TOKEN</code>里。</p>
+<p><img src="/images/Utils/Blog/GithubToken.png" alt="配置Token"></p>
 </li>
 </ul>
-<p>在blog 目录中添加触发部署文件<code>.travis.yml</code>，当blog repo文件发生变化时触发该文件内容</p>
+<p>在 blog 目录中添加触发部署文件<code>.travis.yml</code>，当 blog repo 文件发生变化时触发该文件内容</p>
 <ul>
 <li>默认情况下，travis 会自动下载 git submodules</li>
-<li>github_token: $GITHUB_TOKEN 要和 travis 设置的环境变量名一致</li>
+<li>github_token：$GITHUB_TOKEN 要和 travis 设置的环境变量名一致</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">sudo:</span> <span style="color:#66d9ef">false</span>
 <span style="color:#960050;background-color:#1e0010">language:</span> <span style="color:#960050;background-color:#1e0010">go</span>
@@ -437,11 +437,11 @@ git push <span style="color:#f92672">-</span>u origin master
 </code></pre></div><p>添加<code>.gitignore</code>文件</p>
 <ul>
 <li>
-<p>在 Hugo 本地编译时会产生 <code>public</code> 文件夹，但是这个文件夹中的内容对于blog repo来说是不需要的 (包括用来存放主题的 <code>themes</code> 文件夹和主题产生的 <code>resources</code> 文件夹也是不需要的)</p>
+<p>在 Hugo 本地编译时会产生 <code>public</code> 文件夹，但是这个文件夹中的内容对于 blog repo 来说是不需要的 (包括用来存放主题的 <code>themes</code> 文件夹和主题产生的 <code>resources</code> 文件夹也是不需要的)</p>
 <p>我们可以用一个<code>.gitignore</code> 文件来排除这些内容</p>
 </li>
 <li>
-<p>在blog目录下创建并修改.gitignore，然后提交到github仓库</p>
+<p>在 blog 目录下创建并修改 .gitignore，然后提交到 github 仓库</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">public</span><span style="color:#f92672">/*</span>
 <span style="color:#a6e22e">themes</span><span style="color:#f92672">/*</span>
 <span style="color:#a6e22e">resources</span><span style="color:#f92672">/*</span>
@@ -450,7 +450,7 @@ git push <span style="color:#f92672">-</span>u origin master
 <h3 id="添加-gittalk">添加 Gittalk</h3>
 <h4 id="创建-github-application">创建 Github Application</h4>
 <p>在 Github 上创建一个 <a href="https://github.com/settings/applications/new">Github Application</a>，记录下 ClientID 和 Client Secret，后面配置文件需要配置。</p>
-<p><img src="/images/Blog/20180806165108.png" alt="Github Application"></p>
+<p><img src="/images/Utils/Blog/Gittalk.png" alt="Github Application"></p>
 <h4 id="配置configtoml文件">配置config.toml文件</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS">[<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">gitalk</span>] 
   <span style="color:#a6e22e">clientID</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[Client ID]&#34;</span> <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Your</span> <span style="color:#a6e22e">client</span> <span style="color:#a6e22e">ID</span><span style="color:#e6db74">`
@@ -474,7 +474,7 @@ git push <span style="color:#f92672">-</span>u origin master
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2286</span>
+                   <span>2258</span>
             </p>
             
             <p class="copyright-item">

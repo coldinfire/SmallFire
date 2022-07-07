@@ -337,7 +337,7 @@
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Basis_GoodsReceive/</guid>
-      <description>1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO GRIN清单： 供应商发票上的PO# 与Org PO #相同 供应商地址和采购订单地址匹配 物料数量应在Org PO中可用 发票价格</description>
+      <description>1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO GRIN 清单： 供应商发票上的PO# 与Org PO #相同 供应商地址和采购订单地址匹配 物料数量应在Org PO中可用 发票价格和采购</description>
     </item>
     
     <item>
@@ -431,30 +431,21 @@
     </item>
     
     <item>
-      <title> MM 常用TCode </title>
-      <link>https://coldinfire.github.io/2019/MM_Tcode/</link>
-      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coldinfire.github.io/2019/MM_Tcode/</guid>
-      <description>MM 常用Tcode： Table Desc Table Desc MM01/02/03/04/06 物料：创建/修改/显示/显示修改/删除标记 MK01/02/03/05/06 供应商：创建/修改/显示/冻结/删除标记 ME01/02/0M 货源清单：创建/查看/物料</description>
-    </item>
-    
-    <item>
       <title> SAP 企业架构 </title>
-      <link>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStruture/</link>
+      <link>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStructure/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStruture/</guid>
-      <description>Enterprise Struture 整体架构 集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。 公司代码：一个公司代</description>
+      <guid>https://coldinfire.github.io/2019/MM_Basis_EnterpriseStructure/</guid>
+      <description>Enterprise Structure 整体架构 集团：是 R/3 系统里的一个商业的组织层次。有自己的数据、主记录及各种报表。从业务角度看，集团当作各个实体的组合。 公司代码：一个公司代</description>
     </item>
     
     <item>
-      <title> MM 常用表 </title>
+      <title> MM 相关事务码和相关表 </title>
       <link>https://coldinfire.github.io/2019/MM_Table/</link>
       <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coldinfire.github.io/2019/MM_Table/</guid>
-      <description>MM 常用透明表： Table Desc Table Desc Table Desc MARA 物料主数据 MARC 物料工厂(在途库存) MSKA 销售订单库存 MAKT 物料描述 MARD 物料库存(当前库存) T001L 工厂库位关系 MARM 物料的计量单位 MARDH 历</description>
+      <description>常用事务码 T-Code Description T-Code Description MM01/02/03/04/06 物料：创建/修改/显示/显示修改/删除标记 MK01/02/03/05/06 供应商：创建/修改/显示/冻结/删除标记 ME01/02/0M 货源清单：创建/查看/物料与供应商</description>
     </item>
     
     <item>

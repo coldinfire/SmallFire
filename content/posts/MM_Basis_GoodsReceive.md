@@ -14,7 +14,7 @@ tags:
 
 ### 1.收货发票 Post Goods Receipt Invoice (GRIN) : MIGO
 
-#### GRIN清单：
+#### GRIN 清单：
 
 供应商发票上的PO# 与Org PO #相同   
 

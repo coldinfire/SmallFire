@@ -175,15 +175,15 @@
 
           <p>Algolia：博客框架 <a href="https://www.algolia.com/">https://www.algolia.com/</a></p>
 <h3 id="algolia-配置">Algolia 配置</h3>
-<p><img src="/images/Blog/algolia0.png" alt="Create Application"></p>
-<p><img src="/images/Blog/algolia2.png" alt="Create index"></p>
+<p><img src="/images/Utils/Blog/algolia1.png" alt="Create Application"></p>
+<p><img src="/images/Utils/Blog/algolia2.png" alt="Create index"></p>
 <p>记录 API Keys 相关信息：</p>
 <ul>
 <li>Application ID</li>
 <li>Search-Only API Key</li>
 <li>Admin API Key</li>
 </ul>
-<p><img src="/images/Blog/algolia3.png" alt="Create index"></p>
+<p><img src="/images/Utils/Blog/algolia3.png" alt="Create index"></p>
 <h3 id="hugo-设置">Hugo 设置</h3>
 <ol>
 <li>在配置文件 config 中添加一下内容：</li>
@@ -228,7 +228,7 @@
 <span style="color:#a6e22e">ALGOLIA_INDEX_FILE</span><span style="color:#f92672">=</span><span style="color:#66d9ef">public</span><span style="color:#f92672">/</span><span style="color:#a6e22e">algolia</span>.<span style="color:#a6e22e">json</span>
 </code></pre></div><p>上传索引文件:通过Travis-CI触发，需要添加脚本命令</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">algolia</span>
-</code></pre></div><p><img src="/images/Blog/algolia3.png" alt="Create index"></p>
+</code></pre></div><p><img src="/images/Utils/Blog/algolia4.png" alt="Create index"></p>
 <h3 id="主题-ui-添加">主题 UI 添加</h3>
 <p>在主题文件下的 layouts下创建文件夹 search，文件夹内创建两个文件 list.html、search.html。</p>
 <h4 id="listhtml">list.html</h4>
@@ -394,7 +394,7 @@
     &lt;/<span style="color:#f92672">div</span>&gt;
 &lt;/<span style="color:#f92672">nav</span>&gt;
 </code></pre></div><p>以上配置完成后即可在首页使用搜索功能。</p>
-<p><img src="/images/Blog/algolia5.png" alt="Create index"></p>
+<p><img src="/images/Utils/Blog/algolia5.png" alt="Create index"></p>
 <p>参考文档：</p>
 <ul>
 <li>
