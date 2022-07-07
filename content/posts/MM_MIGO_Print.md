@@ -38,7 +38,7 @@ tags:
 
 - 与物料凭证并行，系统还会创建会计凭证。会计凭证包含移动所需的过帐行（用于对应帐户）。
 
-### 物料凭证的创建 - 选项和功能：
+### 物料凭证的创建 - 选项和功能
 
 收货完成后，系统将根据移动类型和输出条件类型在 MIGO 屏幕的明细数据选项卡中创建物料凭证。该凭证将包含收货日期，当前日期，工厂详细信息和描述，供应商编号的详细信息。用户签发的地址和地址，项目编号，材料编号，描述，数量和详细信息。
 
@@ -48,9 +48,9 @@ SAP 默认情况下会维护本地打印机设备，以获取特定工厂的物�
 
 本文档说明了根据为 MIGO 维护的输出类型来配置输出设备以进行物料收据单打印输出的过程。
 
-#### Step1:维护输出条件类型
+#### Step1：维护输出条件类型
 
-SPRO路径：Materials Management->Inventory Management and Physical Inventory->Output Determination->Maintain Conditions 
+SPRO：MM -> IM and Physical Inventory -> Output Determination -> Maintain Conditions 
 
 Tcode：MN21/MN22/MN23
 
@@ -58,9 +58,9 @@ Tcode：MN21/MN22/MN23
 
 在本文中使用了合并打印：WE03 来配置输出类型条件。使用TCode执行：MN22（更改输出条件类型）
 
-输入输出类型条件 WE03 : GR Note Vers.3
+输入输出类型条件 WE03：GR Note Vers.3
 
-![MN22](/images/MMGR/MIGO_OUTPUT_DEVICES1.png)
+![MN22](/images/MM/GR/MIGO_OUTPUT_DEVICES1.png)
 
 在下个窗口，输入对应的参数并执行
 
@@ -68,14 +68,14 @@ Tcode：MN21/MN22/MN23
 - Version for printing GR/GI slip：Select the option of Print Version: 3- Collective Version
 - Printing of document item：Select the Print Item option of Material Document printout: 1
 
-![MN22](/images/MMGR/MIGO_OUTPUT_DEVICES2.png)
+![MN22](/images/MM/GR/MIGO_OUTPUT_DEVICES2.png)
 
 在新窗口选择Condition Recs输入一行数据
 
-![MN22](/images/MMGR/MIGO_OUTPUT_DEVICES3.png)
+![MN22](/images/MM/GR/MIGO_OUTPUT_DEVICES3.png)
 
 点击Communication按钮，在新页面中维护打印机名称和其他配置
-![MN22](/images/MMGR/MIGO_OUTPUT_DEVICES4.png)
+![MN22](/images/MM/GR/MIGO_OUTPUT_DEVICES4.png)
 
 #### Step 2：通过工厂 / 存储位置确定打印机
 
@@ -96,11 +96,11 @@ Tcode: OMJ3
 
 输入Tcode OMJ3 或则使用SPRO路径，点击"New Entries"创建一条新数据
 
-![OMJ3](/images/MMGR/MIGO_OUTPUT_DEVICES5.png)
+![OMJ3](/images/MM/GR/MIGO_OUTPUT_DEVICES5.png)
 
 在输入字段中输入在步骤 1 中维护的条件类型以及相应的工厂和存储地点详细信息。另外，输入要配置的所需输出设备，然后选中 “立即打印” 复选框，然后按保存按钮。
 
-![OMJ3](/images/MMGR/MIGO_OUTPUT_DEVICES6.png)
+![OMJ3](/images/MM/GR/MIGO_OUTPUT_DEVICES6.png)
 
 打印工厂参数将被保存并显示在打印工厂参数的主列表中。为了将变更从开发系统转移到生产，用户必须在开发系统中创建运输请求以将变更从开发系统转移到生产系统。
 
@@ -108,7 +108,7 @@ Tcode: OMJ3
 
 在Collective Slip字段中检查字段名称：RM07M-WVERS3，并根据要求选择相应的单选按钮，例如必输，突出显示，显示或隐藏该字段。根据需求选择。
 
-![OMJN](/images/MMGR/MIGO_OUTPUT_DEVICES7.png)
+![OMJN](/images/MM/GR/MIGO_OUTPUT_DEVICES7.png)
 
 #### 步骤 4：检查 MIGO / GOOD 收货单中的物料单
 
@@ -125,13 +125,13 @@ Tcode: OMJ3
 
 再次打开Tcode：MIGO 并选择显示物料凭证选项，然后输入物料凭证编号，然后按执行按钮显示该凭证信息。
 
-![MIGO](/images/MMGR/MIGO_OUTPUT_DEVICES8.png)
+![MIGO](/images/MM/GR/MIGO_OUTPUT_DEVICES8.png)
 
 在详细数据字段中，单击输出选项卡，然后单击显示输出。
 
 将打开一个新窗口，其中将以绿色或黄色列出您的输出状态，输出类型，描述，语言，处理日期和时间详细信息。
 
-![MIGO](/images/MMGR/MIGO_OUTPUT_DEVICES9.png)
+![MIGO](/images/MM/GR/MIGO_OUTPUT_DEVICES9.png)
 
 #### 步骤 5：使用 MIGO 打印错误（可选）
 
@@ -143,13 +143,13 @@ TCode：NACE
 
 选择输出类型为 “WE03”，然后单击其中的显示选项。
 
-![NACE](/images/MMGR/MIGO_OUTPUT_DEVICES10.png)
+![NACE](/images/MM/GR/MIGO_OUTPUT_DEVICES10.png)
 
 在显示输出条件类型时：WE03，选择默认值。在这种情况下，将调度时间的默认值更改为从具有定期计划作业的发送立即发送（保存应用程序时）。
 
 因为这是默认值，并且如果我们将其更改为 WE03 条件类型，则将为所有用户维护该值，因为这是主数据。因此，不建议将调度时间默认值更改为 “立即发送（保存应用程序时）”。
 
-![NACE](/images/MMGR/MIGO_OUTPUT_DEVICES11.png)
+![NACE](/images/MM/GR/MIGO_OUTPUT_DEVICES11.png)
 
 对于不打算立即打印输出的其他用户，这也可能会在某些时候发布错误。
 

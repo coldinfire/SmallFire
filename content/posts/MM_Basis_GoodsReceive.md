@@ -48,7 +48,7 @@ Tick on collective slip：集体票据(打钩)
 
 点击执行按钮保存文档生成 GRIN Number。
 
-![MIGO](/images/MMGR/MIGO.png)
+![MIGO](/images/MM/GR/MIGO.png)
 
 MIGO ：Select Cancellation and update GRIN No to reverse the GRIN. Post.
 
@@ -62,7 +62,7 @@ Update the reason for movement key from the possible entries.
 
 Updating all the required,press enter to continue.
 
-![MB1A](/images/MMGR/MB1A.png)
+![MB1A](/images/MM/GR/MB1A.png)
 
 ### 3.发票校验：MIRO
 

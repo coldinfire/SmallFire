@@ -104,7 +104,7 @@ PR Item：物料编号、短文本、发货日期、采购订单数量、采购�
 
 #### 关系结构：
 
-![Table](/images/MMPurchasing/Table.png)
+![Table](/images/MM/Purchasing/PurchaseTable.png)
 
 ### SAP 采购模式
 

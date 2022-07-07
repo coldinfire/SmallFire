@@ -14,29 +14,28 @@ tags:
 
 ### Request For Quotation (RFQ): ME41 /42/43
 
-- SPRO > IMG > Logistics > MM > Purchasing > RFQ/Quotation > RFQ
+- SPRO：Logistics -> MM -> Purchasing -> RFQ/Quotation -> RFQ
 
-- Enter REQ type,Date limit,Purch Org,Purch Group, Plant ,Storage Location
+- Enter REQ type、Date limit、Purch Org、Purch Group、Plant、Storage Location
 
-  ![RFQ](/images/MMPurchasing/RFQ_ME41.png)
+  ![RFQ](/images/MM/RFQ/RFQ_ME41.png)
 
 - Enter Collective No to track of all RFQ related to particular instance and ref data
 
-  ![RFQ Head](/images/MMPurchasing/RFQ_Head.png)
+  ![RFQ Head](/images/MM/RFQ/RFQ_Head.png)
 
-- Enter the appropriate item category,material NO, RFQ Quantity
+- Enter the appropriate item category、material、RFQ Quantity
 
-- Enter the Deliv. Date，Plant code , Submission date , Click Create Vendor address
+- Enter the Deliv. Date、Plant、Submission date、Click Create Vendor address
 
-  ![RFQ Item](/images/MMPurchasing/RFQ_Items.png)
 
 Create Vendor Address Screen:
 
-​	![Vendor Addr](/images/MMPurchasing/Vendor_addr.png)
+​	![Vendor Addr](/images/MM/RFQ/Vendor_addr.png)
 
 ### Maintain Quotation : ME47 
 
-- SPRO > IMG > Logistics > MM > Purchasing > RFQ/Quotation > Quotation > Maintain
+- SPRO：Logistics -> MM -> Purchasing -> RFQ/Quotation -> Quotation -> Maintain
 
 #### 价格比较：ME49
 
@@ -48,27 +47,29 @@ Create Vendor Address Screen:
 - B：只允许有工厂的更新
 - C：无工厂更新
 
-维护工厂的条件维护：SPRO > IMG > Logistics > MM > Purchasing > Conditions > Define Condition Control at Plant level
+维护工厂的条件维护：
+
+- SPRO：Logistics -> MM -> Purchasing -> Conditions -> Define Condition Control at Plant level
 
 ### Set Tolerance Limits For Price Variance
 
-- SPR > IMG > MM > Purchasing > Purchase Order > Set Tolerance Limits For Price Var
+- SPRO：MM -> Purchasing -> Purchase Order -> Set Tolerance Limits For Price Var
 
 
 - Tolerance key: PE-价格差异购买              
 - SE-最大现金光盘扣除(购买)
 
-![Tolerance](/images/MMPurchasing/Tolerance.png)
+![Tolerance](/images/MM/RFQ/Tolerance.png)
 
-### Maintain source list : ME01/ME02/ME03
+### Maintain source list : ME01/ME03/ME04
 
-Enter Valid time,Vendor,Purchasing Org,Fix(固定源),Blk(供应商阻止采购此物料)，MRP 1.包含
+Enter Valid time、Vendor、Purchasing Org、Fix(固定源)、Blk(供应商阻止采购此物料)，MRP 1.包含
 
-![Source List](/images/MMPurchasing/SourceList.png)
+![Source List](/images/MM/RFQ/SourceList.png)
 
 ### Create Purchasing Requisition : ME51N/ME52N/ME53N
 
-- SPRO > IMG > Logistics > MM > Purchasing > Purchase Requisition > Create
+- SPRO：Logistics -> MM -> Purchasing -> Purchase Requisition -> Create
 
 Header note:部门账号，授权部门签名，交货说明，条款和条件
 

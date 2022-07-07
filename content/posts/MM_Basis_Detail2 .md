@@ -77,7 +77,7 @@ tags:
 5. 参照报价单创建采购订单
 6. Info Record Update：Plant level update
 
-![Quatation](/images/MMPurchasing/Quotation.png)
+![Quatation](/images/MM/Purchasing/Quotation.png)
 
 #### 采购信息记录和价格决定
 

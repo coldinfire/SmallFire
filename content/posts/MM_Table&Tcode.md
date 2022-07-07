@@ -1,5 +1,5 @@
 ---
-title: " MM 相关事务码和相关表 "
+title: " MM 常用表&事务码 "
 date: 2019-03-03
 draft: false
 author: Small Fire
@@ -11,6 +11,25 @@ tags:
   - MM
 
 ---
+
+### 常用透明表
+
+| Table | Description      | Table | Description        | Table | Description         |
+| :---- | :--------------- | :---- | :----------------- | :---- | :------------------ |
+| MARA  | 物料主数据       | MARC  | 物料工厂(在途库存) | MSKA  | 销售订单库存        |
+| MAKT  | 物料描述         | MARD  | 物料库存(当前库存) | T001L | 工厂库位关系        |
+| MARM  | 物料的计量单位   | MARDH | 历史库存           | T001W | 工厂表              |
+| MBEW  | 物料评估/价格    | MSKU  | 第三方库存表       | RKPF  | 预留抬头            |
+| MKPF  | 物料凭证抬头     | EKKO  | 采购订单抬头       | EINE  | Purchasing Org      |
+| MSEG  | 物料凭证明细     | EKPO  | 采购订单明细       | EINA  | Info record(G_data) |
+| MVKE  | 物料的销售数据   | EBAN  | 采购申请抬头       | MAST  | 物料到BOM link      |
+| MVVE  | 物料的销售数据   | EBKN  | 采购申请明细       | MVER  | 物料消耗            |
+| T023  | 物料类型         | LFA1  | 供应商主数据       | T161T | 采购订单类型文本    |
+| T024  | 采购组           | LFB1  | Vendor master      | EKET  | 安排协议交付时间表  |
+| T157H | 移动类型帮助文档 | RESB  | 保留/依赖 要求     | EKKN  | 采购订单账号分配    |
+| NRIV  | 数字范围间隔     | EKBE  | 历史采购订单       | EKAB  | 发布文档            |
+| ISEG  | 实物盘存凭证项目 | A501  | 冻结购买价格。     |       |                     |
+| IKPF  | 实物盘存凭证抬头 | USR21 | SAP所有用户信息    |       |                     |
 
 ### 常用事务码
 
@@ -33,22 +52,3 @@ tags:
 | MMAM/MM50        | 更改物料类型/扩充物料视图                                    | OX09             | 库位维护                                        |
 | COOIS            | 查看工单信息                                                 | MD03/04/05       | 手动 MRP/MRP/MRP清单                            |
 | VF01/02/03/04/11 | 发票凭证：创建/修改/显示/到期/取消                           | CO03             | 显示生产订单                                    |
-
-### 常用透明表
-
-| Table | Description      | Table | Description        | Table | Description         |
-| :---- | :--------------- | :---- | :----------------- | :---- | :------------------ |
-| MARA  | 物料主数据       | MARC  | 物料工厂(在途库存) | MSKA  | 销售订单库存        |
-| MAKT  | 物料描述         | MARD  | 物料库存(当前库存) | T001L | 工厂库位关系        |
-| MARM  | 物料的计量单位   | MARDH | 历史库存           | T001W | 工厂表              |
-| MBEW  | 物料评估/价格    | MSKU  | 第三方库存表       | RKPF  | 预留抬头            |
-| MKPF  | 物料凭证抬头     | EKKO  | 采购订单抬头       | EINE  | Purchasing Org      |
-| MSEG  | 物料凭证明细     | EKPO  | 采购订单明细       | EINA  | Info record(G_data) |
-| MVKE  | 物料的销售数据   | EBAN  | 采购申请抬头       | MAST  | 物料到BOM link      |
-| MVVE  | 物料的销售数据   | EBKN  | 采购申请明细       | MVER  | 物料消耗            |
-| T023  | 物料类型         | LFA1  | 供应商主数据       | T161T | 采购订单类型文本    |
-| T024  | 采购组           | LFB1  | Vendor master      | EKET  | 安排协议交付时间表  |
-| T157H | 移动类型帮助文档 | RESB  | 保留/依赖 要求     | EKKN  | 采购订单账号分配    |
-| NRIV  | 数字范围间隔     | EKBE  | 历史采购订单       | EKAB  | 发布文档            |
-| ISEG  | 实物盘存凭证项目 | A501  | 冻结购买价格。     |       |                     |
-| IKPF  | 实物盘存凭证抬头 | USR21 | SAP所有用户信息    |       |                     |

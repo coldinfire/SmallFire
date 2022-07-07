@@ -719,12 +719,12 @@
     </item>
     
     <item>
-      <title> MM 相关事务码和相关表 </title>
-      <link>https://coldinfire.github.io/2019/MM_Table/</link>
+      <title> MM 常用表&amp;事务码 </title>
+      <link>https://coldinfire.github.io/2019/MM_TableTcode/</link>
       <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coldinfire.github.io/2019/MM_Table/</guid>
-      <description>常用事务码 T-Code Description T-Code Description MM01/02/03/04/06 物料：创建/修改/显示/显示修改/删除标记 MK01/02/03/05/06 供应商：创建/修改/显示/冻结/删除标记 ME01/02/0M 货源清单：创建/查看/物料与供应商</description>
+      <guid>https://coldinfire.github.io/2019/MM_TableTcode/</guid>
+      <description>常用透明表 Table Description Table Description Table Description MARA 物料主数据 MARC 物料工厂(在途库存) MSKA 销售订单库存 MAKT 物料描述 MARD 物料库存(当前库存) T001L 工厂库位关系 MARM 物料的计量单位 MARDH 历史库</description>
     </item>
     
     <item>

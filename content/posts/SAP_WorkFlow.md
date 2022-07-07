@@ -56,7 +56,7 @@ Workflow助手：Business Workplace(TCode：SBWP)
 
 #### 创建步骤 ####
 Step1：创建 Workflow 模板(TCode：PFTC_INS),  TCode：SWDD——创建工作流
-![SWDD](/images/WorkFlow/SWDD.png)
+![SWDD](/images/SAPUtils/WorkFlow/SWDD.png)
 
  - Information Area：信息是 SAP 自动生成的
  - Steps：当前 Workflow 所使用的 Steps 的列表
@@ -64,13 +64,13 @@ Step1：创建 Workflow 模板(TCode：PFTC_INS),  TCode：SWDD——创建工�
  - Graphical Model：进行 Workflow 的流程定义
 
 Step2：定义 Condition 和创建业务所需要的 Steps
-![Container & Steps](/images/WorkFlow/Container.png)
+![Container & Steps](/images/SAPUtils/WorkFlow/Container.png)
 
  - Workflow Container：定义 workflow 所需要的数据元素；数据元素可定义参考类型，参数设置，初始值。
  - Steps 创建：在对应的分支线上根据业务流程创建具体的 Step，每个 Step 都有具体的使用要求。
 
 Step3：对 Steps 进行详细的内容设定（Activity —> Task）
-![Steps Details](/images/WorkFlow/StepDetail.png)
+![Steps Details](/images/SAPUtils/WorkFlow/StepDetail.png)
 
  - Task：定义系统流程执行事件。
  - Binding：将 Workflow 定义数据与 Task 使用字段进行绑定
@@ -119,7 +119,7 @@ Scenario：创建一个 rule 找到任意 user/agent 的上级。
    注意：Container可以传输组织管理对象的元素。在运行时，必须填充容器元素OType和ObjID或容器元素Org_Agent。
 		如果填充所有容器元素，仅评估在Org_Agent中传输的值。
 ```
-![Task Details](/images/WorkFlow/TaskDetails.png)
+![Task Details](/images/SAPUtils/WorkFlow/TaskDetails.png)
 
 - Object method：定义要调用的Class,Type,Method,并进行字段绑定。
 - Object Type：需要定义Interfaces实现IF_WORKFLOW.
@@ -128,38 +128,38 @@ Scenario：创建一个 rule 找到任意 user/agent 的上级。
 
 激活保存，运行并查看Log
 
-![执行](/images/WorkFlow/Execute.png)
-![Log查看](/images/WorkFlow/Log.png)
+![执行](/images/SAPUtils/WorkFlow/Execute.png)
+![Log查看](/images/SAPUtils/WorkFlow/Log.png)
 
  - 可以通过Print Log（Ctrl + P）查看Workflow Classical Technical Log
 
-![Print Log](/images/WorkFlow/PrintLog.png)
-![Workflow Log](/images/WorkFlow/WorkFlowLog.png)
+![Print Log](/images/SAPUtils/WorkFlow/PrintLog.png)
+![Workflow Log](/images/SAPUtils/WorkFlow/WorkFlowLog.png)
 
 - Various Status of Work Item.
 
-![Various Status](/images/WorkFlow/VariousStatus.png)
+![Various Status](/images/SAPUtils/WorkFlow/VariousStatus.png)
 
 Step4：在程序中调用 Workflow
-![Function](/images/WorkFlow/Function.png)
+![Function](/images/SAPUtils/WorkFlow/Function.png)
 
 - 通过Function(SWU_START_WORKFLOW)调用，根据传入的参数和数据调用对应的Workflow。
 
 Step5：通过 Event 触发 Workflow
 - SWE2:定义事件
 
-![SWE2](/images/WorkFlow/SWE2.png)
-![SWDD](/images/WorkFlow/SWDD2.png)
+![SWE2](/images/SAPUtils/WorkFlow/SWE2.png)
+![SWDD](/images/SAPUtils/WorkFlow/SWDD2.png)
 
-```JS
+```ABAP
 CALL FUNCTION 'SAP_WAPI_CREATE_EVENT'
   EXPORTING
     object_type= 'ZMINORDER'
     object_key= l_obj_key
-    event                   = 'APP'
+    event                    = 'APP'
     *commit_work             = 'X'
     event_language= sy-langu
-    language                = sy-langu
+    language                 = sy-langu
     user= sy-uname
   TABLES
     *INPUT_CONTAINER         =
@@ -167,31 +167,26 @@ CALL FUNCTION 'SAP_WAPI_CREATE_EVENT'
     *MESSAGE_STRUCT          =  .
 ```
 
-### 最常用事务码
-```JS
-SWDM：Business Workflow Explorer
-SWDD：Workflow Builder
-SWO1：Business Object Builder
-SWETPYV：Display and maintain event type link age
-SBWP：Business Workplace
-SWI1：Selection report for work items
-SWEL：Display Event Trace
-SWE2：Create Event
-PPOMW：Maintain organizational plan
-PFTC_INS / _CHG / _DIS / _COP：Create / Change / Display /Copy Tasks
-PFAC_INS / _CHG / _DIS/_COP：Create / Change / Display /Copy Rules
-```
+### 常用事务码
+
+| TCode    | Description                              | TCode    | Description                     |
+| :------- | :--------------------------------------- | :------- | :------------------------------ |
+| SWDM     | Business Workflow Explorer               | SWI1     | Selection report for work items |
+| SWDD     | Workflow Builder                         | SWEL     | Display Event Trace             |
+| SWO1     | Business Object Builder                  | SWE2     | Create Event                    |
+| SWETPYV  | Display and maintain event type link age | PPOMW    | Maintain organizational plan    |
+| SBWP     | Business Workplace                       |          |                                 |
+| PFTC_INS | Create Tasks                             | PFAC_INS | Create Rules                    |
+| PFTC_CHG | Change Tasks                             | PFAC_CHG | Change Rules                    |
+| PFTC_DIS | Display Tasks                            | PFAC_DIS | Display Rules                   |
+| PFTC_COP | Copy Tasks                               | PFAC_COP | Copy Rules                      |
+
 #### 分析工具事务码
 
-```JS
-SBWP：Business Workplace ( Outbox )
-SWIA：Process Work Item As Administrator
-SWI6：Workflows for Object
-SWI14：Workflows for Object Type
-SWEL Display event trace
-SWI1 Selection report for work items
-SWU7 Consistency check for workflow templates
-SWU9 Display workflow trace
-SWUD Diagnostic tools
-SWU3 Customizing
-```
+| TCode | Description                        | TCode | Description                              |
+| :---- | :--------------------------------- | :---- | :--------------------------------------- |
+| SBWP  | Business Workplace (Outbox)        | SWI1  | Selection report for work items          |
+| SWIA  | Process Work Item As Administrator | SWU7  | Consistency check for workflow templates |
+| SWI6  | Workflows for Object               | SWU9  | Display workflow trace                   |
+| SWI14 | Workflows for Object Type          | SWUD  | Diagnostic tools                         |
+| SWEL  | Display event trace                | SWU3  | Customizing                              |

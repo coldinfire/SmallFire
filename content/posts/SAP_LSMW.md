@@ -47,7 +47,7 @@ LSMW 导入数据操作分为以下几大步骤：
 
 批导入的事物码就是 `LSMW`，在主窗口界面输入就可以进入。
 
-![LSMW](/images/LSMW/LSMW1.png)
+![LSMW](/images/SAPUtils/LSMW/LSMW1.png)
 
 这个界面主要解决以下几方面问题：
 
@@ -57,21 +57,21 @@ LSMW 导入数据操作分为以下几大步骤：
 
 我们如果要进行一个批处理操作，则需要输入或通过选择确定 Project、Subproject、Object，如下图所示，然后再进行具体的操作。
 
-![LSMW](/images/LSMW/LSMW2.png)
+![LSMW](/images/SAPUtils/LSMW/LSMW2.png)
 
 当批导出模板做好后，可以将其导出备份成本地文件，也可将本地的模板文件导入进 ERP 系统。通过导出、导入，可在不同 ERP 服务器之间互换模板资源。
 
-![LSMW](/images/LSMW/LSMW3.png)
+![LSMW](/images/SAPUtils/LSMW/LSMW3.png)
 
 ### 分步操作界面
 
 LSMW 的特点之一是步骤比较多，如果我们把 LSMW 所有这些操作步骤分成三个大的方面，就比较容易理解。分步操作界面：
 
-![LSMW](/images/LSMW/LSMW4.png)
+![LSMW](/images/SAPUtils/LSMW/LSMW4.png)
 
 在分步操作的菜单中，用鼠标双击各菜单行可进入不同界面。这里共有 20 个步骤，在实际操作中我们不需要这么多，只需要 14 个就可以了，点击 “User Menu” 按钮进入选择用户菜单的对话框。在对话框中可以控制菜单显示。
 
-![LSMW](/images/LSMW/LSMW5.png)
+![LSMW](/images/SAPUtils/LSMW/LSMW5.png)
 
 - Numbering Off：控制菜单数字序号的显示和隐藏
 - Double Click = Display：控制双击菜单时是display还是直接change

@@ -14,7 +14,7 @@ tags:
 
 ***引用链接：[Output Determination in Inventory Management (IM)](https://wiki.scn.sap.com/wiki/display/ERPSCM/Output+Determination+in+Inventory+Management+(IM)?original_fqdn=wiki.sdn.sap.com#OutputDeterminationinInventoryManagement%28IM%29-1.Aboutthisdocument)***
 
-## 1. About this document
+### 1. About this document
 
 This document describes the output determination in Inventory Management.
 
@@ -23,7 +23,7 @@ This document describes the output determination in Inventory Management.
 - Chapters 24/25 concentrate on **troubleshooting**. The first part gives a list of important breakpoints and checks. The second part is organized in the major symptoms that arise when dealing with issues about output determination in MM-IM area.
 - Chapter 26 contains a list of all output determination terms in German and English.
 
-## 2. General information
+### 2. General information
 
 The output determination (also called message control) generates output records (messages) for a material document. The messages can be GR/GI slips (e.g. output type WE01), mails (output type MLFH for missing part mails) or even workflow events (not in standard but can be customized by customer).
 
@@ -35,7 +35,7 @@ The application using the output determination provides the output determination
 
 For more information about Customizing of Output determination see IMG.
 
-## 3. Output records for a material document (table NAST)
+### 3. Output records for a material document (table NAST)
 
 The output records are stored in table NAST. Table Key:
 
@@ -95,9 +95,9 @@ Output records are linked to the material document through the object key and ar
 
 Output determination processing: overview
 
-![Output determination processing](/images/MMGR/1_Determining_Process.jpg)
+![Output determination processing](/images/MM/GR/1_Determining_Process.jpg)
 
-## 4. Print version for transaction (T158-WEVER)
+### 4. Print version for transaction (T158-WEVER)
 
 Radio buttons on initial screen of MB01
 
@@ -113,9 +113,9 @@ Because MB_CREATE works without initial screen, we always use default version fo
 **MIGO**
 In transaction MIGO the print version is available since note 315434.
 
-## 5. Field 'Print' (RM07M-XNAPR)
+### 5. Field 'Print' (RM07M-XNAPR)
 
-Check box on initial screen and header data screen of MB01. Is set from userparameter NDR = X.
+Check box on initial screen and header data screen of MB01. Is set from user parameter NDR = X.
 X has to be written in capital letters, otherwise basis error 00002 'please enter valid value' on initial screen.
 
 With this field it is possible to deactivate the printing of GR/GI slips (but not to deactivate mails)
@@ -136,9 +136,9 @@ Selecting or deselecting NDR does not react like a selection ON/OFF in a transac
 The parameter and the BAPI are in two different memories. The BAPI cannot then recognize that the parameter has been deselected.
 
 **MIGO**
-The field still exists as header data (field **GOHEAD-XNAPR** on header tabstrip 'General').
+The field still exists as header data (field **GOHEAD-XNAPR** on header tab strip 'General').
 
-## 6. Print indicator for movement type (T156-KZDRU)
+### 6. Print indicator for movement type (T156-KZDRU)
 
 Because most movement types do not need a specific GR/GI slip, we do not use the movement type directly in the condition tables. Instead we use the print indicator from table T156.
 
@@ -147,7 +147,7 @@ Because most movement types do not need a specific GR/GI slip, we do not use the
 - Mvt 541 has print indicator '3' because it needs a special condition table with debit/credit indicator (SHKZG) so that only one line is printed and not the automatic line.
 - Mvt 501 has print indicator '6' (4.0) because it is possible to create 501M lines in MB01. MB01 prints normally a GR slip with PO data (mvt 101 uses output type WE01), but mvt 501 needs a GR slip without PO data (output type WA01). As both mvt types use the same condition table, it was necessary to distinguish them with the print indicator.
 
-## 7. Output type (WE01, MLFH...)
+### 7. Output type (WE01, MLFH...)
 
 The output type determines what kind of output (slip, mail, workflow event) is generated. Output types for GR/GI slips are directly linked to a SAPScript layout set and to a read routine in table TNAPR. Individual slips and collective slips have different output types because they use different layout sets and have different read routines. Furthermore the output type has a printer parameter (7, 9, U, X) that is used for the printer determination.
 
@@ -160,7 +160,7 @@ Common errors:
 
 Always check table TNAPR when analysing an output type issue.
 
-## 8. Message schema (ME0001)
+### 8. Message schema (ME0001)
 
 A schema gathers all output types that have to be checked by the output determination. In Inventory Management we use only one schema **'ME0001'**. The schema is a program constant and cannot be changed by the customer. The customer can add his own output types to our standard schema.
 
@@ -168,7 +168,7 @@ The output determination program loops over all output types that are defined in
 
 In the schema it is possible to define a requirement for an output type. For example, collective slips need requirement 173 so that they will be printed for the first line only. For that purpose the Form routine KOBED_173 (in SAPLV61B) is processed.
 
-## 9. Condition table
+### 9. Condition table
 
 A condition table contains the criteria that are relevant for an output type. Our normal condition table is B072 for normal GR/GI slips (can be displayed with SE16). Table key:
 
@@ -184,7 +184,7 @@ Customer may create an own condition table but SAP doesn't recommend it.
 **New field in field catalog**
 A customer may create a condition table with all fields that are contained in our field catalog. The field catalog is defines in table KOMK and is filtered for each application in table T681F. It is filled by our communication structures KOMKBME and KOMPBME. Customer may add and fill new fields as we have user-exits for all communication structures, but they have to add the fields to the application field catalog (table T681F, can be maintained with transaction NACE)
 
-## 10. Condition records
+### 10. Condition records
 
 Condition records are entries in condition tables.
 
@@ -206,7 +206,7 @@ Always check in the condition table B072 (with SE16) if the condition records ha
 **No transportation of output records:**
 Output records are master data with automatic numbering. When you create a condition record in Customizing (transaction MN21), the system creates an entry in table B072 with a condition number (e.g. 4711). The condition number refers to the master data in table NACH (with key 4711). It is not possible to transport the condition records because the record 4711 might already exist in the target system and refer to another condition table than B072. If you have transported a condition record manually (transport of B072 entry or NACH entry), you have an inconsistency in table NACH which can cause MN21 to abort. The transported entries need to be deleted with a correction program and re-created manually with MN21. This is not a hotline problem as this is a wrong customer transport.
 
-## 11. Access sequence
+### 11. Access sequence
 
 The access sequence is the link between output type and condition table.
 
@@ -214,7 +214,7 @@ In the output type you enter an access sequence (e.g. 0003). The access sequence
 
 Theoretically it is possible to assign several condition tables to an access sequence but this is not necessary in MM-IM. So you will always find a 1:1 relationship between condition table and access sequence.
 
-## 12. Layout sets (SAPScript)
+### 12. Layout sets (SAPScript)
 
 You can find the layout set used for an output type in table TNAPR. Our standard layout sets begin with WESCHEIN*, WASCHEIN*. We recommend the customer to copy our standard layout set (Z...) if he needs additional fields. Our read routines in table TNAPR fill all MKPF, MSEG and PO data fields. The customer does not need an own read program if he uses fields from these tables. If he needs own form routines (e.g. to read the batch classification data), he can implement an exit-routine directly in the layout set (using /: PERFORM as SAPscript command).
 
@@ -231,13 +231,13 @@ The print programs (e.g. SAPM07DR, form ENTRY_WE01) calls the following function
 - **CONTROL_FORM:** e.g. to start a new page, a new window
 - **CLOSE_FORM** to close the layout set and be able to open a new one. Two OPEN_FORMs without a CLOSE_FORM = update termination in RV_MESSAGES_UPDATE.
 
-Because the text elements are called by the program (in call funtion WRITE_FORM exporting element ...) the customer may copy a layout set but still has to make sure that the text elements called by program still exist in his layout set.
+Because the text elements are called by the program (in call function WRITE_FORM exporting element ...) the customer may copy a layout set but still has to make sure that the text elements called by program still exist in his layout set.
 
 When a text element is called, all fields to be printed should have already been read by the program. As we read all data (like MKPF, MSEG, EKPO) before calling text elements in standard, there is practically no risk that a field is empty when the text element is being processed. As we fill the complete work area for MSEG, EKPO etc. the customer may add any field from these tables in a text element.
 
 Only text element for the window KOPF (header data) have a delayed process (not during WRITE_FORM but after the whole page has been processed. For that reason, it was necessary to store the work area in 'old' fields in the routines HELPDATA1 and HELPDATA2 in SAPM07DR. For the customer it means that you cannot add an MSEG field in the window KOPF because you will always get the data from the next item and not from the current item.
 
-## 13. Collective slips
+### 13. Collective slips
 
 We have 3 collective slips: WE03, WA03, WLB3 (used for 541).
 A collective slip contains all items of a material document.
@@ -252,7 +252,7 @@ A collective slip is printed for all items. Solution: customer has deleted the r
 **Header of collective slips contains data from the last item:**
 In a collective slip it is not possible to add an MSEG field to the header data because you will always have the data of the last item. You can only add an item field in the text element processing the item data.
 
-## 14. Requirements
+### 14. Requirements
 
 Requirements are small coding parts (usually IF condition with subsequent setting of a return code) that are used in addition to the condition table check. If a condition record is found for an output type but the requirement is not fulfilled, the output type will not be generated. Requirements are assigned to an output type in the schema table. They can be maintained with transaction VOFM (also accessible in Customizing). We use requirements for collective slips and mails.
 
@@ -267,7 +267,7 @@ If an output type has a requirement that is not used, it might happen that the o
 
 If you use your own requirements, do not forget to reset the return code (SY-SUBRC = 0) if the requirement is fulfilled.
 
-## 15. Number of GR/GI slips (MSEG-WEANZ)
+### 15. Number of GR/GI slips (MSEG-WEANZ)
 
 Used only for individual slips because it depends on material. Output types: WE01, WE02, WF01, WF02. The idea is to print a number of slips that corresponds to number of pallets delivered. If a material always has a fixed quantity by pallet, you can maintain it in the material master (quantity GR slips on storage location view). It will be proposed in MB01.
 WEANZ is recalculated when the quantity is distributed among storage locations. Note 432947.
@@ -282,7 +282,7 @@ In the print program there are only two kind of output types working with field 
 - Individual GR slips WE01 and WE02: in form ENTRY_WE01 and ENTRY_WE02 we perform the slip printing as many times as indicated in WEANZ. The field is not active in a collective slip as it is an item information. If item 1 says 10 slips and item 2 says 4 slips, how many collective slips should we print? It does not make sense in a collective slip.
 - Labels: field MSEG-WEANZ can be used for the determination of the number of copies (table T159E see below) for all goods movements in MIGO since note 333860. In MBxx transactions, it works only for goods receipts as WEANZ is not filled for goods issues.
 
-## 16. Labels
+### 16. Labels
 
 There is an own customizing step for setting label printout. The idea is that you have a layout set with text element ETIKETT. The system determines the number of labels to be printed from the item quantity and prints the same quantity of text elements (called by WRITE_FORM). In each text element you have the same text. That is why the text for the label printout is not defined in the layout set but in a separate text.
 
@@ -301,14 +301,14 @@ To transport label texts, use report RSTXR3TR.
 **Form routines in** SAPM07DR:
 **ETI_DRUCK** (include M07DRETI): here the number of copies is calculated from T159O and the text is read in perform **ETIKETTENTEXT_LESEN**. The text element ETIKETT is called (call function **'WRITE_FORM' exporting element** = **'ETIKETT')** in forms **WRITE_LINES** and **WRITE_LAST**..
 
-## 17. Partner functions
+### 17. Partner functions
 
 We only use two partner functions for mails in MM-IM. We do not use any partner functions for slips. The partner functions are set by the program in **MM07MFN0, POSIDIALOGSTRUKTUR_FUELLEN**, call function **KOMPBME_FUELLEN**. We use the technical partner functions MP for MLGR and DP for MLFH.
 
 Partner function is language-dependent!
 In table **TPAUM** you can find the translation of the partner function in different languages.
 
-## 18. Missing part mails
+### 18. Missing part mails
 
 A lot of customers have problem customizing the missing part mails because they not only have to customize the output determination but also the missing part check itself.
 
@@ -329,9 +329,9 @@ If the customer gets a mail for a movement type for which he does not want any o
 
 Missing Parts mail: overview
 
-![Missing Parts mail](/images/MMGR/2_Missing_Parts_Nail.jpg)
+![Missing Parts mail](/images/MM/GR/2_Missing_Parts_Nail.jpg)
 
-## 19. Mail text
+### 19. Mail text
 
 You can find examples of mail texts in IMG.
 
@@ -345,13 +345,13 @@ See also notes 205951 and 213264 (bug in MB_MESSAGE_UPDATE)
 Before 4.6B all mail texts were defined at output type level.
 Since 4.6B it is possible to define a mail text at output type level and at condition record level. When you create a condition, the mail text from the output type is internally copied to the output record. So if you change the mail text at output type level, you need to delete the condition record and recreate it in order to get the text changes to the condition record.
 
-## 20. GR/GI slips for stock transfers
+### 20. GR/GI slips for stock transfers
 
 Usually the customer wants to have only one GI slip for stock transfers (on the supplying side only), but if he uses individual slips (WA01, WA02), he will get automatically two. In order to get only one, he has to make the slips dependent from the debit/credit indicator. This is explained in consulting note 86725.
 
 In the customer uses a collective slip, he will get only the items for the supplying side, because we make a check in the program that the item has not been created automatically (MSEG-XAUTO in form LESEN_WAS).
 
-## 21. Multiple accounting sheet
+### 21. Multiple accounting sheet
 
 If the PO has multiple accounting, we print automatically an accounting sheet together with the individual slip. The accounting sheet is printed on a separate layout set MB_MFKTO and contains the detail of the accounting.
 
@@ -359,17 +359,17 @@ If the PO has multiple accounting, we print automatically an accounting sheet to
 - Collective slip: not possible with multiple accounting, we switch automatically to individual slip (since note 15839)
 - Layout set MB_MFKTO: customizable since 4.5B only. Customizing is possible via an entry in table T159N for program M07DRKTO.
 
-## 22. Language
+### 22. Language
 
 Has to be set when calling **START_FORM**, otherwise termination **RV_MESSAGE_UPDATE**.
 
 Can be set dynamically by program SAPM07DR from T001W language. Can also be set by customer in condition record.
 
-## 23. Printer determination
+### 23. Printer determination
 
 See IMG and check list 2 from note 426554.
 
-## 24. Trouble-Shooting guide for non-developers
+### 24. Trouble-Shooting guide for non-developers
 
 Bear in mind that the majority of printing problems are attributable to incorrect Customizing or to the use of user-defined developments. Problems which arise as a result cannot be dealt with by Support. If you require help with troubleshooting, you can call our Remote Consulting Service.
 
@@ -380,7 +380,7 @@ In OSS you will find two notes that will help you checking the output determinat
 - note 426554:  check lists for output determination and printer determination for goods movements
 - note 426648: check list for missing part mails
 
-## 25. Trouble-Shooting guide with debugging
+### 25. Trouble-Shooting guide with debugging
 
 Use this troubleshooting guide only if your are familiar with ABAP programming and debugging.
 **Important checks:**
@@ -435,36 +435,36 @@ List of symptoms:
 
 ####  Symptom 1 : Nothing gets printed
 
-![ Symptom 1](/images/MMGR/3_Symptom_1.jpg)
+![ Symptom 1](/images/MM/GR/3_Symptom_1.jpg)
 
 #### **Symptom 2: Wrong printer** 
 
-![ Symptom 2](/images/MMGR/4_Symptom_2.jpg)
+![ Symptom 2](/images/MM/GR/4_Symptom_2.jpg)
 
 #### Symptom 3: Update termination RV_MESSAGE_UPDATE. 
 
 Can happen if OPEN_FORM without CLOSE_FORM or if language is not set.
 
-![ Symptom 3](/images/MMGR/5_Symptom_3.jpg)
+![ Symptom 3](/images/MM/GR/5_Symptom_3.jpg)
 
 #### Symptom 4: Wrong data printed on GR/GI slip
 
-![ Symptom 4](/images/MMGR/6_Symptom_4.jpg)
+![ Symptom 4](/images/MM/GR/6_Symptom_4.jpg)
 
 #### Symptom 5: No mail MLFH
 
-![ Symptom 5](/images/MMGR/7_Symptom_5.jpg)
+![ Symptom 5](/images/MM/GR/7_Symptom_5.jpg)
 
 #### Symptom 6: Mail MLFH is sent without text or to wrong partner or cannot be processed with CO06s
 
-![ Symptom 6](/images/MMGR/8_Symptom_6.jpg)
+![ Symptom 6](/images/MM/GR/8_Symptom_6.jpg)
 
 #### Symptom 7: GR/GI slip is printed although field 'Print' is not set (note 205450)
 
 Can happen if customer uses own condition tables without print version.
 
-![ Symptom 7](/images/MMGR/9_Symptom_7.jpg)
+![ Symptom 7](/images/MM/GR/9_Symptom_7.jpg)
 
-## 26. Terminology
+### 26. Terminology
 
-![ Symptom 6](/images/MMGR/10_Terminology.jpg)
+![ Symptom 6](/images/MM/GR/10_Terminology.jpg)
