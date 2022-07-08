@@ -55,7 +55,7 @@
   },
   "genre": "posts",
   "keywords": "saputils",
-  "wordcount":  2496 ,
+  "wordcount":  2330 ,
   "url": "https:\/\/coldinfire.github.io\/2018\/SAP_WorkFlow\/",
   "datePublished": "2018-11-24T00:00:00\u002b00:00",
   "dateModified": "2018-11-24T00:00:00\u002b00:00",
@@ -200,7 +200,7 @@
 <p>当 Workflow 执行到某一步需要特定的用户确认或者批准的时候，就会发出 work item 到该用户的 workplace，以使该用户做出相应的操作。</p>
 <h4 id="创建步骤">创建步骤</h4>
 <p>Step1：创建 Workflow 模板(TCode：PFTC_INS),  TCode：SWDD——创建工作流
-<img src="/images/WorkFlow/SWDD.png" alt="SWDD"></p>
+<img src="/images/SAPUtils/WorkFlow/SWDD.png" alt="SWDD"></p>
 <ul>
 <li>Information Area：信息是 SAP 自动生成的</li>
 <li>Steps：当前 Workflow 所使用的 Steps 的列表</li>
@@ -208,13 +208,13 @@
 <li>Graphical Model：进行 Workflow 的流程定义</li>
 </ul>
 <p>Step2：定义 Condition 和创建业务所需要的 Steps
-<img src="/images/WorkFlow/Container.png" alt="Container & Steps"></p>
+<img src="/images/SAPUtils/WorkFlow/Container.png" alt="Container & Steps"></p>
 <ul>
 <li>Workflow Container：定义 workflow 所需要的数据元素；数据元素可定义参考类型，参数设置，初始值。</li>
 <li>Steps 创建：在对应的分支线上根据业务流程创建具体的 Step，每个 Step 都有具体的使用要求。</li>
 </ul>
 <p>Step3：对 Steps 进行详细的内容设定（Activity —&gt; Task）
-<img src="/images/WorkFlow/StepDetail.png" alt="Steps Details"></p>
+<img src="/images/SAPUtils/WorkFlow/StepDetail.png" alt="Steps Details"></p>
 <ul>
 <li>Task：定义系统流程执行事件。</li>
 <li>Binding：将 Workflow 定义数据与 Task 使用字段进行绑定</li>
@@ -256,7 +256,7 @@
          <span style="color:#a6e22e">Org_Agent</span>  <span style="color:#a6e22e">type</span>  <span style="color:#a6e22e">WFSYST</span><span style="color:#f92672">-</span><span style="color:#a6e22e">AGENT</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">Org</span> <span style="color:#a6e22e">Management</span> <span style="color:#a6e22e">object</span>
    <span style="color:#a6e22e">注意</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Container可以传输组织管理对象的元素</span><span style="color:#960050;background-color:#1e0010">。</span><span style="color:#a6e22e">在运行时</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">必须填充容器元素OType和ObjID或容器元素Org_Agent</span><span style="color:#960050;background-color:#1e0010">。</span>
 		<span style="color:#a6e22e">如果填充所有容器元素</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">仅评估在Org_Agent中传输的值</span><span style="color:#960050;background-color:#1e0010">。</span>
-</code></pre></div><p><img src="/images/WorkFlow/TaskDetails.png" alt="Task Details"></p>
+</code></pre></div><p><img src="/images/SAPUtils/WorkFlow/TaskDetails.png" alt="Task Details"></p>
 <ul>
 <li>Object method：定义要调用的Class,Type,Method,并进行字段绑定。</li>
 <li>Object Type：需要定义Interfaces实现IF_WORKFLOW.</li>
@@ -264,19 +264,19 @@
 <li>Execution：执行方式的选择</li>
 </ul>
 <p>激活保存，运行并查看Log</p>
-<p><img src="/images/WorkFlow/Execute.png" alt="执行">
-<img src="/images/WorkFlow/Log.png" alt="Log查看"></p>
+<p><img src="/images/SAPUtils/WorkFlow/Execute.png" alt="执行">
+<img src="/images/SAPUtils/WorkFlow/Log.png" alt="Log查看"></p>
 <ul>
 <li>可以通过Print Log（Ctrl + P）查看Workflow Classical Technical Log</li>
 </ul>
-<p><img src="/images/WorkFlow/PrintLog.png" alt="Print Log">
-<img src="/images/WorkFlow/WorkFlowLog.png" alt="Workflow Log"></p>
+<p><img src="/images/SAPUtils/WorkFlow/PrintLog.png" alt="Print Log">
+<img src="/images/SAPUtils/WorkFlow/WorkFlowLog.png" alt="Workflow Log"></p>
 <ul>
 <li>Various Status of Work Item.</li>
 </ul>
-<p><img src="/images/WorkFlow/VariousStatus.png" alt="Various Status"></p>
+<p><img src="/images/SAPUtils/WorkFlow/VariousStatus.png" alt="Various Status"></p>
 <p>Step4：在程序中调用 Workflow
-<img src="/images/WorkFlow/Function.png" alt="Function"></p>
+<img src="/images/SAPUtils/WorkFlow/Function.png" alt="Function"></p>
 <ul>
 <li>通过Function(SWU_START_WORKFLOW)调用，根据传入的参数和数据调用对应的Workflow。</li>
 </ul>
@@ -284,45 +284,132 @@
 <ul>
 <li>SWE2:定义事件</li>
 </ul>
-<p><img src="/images/WorkFlow/SWE2.png" alt="SWE2">
-<img src="/images/WorkFlow/SWDD2.png" alt="SWDD"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">CALL</span> <span style="color:#a6e22e">FUNCTION</span> <span style="color:#e6db74">&#39;SAP_WAPI_CREATE_EVENT&#39;</span>
-  <span style="color:#a6e22e">EXPORTING</span>
-    <span style="color:#a6e22e">object_type</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZMINORDER&#39;</span>
-    <span style="color:#a6e22e">object_key</span><span style="color:#f92672">=</span> <span style="color:#a6e22e">l_obj_key</span>
-    <span style="color:#a6e22e">event</span>                   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;APP&#39;</span>
-    <span style="color:#f92672">*</span><span style="color:#a6e22e">commit_work</span>             <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
-    <span style="color:#a6e22e">event_language</span><span style="color:#f92672">=</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">langu</span>
-    <span style="color:#a6e22e">language</span>                <span style="color:#f92672">=</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">langu</span>
-    <span style="color:#a6e22e">user</span><span style="color:#f92672">=</span> <span style="color:#a6e22e">sy</span><span style="color:#f92672">-</span><span style="color:#a6e22e">uname</span>
-  <span style="color:#a6e22e">TABLES</span>
-    <span style="color:#f92672">*</span><span style="color:#a6e22e">INPUT_CONTAINER</span>         <span style="color:#f92672">=</span>
-    <span style="color:#a6e22e">message_lines</span><span style="color:#f92672">=</span> <span style="color:#a6e22e">l_message_lines</span>
-    <span style="color:#f92672">*</span><span style="color:#a6e22e">MESSAGE_STRUCT</span>          <span style="color:#f92672">=</span>  .
-</code></pre></div><h3 id="最常用事务码">最常用事务码</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">SWDM</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Business</span> <span style="color:#a6e22e">Workflow</span> <span style="color:#a6e22e">Explorer</span>
-<span style="color:#a6e22e">SWDD</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Workflow</span> <span style="color:#a6e22e">Builder</span>
-<span style="color:#a6e22e">SWO1</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Business</span> Object <span style="color:#a6e22e">Builder</span>
-<span style="color:#a6e22e">SWETPYV</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Display</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">maintain</span> <span style="color:#a6e22e">event</span> <span style="color:#a6e22e">type</span> <span style="color:#a6e22e">link</span> <span style="color:#a6e22e">age</span>
-<span style="color:#a6e22e">SBWP</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Business</span> <span style="color:#a6e22e">Workplace</span>
-<span style="color:#a6e22e">SWI1</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Selection</span> <span style="color:#a6e22e">report</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">work</span> <span style="color:#a6e22e">items</span>
-<span style="color:#a6e22e">SWEL</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Display</span> <span style="color:#a6e22e">Event</span> <span style="color:#a6e22e">Trace</span>
-<span style="color:#a6e22e">SWE2</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Create</span> <span style="color:#a6e22e">Event</span>
-<span style="color:#a6e22e">PPOMW</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Maintain</span> <span style="color:#a6e22e">organizational</span> <span style="color:#a6e22e">plan</span>
-<span style="color:#a6e22e">PFTC_INS</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">_CHG</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">_DIS</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">_COP</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Create</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">Change</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">Display</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">Copy</span> <span style="color:#a6e22e">Tasks</span>
-<span style="color:#a6e22e">PFAC_INS</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">_CHG</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">_DIS</span><span style="color:#f92672">/</span><span style="color:#a6e22e">_COP</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Create</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">Change</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">Display</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">Copy</span> <span style="color:#a6e22e">Rules</span>
-</code></pre></div><h4 id="分析工具事务码">分析工具事务码</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JS" data-lang="JS"><span style="color:#a6e22e">SBWP</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Business</span> <span style="color:#a6e22e">Workplace</span> ( <span style="color:#a6e22e">Outbox</span> )
-<span style="color:#a6e22e">SWIA</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Process</span> <span style="color:#a6e22e">Work</span> <span style="color:#a6e22e">Item</span> <span style="color:#a6e22e">As</span> <span style="color:#a6e22e">Administrator</span>
-<span style="color:#a6e22e">SWI6</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Workflows</span> <span style="color:#66d9ef">for</span> Object
-<span style="color:#a6e22e">SWI14</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">Workflows</span> <span style="color:#66d9ef">for</span> Object <span style="color:#a6e22e">Type</span>
-<span style="color:#a6e22e">SWEL</span> <span style="color:#a6e22e">Display</span> <span style="color:#a6e22e">event</span> <span style="color:#a6e22e">trace</span>
-<span style="color:#a6e22e">SWI1</span> <span style="color:#a6e22e">Selection</span> <span style="color:#a6e22e">report</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">work</span> <span style="color:#a6e22e">items</span>
-<span style="color:#a6e22e">SWU7</span> <span style="color:#a6e22e">Consistency</span> <span style="color:#a6e22e">check</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">workflow</span> <span style="color:#a6e22e">templates</span>
-<span style="color:#a6e22e">SWU9</span> <span style="color:#a6e22e">Display</span> <span style="color:#a6e22e">workflow</span> <span style="color:#a6e22e">trace</span>
-<span style="color:#a6e22e">SWUD</span> <span style="color:#a6e22e">Diagnostic</span> <span style="color:#a6e22e">tools</span>
-<span style="color:#a6e22e">SWU3</span> <span style="color:#a6e22e">Customizing</span>
-</code></pre></div>
+<p><img src="/images/SAPUtils/WorkFlow/SWE2.png" alt="SWE2">
+<img src="/images/SAPUtils/WorkFlow/SWDD2.png" alt="SWDD"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ABAP" data-lang="ABAP"><span style="color:#66d9ef">CALL FUNCTION</span> <span style="color:#e6db74">&#39;SAP_WAPI_CREATE_EVENT&#39;</span>
+  <span style="color:#66d9ef">EXPORTING</span>
+    object_type<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ZMINORDER&#39;</span>
+    object_key<span style="color:#f92672">=</span> l_obj_key
+    event                    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;APP&#39;</span>
+    <span style="color:#f92672">*</span>commit_work             <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;X&#39;</span>
+    event_language<span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>langu
+    <span style="color:#66d9ef">language</span>                 <span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>langu
+    user<span style="color:#f92672">=</span> sy<span style="color:#f92672">-</span>uname
+  <span style="color:#66d9ef">TABLES</span>
+    <span style="color:#f92672">*</span>INPUT_CONTAINER         <span style="color:#f92672">=</span>
+    message_lines<span style="color:#f92672">=</span> l_message_lines
+    <span style="color:#f92672">*</span>MESSAGE_STRUCT          <span style="color:#f92672">=</span>  .
+</code></pre></div><h3 id="常用事务码">常用事务码</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">TCode</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">TCode</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SWDM</td>
+<td style="text-align:left">Business Workflow Explorer</td>
+<td style="text-align:left">SWI1</td>
+<td style="text-align:left">Selection report for work items</td>
+</tr>
+<tr>
+<td style="text-align:left">SWDD</td>
+<td style="text-align:left">Workflow Builder</td>
+<td style="text-align:left">SWEL</td>
+<td style="text-align:left">Display Event Trace</td>
+</tr>
+<tr>
+<td style="text-align:left">SWO1</td>
+<td style="text-align:left">Business Object Builder</td>
+<td style="text-align:left">SWE2</td>
+<td style="text-align:left">Create Event</td>
+</tr>
+<tr>
+<td style="text-align:left">SWETPYV</td>
+<td style="text-align:left">Display and maintain event type link age</td>
+<td style="text-align:left">PPOMW</td>
+<td style="text-align:left">Maintain organizational plan</td>
+</tr>
+<tr>
+<td style="text-align:left">SBWP</td>
+<td style="text-align:left">Business Workplace</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">PFTC_INS</td>
+<td style="text-align:left">Create Tasks</td>
+<td style="text-align:left">PFAC_INS</td>
+<td style="text-align:left">Create Rules</td>
+</tr>
+<tr>
+<td style="text-align:left">PFTC_CHG</td>
+<td style="text-align:left">Change Tasks</td>
+<td style="text-align:left">PFAC_CHG</td>
+<td style="text-align:left">Change Rules</td>
+</tr>
+<tr>
+<td style="text-align:left">PFTC_DIS</td>
+<td style="text-align:left">Display Tasks</td>
+<td style="text-align:left">PFAC_DIS</td>
+<td style="text-align:left">Display Rules</td>
+</tr>
+<tr>
+<td style="text-align:left">PFTC_COP</td>
+<td style="text-align:left">Copy Tasks</td>
+<td style="text-align:left">PFAC_COP</td>
+<td style="text-align:left">Copy Rules</td>
+</tr>
+</tbody>
+</table>
+<h4 id="分析工具事务码">分析工具事务码</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">TCode</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">TCode</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SBWP</td>
+<td style="text-align:left">Business Workplace (Outbox)</td>
+<td style="text-align:left">SWI1</td>
+<td style="text-align:left">Selection report for work items</td>
+</tr>
+<tr>
+<td style="text-align:left">SWIA</td>
+<td style="text-align:left">Process Work Item As Administrator</td>
+<td style="text-align:left">SWU7</td>
+<td style="text-align:left">Consistency check for workflow templates</td>
+</tr>
+<tr>
+<td style="text-align:left">SWI6</td>
+<td style="text-align:left">Workflows for Object</td>
+<td style="text-align:left">SWU9</td>
+<td style="text-align:left">Display workflow trace</td>
+</tr>
+<tr>
+<td style="text-align:left">SWI14</td>
+<td style="text-align:left">Workflows for Object Type</td>
+<td style="text-align:left">SWUD</td>
+<td style="text-align:left">Diagnostic tools</td>
+</tr>
+<tr>
+<td style="text-align:left">SWEL</td>
+<td style="text-align:left">Display event trace</td>
+<td style="text-align:left">SWU3</td>
+<td style="text-align:left">Customizing</td>
+</tr>
+</tbody>
+</table>
+
     </div>
 
     <div class="post-copyright">
@@ -335,7 +422,7 @@
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>2496</span>
+                   <span>2330</span>
             </p>
             
             <p class="copyright-item">
